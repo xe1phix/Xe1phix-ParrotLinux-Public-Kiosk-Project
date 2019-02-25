@@ -1,0 +1,2990 @@
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+ACCEPT     all  --  anywhere             anywhere             ctstate RELATED,ESTABLISHED
+ACCEPT     all  --  anywhere             anywhere            
+INPUT_direct  all  --  anywhere             anywhere            
+INPUT_ZONES_SOURCE  all  --  anywhere             anywhere            
+INPUT_ZONES  all  --  anywhere             anywhere            
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN
+DROP       tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE
+LOG        all  --  255.0.0.0/8          anywhere             LOG level warning prefix "Spoofed source IP!"
+DROP       sctp --  anywhere             anywhere             sctp dpt:80
+DROP       sctp --  anywhere             anywhere             sctp any DATA,INIT
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "DROP INVALID "
+DROP       all  --  anywhere             anywhere             state INVALID
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN LOG level warning prefix "IPTables: Bad SF Flag "
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+ACCEPT     all  --  anywhere             anywhere             ctstate RELATED,ESTABLISHED
+ACCEPT     all  --  anywhere             anywhere            
+FORWARD_direct  all  --  anywhere             anywhere            
+FORWARD_IN_ZONES_SOURCE  all  --  anywhere             anywhere            
+FORWARD_IN_ZONES  all  --  anywhere             anywhere            
+FORWARD_OUT_ZONES_SOURCE  all  --  anywhere             anywhere            
+FORWARD_OUT_ZONES  all  --  anywhere             anywhere            
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+OUTPUT_direct  all  --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             ctstate INVALID LOG level warning uid prefix "Transproxy ctstate leak block"
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning uid prefix "Transproxy state leak blocked"
+DROP       all  --  anywhere             anywhere             state INVALID
+
+Chain INPUT_direct (1 references)
+target     prot opt source               destination         
+
+Chain INPUT_ZONES_SOURCE (1 references)
+target     prot opt source               destination         
+
+Chain INPUT_ZONES (1 references)
+target     prot opt source               destination         
+IN_drop    all  --  anywhere             anywhere            
+
+Chain FORWARD_direct (1 references)
+target     prot opt source               destination         
+
+Chain FORWARD_IN_ZONES_SOURCE (1 references)
+target     prot opt source               destination         
+
+Chain FORWARD_IN_ZONES (1 references)
+target     prot opt source               destination         
+FWDI_drop  all  --  anywhere             anywhere            
+
+Chain FORWARD_OUT_ZONES_SOURCE (1 references)
+target     prot opt source               destination         
+
+Chain FORWARD_OUT_ZONES (1 references)
+target     prot opt source               destination         
+FWDO_drop  all  --  anywhere             anywhere            
+
+Chain OUTPUT_direct (1 references)
+target     prot opt source               destination         
+
+Chain IN_public (0 references)
+target     prot opt source               destination         
+IN_public_log  all  --  anywhere             anywhere            
+IN_public_deny  all  --  anywhere             anywhere            
+IN_public_allow  all  --  anywhere             anywhere            
+ACCEPT     icmp --  anywhere             anywhere            
+
+Chain IN_public_log (1 references)
+target     prot opt source               destination         
+
+Chain IN_public_deny (1 references)
+target     prot opt source               destination         
+
+Chain IN_public_allow (1 references)
+target     prot opt source               destination         
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:ssh ctstate NEW,UNTRACKED
+
+Chain FWDI_public (0 references)
+target     prot opt source               destination         
+FWDI_public_log  all  --  anywhere             anywhere            
+FWDI_public_deny  all  --  anywhere             anywhere            
+FWDI_public_allow  all  --  anywhere             anywhere            
+ACCEPT     icmp --  anywhere             anywhere            
+
+Chain FWDI_public_log (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_public_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_public_allow (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_public (0 references)
+target     prot opt source               destination         
+FWDO_public_log  all  --  anywhere             anywhere            
+FWDO_public_deny  all  --  anywhere             anywhere            
+FWDO_public_allow  all  --  anywhere             anywhere            
+
+Chain FWDO_public_log (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_public_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_public_allow (1 references)
+target     prot opt source               destination         
+
+Chain check-flags (0 references)
+target     prot opt source               destination         
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,PSH,URG limit: avg 5/min burst 5 LOG level alert prefix "NMAP-XMAS:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,PSH,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG limit: avg 5/min burst 5 LOG level alert prefix "XMAS:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK,URG limit: avg 5/min burst 5 LOG level alert prefix "XMAS-PSH:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE limit: avg 5/min burst 5 LOG level alert prefix "NULL_SCAN:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE
+LOG        tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST limit: avg 5/min burst 5 LOG level notice prefix "SYN/RST:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN limit: avg 5/min burst 5 LOG level notice prefix "SYN/FIN:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN
+
+Chain FWDI_drop (1 references)
+target     prot opt source               destination         
+FWDI_drop_log  all  --  anywhere             anywhere            
+FWDI_drop_deny  all  --  anywhere             anywhere            
+FWDI_drop_allow  all  --  anywhere             anywhere            
+DROP       all  --  anywhere             anywhere            
+
+Chain FWDI_drop_log (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_drop_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_drop_allow (1 references)
+target     prot opt source               destination         
+
+Chain IN_drop (1 references)
+target     prot opt source               destination         
+IN_drop_log  all  --  anywhere             anywhere            
+IN_drop_deny  all  --  anywhere             anywhere            
+IN_drop_allow  all  --  anywhere             anywhere            
+DROP       all  --  anywhere             anywhere            
+
+Chain IN_drop_log (1 references)
+target     prot opt source               destination         
+
+Chain IN_drop_deny (1 references)
+target     prot opt source               destination         
+
+Chain IN_drop_allow (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_drop (1 references)
+target     prot opt source               destination         
+FWDO_drop_log  all  --  anywhere             anywhere            
+FWDO_drop_deny  all  --  anywhere             anywhere            
+FWDO_drop_allow  all  --  anywhere             anywhere            
+DROP       all  --  anywhere             anywhere            
+
+Chain FWDO_drop_log (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_drop_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_drop_allow (1 references)
+target     prot opt source               destination         
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -F
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -X
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #modprobe ip_conntrack
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #modprobe 
+Display all 3344 possibilities? (y or n)
+3c574_cs                           i2c-isch                           rc-real-audio-220-32-keys
+3c589_cs                           i2c-ismt                           rc-reddo
+3c59x                              i2c-kempld                         rc-snapstream-firefly
+3w-9xxx                            i2c-matroxfb                       rc-streamzap
+3w-sas                             i2c-mux                            rc-su3000
+3w-xxxx                            i2c-nforce2                        rc-tango
+6lowpan                            i2c-nforce2-s4985                  rc-tbs-nec
+6pack                              i2c-ocores                         rc-technisat-ts35
+8021q                              i2c-parport                        rc-technisat-usb2
+8139cp                             i2c-parport-light                  rc-terratec-cinergy-c-pci
+8139too                            i2c-pca-platform                   rc-terratec-cinergy-s2-hd
+8250_moxa                          i2c-piix4                          rc-terratec-cinergy-xs
+8255                               i2c-robotfuzz-osif                 rc-terratec-slim
+8255_pci                           i2c-scmi                           rc-terratec-slim-2
+8390                               i2c-simtec                         rc-tevii-nec
+88XXau                             i2c-sis5595                        rc-tivo
+9p                                 i2c-sis630                         rc-total-media-in-hand
+9pnet                              i2c-sis96x                         rc-total-media-in-hand-02
+9pnet_rdma                         i2c-smbus                          rc-trekstor
+9pnet_virtio                       i2c-stub                           rc-tt-1500
+a100u2w                            i2c-taos-evm                       rc-twinhan1027
+a3d                                i2c-tiny-usb                       rc-twinhan-dtv-cab-ci
+a8293                              i2c-via                            rc-videomate-m1f
+aacraid                            i2c-viapro                         rc-videomate-s350
+abituguru                          i2c-viperboard                     rc-videomate-tv-pvr
+abituguru3                         i3000_edac                         rc-winfast
+ac                                 i3200_edac                         rc-winfast-usbii-deluxe
+ac97_bus                           i40e                               rc-zx-irdec
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #modprobe ip
+ip6_gre                 ip6_udp_tunnel          ip_set_bitmap_ip        iptable_mangle          ip_vs_lblcr
+ip6table_filter         ip6_vti                 ip_set_bitmap_ipmac     iptable_nat             ip_vs_lc
+ip6table_mangle         ipaq                    ip_set_bitmap_port      iptable_raw             ip_vs_mh
+ip6table_nat            ipcomp                  ip_set_hash_ip          iptable_security        ip_vs_nq
+ip6table_raw            ipcomp6                 ip_set_hash_ipmac       ipt_ah                  ip_vs_ovf
+ip6table_security       ipddp                   ip_set_hash_ipmark      ipt_CLUSTERIP           ip_vs_pe_sip
+ip6t_ah                 ip_gre                  ip_set_hash_ipport      ipt_ECN                 ip_vs_rr
+ip6t_eui64              iphase                  ip_set_hash_ipportip    ipt_MASQUERADE          ip_vs_sed
+ip6t_frag               ipheth                  ip_set_hash_ipportnet   ipt_rpfilter            ip_vs_sh
+ip6t_hbh                ipip                    ip_set_hash_mac         ipt_SYNPROXY            ip_vs_wlc
+ip6t_ipv6header         ipmi_devintf            ip_set_hash_net         ip_tunnel               ip_vs_wrr
+ip6t_MASQUERADE         ipmi_msghandler         ip_set_hash_netiface    ipvlan                  ipvtap
+ip6t_mh                 ipmi_poweroff           ip_set_hash_netnet      ip_vs                   ip_vti
+ip6t_NPT                ipmi_si                 ip_set_hash_netport     ip_vs_dh                ipw
+ip6t_rt                 ipmi_watchdog           ip_set_hash_netportnet  ip_vs_fo                ipw2200
+ip6t_SYNPROXY           ipr                     ip_set_list_set         ip_vs_ftp               ipwireless
+ip6_tunnel              ips                     iptable_filter          ip_vs_lblc              
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #modprobe ipt_LOG
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #modprobe ipt_state
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #modprobe -v nf_conntrack_log_invalid
+modprobe: FATAL: Module nf_conntrack_log_invalid not found in directory /lib/modules/4.19.0-parrot1-13t-amd64
+┌─[✗]─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #modprobe -v nf_
+nf_conncount             nf_conntrack_pptp        nf_dup_netdev            nf_log_netdev            nf_nat_snmp_basic
+nf_conntrack_amanda      nf_conntrack_proto_gre   nf_flow_table            nf_nat_amanda            nf_nat_tftp
+nf_conntrack_broadcast   nf_conntrack_sane        nf_flow_table_inet       nf_nat_ftp               nf_socket_ipv4
+nf_conntrack_ftp         nf_conntrack_sip         nf_flow_table_ipv4       nf_nat_h323              nf_socket_ipv6
+nf_conntrack_h323        nf_conntrack_snmp        nf_flow_table_ipv6       nf_nat_irc               nf_synproxy_core
+nf_conntrack_irc         nf_conntrack_tftp        nf_log_arp               nf_nat_pptp              nf_tables_set
+nf_conntrack_netbios_ns  nf_dup_ipv4              nf_log_bridge            nf_nat_proto_gre         nf_tproxy_ipv4
+nf_conntrack_netlink     nf_dup_ipv6              nf_log_ipv6              nf_nat_sip               nf_tproxy_ipv6
+┌─[✗]─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #modprobe -v nf_log_ipv6 
+insmod /lib/modules/4.19.0-parrot1-13t-amd64/kernel/net/ipv6/netfilter/nf_log_ipv6.ko 
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #modprobe -vi nf_log_ipv6 
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #echo $?
+0
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #modprobe -vi ipt_owner
+insmod /lib/modules/4.19.0-parrot1-13t-amd64/kernel/net/netfilter/xt_owner.ko 
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #echo $?
+0
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #modprobe ipt
+iptable_filter    iptable_nat       iptable_security  ipt_CLUSTERIP     ipt_MASQUERADE    ipt_SYNPROXY      
+iptable_mangle    iptable_raw       ipt_ah            ipt_ECN           ipt_rpfilter      
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #modprobe ip
+ip6_gre                 ip6_udp_tunnel          ip_set_bitmap_ip        iptable_mangle          ip_vs_lblcr
+ip6table_filter         ip6_vti                 ip_set_bitmap_ipmac     iptable_nat             ip_vs_lc
+ip6table_mangle         ipaq                    ip_set_bitmap_port      iptable_raw             ip_vs_mh
+ip6table_nat            ipcomp                  ip_set_hash_ip          iptable_security        ip_vs_nq
+ip6table_raw            ipcomp6                 ip_set_hash_ipmac       ipt_ah                  ip_vs_ovf
+ip6table_security       ipddp                   ip_set_hash_ipmark      ipt_CLUSTERIP           ip_vs_pe_sip
+ip6t_ah                 ip_gre                  ip_set_hash_ipport      ipt_ECN                 ip_vs_rr
+ip6t_eui64              iphase                  ip_set_hash_ipportip    ipt_MASQUERADE          ip_vs_sed
+ip6t_frag               ipheth                  ip_set_hash_ipportnet   ipt_rpfilter            ip_vs_sh
+ip6t_hbh                ipip                    ip_set_hash_mac         ipt_SYNPROXY            ip_vs_wlc
+ip6t_ipv6header         ipmi_devintf            ip_set_hash_net         ip_tunnel               ip_vs_wrr
+ip6t_MASQUERADE         ipmi_msghandler         ip_set_hash_netiface    ipvlan                  ipvtap
+ip6t_mh                 ipmi_poweroff           ip_set_hash_netnet      ip_vs                   ip_vti
+ip6t_NPT                ipmi_si                 ip_set_hash_netport     ip_vs_dh                ipw
+ip6t_rt                 ipmi_watchdog           ip_set_hash_netportnet  ip_vs_fo                ipw2200
+ip6t_SYNPROXY           ipr                     ip_set_list_set         ip_vs_ftp               ipwireless
+ip6_tunnel              ips                     iptable_filter          ip_vs_lblc              
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #modprobe ipt
+iptable_filter    iptable_nat       iptable_security  ipt_CLUSTERIP     ipt_MASQUERADE    ipt_SYNPROXY      
+iptable_mangle    iptable_raw       ipt_ah            ipt_ECN           ipt_rpfilter      
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #modprobe -vi iptable_security
+insmod /lib/modules/4.19.0-parrot1-13t-amd64/kernel/net/ipv4/netfilter/iptable_security.ko 
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #modprobe -vi ipt_rpfilter
+insmod /lib/modules/4.19.0-parrot1-13t-amd64/kernel/net/ipv4/netfilter/ipt_rpfilter.ko 
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+# Warning: iptables-legacy tables present, use iptables-legacy to see them
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables-legacy
+iptables-legacy          iptables-legacy-restore  iptables-legacy-save     
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables-legacy -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #ip6tables -:
+ip6tables v1.8.2 (nf_tables): unknown option "-:"
+Try `ip6tables -h' or 'ip6tables --help' for more information.
+┌─[✗]─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #ip6tables -L
+Chain INPUT (policy DROP)
+target     prot opt source               destination         
+ACCEPT     all      anywhere             anywhere             ctstate RELATED,ESTABLISHED
+ACCEPT     all      anywhere             anywhere            
+INPUT_direct  all      anywhere             anywhere            
+INPUT_ZONES_SOURCE  all      anywhere             anywhere            
+INPUT_ZONES  all      anywhere             anywhere            
+DROP       all      anywhere             anywhere             ctstate INVALID
+REJECT     all      anywhere             anywhere             reject-with icmp6-adm-prohibited
+DROP       all      anywhere             anywhere            
+
+Chain FORWARD (policy DROP)
+target     prot opt source               destination         
+ACCEPT     all      anywhere             anywhere             ctstate RELATED,ESTABLISHED
+ACCEPT     all      anywhere             anywhere            
+FORWARD_direct  all      anywhere             anywhere            
+FORWARD_IN_ZONES_SOURCE  all      anywhere             anywhere            
+FORWARD_IN_ZONES  all      anywhere             anywhere            
+FORWARD_OUT_ZONES_SOURCE  all      anywhere             anywhere            
+FORWARD_OUT_ZONES  all      anywhere             anywhere            
+DROP       all      anywhere             anywhere             ctstate INVALID
+REJECT     all      anywhere             anywhere             reject-with icmp6-adm-prohibited
+
+Chain OUTPUT (policy DROP)
+target     prot opt source               destination         
+OUTPUT_direct  all      anywhere             anywhere            
+DROP       all      anywhere             anywhere            
+
+Chain INPUT_direct (1 references)
+target     prot opt source               destination         
+
+Chain INPUT_ZONES_SOURCE (1 references)
+target     prot opt source               destination         
+
+Chain INPUT_ZONES (1 references)
+target     prot opt source               destination         
+IN_drop    all      anywhere             anywhere            
+
+Chain FORWARD_direct (1 references)
+target     prot opt source               destination         
+
+Chain FORWARD_IN_ZONES_SOURCE (1 references)
+target     prot opt source               destination         
+
+Chain FORWARD_IN_ZONES (1 references)
+target     prot opt source               destination         
+FWDI_drop  all      anywhere             anywhere            
+
+Chain FORWARD_OUT_ZONES_SOURCE (1 references)
+target     prot opt source               destination         
+
+Chain FORWARD_OUT_ZONES (1 references)
+target     prot opt source               destination         
+FWDO_drop  all      anywhere             anywhere            
+
+Chain OUTPUT_direct (1 references)
+target     prot opt source               destination         
+
+Chain IN_public (0 references)
+target     prot opt source               destination         
+IN_public_log  all      anywhere             anywhere            
+IN_public_deny  all      anywhere             anywhere            
+IN_public_allow  all      anywhere             anywhere            
+ACCEPT     ipv6-icmp    anywhere             anywhere            
+
+Chain IN_public_log (1 references)
+target     prot opt source               destination         
+
+Chain IN_public_deny (1 references)
+target     prot opt source               destination         
+
+Chain IN_public_allow (1 references)
+target     prot opt source               destination         
+ACCEPT     tcp      anywhere             anywhere             tcp dpt:ssh ctstate NEW,UNTRACKED
+ACCEPT     udp      anywhere             fe80::/64            udp dpt:dhcpv6-client ctstate NEW,UNTRACKED
+
+Chain FWDI_public (0 references)
+target     prot opt source               destination         
+FWDI_public_log  all      anywhere             anywhere            
+FWDI_public_deny  all      anywhere             anywhere            
+FWDI_public_allow  all      anywhere             anywhere            
+ACCEPT     ipv6-icmp    anywhere             anywhere            
+
+Chain FWDI_public_log (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_public_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_public_allow (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_public (0 references)
+target     prot opt source               destination         
+FWDO_public_log  all      anywhere             anywhere            
+FWDO_public_deny  all      anywhere             anywhere            
+FWDO_public_allow  all      anywhere             anywhere            
+
+Chain FWDO_public_log (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_public_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_public_allow (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_drop (1 references)
+target     prot opt source               destination         
+FWDI_drop_log  all      anywhere             anywhere            
+FWDI_drop_deny  all      anywhere             anywhere            
+FWDI_drop_allow  all      anywhere             anywhere            
+DROP       all      anywhere             anywhere            
+
+Chain FWDI_drop_log (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_drop_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDI_drop_allow (1 references)
+target     prot opt source               destination         
+
+Chain IN_drop (1 references)
+target     prot opt source               destination         
+IN_drop_log  all      anywhere             anywhere            
+IN_drop_deny  all      anywhere             anywhere            
+IN_drop_allow  all      anywhere             anywhere            
+DROP       all      anywhere             anywhere            
+
+Chain IN_drop_log (1 references)
+target     prot opt source               destination         
+
+Chain IN_drop_deny (1 references)
+target     prot opt source               destination         
+
+Chain IN_drop_allow (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_drop (1 references)
+target     prot opt source               destination         
+FWDO_drop_log  all      anywhere             anywhere            
+FWDO_drop_deny  all      anywhere             anywhere            
+FWDO_drop_allow  all      anywhere             anywhere            
+DROP       all      anywhere             anywhere            
+
+Chain FWDO_drop_log (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_drop_deny (1 references)
+target     prot opt source               destination         
+
+Chain FWDO_drop_allow (1 references)
+target     prot opt source               destination         
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #ip6tables -F
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #ip6tables -X
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #ip6tables -L
+Chain INPUT (policy DROP)
+target     prot opt source               destination         
+
+Chain FORWARD (policy DROP)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy DROP)
+target     prot opt source               destination         
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #ip6tables -P INPUT DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #ip6tables -L
+Chain INPUT (policy DROP)
+target     prot opt source               destination         
+
+Chain FORWARD (policy DROP)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy DROP)
+target     prot opt source               destination         
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p ipv6 -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #ip6tables -L
+Chain INPUT (policy DROP)
+target     prot opt source               destination         
+
+Chain FORWARD (policy DROP)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy DROP)
+target     prot opt source               destination         
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+# Warning: iptables-legacy tables present, use iptables-legacy to see them
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A OUTPUT -p ipv6 -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A FORWARD -p ipv6 -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+# Warning: iptables-legacy tables present, use iptables-legacy to see them
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A OUTPUT -m conntrack --ctstate INVALID -j LOG --log-prefix "Invalid ctstate: Blocked: " --log-uid
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A OUTPUT -m conntrack --ctstate INVALID -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A INPUT -m state --state INVALID -j LOG --log-prefix "DROP INVALID " --log-ip-options --log-tcp-options
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A INPUT -m state --state INVALID -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #ip6tables -L
+Chain INPUT (policy DROP)
+target     prot opt source               destination         
+
+Chain FORWARD (policy DROP)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy DROP)
+target     prot opt source               destination         
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "DROP INVALID "
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             ctstate INVALID LOG level warning uid prefix "Invalid ctstate: Blocked: "
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+# Warning: iptables-legacy tables present, use iptables-legacy to see them
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A FORWARD -m state --state INVALID -j LOG --log-prefix "Invalid ctstate" --log-ip-options --log-tcp-options
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A FORWARD -m state --state INVALID -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "DROP INVALID "
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "Invalid ctstate"
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             ctstate INVALID LOG level warning uid prefix "Invalid ctstate: Blocked: "
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+# Warning: iptables-legacy tables present, use iptables-legacy to see them
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "DROP INVALID "
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "Invalid ctstate"
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             ctstate INVALID LOG level warning uid prefix "Invalid ctstate: Blocked: "
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+# Warning: iptables-legacy tables present, use iptables-legacy to see them
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags ALL ALL -j LOG --log-prefix "IPT: All Flags "
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags ALL ALL -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags ALL ACK,RST,SYN,FIN -j LOG --log-prefix "IPTables: Bad SF Flag "
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags ALL ACK,RST,SYN,FIN -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags SYN,FIN SYN,FIN -j LOG --log-prefix "IPTables: Bad SF Flag "
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags SYN,FIN SYN,FIN -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags SYN,RST SYN,RST -j LOG --log-prefix "IPT: Bad SR Flag "
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags SYN,RST SYN,RST -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags SYN,FIN,PSH SYN,FIN,PSH -j LOG --log-prefix "IPT: Bad SFP Flag "
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags SYN,FIN,PSH SYN,FIN,PSH -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags SYN,FIN,RST SYN,FIN,RST -j LOG --log-prefix "IPT: Bad SFR Flag "
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags SYN,FIN,RST SYN,FIN,RST -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags SYN,FIN,RST,PSH SYN,FIN,RST,PSH -j LOG --log-prefix "IPT: Bad SFRP Flag "
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags SYN,FIN,RST,PSH SYN,FIN,RST,PSH -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags FIN FIN -j LOG --log-prefix "IPT: Bad F Flag "
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags FIN FIN -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags ALL NONE -j LOG --log-prefix "IPT: Null Flag "
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p tcp --tcp-flags ALL NONE -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -s 255.0.0.0/8 -j LOG --log-prefix "Spoofed source IP!"
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -s 255.0.0.0/8 -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -N check-flags
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "DROP INVALID "
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG LOG level warning prefix "IPT: All Flags "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK LOG level warning prefix "IPTables: Bad SF Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN LOG level warning prefix "IPTables: Bad SF Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN
+LOG        tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST LOG level warning prefix "IPT: Bad SR Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,PSH/FIN,SYN,PSH LOG level warning prefix "IPT: Bad SFP Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,PSH/FIN,SYN,PSH
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST/FIN,SYN,RST LOG level warning prefix "IPT: Bad SFR Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST/FIN,SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH/FIN,SYN,RST,PSH LOG level warning prefix "IPT: Bad SFRP Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH/FIN,SYN,RST,PSH
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN/FIN LOG level warning prefix "IPT: Bad F Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN/FIN
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE LOG level warning prefix "IPT: Null Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE
+LOG        all  --  255.0.0.0/8          anywhere             LOG level warning prefix "Spoofed source IP!"
+DROP       all  --  255.0.0.0/8          anywhere            
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "Invalid ctstate"
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             ctstate INVALID LOG level warning uid prefix "Invalid ctstate: Blocked: "
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+
+Chain check-flags (0 references)
+target     prot opt source               destination         
+# Warning: iptables-legacy tables present, use iptables-legacy to see them
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A check-flags -p tcp --tcp-flags ALL FIN,URG,PSH -m limit --limit 5/minute -j LOG --log-level alert --log-prefix "NMAP-XMAS:"
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A check-flags -p tcp --tcp-flags ALL FIN,URG,PSH -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A check-flags -p tcp --tcp-flags ALL ALL -m limit --limit 5/minute -j LOG --log-level 1 --log-prefix "XMAS:"
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A check-flags -p tcp --tcp-flags ALL ALL -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A check-flags -p tcp --tcp-flags ALL SYN,RST,ACK,FIN,URG -m limit --limit 5/minute -j LOG --log-level 1 --log-prefix "XMAS-PSH:"
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A check-flags -p tcp --tcp-flags ALL SYN,RST,ACK,FIN,URG -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "DROP INVALID "
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG LOG level warning prefix "IPT: All Flags "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK LOG level warning prefix "IPTables: Bad SF Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN LOG level warning prefix "IPTables: Bad SF Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN
+LOG        tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST LOG level warning prefix "IPT: Bad SR Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,PSH/FIN,SYN,PSH LOG level warning prefix "IPT: Bad SFP Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,PSH/FIN,SYN,PSH
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST/FIN,SYN,RST LOG level warning prefix "IPT: Bad SFR Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST/FIN,SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH/FIN,SYN,RST,PSH LOG level warning prefix "IPT: Bad SFRP Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH/FIN,SYN,RST,PSH
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN/FIN LOG level warning prefix "IPT: Bad F Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN/FIN
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE LOG level warning prefix "IPT: Null Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE
+LOG        all  --  255.0.0.0/8          anywhere             LOG level warning prefix "Spoofed source IP!"
+DROP       all  --  255.0.0.0/8          anywhere            
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "Invalid ctstate"
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             ctstate INVALID LOG level warning uid prefix "Invalid ctstate: Blocked: "
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+
+Chain check-flags (0 references)
+target     prot opt source               destination         
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,PSH,URG limit: avg 5/min burst 5 LOG level alert prefix "NMAP-XMAS:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,PSH,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG limit: avg 5/min burst 5 LOG level alert prefix "XMAS:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK,URG limit: avg 5/min burst 5 LOG level alert prefix "XMAS-PSH:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK,URG
+# Warning: iptables-legacy tables present, use iptables-legacy to see them
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A check-flags -p tcp --tcp-flags ALL NONE -m limit --limit 5/minute -j LOG --log-level 1 --log-prefix "NULL_SCAN:"
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A check-flags -p tcp --tcp-flags ALL NONE -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A check-flags -p tcp --tcp-flags SYN,RST SYN,RST -m limit --limit 5/minute -j LOG --log-level 5 --log-prefix "SYN/RST:"┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A check-flags -p tcp --tcp-flags SYN,RST SYN,RST -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A check-flags -p tcp --tcp-flags SYN,FIN SYN,FIN -m limit --limit 5/minute -j LOG --log-level 5 --log-prefix "SYN/FIN:"┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A check-flags -p tcp --tcp-flags SYN,FIN SYN,FIN -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p sctp --dport 80 -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A INPUT -p sctp --chunk-types any DATA,INIT -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A INPUT -p udp --dport 3478 -j LOG --log-prefix "DROP WebRTC" --log-ip-options --log-tcp-options --log-uid
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A INPUT -p udp --dport 3478 -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A INPUT -p udp --dport 3479 -j LOG --log-prefix "DROP WebRTC" --log-ip-options --log-tcp-options --log-uid
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A INPUT -p udp --dport 3479 -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A INPUT -p tcp --dport 3478 -j LOG --log-prefix "DROP WebRTC" --log-ip-options --log-tcp-options --log-uid
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A INPUT -p tcp --dport 3478 -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A INPUT -p tcp --dport 3479 -j LOG --log-prefix "DROP WebRTC" --log-ip-options --log-tcp-options --log-uid
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A INPUT -p tcp --dport 3479 -j DROP
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -L
+]Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "DROP INVALID "
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG LOG level warning prefix "IPT: All Flags "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK LOG level warning prefix "IPTables: Bad SF Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN LOG level warning prefix "IPTables: Bad SF Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN
+LOG        tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST LOG level warning prefix "IPT: Bad SR Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,PSH/FIN,SYN,PSH LOG level warning prefix "IPT: Bad SFP Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,PSH/FIN,SYN,PSH
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST/FIN,SYN,RST LOG level warning prefix "IPT: Bad SFR Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST/FIN,SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH/FIN,SYN,RST,PSH LOG level warning prefix "IPT: Bad SFRP Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH/FIN,SYN,RST,PSH
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN/FIN LOG level warning prefix "IPT: Bad F Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN/FIN
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE LOG level warning prefix "IPT: Null Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE
+LOG        all  --  255.0.0.0/8          anywhere             LOG level warning prefix "Spoofed source IP!"
+DROP       all  --  255.0.0.0/8          anywhere            
+DROP       sctp --  anywhere             anywhere             sctp dpt:80
+DROP       sctp --  anywhere             anywhere             sctp any DATA,INIT
+LOG        udp  --  anywhere             anywhere             udp dpt:3478 LOG level warning tcp-options ip-options uid prefix "DROP WebRTC"
+DROP       udp  --  anywhere             anywhere             udp dpt:3478
+LOG        udp  --  anywhere             anywhere             udp dpt:3479 LOG level warning tcp-options ip-options uid prefix "DROP WebRTC"
+DROP       udp  --  anywhere             anywhere             udp dpt:3479
+LOG        tcp  --  anywhere             anywhere             tcp dpt:3478 LOG level warning tcp-options ip-options uid prefix "DROP WebRTC"
+DROP       tcp  --  anywhere             anywhere             tcp dpt:3478
+LOG        tcp  --  anywhere             anywhere             tcp dpt:3479 LOG level warning tcp-options ip-options uid prefix "DROP WebRTC"
+DROP       tcp  --  anywhere             anywhere             tcp dpt:3479
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "Invalid ctstate"
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             ctstate INVALID LOG level warning uid prefix "Invalid ctstate: Blocked: "
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+
+Chain check-flags (0 references)
+target     prot opt source               destination         
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,PSH,URG limit: avg 5/min burst 5 LOG level alert prefix "NMAP-XMAS:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,PSH,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG limit: avg 5/min burst 5 LOG level alert prefix "XMAS:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK,URG limit: avg 5/min burst 5 LOG level alert prefix "XMAS-PSH:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE limit: avg 5/min burst 5 LOG level alert prefix "NULL_SCAN:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE
+LOG        tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST limit: avg 5/min burst 5 LOG level notice prefix "SYN/RST:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN limit: avg 5/min burst 5 LOG level notice prefix "SYN/FIN:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN
+# Warning: iptables-legacy tables present, use iptables-legacy to see them
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -A OUTPUT -p tcp --dport 80 --syn -m state --state NEW -j ACCEPT
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A OUTPUT -p udp --dport 53 -m state --state NEW -j ACCEPT
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A OUTPUT -p tcp --dport 53 -m state --state NEW -j ACCEPT
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A OUTPUT -p tcp --dport 443 --syn -m state --state NEW -j ACCEPT
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A OUTPUT --out-interface wlan0 -j ACCEPT
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #/sbin/iptables -A INPUT --in-interface wlan0 -j ACCEPT
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #$IPTABLES -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+bash: -A: command not found
+┌─[✗]─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "DROP INVALID "
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG LOG level warning prefix "IPT: All Flags "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK LOG level warning prefix "IPTables: Bad SF Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN LOG level warning prefix "IPTables: Bad SF Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN
+LOG        tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST LOG level warning prefix "IPT: Bad SR Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,PSH/FIN,SYN,PSH LOG level warning prefix "IPT: Bad SFP Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,PSH/FIN,SYN,PSH
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST/FIN,SYN,RST LOG level warning prefix "IPT: Bad SFR Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST/FIN,SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH/FIN,SYN,RST,PSH LOG level warning prefix "IPT: Bad SFRP Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH/FIN,SYN,RST,PSH
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN/FIN LOG level warning prefix "IPT: Bad F Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN/FIN
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE LOG level warning prefix "IPT: Null Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE
+LOG        all  --  255.0.0.0/8          anywhere             LOG level warning prefix "Spoofed source IP!"
+DROP       all  --  255.0.0.0/8          anywhere            
+DROP       sctp --  anywhere             anywhere             sctp dpt:80
+DROP       sctp --  anywhere             anywhere             sctp any DATA,INIT
+LOG        udp  --  anywhere             anywhere             udp dpt:3478 LOG level warning tcp-options ip-options uid prefix "DROP WebRTC"
+DROP       udp  --  anywhere             anywhere             udp dpt:3478
+LOG        udp  --  anywhere             anywhere             udp dpt:3479 LOG level warning tcp-options ip-options uid prefix "DROP WebRTC"
+DROP       udp  --  anywhere             anywhere             udp dpt:3479
+LOG        tcp  --  anywhere             anywhere             tcp dpt:3478 LOG level warning tcp-options ip-options uid prefix "DROP WebRTC"
+DROP       tcp  --  anywhere             anywhere             tcp dpt:3478
+LOG        tcp  --  anywhere             anywhere             tcp dpt:3479 LOG level warning tcp-options ip-options uid prefix "DROP WebRTC"
+DROP       tcp  --  anywhere             anywhere             tcp dpt:3479
+ACCEPT     all  --  anywhere             anywhere            
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "Invalid ctstate"
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             ctstate INVALID LOG level warning uid prefix "Invalid ctstate: Blocked: "
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:http flags:FIN,SYN,RST,ACK/SYN state NEW
+ACCEPT     udp  --  anywhere             anywhere             udp dpt:domain state NEW
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:domain state NEW
+ACCEPT     icmp --  anywhere             anywhere             icmp echo-request
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:https flags:FIN,SYN,RST,ACK/SYN state NEW
+ACCEPT     all  --  anywhere             anywhere            
+
+Chain check-flags (0 references)
+target     prot opt source               destination         
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,PSH,URG limit: avg 5/min burst 5 LOG level alert prefix "NMAP-XMAS:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,PSH,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG limit: avg 5/min burst 5 LOG level alert prefix "XMAS:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK,URG limit: avg 5/min burst 5 LOG level alert prefix "XMAS-PSH:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE limit: avg 5/min burst 5 LOG level alert prefix "NULL_SCAN:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE
+LOG        tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST limit: avg 5/min burst 5 LOG level notice prefix "SYN/RST:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN limit: avg 5/min burst 5 LOG level notice prefix "SYN/FIN:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN
+# Warning: iptables-legacy tables present, use iptables-legacy to see them
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #ipt
+iptables                    iptables-nft                iptables-save               iptstate
+iptables-apply              iptables-nft-restore        iptables-translate          iptunnel
+iptables-legacy             iptables-nft-save           iptables-xml                
+iptables-legacy-restore     iptables-restore            iptaccount                  
+iptables-legacy-save        iptables-restore-translate  iptc                        
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables-save > /etc/ip
+ippl.conf  iproute2/  iptables/  
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables-save > /etc/iptables/rules.v
+rules.v4  rules.v6  
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables-save > /etc/iptables/Xe1phix-IPTables
+# Warning: iptables-legacy tables present, use iptables-legacy-save to see them
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "DROP INVALID "
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG LOG level warning prefix "IPT: All Flags "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK LOG level warning prefix "IPTables: Bad SF Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN LOG level warning prefix "IPTables: Bad SF Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN
+LOG        tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST LOG level warning prefix "IPT: Bad SR Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,PSH/FIN,SYN,PSH LOG level warning prefix "IPT: Bad SFP Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,PSH/FIN,SYN,PSH
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST/FIN,SYN,RST LOG level warning prefix "IPT: Bad SFR Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST/FIN,SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH/FIN,SYN,RST,PSH LOG level warning prefix "IPT: Bad SFRP Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH/FIN,SYN,RST,PSH
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN/FIN LOG level warning prefix "IPT: Bad F Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN/FIN
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE LOG level warning prefix "IPT: Null Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE
+LOG        all  --  255.0.0.0/8          anywhere             LOG level warning prefix "Spoofed source IP!"
+DROP       all  --  255.0.0.0/8          anywhere            
+DROP       sctp --  anywhere             anywhere             sctp dpt:80
+DROP       sctp --  anywhere             anywhere             sctp any DATA,INIT
+LOG        udp  --  anywhere             anywhere             udp dpt:3478 LOG level warning tcp-options ip-options uid prefix "DROP WebRTC"
+DROP       udp  --  anywhere             anywhere             udp dpt:3478
+LOG        udp  --  anywhere             anywhere             udp dpt:3479 LOG level warning tcp-options ip-options uid prefix "DROP WebRTC"
+DROP       udp  --  anywhere             anywhere             udp dpt:3479
+LOG        tcp  --  anywhere             anywhere             tcp dpt:3478 LOG level warning tcp-options ip-options uid prefix "DROP WebRTC"
+DROP       tcp  --  anywhere             anywhere             tcp dpt:3478
+LOG        tcp  --  anywhere             anywhere             tcp dpt:3479 LOG level warning tcp-options ip-options uid prefix "DROP WebRTC"
+DROP       tcp  --  anywhere             anywhere             tcp dpt:3479
+ACCEPT     all  --  anywhere             anywhere            
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "Invalid ctstate"
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             ctstate INVALID LOG level warning uid prefix "Invalid ctstate: Blocked: "
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:http flags:FIN,SYN,RST,ACK/SYN state NEW
+ACCEPT     udp  --  anywhere             anywhere             udp dpt:domain state NEW
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:domain state NEW
+ACCEPT     icmp --  anywhere             anywhere             icmp echo-request
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:https flags:FIN,SYN,RST,ACK/SYN state NEW
+ACCEPT     all  --  anywhere             anywhere            
+
+Chain check-flags (0 references)
+target     prot opt source               destination         
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,PSH,URG limit: avg 5/min burst 5 LOG level alert prefix "NMAP-XMAS:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,PSH,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG limit: avg 5/min burst 5 LOG level alert prefix "XMAS:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK,URG limit: avg 5/min burst 5 LOG level alert prefix "XMAS-PSH:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE limit: avg 5/min burst 5 LOG level alert prefix "NULL_SCAN:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE
+LOG        tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST limit: avg 5/min burst 5 LOG level notice prefix "SYN/RST:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN limit: avg 5/min burst 5 LOG level notice prefix "SYN/FIN:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN
+# Warning: iptables-legacy tables present, use iptables-legacy to see them
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables-legacy -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "DROP INVALID "
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG LOG level warning prefix "IPT: All Flags "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK LOG level warning prefix "IPTables: Bad SF Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN LOG level warning prefix "IPTables: Bad SF Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN
+LOG        tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST LOG level warning prefix "IPT: Bad SR Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,PSH/FIN,SYN,PSH LOG level warning prefix "IPT: Bad SFP Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,PSH/FIN,SYN,PSH
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST/FIN,SYN,RST LOG level warning prefix "IPT: Bad SFR Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST/FIN,SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH/FIN,SYN,RST,PSH LOG level warning prefix "IPT: Bad SFRP Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH/FIN,SYN,RST,PSH
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN/FIN LOG level warning prefix "IPT: Bad F Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN/FIN
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE LOG level warning prefix "IPT: Null Flag "
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE
+LOG        all  --  255.0.0.0/8          anywhere             LOG level warning prefix "Spoofed source IP!"
+DROP       all  --  255.0.0.0/8          anywhere            
+DROP       sctp --  anywhere             anywhere             sctp dpt:80
+DROP       sctp --  anywhere             anywhere             sctp any DATA,INIT
+LOG        udp  --  anywhere             anywhere             udp dpt:3478 LOG level warning tcp-options ip-options uid prefix "DROP WebRTC"
+DROP       udp  --  anywhere             anywhere             udp dpt:3478
+LOG        udp  --  anywhere             anywhere             udp dpt:3479 LOG level warning tcp-options ip-options uid prefix "DROP WebRTC"
+DROP       udp  --  anywhere             anywhere             udp dpt:3479
+LOG        tcp  --  anywhere             anywhere             tcp dpt:3478 LOG level warning tcp-options ip-options uid prefix "DROP WebRTC"
+DROP       tcp  --  anywhere             anywhere             tcp dpt:3478
+LOG        tcp  --  anywhere             anywhere             tcp dpt:3479 LOG level warning tcp-options ip-options uid prefix "DROP WebRTC"
+DROP       tcp  --  anywhere             anywhere             tcp dpt:3479
+ACCEPT     all  --  anywhere             anywhere            
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             state INVALID LOG level warning tcp-options ip-options prefix "Invalid ctstate"
+DROP       all  --  anywhere             anywhere             state INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       ipv6 --  anywhere             anywhere            
+LOG        all  --  anywhere             anywhere             ctstate INVALID LOG level warning uid prefix "Invalid ctstate: Blocked: "
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:http flags:FIN,SYN,RST,ACK/SYN state NEW
+ACCEPT     udp  --  anywhere             anywhere             udp dpt:domain state NEW
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:domain state NEW
+ACCEPT     icmp --  anywhere             anywhere             icmp echo-request
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:https flags:FIN,SYN,RST,ACK/SYN state NEW
+ACCEPT     all  --  anywhere             anywhere            
+
+Chain check-flags (0 references)
+target     prot opt source               destination         
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,PSH,URG limit: avg 5/min burst 5 LOG level alert prefix "NMAP-XMAS:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,PSH,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG limit: avg 5/min burst 5 LOG level alert prefix "XMAS:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,PSH,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK,URG limit: avg 5/min burst 5 LOG level alert prefix "XMAS-PSH:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/FIN,SYN,RST,ACK,URG
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE limit: avg 5/min burst 5 LOG level alert prefix "NULL_SCAN:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN,RST,PSH,ACK,URG/NONE
+LOG        tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST limit: avg 5/min burst 5 LOG level notice prefix "SYN/RST:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:SYN,RST/SYN,RST
+LOG        tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN limit: avg 5/min burst 5 LOG level notice prefix "SYN/FIN:"
+DROP       tcp  --  anywhere             anywhere             tcp flags:FIN,SYN/FIN,SYN
+# Warning: iptables-legacy tables present, use iptables-legacy to see them
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #ipt
+iptables                    iptables-nft                iptables-save               iptstate
+iptables-apply              iptables-nft-restore        iptables-translate          iptunnel
+iptables-legacy             iptables-nft-save           iptables-xml                
+iptables-legacy-restore     iptables-restore            iptaccount                  
+iptables-legacy-save        iptables-restore-translate  iptc                        
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #man iptables-xml 
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #man iptables-save
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #man iptables-apply
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables-apply --write /etc/iptables/Xe1phix-IPTables
+Error: rulesfile not readable: /etc/network/iptables.up.rules
+┌─[✗]─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #cat /etc/network/iptables.up.rules
+cat: /etc/network/iptables.up.rules: No such file or directory
+┌─[✗]─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables-legacy 
+craigevil-user.js                     FirefoxHardened-UserJsSetup-v1.7.sh   Narga-user.js
+CrisBRM-user.js                       FirefoxHardened-UserJsSetup-v1.8.sh   systemwide_user.js
+debian_locked.js                      FirefoxHardened-UserJsSetup-v2.1.sh   TheReverend403-user.js
+default-thunderbird.js                FirefoxHardened-UserJsSetup-v4.7.sh   user.js
+FFCK-Ciphers.txt                      FirefoxHardened-UserJsSetup-v4.7.sh~  
+FFCK-user.js                          locked_user.js                        
+┌─[✗]─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables-legacy -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables-apply > /etc/iptables/Xe1phix-IPTables
+Error: rulesfile not readable: /etc/network/iptables.up.rules
+┌─[✗]─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables-save > /etc/iptables/Xe1phix-IPTables
+# Warning: iptables-legacy tables present, use iptables-legacy-save to see them
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #ip
+ip                           ip6tables-save               ipptool                      iptables-restore
+ip6tables                    ip6tables-translate          iprange                      iptables-restore-translate
+ip6tables-apply              ipcmk                        ipset                        iptables-save
+ip6tables-legacy             ipcrm                        iptables                     iptables-translate
+ip6tables-legacy-restore     ipcs                         iptables-apply               iptables-xml
+ip6tables-legacy-save        ipmaddr                      iptables-legacy              iptaccount
+ip6tables-nft                ipod-read-sysinfo-extended   iptables-legacy-restore      iptc
+ip6tables-nft-restore        ipod-time-sync               iptables-legacy-save         iptstate
+ip6tables-nft-save           ippfind                      iptables-nft                 iptunnel
+ip6tables-restore            ippl                         iptables-nft-restore         ipython
+ip6tables-restore-translate  ippserver                    iptables-nft-save            
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #ipt
+iptables                    iptables-nft                iptables-save               iptstate
+iptables-apply              iptables-nft-restore        iptables-translate          iptunnel
+iptables-legacy             iptables-nft-save           iptables-xml                
+iptables-legacy-restore     iptables-restore            iptaccount                  
+iptables-legacy-save        iptables-restore-translate  iptc                        
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #ipt
+iptables                    iptables-nft                iptables-save               iptstate
+iptables-apply              iptables-nft-restore        iptables-translate          iptunnel
+iptables-legacy             iptables-nft-save           iptables-xml                
+iptables-legacy-restore     iptables-restore            iptaccount                  
+iptables-legacy-save        iptables-restore-translate  iptc                        
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables-xml 
+craigevil-user.js                     FirefoxHardened-UserJsSetup-v1.7.sh   Narga-user.js
+CrisBRM-user.js                       FirefoxHardened-UserJsSetup-v1.8.sh   systemwide_user.js
+debian_locked.js                      FirefoxHardened-UserJsSetup-v2.1.sh   TheReverend403-user.js
+default-thunderbird.js                FirefoxHardened-UserJsSetup-v4.7.sh   user.js
+FFCK-Ciphers.txt                      FirefoxHardened-UserJsSetup-v4.7.sh~  
+FFCK-user.js                          locked_user.js                        
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables-xml --help
+Usage: iptables-xml [-c] [-v] [-h]
+          [--combine ]
+	   [ --verbose ]
+	   [ --help ]
+┌─[✗]─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #iptables-xml --verbose /etc/iptables/Xe1phix-IPTables
+xptables-xml
+<iptables-rules version="1.0">
+<!-- # Generated by xtables*-save v1.8.2 on Sun Feb 24 14:24:18 2019 -->
+<!-- line 2 *filter -->
+  <table name="filter" >
+<!-- line 3 :INPUT ACCEPT [0:0] -->
+<!-- line 4 :FORWARD ACCEPT [0:0] -->
+<!-- line 5 :OUTPUT ACCEPT [6308594:322526158] -->
+<!-- line 6 :check*-flags  *- [0:0] -->
+<!-- line 7 *-A INPUT  *-p ipv6 *-j DROP -->
+    <chain name="INPUT" policy="ACCEPT" packet-count="0" byte-count="0" >
+      <rule >
+       <conditions>
+        <match >
+          <p >ipv6</p>
+        </match>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 8 *-A INPUT  *-m state *- *-state INVALID *-j LOG  *-*-log *-prefix "DROP INVALID " *- *-log*-tcp *-options *- *-log*-ip *-options -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <state >
+          <state >INVALID</state>
+        </state>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;DROP INVALID &quot;</log-prefix>
+          <log-tcp-options  />
+          <log-ip-options  />
+        </LOG>
+<!-- line 9 *-A INPUT  *-m state *- *-state INVALID *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <state >
+          <state >INVALID</state>
+        </state>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 10 *-A INPUT  *-m state *- *-state RELATED,ESTABLISHED *-j ACCEPT -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <state >
+          <state >RELATED,ESTABLISHED</state>
+        </state>
+       </conditions>
+       <actions>
+        <ACCEPT  />
+<!-- line 11 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,PSH,ACK,URG *-j LOG  *-*-log *-prefix "IPT: All Flags " -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,PSH,ACK,URG</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;IPT: All Flags &quot;</log-prefix>
+        </LOG>
+<!-- line 12 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,PSH,ACK,URG *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,PSH,ACK,URG</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 13 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,ACK *-j LOG  *-*-log *-prefix "IPTables: Bad SF Flag " -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,ACK</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;IPTables: Bad SF Flag &quot;</log-prefix>
+        </LOG>
+<!-- line 14 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,ACK *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,ACK</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 15 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags FIN,SYN FIN,SYN *-j LOG  *-*-log *-prefix "IPTables: Bad SF Flag " -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN FIN,SYN</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;IPTables: Bad SF Flag &quot;</log-prefix>
+        </LOG>
+<!-- line 16 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags FIN,SYN FIN,SYN *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN FIN,SYN</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 17 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags SYN,RST SYN,RST *-j LOG  *-*-log *-prefix "IPT: Bad SR Flag " -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >SYN,RST SYN,RST</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;IPT: Bad SR Flag &quot;</log-prefix>
+        </LOG>
+<!-- line 18 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags SYN,RST SYN,RST *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >SYN,RST SYN,RST</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 19 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags FIN,SYN,PSH FIN,SYN,PSH *-j LOG  *-*-log *-prefix "IPT: Bad SFP Flag " -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,PSH FIN,SYN,PSH</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;IPT: Bad SFP Flag &quot;</log-prefix>
+        </LOG>
+<!-- line 20 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags FIN,SYN,PSH FIN,SYN,PSH *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,PSH FIN,SYN,PSH</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 21 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags FIN,SYN,RST FIN,SYN,RST *-j LOG  *-*-log *-prefix "IPT: Bad SFR Flag " -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST FIN,SYN,RST</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;IPT: Bad SFR Flag &quot;</log-prefix>
+        </LOG>
+<!-- line 22 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags FIN,SYN,RST FIN,SYN,RST *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST FIN,SYN,RST</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 23 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags FIN,SYN,RST,PSH FIN,SYN,RST,PSH *-j LOG  *-*-log *-prefix "IPT: Bad SFRP Flag " -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST,PSH FIN,SYN,RST,PSH</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;IPT: Bad SFRP Flag &quot;</log-prefix>
+        </LOG>
+<!-- line 24 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags FIN,SYN,RST,PSH FIN,SYN,RST,PSH *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST,PSH FIN,SYN,RST,PSH</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 25 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags FIN FIN *-j LOG  *-*-log *-prefix "IPT: Bad F Flag " -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN FIN</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;IPT: Bad F Flag &quot;</log-prefix>
+        </LOG>
+<!-- line 26 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags FIN FIN *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN FIN</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 27 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags FIN,SYN,RST,PSH,ACK,URG NONE *-j LOG  *-*-log *-prefix "IPT: Null Flag " -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST,PSH,ACK,URG NONE</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;IPT: Null Flag &quot;</log-prefix>
+        </LOG>
+<!-- line 28 *-A INPUT  *-p tcp *-m tcp  *-*-tcp *-flags FIN,SYN,RST,PSH,ACK,URG NONE *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST,PSH,ACK,URG NONE</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 29 *-A INPUT  *-s 255.0.0.0/8 *-j LOG  *-*-log *-prefix "Spoofed source IP!" -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <s >255.0.0.0/8</s>
+        </match>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;Spoofed source IP!&quot;</log-prefix>
+        </LOG>
+<!-- line 30 *-A INPUT  *-s 255.0.0.0/8 *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <s >255.0.0.0/8</s>
+        </match>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 31 *-A INPUT  *-p sctp *-m sctp  *-*-dport 80  *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >sctp</p>
+        </match>
+        <sctp >
+          <dport >80</dport>
+        </sctp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 32 *-A INPUT  *-p sctp *-m sctp  *-*-chunk *-types any DATA,INIT *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >sctp</p>
+        </match>
+        <sctp >
+          <chunk-types >any DATA,INIT</chunk-types>
+        </sctp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 33 *-A INPUT  *-p udp *-m udp  *-*-dport 3478  *-j LOG *- *-log*-prefix "DROP WebRTC"  *-*-log *-tcp*-options  *-*-log *-ip*-options  *-*-log *-uid -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >udp</p>
+        </match>
+        <udp >
+          <dport >3478</dport>
+        </udp>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;DROP WebRTC&quot;</log-prefix>
+          <log-tcp-options  />
+          <log-ip-options  />
+          <log-uid  />
+        </LOG>
+<!-- line 34 *-A INPUT  *-p udp *-m udp  *-*-dport 3478  *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >udp</p>
+        </match>
+        <udp >
+          <dport >3478</dport>
+        </udp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 35 *-A INPUT  *-p udp *-m udp  *-*-dport 3479  *-j LOG *- *-log*-prefix "DROP WebRTC"  *-*-log *-tcp*-options  *-*-log *-ip*-options  *-*-log *-uid -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >udp</p>
+        </match>
+        <udp >
+          <dport >3479</dport>
+        </udp>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;DROP WebRTC&quot;</log-prefix>
+          <log-tcp-options  />
+          <log-ip-options  />
+          <log-uid  />
+        </LOG>
+<!-- line 36 *-A INPUT  *-p udp *-m udp  *-*-dport 3479  *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >udp</p>
+        </match>
+        <udp >
+          <dport >3479</dport>
+        </udp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 37 *-A INPUT  *-p tcp *-m tcp  *-*-dport 3478  *-j LOG *- *-log*-prefix "DROP WebRTC"  *-*-log *-tcp*-options  *-*-log *-ip*-options  *-*-log *-uid -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <dport >3478</dport>
+        </tcp>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;DROP WebRTC&quot;</log-prefix>
+          <log-tcp-options  />
+          <log-ip-options  />
+          <log-uid  />
+        </LOG>
+<!-- line 38 *-A INPUT  *-p tcp *-m tcp  *-*-dport 3478  *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <dport >3478</dport>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 39 *-A INPUT  *-p tcp *-m tcp  *-*-dport 3479  *-j LOG *- *-log*-prefix "DROP WebRTC"  *-*-log *-tcp*-options  *-*-log *-ip*-options  *-*-log *-uid -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <dport >3479</dport>
+        </tcp>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;DROP WebRTC&quot;</log-prefix>
+          <log-tcp-options  />
+          <log-ip-options  />
+          <log-uid  />
+        </LOG>
+<!-- line 40 *-A INPUT  *-p tcp *-m tcp  *-*-dport 3479  *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <dport >3479</dport>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 41 *-A INPUT  *-i wlan0 *-j ACCEPT -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <i >wlan0</i>
+        </match>
+       </conditions>
+       <actions>
+        <ACCEPT  />
+<!-- line 42 *-A FORWARD  *-p ipv6 *-j DROP -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="FORWARD" policy="ACCEPT" packet-count="0" byte-count="0" >
+      <rule >
+       <conditions>
+        <match >
+          <p >ipv6</p>
+        </match>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 43 *-A FORWARD  *-m state *- *-state INVALID *-j LOG  *-*-log *-prefix "Invalid ctstate" *- *-log*-tcp *-options *- *-log*-ip *-options -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <state >
+          <state >INVALID</state>
+        </state>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;Invalid ctstate&quot;</log-prefix>
+          <log-tcp-options  />
+          <log-ip-options  />
+        </LOG>
+<!-- line 44 *-A FORWARD  *-m state *- *-state INVALID *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <state >
+          <state >INVALID</state>
+        </state>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 45 *-A FORWARD  *-m state *- *-state RELATED,ESTABLISHED *-j ACCEPT -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <state >
+          <state >RELATED,ESTABLISHED</state>
+        </state>
+       </conditions>
+       <actions>
+        <ACCEPT  />
+<!-- line 46 *-A OUTPUT  *-p ipv6 *-j DROP -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="OUTPUT" policy="ACCEPT" packet-count="6308594" byte-count="322526158" >
+      <rule >
+       <conditions>
+        <match >
+          <p >ipv6</p>
+        </match>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 47 *-A OUTPUT  *-m conntrack *- *-ctstate INVALID *-j LOG  *-*-log *-prefix "Invalid ctstate: Blocked: " *- *-log*-uid -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <conntrack >
+          <ctstate >INVALID</ctstate>
+        </conntrack>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;Invalid ctstate: Blocked: &quot;</log-prefix>
+          <log-uid  />
+        </LOG>
+<!-- line 48 *-A OUTPUT  *-m conntrack *- *-ctstate INVALID *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <conntrack >
+          <ctstate >INVALID</ctstate>
+        </conntrack>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 49 *-A OUTPUT  *-m state *- *-state RELATED,ESTABLISHED *-j ACCEPT -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <state >
+          <state >RELATED,ESTABLISHED</state>
+        </state>
+       </conditions>
+       <actions>
+        <ACCEPT  />
+<!-- line 50 *-A OUTPUT  *-p tcp *-m tcp  *-*-dport 80  *-*-tcp *-flags FIN,SYN,RST,ACK SYN *-m state  *-*-state NEW  *-j ACCEPT -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <dport >80</dport>
+          <tcp-flags >FIN,SYN,RST,ACK SYN</tcp-flags>
+        </tcp>
+        <state >
+          <state >NEW</state>
+        </state>
+       </conditions>
+       <actions>
+        <ACCEPT  />
+<!-- line 51 *-A OUTPUT  *-p udp *-m udp  *-*-dport 53  *-m state *- *-state NEW *-j ACCEPT -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >udp</p>
+        </match>
+        <udp >
+          <dport >53</dport>
+        </udp>
+        <state >
+          <state >NEW</state>
+        </state>
+       </conditions>
+       <actions>
+        <ACCEPT  />
+<!-- line 52 *-A OUTPUT  *-p tcp *-m tcp  *-*-dport 53  *-m state *- *-state NEW *-j ACCEPT -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <dport >53</dport>
+        </tcp>
+        <state >
+          <state >NEW</state>
+        </state>
+       </conditions>
+       <actions>
+        <ACCEPT  />
+<!-- line 53 *-A OUTPUT  *-p icmp *-m icmp  *-*-icmp *-type 8 *-j ACCEPT -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >icmp</p>
+        </match>
+        <icmp >
+          <icmp-type >8</icmp-type>
+        </icmp>
+       </conditions>
+       <actions>
+        <ACCEPT  />
+<!-- line 54 *-A OUTPUT  *-p tcp *-m tcp  *-*-dport 443  *-*-tcp *-flags FIN,SYN,RST,ACK SYN *-m state  *-*-state NEW  *-j ACCEPT -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <dport >443</dport>
+          <tcp-flags >FIN,SYN,RST,ACK SYN</tcp-flags>
+        </tcp>
+        <state >
+          <state >NEW</state>
+        </state>
+       </conditions>
+       <actions>
+        <ACCEPT  />
+<!-- line 55 *-A OUTPUT  *-o wlan0 *-j ACCEPT -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <o >wlan0</o>
+        </match>
+       </conditions>
+       <actions>
+        <ACCEPT  />
+<!-- line 56 *-A check *-flags *-p tcp  *-m tcp *- *-tcp*-flags FIN,SYN,RST,PSH,ACK,URG FIN,PSH,URG  *-m limit *- *-limit 5/min *-j LOG  *-*-log *-prefix "NMAP*-XMAS:"  *-*-log *-level 1 -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="check-flags" packet-count="0" byte-count="0" >
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST,PSH,ACK,URG FIN,PSH,URG</tcp-flags>
+        </tcp>
+        <limit >
+          <limit >5/min</limit>
+        </limit>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;NMAP-XMAS:&quot;</log-prefix>
+          <log-level >1</log-level>
+        </LOG>
+<!-- line 57 *-A check *-flags *-p tcp  *-m tcp *- *-tcp*-flags FIN,SYN,RST,PSH,ACK,URG FIN,PSH,URG  *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST,PSH,ACK,URG FIN,PSH,URG</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 58 *-A check *-flags *-p tcp  *-m tcp *- *-tcp*-flags FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,PSH,ACK,URG  *-m limit *- *-limit 5/min *-j LOG  *-*-log *-prefix "XMAS:" *- *-log*-level 1 -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,PSH,ACK,URG</tcp-flags>
+        </tcp>
+        <limit >
+          <limit >5/min</limit>
+        </limit>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;XMAS:&quot;</log-prefix>
+          <log-level >1</log-level>
+        </LOG>
+<!-- line 59 *-A check *-flags *-p tcp  *-m tcp *- *-tcp*-flags FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,PSH,ACK,URG  *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,PSH,ACK,URG</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 60 *-A check *-flags *-p tcp  *-m tcp *- *-tcp*-flags FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,ACK,URG  *-m limit *- *-limit 5/min *-j LOG  *-*-log *-prefix "XMAS*-PSH:"  *-*-log *-level 1 -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,ACK,URG</tcp-flags>
+        </tcp>
+        <limit >
+          <limit >5/min</limit>
+        </limit>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;XMAS-PSH:&quot;</log-prefix>
+          <log-level >1</log-level>
+        </LOG>
+<!-- line 61 *-A check *-flags *-p tcp  *-m tcp *- *-tcp*-flags FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,ACK,URG  *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,ACK,URG</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 62 *-A check *-flags *-p tcp  *-m tcp *- *-tcp*-flags FIN,SYN,RST,PSH,ACK,URG NONE  *-m limit *- *-limit 5/min *-j LOG  *-*-log *-prefix "NULL_SCAN:" *- *-log*-level 1 -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST,PSH,ACK,URG NONE</tcp-flags>
+        </tcp>
+        <limit >
+          <limit >5/min</limit>
+        </limit>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;NULL_SCAN:&quot;</log-prefix>
+          <log-level >1</log-level>
+        </LOG>
+<!-- line 63 *-A check *-flags *-p tcp  *-m tcp *- *-tcp*-flags FIN,SYN,RST,PSH,ACK,URG NONE  *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN,RST,PSH,ACK,URG NONE</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 64 *-A check *-flags *-p tcp  *-m tcp *- *-tcp*-flags SYN,RST SYN,RST  *-m limit *- *-limit 5/min *-j LOG  *-*-log *-prefix "SYN/RST:" *- *-log*-level 5 -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >SYN,RST SYN,RST</tcp-flags>
+        </tcp>
+        <limit >
+          <limit >5/min</limit>
+        </limit>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;SYN/RST:&quot;</log-prefix>
+          <log-level >5</log-level>
+        </LOG>
+<!-- line 65 *-A check *-flags *-p tcp  *-m tcp *- *-tcp*-flags SYN,RST SYN,RST  *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >SYN,RST SYN,RST</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 66 *-A check *-flags *-p tcp  *-m tcp *- *-tcp*-flags FIN,SYN FIN,SYN  *-m limit *- *-limit 5/min *-j LOG  *-*-log *-prefix "SYN/FIN:" *- *-log*-level 5 -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN FIN,SYN</tcp-flags>
+        </tcp>
+        <limit >
+          <limit >5/min</limit>
+        </limit>
+       </conditions>
+       <actions>
+        <LOG >
+          <log-prefix >&quot;SYN/FIN:&quot;</log-prefix>
+          <log-level >5</log-level>
+        </LOG>
+<!-- line 67 *-A check *-flags *-p tcp  *-m tcp *- *-tcp*-flags FIN,SYN FIN,SYN  *-j DROP -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <conditions>
+        <match >
+          <p >tcp</p>
+        </match>
+        <tcp >
+          <tcp-flags >FIN,SYN FIN,SYN</tcp-flags>
+        </tcp>
+       </conditions>
+       <actions>
+        <DROP  />
+<!-- line 68 COMMIT -->
+       </actions>
+
+      </rule>
+
+    </chain>
+  </table>
+<!-- # Completed on Sun Feb 24 14:24:18 2019 -->
+<!-- # Generated by xtables*-save v1.8.2 on Sun Feb 24 14:24:18 2019 -->
+<!-- line 71 *security -->
+  <table name="security" >
+<!-- line 72 :INPUT ACCEPT [11413072:16900642605] -->
+<!-- line 73 :FORWARD ACCEPT [0:0] -->
+<!-- line 74 :OUTPUT ACCEPT [6308594:322526158] -->
+<!-- line 75 :INPUT_direct *- [0:0] -->
+<!-- line 76 :OUTPUT_direct *- [0:0] -->
+<!-- line 77 :FORWARD_direct *- [0:0] -->
+<!-- line 78 *-A INPUT  *-j INPUT_direct -->
+    <chain name="INPUT" policy="ACCEPT" packet-count="11413072" byte-count="16900642605" >
+      <rule >
+       <actions>
+        <call >
+          <INPUT_direct />
+        </call>
+<!-- line 79 *-A FORWARD  *-j FORWARD_direct -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="FORWARD" policy="ACCEPT" packet-count="0" byte-count="0" >
+      <rule >
+       <actions>
+        <call >
+          <FORWARD_direct />
+        </call>
+<!-- line 80 *-A OUTPUT  *-j OUTPUT_direct -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="OUTPUT" policy="ACCEPT" packet-count="6308594" byte-count="322526158" >
+      <rule >
+       <actions>
+        <call >
+          <OUTPUT_direct />
+        </call>
+<!-- line 81 COMMIT -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="INPUT_direct" packet-count="0" byte-count="0" />
+    <chain name="OUTPUT_direct" packet-count="0" byte-count="0" />
+    <chain name="FORWARD_direct" packet-count="0" byte-count="0" />
+  </table>
+<!-- # Completed on Sun Feb 24 14:24:18 2019 -->
+<!-- # Generated by xtables*-save v1.8.2 on Sun Feb 24 14:24:18 2019 -->
+<!-- line 84 *raw -->
+  <table name="raw" >
+<!-- line 85 :PREROUTING ACCEPT [11441097:16907693083] -->
+<!-- line 86 :OUTPUT ACCEPT [6308594:322526158] -->
+<!-- line 87 :PREROUTING_direct *- [0:0] -->
+<!-- line 88 :PREROUTING_ZONES_SOURCE *- [0:0] -->
+<!-- line 89 :PREROUTING_ZONES *- [0:0] -->
+<!-- line 90 :OUTPUT_direct *- [0:0] -->
+<!-- line 91 :PRE_public *- [0:0] -->
+<!-- line 92 :PRE_public_log *- [0:0] -->
+<!-- line 93 :PRE_public_deny *- [0:0] -->
+<!-- line 94 :PRE_public_allow *- [0:0] -->
+<!-- line 95 :PRE_drop *- [0:0] -->
+<!-- line 96 :PRE_drop_log *- [0:0] -->
+<!-- line 97 :PRE_drop_deny *- [0:0] -->
+<!-- line 98 :PRE_drop_allow *- [0:0] -->
+<!-- line 99 *-A PREROUTING  *-j PREROUTING_direct -->
+    <chain name="PREROUTING" policy="ACCEPT" packet-count="11441097" byte-count="16907693083" >
+      <rule >
+       <actions>
+        <call >
+          <PREROUTING_direct />
+        </call>
+<!-- line 100 *-A PREROUTING  *-j PREROUTING_ZONES_SOURCE -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PREROUTING_ZONES_SOURCE />
+        </call>
+<!-- line 101 *-A PREROUTING  *-j PREROUTING_ZONES -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PREROUTING_ZONES />
+        </call>
+<!-- line 102 *-A OUTPUT  *-j OUTPUT_direct -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="OUTPUT" policy="ACCEPT" packet-count="6308594" byte-count="322526158" >
+      <rule >
+       <actions>
+        <call >
+          <OUTPUT_direct />
+        </call>
+<!-- line 103 *-A PREROUTING_ZONES  *-j PRE_drop -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="PREROUTING_ZONES" packet-count="0" byte-count="0" >
+      <rule >
+       <actions>
+        <call >
+          <PRE_drop />
+        </call>
+<!-- line 104 *-A PRE_public  *-j PRE_public_log -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="PRE_public" packet-count="0" byte-count="0" >
+      <rule >
+       <actions>
+        <call >
+          <PRE_public_log />
+        </call>
+<!-- line 105 *-A PRE_public  *-j PRE_public_deny -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PRE_public_deny />
+        </call>
+<!-- line 106 *-A PRE_public  *-j PRE_public_allow -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PRE_public_allow />
+        </call>
+<!-- line 107 *-A PRE_drop  *-j PRE_drop_log -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="PRE_drop" packet-count="0" byte-count="0" >
+      <rule >
+       <actions>
+        <call >
+          <PRE_drop_log />
+        </call>
+<!-- line 108 *-A PRE_drop  *-j PRE_drop_deny -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PRE_drop_deny />
+        </call>
+<!-- line 109 *-A PRE_drop  *-j PRE_drop_allow -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PRE_drop_allow />
+        </call>
+<!-- line 110 COMMIT -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="PREROUTING_direct" packet-count="0" byte-count="0" />
+    <chain name="PREROUTING_ZONES_SOURCE" packet-count="0" byte-count="0" />
+    <chain name="OUTPUT_direct" packet-count="0" byte-count="0" />
+    <chain name="PRE_public_log" packet-count="0" byte-count="0" />
+    <chain name="PRE_public_deny" packet-count="0" byte-count="0" />
+    <chain name="PRE_public_allow" packet-count="0" byte-count="0" />
+    <chain name="PRE_drop_log" packet-count="0" byte-count="0" />
+    <chain name="PRE_drop_deny" packet-count="0" byte-count="0" />
+    <chain name="PRE_drop_allow" packet-count="0" byte-count="0" />
+  </table>
+<!-- # Completed on Sun Feb 24 14:24:18 2019 -->
+<!-- # Generated by xtables*-save v1.8.2 on Sun Feb 24 14:24:18 2019 -->
+<!-- line 113 *mangle -->
+  <table name="mangle" >
+<!-- line 114 :PREROUTING ACCEPT [11441097:16907693083] -->
+<!-- line 115 :INPUT ACCEPT [11426462:16903146732] -->
+<!-- line 116 :FORWARD ACCEPT [0:0] -->
+<!-- line 117 :OUTPUT ACCEPT [6308594:322526158] -->
+<!-- line 118 :POSTROUTING ACCEPT [6308630:322530766] -->
+<!-- line 119 :PREROUTING_direct *- [0:0] -->
+<!-- line 120 :PREROUTING_ZONES_SOURCE *- [0:0] -->
+<!-- line 121 :PREROUTING_ZONES *- [0:0] -->
+<!-- line 122 :POSTROUTING_direct *- [0:0] -->
+<!-- line 123 :INPUT_direct *- [0:0] -->
+<!-- line 124 :OUTPUT_direct *- [0:0] -->
+<!-- line 125 :FORWARD_direct *- [0:0] -->
+<!-- line 126 :PRE_public *- [0:0] -->
+<!-- line 127 :PRE_public_log *- [0:0] -->
+<!-- line 128 :PRE_public_deny *- [0:0] -->
+<!-- line 129 :PRE_public_allow *- [0:0] -->
+<!-- line 130 :PRE_drop *- [0:0] -->
+<!-- line 131 :PRE_drop_log *- [0:0] -->
+<!-- line 132 :PRE_drop_deny *- [0:0] -->
+<!-- line 133 :PRE_drop_allow *- [0:0] -->
+<!-- line 134 *-A PREROUTING  *-j PREROUTING_direct -->
+    <chain name="PREROUTING" policy="ACCEPT" packet-count="11441097" byte-count="16907693083" >
+      <rule >
+       <actions>
+        <call >
+          <PREROUTING_direct />
+        </call>
+<!-- line 135 *-A PREROUTING  *-j PREROUTING_ZONES_SOURCE -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PREROUTING_ZONES_SOURCE />
+        </call>
+<!-- line 136 *-A PREROUTING  *-j PREROUTING_ZONES -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PREROUTING_ZONES />
+        </call>
+<!-- line 137 *-A INPUT  *-j INPUT_direct -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="INPUT" policy="ACCEPT" packet-count="11426462" byte-count="16903146732" >
+      <rule >
+       <actions>
+        <call >
+          <INPUT_direct />
+        </call>
+<!-- line 138 *-A FORWARD  *-j FORWARD_direct -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="FORWARD" policy="ACCEPT" packet-count="0" byte-count="0" >
+      <rule >
+       <actions>
+        <call >
+          <FORWARD_direct />
+        </call>
+<!-- line 139 *-A OUTPUT  *-j OUTPUT_direct -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="OUTPUT" policy="ACCEPT" packet-count="6308594" byte-count="322526158" >
+      <rule >
+       <actions>
+        <call >
+          <OUTPUT_direct />
+        </call>
+<!-- line 140 *-A POSTROUTING  *-j POSTROUTING_direct -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="POSTROUTING" policy="ACCEPT" packet-count="6308630" byte-count="322530766" >
+      <rule >
+       <actions>
+        <call >
+          <POSTROUTING_direct />
+        </call>
+<!-- line 141 *-A PREROUTING_ZONES  *-j PRE_drop -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="PREROUTING_ZONES" packet-count="0" byte-count="0" >
+      <rule >
+       <actions>
+        <call >
+          <PRE_drop />
+        </call>
+<!-- line 142 *-A PRE_public  *-j PRE_public_log -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="PRE_public" packet-count="0" byte-count="0" >
+      <rule >
+       <actions>
+        <call >
+          <PRE_public_log />
+        </call>
+<!-- line 143 *-A PRE_public  *-j PRE_public_deny -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PRE_public_deny />
+        </call>
+<!-- line 144 *-A PRE_public  *-j PRE_public_allow -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PRE_public_allow />
+        </call>
+<!-- line 145 *-A PRE_drop  *-j PRE_drop_log -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="PRE_drop" packet-count="0" byte-count="0" >
+      <rule >
+       <actions>
+        <call >
+          <PRE_drop_log />
+        </call>
+<!-- line 146 *-A PRE_drop  *-j PRE_drop_deny -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PRE_drop_deny />
+        </call>
+<!-- line 147 *-A PRE_drop  *-j PRE_drop_allow -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PRE_drop_allow />
+        </call>
+<!-- line 148 COMMIT -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="PREROUTING_direct" packet-count="0" byte-count="0" />
+    <chain name="PREROUTING_ZONES_SOURCE" packet-count="0" byte-count="0" />
+    <chain name="POSTROUTING_direct" packet-count="0" byte-count="0" />
+    <chain name="INPUT_direct" packet-count="0" byte-count="0" />
+    <chain name="OUTPUT_direct" packet-count="0" byte-count="0" />
+    <chain name="FORWARD_direct" packet-count="0" byte-count="0" />
+    <chain name="PRE_public_log" packet-count="0" byte-count="0" />
+    <chain name="PRE_public_deny" packet-count="0" byte-count="0" />
+    <chain name="PRE_public_allow" packet-count="0" byte-count="0" />
+    <chain name="PRE_drop_log" packet-count="0" byte-count="0" />
+    <chain name="PRE_drop_deny" packet-count="0" byte-count="0" />
+    <chain name="PRE_drop_allow" packet-count="0" byte-count="0" />
+  </table>
+<!-- # Completed on Sun Feb 24 14:24:18 2019 -->
+<!-- # Generated by xtables*-save v1.8.2 on Sun Feb 24 14:24:18 2019 -->
+<!-- line 151 *nat -->
+  <table name="nat" >
+<!-- line 152 :PREROUTING ACCEPT [27394:7019958] -->
+<!-- line 153 :INPUT ACCEPT [0:0] -->
+<!-- line 154 :POSTROUTING ACCEPT [8698:723931] -->
+<!-- line 155 :OUTPUT ACCEPT [8698:723931] -->
+<!-- line 156 :PREROUTING_direct *- [0:0] -->
+<!-- line 157 :PREROUTING_ZONES_SOURCE *- [0:0] -->
+<!-- line 158 :PREROUTING_ZONES *- [0:0] -->
+<!-- line 159 :POSTROUTING_direct *- [0:0] -->
+<!-- line 160 :POSTROUTING_ZONES_SOURCE *- [0:0] -->
+<!-- line 161 :POSTROUTING_ZONES *- [0:0] -->
+<!-- line 162 :OUTPUT_direct *- [0:0] -->
+<!-- line 163 :PRE_public *- [0:0] -->
+<!-- line 164 :PRE_public_log *- [0:0] -->
+<!-- line 165 :PRE_public_deny *- [0:0] -->
+<!-- line 166 :PRE_public_allow *- [0:0] -->
+<!-- line 167 :POST_public *- [0:0] -->
+<!-- line 168 :POST_public_log *- [0:0] -->
+<!-- line 169 :POST_public_deny *- [0:0] -->
+<!-- line 170 :POST_public_allow *- [0:0] -->
+<!-- line 171 :PRE_drop *- [0:0] -->
+<!-- line 172 :PRE_drop_log *- [0:0] -->
+<!-- line 173 :PRE_drop_deny *- [0:0] -->
+<!-- line 174 :PRE_drop_allow *- [0:0] -->
+<!-- line 175 :POST_drop *- [0:0] -->
+<!-- line 176 :POST_drop_log *- [0:0] -->
+<!-- line 177 :POST_drop_deny *- [0:0] -->
+<!-- line 178 :POST_drop_allow *- [0:0] -->
+<!-- line 179 *-A PREROUTING  *-j PREROUTING_direct -->
+    <chain name="PREROUTING" policy="ACCEPT" packet-count="27394" byte-count="7019958" >
+      <rule >
+       <actions>
+        <call >
+          <PREROUTING_direct />
+        </call>
+<!-- line 180 *-A PREROUTING  *-j PREROUTING_ZONES_SOURCE -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PREROUTING_ZONES_SOURCE />
+        </call>
+<!-- line 181 *-A PREROUTING  *-j PREROUTING_ZONES -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PREROUTING_ZONES />
+        </call>
+<!-- line 182 *-A POSTROUTING  *-j POSTROUTING_direct -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="POSTROUTING" policy="ACCEPT" packet-count="8698" byte-count="723931" >
+      <rule >
+       <actions>
+        <call >
+          <POSTROUTING_direct />
+        </call>
+<!-- line 183 *-A POSTROUTING  *-j POSTROUTING_ZONES_SOURCE -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <POSTROUTING_ZONES_SOURCE />
+        </call>
+<!-- line 184 *-A POSTROUTING  *-j POSTROUTING_ZONES -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <POSTROUTING_ZONES />
+        </call>
+<!-- line 185 *-A OUTPUT  *-j OUTPUT_direct -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="OUTPUT" policy="ACCEPT" packet-count="8698" byte-count="723931" >
+      <rule >
+       <actions>
+        <call >
+          <OUTPUT_direct />
+        </call>
+<!-- line 186 *-A PREROUTING_ZONES  *-j PRE_drop -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="PREROUTING_ZONES" packet-count="0" byte-count="0" >
+      <rule >
+       <actions>
+        <call >
+          <PRE_drop />
+        </call>
+<!-- line 187 *-A POSTROUTING_ZONES  *-j POST_drop -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="POSTROUTING_ZONES" packet-count="0" byte-count="0" >
+      <rule >
+       <actions>
+        <call >
+          <POST_drop />
+        </call>
+<!-- line 188 *-A PRE_public  *-j PRE_public_log -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="PRE_public" packet-count="0" byte-count="0" >
+      <rule >
+       <actions>
+        <call >
+          <PRE_public_log />
+        </call>
+<!-- line 189 *-A PRE_public  *-j PRE_public_deny -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PRE_public_deny />
+        </call>
+<!-- line 190 *-A PRE_public  *-j PRE_public_allow -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PRE_public_allow />
+        </call>
+<!-- line 191 *-A POST_public  *-j POST_public_log -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="POST_public" packet-count="0" byte-count="0" >
+      <rule >
+       <actions>
+        <call >
+          <POST_public_log />
+        </call>
+<!-- line 192 *-A POST_public  *-j POST_public_deny -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <POST_public_deny />
+        </call>
+<!-- line 193 *-A POST_public  *-j POST_public_allow -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <POST_public_allow />
+        </call>
+<!-- line 194 *-A PRE_drop  *-j PRE_drop_log -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="PRE_drop" packet-count="0" byte-count="0" >
+      <rule >
+       <actions>
+        <call >
+          <PRE_drop_log />
+        </call>
+<!-- line 195 *-A PRE_drop  *-j PRE_drop_deny -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PRE_drop_deny />
+        </call>
+<!-- line 196 *-A PRE_drop  *-j PRE_drop_allow -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <PRE_drop_allow />
+        </call>
+<!-- line 197 *-A POST_drop  *-j POST_drop_log -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="POST_drop" packet-count="0" byte-count="0" >
+      <rule >
+       <actions>
+        <call >
+          <POST_drop_log />
+        </call>
+<!-- line 198 *-A POST_drop  *-j POST_drop_deny -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <POST_drop_deny />
+        </call>
+<!-- line 199 *-A POST_drop  *-j POST_drop_allow -->
+       </actions>
+
+      </rule>
+
+      <rule >
+       <actions>
+        <call >
+          <POST_drop_allow />
+        </call>
+<!-- line 200 COMMIT -->
+       </actions>
+
+      </rule>
+
+    </chain>
+    <chain name="INPUT" policy="ACCEPT" packet-count="0" byte-count="0" />
+    <chain name="PREROUTING_direct" packet-count="0" byte-count="0" />
+    <chain name="PREROUTING_ZONES_SOURCE" packet-count="0" byte-count="0" />
+    <chain name="POSTROUTING_direct" packet-count="0" byte-count="0" />
+    <chain name="POSTROUTING_ZONES_SOURCE" packet-count="0" byte-count="0" />
+    <chain name="OUTPUT_direct" packet-count="0" byte-count="0" />
+    <chain name="PRE_public_log" packet-count="0" byte-count="0" />
+    <chain name="PRE_public_deny" packet-count="0" byte-count="0" />
+    <chain name="PRE_public_allow" packet-count="0" byte-count="0" />
+    <chain name="POST_public_log" packet-count="0" byte-count="0" />
+    <chain name="POST_public_deny" packet-count="0" byte-count="0" />
+    <chain name="POST_public_allow" packet-count="0" byte-count="0" />
+    <chain name="PRE_drop_log" packet-count="0" byte-count="0" />
+    <chain name="PRE_drop_deny" packet-count="0" byte-count="0" />
+    <chain name="PRE_drop_allow" packet-count="0" byte-count="0" />
+    <chain name="POST_drop_log" packet-count="0" byte-count="0" />
+    <chain name="POST_drop_deny" packet-count="0" byte-count="0" />
+    <chain name="POST_drop_allow" packet-count="0" byte-count="0" />
+  </table>
+<!-- # Completed on Sun Feb 24 14:24:18 2019 -->
+</iptables-rules>
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #
+┌─[root@parrot]─[/home/xe1phix/Downloads/ParrotKios/Firefox-Hardening/Xe1phix-User.js]
+└──╼ #
+
