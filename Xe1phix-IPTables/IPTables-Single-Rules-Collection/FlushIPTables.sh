@@ -21,8 +21,8 @@
 
 ## Policy DROP for all traffic as fallback.
 /sbin/iptables -P INPUT DROP
-/sbin/iptables -P FORWARD ACCEPT
-/sbin/iptables -P OUTPUT ACCEPT
+/sbin/iptables -P FORWARD DROP
+/sbin/iptables -P OUTPUT DROP
 
 ## Drop/reject all IPv6 Traffic:
 /sbin/ip6tables -A INPUT -j DROP
