@@ -1,0 +1,8 @@
+## DNSCrypt
+options rotate 
+options timeout:5
+nameserver 127.0.2.1
+nameserver 127.0.2.1
+nameserver 1.0.0.1
+options edns0 single-request-reopen
+
