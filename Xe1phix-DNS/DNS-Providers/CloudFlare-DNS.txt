@@ -1,0 +1,7 @@
+## Cloud Flare
+nameserver 1.0.0.1
+nameserver 1.1.1.1
+search localdomain
+
+
+
