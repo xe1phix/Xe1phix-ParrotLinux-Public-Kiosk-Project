@@ -1,0 +1,78 @@
+youtube-dl - ArchWiki
+
+Related articles
+
+    mpv
+    FFmpeg
+
+youtube-dl is a command-line program that lets you easily download videos and audio from more than a thousand websites. See the list of supported sites.
+Contents
+
+    1 Installation
+    2 Usage
+        2.1 Format selection
+        2.2 Extract audio
+    3 Configuration
+    4 Tips and tricks
+        4.1 Increasing download speeds
+        4.2 Trim (partial download)
+        4.3 URL from clipboard
+    5 See also
+
+Installation
+
+Install the youtube-dl package, or youtube-dl-gitAUR for the development version.
+Usage
+
+See the youtube-dl(1) man page.
+
+$ youtube-dl [OPTIONS] URL
+
+Tip: In some cases (like YouTube) URL can be substituted with the video ID.
+Format selection
+
+In cases where multiple formats of a video are available, youtube-dl will default to downloading the best possible version. If you'd like to choose a specific format to download, first get a list of the available formats:
+
+$ youtube-dl -F URL
+
+Note the format code for the version you want, and then run:
+
+$ youtube-dl -f format URL
+
+You can often download audio-only or video-only formats this way. If you have FFmpeg, you can download both a video-only and audio-only format and mux them together into a single file:
+
+$ youtube-dl -f video_format+audio_format URL
+
+Extract audio
+
+Use -x for audio-only downloads (requires FFmpeg).
+
+$ youtube-dl -x -f bestaudio URL
+
+Configuration
+
+The system-wide configuration file is /etc/youtube-dl.conf and the user-specific configuration file is ~/.config/youtube-dl/config
+
+The syntax is simply one command-line option per line. See the youtube-dl(1) man page for supported options. Example configuration:
+
+~/.config/youtube-dl/config
+
+# Save in ~/Videos
+-o ~/Videos/%(title)s.%(ext)s
+
+# Prefer 1080p or lower resolutions
+-f (bestvideo[height<=1080]/bestvideo)+bestaudio/best[height<=1080]/best
+
+Tips and tricks
+Increasing download speeds
+
+Some websites throttle download speeds. You can often increase speeds by using Aria2, an external downloader which supports multi-connection downloads. Example:
+
+$ youtube-dl --external-downloader aria2c --external-downloader-args '-c -x 5 -k 2M' URL
+
+Trim (partial download)
+
+Parts of DASH videos can be downloaded by using the output of youtube-dl -g -f format URL as ffmpeg input with the -ss, -t and -c copy options.
+URL from clipboard
+
+A shell alias or a keyboard shortcut can be set to download a video (or audio) of a selected (or copied) URL by outputting it from the X selection. See Clipboard#Tools. 
