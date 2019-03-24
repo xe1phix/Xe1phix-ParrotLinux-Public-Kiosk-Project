@@ -1,0 +1,20 @@
+## /etc/udev/rules.d/10-local-powersave.rules
+
+## PCI runtime power management
+ACTION=="add", SUBSYSTEM=="pci", ATTR{power/control}="auto"
+
+## USB autosuspend
+ACTION=="add", SUBSYSTEM=="usb", ATTR{power/control}="auto"
+ACTION=="add", SUBSYSTEM=="usb", TEST=="power/autosuspend" ATTR{power/autosuspend}="60"
+
+## SATA active link power management
+SUBSYSTEM=="scsi_host", KERNEL=="host*", ATTR{link_power_management_policy}="min_power"
+
+## Wlan power save
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="wlan*" RUN+="/usr/sbin/iw dev %k set power_save on"
+
+## Disable bluetooth
+SUBSYSTEM=="rfkill", ATTR{type}=="bluetooth", ATTR{state}="0"
+
+## Disable wake-on-LAN
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="eth*" RUN+="/usr/sbin/ethtool -s %k wol d"
