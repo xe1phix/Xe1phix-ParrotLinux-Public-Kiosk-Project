@@ -1,0 +1,8 @@
+## ======================================= ##
+## Stable Parrot 3.5 Pinned Repository
+## ======================================= ##
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## deb http://mirrordirector.archive.parrotsec.org/parrot stable main contrib non-free
+## deb-src http://mirrordirector.archive.parrotsec.org/parrot stable main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+
