@@ -1,0 +1,5 @@
+## ============================= ##
+## Parrot 2.0 Dev Repository
+## ============================= ##
+## deb http://us.repository.frozenbox.org/parrot/ stable main contrib nonfree
+## deb http://us.repository.frozenbox.org/parrot/ testing main contrib nonfree
