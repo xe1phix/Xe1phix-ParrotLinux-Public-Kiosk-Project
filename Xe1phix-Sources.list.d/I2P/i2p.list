@@ -1,0 +1,94 @@
+## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ##
+## ===================================================================================== ##
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~  I2P Project Debian Repository: ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## ===================================================================================== ##
+## +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ##
+## 
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## https://geti2p.net/en/download/debian
+## https://geti2p.net/en/get-involved/develop/release-signing-key
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## /etc/apt/sources.list.d/i2p.list
+## echo -e 'deb http://deb.i2p2.no/ jessie main\ndeb-src http://deb.i2p2.no jessie main' > /etc/apt/sources.list.d/i2p-release.list"
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## https://geti2p.net/en/get-involved/develop/release-signing-key
+## wget https://geti2p.net/_static/i2p-debian-repo.key.asc
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## curl -o i2p-debian-repo.key.asc https://geti2p.net/_static/i2p-debian-repo.key.asc
+## gpg -n --import --import-options import-show i2p-debian-repo.key.asc
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## curl -o i2p-pubkey.asc https://geti2p.net/_static/i2p-debian-repo.key.asc
+## gpg --keyid-format long --with-fingerprint i2p-pubkey.asc
+## gpg --no-default-keyring --keyring ./i2p-pubkey.gpg --import i2p-pubkey.asc
+## cp i2p-pubkey.gpg /etc/apt/trusted.gpg.d/i2p-pubkey.gpg
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## apt-key add i2p-debian-repo.key.asc
+## apt-get install i2p-keyring
+## apt-get install apt-transport-https vokoscreen torchat tor
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## gpg --fetch-key 0x7840E7610F28B904753549D767ECE5605BCF1346
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## 			7840 E761 0F28 B904 7535  49D7 67EC E560 5BCF 1346
+##       Key fingerprint = 7840 E761 0F28 B904 7535  49D7 67EC E560 5BCF 1346
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## gpg --export 7840E7610F28B904753549D767ECE5605BCF1346 | apt-key add -
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+
+## Key fingerprint = 2D3D 2D03 910C 6504 C121  0C65 EE60 C0C8 EE72 56A8
+## Key fingerprint = 2D3D 2D03 910C 6504 C121  0C65 EE60 C0C8 EE72 56A8
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## Key fingerprint = 4456 EBBE C805 63FE 57E6  B310 4155 76BA A76E 0BED
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## keys.i2p-projekt.de
+## keys.indymedia.org
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## wget https://launchpad.net/i2p/trunk/0.9.30/+download/i2pinstall_0.9.30.jar
+## wget https://launchpad.net/i2p/trunk/0.9.30/+download/i2pinstall_0.9.30.jar.sig
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## sha256sum i2pinstall_0.9.30.jar
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## 319421c892a12c36710ad71558927c844da08ea4e4d1c3ee69fc6be2cecce92e
+## 319421c892a12c36710ad71558927c844da08ea4e4d1c3ee69fc6be2cecce92e  i2pinstall_0.9.30.jar
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## gpg --verify i2pinstall_0.9.30.jar.sig i2pinstall_0.9.30.jar
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## java -jar i2pinstall_0.9.30.jar
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## /home/amnesia/i2p/i2prouter start
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+
+
+
+## ================================= ##
+##  I2P Debian Stretch Repository  ##
+## ================================= ##
+## deb https://deb.i2p2.de/ stretch main
+## deb-src https://deb.i2p2.de/ stretch main
+
+
+## ================================= ##
+##  I2P Debian Jessie Repository  ##
+## ================================= ##
+## deb http://deb.i2p2.no/ jessie main
+## deb-src http://deb.i2p2.no/ jessie main
+
+
+## ================================= ##
+##  I2P Debian Wheezy Repository  ##
+## ================================= ##
+## deb http://deb.i2p2.no/ stable main
+## deb-src http://deb.i2p2.no/ stable main
+
+
+## ================================= ##
+##  I2P Debian Squeeze Repository  ##
+## ================================= ##
+## deb http://deb.i2p2.no/ squeeze main
+## deb-src http://deb.i2p2.no/ squeeze main
+
+
+## ================================= ##
+##  I2P Debian Unstable Repository  ##
+## ================================= ##
+## deb http://deb.i2p2.no/ unstable main
+## deb-src http://deb.i2p2.no/ unstable main
