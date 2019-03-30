@@ -1,0 +1,7 @@
+## ============================== ##
+## Parrot 3.1 Stable Repository
+## ============================== ##
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## deb http://cloudflare.archive.parrotsec.org/parrot/ parrot main contrib non-free
+## deb-src http://cloudflare.archive.parrotsec.org/parrot/ parrot main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
