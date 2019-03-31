@@ -1,0 +1,5 @@
+## /etc/udev/rules.d/81-bluetooth-hci.rules
+
+## Lenovo Broadcom based HCI should be disabled
+## blacklists any USB device with Vendor ID 0a5c and Product ID 217f.
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0a5c", ATTRS{idProduct}=="217f", ATTR{authorized}="0"
