@@ -1,0 +1,2 @@
+## /etc/udev/rules.d/10-local-powersave.rules
+SUBSYSTEM=="rfkill", ATTR{type}=="bluetooth", ATTR{state}="0"
