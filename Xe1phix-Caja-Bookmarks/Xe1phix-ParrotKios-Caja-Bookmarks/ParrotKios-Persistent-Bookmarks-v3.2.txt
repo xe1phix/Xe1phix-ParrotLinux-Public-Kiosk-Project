@@ -1,0 +1,47 @@
+file:///home/xe1phix/Downloads/ParrotKios
+file:///home/xe1phix/Downloads
+file:///home/xe1phix/Downloads/ParrotKios/Firefox-Hardening
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Apt-sources.list.d
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-AppArmor
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Bluetooth-Kill-It-With-Fire
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-BuildingTrustSeries
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Converting+Manipulating-VLC-FFMpeg+Pandoc+Convert
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Documentation+Wiki+PDFs+TechTutorials
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Darknet
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Firejail
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-GnuPG
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Icons
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Modprobe.d
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Metadata
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-ManArchive
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Notes
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-OpenSSL
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-PAM
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Scripts
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Profile
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Synaptic
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Sysctl
+file:///home/xe1phix/Downloads/ParrotKios/YubiKey-OTP-2FA
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Top-ParrotKios-Scripts
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-SystemLockDown
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-DNS
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Curl
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Git
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-IPTables+Firewalld+nmcli
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Logging
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Mullvad
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Podcasts
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Protonmail
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Systemd
+file:///home/xe1phix/Downloads/ParrotKios/Xe1phix-Telegram
+file:///home/xe1phix/Downloads/Xe1phix%20Tutorials
+file:///etc/apt /etc/apt
+file:///etc/apparmor.d
+file:///etc/firejail /etc/firejail
+file:///etc/modprobe.d /etc/modprobe.d
+file:///etc/systemd /etc/systemd
+file:///etc/thunderbird /etc/thunderbird
+file:///var/cache/apt/archives /var/cache/apt/archives
+file:///var/lib/ucf /var/lib/ucf
+file:///var/lib/apt /var/lib/apt
+file:///var/lib/apt/lists /var/lib/apt/lists
