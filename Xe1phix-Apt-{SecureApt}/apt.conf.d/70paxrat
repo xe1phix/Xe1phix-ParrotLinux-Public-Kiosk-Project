@@ -1,0 +1,2 @@
+DPkg::Post-Invoke { "/usr/bin/test -x /sbin/paxrat && /sbin/paxrat -c /etc/paxrat/paxrat.conf || true";}
+
