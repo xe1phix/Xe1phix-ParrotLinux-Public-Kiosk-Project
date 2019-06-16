@@ -1,0 +1,7 @@
+## Official packages
+deb http://ftp.us.debian.org/debian wheezy main main/debian-installer
+## ZoL packages
+## wget http://archive.zfsonlinux.org/debian/4D5843EA.asc
+deb [trusted=yes] http://archive.zfsonlinux.org/debian wheezy main
+deb [trusted=yes] http://archive.zfsonlinux.org/debian wheezy-daily main
+
