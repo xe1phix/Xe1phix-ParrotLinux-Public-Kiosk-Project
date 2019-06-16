@@ -1,0 +1,8 @@
+Acquire::cdrom {
+  mount "/media/cdrom";
+  mount "/dev/sr0";
+  mount "/run/media/public/*";
+};
+## Dir::Media::MountPath "/media/cdrom";
+Dir::Media::MountPath "/mnt/cdrom";
+## Dir::Media::MountPath "/run/media/public/cdrom"
