@@ -1,0 +1,6 @@
+deb http://http.debian.net/debian/ jessie main contrib
+deb-src http://http.debian.net/debian/ jessie main contrib
+
+
+deb http://ppa.launchpad.net/securityonion/stable/ubuntu trusty main 
+deb-src http://ppa.launchpad.net/securityonion/stable/ubuntu trusty main 
