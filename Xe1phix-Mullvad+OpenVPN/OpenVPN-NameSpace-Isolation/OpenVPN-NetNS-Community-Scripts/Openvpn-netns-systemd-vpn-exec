@@ -1,0 +1,53 @@
+#!/bin/bash
+
+if [ $# -lt 2 ]; then
+	echo "Usage: $(basename $0) <config> <command>" >&2
+	exit 1
+fi
+
+if [[ $EUID -ne 0 ]]; then
+	echo "This script must be run as root" >&2
+	exit 2
+fi
+
+FILE=$(basename "$1")
+FILENAME_BASE="${FILE%.*}"
+CURRENT_NS="$(ip netns identify $$)"
+OLD_IP="$(curl -s api.ipify.org)"
+
+
+if [[ "$CURRENT_NS" ]]; then
+	NEW_NS=$(systemd-escape -u "$CURRENT_NS/$FILENAME_BASE")
+else
+	NEW_NS="vpn-$FILENAME_BASE"
+fi
+NEW_NS=$(systemd-escape "$NEW_NS")
+
+function finish {
+	kill $(cat /run/openvpn/$NEW_NS.pid)
+	systemctl stop "netns@$NEW_NS.service"
+}
+trap finish EXIT
+
+
+# Setup the network namespace
+systemctl start "netns@$NEW_NS.service"
+mkdir -p /run/openvpn/ 2>/dev/null
+mkdir -p "/etc/netns/$NEW_NS" > /dev/null 2>&1
+
+
+# Start openvpn and push it to the new namespace
+/usr/sbin/openvpn --setenv NETNS "$NEW_NS" --ifconfig-noexec --route-noexec --daemon "ovpn-$NEW_NS" --status "/run/openvpn/$NEW_NS.status" 10 --script-security 2 --config "$1" --writepid "/run/openvpn/$NEW_NS.pid" --up /etc/openvpn/netns --route-up /etc/openvpn/netns
+
+
+# Wait until tunnel is active
+ip netns exec "$NEW_NS" /bin/ping -c 1 1.1.1.1 > /dev/null 2>&1
+while [ $? -ne 0 ]; do
+       sleep 1
+       ip netns exec "$NEW_NS" /bin/ping -c 1 1.1.1.1 > /dev/null 2>&1
+done
+
+# Execute the requested command
+shift
+ip netns exec "$NEW_NS" $@
+
