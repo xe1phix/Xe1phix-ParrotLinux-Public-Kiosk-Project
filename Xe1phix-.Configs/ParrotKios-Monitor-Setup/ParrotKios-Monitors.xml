@@ -1,0 +1,101 @@
+<monitors version="1">
+  <configuration>
+      <clone>no</clone>
+      <output name="VGA-1">
+          <vendor>CPQ</vendor>
+          <product>0x2826</product>
+          <serial>0x01010101</serial>
+          <width>1366</width>
+          <height>768</height>
+          <rate>60</rate>
+          <x>1152</x>
+          <y>147</y>
+          <rotation>normal</rotation>
+          <reflect_x>no</reflect_x>
+          <reflect_y>no</reflect_y>
+          <primary>yes</primary>
+      </output>
+      <output name="HDMI-1">
+          <vendor>DEL</vendor>
+          <product>0xa021</product>
+          <serial>0x31564c53</serial>
+          <width>1152</width>
+          <height>864</height>
+          <rate>75</rate>
+          <x>0</x>
+          <y>0</y>
+          <rotation>normal</rotation>
+          <reflect_x>no</reflect_x>
+          <reflect_y>no</reflect_y>
+          <primary>no</primary>
+      </output>
+      <output name="DP-1">
+      </output>
+  </configuration>
+  <configuration>
+      <clone>no</clone>
+      <output name="VGA-1">
+          <vendor>???</vendor>
+          <product>0x0000</product>
+          <serial>0x00000000</serial>
+          <width>1024</width>
+          <height>768</height>
+          <rate>60</rate>
+          <x>1024</x>
+          <y>0</y>
+          <rotation>normal</rotation>
+          <reflect_x>no</reflect_x>
+          <reflect_y>no</reflect_y>
+          <primary>yes</primary>
+      </output>
+      <output name="HDMI-1">
+          <vendor>DEL</vendor>
+          <product>0xa021</product>
+          <serial>0x314e4553</serial>
+          <width>1024</width>
+          <height>768</height>
+          <rate>75</rate>
+          <x>0</x>
+          <y>0</y>
+          <rotation>normal</rotation>
+          <reflect_x>no</reflect_x>
+          <reflect_y>no</reflect_y>
+          <primary>no</primary>
+      </output>
+      <output name="DP-1">
+      </output>
+  </configuration>
+  <configuration>
+      <clone>no</clone>
+      <output name="VGA-1">
+          <vendor>DEL</vendor>
+          <product>0xa020</product>
+          <serial>0x33504c4c</serial>
+          <width>1152</width>
+          <height>864</height>
+          <rate>75</rate>
+          <x>1152</x>
+          <y>0</y>
+          <rotation>normal</rotation>
+          <reflect_x>no</reflect_x>
+          <reflect_y>no</reflect_y>
+          <primary>yes</primary>
+      </output>
+      <output name="HDMI-1">
+          <vendor>DEL</vendor>
+          <product>0xa021</product>
+          <serial>0x314e4553</serial>
+          <width>1152</width>
+          <height>864</height>
+          <rate>75</rate>
+          <x>0</x>
+          <y>0</y>
+          <rotation>normal</rotation>
+          <reflect_x>no</reflect_x>
+          <reflect_y>no</reflect_y>
+          <primary>no</primary>
+      </output>
+      <output name="DP-1">
+      </output>
+  </configuration>
+</monitors>
