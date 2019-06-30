@@ -1,0 +1,1 @@
+${title}   <-->   ${artist}}   <-->   ${album}   <-->     ${quality}   <-->     ${codec}   <-->    ${file-path}
