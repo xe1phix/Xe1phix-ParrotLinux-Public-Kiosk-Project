@@ -35,17 +35,17 @@
 - [Whitelist | File(s) & Directories](https://firejail.wordpress.com/features-3/#filesystem)
 - [Blacklist External Devices](https://firejail.wordpress.com/features-3/#filesystem)
 - Blacklist 3D
-- Blacklist /dev/
-- Blacklist /mnt/
-- Blacklist /media/
+- [Blacklist /dev/](https://lwn.net/Articles/531114/)
+- [Blacklist /mnt/](https://lwn.net/Articles/531114/)
+- [Blacklist /media/](https://lwn.net/Articles/531114/)
 - [Read-Only Bind Mounts](https://lwn.net/Articles/281157/)
 - [X11 Sandboxing](https://firejail.wordpress.com/documentation-2/x11-guide/)
 - [Xpra Support](https://firejail.wordpress.com/documentation-2/x11-guide/)
 - [Xephyr Server Support](https://firejail.wordpress.com/documentation-2/x11-guide/)
-- Network Interface Support: | macvlan, Bridged Interfaces, VLANs
+- [Network Interface Support: | macvlan, Bridged Interfaces, VLANs](https://firejail.wordpress.com/documentation-2/basic-usage/#networking)
 - [TUN Network Driver Support (Ethernet Virtual Network Interface)](https://firejail.wordpress.com/documentation-2/basic-usage/#networking)
 - [TAP Network Driver Support (Wireless Virtual Network Interface)](https://firejail.wordpress.com/documentation-2/basic-usage/#networking)
-- Trustworthy DNS (Enforced)
+- [Trustworthy DNS (Enforced)](https://firejail.wordpress.com/documentation-2/basic-usage/#networking)
 - [Netfilter (IPTables) Packet Filtering/Firewall](https://firejail.wordpress.com/documentation-2/basic-usage/#routed)
 - [Bridged Network Interfaces](https://firejail.wordpress.com/documentation-2/basic-usage/#routed)
 - [VLAN Network Interfaces]() 
@@ -107,6 +107,6 @@
 - [Firejail GnuPG Key](https://firejail.wordpress.com/download-2/#Checksums)
 - [Firejail Blog](https://firejail.wordpress.com)
 - [Firejail ArchWiki](https://wiki.archlinux.org/index.php/Firejail)
-- [Seccomp Filtering - Kernel.org](https://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt)
-- [Namespaces compatibility list](https://www.kernel.org/doc/Documentation/admin-guide/namespaces/compatibility-list.rst)
+- [Seccomp Filtering - Kernel.org Documentation](https://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt)
+- [Namespaces - Kernel.org Documentation](https://www.kernel.org/doc/Documentation/admin-guide/namespaces/compatibility-list.rst)
 - [OverlayFS - Kernel.org Documentation](https://www.kernel.org/doc/Documentation/filesystems/overlayfs.txt)
