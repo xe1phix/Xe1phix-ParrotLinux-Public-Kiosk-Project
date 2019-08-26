@@ -4,6 +4,8 @@
 ## 
 ## 
 
+[![ParrotLinux-Public-Kiosk-Project](https://img.shields.io/badge/Gitlab-%20ParrotLinux--Public--Kiosk--Project%20-blue)](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project)
+[![ParrotLinux-Public-Kiosk-Project](https://img.shields.io/badge/Xe1phix-%20ParrotLinux--Public--Kiosk--Project%20-blue)](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project)
 
 
 
