@@ -1,5 +1,5 @@
 ## 
-#  _____ <!> ParrotSec Linux - Public Kios Project <!> ______
+#  _____ <!> ParrotSec Linux - Public Kiosk Project <!> ______
 ## Designing & Implementing A restricted & Trustworthy Environment 
 ## 
 ## 
