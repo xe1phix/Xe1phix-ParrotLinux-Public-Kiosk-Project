@@ -1,0 +1,769 @@
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/aegis128.ko
+alias:          crypto-aegis128-generic
+alias:          aegis128-generic
+alias:          crypto-aegis128
+alias:          aegis128
+description:    AEGIS-128 AEAD algorithm
+author:         Ondrej Mosnacek <omosnacek@gmail.com>
+license:        GPL
+depends:        
+intree:         Y
+name:           aegis128
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/aegis128l.ko
+alias:          crypto-aegis128l-generic
+alias:          aegis128l-generic
+alias:          crypto-aegis128l
+alias:          aegis128l
+description:    AEGIS-128L AEAD algorithm
+author:         Ondrej Mosnacek <omosnacek@gmail.com>
+license:        GPL
+depends:        
+intree:         Y
+name:           aegis128l
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/aegis256.ko
+alias:          crypto-aegis256-generic
+alias:          aegis256-generic
+alias:          crypto-aegis256
+alias:          aegis256
+description:    AEGIS-256 AEAD algorithm
+author:         Ondrej Mosnacek <omosnacek@gmail.com>
+license:        GPL
+depends:        
+intree:         Y
+name:           aegis256
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/af_alg.ko
+alias:          net-pf-38
+license:        GPL
+depends:        
+intree:         Y
+name:           af_alg
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/algif_aead.ko
+description:    AEAD kernel crypto API user space interface
+author:         Stephan Mueller <smueller@chronox.de>
+license:        GPL
+depends:        af_alg
+intree:         Y
+name:           algif_aead
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/algif_hash.ko
+license:        GPL
+depends:        af_alg
+intree:         Y
+name:           algif_hash
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/algif_rng.ko
+description:    User-space interface for random number generators
+author:         Stephan Mueller <smueller@chronox.de>
+license:        GPL
+depends:        af_alg
+intree:         Y
+name:           algif_rng
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/algif_skcipher.ko
+license:        GPL
+depends:        af_alg
+intree:         Y
+name:           algif_skcipher
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/ansi_cprng.ko
+alias:          crypto-ansi_cprng
+alias:          ansi_cprng
+alias:          crypto-stdrng
+alias:          stdrng
+author:         Neil Horman <nhorman@tuxdriver.com>
+description:    Software Pseudo Random Number Generator
+license:        GPL
+depends:        
+intree:         Y
+name:           ansi_cprng
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+parm:           dbg:Boolean to enable debugging (0/1 == off/on) (int)
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/anubis.ko
+alias:          crypto-anubis
+alias:          anubis
+description:    Anubis Cryptographic Algorithm
+license:        GPL
+depends:        
+intree:         Y
+name:           anubis
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/arc4.ko
+alias:          crypto-arc4
+alias:          arc4
+author:         Jon Oberheide <jon@oberheide.org>
+description:    ARC4 Cipher Algorithm
+license:        GPL
+depends:        
+intree:         Y
+name:           arc4
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/authencesn.ko
+alias:          crypto-authencesn
+alias:          authencesn
+description:    AEAD wrapper for IPsec with extended sequence numbers
+author:         Steffen Klassert <steffen.klassert@secunet.com>
+license:        GPL
+depends:        authenc
+intree:         Y
+name:           authencesn
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/authenc.ko
+alias:          crypto-authenc
+alias:          authenc
+description:    Simple AEAD wrapper for IPsec
+license:        GPL
+depends:        
+intree:         Y
+name:           authenc
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/blowfish_common.ko
+description:    Blowfish Cipher common functions
+license:        GPL
+depends:        
+intree:         Y
+name:           blowfish_common
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/blowfish_generic.ko
+alias:          crypto-blowfish-generic
+alias:          blowfish-generic
+alias:          crypto-blowfish
+alias:          blowfish
+description:    Blowfish Cipher Algorithm
+license:        GPL
+depends:        blowfish_common
+intree:         Y
+name:           blowfish_generic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/camellia_generic.ko
+alias:          crypto-camellia-generic
+alias:          camellia-generic
+alias:          crypto-camellia
+alias:          camellia
+license:        GPL
+description:    Camellia Cipher Algorithm
+depends:        
+intree:         Y
+name:           camellia_generic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/cast5_generic.ko
+alias:          crypto-cast5-generic
+alias:          cast5-generic
+alias:          crypto-cast5
+alias:          cast5
+description:    Cast5 Cipher Algorithm
+license:        GPL
+depends:        cast_common
+intree:         Y
+name:           cast5_generic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/cast6_generic.ko
+alias:          crypto-cast6-generic
+alias:          cast6-generic
+alias:          crypto-cast6
+alias:          cast6
+description:    Cast6 Cipher Algorithm
+license:        GPL
+depends:        cast_common
+intree:         Y
+name:           cast6_generic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/cast_common.ko
+license:        GPL
+depends:        
+intree:         Y
+name:           cast_common
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/cbc.ko
+alias:          crypto-cbc
+alias:          cbc
+description:    CBC block cipher algorithm
+license:        GPL
+depends:        
+intree:         Y
+name:           cbc
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/ccm.ko
+alias:          crypto-ccm
+alias:          ccm
+alias:          crypto-rfc4309
+alias:          rfc4309
+alias:          crypto-ccm_base
+alias:          ccm_base
+description:    Counter with CBC MAC
+license:        GPL
+depends:        
+intree:         Y
+name:           ccm
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/chacha20_generic.ko
+alias:          crypto-chacha20-generic
+alias:          chacha20-generic
+alias:          crypto-chacha20
+alias:          chacha20
+description:    chacha20 cipher algorithm
+author:         Martin Willi <martin@strongswan.org>
+license:        GPL
+depends:        
+intree:         Y
+name:           chacha20_generic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/chacha20poly1305.ko
+alias:          crypto-rfc7539esp
+alias:          rfc7539esp
+alias:          crypto-rfc7539
+alias:          rfc7539
+description:    ChaCha20-Poly1305 AEAD
+author:         Martin Willi <martin@strongswan.org>
+license:        GPL
+depends:        
+intree:         Y
+name:           chacha20poly1305
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/cmac.ko
+alias:          crypto-cmac
+alias:          cmac
+description:    CMAC keyed hash algorithm
+license:        GPL
+depends:        
+intree:         Y
+name:           cmac
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/crc32c_generic.ko
+alias:          crypto-crc32c-generic
+alias:          crc32c-generic
+alias:          crypto-crc32c
+alias:          crc32c
+license:        GPL
+description:    CRC32c (Castagnoli) calculations wrapper for lib/crc32c
+author:         Clay Haapala <chaapala@cisco.com>
+depends:        
+intree:         Y
+name:           crc32c_generic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/crc32_generic.ko
+alias:          crypto-crc32-generic
+alias:          crc32-generic
+alias:          crypto-crc32
+alias:          crc32
+license:        GPL
+description:    CRC32 calculations wrapper for lib/crc32
+author:         Alexander Boyko <alexander_boyko@xyratex.com>
+depends:        
+intree:         Y
+name:           crc32_generic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/cryptd.ko
+alias:          crypto-cryptd
+alias:          cryptd
+description:    Software async crypto daemon
+license:        GPL
+depends:        
+intree:         Y
+name:           cryptd
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+parm:           cryptd_max_cpu_qlen:Set cryptd Max queue depth (uint)
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/crypto_engine.ko
+description:    Crypto hardware engine framework
+license:        GPL
+depends:        
+intree:         Y
+name:           crypto_engine
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/crypto_simd.ko
+license:        GPL
+depends:        cryptd
+intree:         Y
+name:           crypto_simd
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/crypto_user.ko
+alias:          net-pf-16-proto-21
+description:    Crypto userspace configuration API
+author:         Steffen Klassert <steffen.klassert@secunet.com>
+license:        GPL
+depends:        
+intree:         Y
+name:           crypto_user
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/ctr.ko
+alias:          crypto-ctr
+alias:          ctr
+alias:          crypto-rfc3686
+alias:          rfc3686
+description:    CTR Counter block mode
+license:        GPL
+depends:        
+intree:         Y
+name:           ctr
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/cts.ko
+alias:          crypto-cts
+alias:          cts
+description:    CTS-CBC CipherText Stealing for CBC
+license:        Dual BSD/GPL
+depends:        
+intree:         Y
+name:           cts
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/des_generic.ko
+alias:          crypto-des3_ede-generic
+alias:          des3_ede-generic
+alias:          crypto-des3_ede
+alias:          des3_ede
+alias:          crypto-des-generic
+alias:          des-generic
+alias:          crypto-des
+alias:          des
+author:         Dag Arne Osvik <da@osvik.no>
+description:    DES & Triple DES EDE Cipher Algorithms
+license:        GPL
+depends:        
+intree:         Y
+name:           des_generic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/drbg.ko
+alias:          crypto-stdrng
+alias:          stdrng
+description:    NIST SP800-90A Deterministic Random Bit Generator (DRBG) using following cores: HMAC 
+author:         Stephan Mueller <smueller@chronox.de>
+license:        GPL
+alias:          crypto-drbg_nopr_hmac_sha1
+alias:          drbg_nopr_hmac_sha1
+alias:          crypto-drbg_pr_hmac_sha1
+alias:          drbg_pr_hmac_sha1
+alias:          crypto-drbg_nopr_hmac_sha256
+alias:          drbg_nopr_hmac_sha256
+alias:          crypto-drbg_pr_hmac_sha256
+alias:          drbg_pr_hmac_sha256
+alias:          crypto-drbg_nopr_hmac_sha384
+alias:          drbg_nopr_hmac_sha384
+alias:          crypto-drbg_pr_hmac_sha384
+alias:          drbg_pr_hmac_sha384
+alias:          crypto-drbg_nopr_hmac_sha512
+alias:          drbg_nopr_hmac_sha512
+alias:          crypto-drbg_pr_hmac_sha512
+alias:          drbg_pr_hmac_sha512
+depends:        
+intree:         Y
+name:           drbg
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/ecb.ko
+alias:          crypto-ecb
+alias:          ecb
+description:    ECB block cipher algorithm
+license:        GPL
+depends:        
+intree:         Y
+name:           ecb
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/ecdh_generic.ko
+description:    ECDH generic algorithm
+license:        GPL
+alias:          crypto-ecdh
+alias:          ecdh
+depends:        
+intree:         Y
+name:           ecdh_generic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/echainiv.ko
+alias:          crypto-echainiv
+alias:          echainiv
+description:    Encrypted Chain IV Generator
+license:        GPL
+depends:        
+intree:         Y
+name:           echainiv
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/fcrypt.ko
+alias:          crypto-fcrypt
+alias:          fcrypt
+author:         David Howells <dhowells@redhat.com>
+description:    FCrypt Cipher Algorithm
+license:        Dual BSD/GPL
+depends:        
+intree:         Y
+name:           fcrypt
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/gcm.ko
+alias:          crypto-gcm
+alias:          gcm
+alias:          crypto-rfc4543
+alias:          rfc4543
+alias:          crypto-rfc4106
+alias:          rfc4106
+alias:          crypto-gcm_base
+alias:          gcm_base
+author:         Mikko Herranen <mh1@iki.fi>
+description:    Galois/Counter Mode
+license:        GPL
+depends:        
+intree:         Y
+name:           gcm
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/gf128mul.ko
+description:    Functions for multiplying elements of GF(2^128)
+license:        GPL
+depends:        
+intree:         Y
+name:           gf128mul
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/ghash-generic.ko
+alias:          crypto-ghash-generic
+alias:          ghash-generic
+alias:          crypto-ghash
+alias:          ghash
+description:    GHASH Message Digest Algorithm
+license:        GPL
+depends:        gf128mul
+intree:         Y
+name:           ghash_generic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/jitterentropy_rng.ko
+alias:          crypto-jitterentropy_rng
+alias:          jitterentropy_rng
+description:    Non-physical True Random Number Generator based on CPU Jitter
+author:         Stephan Mueller <smueller@chronox.de>
+license:        Dual BSD/GPL
+depends:        
+intree:         Y
+name:           jitterentropy_rng
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/khazad.ko
+alias:          crypto-khazad
+alias:          khazad
+description:    Khazad Cryptographic Algorithm
+license:        GPL
+depends:        
+intree:         Y
+name:           khazad
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/lrw.ko
+alias:          crypto-lrw
+alias:          lrw
+description:    LRW block cipher mode
+license:        GPL
+depends:        gf128mul
+intree:         Y
+name:           lrw
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/lz4hc.ko
+alias:          crypto-lz4hc
+alias:          lz4hc
+description:    LZ4HC Compression Algorithm
+license:        GPL
+depends:        lz4hc_compress
+intree:         Y
+name:           lz4hc
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/lz4.ko
+alias:          crypto-lz4
+alias:          lz4
+description:    LZ4 Compression Algorithm
+license:        GPL
+depends:        lz4_compress
+intree:         Y
+name:           lz4
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/md4.ko
+alias:          crypto-md4
+alias:          md4
+description:    MD4 Message Digest Algorithm
+license:        GPL
+depends:        
+intree:         Y
+name:           md4
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/michael_mic.ko
+alias:          crypto-michael_mic
+alias:          michael_mic
+author:         Jouni Malinen <j@w1.fi>
+description:    Michael MIC
+license:        GPL v2
+depends:        
+intree:         Y
+name:           michael_mic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/morus1280.ko
+alias:          crypto-morus1280-generic
+alias:          morus1280-generic
+alias:          crypto-morus1280
+alias:          morus1280
+description:    MORUS-1280 AEAD algorithm
+author:         Ondrej Mosnacek <omosnacek@gmail.com>
+license:        GPL
+depends:        
+intree:         Y
+name:           morus1280
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/morus640.ko
+alias:          crypto-morus640-generic
+alias:          morus640-generic
+alias:          crypto-morus640
+alias:          morus640
+description:    MORUS-640 AEAD algorithm
+author:         Ondrej Mosnacek <omosnacek@gmail.com>
+license:        GPL
+depends:        
+intree:         Y
+name:           morus640
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/pcbc.ko
+alias:          crypto-pcbc
+alias:          pcbc
+description:    PCBC block cipher algorithm
+license:        GPL
+depends:        
+intree:         Y
+name:           pcbc
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/pcrypt.ko
+alias:          crypto-pcrypt
+alias:          pcrypt
+description:    Parallel crypto wrapper
+author:         Steffen Klassert <steffen.klassert@secunet.com>
+license:        GPL
+depends:        
+intree:         Y
+name:           pcrypt
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/poly1305_generic.ko
+alias:          crypto-poly1305-generic
+alias:          poly1305-generic
+alias:          crypto-poly1305
+alias:          poly1305
+description:    Poly1305 authenticator
+author:         Martin Willi <martin@strongswan.org>
+license:        GPL
+depends:        
+intree:         Y
+name:           poly1305_generic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/rmd128.ko
+alias:          crypto-rmd128
+alias:          rmd128
+description:    RIPEMD-128 Message Digest
+author:         Adrian-Ken Rueegsegger <ken@codelabs.ch>
+license:        GPL
+depends:        
+intree:         Y
+name:           rmd128
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/rmd160.ko
+alias:          crypto-rmd160
+alias:          rmd160
+description:    RIPEMD-160 Message Digest
+author:         Adrian-Ken Rueegsegger <ken@codelabs.ch>
+license:        GPL
+depends:        
+intree:         Y
+name:           rmd160
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/rmd256.ko
+alias:          crypto-rmd256
+alias:          rmd256
+description:    RIPEMD-256 Message Digest
+author:         Adrian-Ken Rueegsegger <ken@codelabs.ch>
+license:        GPL
+depends:        
+intree:         Y
+name:           rmd256
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/rmd320.ko
+alias:          crypto-rmd320
+alias:          rmd320
+description:    RIPEMD-320 Message Digest
+author:         Adrian-Ken Rueegsegger <ken@codelabs.ch>
+license:        GPL
+depends:        
+intree:         Y
+name:           rmd320
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/salsa20_generic.ko
+alias:          crypto-salsa20-generic
+alias:          salsa20-generic
+alias:          crypto-salsa20
+alias:          salsa20
+description:    Salsa20 stream cipher algorithm
+license:        GPL
+depends:        
+intree:         Y
+name:           salsa20_generic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/seed.ko
+alias:          crypto-seed
+alias:          seed
+author:         Hye-Shik Chang <perky@FreeBSD.org>, Kim Hyun <hkim@kisa.or.kr>
+license:        GPL
+description:    SEED Cipher Algorithm
+depends:        
+intree:         Y
+name:           seed
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/seqiv.ko
+alias:          crypto-seqiv
+alias:          seqiv
+description:    Sequence Number IV Generator
+license:        GPL
+depends:        
+intree:         Y
+name:           seqiv
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/serpent_generic.ko
+alias:          crypto-serpent-generic
+alias:          serpent-generic
+alias:          crypto-serpent
+alias:          serpent
+alias:          crypto-tnepres
+alias:          tnepres
+author:         Dag Arne Osvik <osvik@ii.uib.no>
+description:    Serpent and tnepres (kerneli compatible serpent reversed) Cipher Algorithm
+license:        GPL
+depends:        
+intree:         Y
+name:           serpent_generic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/sha3_generic.ko
+alias:          crypto-sha3-512-generic
+alias:          sha3-512-generic
+alias:          crypto-sha3-512
+alias:          sha3-512
+alias:          crypto-sha3-384-generic
+alias:          sha3-384-generic
+alias:          crypto-sha3-384
+alias:          sha3-384
+alias:          crypto-sha3-256-generic
+alias:          sha3-256-generic
+alias:          crypto-sha3-256
+alias:          sha3-256
+alias:          crypto-sha3-224-generic
+alias:          sha3-224-generic
+alias:          crypto-sha3-224
+alias:          sha3-224
+description:    SHA-3 Secure Hash Algorithm
+license:        GPL
+depends:        
+intree:         Y
+name:           sha3_generic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/sha512_generic.ko
+alias:          crypto-sha512-generic
+alias:          sha512-generic
+alias:          crypto-sha512
+alias:          sha512
+alias:          crypto-sha384-generic
+alias:          sha384-generic
+alias:          crypto-sha384
+alias:          sha384
+description:    SHA-512 and SHA-384 Secure Hash Algorithms
+license:        GPL
+depends:        
+intree:         Y
+name:           sha512_generic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/tcrypt.ko
+author:         James Morris <jmorris@intercode.com.au>
+description:    Quick & dirty crypto testing module
+license:        GPL
+depends:        
+intree:         Y
+name:           tcrypt
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+parm:           alg:charp
+parm:           type:uint
+parm:           mask:uint
+parm:           mode:int
+parm:           sec:Length in seconds of speed tests (defaults to zero which uses CPU cycles instead) (uint)
+parm:           num_mb:Number of concurrent requests to be used in mb speed tests (defaults to 8) (uint)
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/tea.ko
+description:    TEA, XTEA & XETA Cryptographic Algorithms
+license:        GPL
+alias:          crypto-xeta
+alias:          xeta
+alias:          crypto-xtea
+alias:          xtea
+alias:          crypto-tea
+alias:          tea
+depends:        
+intree:         Y
+name:           tea
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/tgr192.ko
+description:    Tiger Message Digest Algorithm
+license:        GPL
+alias:          crypto-tgr128
+alias:          tgr128
+alias:          crypto-tgr160
+alias:          tgr160
+alias:          crypto-tgr192
+alias:          tgr192
+depends:        
+intree:         Y
+name:           tgr192
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/twofish_common.ko
+description:    Twofish cipher common functions
+license:        GPL
+depends:        
+intree:         Y
+name:           twofish_common
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/twofish_generic.ko
+alias:          crypto-twofish-generic
+alias:          twofish-generic
+alias:          crypto-twofish
+alias:          twofish
+description:    Twofish Cipher Algorithm
+license:        GPL
+depends:        twofish_common
+intree:         Y
+name:           twofish_generic
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/vmac.ko
+alias:          crypto-vmac64
+alias:          vmac64
+description:    VMAC hash algorithm
+license:        GPL
+depends:        
+intree:         Y
+name:           vmac
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/wp512.ko
+description:    Whirlpool Message Digest Algorithm
+license:        GPL
+alias:          crypto-wp256
+alias:          wp256
+alias:          crypto-wp384
+alias:          wp384
+alias:          crypto-wp512
+alias:          wp512
+depends:        
+intree:         Y
+name:           wp512
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/xcbc.ko
+alias:          crypto-xcbc
+alias:          xcbc
+description:    XCBC keyed hash algorithm
+license:        GPL
+depends:        
+intree:         Y
+name:           xcbc
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/xor.ko
+license:        GPL
+depends:        
+intree:         Y
+name:           xor
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
+filename:       /lib/modules/4.19.0-parrot1-13t-amd64/kernel/crypto/xts.ko
+alias:          crypto-xts
+alias:          xts
+description:    XTS block cipher mode
+license:        GPL
+depends:        
+intree:         Y
+name:           xts
+vermagic:       4.19.0-parrot1-13t-amd64 SMP mod_unload modversions 
