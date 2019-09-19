@@ -2,7 +2,6 @@
 #  _____ <!> ParrotSec Linux - Public Kiosk Project <!> ______
 ## Designing & Implementing A restricted & Trustworthy Environment 
 ## 
-## 
 
 <p align="center">
   <a href="https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project">
@@ -18,7 +17,7 @@
     <img src="https://img.shields.io/badge/Xe1phix-Building_Trust-sucess?style=flat&logo=gitlab" alt="Xe1phix Building Trust Series">
   </a>
 </p>
-
+<br>
 
 - [ ] Hardened kernel
 
