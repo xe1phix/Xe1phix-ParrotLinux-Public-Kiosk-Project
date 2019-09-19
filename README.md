@@ -4,9 +4,20 @@
 ## 
 ## 
 
-[![ParrotLinux-Public-Kiosk-Project](https://img.shields.io/badge/Gitlab-%20ParrotLinux--Public--Kiosk--Project%20-blue)](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project)
-[![ParrotLinux-Public-Kiosk-Project](https://img.shields.io/badge/Xe1phix-%20ParrotLinux--Public--Kiosk--Project%20-blue)](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project)
-
+<p align="center">
+  <a href="https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project">
+    <img src="https://img.shields.io/badge/Gitlab-ParrotLinux--Public--Kiosk--Project-rebeccapurple?style=flat&logo=gitlab" alt="@Xe1phix on Gitlab">
+  </a>
+   <a href="https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/tree/master/Xe1phix-Modprobe.d">
+    <img src="https://img.shields.io/badge/Xe1phix-Modprobe_Blacklisting-darkred?style=flat&logo=gitlab" alt="Modprobe Blacklisting">
+  </a>
+  <a href="https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/tree/master/Xe1phix-Grub-Hardening/Xe1phix-Kernel-Command-Line-Parameters">
+    <img src="https://img.shields.io/badge/Xe1phix-Kernel_Commandline_Parameters-darkred?style=flat&logo=gitlab" alt="Xe1phix Kernel Parameter Hardening">
+  </a>
+  <a href="https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/tree/master/Xe1phix-BuildingTrust">
+    <img src="https://img.shields.io/badge/Xe1phix-Building_Trust-sucess?style=flat&logo=gitlab" alt="Xe1phix Building Trust Series">
+  </a>
+</p>
 
 
 - [ ] Hardened kernel
