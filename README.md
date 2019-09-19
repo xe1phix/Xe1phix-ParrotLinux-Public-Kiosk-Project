@@ -1,7 +1,6 @@
 ## 
 #  _____ <!> ParrotSec Linux - Public Kiosk Project <!> ______
 ## Designing & Implementing A restricted & Trustworthy Environment 
-## 
 
 <p align="center">
   <a href="https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project">
