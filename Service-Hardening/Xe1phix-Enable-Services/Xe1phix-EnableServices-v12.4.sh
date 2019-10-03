@@ -8,13 +8,13 @@ SERVICEBIN='$(which service)'
 export SERVICEBIN='$(which service)'
 
 
-   for SERVICE in								    \
+   for SERVICE in                                   \
        dbus-org.fedoraproject.FirewallD1.service    \
        sys-devices-virtual-misc-rfkill.device       \
        systemd-tmpfiles-setup-dev.service           \
        systemd-tmpfiles-setup.service               \
        systemd-update-utmp.service                  \
-       systemd-rfkill.service		                \
+       systemd-rfkill.service                       \
        dev-rfkill.device                            \
        sys-devices-virtual-misc-rfkill.device       \
        systemd-rfkill.service                       \
@@ -25,9 +25,9 @@ export SERVICEBIN='$(which service)'
        yhsm-yubikey-ksm                 \
        paxctld.service                  \
        apparmor.service                 \
-       sagan.service					\
-       snort.service					\
-       suricata.service					\
+       sagan.service                    \
+       snort.service                    \
+       suricata.service                 \
        auditd.service                   \
        gnunet.service                   \
 ## ------------------------------------ \
@@ -93,7 +93,7 @@ export SERVICEBIN='$(which service)'
 ##     quotaon.service                  \
 ##     systemd-quotacheck.service       \
 ## ------------------------------------ \
-       logrotate.service				\
+       logrotate.service                \
        logrotate.timer                  \
        alsa-state.service               \
        alsa-restore.service             \
@@ -169,7 +169,7 @@ export SERVICEBIN='$(which service)'
        pcapdump             \
        darkstat             \
        darkstat.service     \
-       ufw          		\
+       ufw                  \
        paxctld.service      \
        snort                \
        sagan                \
