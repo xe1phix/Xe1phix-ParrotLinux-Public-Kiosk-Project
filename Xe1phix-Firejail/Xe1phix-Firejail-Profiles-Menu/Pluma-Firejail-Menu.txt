@@ -1,0 +1,2 @@
+Pluma Text Editor {Firejail Sandboxed}
+firejail --profile=/etc/firejail/pluma.profile /usr/bin/pluma %U
