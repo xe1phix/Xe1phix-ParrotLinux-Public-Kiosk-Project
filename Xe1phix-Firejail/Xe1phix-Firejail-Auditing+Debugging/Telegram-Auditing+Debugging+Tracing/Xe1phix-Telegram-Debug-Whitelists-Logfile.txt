@@ -1,0 +1,224 @@
+┌─[xe1phix@parrot]─[~]
+└──╼ $firejail --debug-whitelists --profile=/etc/firejail/telegram.profile "/home/xe1phix/Downloads/Telegram/Telegram -- %u"
+Reading profile /etc/firejail/telegram.profile
+Reading profile /etc/firejail/disable-common.inc
+Reading profile /etc/firejail/disable-devel.inc
+Reading profile /etc/firejail/disable-interpreters.inc
+Reading profile /etc/firejail/disable-passwdmgr.inc
+Reading profile /etc/firejail/disable-programs.inc
+Reading profile /etc/firejail/disable-xdg.inc
+Reading profile /etc/firejail/whitelist-common.inc
+Reading profile /etc/firejail/whitelist-var-common.inc
+Parent pid 11794, child pid 11795
+
+DNS server 209.141.60.226
+DNS server 139.99.96.146
+DNS server 193.138.218.74
+
+Debug 422: new_name #/home/xe1phix/.config/mimeapps.list#, whitelist
+real path /home/xe1phix/.config/mimeapps.list
+Debug 530: fname #/home/xe1phix/.config/mimeapps.list#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.config/mimeapps.list
+Debug 422: new_name #/home/xe1phix/.config/pkcs11#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/pkcs11
+	expanded: /home/xe1phix/.config/pkcs11
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/user-dirs.dirs#, whitelist
+real path /home/xe1phix/.config/user-dirs.dirs
+Debug 530: fname #/home/xe1phix/.config/user-dirs.dirs#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.config/user-dirs.dirs
+Debug 422: new_name #/home/xe1phix/.local/share/applications#, whitelist
+real path /home/xe1phix/.local/share/applications
+Debug 530: fname #/home/xe1phix/.local/share/applications#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.local/share/applications
+Debug 422: new_name #/home/xe1phix/.local/share/icons#, whitelist
+real path /home/xe1phix/.local/share/icons
+Debug 530: fname #/home/xe1phix/.local/share/icons#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.local/share/icons
+Debug 422: new_name #/home/xe1phix/.local/share/mime#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.local/share/mime
+	expanded: /home/xe1phix/.local/share/mime
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.mime.types#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.mime.types
+	expanded: /home/xe1phix/.mime.types
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/dconf#, whitelist
+real path /home/xe1phix/.config/dconf
+Debug 530: fname #/home/xe1phix/.config/dconf#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.config/dconf
+Debug 422: new_name #/home/xe1phix/.cache/fontconfig#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.cache/fontconfig
+	expanded: /home/xe1phix/.cache/fontconfig
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/fontconfig#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/fontconfig
+	expanded: /home/xe1phix/.config/fontconfig
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.fontconfig#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.fontconfig
+	expanded: /home/xe1phix/.fontconfig
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.fonts#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.fonts
+	expanded: /home/xe1phix/.fonts
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.fonts.conf#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.fonts.conf
+	expanded: /home/xe1phix/.fonts.conf
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.fonts.conf.d#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.fonts.conf.d
+	expanded: /home/xe1phix/.fonts.conf.d
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.fonts.d#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.fonts.d
+	expanded: /home/xe1phix/.fonts.d
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.local/share/fonts#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.local/share/fonts
+	expanded: /home/xe1phix/.local/share/fonts
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/gtk-2.0#, whitelist
+real path /home/xe1phix/.config/gtk-2.0
+Debug 530: fname #/home/xe1phix/.config/gtk-2.0#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.config/gtk-2.0
+Debug 422: new_name #/home/xe1phix/.config/gtk-3.0#, whitelist
+real path /home/xe1phix/.config/gtk-3.0
+Debug 530: fname #/home/xe1phix/.config/gtk-3.0#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.config/gtk-3.0
+Debug 422: new_name #/home/xe1phix/.config/gtkrc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/gtkrc
+	expanded: /home/xe1phix/.config/gtkrc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/gtkrc-2.0#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/gtkrc-2.0
+	expanded: /home/xe1phix/.config/gtkrc-2.0
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.gnome2#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.gnome2
+	expanded: /home/xe1phix/.gnome2
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.gnome2-private#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.gnome2-private
+	expanded: /home/xe1phix/.gnome2-private
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.gtk-2.0#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.gtk-2.0
+	expanded: /home/xe1phix/.gtk-2.0
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.gtkrc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.gtkrc
+	expanded: /home/xe1phix/.gtkrc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.gtkrc-2.0#, whitelist
+real path /home/xe1phix/.gtkrc-2.0
+Debug 530: fname #/home/xe1phix/.gtkrc-2.0#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.gtkrc-2.0
+Debug 422: new_name #/home/xe1phix/.local/share/themes#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.local/share/themes
+	expanded: /home/xe1phix/.local/share/themes
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.themes#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.themes
+	expanded: /home/xe1phix/.themes
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/Trolltech.conf#, whitelist
+real path /home/xe1phix/.config/Trolltech.conf
+Debug 530: fname #/home/xe1phix/.config/Trolltech.conf#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.config/Trolltech.conf
+Debug 422: new_name #/home/xe1phix/.config/kdeglobals#, whitelist
+real path /home/xe1phix/.config/kdeglobals
+Debug 530: fname #/home/xe1phix/.config/kdeglobals#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.config/kdeglobals
+Debug 422: new_name #/home/xe1phix/.config/ksslcablacklist#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/ksslcablacklist
+	expanded: /home/xe1phix/.config/ksslcablacklist
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/qt5ct#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/qt5ct
+	expanded: /home/xe1phix/.config/qt5ct
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.local/share/qt5ct#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.local/share/qt5ct
+	expanded: /home/xe1phix/.local/share/qt5ct
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/var/lib/dbus#, whitelist
+real path /var/lib/dbus
+Debug 422: new_name #/var/lib/menu-xdg#, whitelist
+real path /var/lib/menu-xdg
+Debug 422: new_name #/var/cache/fontconfig#, whitelist
+real path /var/cache/fontconfig
+Debug 422: new_name #/var/tmp#, whitelist
+real path /var/tmp
+Debug 422: new_name #/var/run#, whitelist
+real path /run
+Replaced whitelist path: whitelist /run
+Debug 422: new_name #/var/lock#, whitelist
+real path /run/lock
+Replaced whitelist path: whitelist /run/lock
+Debug 422: new_name #/home/xe1phix/Downloads#, whitelist
+real path /home/xe1phix/Downloads
+Debug 530: fname #/home/xe1phix/Downloads#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/Downloads
+Debug 422: new_name #/home/xe1phix/.local/share/TelegramDesktop#, whitelist
+real path /home/xe1phix/.local/share/TelegramDesktop
+Debug 530: fname #/home/xe1phix/.local/share/TelegramDesktop#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.local/share/TelegramDesktop
+Debug 422: new_name #/home/xe1phix/.local/share/icons#, whitelist
+real path /home/xe1phix/.local/share/icons
+Debug 530: fname #/home/xe1phix/.local/share/icons#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.local/share/icons
+Debug 422: new_name #/tmp/.X11-unix#, whitelist
+real path /tmp/.X11-unix
+Debug 422: new_name #/tmp/pulse-PKdhtXMmr18n#, whitelist
+real path /tmp/pulse-PKdhtXMmr18n
+Mounting tmpfs on /tmp directory
+Mounting tmpfs on /var directory
+Whitelisting /home/xe1phix/.config/mimeapps.list
+Whitelisting /home/xe1phix/.config/user-dirs.dirs
+Whitelisting /home/xe1phix/.local/share/applications
+Whitelisting /home/xe1phix/.local/share/icons
+Whitelisting /home/xe1phix/.config/dconf
+Whitelisting /home/xe1phix/.config/gtk-2.0
+Whitelisting /home/xe1phix/.config/gtk-3.0
+Whitelisting /home/xe1phix/.gtkrc-2.0
+Whitelisting /home/xe1phix/.config/Trolltech.conf
+Whitelisting /home/xe1phix/.config/kdeglobals
+Whitelisting /var/lib/dbus
+Whitelisting /var/lib/menu-xdg
+Whitelisting /var/cache/fontconfig
+Whitelisting /var/tmp
+Created symbolic link /var/run -> /run
+Created symbolic link /var/lock -> /run/lock
+Whitelisting /home/xe1phix/Downloads
+Whitelisting /home/xe1phix/.local/share/TelegramDesktop
+Whitelisting /home/xe1phix/.local/share/icons
+Whitelisting /tmp/.X11-unix
+Whitelisting /tmp/pulse-PKdhtXMmr18n
+Error: /home/xe1phix/.config/pulse is not owned by the current user
+Error: proc 11794 cannot sync with peer: unexpected EOF
+Peer 11795 unexpectedly exited with status 1
+
