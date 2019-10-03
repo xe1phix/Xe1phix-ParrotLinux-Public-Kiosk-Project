@@ -1,3 +1,71 @@
+___
+#  [+] Xe1phix - Firejail Wiki
+___
+
+![Firejail Banner](https://gitlab.com/xe1phix/LinuxIcons/raw/master/InfoSec/firejail-logo.png)
+___
+
+<p align="center">
+  <a href="https://telegram.me/xe1phix">
+    <img src="https://img.shields.io/badge/Telegram-%40Xe1phix-blue?style=flat&logo=telegram" alt="Telegram @Xe1phix">
+  </a>
+  <a href="https://gitlab.com/xe1phix/Gnupg/blob/master/Xe1phix-WireGnuPG.txt">
+    <img src="https://img.shields.io/badge/Wire-%40Xe1phix-critical?style=flat&logo=tails" alt="Xe1phix's Wire Messenger GnuPG Key">
+  </a>
+  <a href="https://gitlab.com/xe1phix/Gnupg/blob/master/Xe1phix-InfoSecContact-v4.2.txt">
+    <img src="https://img.shields.io/badge/%40Xe1phix-InfoSec_Contact-blue?style=flat&logo=tor" alt="Xe1phix InfoSec-Contact">
+  </a>
+  <a href="https://secdsm.slack.com">
+    <img src="https://img.shields.io/badge/Slack-%40Xe1phix-blueviolet?style=flat&logo=slack" alt="SecDSM Slack @Xe1phix">
+  </a>
+  <a href="https://twitter.com/xe1phix">
+    <img src="https://img.shields.io/twitter/url/https/xe1phix?label=%40Xe1phix&logo=twitter&style=flat" alt="Twitter @Xe1phix">
+  </a>
+  <a href="https://gitlab.com/xe1phix/Gnupg/blob/master/Xe1phix.asc">
+    <img src="https://img.shields.io/badge/Xe1phix's-GnuPG%20Key-red?style=flat&logo=gnu" alt="Xe1phix's GnuPG Key">
+  </a>
+  <a href="mailto:xe1phix@protonmail.ch">
+    <img src="https://img.shields.io/badge/Xe1phix-%40protonmail.ch-blue?style=plastic&logo=gnu" alt="ProtonMail - Xe1phix">
+  </a>
+  <a href="https://gitlab.com/xe1phix/Gnupg/blob/master/Xe1phix_protonmail.ch.asc">
+    <img src="https://img.shields.io/badge/Xe1phix-%40protonmail.ch-blue?style=plastic&logo=gnu" alt="Xe1phix - ProtonMail Public Key">
+  </a>
+</p>
+
+___
+
+<p align="center">
+  <a href="https://repology.org/project/firejail/versions">
+    <img src="https://repology.org/badge/latest-versions/firejail.svg" alt="latest packaged version(s)">
+  </a>
+  <a href="https://repology.org/project/firejail/versions">
+    <img src="https://repology.org/badge/version-for-repo/debian_stable/firejail.svg" alt="Debian Stable package">
+  </a>
+  <a href="https://repology.org/project/firejail/versions">
+    <img src="https://repology.org/badge/version-for-repo/parrot/firejail.svg" alt="Parrot package">
+  </a>
+  <a href="https://repology.org/project/firejail/versions">
+   <img src="https://repology.org/badge/version-for-repo/kali_rolling/firejail.svg" alt="Kali Linux Rolling package">
+  </a>
+  <a href="https://repology.org/project/firejail/versions">
+    <img src="https://repology.org/badge/tiny-repos/firejail.svg" alt="Packaging status">
+  </a>
+</p>
+
+
+## Table of Contents:
+
+- [Firejail Features](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#firejail-features)
+- [Xe1phix Youtube Tutorial Videos](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#xe1phix-youtube-tutorial-videos)
+- [Xe1phix Archive.org Tutorial Videos](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#xe1phix-archiveorg-tutorial-videos)
+- [Xe1phix Bitchute Tutorial Videos](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#xe1phix-bitchute-tutorial-videos)
+- [Firejail Syntax Options](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#firejail-syntax-options)
+- [Firejail - Firetools - Firejail-UI](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#firejail-firetools-firejail-ui)
+- [Firejail - Firejail-UI - Capabilities](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#firejail-firejail-ui-capabilities)
+- [Firejail Resources](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#firejail-resources)
+
+___
+
 ## Firejail Features:
 
 - [Seccomp-BPF (Restrict System Call)](https://firejail.wordpress.com/documentation-2/seccomp-guide/)
@@ -65,6 +133,10 @@
 - [Firejail Sandbox Configuration Wizard](https://firejail.wordpress.com/features-3/man-firejail-ui/)
 - [Firetools - Graphical user interface](https://firejail.wordpress.com/features-3/man-firetools/)
 
+
+
+
+
 ## Xe1phix Youtube Tutorial Videos:
 - [Xe1phix's Firejail Playlist](https://www.youtube.com/playlist?list=PLsvJPgaCwszZv3b2XBe-NekHQH0gFZp46)
 - [Firejail - Using Firetools GUI - On ParrotSec Linux](https://www.youtube.com/watch?v=6oMoAftZtZY)
@@ -98,6 +170,19 @@
 - [Firejail Configuration Wizard - Setup Firefox-esr - Inside Restricted Environment](https://www.bitchute.com/video/OHOnTovUDz3U/)
 - [Compiling Firejail From Source + Enable Apparmor Support - Using Parrot Linux](https://www.bitchute.com/video/YobUm2sWEyYD/)
 - [ParrotSec - Firejail - Using Firetools GUI](https://www.bitchute.com/video/6HlMyx3Rzbqc/)
+
+
+
+## Firejail Syntax Options:
+![Firejail - Firejail Syntax](https://gitlab.com/xe1phix/xe1phix-linuxwiki/raw/master/Firejail/Firejail-Wiki-Screenshots/Firejail-Syntax/Firejail-Syntax.png)
+
+
+## Firejail - Firetools - Firejail-UI:
+![Firejail - Firetools - Firejail-UI](https://gitlab.com/xe1phix/xe1phix-linuxwiki/raw/master/Firejail/Firejail-Wiki-Screenshots/Firejail-Firetools-Firejail-UI/Firejail-Firemgr-Firefox.png)
+
+
+## Firejail - Firejail-UI - Capabilities:
+![Firejail - Firejail-UI - Capabilities](https://gitlab.com/xe1phix/xe1phix-linuxwiki/raw/master/Firejail/Firejail-Wiki-Screenshots/Firejail-Firetools-Firejail-UI/Firejail-Firemgr-Capabilities.png)
 
 
 
