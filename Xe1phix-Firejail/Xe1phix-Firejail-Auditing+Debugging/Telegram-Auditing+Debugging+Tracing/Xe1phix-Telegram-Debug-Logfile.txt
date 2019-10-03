@@ -1,0 +1,718 @@
+┌─[✗]─[xe1phix@parrot]─[~/Downloads]
+└──╼ $firejail --debug --profile=/etc/firejail/telegram.profile /home/xe1phix/Downloads/Telegram/Telegram -- %u
+Reading profile /etc/firejail/telegram.profile
+Reading profile /etc/firejail/disable-common.inc
+Reading profile /etc/firejail/disable-devel.inc
+Reading profile /etc/firejail/disable-interpreters.inc
+Reading profile /etc/firejail/disable-passwdmgr.inc
+Reading profile /etc/firejail/disable-programs.inc
+Reading profile /etc/firejail/disable-xdg.inc
+Reading profile /etc/firejail/whitelist-common.inc
+Reading profile /etc/firejail/whitelist-var-common.inc
+Building quoted command line: '/home/xe1phix/Downloads/Telegram/Telegram' '--' '%u' 
+Command name #Telegram#
+DISPLAY=:0 parsed as 0
+Using the local network stack
+Parent pid 9746, child pid 9747
+Initializing child process
+Host network configured
+PID namespace installed
+Mounting tmpfs on /run/firejail/mnt directory
+Creating empty /run/firejail/mnt/seccomp directory
+Creating empty /run/firejail/mnt/seccomp/seccomp.protocol file
+Creating empty /run/firejail/mnt/seccomp/seccomp.postexec file
+Remounting /proc filesystem
+
+DNS server 209.141.60.226
+DNS server 139.99.96.146
+DNS server 193.138.218.74
+
+Build protocol filter: unix,inet,packet
+sbox run: /run/firejail/lib/fseccomp protocol build unix,inet,packet /run/firejail/mnt/seccomp/seccomp.protocol (null) 
+Dropping all capabilities
+Drop privileges: pid 2, uid 1000, gid 1000, nogroups 1
+No supplementary groups
+Basic read-only filesystem:
+Mounting read-only /etc
+Mounting noexec /etc
+Mounting read-only /var
+Mounting noexec /var
+Mounting read-only /bin
+Mounting read-only /sbin
+Mounting read-only /lib
+Mounting read-only /lib64
+Mounting read-only /lib32
+Mounting read-only /usr
+Mounting tmpfs on /var/lock
+Mounting tmpfs on /var/tmp
+Mounting tmpfs on /var/log
+Mounting tmpfs on /var/lib/dhcp
+Mounting tmpfs on /var/lib/nginx
+Mounting tmpfs on /var/lib/snmp
+Mounting tmpfs on /var/lib/sudo
+Create the new utmp file
+Mount the new utmp file
+Generating a new machine-id
+installing a new /etc/machine-id
+Cleaning /home directory
+Cleaning /run/user directory
+Sanitizing /etc/passwd, UID_MIN 1000
+Sanitizing /etc/group, GID_MIN 1000
+Disable /run/firejail/network
+Disable /run/firejail/bandwidth
+Disable /run/firejail/name
+Disable /run/firejail/x11
+Mounting tmpfs on /dev
+mounting /run/firejail/mnt/dev/snd directory
+mounting /run/firejail/mnt/dev/video0 file
+mounting /run/firejail/mnt/dev/video1 file
+mounting /run/firejail/mnt/dev/hidraw0 file
+mounting /run/firejail/mnt/dev/hidraw1 file
+Process /dev/shm directory
+Mounting tmpfs on /home/xe1phix/.cache
+1210 1183 0:108 / /home/xe1phix/.cache rw,nosuid,nodev,relatime - tmpfs tmpfs rw,mode=755,uid=1000,gid=1000
+mountid=1210 fsname=/ dir=/home/xe1phix/.cache fstype=tmpfs
+Mounting read-only /proc/sys
+Remounting /sys directory
+Disable /sys/firmware
+Disable /sys/hypervisor
+Disable /sys/power
+Disable /sys/kernel/debug
+Disable /sys/kernel/vmcoreinfo
+Disable /proc/sys/fs/binfmt_misc
+Disable /proc/sys/kernel/core_pattern
+Disable /proc/sys/kernel/modprobe
+Disable /proc/sysrq-trigger
+Disable /proc/sys/vm/panic_on_oom
+Disable /proc/irq
+Disable /proc/bus
+Disable /proc/sched_debug
+Disable /proc/timer_list
+Disable /proc/kcore
+Disable /proc/kallsyms
+Disable /lib/modules
+Disable /usr/lib/debug
+Disable /boot
+Disable /run/user/1000/gnupg
+Disable /run/user/1000/systemd
+Disable /proc/kmsg
+Debug 422: new_name #/home/xe1phix/.XCompose#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.XCompose
+	expanded: /home/xe1phix/.XCompose
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.asoundrc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.asoundrc
+	expanded: /home/xe1phix/.asoundrc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/ibus#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/ibus
+	expanded: /home/xe1phix/.config/ibus
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/mimeapps.list#, whitelist
+Debug 530: fname #/home/xe1phix/.config/mimeapps.list#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.config/mimeapps.list
+Debug 422: new_name #/home/xe1phix/.config/pkcs11#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/pkcs11
+	expanded: /home/xe1phix/.config/pkcs11
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/user-dirs.dirs#, whitelist
+Debug 530: fname #/home/xe1phix/.config/user-dirs.dirs#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.config/user-dirs.dirs
+Debug 422: new_name #/home/xe1phix/.drirc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.drirc
+	expanded: /home/xe1phix/.drirc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.icons#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.icons
+	expanded: /home/xe1phix/.icons
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.local/share/applications#, whitelist
+Debug 530: fname #/home/xe1phix/.local/share/applications#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.local/share/applications
+Debug 422: new_name #/home/xe1phix/.local/share/icons#, whitelist
+Debug 530: fname #/home/xe1phix/.local/share/icons#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.local/share/icons
+Debug 422: new_name #/home/xe1phix/.local/share/mime#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.local/share/mime
+	expanded: /home/xe1phix/.local/share/mime
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.mime.types#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.mime.types
+	expanded: /home/xe1phix/.mime.types
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/dconf#, whitelist
+Debug 530: fname #/home/xe1phix/.config/dconf#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.config/dconf
+Debug 422: new_name #/home/xe1phix/.cache/fontconfig#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.cache/fontconfig
+	expanded: /home/xe1phix/.cache/fontconfig
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/fontconfig#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/fontconfig
+	expanded: /home/xe1phix/.config/fontconfig
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.fontconfig#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.fontconfig
+	expanded: /home/xe1phix/.fontconfig
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.fonts#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.fonts
+	expanded: /home/xe1phix/.fonts
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.fonts.conf#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.fonts.conf
+	expanded: /home/xe1phix/.fonts.conf
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.fonts.conf.d#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.fonts.conf.d
+	expanded: /home/xe1phix/.fonts.conf.d
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.fonts.d#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.fonts.d
+	expanded: /home/xe1phix/.fonts.d
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.local/share/fonts#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.local/share/fonts
+	expanded: /home/xe1phix/.local/share/fonts
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.pangorc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.pangorc
+	expanded: /home/xe1phix/.pangorc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/gtk-2.0#, whitelist
+Debug 530: fname #/home/xe1phix/.config/gtk-2.0#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.config/gtk-2.0
+Debug 422: new_name #/home/xe1phix/.config/gtk-3.0#, whitelist
+Debug 530: fname #/home/xe1phix/.config/gtk-3.0#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.config/gtk-3.0
+Debug 422: new_name #/home/xe1phix/.config/gtkrc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/gtkrc
+	expanded: /home/xe1phix/.config/gtkrc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/gtkrc-2.0#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/gtkrc-2.0
+	expanded: /home/xe1phix/.config/gtkrc-2.0
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.gnome2#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.gnome2
+	expanded: /home/xe1phix/.gnome2
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.gnome2-private#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.gnome2-private
+	expanded: /home/xe1phix/.gnome2-private
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.gtk-2.0#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.gtk-2.0
+	expanded: /home/xe1phix/.gtk-2.0
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.gtkrc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.gtkrc
+	expanded: /home/xe1phix/.gtkrc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.gtkrc-2.0#, whitelist
+Debug 530: fname #/home/xe1phix/.gtkrc-2.0#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.gtkrc-2.0
+Debug 422: new_name #/home/xe1phix/.kde/share/config/gtkrc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.kde/share/config/gtkrc
+	expanded: /home/xe1phix/.kde/share/config/gtkrc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.kde/share/config/gtkrc-2.0#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.kde/share/config/gtkrc-2.0
+	expanded: /home/xe1phix/.kde/share/config/gtkrc-2.0
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.kde4/share/config/gtkrc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.kde4/share/config/gtkrc
+	expanded: /home/xe1phix/.kde4/share/config/gtkrc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.kde4/share/config/gtkrc-2.0#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.kde4/share/config/gtkrc-2.0
+	expanded: /home/xe1phix/.kde4/share/config/gtkrc-2.0
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.local/share/themes#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.local/share/themes
+	expanded: /home/xe1phix/.local/share/themes
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.themes#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.themes
+	expanded: /home/xe1phix/.themes
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.cache/kioexec/krun#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.cache/kioexec/krun
+	expanded: /home/xe1phix/.cache/kioexec/krun
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/Kvantum#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/Kvantum
+	expanded: /home/xe1phix/.config/Kvantum
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/Trolltech.conf#, whitelist
+Debug 530: fname #/home/xe1phix/.config/Trolltech.conf#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.config/Trolltech.conf
+Debug 422: new_name #/home/xe1phix/.config/kdeglobals#, whitelist
+Debug 530: fname #/home/xe1phix/.config/kdeglobals#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.config/kdeglobals
+Debug 422: new_name #/home/xe1phix/.config/kio_httprc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/kio_httprc
+	expanded: /home/xe1phix/.config/kio_httprc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/kioslaverc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/kioslaverc
+	expanded: /home/xe1phix/.config/kioslaverc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/ksslcablacklist#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/ksslcablacklist
+	expanded: /home/xe1phix/.config/ksslcablacklist
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.config/qt5ct#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/qt5ct
+	expanded: /home/xe1phix/.config/qt5ct
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.kde/share/config/kdeglobals#, whitelist
+Debug 530: fname #/home/xe1phix/.kde/share/config/kdeglobals#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.kde/share/config/kdeglobals
+Debug 422: new_name #/home/xe1phix/.kde/share/config/kio_httprc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.kde/share/config/kio_httprc
+	expanded: /home/xe1phix/.kde/share/config/kio_httprc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.kde/share/config/kioslaverc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.kde/share/config/kioslaverc
+	expanded: /home/xe1phix/.kde/share/config/kioslaverc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.kde/share/config/ksslcablacklist#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.kde/share/config/ksslcablacklist
+	expanded: /home/xe1phix/.kde/share/config/ksslcablacklist
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.kde/share/config/oxygenrc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.kde/share/config/oxygenrc
+	expanded: /home/xe1phix/.kde/share/config/oxygenrc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.kde/share/icons#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.kde/share/icons
+	expanded: /home/xe1phix/.kde/share/icons
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.kde4/share/config/kdeglobals#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.kde4/share/config/kdeglobals
+	expanded: /home/xe1phix/.kde4/share/config/kdeglobals
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.kde4/share/config/kio_httprc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.kde4/share/config/kio_httprc
+	expanded: /home/xe1phix/.kde4/share/config/kio_httprc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.kde4/share/config/kioslaverc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.kde4/share/config/kioslaverc
+	expanded: /home/xe1phix/.kde4/share/config/kioslaverc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.kde4/share/config/ksslcablacklist#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.kde4/share/config/ksslcablacklist
+	expanded: /home/xe1phix/.kde4/share/config/ksslcablacklist
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.kde4/share/config/oxygenrc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.kde4/share/config/oxygenrc
+	expanded: /home/xe1phix/.kde4/share/config/oxygenrc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.kde4/share/icons#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.kde4/share/icons
+	expanded: /home/xe1phix/.kde4/share/icons
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/home/xe1phix/.local/share/qt5ct#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.local/share/qt5ct
+	expanded: /home/xe1phix/.local/share/qt5ct
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/var/lib/dbus#, whitelist
+Debug 422: new_name #/var/lib/menu-xdg#, whitelist
+Debug 422: new_name #/var/cache/fontconfig#, whitelist
+Debug 422: new_name #/var/tmp#, whitelist
+Debug 422: new_name #/var/run#, whitelist
+Replaced whitelist path: whitelist /run
+Debug 422: new_name #/var/lock#, whitelist
+Replaced whitelist path: whitelist /run/lock
+Debug 422: new_name #/home/xe1phix/Downloads#, whitelist
+Debug 530: fname #/home/xe1phix/Downloads#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/Downloads
+Debug 422: new_name #/home/xe1phix/.local/share/TelegramDesktop#, whitelist
+Debug 530: fname #/home/xe1phix/.local/share/TelegramDesktop#, cfg.homedir #/home/xe1phix#
+Replaced whitelist path: whitelist /home/xe1phix/.local/share/TelegramDesktop
+Debug 422: new_name #/tmp/.X11-unix#, whitelist
+Debug 422: new_name #/tmp/pulse-PKdhtXMmr18n#, whitelist
+Mounting tmpfs on /tmp directory
+Mounting tmpfs on /var directory
+Drop privileges: pid 3, uid 1000, gid 1000, nogroups 0
+Supplementary groups: 29 44 
+Mounting a new /home directory
+Mounting a new /root directory
+Create a new user directory
+Drop privileges: pid 4, uid 1000, gid 1000, nogroups 0
+Supplementary groups: 29 44 
+Drop privileges: pid 5, uid 1000, gid 1000, nogroups 0
+Supplementary groups: 29 44 
+Whitelisting /home/xe1phix/.config/mimeapps.list
+1231 1229 0:23 /home/xe1phix/.config/mimeapps.list /home/xe1phix/.config/mimeapps.list rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/.config/mimeapps.list
+mountid=1231 fsname=/home/xe1phix/.config/mimeapps.list dir=/home/xe1phix/.config/mimeapps.list fstype=btrfs
+Whitelisting /home/xe1phix/.config/user-dirs.dirs
+1232 1229 0:23 /home/xe1phix/.config/user-dirs.dirs /home/xe1phix/.config/user-dirs.dirs rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/.config/user-dirs.dirs
+mountid=1232 fsname=/home/xe1phix/.config/user-dirs.dirs dir=/home/xe1phix/.config/user-dirs.dirs fstype=btrfs
+Whitelisting /home/xe1phix/.local/share/applications
+1233 1229 0:23 /home/xe1phix/.local/share/applications /home/xe1phix/.local/share/applications rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/.local/share/applications
+mountid=1233 fsname=/home/xe1phix/.local/share/applications dir=/home/xe1phix/.local/share/applications fstype=btrfs
+Whitelisting /home/xe1phix/.local/share/icons
+1234 1229 0:23 /home/xe1phix/.local/share/icons /home/xe1phix/.local/share/icons rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/.local/share/icons
+mountid=1234 fsname=/home/xe1phix/.local/share/icons dir=/home/xe1phix/.local/share/icons fstype=btrfs
+Whitelisting /home/xe1phix/.config/dconf
+1235 1229 0:23 /home/xe1phix/.config/dconf /home/xe1phix/.config/dconf rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/.config/dconf
+mountid=1235 fsname=/home/xe1phix/.config/dconf dir=/home/xe1phix/.config/dconf fstype=btrfs
+Whitelisting /home/xe1phix/.config/gtk-2.0
+1236 1229 0:23 /home/xe1phix/.config/gtk-2.0 /home/xe1phix/.config/gtk-2.0 rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/.config/gtk-2.0
+mountid=1236 fsname=/home/xe1phix/.config/gtk-2.0 dir=/home/xe1phix/.config/gtk-2.0 fstype=btrfs
+Whitelisting /home/xe1phix/.config/gtk-3.0
+1237 1229 0:23 /home/xe1phix/.config/gtk-3.0 /home/xe1phix/.config/gtk-3.0 rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/.config/gtk-3.0
+mountid=1237 fsname=/home/xe1phix/.config/gtk-3.0 dir=/home/xe1phix/.config/gtk-3.0 fstype=btrfs
+Whitelisting /home/xe1phix/.gtkrc-2.0
+1238 1229 0:23 /home/xe1phix/.gtkrc-2.0 /home/xe1phix/.gtkrc-2.0 rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/.gtkrc-2.0
+mountid=1238 fsname=/home/xe1phix/.gtkrc-2.0 dir=/home/xe1phix/.gtkrc-2.0 fstype=btrfs
+Whitelisting /home/xe1phix/.config/Trolltech.conf
+1239 1229 0:23 /home/xe1phix/.config/Trolltech.conf /home/xe1phix/.config/Trolltech.conf rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/.config/Trolltech.conf
+mountid=1239 fsname=/home/xe1phix/.config/Trolltech.conf dir=/home/xe1phix/.config/Trolltech.conf fstype=btrfs
+Whitelisting /home/xe1phix/.config/kdeglobals
+1240 1229 0:23 /home/xe1phix/.config/kdeglobals /home/xe1phix/.config/kdeglobals rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/.config/kdeglobals
+mountid=1240 fsname=/home/xe1phix/.config/kdeglobals dir=/home/xe1phix/.config/kdeglobals fstype=btrfs
+Whitelisting /home/xe1phix/.kde/share/config/kdeglobals
+1241 1229 0:23 /home/xe1phix/.kde/share/config/kdeglobals /home/xe1phix/.kde/share/config/kdeglobals rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/.kde/share/config/kdeglobals
+mountid=1241 fsname=/home/xe1phix/.kde/share/config/kdeglobals dir=/home/xe1phix/.kde/share/config/kdeglobals fstype=btrfs
+Whitelisting /var/lib/dbus
+1242 1226 0:23 /var/lib/dbus /var/lib/dbus ro,nosuid,nodev,noexec,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/var/lib/dbus
+mountid=1242 fsname=/var/lib/dbus dir=/var/lib/dbus fstype=btrfs
+Whitelisting /var/lib/menu-xdg
+1243 1226 0:23 /var/lib/menu-xdg /var/lib/menu-xdg ro,nosuid,nodev,noexec,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/var/lib/menu-xdg
+mountid=1243 fsname=/var/lib/menu-xdg dir=/var/lib/menu-xdg fstype=btrfs
+Whitelisting /var/cache/fontconfig
+1244 1226 0:23 /var/cache/fontconfig /var/cache/fontconfig ro,nosuid,nodev,noexec,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/var/cache/fontconfig
+mountid=1244 fsname=/var/cache/fontconfig dir=/var/cache/fontconfig fstype=btrfs
+Whitelisting /var/tmp
+1245 1226 0:96 / /var/tmp rw,nosuid,nodev,noexec - tmpfs tmpfs rw
+mountid=1245 fsname=/ dir=/var/tmp fstype=tmpfs
+Created symbolic link /var/run -> /run
+Created symbolic link /var/lock -> /run/lock
+Whitelisting /home/xe1phix/Downloads
+1246 1229 0:23 /home/xe1phix/Downloads /home/xe1phix/Downloads rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/Downloads
+mountid=1246 fsname=/home/xe1phix/Downloads dir=/home/xe1phix/Downloads fstype=btrfs
+Whitelisting /home/xe1phix/.local/share/TelegramDesktop
+1247 1229 0:23 /home/xe1phix/.local/share/TelegramDesktop /home/xe1phix/.local/share/TelegramDesktop rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/.local/share/TelegramDesktop
+mountid=1247 fsname=/home/xe1phix/.local/share/TelegramDesktop dir=/home/xe1phix/.local/share/TelegramDesktop fstype=btrfs
+Whitelisting /tmp/.X11-unix
+1248 1217 0:23 /tmp/.X11-unix /tmp/.X11-unix rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/tmp/.X11-unix
+mountid=1248 fsname=/tmp/.X11-unix dir=/tmp/.X11-unix fstype=btrfs
+Whitelisting /tmp/pulse-PKdhtXMmr18n
+1249 1217 0:23 /tmp/pulse-PKdhtXMmr18n /tmp/pulse-PKdhtXMmr18n rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/tmp/pulse-PKdhtXMmr18n
+mountid=1249 fsname=/tmp/pulse-PKdhtXMmr18n dir=/tmp/pulse-PKdhtXMmr18n fstype=btrfs
+Disable /etc/X11/Xsession.d
+Disable /etc/xdg/autostart
+Mounting read-only /home/xe1phix/.Xauthority
+1255 1229 0:111 /xe1phix/.Xauthority /home/xe1phix/.Xauthority ro,nosuid,nodev,noexec - tmpfs tmpfs rw,mode=755
+mountid=1255 fsname=/xe1phix/.Xauthority dir=/home/xe1phix/.Xauthority fstype=tmpfs
+Mounting read-only /home/xe1phix/.config/kdeglobals
+1256 1240 0:23 /home/xe1phix/.config/kdeglobals /home/xe1phix/.config/kdeglobals ro,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/.config/kdeglobals
+mountid=1256 fsname=/home/xe1phix/.config/kdeglobals dir=/home/xe1phix/.config/kdeglobals fstype=btrfs
+Mounting read-only /home/xe1phix/.kde/share/config/kdeglobals
+1257 1241 0:23 /home/xe1phix/.kde/share/config/kdeglobals /home/xe1phix/.kde/share/config/kdeglobals ro,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/.kde/share/config/kdeglobals
+mountid=1257 fsname=/home/xe1phix/.kde/share/config/kdeglobals dir=/home/xe1phix/.kde/share/config/kdeglobals fstype=btrfs
+Disable /usr/bin/zuluCrypt-cli
+Disable /usr/bin/zuluMount-cli
+Disable /etc/cron.d
+Disable /etc/cron.daily
+Disable /etc/cron.hourly
+Disable /etc/cron.monthly
+Disable /etc/cron.weekly
+Disable /etc/crontab
+Disable /etc/profile.d
+Disable /etc/rc0.d
+Disable /etc/rc1.d
+Disable /etc/rc2.d
+Disable /etc/rc3.d
+Disable /etc/rc4.d
+Disable /etc/rc5.d
+Disable /etc/rc6.d
+Disable /etc/rcS.d
+Disable /etc/kernel
+Disable /etc/grub.d
+Disable /etc/dkms
+Disable /etc/apparmor
+Disable /etc/apparmor.d
+Disable /etc/selinux
+Disable /etc/modules
+Disable /etc/modules-load.d
+Disable /etc/logrotate.conf
+Disable /etc/logrotate.d
+Disable /etc/adduser.conf
+Mounting read-only /home/xe1phix/.bashrc
+1286 1229 0:111 /xe1phix/.bashrc /home/xe1phix/.bashrc ro,nosuid,nodev,noexec - tmpfs tmpfs rw,mode=755
+mountid=1286 fsname=/xe1phix/.bashrc dir=/home/xe1phix/.bashrc fstype=tmpfs
+Mounting read-only /home/xe1phix/.local/share/applications
+1287 1233 0:23 /home/xe1phix/.local/share/applications /home/xe1phix/.local/share/applications ro,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/.local/share/applications
+mountid=1287 fsname=/home/xe1phix/.local/share/applications dir=/home/xe1phix/.local/share/applications fstype=btrfs
+Disable /etc/group-
+Disable /etc/gshadow
+Disable /etc/gshadow-
+Disable /etc/passwd-
+Disable /etc/shadow
+Disable /etc/shadow-
+Disable /etc/ssh
+Disable /sbin
+Disable /usr/local/sbin
+Disable /usr/sbin
+Disable /usr/bin/chage
+Disable /usr/bin/chfn
+Disable /usr/bin/chsh
+Disable /usr/bin/crontab
+Disable /usr/bin/expiry
+Disable /bin/fusermount3 (requested /bin/fusermount)
+Disable /usr/bin/gpasswd
+Disable /bin/mount
+Disable /bin/nc.openbsd (requested /bin/nc)
+Disable /usr/bin/newgrp
+Disable /bin/ntfs-3g
+Disable /usr/bin/pkexec
+Disable /usr/bin/newgrp (requested /usr/bin/sg)
+Disable /usr/bin/strace
+Disable /bin/su
+Disable /usr/bin/sudo
+Disable /bin/umount
+Disable /usr/bin/xev
+Disable /usr/bin/mate-terminal (requested /usr/local/bin/gnome-terminal)
+Disable /usr/bin/mate-terminal
+Disable /usr/bin/mate-terminal.wrapper
+Disable /usr/bin/bwrap
+Disable /usr/lib/llvm-7/bin/clang (requested /usr/bin/clang-cpp-7)
+Disable /usr/lib/llvm-6.0/bin/clang (requested /usr/bin/clang-cpp-6.0)
+Disable /usr/lib/llvm-7/bin/clang (requested /usr/bin/clang-7)
+Disable /usr/lib/llvm-6.0/bin/clang (requested /usr/bin/clang-6.0)
+Disable /usr/lib/llvm-7/bin/clang (requested /usr/bin/clang++-7)
+Disable /usr/lib/llvm-6.0/bin/clang (requested /usr/bin/clang++-6.0)
+Disable /usr/lib/llvm-7/bin/clang (requested /usr/bin/clang++)
+Disable /usr/lib/llvm-7/bin/clang (requested /usr/bin/clang)
+Disable /usr/bin/x86_64-linux-gnu-as (requested /usr/bin/as)
+Disable /usr/bin/x86_64-linux-gnu-gcc-8 (requested /usr/bin/cc)
+Disable /usr/bin/x86_64-linux-gnu-g++-8 (requested /usr/bin/c++)
+Disable /usr/bin/x86_64-linux-gnu-c++filt (requested /usr/bin/c++filt)
+Disable /usr/bin/c89-gcc (requested /usr/bin/c89)
+Disable /usr/bin/c89-gcc
+Disable /usr/bin/c99-gcc (requested /usr/bin/c99)
+Disable /usr/bin/c99-gcc
+Disable /usr/bin/x86_64-linux-gnu-cpp-8 (requested /usr/bin/cpp-8)
+Disable /usr/bin/x86_64-linux-gnu-cpp-8 (requested /usr/bin/cpp)
+Disable /usr/bin/x86_64-linux-gnu-g++-8 (requested /usr/bin/g++-8)
+Disable /usr/bin/x86_64-linux-gnu-g++-8 (requested /usr/bin/g++)
+Disable /usr/bin/x86_64-linux-gnu-gcc-8 (requested /usr/bin/gcc-8)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ar-8 (requested /usr/bin/gcc-ar-8)
+Disable /usr/bin/x86_64-linux-gnu-gcc-nm-8 (requested /usr/bin/gcc-nm-8)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ranlib-8 (requested /usr/bin/gcc-ranlib-8)
+Disable /usr/bin/x86_64-linux-gnu-gcc-8 (requested /usr/bin/gcc)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ar-8 (requested /usr/bin/gcc-ar)
+Disable /usr/bin/x86_64-linux-gnu-gcc-nm-8 (requested /usr/bin/gcc-nm)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ranlib-8 (requested /usr/bin/gcc-ranlib)
+Disable /usr/bin/gdb
+Disable /usr/bin/x86_64-linux-gnu-ld.bfd (requested /usr/bin/ld)
+Disable /usr/bin/afl-gcc
+Disable /usr/bin/x86_64-linux-gnu-gcc-8
+Disable /usr/bin/x86_64-linux-gnu-gcc-ar-8
+Disable /usr/bin/x86_64-linux-gnu-gcc-nm-8
+Disable /usr/bin/x86_64-linux-gnu-gcc-ranlib-8
+Disable /usr/bin/c89-gcc
+Disable /usr/bin/c99-gcc
+Disable /usr/bin/x86_64-linux-gnu-gcc-8 (requested /usr/bin/x86_64-linux-gnu-gcc)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ar-8 (requested /usr/bin/x86_64-linux-gnu-gcc-ar)
+Disable /usr/bin/x86_64-linux-gnu-gcc-nm-8 (requested /usr/bin/x86_64-linux-gnu-gcc-nm)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ranlib-8 (requested /usr/bin/x86_64-linux-gnu-gcc-ranlib)
+Disable /usr/bin/afl-gcc (requested /usr/bin/afl-g++)
+Disable /usr/bin/x86_64-linux-gnu-g++-8
+Disable /usr/bin/x86_64-linux-gnu-g++-8 (requested /usr/bin/x86_64-linux-gnu-g++)
+Disable /usr/bin/afl-gcc
+Disable /usr/bin/x86_64-linux-gnu-gcc-8
+Disable /usr/bin/x86_64-linux-gnu-gcc-ar-8
+Disable /usr/bin/x86_64-linux-gnu-gcc-nm-8
+Disable /usr/bin/x86_64-linux-gnu-gcc-ranlib-8
+Disable /usr/bin/c89-gcc
+Disable /usr/bin/c99-gcc
+Disable /usr/bin/x86_64-linux-gnu-gcc-8 (requested /usr/bin/x86_64-linux-gnu-gcc)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ar-8 (requested /usr/bin/x86_64-linux-gnu-gcc-ar)
+Disable /usr/bin/x86_64-linux-gnu-gcc-nm-8 (requested /usr/bin/x86_64-linux-gnu-gcc-nm)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ranlib-8 (requested /usr/bin/x86_64-linux-gnu-gcc-ranlib)
+Disable /usr/bin/afl-gcc (requested /usr/bin/afl-g++)
+Disable /usr/bin/x86_64-linux-gnu-g++-8
+Disable /usr/bin/x86_64-linux-gnu-g++-8 (requested /usr/bin/x86_64-linux-gnu-g++)
+Disable /usr/include
+Disable /usr/lib/jvm/java-11-openjdk-amd64/bin/java (requested /usr/bin/java)
+Disable /usr/lib/jvm/java-11-openjdk-amd64/bin/javac (requested /usr/bin/javac)
+Disable /etc/java
+Disable /usr/share/java
+Disable /usr/bin/openssl
+Disable /usr/bin/rust-gdb
+Disable /usr/bin/rustc
+Disable /usr/lib/valgrind
+Disable /usr/share/lua
+Disable /usr/bin/node
+Disable /usr/bin/cpan5.28-x86_64-linux-gnu
+Disable /usr/bin/cpan
+Disable /usr/bin/perl
+Disable /usr/lib/perl6
+Disable /usr/share/perl
+Disable /usr/share/perl-openssl-defaults
+Disable /usr/share/perl5
+Disable /usr/share/perl6
+Disable /usr/bin/php7.3
+Disable /usr/bin/php7.3 (requested /usr/bin/php)
+Disable /usr/lib/php
+Disable /usr/share/php7.3-common
+Disable /usr/share/php7.3-json
+Disable /usr/share/php7.3-mysql
+Disable /usr/share/php7.3-opcache
+Disable /usr/share/php7.3-pgsql
+Disable /usr/share/php7.3-readline
+Disable /usr/share/php7.3-sqlite3
+Disable /usr/bin/ruby2.5 (requested /usr/bin/ruby)
+Disable /usr/lib/ruby
+Disable /usr/bin/python2.7 (requested /usr/bin/python2)
+Disable /usr/bin/x86_64-linux-gnu-python2.7-config (requested /usr/bin/python2-config)
+Disable /usr/bin/python2-futurize
+Disable /usr/bin/python2-pasteurize
+Disable /usr/bin/python2-pbr
+Disable /usr/bin/python2-qr
+Disable /usr/bin/python2-wsdump
+Disable /usr/bin/python2.7
+Disable /usr/bin/x86_64-linux-gnu-python2.7-config (requested /usr/bin/python2.7-config)
+Disable /usr/lib/python2.6
+Disable /usr/lib/python2.7
+Disable /usr/local/lib/python2.7
+Disable /usr/bin/python3-futurize
+Disable /usr/bin/python3-jsonschema
+Disable /usr/bin/python3-pasteurize
+Disable /usr/bin/python3-qr
+Disable /usr/bin/python3-tor-prompt
+Disable /usr/bin/python3-wsdump
+Disable /usr/bin/python3.6
+Disable /usr/bin/python3.6m
+Disable /usr/bin/python3.7
+Disable /usr/bin/python3.7m
+Disable /usr/bin/python3.7 (requested /usr/bin/python3)
+Disable /usr/bin/python3.7m (requested /usr/bin/python3m)
+Disable /usr/bin/python3-cymruwhois
+Disable /usr/lib/python3
+Disable /usr/lib/python3.6
+Disable /usr/lib/python3.7
+Disable /usr/lib/python3.8
+Disable /usr/local/lib/python3.6
+Disable /usr/local/lib/python3.7
+Disable /usr/share/python3
+Disable /usr/share/python3-plotly
+Disable /usr/share/python3-pycparser
+Disable /home/xe1phix/.local/share/TelegramDesktop
+Mounting read-only /home/xe1phix/.config/user-dirs.dirs
+1444 1232 0:23 /home/xe1phix/.config/user-dirs.dirs /home/xe1phix/.config/user-dirs.dirs ro,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/home/xe1phix/.config/user-dirs.dirs
+mountid=1444 fsname=/home/xe1phix/.config/user-dirs.dirs dir=/home/xe1phix/.config/user-dirs.dirs fstype=btrfs
+Disable /home/xe1phix (requested /home/xe1phix/)
+Disable /boot/.config
+Disable /usr/bin/x86_64-linux-gnu-gcc-8 (requested /usr/bin/gcc-8)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ar-8 (requested /usr/bin/gcc-ar-8)
+Disable /usr/bin/x86_64-linux-gnu-gcc-nm-8 (requested /usr/bin/gcc-nm-8)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ranlib-8 (requested /usr/bin/gcc-ranlib-8)
+Disable /usr/bin/x86_64-linux-gnu-gcc-8 (requested /usr/bin/gcc)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ar-8 (requested /usr/bin/gcc-ar)
+Disable /usr/bin/x86_64-linux-gnu-gcc-nm-8 (requested /usr/bin/gcc-nm)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ranlib-8 (requested /usr/bin/gcc-ranlib)
+Disable /media
+Disable /mnt
+Disable /etc/xdg/autostart
+Disable /usr/local/bin
+Disable /proc/sys/fs/binfmt_misc
+Disable /proc/sys/kernel/modprobe
+Disable /lib/modules
+Disable /usr/src (requested /usr/src/)
+Disable /sys/firmware
+Disable /usr/lib/debug
+Disable /run/user/1000/gnupg
+Disable /run/user/1000/systemd
+Disable /run/user/1000/bus
+Disable /etc/passwd
+Disable /etc/group
+Mounting read-only /etc/machine-id
+1470 1180 0:94 /machine-id /etc/machine-id ro,nosuid - tmpfs tmpfs rw,mode=755
+mountid=1470 fsname=/machine-id dir=/etc/machine-id fstype=tmpfs
+Mounting read-only /etc/passwd
+1471 1468 0:21 /firejail/firejail.ro.file /etc/passwd ro,nosuid,noexec,relatime master:5 - tmpfs tmpfs rw,size=761952k,mode=755
+mountid=1471 fsname=/firejail/firejail.ro.file dir=/etc/passwd fstype=tmpfs
+Mounting read-only /etc/group
+1472 1469 0:21 /firejail/firejail.ro.file /etc/group ro,nosuid,noexec,relatime master:5 - tmpfs tmpfs rw,size=761952k,mode=755
+mountid=1472 fsname=/firejail/firejail.ro.file dir=/etc/group fstype=tmpfs
+Mounting read-only /var
+1477 1473 0:96 / /var/tmp rw,nosuid,nodev,noexec - tmpfs tmpfs rw
+mountid=1477 fsname=/ dir=/var/tmp fstype=tmpfs
+Mounting read-only /var/tmp
+1478 1477 0:96 / /var/tmp ro,nosuid,nodev,noexec - tmpfs tmpfs rw
+mountid=1478 fsname=/ dir=/var/tmp fstype=tmpfs
+Mounting noexec /tmp
+1481 1479 0:23 /tmp/pulse-PKdhtXMmr18n /tmp/pulse-PKdhtXMmr18n rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/tmp/pulse-PKdhtXMmr18n
+mountid=1481 fsname=/tmp/pulse-PKdhtXMmr18n dir=/tmp/pulse-PKdhtXMmr18n fstype=btrfs
+Mounting noexec /tmp/.X11-unix
+1482 1480 0:23 /tmp/.X11-unix /tmp/.X11-unix rw,nosuid,nodev,noexec,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/tmp/.X11-unix
+mountid=1482 fsname=/tmp/.X11-unix dir=/tmp/.X11-unix fstype=btrfs
+Mounting noexec /tmp/pulse-PKdhtXMmr18n
+1483 1481 0:23 /tmp/pulse-PKdhtXMmr18n /tmp/pulse-PKdhtXMmr18n rw,nosuid,nodev,noexec,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/tmp/pulse-PKdhtXMmr18n
+mountid=1483 fsname=/tmp/pulse-PKdhtXMmr18n dir=/tmp/pulse-PKdhtXMmr18n fstype=btrfs
+Mounting read-only /tmp/.X11-unix
+1484 1482 0:23 /tmp/.X11-unix /tmp/.X11-unix ro,nosuid,nodev,noexec,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/tmp/.X11-unix
+mountid=1484 fsname=/tmp/.X11-unix dir=/tmp/.X11-unix fstype=btrfs
+Disable /sys/fs
+Disable /sys/module
+Disable /mnt
+Disable /media
+Disable /run/mount
+Mounting noexec /run/firejail/mnt/pulse
+Error: /home/xe1phix/.config/pulse is not owned by the current user
+Error: proc 9746 cannot sync with peer: unexpected EOF
+Peer 9747 unexpectedly exited with status 1
+┌─[✗]─[xe1p
