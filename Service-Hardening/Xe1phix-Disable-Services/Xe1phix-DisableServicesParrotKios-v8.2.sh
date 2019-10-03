@@ -101,7 +101,7 @@ export SERVICEBIN='$(which service)'
        bluetooth            \
        strongswan.service   \
        strongswan           \
-       redsocks.service		\
+       redsocks.service     \
        redsocks             \
        tinc                 \
        tinc.service         \
