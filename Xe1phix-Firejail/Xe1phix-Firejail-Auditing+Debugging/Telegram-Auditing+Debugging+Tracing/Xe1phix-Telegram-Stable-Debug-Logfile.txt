@@ -1,0 +1,1215 @@
+┌─[xe1phix@parrot]─[~]
+└──╼ $sudo firejail --debug --profile=/etc/firejail/telegram.profile "/home/xe1phix/Downloads/Telegram/Telegram -- %u"
+[sudo] password for xe1phix: 
+Reading profile /etc/firejail/telegram.profile
+Reading profile /etc/firejail/disable-common.inc
+Reading profile /etc/firejail/disable-devel.inc
+Reading profile /etc/firejail/disable-interpreters.inc
+Reading profile /etc/firejail/disable-passwdmgr.inc
+Reading profile /etc/firejail/disable-programs.inc
+Reading profile /etc/firejail/disable-xdg.inc
+Reading profile /etc/firejail/whitelist-common.inc
+Reading profile /etc/firejail/whitelist-var-common.inc
+Warning: noroot option is not available
+Building quoted command line: '/home/xe1phix/Downloads/Telegram/Telegram -- %u' 
+Command name #Telegram#
+DISPLAY=:0 parsed as 0
+Enabling IPC namespace
+Using the local network stack
+Parent pid 12031, child pid 12032
+The new log directory is /proc/12032/root/var/log
+Initializing child process
+Host network configured
+PID namespace installed
+Mounting tmpfs on /run/firejail/mnt directory
+Creating empty /run/firejail/mnt/seccomp directory
+Creating empty /run/firejail/mnt/seccomp/seccomp.protocol file
+Creating empty /run/firejail/mnt/seccomp/seccomp.postexec file
+Remounting /proc filesystem
+
+DNS server 209.141.60.226
+DNS server 139.99.96.146
+DNS server 193.138.218.74
+
+Build protocol filter: unix,inet,packet
+sbox run: /run/firejail/lib/fseccomp protocol build unix,inet,packet /run/firejail/mnt/seccomp/seccomp.protocol (null) 
+Dropping all capabilities
+Drop privileges: pid 2, uid 0, gid 0, nogroups 1
+No supplementary groups
+Basic read-only filesystem:
+Mounting read-only /etc
+Mounting read-only /var
+Mounting read-only /bin
+Mounting read-only /sbin
+Mounting read-only /lib
+Mounting read-only /lib64
+Mounting read-only /lib32
+Mounting read-only /usr
+Mounting tmpfs on /var/lock
+Mounting tmpfs on /var/tmp
+Mounting tmpfs on /var/log
+Mounting tmpfs on /var/lib/dhcp
+Mounting tmpfs on /var/lib/nginx
+Mounting tmpfs on /var/lib/snmp
+Mounting tmpfs on /var/lib/sudo
+Create the new utmp file
+Mount the new utmp file
+Generating a new machine-id
+installing a new /etc/machine-id
+Mounting tmpfs on /dev
+mounting /run/firejail/mnt/dev/snd directory
+mounting /run/firejail/mnt/dev/video0 file
+mounting /run/firejail/mnt/dev/video1 file
+mounting /run/firejail/mnt/dev/hidraw0 file
+mounting /run/firejail/mnt/dev/hidraw1 file
+Process /dev/shm directory
+Mounting tmpfs on /root/.cache
+845 773 0:83 / /root/.cache rw,nosuid,nodev,relatime - tmpfs tmpfs rw,mode=700
+mountid=845 fsname=/ dir=/root/.cache fstype=tmpfs
+Mounting read-only /proc/sys
+Remounting /sys directory
+Disable /sys/firmware
+Disable /sys/hypervisor
+Disable /sys/power
+Disable /sys/kernel/debug
+Disable /sys/kernel/vmcoreinfo
+Disable /proc/sys/fs/binfmt_misc
+Disable /proc/sys/kernel/core_pattern
+Disable /proc/sys/kernel/modprobe
+Disable /proc/sysrq-trigger
+Disable /proc/sys/vm/panic_on_oom
+Disable /proc/irq
+Disable /proc/bus
+Disable /proc/sched_debug
+Disable /proc/timer_list
+Disable /proc/kcore
+Disable /proc/kallsyms
+Disable /lib/modules
+Disable /usr/lib/debug
+Disable /boot
+Debug 422: new_name #/root/.config/mimeapps.list#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/mimeapps.list
+	expanded: /root/.config/mimeapps.list
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.config/pkcs11#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/pkcs11
+	expanded: /root/.config/pkcs11
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.config/user-dirs.dirs#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/user-dirs.dirs
+	expanded: /root/.config/user-dirs.dirs
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.local/share/applications#, whitelist
+Debug 530: fname #/root/.local/share/applications#, cfg.homedir #/root#
+Replaced whitelist path: whitelist /root/.local/share/applications
+Debug 422: new_name #/root/.local/share/icons#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.local/share/icons
+	expanded: /root/.local/share/icons
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.local/share/mime#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.local/share/mime
+	expanded: /root/.local/share/mime
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.mime.types#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.mime.types
+	expanded: /root/.mime.types
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.config/dconf#, whitelist
+Debug 530: fname #/root/.config/dconf#, cfg.homedir #/root#
+Replaced whitelist path: whitelist /root/.config/dconf
+Debug 422: new_name #/root/.cache/fontconfig#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.cache/fontconfig
+	expanded: /root/.cache/fontconfig
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.config/fontconfig#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/fontconfig
+	expanded: /root/.config/fontconfig
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.fontconfig#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.fontconfig
+	expanded: /root/.fontconfig
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.fonts#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.fonts
+	expanded: /root/.fonts
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.fonts.conf#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.fonts.conf
+	expanded: /root/.fonts.conf
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.fonts.conf.d#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.fonts.conf.d
+	expanded: /root/.fonts.conf.d
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.fonts.d#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.fonts.d
+	expanded: /root/.fonts.d
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.local/share/fonts#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.local/share/fonts
+	expanded: /root/.local/share/fonts
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.config/gtk-2.0#, whitelist
+Debug 530: fname #/root/.config/gtk-2.0#, cfg.homedir #/root#
+Replaced whitelist path: whitelist /root/.config/gtk-2.0
+Debug 422: new_name #/root/.config/gtk-3.0#, whitelist
+Debug 530: fname #/root/.config/gtk-3.0#, cfg.homedir #/root#
+Replaced whitelist path: whitelist /root/.config/gtk-3.0
+Debug 422: new_name #/root/.config/gtkrc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/gtkrc
+	expanded: /root/.config/gtkrc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.config/gtkrc-2.0#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/gtkrc-2.0
+	expanded: /root/.config/gtkrc-2.0
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.gnome2#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.gnome2
+	expanded: /root/.gnome2
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.gnome2-private#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.gnome2-private
+	expanded: /root/.gnome2-private
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.gtk-2.0#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.gtk-2.0
+	expanded: /root/.gtk-2.0
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.gtkrc#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.gtkrc
+	expanded: /root/.gtkrc
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.gtkrc-2.0#, whitelist
+Debug 530: fname #/root/.gtkrc-2.0#, cfg.homedir #/root#
+Replaced whitelist path: whitelist /root/.gtkrc-2.0
+Debug 422: new_name #/root/.local/share/themes#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.local/share/themes
+	expanded: /root/.local/share/themes
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.themes#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.themes
+	expanded: /root/.themes
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.config/Trolltech.conf#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/Trolltech.conf
+	expanded: /root/.config/Trolltech.conf
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.config/kdeglobals#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/kdeglobals
+	expanded: /root/.config/kdeglobals
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.config/ksslcablacklist#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/ksslcablacklist
+	expanded: /root/.config/ksslcablacklist
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.config/qt5ct#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.config/qt5ct
+	expanded: /root/.config/qt5ct
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.local/share/qt5ct#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.local/share/qt5ct
+	expanded: /root/.local/share/qt5ct
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/var/lib/dbus#, whitelist
+Debug 422: new_name #/var/lib/menu-xdg#, whitelist
+Debug 422: new_name #/var/cache/fontconfig#, whitelist
+Debug 422: new_name #/var/tmp#, whitelist
+Debug 422: new_name #/var/run#, whitelist
+Replaced whitelist path: whitelist /run
+Debug 422: new_name #/var/lock#, whitelist
+Replaced whitelist path: whitelist /run/lock
+Debug 422: new_name #/root/Downloads#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/Downloads/
+	expanded: /root/Downloads
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.local/share/TelegramDesktop#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.local/share/TelegramDesktop
+	expanded: /root/.local/share/TelegramDesktop
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/root/.local/share/icons#, whitelist
+Removed whitelist/nowhitelist path: whitelist ${HOME}/.local/share/icons
+	expanded: /root/.local/share/icons
+	real path: (null)
+	realpath: No such file or directory
+Debug 422: new_name #/var/lib/dbus#, whitelist
+Debug 422: new_name #/var/lib/menu-xdg#, whitelist
+Debug 422: new_name #/tmp/.X11-unix#, whitelist
+Debug 422: new_name #/tmp/pulse-PKdhtXMmr18n#, whitelist
+Mounting tmpfs on /tmp directory
+Mounting tmpfs on /var directory
+Mounting a new /home directory
+Mounting a new /root directory
+Drop privileges: pid 3, uid 0, gid 0, nogroups 0
+No supplementary groups
+Whitelisting /root/.local/share/applications
+863 862 0:23 /root/.local/share/applications /root/.local/share/applications rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/root/.local/share/applications
+mountid=863 fsname=/root/.local/share/applications dir=/root/.local/share/applications fstype=btrfs
+Whitelisting /root/.config/dconf
+864 862 0:23 /root/.config/dconf /root/.config/dconf rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/root/.config/dconf
+mountid=864 fsname=/root/.config/dconf dir=/root/.config/dconf fstype=btrfs
+Whitelisting /root/.config/gtk-2.0
+865 862 0:23 /root/.config/gtk-2.0 /root/.config/gtk-2.0 rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/root/.config/gtk-2.0
+mountid=865 fsname=/root/.config/gtk-2.0 dir=/root/.config/gtk-2.0 fstype=btrfs
+Whitelisting /root/.config/gtk-3.0
+866 862 0:23 /root/.config/gtk-3.0 /root/.config/gtk-3.0 rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/root/.config/gtk-3.0
+mountid=866 fsname=/root/.config/gtk-3.0 dir=/root/.config/gtk-3.0 fstype=btrfs
+Whitelisting /root/.gtkrc-2.0
+867 862 0:23 /root/.gtkrc-2.0 /root/.gtkrc-2.0 rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/root/.gtkrc-2.0
+mountid=867 fsname=/root/.gtkrc-2.0 dir=/root/.gtkrc-2.0 fstype=btrfs
+Whitelisting /var/lib/dbus
+868 858 0:23 /var/lib/dbus /var/lib/dbus ro,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/var/lib/dbus
+mountid=868 fsname=/var/lib/dbus dir=/var/lib/dbus fstype=btrfs
+Whitelisting /var/lib/menu-xdg
+869 858 0:23 /var/lib/menu-xdg /var/lib/menu-xdg ro,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/var/lib/menu-xdg
+mountid=869 fsname=/var/lib/menu-xdg dir=/var/lib/menu-xdg fstype=btrfs
+Whitelisting /var/cache/fontconfig
+870 858 0:23 /var/cache/fontconfig /var/cache/fontconfig ro,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/var/cache/fontconfig
+mountid=870 fsname=/var/cache/fontconfig dir=/var/cache/fontconfig fstype=btrfs
+Whitelisting /var/tmp
+871 858 0:75 / /var/tmp rw,nosuid,nodev,noexec - tmpfs tmpfs rw
+mountid=871 fsname=/ dir=/var/tmp fstype=tmpfs
+Created symbolic link /var/run -> /run
+Created symbolic link /var/lock -> /run/lock
+Whitelisting /var/lib/dbus
+872 868 0:23 /var/lib/dbus /var/lib/dbus ro,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/var/lib/dbus
+mountid=872 fsname=/var/lib/dbus dir=/var/lib/dbus fstype=btrfs
+Whitelisting /var/lib/menu-xdg
+873 869 0:23 /var/lib/menu-xdg /var/lib/menu-xdg ro,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/var/lib/menu-xdg
+mountid=873 fsname=/var/lib/menu-xdg dir=/var/lib/menu-xdg fstype=btrfs
+Whitelisting /tmp/.X11-unix
+874 849 0:23 /tmp/.X11-unix /tmp/.X11-unix rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/tmp/.X11-unix
+mountid=874 fsname=/tmp/.X11-unix dir=/tmp/.X11-unix fstype=btrfs
+Whitelisting /tmp/pulse-PKdhtXMmr18n
+875 849 0:23 /tmp/pulse-PKdhtXMmr18n /tmp/pulse-PKdhtXMmr18n rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/tmp/pulse-PKdhtXMmr18n
+mountid=875 fsname=/tmp/pulse-PKdhtXMmr18n dir=/tmp/pulse-PKdhtXMmr18n fstype=btrfs
+Disable /etc/X11/Xsession.d
+Disable /etc/xdg/autostart
+Disable /usr/bin/zuluCrypt-cli
+Disable /usr/bin/zuluMount-cli
+Disable /etc/cron.d
+Disable /etc/cron.daily
+Disable /etc/cron.hourly
+Disable /etc/cron.monthly
+Disable /etc/cron.weekly
+Disable /etc/crontab
+Disable /etc/profile.d
+Disable /etc/rc0.d
+Disable /etc/rc1.d
+Disable /etc/rc2.d
+Disable /etc/rc3.d
+Disable /etc/rc4.d
+Disable /etc/rc5.d
+Disable /etc/rc6.d
+Disable /etc/rcS.d
+Disable /etc/kernel
+Disable /etc/grub.d
+Disable /etc/dkms
+Disable /etc/apparmor
+Disable /etc/apparmor.d
+Disable /etc/selinux
+Disable /etc/modules
+Disable /etc/modules-load.d
+Disable /etc/logrotate.conf
+Disable /etc/logrotate.d
+Disable /etc/adduser.conf
+Mounting read-only /root/.bashrc
+909 862 0:87 /.bashrc /root/.bashrc ro,nosuid,nodev,noexec - tmpfs tmpfs rw,mode=700
+mountid=909 fsname=/.bashrc dir=/root/.bashrc fstype=tmpfs
+Mounting read-only /root/.local/share/applications
+910 863 0:23 /root/.local/share/applications /root/.local/share/applications ro,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/root/.local/share/applications
+mountid=910 fsname=/root/.local/share/applications dir=/root/.local/share/applications fstype=btrfs
+Disable /etc/group-
+Disable /etc/gshadow
+Disable /etc/gshadow-
+Disable /etc/passwd-
+Disable /etc/shadow
+Disable /etc/shadow-
+Disable /etc/ssh
+Disable /sbin
+Disable /usr/local/sbin
+Disable /usr/sbin
+Disable /usr/bin/chage
+Disable /usr/bin/chfn
+Disable /usr/bin/chsh
+Disable /usr/bin/crontab
+Disable /usr/bin/expiry
+Disable /bin/fusermount3 (requested /bin/fusermount)
+Disable /usr/bin/gpasswd
+Disable /bin/mount
+Disable /bin/nc.openbsd (requested /bin/nc)
+Disable /usr/bin/newgrp
+Disable /bin/ntfs-3g
+Disable /usr/bin/pkexec
+Disable /usr/bin/newgrp (requested /usr/bin/sg)
+Disable /usr/bin/strace
+Disable /bin/su
+Disable /usr/bin/sudo
+Disable /bin/umount
+Disable /usr/bin/xev
+Disable /usr/bin/mate-terminal (requested /usr/local/bin/gnome-terminal)
+Disable /usr/bin/mate-terminal
+Disable /usr/bin/mate-terminal.wrapper
+Disable /usr/bin/bwrap
+Disable /usr/lib/llvm-7/bin/clang (requested /usr/bin/clang-cpp-7)
+Disable /usr/lib/llvm-6.0/bin/clang (requested /usr/bin/clang-cpp-6.0)
+Disable /usr/lib/llvm-7/bin/clang (requested /usr/bin/clang-7)
+Disable /usr/lib/llvm-6.0/bin/clang (requested /usr/bin/clang-6.0)
+Disable /usr/lib/llvm-7/bin/clang (requested /usr/bin/clang++-7)
+Disable /usr/lib/llvm-6.0/bin/clang (requested /usr/bin/clang++-6.0)
+Disable /usr/lib/llvm-7/bin/clang (requested /usr/bin/clang++)
+Disable /usr/lib/llvm-7/bin/clang (requested /usr/bin/clang)
+Disable /usr/bin/x86_64-linux-gnu-as (requested /usr/bin/as)
+Disable /usr/bin/x86_64-linux-gnu-gcc-8 (requested /usr/bin/cc)
+Disable /usr/bin/x86_64-linux-gnu-g++-8 (requested /usr/bin/c++)
+Disable /usr/bin/x86_64-linux-gnu-c++filt (requested /usr/bin/c++filt)
+Disable /usr/bin/c89-gcc (requested /usr/bin/c89)
+Disable /usr/bin/c89-gcc
+Disable /usr/bin/c99-gcc (requested /usr/bin/c99)
+Disable /usr/bin/c99-gcc
+Disable /usr/bin/x86_64-linux-gnu-cpp-8 (requested /usr/bin/cpp-8)
+Disable /usr/bin/x86_64-linux-gnu-cpp-8 (requested /usr/bin/cpp)
+Disable /usr/bin/x86_64-linux-gnu-g++-8 (requested /usr/bin/g++-8)
+Disable /usr/bin/x86_64-linux-gnu-g++-8 (requested /usr/bin/g++)
+Disable /usr/bin/x86_64-linux-gnu-gcc-8 (requested /usr/bin/gcc-8)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ar-8 (requested /usr/bin/gcc-ar-8)
+Disable /usr/bin/x86_64-linux-gnu-gcc-nm-8 (requested /usr/bin/gcc-nm-8)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ranlib-8 (requested /usr/bin/gcc-ranlib-8)
+Disable /usr/bin/x86_64-linux-gnu-gcc-8 (requested /usr/bin/gcc)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ar-8 (requested /usr/bin/gcc-ar)
+Disable /usr/bin/x86_64-linux-gnu-gcc-nm-8 (requested /usr/bin/gcc-nm)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ranlib-8 (requested /usr/bin/gcc-ranlib)
+Disable /usr/bin/gdb
+Disable /usr/bin/x86_64-linux-gnu-ld.bfd (requested /usr/bin/ld)
+Disable /usr/bin/afl-gcc
+Disable /usr/bin/x86_64-linux-gnu-gcc-8
+Disable /usr/bin/x86_64-linux-gnu-gcc-ar-8
+Disable /usr/bin/x86_64-linux-gnu-gcc-nm-8
+Disable /usr/bin/x86_64-linux-gnu-gcc-ranlib-8
+Disable /usr/bin/c89-gcc
+Disable /usr/bin/c99-gcc
+Disable /usr/bin/x86_64-linux-gnu-gcc-8 (requested /usr/bin/x86_64-linux-gnu-gcc)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ar-8 (requested /usr/bin/x86_64-linux-gnu-gcc-ar)
+Disable /usr/bin/x86_64-linux-gnu-gcc-nm-8 (requested /usr/bin/x86_64-linux-gnu-gcc-nm)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ranlib-8 (requested /usr/bin/x86_64-linux-gnu-gcc-ranlib)
+Disable /usr/bin/afl-gcc (requested /usr/bin/afl-g++)
+Disable /usr/bin/x86_64-linux-gnu-g++-8
+Disable /usr/bin/x86_64-linux-gnu-g++-8 (requested /usr/bin/x86_64-linux-gnu-g++)
+Disable /usr/bin/afl-gcc
+Disable /usr/bin/x86_64-linux-gnu-gcc-8
+Disable /usr/bin/x86_64-linux-gnu-gcc-ar-8
+Disable /usr/bin/x86_64-linux-gnu-gcc-nm-8
+Disable /usr/bin/x86_64-linux-gnu-gcc-ranlib-8
+Disable /usr/bin/c89-gcc
+Disable /usr/bin/c99-gcc
+Disable /usr/bin/x86_64-linux-gnu-gcc-8 (requested /usr/bin/x86_64-linux-gnu-gcc)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ar-8 (requested /usr/bin/x86_64-linux-gnu-gcc-ar)
+Disable /usr/bin/x86_64-linux-gnu-gcc-nm-8 (requested /usr/bin/x86_64-linux-gnu-gcc-nm)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ranlib-8 (requested /usr/bin/x86_64-linux-gnu-gcc-ranlib)
+Disable /usr/bin/afl-gcc (requested /usr/bin/afl-g++)
+Disable /usr/bin/x86_64-linux-gnu-g++-8
+Disable /usr/bin/x86_64-linux-gnu-g++-8 (requested /usr/bin/x86_64-linux-gnu-g++)
+Disable /usr/include
+Disable /usr/lib/jvm/java-11-openjdk-amd64/bin/java (requested /usr/bin/java)
+Disable /usr/lib/jvm/java-11-openjdk-amd64/bin/javac (requested /usr/bin/javac)
+Disable /etc/java
+Disable /usr/share/java
+Disable /usr/bin/openssl
+Disable /usr/bin/rust-gdb
+Disable /usr/bin/rustc
+Disable /usr/lib/valgrind
+Disable /usr/share/lua
+Disable /usr/bin/node
+Disable /usr/bin/cpan5.28-x86_64-linux-gnu
+Disable /usr/bin/cpan
+Disable /usr/bin/perl
+Disable /usr/lib/perl6
+Disable /usr/share/perl
+Disable /usr/share/perl-openssl-defaults
+Disable /usr/share/perl5
+Disable /usr/share/perl6
+Disable /usr/bin/php7.3
+Disable /usr/bin/php7.3 (requested /usr/bin/php)
+Disable /usr/lib/php
+Disable /usr/share/php7.3-common
+Disable /usr/share/php7.3-json
+Disable /usr/share/php7.3-mysql
+Disable /usr/share/php7.3-opcache
+Disable /usr/share/php7.3-pgsql
+Disable /usr/share/php7.3-readline
+Disable /usr/share/php7.3-sqlite3
+Disable /usr/bin/ruby2.5 (requested /usr/bin/ruby)
+Disable /usr/lib/ruby
+Disable /usr/bin/python2.7 (requested /usr/bin/python2)
+Disable /usr/bin/x86_64-linux-gnu-python2.7-config (requested /usr/bin/python2-config)
+Disable /usr/bin/python2-futurize
+Disable /usr/bin/python2-pasteurize
+Disable /usr/bin/python2-pbr
+Disable /usr/bin/python2-qr
+Disable /usr/bin/python2-wsdump
+Disable /usr/bin/python2.7
+Disable /usr/bin/x86_64-linux-gnu-python2.7-config (requested /usr/bin/python2.7-config)
+Disable /usr/lib/python2.6
+Disable /usr/lib/python2.7
+Disable /usr/local/lib/python2.7
+Disable /usr/bin/python3-futurize
+Disable /usr/bin/python3-jsonschema
+Disable /usr/bin/python3-pasteurize
+Disable /usr/bin/python3-qr
+Disable /usr/bin/python3-tor-prompt
+Disable /usr/bin/python3-wsdump
+Disable /usr/bin/python3.6
+Disable /usr/bin/python3.6m
+Disable /usr/bin/python3.7
+Disable /usr/bin/python3.7m
+Disable /usr/bin/python3.7 (requested /usr/bin/python3)
+Disable /usr/bin/python3.7m (requested /usr/bin/python3m)
+Disable /usr/bin/python3-cymruwhois
+Disable /usr/lib/python3
+Disable /usr/lib/python3.6
+Disable /usr/lib/python3.7
+Disable /usr/lib/python3.8
+Disable /usr/local/lib/python3.6
+Disable /usr/local/lib/python3.7
+Disable /usr/share/python3
+Disable /usr/share/python3-plotly
+Disable /usr/share/python3-pycparser
+Disable /usr/bin/zuluMount-cli
+Disable /usr/bin/zuluCrypt-cli
+Disable /bin/mount
+Disable /bin/umount
+Disable /bin/ntfs-3g
+Disable /etc/adduser.conf
+Disable /usr/bin/sudo
+Disable /bin/su
+Disable /usr/bin/newgrp
+Disable /usr/bin/gpasswd
+Disable /usr/bin/chage
+Disable /etc/shadow
+Disable /etc/shadow-
+Disable /etc/passwd
+Disable /etc/passwd-
+Disable /etc/group
+Disable /etc/group-
+Disable /etc/gshadow
+Disable /etc/gshadow-
+Disable /etc/passwd
+Disable /etc/passwd-
+Disable /usr/bin/pkexec
+Disable /root (requested /root/)
+Disable /boot/.config
+Disable /etc/grub.d
+Disable /etc/default/grub
+Disable /etc/default/grub.d (requested /etc/default/grub.d/)
+Disable /etc/java
+Disable /usr/share/java
+Disable /usr/share/lua
+Disable /usr/bin/x86_64-linux-gnu-gcc-8 (requested /usr/bin/gcc-8)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ar-8 (requested /usr/bin/gcc-ar-8)
+Disable /usr/bin/x86_64-linux-gnu-gcc-nm-8 (requested /usr/bin/gcc-nm-8)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ranlib-8 (requested /usr/bin/gcc-ranlib-8)
+Disable /usr/bin/x86_64-linux-gnu-gcc-8 (requested /usr/bin/gcc)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ar-8 (requested /usr/bin/gcc-ar)
+Disable /usr/bin/x86_64-linux-gnu-gcc-nm-8 (requested /usr/bin/gcc-nm)
+Disable /usr/bin/x86_64-linux-gnu-gcc-ranlib-8 (requested /usr/bin/gcc-ranlib)
+Disable /usr/share/php7.3-common
+Disable /usr/share/php7.3-json
+Disable /usr/share/php7.3-mysql
+Disable /usr/share/php7.3-opcache
+Disable /usr/share/php7.3-pgsql
+Disable /usr/share/php7.3-readline
+Disable /usr/share/php7.3-sqlite3
+Disable /usr/bin/php7.3 (requested /usr/bin/php)
+Disable /usr/lib/php
+Disable /usr/bin/perl
+Disable /usr/bin/cpan
+Disable /usr/bin/node
+Disable /usr/bin/rust-gdb
+Disable /usr/bin/rustc
+Disable /usr/lib/valgrind
+Disable /bin/nc.openbsd
+Disable /root/.config (requested /root/.config/)
+Disable /etc/xdg/autostart
+Disable /etc/rc0.d
+Disable /etc/rc1.d
+Disable /etc/rc2.d
+Disable /etc/rc3.d
+Disable /etc/rc4.d
+Disable /etc/rc5.d
+Disable /etc/rc6.d
+Disable /etc/rcS.d
+Disable /proc/sys/kernel/core_pattern
+Disable /proc/sysrq-trigger
+Disable /proc/sys/vm/panic_on_oom
+Disable /proc/irq
+Disable /proc/bus
+Disable /proc/sched_debug
+Disable /proc/timer_list
+Disable /proc/kcore
+Disable /etc/dkms
+Disable /etc/kernel
+Disable /proc/kmsg
+Disable /etc/logrotate.conf
+Disable /etc/logrotate.d
+Disable /etc/cron.d
+Disable /etc/cron.daily
+Disable /etc/cron.hourly
+Disable /etc/cron.monthly
+Disable /etc/cron.weekly
+Disable /etc/crontab
+Disable /etc/profile.d
+Disable /proc/sys/fs/binfmt_misc
+Disable /proc/sys/kernel/modprobe
+Disable /lib/modules
+Disable /etc/modules-load.d
+Disable /sys/fs
+Disable /sys/power
+Disable /sys/firmware
+Disable /sys/kernel/debug
+Disable /sys/kernel/vmcoreinfo
+Disable /usr/lib/debug
+Disable /etc/selinux
+Disable /etc/apparmor
+Disable /etc/apparmor.d
+Disable /run/user/1000/gnupg
+Disable /run/user/1000/systemd
+Disable /run/user/1000/bus
+Mounting read-only /etc/machine-id
+1166 829 0:73 /machine-id /etc/machine-id ro,nosuid - tmpfs tmpfs rw,mode=755
+mountid=1166 fsname=/machine-id dir=/etc/machine-id fstype=tmpfs
+Mounting read-only /var
+1173 1167 0:75 / /var/tmp rw,nosuid,nodev,noexec - tmpfs tmpfs rw
+mountid=1173 fsname=/ dir=/var/tmp fstype=tmpfs
+Mounting read-only /var/tmp
+1174 1173 0:75 / /var/tmp ro,nosuid,nodev,noexec - tmpfs tmpfs rw
+mountid=1174 fsname=/ dir=/var/tmp fstype=tmpfs
+Disable /mnt
+Disable /boot
+Disable /media
+Disable /run/mount
+Disable /usr/include
+Disable /usr/src (requested /usr/src/)
+Mounting noexec /tmp
+1183 1181 0:23 /tmp/pulse-PKdhtXMmr18n /tmp/pulse-PKdhtXMmr18n rw,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/tmp/pulse-PKdhtXMmr18n
+mountid=1183 fsname=/tmp/pulse-PKdhtXMmr18n dir=/tmp/pulse-PKdhtXMmr18n fstype=btrfs
+Mounting noexec /tmp/.X11-unix
+1184 1182 0:23 /tmp/.X11-unix /tmp/.X11-unix rw,nosuid,nodev,noexec,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/tmp/.X11-unix
+mountid=1184 fsname=/tmp/.X11-unix dir=/tmp/.X11-unix fstype=btrfs
+Mounting noexec /tmp/pulse-PKdhtXMmr18n
+1185 1183 0:23 /tmp/pulse-PKdhtXMmr18n /tmp/pulse-PKdhtXMmr18n rw,nosuid,nodev,noexec,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/tmp/pulse-PKdhtXMmr18n
+mountid=1185 fsname=/tmp/pulse-PKdhtXMmr18n dir=/tmp/pulse-PKdhtXMmr18n fstype=btrfs
+Mounting read-only /tmp/.X11-unix
+1186 1184 0:23 /tmp/.X11-unix /tmp/.X11-unix ro,nosuid,nodev,noexec,relatime master:1 - btrfs /dev/mapper/parrot--vg-root rw,space_cache,subvolid=5,subvol=/tmp/.X11-unix
+mountid=1186 fsname=/tmp/.X11-unix dir=/tmp/.X11-unix fstype=btrfs
+Disable /sys/fs
+Disable /sys/module
+Disable /mnt
+Disable /media
+Disable /run/mount
+blacklist /dev/dri
+blacklist /dev/nvidia0
+blacklist /dev/nvidia1
+blacklist /dev/nvidia2
+blacklist /dev/nvidia3
+blacklist /dev/nvidia4
+blacklist /dev/nvidia5
+blacklist /dev/nvidia6
+blacklist /dev/nvidia7
+blacklist /dev/nvidia8
+blacklist /dev/nvidia9
+blacklist /dev/nvidiactl
+blacklist /dev/nvidia-modeset
+blacklist /dev/nvidia-uvm
+blacklist /dev/dvb
+blacklist /dev/sr0
+mirroring /etc directory
+Creating empty /run/firejail/mnt/dns-etc/.java directory
+Creating empty /run/firejail/mnt/dns-etc/.pwd.lock file
+Creating empty /run/firejail/mnt/dns-etc/NetworkManager directory
+Creating empty /run/firejail/mnt/dns-etc/ODBCDataSources directory
+Creating empty /run/firejail/mnt/dns-etc/OpenCL directory
+Creating empty /run/firejail/mnt/dns-etc/PackageKit directory
+Creating empty /run/firejail/mnt/dns-etc/UPower directory
+Creating empty /run/firejail/mnt/dns-etc/X11 directory
+Creating empty /run/firejail/mnt/dns-etc/adduser.conf file
+Creating empty /run/firejail/mnt/dns-etc/aliases file
+Creating empty /run/firejail/mnt/dns-etc/alsa directory
+Creating empty /run/firejail/mnt/dns-etc/alternatives directory
+Creating empty /run/firejail/mnt/dns-etc/amap directory
+Creating empty /run/firejail/mnt/dns-etc/anonsurf directory
+Creating empty /run/firejail/mnt/dns-etc/apache2 directory
+Creating empty /run/firejail/mnt/dns-etc/apm directory
+Creating empty /run/firejail/mnt/dns-etc/apparmor directory
+Creating empty /run/firejail/mnt/dns-etc/apparmor.d directory
+Creating empty /run/firejail/mnt/dns-etc/apt directory
+Creating empty /run/firejail/mnt/dns-etc/arpwatch directory
+Creating empty /run/firejail/mnt/dns-etc/avahi directory
+Creating empty /run/firejail/mnt/dns-etc/avrdude.conf file
+Creating empty /run/firejail/mnt/dns-etc/bash.bashrc file
+Creating empty /run/firejail/mnt/dns-etc/bash_completion file
+Creating empty /run/firejail/mnt/dns-etc/bash_completion.d directory
+Creating empty /run/firejail/mnt/dns-etc/bashrc file
+Creating empty /run/firejail/mnt/dns-etc/bdfproxy directory
+Creating empty /run/firejail/mnt/dns-etc/beef-xss directory
+Creating empty /run/firejail/mnt/dns-etc/bindresvport.blacklist file
+Creating empty /run/firejail/mnt/dns-etc/binfmt.d directory
+Creating empty /run/firejail/mnt/dns-etc/ca-certificates directory
+Creating empty /run/firejail/mnt/dns-etc/ca-certificates.conf file
+Creating empty /run/firejail/mnt/dns-etc/calendar directory
+Creating empty /run/firejail/mnt/dns-etc/cczerc file
+Creating empty /run/firejail/mnt/dns-etc/chkrootkit.conf file
+Creating empty /run/firejail/mnt/dns-etc/cisco-torch directory
+Creating empty /run/firejail/mnt/dns-etc/collectd directory
+Creating empty /run/firejail/mnt/dns-etc/console-setup directory
+Creating empty /run/firejail/mnt/dns-etc/cracklib directory
+Creating empty /run/firejail/mnt/dns-etc/cron.d directory
+Creating empty /run/firejail/mnt/dns-etc/cron.daily directory
+Creating empty /run/firejail/mnt/dns-etc/cron.hourly directory
+Creating empty /run/firejail/mnt/dns-etc/cron.monthly directory
+Creating empty /run/firejail/mnt/dns-etc/cron.weekly directory
+Creating empty /run/firejail/mnt/dns-etc/crontab file
+Creating empty /run/firejail/mnt/dns-etc/cryptsetup-initramfs directory
+Creating empty /run/firejail/mnt/dns-etc/crypttab file
+Creating empty /run/firejail/mnt/dns-etc/cupshelpers directory
+Creating empty /run/firejail/mnt/dns-etc/darkstat directory
+Creating empty /run/firejail/mnt/dns-etc/dbus-1 directory
+Creating empty /run/firejail/mnt/dns-etc/dconf directory
+Creating empty /run/firejail/mnt/dns-etc/debconf.conf file
+Creating empty /run/firejail/mnt/dns-etc/default directory
+Creating empty /run/firejail/mnt/dns-etc/deluser.conf file
+Creating empty /run/firejail/mnt/dns-etc/dhcp directory
+Creating empty /run/firejail/mnt/dns-etc/dictionaries-common directory
+Creating empty /run/firejail/mnt/dns-etc/dkms directory
+Creating empty /run/firejail/mnt/dns-etc/dns2tcpd.conf file
+Creating empty /run/firejail/mnt/dns-etc/dnsmasq.conf file
+Creating empty /run/firejail/mnt/dns-etc/doc-base directory
+Creating empty /run/firejail/mnt/dns-etc/dpkg directory
+Creating empty /run/firejail/mnt/dns-etc/dradis directory
+Creating empty /run/firejail/mnt/dns-etc/emacs directory
+Creating empty /run/firejail/mnt/dns-etc/environment file
+Creating empty /run/firejail/mnt/dns-etc/ettercap directory
+Creating empty /run/firejail/mnt/dns-etc/firebird directory
+Creating empty /run/firejail/mnt/dns-etc/firefox directory
+Creating empty /run/firejail/mnt/dns-etc/firefox-esr directory
+Creating empty /run/firejail/mnt/dns-etc/firejail directory
+Creating empty /run/firejail/mnt/dns-etc/flasm.ini file
+Creating empty /run/firejail/mnt/dns-etc/fonts directory
+Creating empty /run/firejail/mnt/dns-etc/foremost.conf file
+Creating empty /run/firejail/mnt/dns-etc/fragroute.conf file
+Creating empty /run/firejail/mnt/dns-etc/freeradius directory
+Creating empty /run/firejail/mnt/dns-etc/freetds directory
+Creating empty /run/firejail/mnt/dns-etc/gai.conf file
+Creating empty /run/firejail/mnt/dns-etc/gconf directory
+Creating empty /run/firejail/mnt/dns-etc/gdb directory
+Creating empty /run/firejail/mnt/dns-etc/geoclue directory
+Creating empty /run/firejail/mnt/dns-etc/ghostscript directory
+Creating empty /run/firejail/mnt/dns-etc/glvnd directory
+Creating empty /run/firejail/mnt/dns-etc/gnome-system-tools directory
+Creating empty /run/firejail/mnt/dns-etc/gnuradio directory
+Creating empty /run/firejail/mnt/dns-etc/groff directory
+Creating empty /run/firejail/mnt/dns-etc/gss directory
+Creating empty /run/firejail/mnt/dns-etc/gtk-2.0 directory
+Creating empty /run/firejail/mnt/dns-etc/gtk-3.0 directory
+Creating empty /run/firejail/mnt/dns-etc/guymager directory
+Creating empty /run/firejail/mnt/dns-etc/hddtemp.db file
+Creating empty /run/firejail/mnt/dns-etc/hdparm.conf file
+Creating empty /run/firejail/mnt/dns-etc/highlight directory
+Creating empty /run/firejail/mnt/dns-etc/host.conf file
+Creating empty /run/firejail/mnt/dns-etc/hostapd directory
+Creating empty /run/firejail/mnt/dns-etc/hosts.allow file
+Creating empty /run/firejail/mnt/dns-etc/hosts.deny file
+Creating empty /run/firejail/mnt/dns-etc/httpd directory
+Creating empty /run/firejail/mnt/dns-etc/i2p directory
+Creating empty /run/firejail/mnt/dns-etc/ifplugd directory
+Creating empty /run/firejail/mnt/dns-etc/inetsim directory
+Creating empty /run/firejail/mnt/dns-etc/init directory
+Creating empty /run/firejail/mnt/dns-etc/init.d directory
+Creating empty /run/firejail/mnt/dns-etc/initramfs-tools directory
+Creating empty /run/firejail/mnt/dns-etc/inputrc file
+Creating empty /run/firejail/mnt/dns-etc/insserv directory
+Creating empty /run/firejail/mnt/dns-etc/insserv.conf file
+Creating empty /run/firejail/mnt/dns-etc/insserv.conf.d directory
+Creating empty /run/firejail/mnt/dns-etc/iproute2 directory
+Creating empty /run/firejail/mnt/dns-etc/java directory
+Creating empty /run/firejail/mnt/dns-etc/java-11-openjdk directory
+Creating empty /run/firejail/mnt/dns-etc/java-8-openjdk directory
+Creating empty /run/firejail/mnt/dns-etc/john directory
+Creating empty /run/firejail/mnt/dns-etc/kernel directory
+Creating empty /run/firejail/mnt/dns-etc/king-phisher directory
+Creating empty /run/firejail/mnt/dns-etc/kismet directory
+Creating empty /run/firejail/mnt/dns-etc/ld.so.conf file
+Creating empty /run/firejail/mnt/dns-etc/ld.so.conf.d directory
+Creating empty /run/firejail/mnt/dns-etc/ldap directory
+Creating empty /run/firejail/mnt/dns-etc/libao.conf file
+Creating empty /run/firejail/mnt/dns-etc/libaudit.conf file
+Creating empty /run/firejail/mnt/dns-etc/libblockdev directory
+Creating empty /run/firejail/mnt/dns-etc/libccid_Info.plist file
+Creating empty /run/firejail/mnt/dns-etc/libibverbs.d directory
+Creating empty /run/firejail/mnt/dns-etc/libnl-3 directory
+Creating empty /run/firejail/mnt/dns-etc/libpaper.d directory
+Creating empty /run/firejail/mnt/dns-etc/libreoffice directory
+Creating empty /run/firejail/mnt/dns-etc/lightdm directory
+Creating empty /run/firejail/mnt/dns-etc/lighttpd directory
+Creating empty /run/firejail/mnt/dns-etc/lintianrc file
+Creating empty /run/firejail/mnt/dns-etc/locale.alias file
+Creating empty /run/firejail/mnt/dns-etc/locale.gen file
+Creating empty /run/firejail/mnt/dns-etc/logcheck directory
+Creating empty /run/firejail/mnt/dns-etc/login.defs file
+Creating empty /run/firejail/mnt/dns-etc/logrotate.conf file
+Creating empty /run/firejail/mnt/dns-etc/logrotate.d directory
+Creating empty /run/firejail/mnt/dns-etc/lvm directory
+Creating empty /run/firejail/mnt/dns-etc/lynis directory
+Creating empty /run/firejail/mnt/dns-etc/macchanger directory
+Creating empty /run/firejail/mnt/dns-etc/machine-id file
+Creating empty /run/firejail/mnt/dns-etc/magic file
+Creating empty /run/firejail/mnt/dns-etc/magic.mime file
+Creating empty /run/firejail/mnt/dns-etc/mailcap.order file
+Creating empty /run/firejail/mnt/dns-etc/mailname file
+Creating empty /run/firejail/mnt/dns-etc/manpath.config file
+Creating empty /run/firejail/mnt/dns-etc/mate directory
+Creating empty /run/firejail/mnt/dns-etc/mate-settings-daemon directory
+Creating empty /run/firejail/mnt/dns-etc/matplotlibrc file
+Creating empty /run/firejail/mnt/dns-etc/mc directory
+Creating empty /run/firejail/mnt/dns-etc/mdadm directory
+Creating empty /run/firejail/mnt/dns-etc/menu directory
+Creating empty /run/firejail/mnt/dns-etc/menu-methods directory
+Creating empty /run/firejail/mnt/dns-etc/mercurial directory
+Creating empty /run/firejail/mnt/dns-etc/mime.types file
+Creating empty /run/firejail/mnt/dns-etc/miredo directory
+Creating empty /run/firejail/mnt/dns-etc/miredo.conf file
+Creating empty /run/firejail/mnt/dns-etc/mke2fs.conf file
+Creating empty /run/firejail/mnt/dns-etc/modprobe.d directory
+Creating empty /run/firejail/mnt/dns-etc/modules file
+Creating empty /run/firejail/mnt/dns-etc/modules-load.d directory
+Creating empty /run/firejail/mnt/dns-etc/mono directory
+Creating empty /run/firejail/mnt/dns-etc/motd file
+Creating empty /run/firejail/mnt/dns-etc/mpv directory
+Creating empty /run/firejail/mnt/dns-etc/mtools.conf file
+Creating empty /run/firejail/mnt/dns-etc/mysql directory
+Creating empty /run/firejail/mnt/dns-etc/nagios-plugins directory
+Creating empty /run/firejail/mnt/dns-etc/nanorc file
+Creating empty /run/firejail/mnt/dns-etc/netconfig file
+Creating empty /run/firejail/mnt/dns-etc/netplan directory
+Creating empty /run/firejail/mnt/dns-etc/netscsid.conf file
+Creating empty /run/firejail/mnt/dns-etc/netsniff-ng directory
+Creating empty /run/firejail/mnt/dns-etc/network directory
+Creating empty /run/firejail/mnt/dns-etc/networks file
+Creating empty /run/firejail/mnt/dns-etc/nfc directory
+Creating empty /run/firejail/mnt/dns-etc/nginx directory
+Creating empty /run/firejail/mnt/dns-etc/nikto.conf file
+Creating empty /run/firejail/mnt/dns-etc/nipper.conf file
+Creating empty /run/firejail/mnt/dns-etc/ntp.conf file
+Creating empty /run/firejail/mnt/dns-etc/odbc.ini file
+Creating empty /run/firejail/mnt/dns-etc/openal directory
+Creating empty /run/firejail/mnt/dns-etc/opensc directory
+Creating empty /run/firejail/mnt/dns-etc/openvas directory
+Creating empty /run/firejail/mnt/dns-etc/openvpn directory
+Creating empty /run/firejail/mnt/dns-etc/opt directory
+Creating empty /run/firejail/mnt/dns-etc/p0f directory
+Creating empty /run/firejail/mnt/dns-etc/pam.conf file
+Creating empty /run/firejail/mnt/dns-etc/pam.d directory
+Creating empty /run/firejail/mnt/dns-etc/papersize file
+Creating empty /run/firejail/mnt/dns-etc/pcmcia directory
+Creating empty /run/firejail/mnt/dns-etc/perl directory
+Creating empty /run/firejail/mnt/dns-etc/php directory
+Creating empty /run/firejail/mnt/dns-etc/plymouth directory
+Creating empty /run/firejail/mnt/dns-etc/polkit-1 directory
+Creating empty /run/firejail/mnt/dns-etc/postgresql directory
+Creating empty /run/firejail/mnt/dns-etc/postgresql-common directory
+Creating empty /run/firejail/mnt/dns-etc/ppp directory
+Creating empty /run/firejail/mnt/dns-etc/profile file
+Creating empty /run/firejail/mnt/dns-etc/profile.d directory
+Creating empty /run/firejail/mnt/dns-etc/protocols file
+Creating empty /run/firejail/mnt/dns-etc/proxychains.conf file
+Creating empty /run/firejail/mnt/dns-etc/pulse directory
+Creating empty /run/firejail/mnt/dns-etc/python directory
+Creating empty /run/firejail/mnt/dns-etc/python2.7 directory
+Creating empty /run/firejail/mnt/dns-etc/python3 directory
+Creating empty /run/firejail/mnt/dns-etc/python3.6 directory
+Creating empty /run/firejail/mnt/dns-etc/python3.7 directory
+Creating empty /run/firejail/mnt/dns-etc/radcli directory
+Creating empty /run/firejail/mnt/dns-etc/rc0.d directory
+Creating empty /run/firejail/mnt/dns-etc/rc1.d directory
+Creating empty /run/firejail/mnt/dns-etc/rc2.d directory
+Creating empty /run/firejail/mnt/dns-etc/rc3.d directory
+Creating empty /run/firejail/mnt/dns-etc/rc4.d directory
+Creating empty /run/firejail/mnt/dns-etc/rc5.d directory
+Creating empty /run/firejail/mnt/dns-etc/rc6.d directory
+Creating empty /run/firejail/mnt/dns-etc/rcS.d directory
+Creating empty /run/firejail/mnt/dns-etc/reader.conf.d directory
+Creating empty /run/firejail/mnt/dns-etc/rearj.cfg file
+Creating empty /run/firejail/mnt/dns-etc/redis directory
+Creating empty /run/firejail/mnt/dns-etc/redsocks.conf file
+Creating empty /run/firejail/mnt/dns-etc/reportbug.conf file
+Creating empty /run/firejail/mnt/dns-etc/resolv.conf.head file
+Creating empty /run/firejail/mnt/dns-etc/resolvconf directory
+Creating empty /run/firejail/mnt/dns-etc/responder directory
+Creating empty /run/firejail/mnt/dns-etc/rkhunter.conf file
+Creating empty /run/firejail/mnt/dns-etc/rlinetd.conf file
+Creating empty /run/firejail/mnt/dns-etc/rlinetd.d directory
+Creating empty /run/firejail/mnt/dns-etc/rpc file
+Creating empty /run/firejail/mnt/dns-etc/rsyslog.conf file
+Creating empty /run/firejail/mnt/dns-etc/rsyslog.d directory
+Creating empty /run/firejail/mnt/dns-etc/sane.d directory
+Creating empty /run/firejail/mnt/dns-etc/scalpel directory
+Creating empty /run/firejail/mnt/dns-etc/screenrc file
+Creating empty /run/firejail/mnt/dns-etc/securetty file
+Creating empty /run/firejail/mnt/dns-etc/security directory
+Creating empty /run/firejail/mnt/dns-etc/selinux directory
+Creating empty /run/firejail/mnt/dns-etc/sensors.d directory
+Creating empty /run/firejail/mnt/dns-etc/sensors3.conf file
+Creating empty /run/firejail/mnt/dns-etc/services file
+Creating empty /run/firejail/mnt/dns-etc/sestatus.conf file
+Creating empty /run/firejail/mnt/dns-etc/sgml directory
+Creating empty /run/firejail/mnt/dns-etc/shellinabox directory
+Creating empty /run/firejail/mnt/dns-etc/shells file
+Creating empty /run/firejail/mnt/dns-etc/siege directory
+Creating empty /run/firejail/mnt/dns-etc/skel directory
+Creating empty /run/firejail/mnt/dns-etc/smartd.conf file
+Creating empty /run/firejail/mnt/dns-etc/smartmontools directory
+Creating empty /run/firejail/mnt/dns-etc/smi.conf file
+Creating empty /run/firejail/mnt/dns-etc/snmp directory
+Creating empty /run/firejail/mnt/dns-etc/sound directory
+Creating empty /run/firejail/mnt/dns-etc/sqlmap directory
+Creating empty /run/firejail/mnt/dns-etc/ssh directory
+Creating empty /run/firejail/mnt/dns-etc/ssl directory
+Creating empty /run/firejail/mnt/dns-etc/staff-group-for-usr-local file
+Creating empty /run/firejail/mnt/dns-etc/stunnel directory
+Creating empty /run/firejail/mnt/dns-etc/subversion directory
+Creating empty /run/firejail/mnt/dns-etc/sudoers file
+Creating empty /run/firejail/mnt/dns-etc/sudoers.d directory
+Creating empty /run/firejail/mnt/dns-etc/sysctl.conf file
+Creating empty /run/firejail/mnt/dns-etc/sysctl.d directory
+Creating empty /run/firejail/mnt/dns-etc/sysstat directory
+Creating empty /run/firejail/mnt/dns-etc/systemd directory
+Creating empty /run/firejail/mnt/dns-etc/tcpxtract.conf file
+Creating empty /run/firejail/mnt/dns-etc/teamsploit directory
+Creating empty /run/firejail/mnt/dns-etc/terminfo directory
+Creating empty /run/firejail/mnt/dns-etc/texmf directory
+Creating empty /run/firejail/mnt/dns-etc/thunderbird directory
+Creating empty /run/firejail/mnt/dns-etc/timezone file
+Creating empty /run/firejail/mnt/dns-etc/tmpfiles.d directory
+Creating empty /run/firejail/mnt/dns-etc/tor directory
+Creating empty /run/firejail/mnt/dns-etc/twofi directory
+Creating empty /run/firejail/mnt/dns-etc/ucf.conf file
+Creating empty /run/firejail/mnt/dns-etc/udev directory
+Creating empty /run/firejail/mnt/dns-etc/udisks2 directory
+Creating empty /run/firejail/mnt/dns-etc/ufw directory
+Creating empty /run/firejail/mnt/dns-etc/uniconf.conf file
+Creating empty /run/firejail/mnt/dns-etc/unicornscan directory
+Creating empty /run/firejail/mnt/dns-etc/update-motd.d directory
+Creating empty /run/firejail/mnt/dns-etc/updatedb.conf file
+Creating empty /run/firejail/mnt/dns-etc/usb_modeswitch.conf file
+Creating empty /run/firejail/mnt/dns-etc/usb_modeswitch.d directory
+Creating empty /run/firejail/mnt/dns-etc/vdpau_wrapper.cfg file
+Creating empty /run/firejail/mnt/dns-etc/vim directory
+Creating empty /run/firejail/mnt/dns-etc/vmware-tools directory
+Creating empty /run/firejail/mnt/dns-etc/vpnc directory
+Creating empty /run/firejail/mnt/dns-etc/vulkan directory
+Creating empty /run/firejail/mnt/dns-etc/wgetrc file
+Creating empty /run/firejail/mnt/dns-etc/wildmidi directory
+Creating empty /run/firejail/mnt/dns-etc/wireguard directory
+Creating empty /run/firejail/mnt/dns-etc/wireshark directory
+Creating empty /run/firejail/mnt/dns-etc/wodim.conf file
+Creating empty /run/firejail/mnt/dns-etc/wpa_supplicant directory
+Creating empty /run/firejail/mnt/dns-etc/wvdial.conf file
+Creating empty /run/firejail/mnt/dns-etc/xdg directory
+Creating empty /run/firejail/mnt/dns-etc/xml directory
+Creating empty /run/firejail/mnt/dns-etc/xprobe2 directory
+Creating empty /run/firejail/mnt/dns-etc/xrdb directory
+Creating empty /run/firejail/mnt/dns-etc/yasat directory
+Creating empty /run/firejail/mnt/dns-etc/zsh directory
+Creating empty /run/firejail/mnt/dns-etc/fstab file
+Creating empty /run/firejail/mnt/dns-etc/hostname file
+Creating empty /run/firejail/mnt/dns-etc/hosts file
+Creating empty /run/firejail/mnt/dns-etc/grub.d directory
+Creating empty /run/firejail/mnt/dns-etc/subuid- file
+Creating empty /run/firejail/mnt/dns-etc/subuid file
+Creating empty /run/firejail/mnt/dns-etc/subgid- file
+Creating empty /run/firejail/mnt/dns-etc/subgid file
+Creating empty /run/firejail/mnt/dns-etc/adjtime file
+Creating empty /run/firejail/mnt/dns-etc/group- file
+Creating empty /run/firejail/mnt/dns-etc/gshadow- file
+Creating empty /run/firejail/mnt/dns-etc/passwd- file
+Creating empty /run/firejail/mnt/dns-etc/shadow- file
+Creating empty /run/firejail/mnt/dns-etc/firewalld directory
+Creating empty /run/firejail/mnt/dns-etc/ld.so.preload file
+Creating empty /run/firejail/mnt/dns-etc/snort directory
+Creating empty /run/firejail/mnt/dns-etc/fwsnort directory
+Creating empty /run/firejail/mnt/dns-etc/iceweasel directory
+Creating empty /run/firejail/mnt/dns-etc/ethertypes file
+Creating empty /run/firejail/mnt/dns-etc/oinkmaster.conf file
+Creating empty /run/firejail/mnt/dns-etc/boxes directory
+Creating empty /run/firejail/mnt/dns-etc/ImageMagick-6 directory
+Creating empty /run/firejail/mnt/dns-etc/nsswitch.conf file
+Creating empty /run/firejail/mnt/dns-etc/tinc directory
+Creating empty /run/firejail/mnt/dns-etc/tomoyo directory
+Creating empty /run/firejail/mnt/dns-etc/xattr.conf file
+Creating empty /run/firejail/mnt/dns-etc/curvedns directory
+Creating empty /run/firejail/mnt/dns-etc/request-key.d directory
+Creating empty /run/firejail/mnt/dns-etc/osrframework directory
+Creating empty /run/firejail/mnt/dns-etc/paxrat directory
+Creating empty /run/firejail/mnt/dns-etc/sshuttle directory
+Creating empty /run/firejail/mnt/dns-etc/unbound directory
+Creating empty /run/firejail/mnt/dns-etc/zfs directory
+Creating empty /run/firejail/mnt/dns-etc/zonecheck directory
+Creating empty /run/firejail/mnt/dns-etc/pcapdump directory
+Creating empty /run/firejail/mnt/dns-etc/vtund.conf file
+Creating empty /run/firejail/mnt/dns-etc/fuse.conf file
+Creating empty /run/firejail/mnt/dns-etc/request-key.conf file
+Creating empty /run/firejail/mnt/dns-etc/gnunet.conf file
+Creating empty /run/firejail/mnt/dns-etc/ntopng.conf file
+Creating empty /run/firejail/mnt/dns-etc/jupyter directory
+Creating empty /run/firejail/mnt/dns-etc/hostid file
+Creating empty /run/firejail/mnt/dns-etc/debian_version file
+Creating empty /run/firejail/mnt/dns-etc/issue file
+Creating empty /run/firejail/mnt/dns-etc/issue.net file
+Creating empty /run/firejail/mnt/dns-etc/lsb-release file
+Creating empty /run/firejail/mnt/dns-etc/qemu directory
+Creating empty /run/firejail/mnt/dns-etc/bro directory
+Creating empty /run/firejail/mnt/dns-etc/cockpit directory
+Creating empty /run/firejail/mnt/dns-etc/issue.d directory
+Creating empty /run/firejail/mnt/dns-etc/motd.d directory
+Creating empty /run/firejail/mnt/dns-etc/cryptsetup-nuke-password directory
+Creating empty /run/firejail/mnt/dns-etc/grsec2 directory
+Creating empty /run/firejail/mnt/dns-etc/opendnssec directory
+Creating empty /run/firejail/mnt/dns-etc/softhsm directory
+Creating empty /run/firejail/mnt/dns-etc/libvirt directory
+Creating empty /run/firejail/mnt/dns-etc/sasl2 directory
+Creating empty /run/firejail/mnt/dns-etc/libvirt-sandbox directory
+Creating empty /run/firejail/mnt/dns-etc/oz directory
+Creating empty /run/firejail/mnt/dns-etc/sagan-rules directory
+Creating empty /run/firejail/mnt/dns-etc/schroot directory
+Creating empty /run/firejail/mnt/dns-etc/timidity directory
+Creating empty /run/firejail/mnt/dns-etc/ltrace.conf file
+Creating empty /run/firejail/mnt/dns-etc/paxctld.conf file
+Creating empty /run/firejail/mnt/dns-etc/sagan.yaml file
+Creating empty /run/firejail/mnt/dns-etc/qemu-ifdown file
+Creating empty /run/firejail/mnt/dns-etc/qemu-ifup file
+Creating empty /run/firejail/mnt/dns-etc/shadow file
+Creating empty /run/firejail/mnt/dns-etc/group file
+Creating empty /run/firejail/mnt/dns-etc/gshadow file
+Creating empty /run/firejail/mnt/dns-etc/passwd file
+Creating empty /run/firejail/mnt/dns-etc/ld.so.cache file
+Creating empty /run/firejail/mnt/dns-etc/mailcap file
+Mount-bind /run/firejail/mnt/dns-etc on top of /etc
+Creating a new /etc/resolv.conf file
+Current directory: /root
+DISPLAY=:0 parsed as 0
+Install protocol filter: unix,inet,packet
+configuring 14 seccomp entries in /run/firejail/mnt/seccomp/seccomp.protocol
+sbox run: /usr/local/lib/firejail/fsec-print /run/firejail/mnt/seccomp/seccomp.protocol (null) 
+Dropping all capabilities
+Drop privileges: pid 4, uid 0, gid 0, nogroups 1
+No supplementary groups
+ line  OP JT JF    K
+=================================
+ 0000: 20 00 00 00000004   ld  data.architecture
+ 0001: 15 01 00 c000003e   jeq ARCH_64 0003 (false 0002)
+ 0002: 06 00 00 7fff0000   ret ALLOW
+ 0003: 20 00 00 00000000   ld  data.syscall-number
+ 0004: 15 01 00 00000029   jeq socket 0006 (false 0005)
+ 0005: 06 00 00 7fff0000   ret ALLOW
+ 0006: 20 00 00 00000010   ld  data.args[0]
+ 0007: 15 00 01 00000001   jeq 1 0008 (false 0009)
+ 0008: 06 00 00 7fff0000   ret ALLOW
+ 0009: 15 00 01 00000002   jeq 2 000a (false 000b)
+ 000a: 06 00 00 7fff0000   ret ALLOW
+ 000b: 15 00 01 00000011   jeq 11 000c (false 000d)
+ 000c: 06 00 00 7fff0000   ret ALLOW
+ 000d: 06 00 00 0005005f   ret ERRNO(95)
+configuring 54 seccomp entries in /run/firejail/mnt/seccomp/seccomp.32
+sbox run: /usr/local/lib/firejail/fsec-print /run/firejail/mnt/seccomp/seccomp.32 (null) 
+Dropping all capabilities
+Drop privileges: pid 5, uid 0, gid 0, nogroups 1
+No supplementary groups
+ line  OP JT JF    K
+=================================
+ 0000: 20 00 00 00000004   ld  data.architecture
+ 0001: 15 01 00 40000003   jeq ARCH_32 0003 (false 0002)
+ 0002: 06 00 00 7fff0000   ret ALLOW
+ 0003: 20 00 00 00000000   ld  data.syscall-number
+ 0004: 15 30 00 00000015   jeq 15 0035 (false 0005)
+ 0005: 15 2f 00 00000034   jeq 34 0035 (false 0006)
+ 0006: 15 2e 00 0000001a   jeq 1a 0035 (false 0007)
+ 0007: 15 2d 00 0000011b   jeq 11b 0035 (false 0008)
+ 0008: 15 2c 00 00000155   jeq 155 0035 (false 0009)
+ 0009: 15 2b 00 00000156   jeq 156 0035 (false 000a)
+ 000a: 15 2a 00 0000007f   jeq 7f 0035 (false 000b)
+ 000b: 15 29 00 00000080   jeq 80 0035 (false 000c)
+ 000c: 15 28 00 0000015e   jeq 15e 0035 (false 000d)
+ 000d: 15 27 00 00000081   jeq 81 0035 (false 000e)
+ 000e: 15 26 00 0000006e   jeq 6e 0035 (false 000f)
+ 000f: 15 25 00 00000065   jeq 65 0035 (false 0010)
+ 0010: 15 24 00 00000121   jeq 121 0035 (false 0011)
+ 0011: 15 23 00 00000057   jeq 57 0035 (false 0012)
+ 0012: 15 22 00 00000073   jeq 73 0035 (false 0013)
+ 0013: 15 21 00 00000067   jeq 67 0035 (false 0014)
+ 0014: 15 20 00 0000015b   jeq 15b 0035 (false 0015)
+ 0015: 15 1f 00 0000015c   jeq 15c 0035 (false 0016)
+ 0016: 15 1e 00 00000087   jeq 87 0035 (false 0017)
+ 0017: 15 1d 00 00000095   jeq 95 0035 (false 0018)
+ 0018: 15 1c 00 0000007c   jeq 7c 0035 (false 0019)
+ 0019: 15 1b 00 00000157   jeq 157 0035 (false 001a)
+ 001a: 15 1a 00 000000fd   jeq fd 0035 (false 001b)
+ 001b: 15 19 00 00000150   jeq 150 0035 (false 001c)
+ 001c: 15 18 00 00000152   jeq 152 0035 (false 001d)
+ 001d: 15 17 00 0000015d   jeq 15d 0035 (false 001e)
+ 001e: 15 16 00 0000011e   jeq 11e 0035 (false 001f)
+ 001f: 15 15 00 0000011f   jeq 11f 0035 (false 0020)
+ 0020: 15 14 00 00000120   jeq 120 0035 (false 0021)
+ 0021: 15 13 00 00000056   jeq 56 0035 (false 0022)
+ 0022: 15 12 00 00000033   jeq 33 0035 (false 0023)
+ 0023: 15 11 00 0000007b   jeq 7b 0035 (false 0024)
+ 0024: 15 10 00 000000d9   jeq d9 0035 (false 0025)
+ 0025: 15 0f 00 000000f5   jeq f5 0035 (false 0026)
+ 0026: 15 0e 00 000000f6   jeq f6 0035 (false 0027)
+ 0027: 15 0d 00 000000f7   jeq f7 0035 (false 0028)
+ 0028: 15 0c 00 000000f8   jeq f8 0035 (false 0029)
+ 0029: 15 0b 00 000000f9   jeq f9 0035 (false 002a)
+ 002a: 15 0a 00 00000101   jeq 101 0035 (false 002b)
+ 002b: 15 09 00 00000112   jeq 112 0035 (false 002c)
+ 002c: 15 08 00 00000114   jeq 114 0035 (false 002d)
+ 002d: 15 07 00 00000126   jeq 126 0035 (false 002e)
+ 002e: 15 06 00 0000013d   jeq 13d 0035 (false 002f)
+ 002f: 15 05 00 0000013c   jeq 13c 0035 (false 0030)
+ 0030: 15 04 00 0000003d   jeq 3d 0035 (false 0031)
+ 0031: 15 03 00 00000058   jeq 58 0035 (false 0032)
+ 0032: 15 02 00 000000a9   jeq a9 0035 (false 0033)
+ 0033: 15 01 00 00000082   jeq 82 0035 (false 0034)
+ 0034: 06 00 00 7fff0000   ret ALLOW
+ 0035: 06 00 00 00000000   ret KILL
+Dual 32/64 bit seccomp filter configured
+configuring 74 seccomp entries in /run/firejail/mnt/seccomp/seccomp
+sbox run: /usr/local/lib/firejail/fsec-print /run/firejail/mnt/seccomp/seccomp (null) 
+Dropping all capabilities
+Drop privileges: pid 6, uid 0, gid 0, nogroups 1
+No supplementary groups
+ line  OP JT JF    K
+=================================
+ 0000: 20 00 00 00000004   ld  data.architecture
+ 0001: 15 01 00 c000003e   jeq ARCH_64 0003 (false 0002)
+ 0002: 06 00 00 7fff0000   ret ALLOW
+ 0003: 20 00 00 00000000   ld  data.syscall-number
+ 0004: 35 01 00 40000000   jge X32_ABI 0006 (false 0005)
+ 0005: 35 01 00 00000000   jge read 0007 (false 0006)
+ 0006: 06 00 00 00050001   ret ERRNO(1)
+ 0007: 15 41 00 0000009a   jeq modify_ldt 0049 (false 0008)
+ 0008: 15 40 00 000000d4   jeq lookup_dcookie 0049 (false 0009)
+ 0009: 15 3f 00 0000012a   jeq perf_event_open 0049 (false 000a)
+ 000a: 15 3e 00 00000137   jeq process_vm_writev 0049 (false 000b)
+ 000b: 15 3d 00 0000009c   jeq _sysctl 0049 (false 000c)
+ 000c: 15 3c 00 000000b7   jeq afs_syscall 0049 (false 000d)
+ 000d: 15 3b 00 000000ae   jeq create_module 0049 (false 000e)
+ 000e: 15 3a 00 000000b1   jeq get_kernel_syms 0049 (false 000f)
+ 000f: 15 39 00 000000b5   jeq getpmsg 0049 (false 0010)
+ 0010: 15 38 00 000000b6   jeq putpmsg 0049 (false 0011)
+ 0011: 15 37 00 000000b2   jeq query_module 0049 (false 0012)
+ 0012: 15 36 00 000000b9   jeq security 0049 (false 0013)
+ 0013: 15 35 00 0000008b   jeq sysfs 0049 (false 0014)
+ 0014: 15 34 00 000000b8   jeq tuxcall 0049 (false 0015)
+ 0015: 15 33 00 00000086   jeq uselib 0049 (false 0016)
+ 0016: 15 32 00 00000088   jeq ustat 0049 (false 0017)
+ 0017: 15 31 00 000000ec   jeq vserver 0049 (false 0018)
+ 0018: 15 30 00 0000009f   jeq adjtimex 0049 (false 0019)
+ 0019: 15 2f 00 00000131   jeq clock_adjtime 0049 (false 001a)
+ 001a: 15 2e 00 000000e3   jeq clock_settime 0049 (false 001b)
+ 001b: 15 2d 00 000000a4   jeq settimeofday 0049 (false 001c)
+ 001c: 15 2c 00 000000b0   jeq delete_module 0049 (false 001d)
+ 001d: 15 2b 00 00000139   jeq finit_module 0049 (false 001e)
+ 001e: 15 2a 00 000000af   jeq init_module 0049 (false 001f)
+ 001f: 15 29 00 000000ad   jeq ioperm 0049 (false 0020)
+ 0020: 15 28 00 000000ac   jeq iopl 0049 (false 0021)
+ 0021: 15 27 00 000000f6   jeq kexec_load 0049 (false 0022)
+ 0022: 15 26 00 00000140   jeq kexec_file_load 0049 (false 0023)
+ 0023: 15 25 00 000000a9   jeq reboot 0049 (false 0024)
+ 0024: 15 24 00 000000a7   jeq swapon 0049 (false 0025)
+ 0025: 15 23 00 000000a8   jeq swapoff 0049 (false 0026)
+ 0026: 15 22 00 000000a3   jeq acct 0049 (false 0027)
+ 0027: 15 21 00 00000141   jeq bpf 0049 (false 0028)
+ 0028: 15 20 00 000000a1   jeq chroot 0049 (false 0029)
+ 0029: 15 1f 00 000000a5   jeq mount 0049 (false 002a)
+ 002a: 15 1e 00 000000b4   jeq nfsservctl 0049 (false 002b)
+ 002b: 15 1d 00 0000009b   jeq pivot_root 0049 (false 002c)
+ 002c: 15 1c 00 000000ab   jeq setdomainname 0049 (false 002d)
+ 002d: 15 1b 00 000000aa   jeq sethostname 0049 (false 002e)
+ 002e: 15 1a 00 000000a6   jeq umount2 0049 (false 002f)
+ 002f: 15 19 00 00000099   jeq vhangup 0049 (false 0030)
+ 0030: 15 18 00 000000ee   jeq set_mempolicy 0049 (false 0031)
+ 0031: 15 17 00 00000100   jeq migrate_pages 0049 (false 0032)
+ 0032: 15 16 00 00000117   jeq move_pages 0049 (false 0033)
+ 0033: 15 15 00 000000ed   jeq mbind 0049 (false 0034)
+ 0034: 15 14 00 00000130   jeq open_by_handle_at 0049 (false 0035)
+ 0035: 15 13 00 0000012f   jeq name_to_handle_at 0049 (false 0036)
+ 0036: 15 12 00 000000fb   jeq ioprio_set 0049 (false 0037)
+ 0037: 15 11 00 00000067   jeq syslog 0049 (false 0038)
+ 0038: 15 10 00 0000012c   jeq fanotify_init 0049 (false 0039)
+ 0039: 15 0f 00 00000138   jeq kcmp 0049 (false 003a)
+ 003a: 15 0e 00 000000f8   jeq add_key 0049 (false 003b)
+ 003b: 15 0d 00 000000f9   jeq request_key 0049 (false 003c)
+ 003c: 15 0c 00 000000fa   jeq keyctl 0049 (false 003d)
+ 003d: 15 0b 00 000000ce   jeq io_setup 0049 (false 003e)
+ 003e: 15 0a 00 000000cf   jeq io_destroy 0049 (false 003f)
+ 003f: 15 09 00 000000d0   jeq io_getevents 0049 (false 0040)
+ 0040: 15 08 00 000000d1   jeq io_submit 0049 (false 0041)
+ 0041: 15 07 00 000000d2   jeq io_cancel 0049 (false 0042)
+ 0042: 15 06 00 000000d8   jeq remap_file_pages 0049 (false 0043)
+ 0043: 15 05 00 00000116   jeq vmsplice 0049 (false 0044)
+ 0044: 15 04 00 00000143   jeq userfaultfd 0049 (false 0045)
+ 0045: 15 03 00 00000065   jeq ptrace 0049 (false 0046)
+ 0046: 15 02 00 00000087   jeq personality 0049 (false 0047)
+ 0047: 15 01 00 00000136   jeq process_vm_readv 0049 (false 0048)
+ 0048: 06 00 00 7fff0000   ret ALLOW
+ 0049: 06 00 01 00000000   ret KILL
+seccomp filter configured
+Mounting read-only /run/firejail/mnt/seccomp
+Dropping all capabilities
+Drop CAP_DAC_OVERRIDE
+Drop CAP_DAC_READ_SEARCH
+NO_NEW_PRIVS set
+Drop privileges: pid 1, uid 0, gid 0, nogroups 1
+No supplementary groups
+starting application
+LD_PRELOAD=(null)
+execvp argument 0: /home/xe1phix/Downloads/Telegram/Telegram -- %u
+Child process initialized in 281.28 ms
+Installing /run/firejail/mnt/seccomp/seccomp seccomp filter
+Installing /run/firejail/mnt/seccomp/seccomp.32 seccomp filter
+Installing /run/firejail/mnt/seccomp/seccomp.protocol seccomp filter
+Error: no suitable /home/xe1phix/Downloads/Telegram/Telegram -- %u executable found
+monitoring pid 7
+
+Sandbox monitor: waitpid 7 retval 7 status 256
+
+Parent is shutting down, bye...
+┌─[✗]─[xe1phix@parrot]─[~]
+└──╼ $
+
