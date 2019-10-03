@@ -8,8 +8,8 @@ SERVICEBIN='$(which service)'
 export SERVICEBIN='$(which service)'
 
 
-   for SERVICE in								    \
-       greenbone-security-assistant.service		    \
+   for SERVICE in                                   \
+       greenbone-security-assistant.service         \
        greenbone-security-assistant                 \
        selinux-autorelabel                          \
        selinux-autorelabel-mark.service             \
@@ -18,10 +18,10 @@ export SERVICEBIN='$(which service)'
        setroubleshoot                               \
        ModemManager.service                         \
        dbus-org.freedesktop.ModemManager1.service   \
-       isc-dhcp-server.service					    \
-       dbus-org.bluez.service					    \
-       openvas-manager.service					\
-       openvas-scanner.service					\
+       isc-dhcp-server.service                      \
+       dbus-org.bluez.service                       \
+       openvas-manager.service                  \
+       openvas-scanner.service                  \
        openvas-manager                          \
        openvas-scanner                          \
        opendnssec-enforcer.service              \
@@ -38,18 +38,18 @@ export SERVICEBIN='$(which service)'
        apt-daily-upgrade.service                \
        apt-daily.timer                          \
        apt-daily-upgrade.timer                  \
-       libbluetooth3					        \
+       libbluetooth3                            \
        nfs-kernel-server.service                \
        nfs-server.service                       \
        rpc-statd-notify.service                 \
-       beef-xss.service							\
+       beef-xss.service                         \
        iscsi-shutdown.service                   \
-       apache2              \
-       apache2.service		\
+       apache2                                  \
+       apache2.service      \
        apache2@.service     \
-       couchdb.service		\
+       couchdb.service      \
        arpwatch.service     \
-       mysql.service		\
+       mysql.service        \
        nginx.service        \
        nginx                \
        smb.service          \
@@ -61,12 +61,12 @@ export SERVICEBIN='$(which service)'
        fio.service          \
        darkstat.service     \
        darkstat             \
-       postgresql.service	\
+       postgresql.service   \
        beef-xss             \
        hostapd.service      \
        hostapd              \
        isc-dhcp-server      \
-       pppd-dns.service		\
+       pppd-dns.service     \
        lighttpd.service     \
        httpd.service        \
        iscsid.service       \
@@ -84,7 +84,7 @@ export SERVICEBIN='$(which service)'
        miredo.service       \
        iodined.service      \
        iodined              \
-       printer.target		\
+       printer.target       \
        cups                 \
        cups.service         \
        saned.service        \
@@ -92,11 +92,11 @@ export SERVICEBIN='$(which service)'
        inetsim.service      \
        sysstat.service      \
        apt-daily.service    \
-       stunnel4.service		\
+       stunnel4.service     \
        ptunnel.service      \
-       thin.service			\
+       thin.service         \
        ModemManager         \
-       bluetooth.service	\
+       bluetooth.service    \
        bluetooth.target     \
        bluetooth            \
        strongswan.service   \
@@ -105,30 +105,30 @@ export SERVICEBIN='$(which service)'
        redsocks             \
        tinc                 \
        tinc.service         \
-       rsync.service		\
-       rwhod.service		\
-       ssh.service			\
+       rsync.service        \
+       rwhod.service        \
+       ssh.service          \
        sslh.service         \
        sslh                 \
-       arpwatch     		\
-       atftpd.service		\
+       arpwatch             \
+       atftpd.service       \
        geoclue              \
        geoclue.service		\
-       i2p.service			\
-       tor.service			\
+       i2p.service          \
+       tor.service          \
        tor                  \
        i2p                  \
-       bluetooth			\
+       bluetooth            \
        saned                \
        squid.service        \
        mariadb.service      \
        king-phisher.service \
-       httpd           		\
-       samba-ad-dc    		\
-       lighttpd				\
-       iscsi				\
-       iscsid				\
-       ldap				    \
+       httpd                \
+       samba-ad-dc          \
+       lighttpd             \
+       iscsi                \
+       iscsid               \
+       ldap                 \
        ldap.service         \
        mysqld               \
        nfs                  \
