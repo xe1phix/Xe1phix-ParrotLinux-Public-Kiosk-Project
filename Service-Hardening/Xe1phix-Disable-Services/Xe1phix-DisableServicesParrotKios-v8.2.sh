@@ -113,7 +113,7 @@ export SERVICEBIN='$(which service)'
        arpwatch             \
        atftpd.service       \
        geoclue              \
-       geoclue.service		\
+       geoclue.service      \
        i2p.service          \
        tor.service          \
        tor                  \
