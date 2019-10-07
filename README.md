@@ -67,6 +67,9 @@
                         - [x] efivarfs
                         - [x] efi_pstore
 
-
+                - [x] NFS
+                        - [x] nfsv2
+                        - [x] nfsv3
+                        - [x] nfsv4
 
                         
