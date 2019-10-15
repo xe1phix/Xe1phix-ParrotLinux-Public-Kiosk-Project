@@ -7,7 +7,37 @@
 </p>
 <br>
 
-![Xe1phix - Kernel Commandline Parameters](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/raw/master/Xe1phix-Grub-Hardening/Xe1phix-Kernel-Command-Line-Parameters/Xe1phix-Kernel-Parameter-Notes-Digitally-Converted/KernelParameters2-v2.jpg)
+<details>
+<summary>Table of content</summary>
+
+## Table of content
+   * [Xe1phix - Kernel Commandline Parameters](#xe1phix-kernel-commandline-parameters)
+      * [Commonly Used Commandline Parameters](#commonly-used-commandline-parameters)
+         * [Commonly Used Commandline Parameters - Image](#common-parameters-image)
+      * [Systemd + Module Based Kernel Parameters](#systemd+module-based-parameters)
+         * [Systemd + Module Based Kernel Parameters - Image](#systemd+module-based-parameters-image)
+</details>
+
+# Commonly Used Commandline Parameters
+- FStab Mount Options
+- LUKS Encrypted Persistence Parameters
+- User|Group Quotas
+- Security Modes
+    - AppArmor Security
+    - SELinux Security
+    - Tomoyo Security
+- KALSR
+- NoAutoLogin
+- Username
+- Debug
+- NoEFI
+- NoRock
+- NoJuliet
+
+![Commonly Used Commandline Parameters - Image](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/raw/master/Xe1phix-Grub-Hardening/Xe1phix-Kernel-Command-Line-Parameters/Xe1phix-Kernel-Parameter-Notes-Digitally-Converted/KernelParameters4.jpg)
+<br>
 
 
+# Systemd + Module Based Kernel Parameters
+![Xe1phix - Kernel Commandline Parameters](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/raw/master/Xe1phix-Grub-Hardening/Xe1phix-Kernel-Command-Line-Parameters/Xe1phix-Kernel-Parameter-Notes-Digitally-Converted/KernelParameters2-v2.jpg){: .shadow}
 
