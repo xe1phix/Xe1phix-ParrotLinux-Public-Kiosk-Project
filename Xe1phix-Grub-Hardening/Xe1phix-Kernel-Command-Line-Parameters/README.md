@@ -39,5 +39,5 @@
 
 
 # Systemd + Module Based Kernel Parameters
-![Xe1phix - Kernel Commandline Parameters](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/raw/master/Xe1phix-Grub-Hardening/Xe1phix-Kernel-Command-Line-Parameters/Xe1phix-Kernel-Parameter-Notes-Digitally-Converted/KernelParameters2-v2.jpg){: .shadow}
+![Xe1phix - Kernel Commandline Parameters](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/raw/master/Xe1phix-Grub-Hardening/Xe1phix-Kernel-Command-Line-Parameters/Xe1phix-Kernel-Parameter-Notes-Digitally-Converted/KernelParameters2-v2.jpg)
 
