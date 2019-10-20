@@ -1,7 +1,7 @@
 # ParrotLinux-Public-Kiosk-Project Changelog
 
 
-## 2.3.2-2 (10/03/2019)
+## 2.3.2-2 (10/20/2019)
 
 - Added [Modprobe-Module-Blacklisting-v8.7.sh](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/blob/master/Xe1phix-Modprobe.d/Xe1phix-Modprobe-Blacklist-Untrustworthy-Modules-Script/Modprobe-Module-Blacklisting-v8.7.sh)
 - Created [Xe1phix-Kernel-Command-Line-Parameters](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/blob/master/Xe1phix-Grub-Hardening/Xe1phix-Kernel-Command-Line-Parameters/README.md)
