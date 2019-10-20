@@ -1,7 +1,7 @@
 #!/bin/bash
-#########
-## Xe1phix-DisableServices-v2.0.sh
-#########
+#####################################
+## Xe1phix-DisableServices-v*.*.sh ##
+#####################################
 UPDATE='$(which update-rc.d)'
 export UPDATE='$(which update-rc.d)'
 SERVICEBIN='$(which service)'
@@ -222,7 +222,6 @@ do
 			## /sbin/chkconfig --level 12345 $SERVICE off
 			## systemctl mask $SERVICE                          ## Uncomment this line to mask services
 			## chkconfig --del 
-            ## echo "install bluetooth /bin/false" > /etc/modprobe.d/bluetooth.conf
 			update-rc.d $SERVICE disable 
 			## update-rc.d $SERVICE remove 
       fi
