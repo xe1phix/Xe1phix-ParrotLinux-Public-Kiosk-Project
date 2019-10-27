@@ -1,0 +1,165 @@
+Firejail with Tor HOWTO
+
+## A few years ago I created a set of scripts to start applications inside a linux namespace 
+## and automatically “Tor-ify” their network traffic. 
+## The main reason behind this effort was to provide some isolation 
+## and Tor support for applications that don’t have socks5 support, 
+## for example claws-mail. While this worked it was hard to keep adding sandboxing features 
+## like the ones firejail already provided. 
+## So I decided to take a look at how I could automatically send/receive traffic 
+## from a firejail-ed application through Tor.
+
+## This blog post is NOT meant to be used as copy/paste commands but to explain why each step 
+## is needed and how to overcome the problems found in the path.
+## If you have reasons to proxy all your traffic through Tor as securely as possible use Tails 
+## on a different machine, this guide is NOT for you.
+
+## A dedicated bridge
+## First of all create a Linux bridge and assign an IP address to it. 
+## Use this bridge to attach the veth interfaces that firejail creates 
+## when using the ‘net’ option. 
+## This option creates a new network namespace for each sandboxed application.
+
+brctl addbr tornet
+ip link set dev tornet up
+ip addr add 10.100.100.1/24 dev tornet
+
+## NAT
+## Then enable NAT from/to your “external” interface 
+## (eno1 in my case) for tcp connections and udp port 53 (DNS) 
+## and enable IP(v4) forwarding, if you don’t already use it. 
+## Some rules about sane default policy for FORWARD chain 
+## are added here well, modify to your needs.
+
+sysctl -w net.ipv4.conf.all.forwarding=1
+iptables -P FORWARD DROP
+iptables -A INPUT -m state --state INVALID -j DROP
+iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i tornet -o eno1 -p tcp -j ACCEPT
+iptables -A FORWARD -i tornet -o eno1 -p udp --dport=53 -j ACCEPT
+iptables -t nat -A POSTROUTING -s 10.100.100.0/24 -o eno1 -j MASQUERADE
+
+## This configuration is enough to start a sandboxed application 
+## that will have it’s traffic NAT-ed from the Linux host.
+
+firejail --net=tornet /bin/bash
+## Parent pid 26730, child pid 26731
+
+##  Interface        MAC                IP               Mask             Status
+##  lo                                  127.0.0.1        255.0.0.0        UP    
+##  eth0             72:cc:f6:d8:6a:09  10.100.100.29    255.255.255.0    UP    
+##  Default gateway 10.100.100.1
+
+host www.debian.org
+## www.debian.org has address 5.153.231.4
+##  Host www.debian.org not found: 3(NXDOMAIN)
+##  Host www.debian.org not found: 4(NOTIMP)
+
+host whoami.akamai.net
+##  whoami.akamai.net has address 83.235.72.202
+
+curl wtfismyip.com/text
+## 3.4.5.6
+
+
+## (where 3.4.5.6 is your real IP and 83.235.72.202 
+## should be the IP address of the final DNS recursive resolver 
+## requesting information from whois.akamai.net)
+
+## So NAT works and the shell is sandboxed.
+
+## “Tor-ify” traffic
+## Edit /etc/tor/torrc and enable TransPort and VirtualAddrNetwork Tor features 
+## to transparently proxy to the Tor network connections landing on Tor daemon’s port 9040. 
+## DNSPort is used to resolve DNS queries through the Tor network. 
+## You don’t have to use IsolateDestAddr for your setup, but I like it.
+
+TransPort 9040
+VirtualAddrNetwork 172.30.0.0/16
+DNSPort 5353 IsolateDestAddr
+
+## Then use iptables to redirect traffic from tornet bridge to TransPort and DNSPort specified in torrc. 
+## You also need to ACCEPT that traffic in your INPUT chain if your policy is DROP (it is right ?)
+
+iptables -t nat -A PREROUTING -i tornet -p udp -m udp --dport 53 -j DNAT --to-destination 127.0.0.1:5353
+iptables -t nat -A PREROUTING -i tornet -p tcp -j DNAT --to-destination 127.0.0.1:9040
+iptables -A INPUT -i tornet -p tcp --dport 9040 -j ACCEPT
+iptables -A INPUT -i tornet -p udp --dport 5353 -j ACCEPT
+
+## Run your sandbox again and try to access the same website:
+
+firejail --net=tornet /bin/bash
+curl wtfismyip.com/text
+
+##  curl: (7) Failed to connect to wtfismyip.com port 80: Connection timed out
+
+
+## aaaand nothing happens. 
+## The problem is that you have tried to route traffic from a “normal” interface to loopback 
+## which is considered a “martian” and is not allowed by default by the Linux kernel.
+
+## sysctl magic
+## To enable loopback to be used for routing the route_localnet sysctl setting must be set.
+
+sysctl -w net.ipv4.conf.tornet.route_localnet=1
+
+## Try again:
+
+firejail --net=tornet /bin/bash
+host whoami.akamai.net
+##  whoami.akamai.net has address 74.125.181.10
+##  Host whoami.akamai.net not found: 3(NXDOMAIN)
+##  Host whoami.akamai.net not found: 4(NOTIMP)
+
+curl wtfismyip.com/text
+##  176.10.104.243
+
+host 176.10.104.243
+##  243.104.10.176.in-addr.arpa domain name pointer tor2e1.digitale-gesellschaft.ch.
+
+##  it works!
+
+##  You can actually run any program you want like that:
+firejail --net=tornet google-chrome
+
+##  Accessing onion services
+##  There’s one problem left though, accessing onion services.
+##  If you try and access www.debian.org onion service from your firejail+tor setup you will get an error.
+
+firejail --net=tornet /bin/bash
+curl http://sejnfjrq6szgca7v.onion/
+##  curl: (6) Could not resolve host: sejnfjrq6szgca7v.onion
+
+##  To fix that you need to modify /etc/tor/torrc again and add AutomapHostsOnResolve option.
+AutomapHostsOnResolve 1
+
+firejail --net=tornet /bin/bash
+curl -I http://sejnfjrq6szgca7v.onion/
+##  HTTP/1.1 200 OK
+##  Date: Fri, 09 Dec 2016 12:05:56 GMT
+##  Server: Apache
+##  Content-Location: index.en.html
+##  Vary: negotiate,accept-language,Accept-Encoding
+##  TCN: choice
+##  Last-Modified: Thu, 08 Dec 2016 15:42:34 GMT
+##  ETag: "3a40-543277c74dd5b"
+##  Accept-Ranges: bytes
+##  Content-Length: 14912
+##  Cache-Control: max-age=86400
+##  Expires: Sat, 10 Dec 2016 12:05:56 GMT
+##  X-Clacks-Overhead: GNU Terry Pratchett
+##  Content-Type: text/html
+##  Content-Language: en
+
+##  Accessing onion services works as well now.
+
+##  Applications supporting socks5
+##  If you already have some of your applications proxying connections to tor 
+##  using 127.0.0.1:9050 then you need to add another iptables rule 
+##  to redirect the socks traffic from inside firejail’s namespace to Tor SocksPort.
+
+iptables -t nat -A PREROUTING -i tornet -p tcp -m tcp --dport 9050 -j DNAT --to-destination 127.0.0.1:9050
+
+
+
+
