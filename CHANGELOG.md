@@ -1,6 +1,11 @@
 # ParrotLinux-Public-Kiosk-Project Changelog
 
 
+## 2.3.2-3 (10/27/2019)
+
+- Updated [Xe1phix-PDF-MetaData-v4.5.sh](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/blob/master/Xe1phix-Linux-Forensics/Xe1phix-PDF-Forensics/Xe1phix-PDF-MetaData-v4.5.sh)
+
+
 ## 2.3.2-2 (10/20/2019)
 
 - Added [Modprobe-Module-Blacklisting-v8.7.sh](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/blob/master/Xe1phix-Modprobe.d/Xe1phix-Modprobe-Blacklist-Untrustworthy-Modules-Script/Modprobe-Module-Blacklisting-v8.7.sh)
