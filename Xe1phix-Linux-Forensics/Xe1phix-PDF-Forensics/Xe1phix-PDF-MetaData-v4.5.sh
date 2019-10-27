@@ -19,6 +19,54 @@ cat $FILE | strings > $FILE.txt
 exiftool -extractEmbedded -all:all $FILE
 
 
+
+
+
+hachoir-subfile
+
+
+
+pdfxray_lite -f file.pdf -r rpt_
+
+
+
+##-====================================================================-##
+##   [+] pdfextract - Extract various data from the PDF, such as: 
+##       streams, scripts, image, fonts, metadata, attachments, etc.
+##-====================================================================-##
+pdfextract file.pdf
+
+
+
+
+## ---------------------------------------------------------------------------------------- ##
+##   [?] Peepdf will point out suspicious objects that are often used for attacks. 
+## ---------------------------------------------------------------------------------------- ##
+##   [?] object 13 contains JavaScript 
+## ---------------------------------------------------------------------------------------- ##
+
+
+##-============================================-##
+##   [+] Enter its interactive console type:
+##-============================================-##
+peepdf -i $File.pdf
+
+
+## ----------------------------------------------------------------------------------------------- ##
+##   [?] Typing “object 13” will show the object’s contents, including the embedded JavaScript.
+## ----------------------------------------------------------------------------------------------- ##
+##   [?] Peepdf will automatically decode the contents of the stream 
+##       that includes JavaScript using the appropriate filters.
+## ----------------------------------------------------------------------------------------------- ##
+peepdf -i file.pdf
+
+
+
+
+
+
+
+
 # merge all pdf files from a directory to a single pdf file
 pdftk *.pdf cat output out.pdf
 
