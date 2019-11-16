@@ -1,7 +1,7 @@
 #!/usr/bin/sh
 ## ---------------------------------------- ##
 ## This patch wasnt written by Xe1phix.
-## Cant remember the source.
+## Source - Unknown.
 ## ---------------------------------------- ##
 
 set -euo pipefail
