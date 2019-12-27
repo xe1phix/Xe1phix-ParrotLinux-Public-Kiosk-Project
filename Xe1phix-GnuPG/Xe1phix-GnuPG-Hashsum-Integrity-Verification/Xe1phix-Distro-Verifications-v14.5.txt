@@ -1,0 +1,274 @@
+sha256sum Torrents/Downloads-Finished/Parrot-home-4.7_x64.iso && cd Torrents/Downloads-Finished/ && sha1sum caine11.0.iso && sha512sum Parrot-home-4.7_x64.iso && sha256sum Parrot-kde-security-4.7_x64.iso && sha512sum Parrot-kde-security-4.7_x64.iso && sha256sum OPNsense-19.7-OpenSSL-dvd-amd64.iso.bz2 && sha256sum disc1.iso.xz
+
+
+74e059af4547cb5d765080bdb8b236e4cb4550ae  caine11.0.iso
+
+
+
+
+
+
+
+8fd8cd5d73b7faea751bf5c9ceb97b9bb7b78b4d138b25a3db717a9e4903a76d  Parrot-home-4.7_x64.iso
+8fd8cd5d73b7faea751bf5c9ceb97b9bb7b78b4d138b25a3db717a9e4903a76d  Parrot-home-4.7_x64.iso
+8fd8cd5d73b7faea751bf5c9ceb97b9bb7b78b4d138b25a3db717a9e4903a76d  Parrot-home-4.7_x64.iso
+3810812417a4dec20f57f3757b63dd19520721b08e134c0aeaffe7317b16f665  Parrot-kde-security-4.7_x64.iso
+3810812417a4dec20f57f3757b63dd19520721b08e134c0aeaffe7317b16f665  Parrot-kde-security-4.7_x64.iso
+df2f82423bcead2b26c39f043b8fe77bfbe6321ef13fedac9ddc5d9ae1c0257f  Parrot-security-4.7_x64.iso
+3810812417a4dec20f57f3757b63dd19520721b08e134c0aeaffe7317b16f665  Parrot-kde-security-4.7_x64.iso
+7d73b8cdd5aeef90cb4b1a5be7aa85cb5a1b0f29cfc073f7a35a7259d5fbc924  Parrot-kde-home-4.7_x64.iso
+
+
+29e347e4cce6395dcae42955898cf4164334e39b764bd7a3fdd1cee7f9987d7dd3e810097f1d42b99f5d7e9c56746f5261a11df00e092236559a1507d31817a7  Parrot-home-4.7_x64.iso
+29e347e4cce6395dcae42955898cf4164334e39b764bd7a3fdd1cee7f9987d7dd3e810097f1d42b99f5d7e9c56746f5261a11df00e092236559a1507d31817a7  Parrot-home-4.7_x64.iso
+29e347e4cce6395dcae42955898cf4164334e39b764bd7a3fdd1cee7f9987d7dd3e810097f1d42b99f5d7e9c56746f5261a11df00e092236559a1507d31817a7  Parrot-home-4.7_x64.iso
+ad1305ef9e792c6e361035865bd507585ca190738881d26dc30c4dc64204ea055baa55a8344e00785e00898840bfd7147d87ceefd5a3c15dc8ed6ac3734e8bbf  Parrot-kde-security-4.7_x64.iso
+ad1305ef9e792c6e361035865bd507585ca190738881d26dc30c4dc64204ea055baa55a8344e00785e00898840bfd7147d87ceefd5a3c15dc8ed6ac3734e8bbf  Parrot-kde-security-4.7_x64.iso
+f743d3bd6b4d5fc0db827c5e394e87b83a887f7d0e89e59d36cbd84bd9dd71308dac001f68b5b10c1d712396d1d0ec54a87bb2ca5123002e7e01b007091c222b  Parrot-kde-home-4.7_x64.iso
+e31076e554cb0626850a151733828aec7ded4def5a0bda3f703b5a6181bdd4156de9a8f4aadcd879e0b372e770244f0ac56c043b63ab51da8b9c2b8c18feeb24  Parrot-security-4.7_x64.iso
+e31076e554cb0626850a151733828aec7ded4def5a0bda3f703b5a6181bdd4156de9a8f4aadcd879e0b372e770244f0ac56c043b63ab51da8b9c2b8c18feeb24  Parrot-security-4.7_x64.iso
+
+
+
+
+OPNsense-19.7-OpenSSL-dvd-amd64.iso.bz2 (SHA256) : 
+e022217d367abaf4fd1360f83e4664d28b3f37932dfe720974b9d7dc33bf50f7
+e022217d367abaf4fd1360f83e4664d28b3f37932dfe720974b9d7dc33bf50f7  OPNsense-19.7-OpenSSL-dvd-amd64.iso.bz2
+
+
+
+
+
+GhostBSD 19.10
+
+sha256: bbfddd03fa84232cd038ac8efb755ca3f1b7a77e14c88ba1a6b5eac79c4eb2d8
+
+sha256: 569da3486f238c01681dd37c62b74be0713b99a2d945470c1cdb43f8680317cf
+
+
+
+
+SHA256 (disc1.iso) = 157f2b916a29672d72b363146745499ee4d6dba8e1752bd788eacd57924be18b
+SHA256 (disc1.iso.xz) = ec1263bd983ca402de9200815f0c6a89f931f06ec4485084f771cf34ce30fbfe
+ec1263bd983ca402de9200815f0c6a89f931f06ec4485084f771cf34ce30fbfe  disc1.iso.xz
+
+
+
+      A490 D0F4 D311 A415 3E2B  B7CA DBB8 02B2 58AC D84F
+
+A490D0F4D311A4153E2BB7CADBB802B258ACD84F
+A490D0F4D311A4153E2BB7CADBB802B258ACD84F
+
+
+
+      5817 A43B 283D E5A9 181A  522E 1848 792F 9E27 95E9
+5817A43B283DE5A9181A522E1848792F9E2795E9
+5817A43B283DE5A9181A522E1848792F9E2795E9
+
+
+https://github.com/QubesOS/qubes-issues/issues/3667
+https://www.qubes-os.org/security/verifying-signatures/
+
+gpg -v --verify Qubes-R4.0.1-x86_64.iso.DIGESTS
+
+gpg: Good signature from "Qubes OS Release 4 Signing Key" [full]
+gpg:                using RSA key 5817A43B283DE5A9181A522E1848792F9E2795E9
+
+
+
+
+gpg -v --verify Qubes-R4.0.1-x86_64.iso.asc Qubes-R4.0.1-x86_64.iso
+
+gpg: Good signature from "Qubes OS Release 4 Signing Key" [full]
+gpg:                using RSA key 5817A43B283DE5A9181A522E1848792F9E2795E9
+
+
+
+
+sha256sum Qubes-R4.0.1-x86_64/Qubes-R4.0.1-x86_64.iso && sha512sum Qubes-R4.0.1-x86_64/Qubes-R4.0.1-x86_64.iso
+
+2771a8d3039f7e32826a5f712425c7432fec3c4ad6387a2adc7d15ab48c8b16a  Qubes-R4.0.1-x86_64.iso
+2771a8d3039f7e32826a5f712425c7432fec3c4ad6387a2adc7d15ab48c8b16a *Qubes-R4.0.1-x86_64.iso
+ef4c1941b4b8ab8289c3e8c98d9b3df48bfbf2e6497f28e787603709769a5d4d5de80f65cffadb43083a476142799ba1922473920ed03bc4fe095800ca99dfa4 *Qubes-R4.0.1-x86_64.iso
+ef4c1941b4b8ab8289c3e8c98d9b3df48bfbf2e6497f28e787603709769a5d4d5de80f65cffadb43083a476142799ba1922473920ed03bc4fe095800ca99dfa4  Qubes-R4.0.1-x86_64/Qubes-R4.0.1-x86_64.iso
+
+gpg --lsign-key 5817A43B283DE5A9181A522E1848792F9E2795E9
+
+
+https://tails.boum.org/install/expert/usb/index.en.html
+
+gpg --import < tails-signing.key
+gpg --verbose --recv-keys 0x
+gpg --verbose --recv-keys 0xA490D0F4D311A4153E2BB7CADBB802B258ACD84F
+gpg --keyid-format 0xlong --check-sigs A490D0F4D311A4153E2BB7CADBB802B258ACD84F
+
+
+
+ gpg: Good signature from "Tails developers <tails@boum.org>" [full]
+ gpg:                using RSA key FE029CB4AAD4788E1D7828E8A8B0F4E45B1B50E2
+ 
+ 
+ 
+ 
+
+
+74e059af4547cb5d765080bdb8b236e4cb4550ae  caine11.0.iso
+74E059AF4547CB5D765080BDB8B236E4CB4550AE caine11.0.iso
+
+
+
+
+
+
+Latest Version: AiO-SRT_2018-01-02.iso (663 MB)
+
+MD5: 9d88cdb4f19fc880d203e3f017ff92da
+SHA-1: 7ffff7455668f99df617c02217967c41e08d416d
+
+
+
+
+
+
+https://paul.is-a-geek.org/wp-content/uploads/AiO-SRT_2018-01-02.torrent
+magnet:?xt=urn:btih:72178f4ae88793dbceb06f2b1707a8332b51a946&dn=AiO-SRT_2018-01-02.iso&tr=udp%3A%2F%2Fpaul.is-a-geek.org%3A6969%2Fannounce&tr=http%3A%2F%2Fpaul.is-a-geek.org%3A6969%2Fannounce
+Torrent Hash: 72178f4ae88793dbceb06f2b1707a8332b51a946
+
+
+
+
+
+
+
+
+
+
+[EOL: Jan 2020] Latest STABLE Release
+
+DVD/USB Install image (2.9G): Trident-x64-TOS-12-U12-20191109.iso
+
+ISO validation files:
+
+Build Date: 2019_11_09 01:01 UTC
+MD5 Checksum: fa88f9e8f52534f6271ff55852348ed2
+SHA256 Checksum: d40dfb61854a4770f245ec367d593fb21c6421fc5c326163302024617d334a8c
+
+https://pkg.project-trident.org/iso/stable/Trident-x64-TOS-12-U12-20191109.iso.md5
+https://pkg.project-trident.org/iso/stable/Trident-x64-TOS-12-U12-20191109.iso.sha256
+https://pkg.project-trident.org/iso/stable/Trident-x64-TOS-12-U12-20191109.iso.sig.sha512
+https://pkg.project-trident.org/iso/stable/pubkey.pem
+
+
+
+
+openssl dgst -sha512 -verify <public-key-file> -signature <signature-file> <ISO-file>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+kodachi-6.2-64.iso
+
+MD5               : 38ba40103e36eed74127b653e2fba756
+SHA1              : 21cd1b0a53a22a1e710e7f0b7dfd9ab55c634879
+CRC32             : d421a49e
+SHA-256           : fdfec13a4e1d14dbc527fe63f182132852b621f10b7ca61d8f9fd8e6de22ad9a
+SHA-512           : 5617e4fee52c13b9e51c8593082545f21cfd081e6cc99dcb3b278fdbead3595d0506e74bde7ab8b9c45f023ba6919dde7213cfe9183ffc7a6e22ffeb1c874e16
+
+
+
+
+sha256sum '/home/xe1phix/Downloads/Torrents/Downloads-Finished/Distros/kodachi-6.2-64.iso' && sha512sum '/home/xe1phix/Downloads/Torrents/Downloads-Finished/Distros/kodachi-6.2-64.iso'
+
+fdfec13a4e1d14dbc527fe63f182132852b621f10b7ca61d8f9fd8e6de22ad9a  /home/xe1phix/Downloads/Torrents/Downloads-Finished/Distros/kodachi-6.2-64.iso
+fdfec13a4e1d14dbc527fe63f182132852b621f10b7ca61d8f9fd8e6de22ad9a
+
+5617e4fee52c13b9e51c8593082545f21cfd081e6cc99dcb3b278fdbead3595d0506e74bde7ab8b9c45f023ba6919dde7213cfe9183ffc7a6e22ffeb1c874e16  /home/xe1phix/Downloads/Torrents/Downloads-Finished/Distros/kodachi-6.2-64.iso
+5617e4fee52c13b9e51c8593082545f21cfd081e6cc99dcb3b278fdbead3595d0506e74bde7ab8b9c45f023ba6919dde7213cfe9183ffc7a6e22ffeb1c874e16
+
+
+
+
+
+
+
+wget https://download.securityonion.net/file/Security-Onion-16/securityonion-16.04.6.3.iso
+
+
+
+
+gpg: Signature made Tue 26 Nov 2019 05:46:15 PM EST using RSA key ID ED6CF680
+gpg: Good signature from "Doug Burks <doug.burks@gmail.com>"
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: BD56 2813 E345 A068 5FBB  91D3 788F 62F8 ED6C F680
+
+
+
+Primary key fingerprint:BD56 2813 E345 A068 5FBB  91D3 788F 62F8 ED6C F680
+      Key fingerprint = BD56 2813 E345 A068 5FBB  91D3 788F 62F8 ED6C F680
+Primary key fingerprint: BD56 2813 E345 A068 5FBB  91D3 788F 62F8 ED6C F680
+
+
+
+gpg --verbose --keyid-format 0xlong --import KEYS
+
+
+gpg --verbose --keyid-format 0xlong --fingerprint 0x788F62F8ED6CF680
+
+
+gpg --verbose --lsign-key BD562813E345A0685FBB91D3788F62F8ED6CF680
+
+
+gpg --verify securityonion-16.04.6.3.iso.sig securityonion-16.04.6.3.iso
+
+
+
+
+
+
+
+
+
+HBCD_PE_x64.iso(Special thanks to our Supporters for maintaining fast and reliable mirror servers)
+
+Filesize 	1292.04 MB (1354811392 bytes)
+
+ISO MD5 	07170465C2F892088B7A725306737715
+ISO SHA1 	6CBC2FFFB4D0563852A43F7E16A67581BD6BD809
+ISO SHA-256 	D67BCF0437A1BD27F31655C4A9C81C93269A5A239D43F38D0375618443D372BC
+
+
+sha1sum '/home/xe1phix/Downloads/Torrents/Downloads-Finished/Distros/kodachi-6.2-64.iso' && sha256sum '/home/xe1phix/Downloads/Torrents/Downloads-Finished/Distros/HBCD_PE_x64.iso' 
+
+
+6cbc2fffb4d0563852a43f7e16a67581bd6bd809  /home/xe1phix/Downloads/Torrents/Downloads-Finished/Distros/HBCD_PE_x64.iso
+6CBC2FFFB4D0563852A43F7E16A67581BD6BD809
+
+d67bcf0437a1bd27f31655c4a9c81c93269a5a239d43f38d0375618443d372bc  /home/xe1phix/Downloads/Torrents/Downloads-Finished/Distros/HBCD_PE_x64.iso
+D67BCF0437A1BD27F31655C4A9C81C93269A5A239D43F38D0375618443D372BC
+
+
+http://archive.fedoraproject.org/pub/alt/podcasts/
+
+
+
+
+
+
+
+
+
+
+
