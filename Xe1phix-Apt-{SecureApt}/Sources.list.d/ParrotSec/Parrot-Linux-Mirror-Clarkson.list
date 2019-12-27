@@ -1,0 +1,9 @@
+## ========================================================================================== ##
+## 		             [+] Clarkson University - USA ‐ New York - 1 Gbps
+## ========================================================================================== ##
+
+## https://mirror.clarkson.edu/parrot/
+
+deb https://mirror.clarkson.edu/parrot/ parrot main contrib non-free
+## deb-src https://mirror.clarkson.edu/parrot/ parrot main contrib non-free
+
