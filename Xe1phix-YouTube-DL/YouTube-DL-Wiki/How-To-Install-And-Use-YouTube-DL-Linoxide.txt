@@ -1,4 +1,3 @@
-
 How to Install and Use YouTube-DL on Ubuntu 18.04
 July 26, 2018LINUX HOWTO, OPEN SOURCE TOOLSUpdated July 26, 2018
 
