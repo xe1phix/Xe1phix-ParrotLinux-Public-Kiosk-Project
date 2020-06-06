@@ -1,0 +1,35 @@
+To verify the message you must make sure to include all whitespace properly. Copy everything between (and not including) quotation marks.
+The same message is signed with multiple Bitcoin addresses:
+
+__________ Verify: https://shop.wikileaks.org/ 
+
+Message: 
+
+"For security reasons we had to change the WikiLeaks Submission System address. The new one is:
+
+http://rpzgejae7cxxst5vysqsijblti4duzn3kjsmn43ddi2l3jblhk4a44id.onion
+
+---"
+
+Address: "36EEHh9ME3kU7AZ3rUxBCyKR5FhR3RbqVo"
+
+Sig: "H1ERxHLhZMrVJVPVuBnu9FbFQWbjQ8WGzgl6Gk38KErBcUAsT2OmAHV7N0UexOyS4hnV+2088cPnZtfmLwhDpG4="
+
+
+
+___________ Verify: Donate page at https://defend.wikileaks.org
+
+
+Message: 
+
+"For security reasons we had to change the WikiLeaks Submission System address. The new one is:
+
+http://rpzgejae7cxxst5vysqsijblti4duzn3kjsmn43ddi2l3jblhk4a44id.onion
+
+---"
+
+
+Address: "39o6E2qascmB5rNwFtJU6ug5PXZx5K2ED3"
+
+Sig: "IKPFVoCQuOPJ016ATCD0d4tOK5etbaHJ1auleBguMZzYOKlOkbWk6DCo1GD2f/CTnlfrilzbwYZ5nR8p1p2Qvsg="
+
