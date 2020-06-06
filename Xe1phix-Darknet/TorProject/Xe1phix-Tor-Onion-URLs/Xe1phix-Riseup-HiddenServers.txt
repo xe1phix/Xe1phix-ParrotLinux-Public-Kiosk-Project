@@ -1,0 +1,23 @@
+## Xe1phix-Riseup-HiddenServers.txt
+
+## ============================================================================================ ##
+## -------------------------------------------------------------------------------------------- ##
+## riseup.net:       nzh3fv6jc6jskki3.onion (port 80)
+## help.riseup.net:  nzh3fv6jc6jskki3.onion (port 80)
+## black.riseup.net: cwoiopiifrlzcuos.onion (port 80)
+## imap.riseup.net:  zsolxunfmbfuq7wf.onion (port 993)
+## labs.riseup.net:  yfm6sdhnfbulplsw.onion (port 80)
+## lists.riseup.net: xpgylzydxykgdqyg.onion (port 80)
+## mail.riseup.net:  zsolxunfmbfuq7wf.onion (ports 80, 465, 587)
+## pad.riseup.net:   5jp7xtmox6jyoqd5.onion (port 80)
+## pop.riseup.net:   zsolxunfmbfuq7wf.onion (port 995)
+## share.riseup.net: 6zc6sejeho3fwrd4.onion (port 80)
+## smtp.riseup.net:  zsolxunfmbfuq7wf.onion (ports 465, 587)
+## user.riseup.net:  j6uhdvbhz74oefxf.onion (port 80)
+## we.riseup.net:    7lvd7fa5yfbdqaii.onion (port 443)
+## xmpp.riseup.net:  4cjw6cwpeaeppfqz.onion (ports 5222, 5269)
+## 0xacab.org        vivmyccb3jdb7yij.onion (port 80)
+## --------------------------------------------------------------------------- ##
+## ============================================================================================================= ##
+##########################################################################################################################
+
