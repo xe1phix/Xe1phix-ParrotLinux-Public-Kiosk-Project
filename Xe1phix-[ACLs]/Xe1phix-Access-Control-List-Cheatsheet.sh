@@ -14,7 +14,7 @@ setfacl -m g:$group:rwx /$files
 setfacl -R -m g:$groupe:+x $folder/
 
 ## Add default group access right to read and write on the folder
-setfacl -m d:g:$groupe:rw testfolder/
+setfacl -m d:g:$groupe:rw $folder/
 
 ## Get ACL on /files:
 getfacl /$files
