@@ -3,25 +3,14 @@
 ##   [+] Xe1phix-Boxes-[Template].sh
 ##-====================================-##
 
-boxes -d  -a jc 
-boxes -d  -a jc '/home/parrotsec-kiosk/Downloads/Xe1phix-ParrotKiosk-Production/Xe1phix-Buddhism-Nirvana-ASCII-Art.txt' 
 
-boxes -d spring -a jc 
-boxes -d scroll-akn -a jc 
-boxes -d scroll -a jc 
-boxes -d parchment -a jc 
-boxes -d html -a jc 
-boxes -d diamonds -a jc 
+boxes -d $Design -a jc $File
 
-boxes -d  -a jc '/home/parrotsec-kiosk/Downloads/Xe1phix-ParrotKiosk-Production/Xe1phix-Buddhism-Nirvana-ASCII-Art.txt' 
-
-boxes -d whirly -a jc '/home/parrotsec-kiosk/Downloads/Xe1phix-ParrotKiosk-Production/Xe1phix-Buddhism-Nirvana-ASCII-Art.txt' 
-boxes -d twisted -a jc '/home/parrotsec-kiosk/Downloads/Xe1phix-ParrotKiosk-Production/Xe1phix-Buddhism-Nirvana-ASCII-Art.txt' 
-boxes -d diamonds -a jc '/home/parrotsec-kiosk/Downloads/Xe1phix-ParrotKiosk-Production/Xe1phix-Buddhism-Nirvana-ASCII-Art.txt' 
-boxes -d spring -a jc '/home/parrotsec-kiosk/Downloads/Xe1phix-ParrotKiosk-Production/Xe1phix-Buddhism-Nirvana-ASCII-Art.txt' 
-boxes -d scroll-akn -a jc '/home/parrotsec-kiosk/Downloads/Xe1phix-ParrotKiosk-Production/Xe1phix-Buddhism-Nirvana-ASCII-Art.txt' 
-boxes -d scroll -a jc '/home/parrotsec-kiosk/Downloads/Xe1phix-ParrotKiosk-Production/Xe1phix-Buddhism-Nirvana-ASCII-Art.txt' 
-boxes -d parchment -a jc '/home/parrotsec-kiosk/Downloads/Xe1phix-ParrotKiosk-Production/Xe1phix-Buddhism-Nirvana-ASCII-Art.txt' 
-boxes -d html -a jc '/home/parrotsec-kiosk/Downloads/Xe1phix-ParrotKiosk-Production/Xe1phix-Buddhism-Nirvana-ASCII-Art.txt' 
-boxes -d diamonds -a jc '/home/parrotsec-kiosk/Downloads/Xe1phix-ParrotKiosk-Production/Xe1phix-Buddhism-Nirvana-ASCII-Art.txt' 
-
+boxes -d whirly -a jc $File
+boxes -d twisted -a jc $File
+boxes -d spring -a jc $File
+boxes -d scroll-akn -a jc $File
+boxes -d scroll -a jc $File
+boxes -d parchment -a jc $File
+boxes -d html -a jc $File
+boxes -d diamonds -a jc $File
