@@ -1,7 +1,7 @@
 #!/bin/sh
-##-===========================-##
+##-====================================-##
 ##   [+] Xe1phix-Boxes-[Template].sh
-##-===========================-##
+##-====================================-##
 
 boxes -d  -a jc 
 boxes -d  -a jc '/home/parrotsec-kiosk/Downloads/Xe1phix-ParrotKiosk-Production/Xe1phix-Buddhism-Nirvana-ASCII-Art.txt' 
