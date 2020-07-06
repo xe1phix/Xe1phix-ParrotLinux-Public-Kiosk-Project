@@ -1,12 +1,14 @@
 boxes -d parchment -a jc  '/home/parrotsec-kiosk/Downloads/Xe1phix-ParrotKiosk-Production/Xe1phix-Buddhism-Nirvana-ASCII-Art.txt' 
 
   ________________________________________________________
-/ \                                                                                                                      \
-\_|                     All composite phenomena are impermanent.                       |
-   |             All contaminated things and events are unsatisfactory.                |
-   |                         All phenomena are empty and selfless.                             |
-   |                                         Nirvana is true peace.                                        |
-   |    _____________________________________________________|_
+/ \                                                       \
+\_|       All composite phenomena are impermanent.         |
+  | All contaminated things and events are unsatisfactory. |
+  |        All phenomena are empty and selfless.           |
+  |                Nirvana is true peace.                  |
+  |    ____________________________________________________|_
    \_/______________________________________________________/
+
+
 
 
