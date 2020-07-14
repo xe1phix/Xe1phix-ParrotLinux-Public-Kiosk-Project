@@ -1,0 +1,2 @@
+Liferea {Firejail Sandboxed}
+firejail --profile=/etc/firejail/liferea.profile /usr/bin/liferea %U
