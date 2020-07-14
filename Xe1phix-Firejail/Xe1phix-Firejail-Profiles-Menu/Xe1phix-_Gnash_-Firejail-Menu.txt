@@ -1,0 +1,2 @@
+Gnash SWF Viewer {Firejail Sandboxed}
+firejail --profile=/etc/firejail/gnash.profile /usr/bin/gnash-gtk-launcher %U
