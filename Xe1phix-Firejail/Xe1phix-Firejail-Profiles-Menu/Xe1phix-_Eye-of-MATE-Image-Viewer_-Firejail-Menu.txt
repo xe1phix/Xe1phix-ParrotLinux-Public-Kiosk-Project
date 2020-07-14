@@ -1,0 +1,2 @@
+Eye of MATE Image Viewer {Firejail Sandboxed}
+firejail --profile=/etc/firejail/eom.profile /usr/bin/eom %U
