@@ -1,0 +1,126 @@
+file:///run/media/public/2TB
+file:///mnt/ZPool-ZFS
+file:///run/media/public /run/media/public
+file:///run/media/public/2TB/Xe1phixGitLab Xe1phixGitLab || 2TB
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/Stable/ParrotLinux-Public-Kios-Project/Xe1phix-Hardened-ParrotKios-Projects-Production ParrotKios-Production || 2TB
+file:///run/media/public/2TB/BrowntownAlpha BrowntownAlpha || 2TB
+file:///run/media/public/2TB/BrowntownAlpha/Sir-Goatse-lot Sir-Goatse-lot || 2TB
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/Stable/ParrotLinux-Public-Kios-Project Parrot-Kios-Project || 2TB
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/BrownTown-TopScripts BrownTown-TopScripts || 2TB
+file:///home/xe1phix/Xe1phixGitLab Xe1phixGitLab || /dev/sda
+file:///home/xe1phix/Downloads/Xe1phixGitLab/Xe1phix-Stable-Upload Xe1phix-Stable-Upload || /dev/sda
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects Xe1phix-GitLabProjects || 2TB
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/Stable Stable-GitLabProjects || 2TB
+file:///home/xe1phix/Downloads/Xe1phixGitLab/Xe1phixGitLabProjects/Stable/ParrotLinux-Public-Kios-Project/Xe1phix-Hardened-ParrotKios-Projects-Production ParrotKios-Production-||-/dev/sda
+file:///home/xe1phix/Downloads/Xe1phixGitLab/Xe1phixGitLabProjects Xe1phix-GitLabProjects-||-/dev/sda
+file:///home/xe1phix/Downloads/Xe1phixGitLab/Xe1phixGitLabProjects/Stable/ParrotLinux-Public-Kios-Project Public-Kios-Project-||-/dev/sda
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phix-Stable-Upload Xe1phix-GitLab-Upload || 2TB
+file:///run/media/public/2TB/Audio Audio  ||  2TB
+file:///run/media/public/2TB/infosec InfoSec || 2TB
+file:///run/media/public/2TB/Xe1phixGitLab/LPIC-2
+file:///run/media/public/2TB/OS OS || 2TB
+file:///run/media/public/2TB/BrowntownAlpha/Sir-Goatse-lot/skel Skel ||  2TB
+file:///run/media/public/2TB/Scripts Scripts || 2TB
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phix-Firejail Xe1phix-Firejail || 2TB
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phix-Firejail/Firejail+Apparmor
+file:///home/xe1phix/.config/firetools Xe1phix-Firetools
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/Stable/ParrotLinux-Public-Kios-Project/Xe1phix-Hardened-ParrotKios-Projects-Production/Xe1phix-AppArmor
+file:///etc/apparmor.d /etc/apparmor.d
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/Stable/ParrotLinux-Public-Kios-Project/Xe1phix-Hardened-ParrotKios-Projects-Production/Xe1phix-AppArmor Xe1phix-AppArmor || ParrotKios-Production || 2TB
+file:///home/xe1phix/IntroToLinuxFileSystems IntroToLinuxFileSystems || /dev/sda
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/Stable/ParrotLinux-Public-Kios-Project/Xe1phix-Hardened-ParrotKios-Projects-Production/Xe1phix-IntroToLinuxFileSystems-v2 Xe1phix-IntroToLinuxFileSystems
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/Stable/ParrotLinux-Public-Kios-Project/Xe1phix-Hardened-ParrotKios-Projects-Production/Xe1phix-IntroToLinuxFileSystems-v2 Xe1phix-IntroToLinuxFileSystems-v2
+file:///home/xe1phix/IntroToLinuxFileSystems/Xe1phix-IntroToLinuxFileSystems-Scripts+Cheatsheets
+file:///run/media/public/2TB/Xe1phixGitLab/GnuPG/Xe1phixGnuPG-Projects/Xe1phix-GnuPG Xe1phix-GnuPG || Xe1phixGitLab || 2TB
+file:///run/media/public/2TB/Xe1phixGitLab/GnuPG-CryptoPartyWorkshop GnuPG-CryptoPartyWorkshop || 2TB
+file:///run/media/public/2TB/Xe1phixGitLab/GnuPG-CryptoPartyWorkshop/ParrotSec-AdvGnuPG-WorkShop AdvGnuPG-WorkShop || 2TB
+file:///run/media/public/2TB/Xe1phixGitLab/Intrusion%20Detection%20Systems%5BIDS%5D
+file:///run/media/public/2TB/Xe1phixGitLab/GnuPG/Xe1phixGnuPG-Projects/GnuPG-Verification+Hashsums/BackupCopy/LinuxProjects-GPG-Verification+Hashsums-2 GPG-Hashsums
+file:///home/xe1phix/GitLab-Stable-Upload/Xe1phix-Firejail-Custom-Profiles-Updated Firejail-Edits
+file:///run/media/public/2TB/Xe1phixGitLab/TextbooksV4
+file:///run/media/public/2TB/BrowntownAlpha/textbooks Textbooks
+file:///run/media/public/2TB/Podcasts
+file:///run/media/public/2TB/Xe1phixGitLab/GnuPG/GPGKeys
+file:///run/media/public/2TB/Xe1phixGitLab/GnuPG
+file:///run/media/public/2TB/Xe1phixGitLab/Wiki Wiki
+file:///run/media/public/2TB/Xe1phixGitLab/Wiki Wiki
+file:///run/media/public/2TB/BrowntownAlpha/SELKS
+file:///run/media/public/2TB/Xe1phixGitLab/Mullvad
+file:///run/media/public/2TB/Xe1phixGitLab/AppArmor
+file:///run/media/public/2TB/Xe1phixGitLab/PwnageTime/Jon%20Schipp
+file:///run/media/public/2TB/BrowntownAlpha/textbooks/Cheatsheets
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phix-Wiki
+file:///run/media/public/2TB/BrowntownAlpha/textbooks/Arch%20Linux%20Wiki
+file:///run/media/public/2TB/BrowntownAlpha/textbooks/Commandlinefu
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/Stable/ParrotLinux-Public-Kios-Project/Xe1phix-Hardened-ParrotKios-Projects-Production/Xe1phix-Coommunity
+file:///run/media/public/2TB/BrowntownAlpha/Sir-Goatse-lot/skel/DarknetScripts DarknetScripts-Skel
+file:///run/media/public/2TB/Xe1phixGitLab/GnuPG/Lovecruft-(PatternsInTheVoid)
+file:///run/media/public/2TB/BrowntownAlpha/Sir-Goatse-lot/Xe1phixRepo/InfoSec-Repositories(Guidelines)
+file:///run/media/public/2TB/Xe1phixGitLab/PwnageTime/hardening-script-el6-master hardening-script-el6
+file:///run/media/public/2TB/Scripts/Ripple-of-Diahrea
+file:///run/media/public/2TB/Xe1phixGitLab/PwnageTime
+file:///run/media/public/2TB/BrowntownAlpha/Sir-Goatse-lot/Grsec+PaX
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/Stable/ParrotLinux-Public-Kios-Project/Xe1phix-Hardened-ParrotKios-Projects-Production/Xe1phix-Sysctl
+file:///run/media/public/2TB/Xe1phixGitLab/Curl Xe1phix-Curl
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/OpenSSL Xe1phix-OpenSSL
+file:///etc/apparmor.d
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/Stable/Bookmarks/ResourceLists
+file:///home/xe1phix/Scripts/Xe1phix-Repo
+file:///run/media/public/2TB/Xe1phixGitLab/PwnageTime/STIG-4-Debian
+file:///run/media/public/2TB/Xe1phixGitLab/Firefox-Hardened
+file:///run/media/public/2TB/Xe1phixGitLab/GnuPG-CryptoPartyWorkshop/Firefox-Hardened Firefox-Hardened-Workshop
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/Stable/ParrotLinux-Public-Kios-Project/Xe1phix-Hardened-ParrotKios-Projects-Production/Xe1phix-Firefox-Hardening FirefoxHardening  ||  ParrotKios-Production || 2TB
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/Xe1phix-IPTables-Psychosis-Lab-Analysis IPTables-Psychosis
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/IPTables IPTables-GitLabProjects
+file:///run/media/public/2TB/BrowntownAlpha/Sir-Goatse-lot/skel/DarknetScripts DarknetScripts-Skel
+file:///run/media/public/2TB/BrownTown/Shell%20Script-a-licous
+file:///run/media/public/2TB/Xe1phixGitLab/GnuPG-CryptoPartyWorkshop/ParrotSec-AdvGnuPG-WorkShop AdvGnuPG-WorkShop
+file:///run/media/public/2TB/BrowntownAlpha/Sir-Goatse-lot/Xe1phixRepo/InfoSec-Repositories(Guidelines)
+file:///run/media/public/2TB/infosec/Certifications%20&%20System%20Administration
+file:///run/media/public/2TB/Xe1phixGitLab/GnuPG/Lovecruft-(PatternsInTheVoid)
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/Stable/ParrotLinux-Public-Kios-Project/Xe1phix-Hardened-ParrotKios-Projects-Production/Xe1phix-Linux-FileSystems Xe1phix-Linux-FileSystems
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/Stable/ParrotLinux-Public-Kios-Project/Xe1phix-ForensicAnalysis
+file:///run/media/public/2TB/BrowntownAlpha/Sir-Goatse-lot/skel/ForensicAnalysis ForensicAnalysis-Skel
+file:///run/media/public/2TB/Xe1phixGitLab/KVM-Qemu-libvirtd KVM-Qemu-LibVirt0
+file:///run/media/public/2TB/BrowntownAlpha/Sir-Goatse-lot/Networkinng/IPTables Browntown-IPTables
+file:///usr/lib/parrot-skel/etc/skel/.mozilla/firefox/xk1uxyq9.Parrot .mozilla || Parrot-Skel
+file:///run/media/public/2TB/NewUpdates/LPIC-2-Notes-zfs
+file:///run/media/public/2TB/BrowntownAlpha/Sir-Goatse-lot/skel/GentooPatches
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/MetadataAnon
+file:///run/media/public/2TB/Xe1phixGitLab/PwnageTime/SecurityOnion
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phix-Polkit
+file:///run/media/public/2TB/Xe1phixGitLab/KVM-Qemu-libvirtd KVM-Qemu
+file:///etc/modprobe.d
+file:///usr/share/doc/gpsbabel
+file:///run/media/public/2TB/Xe1phixGitLab/InfoSecLists/InfoSecLists/policy-docs
+file:///run/media/public/2TB/HomeDir
+file:///run/media/public/2TB/b%20%7BArchive%7D/Pranks
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phixGitLabProjects/Socat
+file:///run/media/public/2TB/Xe1phixGitLab/PwnageTime/lynis
+file:///run/media/public/2TB/Xe1phixGitLab/PwnageTime/Tiger
+file:///run/media/public/2TB/Xe1phixGitLab/icons icons || 2TB
+file:///usr/share/icons
+file:///run/media/public/2TB/Pr0n Pr0n || 2TB
+file:///mnt/ZFS/Pr0n Pr0n | ZFS
+file:///home/xe1phix/Downloads/Pr0n Pr0n || /dev/sda
+file:///run/media/public/2TB/Pr0n/Pornographic-Entertainment Pr0n-Movies
+file:///run/media/public/2TB/BrowntownAlpha/AnonOS/4chan/webm-2.0/Special
+file:///run/media/public/2TB/BrowntownAlpha/AnonOS
+file:///run/media/public/2TB/BrowntownAlpha/AnonOS/4chan/webm-2.0
+file:///home/xe1phix/Downloads/ManArchive
+file:///run/media/public/2TB/Xe1phixGitLab/Commandlinefu
+file:///run/media/public/2TB/NewUpdates/GnuPG-CryptoPartyWorkshop/Bsides/WorkshopProjects/CoreOS%20-%20Advanced%20Tasks Advanced Tasks
+file:///run/media/public /run/media/public
+file:///run/media/public/2TB/Xe1phixGitLab/Xe1phix-SSH Xe1phix-OpenSSH
+file:///run/media/public/2TB/BrowntownAlpha/Sir-Goatse-lot/Xe1phixRepo/ParrotSecWorkshop
+file:///run/media/public/2TB/Xe1phixGitLab/Pluma/pluma-color-schemes pluma-schemes
+file:///run/media/public/2TB/BrowntownAlpha/Sir-Goatse-lot/skel/DotConfigs
+file:///etc/apf-firewall
+file:///run/media/public/2TB/Xe1phixGitLab/InfoSecLists/InfoSecLists/policy-docs
+file:///etc/dbus-1/system.d
+file:///run/media/public/2TB/BrownTown/Sir-Goatse-lot/skel/otber/helpers
+file:///usr/share/dbus-1
+file:///run/media/public/2TB/Xe1phixGitLab/Reverse%20Engineering/Bokken
+file:///run/media/public/2TB/BrowntownAlpha/Stuffz
+file:///run/media/public/2TB/Xe1phixGitLab/ToDo
+file:///usr/share/doc
