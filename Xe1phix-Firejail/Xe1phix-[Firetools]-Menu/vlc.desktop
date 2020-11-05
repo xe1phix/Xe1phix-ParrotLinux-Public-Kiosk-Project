@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=vlc
+Comment=VLC Media Player {Firejail NoNet Profile}
+Icon=vlc
+Exec=firejail --name=vlc --profile=/etc/firejail/vlc.profile --net=none /usr/bin/vlc
