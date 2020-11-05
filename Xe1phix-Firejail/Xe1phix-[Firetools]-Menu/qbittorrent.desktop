@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=qbittorrent
+Comment=qBittorrent {Firejail Sandbox}
+Icon=qbittorrent
+Exec=firejail --profile=/etc/firejail/qbittorrent.profile --dns=193.138.218.74 --dns=198.98.49.91 --protocol=unix,inet,netlink /usr/bin/qbittorrent
