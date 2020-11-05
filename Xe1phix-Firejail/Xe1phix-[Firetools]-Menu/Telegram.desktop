@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Telegram
+Comment=
+Icon=Telegram
+Exec=firejail --profile=/etc/firejail/telegram.profile --dns=193.138.218.74 --dns=198.98.49.91 /usr/bin/telegram-desktop -- %u
