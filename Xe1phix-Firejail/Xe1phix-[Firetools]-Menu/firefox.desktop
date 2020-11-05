@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=firefox
+Comment=Mozilla Firefox Browser [Seccomp-bpf Sandbox]
+Icon=:resources/firefox
+Exec=firejail --profile=/etc/firejail/firefox.profile --protocol=unix,inet,netlink,packet --dns=193.138.218.74 --dns=10.8.0.1 --dns=139.99.96.146 /usr/bin/firefox
