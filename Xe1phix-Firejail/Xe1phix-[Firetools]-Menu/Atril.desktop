@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Atril
+Comment=
+Icon=Atril
+Exec=firejail --profile=/etc/firejail/atril.profile --net=none /usr/bin/atril %U
