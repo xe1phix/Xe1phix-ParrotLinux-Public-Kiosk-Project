@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Brave
+Comment=
+Icon=Brave
+Exec=firejail --profile=/etc/firejail/brave.profile /usr/bin/brave-browser-stable
