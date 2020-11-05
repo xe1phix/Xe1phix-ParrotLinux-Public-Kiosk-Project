@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Engrampa
+Comment=
+Icon=Engrampa
+Exec=firejail --profile=/etc/firejail/engrampa.profile /usr/bin/engrampa %U
