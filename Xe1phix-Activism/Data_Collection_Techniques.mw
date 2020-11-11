@@ -1,0 +1,146 @@
+{{DISPLAYTITLE:Titel}}
+{{Header}}
+{{#seo:
+|description=How is Data Mining on the Web technically done? Overview of Data Collection Techniques.
+|og:image=https://www.whonix.org/w/images/5/5a/Cookies.png
+}}
+= Data Collection Techniques =
+
+Some of the actual techniques employed by the data miners on the Web are briefly introduced below.
+
+== Cookies ==
+
+Cookies are used to identify and remember a web surfer. Without cookies, certain services would be complicated or impossible to implement. If a user requests a page from a webserver, it cannot readily match requests of previous pages requested from this server to that same user: HTTP is a stateless protocol.
+
+Nevertheless, some services require a sort of memory. Shopping portals are an example: a server has to remember what goods were placed into the virtual shopping cart. This "memory" is usually written in the form of cookies, i.e. small text files which are being sent to you by the server upon every page request. When your browser contacts the server again, it also automatically sends back the cookie stored earlier. The server thereby allocates the right shopping cart to you.
+
+But cookies can also be abused to track your steps on the Internet. This works exceptionally well with web portals (e.g. Yahoo) and search engines (e.g. Google), for you use these a lot in order to reach other websites. With cookies, a web host can record large parts of your surfing behavior over a span of years and easily relate it to you as a person with your "accumulated" profile data. Most Internet users have collected hundreds of cookies from various websites on their PC without their knowledge. The following example shows you just a small amount of cookies you get if you request ''www.nytimes.com'':
+
+[[Image:cookies_nytimes.png|frame|none|alt=|Cookies set by nytimes.com]]
+
+Websites embedding several external ad and tracking services are not unusual and are becoming increasingly common. A [http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1898390 study by University of California, Berkeley] done in 2011 analyzed the top 100 websites and found 5,675 cookies. Of these, 4,914 cookies were set by third parties, i.e. not by the website the user visited intentionally. While surfing on these 100 websites, data was transmitted to 600 servers with the help of those cookies.
+
+Modern browsers usually integrate an optional function to block cookies, but it has to be activated by the user first. In [[Tor Browser]] (which comes with Whonix) it has been activated by default, and in the future, more functions to administrate your cookie collection and preferences may be available.
+
+== Evercookies ==
+
+More than 80% of users disapprove of tracking while surfing the web. Many surfers use browser settings which prevent long-term tracking. Therefore, ad and tracking networks are moving on to use more sophisticated methods to distinguish each user.
+
+* Flash-Cookies (LSOs) have been deployed for the last several years to recover deleted cookies with the same identification properties. Clearspring Technologies, Inc. had been using this technique successfully (until it got sued in 2010) and boasts of its precise data collection of 200 million Internet users.
+* In a [http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1898390 study of the University of California, Berkeley] the methods of Space Pencil, Inc., aka KISSmetrics, were exposed which, in addition to cookies and flash cookies, used cache cookies via ETags, DOMStorage and IE-userData in order to distinguish each user. KISSmetrics got sued as well and is going to dispense with using Etags. It is also going to respect the [http://donottrack.us/ "Do Not Track"] HTTP header.
+* The tracking service [http://help.yahoo.com/l/us/yahoo/ywa/documentation/install_guide/ig_get_started.html Yahoo! Web Analytics] is making claims about being able to set cookies on 99.9% of the users. This [http://smorgasbork.com/component/content/article/84-a-study-of-internet-users-cookie-and-javascript-settings indicates] that [http://www.truststc.org/reu/10/Reports/GomezG,YalajuJ_paper.pdf cookie-generating JavaScript] and/or Flash cookies are deployed.
+* Samy Kamkar shows further possible methods to mark Internet users individually in his article, [http://samy.pl/evercookie/ "evercookie - never forget"].
+
+[[Tor Browser]] (which comes with Whonix) resists evercookies.
+
+== Active Web Contents ==
+
+Web content accessible by browser plugins such as Flash, Java, ActiveX and Silverlight renders the Web more dynamic and colorful but also more dangerous, for they allow websites to execute code on your PC. If executed, these plugins are able to read many details about your computer and network configuration and send it to a remote server. By certain techniques, they can also read and edit files on your machine and in an extreme case even gain complete control over it.
+
+Especially beware of signed Java applets: by accepting its signature, and by extension the applet, the visited webserver automatically receives all user rights on your machine. In particular, it may then read your [[#IP address]], your [[#MAC Address]] and even hard disk contents. It does not help to only surf websites you deem trustworthy either. This concept is outdated since nowadays even numerous large and authentic websites are being hacked and filled with malicious code. Only blocking, deactivating, and removing these plugins provide real security.
+
+In Whonix, learning the IP address wouldn't give an adversary any meaningful results. It's either a local IP address shared among all Whonix users or the IP of a Tor exit relay, which is safe as well. The [[#MAC Address]] is a virtual one which is shared among all Whonix users as well, and is therefore meaningless. Active content, although it couldn't reveal your real [[#IP address]], is deactivated in Tor Browser by default. See [[Browser Plugins]] for a detailed anonymity, security, and privacy discussion of browser plugins in Whonix.
+
+== JavaScript ==
+
+The browser is a bit better protected against attacks on your privacy using ''JavaScript'' ("scripts", "active scripting") than against those using the aforementioned plugins. but also it is not completely safe, though. Do not confuse JavaScript with ''Java'' or the ''active Java plugin'', respectively, which is a completely different thing despite the similar name (see above).
+
+It is possible to compromise the browser or operating system using software exploits or a maliciously-crafted website. An attacker can, for example, inject malicious JavaScript code by [http://en.wikipedia.org/wiki/Cross-site_scripting Cross Site Scripting] and thus try phishing for login creditials, bank accounts or other sensitive data.
+
+Using JavaScript, it is possible for web masters to access lots of information about your browser, your desktop settings, and your hardware. All this information may be accumulated into an individual fingerprint of a particular user. A user may be recognized by this fingerprint. The anonymity test [http://ip-check.info/?lang=en ip-check.info] shows '''only some examples''' of values which may be gathered (JavaScript needs to be enabled). It demonstrates the labeling of users by JavaScript, too (same effect as cookies).
+
+[https://anonymous-proxy-servers.net/forum/viewtopic.php?f=10&t=7319 ip-check.info returns some false values and confuses TBB users] ([http://www.webcitation.org/6cJ0l5mvC w])
+
+<s>Therefore, we recommend you only activate JavaScript if needed and to block it by default.</s> <font size=-3>However, there are fingerprinting concerns about disabling JavaScript. See [https://lists.torproject.org/pipermail/tor-talk/2012-May/024224.html Tor Browser disabling Javascript anonymity set reduction]</font>
+
+Conclusion: You should not surf the Internet without a well secured browser, as your PC is otherwise in danger of being exploited quite soon. Instead of configuring the browser yourself, which takes quite some experience and is prone to error, you may use [[Tor Browser]] (which comes with Whonix). It is a secured version of Mozilla Firefox that not only blocks most dangerous technologies by default but additionally is equipped with further ample security mechanisms. Most websites will still be reachable. YouTube videos and videos of other such portals which are rendered by Flash may be downloaded with special software and then viewed with a video player. Websites which demand usage of active plugins should be avoided if at all possible; otherwise see [[Browser Plugins]].
+
+== Fingerprinting of Browser (HTTP) Header ==
+
+With every request for a webpage, browsers send information within the framework of the HTTP protocol that can be analyzed by the visited site: language, browser name and version, operating system and version, supported character sets, files, codecs and the last visited webpage. Sending these headers is usually not necessary for rendering websites, but it can be exploited for reidentifying, profiling, and analyzing websurfers. The EFF's [http://panopticlick.eff.org Panopticlick] project demonstrated browser fingerprinting. Most surfers are traceable by a unique browser fingerprint.
+
+Of late, different filter applications and services have been developed that allow hiding or changing problematic browser headers (e.g. Privoxy). Unfortunately, these applications cannot filter encrypted connections: once you load a presumably "secure" website (HTTPS) all filtering fails. Plus, these programs allow every user to define the header data himself. But setting an individual browser type in itself is what renders you perfectly trackable. [TorBrowser] always sends the same profile for encrypted connections too. This guarantees that websites may at most realize that it is a Tor Browser user visiting; it will not be able to tell who the user is or what the user is visiting.
+
+<font size="-3"> [https://blog.torproject.org/blog/effs-panopticlick-and-torbutton Tor Blog: EFF's Panopticlick and Torbutton] </font>
+
+Fingerprinting defense isn't perfect yet in any browser. There are still open bugs. <font size="-3">(See [https://trac.torproject.org/projects/tor/query?status=accepted&status=assigned&status=needs_information&status=needs_review&status=new&status=reopened&order=priority&col=id&col=summary&col=keywords&col=status&col=owner&col=type&col=priority&keywords=tbb-linkability tbb-linkability] and [https://trac.torproject.org/projects/tor/query?status=accepted&status=assigned&status=needs_review&status=needs_revision&status=new&status=reopened&order=priority&col=id&col=summary&col=keywords&col=status&col=owner&col=type&col=priority&keywords=tbb-fingerprinting tbb-fingerprinting].)</font>
+
+== Browser History and Cache ==
+
+A [http://cseweb.ucsd.edu/users/lerner/papers/ccs10-jsc.pdf publication from the University of California] provides an analysis of the top 50,000 websites. 1% of these websites collect information about web surfers via history sniffing. Using malicious JavaScript code and CSS hacks, information about previously visited websites were collected. Webmasters who are not familiar with sniffing technologies can use services like Tealium or Beencounter for real-time history sniffing.
+
+Collected information is not only used for advertisements. It can be used for de-anonymization of surfers too. A [http://www.iseclab.org/papers/sonda-TR.pdf publication from Isec] shows one possible way. Using the browser history the visited groups of the social network site Xing were collected. Because there are generally no two people who are members of the exact same set of groups in a social network, it was possible to get the real names and e-mail addresses of the users.
+
+By certain trickery, websites can tell which websites are saved in your browser history. For this, the visited website embeds special formatting commands (CSS Stylesheets) that contain external links "of interest" on the pages you visit. If you have visited one of the external websites before, your browser will react by executing a command defined in the format, e.g. download a small picture from the website. The website can thereby largely guess the contents of your browser history.
+
+From the contents of your browser cache one can conclude already cached, thus previously visited, websites. Together with every website an ETag is sent by the server and stored in the browser cache. If the website was called again, the Etag is sent first to ask for changes. This tag may contain a unique user ID. [http://www.kissmetrics.com/ KISSmetrics] was using ETags in this way to identify visitors of some TOP100 websites.
+
+Additionally, the time required for loading a website changes when part of it is already in the browser cache. By subtle placement of the images on the website, the server can analyze the cache one by one.
+
+At the moment, there is no reliable protection against the analysis of browser histories apart from deactivating this feature, which has been made the default in Tor Browser.
+
+Unlike deactivating your browser history, deactivating your cache would have tremendous effect on your surfing speed, which is why we don't recommend it. In Tor Browser a protective mechanism has been integrated instead which bypasses the cache for third party content. Also, the cache is deleted automatically when you close the browser. A website can thus only gain information about itself, not about other websites.
+
+== Webbugs and Banner Ads ==
+
+Very likely, you will find one or more [[#cookies]] in your browser from data miners such as [http://www.doubleclick.com/ doubleclick.com], [http://www.advertisement.com/ advertisement.com] or [http://www.google.com Google], although you may have never even visited their websites. This is due to the fact that these enterprises use, on other web sites, a simple trick to nevertheless plant cookies in your browser and watch your browsing: ''Webbugs''.
+
+"Webbugs" are usually pictures of 1 pixel by 1 pixel which are therefore invisible to the viewer. However, they can also be coded into banner ads embedded in a website. The website contains a picture (webbug) that is loaded from another server running a statistics service (such as Doubleclick or Google Analytics). Thereby the statistics service may set or edit a cookie in your browser unnoticeably. The browser will then send this cookie back to the statistics service with every new request for a site where any webbug of this service is embedded. If the service is used on many different websites, it can now track large parts of your browsing session. If the owner of the statistics service moreover collaborates with the owner of your preferred search engine, he gets an almost complete picture of your Internet activities.
+
+The privacy functions of most current browsers of simply rejecting cookies and/or deleting them upon browser shutdown do not achieve optimal protection from web bugs.
+
+<s>To prevent session tracking, all cookies should be blocked by default if possible and only allowed in if needed for the duration of the session. Tor Browser is therefore preconfigured to deny all cookies but allow single websites at the expense of two mouse clicks. We recommend allowing cookies only on a temporary basis, so that they will be automatically blocked again after the session.</s>
+
+Another nasty feature of webbugs is, that they send, besides cookies, also your [[#IP address]] to the statistics service upon request. Even with a very good browser configuration, including switching off cookies and using webbug filters, you are never able to reliably prevent this. The only effective methods of protection against this are anonymization services like Tor.
+
+== TCP Timestamps ==
+
+The Transmission Control Protocol (TCP) is a session-layer protocol for transferring data between computers. It is necessary for using Internet protocols like http (WWW), smtp (E-Mail) and ftp. When your computer sends a request for a web site, for example, this data is sent within many small TCP packets. Besides that request data, a TCP packet also contains some optional information fields in the header (metadata). One of those optional fields is the TCP timestamp. The value of this timestamp is proportional to the current time of your computer and is incremented according to your computer's internal clock.
+
+The timestamp may be used by the client and/or server machine for performance metrics and optimization. However, an Internet server may recognize and track your computer by observing those timestamps: By measuring the clock skew of the timestamps, it may calculate an [http://www.cs.washington.edu/homes/yoshi/papers/PDF/ individual clock skew profile] for your computer. Moreover, it may estimate the time when your machine was last booted. These tricks work even if you have otherwise perfectly anonymised your Internet connections.
+
+If you are using Whonix, however, you are protected against being observed this way. The clock in Whonix-Workstation does not match your clock on the host and the clock in Whonix-Workstation is set securely by [[Dev/TimeSync|sdwdate]] over https, which will result in slightly different results compared to using the more accurate NTP.
+
+If you are using Tor, you are also being protected against being profiled in another way: The Tor relays automatically replace your potentially insecure TCP packets with their own.
+
+<font size="-3"> [https://trac.torproject.org/projects/tor/ticket/8169 source 1: Tor trac #8169 replace TCP timestamp] [https://trac.torproject.org/projects/tor/wiki/doc/TorFAQ#DoesTorresistremotephysicaldevicefingerprinting source 2: Tor wiki FAQ] </font>
+
+== IP Address ==
+
+The IP address is given to you by your provider on dialing into the Internet. The provider usually saves it for months or even years together with your customer data and your online time. It is your distinct identifier on the Internet which is sent along whenever you make a direct connection to any Internet service. The IP address tells the server where to send his response. As long as your IP does not change, it is easy to monitor when and what website you have contacted. The IP also reveals your provider, your location (many times) and sometimes (in case of a company or computer center) even what terminal you are on. In many cases, an IP address relates directly to one person.
+
+All that your IP-address is revealing:
+
+* Your current whereabouts
+
+The country and the city/region where you are. With the help of databases [http://www.netop.org/services/ip-geolocation free of charge] or [http://www.maxmind.com/app/ip-location with costs] even districts and office buildings can be identified. This is called geolocation.
+
+* Your Internet-provider
+
+Personal data can be retrieved using your provider.
+
+* Your access technology
+
+With the help of databases one can find out whether you are using, for instance, DSL, a modem or a mobile device to surf the Web.
+
+* Your company / your authority
+
+In the case where you are surfing from within the network of a company or an authority, its name can be find out.
+
+Some of the information that is given away by your IP or browser can be reviewed on [http://ip-check.info/?lang=en ip-check.info].
+
+While the traces mentioned so far can be blurred without any special services needed, the same cannot be said about your IP address. That is why Tor has been developed: In order to blur any connection between your IP and the websites you visit. Whonix connects to the service Tor network. <font size="-3">[https://www.torproject.org/about/overview.html.en How Tor works]</font>
+
+== MAC Address ==
+
+The MAC address (MAC=Media-Access-Control, sometimes also called ''Ethernet-ID'', ''Airport-ID'' or ''physical address'') is the hardware address of each individual network device. Each computer may have several of such physical or virtual network devices (bound to a cable ''(LAN)'', wireless ''(WLAN)'', mobile ''(GPRS, UMTS)'', virtual ''(VPS)'', ...). The MAC address serves as a unique identifier for the respective device in a local area network. On the Internet, it is neither used nor transmitted. Also, your access provider may only see it if your computer is not connected to the Internet over a router, but directly, for example by a modem. You may moreover [http://translate.google.com/translate?hl=en&sl=de&tl=en&u=http://de.wikipedia.org/wiki/MAC-Adresse change the MAC address yourself].
+
+There is an extra chapter about the [[Pre Install Advice#MAC Address|MAC address later in documentation in the Pre Install Advice]].
+
+= License =
+
+{{JonDos}} The DataCollectionTechniques page contains content from the JonDonym documentation [https://anonymous-proxy-servers.net/en/help/wwwprivacy_technik.html DataCollectionTechniques] page.
+
+{{Footer}}
+
+[[Category:Documentation]] [[Category:Design]]
