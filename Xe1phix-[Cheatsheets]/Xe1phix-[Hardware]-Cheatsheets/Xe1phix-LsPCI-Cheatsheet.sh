@@ -3,21 +3,21 @@
 ##                      [+] Xe1phix-LsPCI-Cheatsheet.sh
 ##-=========================================================================-##
 ## ------------------------------------------------------------------------- ##
-##	[?]  PCI device drivers call pci_register_driver() during 
-##       their initialization with a pointer to a structure 
-##       describing the driver.
+##	[?] PCI device drivers call pci_register_driver() during 
+##          their initialization with a pointer to a structure 
+##          describing the driver.
 ## ------------------------------------------------------------------------- ##
-##	[?]  A PCI Express Port is a logical PCI-PCI Bridge structure. 
+##	[?] A PCI Express Port is a logical PCI-PCI Bridge structure. 
 ## ------------------------------------------------------------------------- ##
-##	[?]  There are two types of PCI Express Ports: 
-##       -> Root Port
-##       -> Switch Port
+##	[?] There are two types of PCI Express Ports: 
+##          -> Root Port
+##          -> Switch Port
 ## ------------------------------------------------------------------------- ##
-##	[?]  The Root Port originates a PCI Express link 
-##       from a PCI Express Root Complex.
+##	[?] The Root Port originates a PCI Express link 
+##          from a PCI Express Root Complex.
 ## ------------------------------------------------------------------------- ##
-##	[?]  The Switch Port connects PCI Express links 
-##       to internal logical PCI buses.
+##	[?] The Switch Port connects PCI Express links 
+##          to internal logical PCI buses.
 ## ------------------------------------------------------------------------- ##
 ##-=========================================================================-##
 ##
@@ -44,7 +44,7 @@ lspci -D            ## Always show domain numbers
 lspci -n            ## Show numeric IDs
 lspci -nn           ## Show both textual and numeric IDs (names & numbers)
 lspci -q            ## Query the PCI ID database for unknown IDs via DNS
-lspci -qq			## As above, but re-query locally cached entries
+lspci -qq           ## As above, but re-query locally cached entries
 lspci -Q            ## Query the PCI ID database for all IDs via DNS
 ##-========================================================================-##
 ##~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~##
