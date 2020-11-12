@@ -24,13 +24,13 @@
 ## 
 ##~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=-=-=-=-=-##
 ##-==================================================================================-##
-lspci -mm           ## Produce machine-readable output (single -m for an obsolete format)
+lspci -mm           ## Produce machine-readable output
 lspci -t            ## Show bus tree
 lspci -k            ## Show kernel drivers handling each device
 ##-==================================================================================-##
 lspci -x            ## Show hex-dump of the standard part of the config space
-lspci -xxx          ## Show hex-dump of the whole config space (dangerous; root only)
-lspci -xxxx         ## Show hex-dump of the 4096-byte extended config space (root only)
+lspci -xxx          ## Show hex-dump of the whole config space
+lspci -xxxx         ## Show hex-dump of the 4096-byte extended config space
 lspci -b            ## Bus-centric view (addresses and IRQs as seen by the bus)
 lspci -D            ## Always show domain numbers
 ##-==================================================================================-##
