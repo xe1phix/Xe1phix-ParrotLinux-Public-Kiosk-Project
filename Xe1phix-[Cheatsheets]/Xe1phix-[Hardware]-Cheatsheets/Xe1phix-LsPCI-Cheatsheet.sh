@@ -47,4 +47,4 @@ lspci -q            ## Query the PCI ID database for unknown IDs via DNS
 lspci -qq           ## As above, but re-query locally cached entries
 lspci -Q            ## Query the PCI ID database for all IDs via DNS
 ##-========================================================================-##
-##~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~##
+##~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=-~=~=~=~=~=~=~=~=~=~=~=~=~##
