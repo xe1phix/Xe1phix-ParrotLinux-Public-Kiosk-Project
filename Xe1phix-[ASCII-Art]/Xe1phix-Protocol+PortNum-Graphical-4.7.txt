@@ -1,0 +1,78 @@
+##-=============================================-## 
+## -------------------------------------------------------------------------- ## 
+##  			 [+]  Xe1phix-Protocol+PortNum-Graphical-4.7.txt
+## -------------------------------------------------------------------------- ## 
+##-=============================================-## 
+
+
+
+##
+## ================================================================================================================= ##
+## BeEF														[[ xdg-open	http://127.0.0.1:3000/ui/panel	]]		## Add BeEF UI to bookmark toolbar
+## RIPS														[[ xdg-open	http://127.0.0.1/rips/				]]		## Add RIPs to bookmark toolbar
+## ================================================================================================================= ##
+## 
+## ================================================================================================================= ##
+## I2P HTTP Proxy											[[ xdg-open	http://127.0.0.1:4444	]]	## 
+## I2P HTTPS Proxy										[[ xdg-open	http://127.0.0.1:4444	]]	## 
+## ================================================================================================================= ##
+## I2CP 															[[ xdg-open	http://127.0.0.1:7654	]]	## 
+## I2CP SigType: 						 							>> ECDSA_SHA256_P256 <<
+## Irc2P							`								[[ xdg-open	http://127.0.0.1:6668	]]	## IRC tunnel to access the Irc2P network		
+## Postman Irc2p IRC Server							[[ 	 hexchat irc.postman.i2p:6667	]]	## 
+## Echelons Irc2p IRC Server							[[ 	 hexchat irc.echelon.i2p:6667	]]	## 
+## ================================================================================================================= ##
+## I2P Webserver												[[ xdg-open	http://127.0.0.1:7658	]]	## 
+## I2P Monotone Server									[[ xdg-open	http://127.0.0.1:8998	]]	## 
+## Postman's SMTP Server								[[ xdg-open	http://127.0.0.1:7659	]]	## smtp.postman.i2p:25
+## Postman's POP3 Server								[[ xdg-open	http://127.0.0.1:7660	]]	## Destination=pop.postman.i2p:110
+## I2P HTTPS Outproxy									[[ xdg-open	http://127.0.0.1:4445	]]	## ProxyList=outproxy-tor.meeh.i2p
+## SAM Bridge (SAMBridge)							[[ xdg-open	http://127.0.0.1:7656	]]	## 
+## ================================================================================================================= ##
+## 																	[[ xdg-open	http://127.0.0.1:		]]	
+## 																	[[ xdg-open	http://127.0.0.1:		]]
+## 																	[[ xdg-open	http://127.0.0.1:		]]
+## ================================================================================================================= ##
+## I2P Pluggins													[[ xdg-open	http://i2pwiki.i2p/index.php?title=Plugins	]]
+## I2P Configure Plugins									[[ xdg-open	http://127.0.0.1:7657/configplugins			]]
+## ================================================================================================================= ##
+## I2P Router DNS Subscriptions						[[ xdg-open	http://127.0.0.1:7657/susidns/subscriptions	]]
+## I2P Router Home											[[ xdg-open	http://127.0.0.1:7657/home						]]				
+## Configure i2psnark										[[ xdg-open	http://127.0.0.1:7657/i2psnark/configure	]]
+## I2P Router Darknet Torrenting Client			[[ xdg-open	http://127.0.0.1:7657/i2psnark/ 					]]
+## i2psnark Torrent Data & Magnet Path			[[ caja /var/lib/i2p/i2p-config/i2psnark							]]
+## ================================================================================================================= ##
+## I2P Router Susimail Darknet Mail 				[[ xdg-open	http://127.0.0.1:7657/susimail/ 			]]
+## I2P Router Tunnel Manager							[[ xdg-open	http://127.0.0.1:7657/i2ptunnelmgr	]]
+## I2P Router Configure Clients						[[ xdg-open	http://127.0.0.1:7657/configclients		]]
+## I2P Router Configure Tunnels						[[ xdg-open	http://127.0.0.1:7657/configtunnels	]]
+## I2P Router Main Config								[[ pluma /var/lib/i2p/i2p-config/router.config & ]	]}
+## I2NP Protocol												[[ xdg-open	http://127.0.0.1:26989						]] ## i2np.udp.internalPort=26989
+## Configure I2P Router HomePage					[[ xdg-open	http://127.0.0.1:7657/confighome		]]
+## Addressbook												[[ xdg-open	http://127.0.0.1:7657/dns					]]
+## ================================================================================================================= ##
+## GPG hkps Keyserver									[[ gpg --keyserver hkps://hkps.pool.sks-keyservers.net:22742 ]]
+## 
+## ================================================================================================================= ##
+## Xplico 															[[ xdg-open	http://127.0.0.1:9876				]]		##	 service xplico start
+## BeEF															[[ xdg-open	http://127.0.0.1:3000/ui/panel	]]		## Add BeEF UI to bookmark toolbar
+## RIPS															[[ xdg-open	http://127.0.0.1/rips/				]]		## Add RIPs to bookmark toolbar
+## ================================================================================================================= ##
+
+
+
+
+
+
+
+## ================================================================================================================= ##
+## XLATE					## https://paulschou.com/tools/xlate/						## Add XLATE to bookmark toolbar
+## HackVertor				## https://hackvertor.co.uk/public							## Add HackVertor to bookmark toolbar
+## SkiddyPad				## http://www.irongeek.com/skiddypad.php			## Add Skiddypad to bookmark toolbar
+## Exploit-DB				## https://www.exploit-db.com/search/					## Add Exploit-DB to bookmark toolbar
+## Offset-DB				## http://offset-db.com/											## Add offset-db to bookmark toolbar
+## Shelcodes					## http://shell-storm.org/shellcode/						## Add shellcode to bookmark toolbar
+## ROP Shell				## http://ropshell.com/											## Add ROP Shell to bookmark toolbar
+## ================================================================================================================= ##
+
+
