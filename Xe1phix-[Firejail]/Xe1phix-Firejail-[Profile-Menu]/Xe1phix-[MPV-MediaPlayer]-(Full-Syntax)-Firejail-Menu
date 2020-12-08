@@ -1,0 +1,3 @@
+mpv MediaPlayer {Firejail Full Syntax}
+firejail --profile=/etc/firejail/mpv.profile --seccomp --caps.drop=all --net=none --shell=none --nonewprivs --noroot --nogroups --ipc-namespace --private-tmp --private-cache --private-dev --private-bin mpv,youtube-dl,python*,env /usr/bin/mpv --player-operation-mode=pseudo-gui
+/usr/share/icons/maia/apps/scalable/mpv.svg

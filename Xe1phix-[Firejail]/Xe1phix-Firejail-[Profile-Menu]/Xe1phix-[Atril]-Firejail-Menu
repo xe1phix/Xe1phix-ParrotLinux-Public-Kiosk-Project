@@ -1,0 +1,2 @@
+Atril Document Viewer {Firejail Sandboxed}
+firejail --profile=/etc/firejail/atril.profile --net=none /usr/bin/atril %U

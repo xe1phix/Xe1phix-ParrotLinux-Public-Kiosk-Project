@@ -1,0 +1,4 @@
+HexChat { Firejail Profile }
+firejail --profile=/etc/firejail/hexchat.profile /usr/bin/hexchat --existing %U
+/sandbox/hexchat
+/usr/share/icons/hicolor/48x48/apps/hexchat.png

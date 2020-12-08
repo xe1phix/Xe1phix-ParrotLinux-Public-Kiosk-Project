@@ -1,0 +1,4 @@
+Transmission {Firejail Profile}
+firejail --profile=/etc/firejail/transmission-gtk.profile /usr/bin/transmission-gtk %U
+Download and share files over BitTorrent
+/usr/share/icons/maia/apps/scalable/transmission.svg

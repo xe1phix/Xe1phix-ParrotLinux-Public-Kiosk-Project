@@ -1,0 +1,6 @@
+Brave-WebBrowser-[Firejail-Sandbox]
+Brave-WebBrowser-{Firejail-Profile}
+firejail --profile=/etc/firejail/brave.profile /usr/bin/brave-browser-stable
+/usr/share/icons/hicolor/256x256/apps/brave-browser.png
+/usr/share/icons/maia/apps/scalable/brave.svg
+

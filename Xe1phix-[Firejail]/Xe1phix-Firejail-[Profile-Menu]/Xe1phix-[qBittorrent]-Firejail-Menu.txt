@@ -1,0 +1,5 @@
+qBittorrent {Firejail Sandbox}
+firejail --profile=/etc/firejail/qbittorrent.profile /usr/bin/qbittorrent %U
+Download and share files over BitTorrent
+/usr/share/icons/maia/apps/scalable/qbittorrent.svg
+

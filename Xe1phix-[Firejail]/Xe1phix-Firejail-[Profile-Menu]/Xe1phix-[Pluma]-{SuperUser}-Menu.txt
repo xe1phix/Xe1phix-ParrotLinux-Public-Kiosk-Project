@@ -1,0 +1,3 @@
+Pluma Text Editor {SuperUser}
+gksu --sudo-mode /usr/bin/pluma %U
+/usr/share/icons/maia/apps/scalable/accessories-text-editor.svg

@@ -1,0 +1,2 @@
+Archive Manager {Firejail Sandboxed}
+firejail --profile=/etc/firejail/file-roller.profile /usr/bin/file-roller %U

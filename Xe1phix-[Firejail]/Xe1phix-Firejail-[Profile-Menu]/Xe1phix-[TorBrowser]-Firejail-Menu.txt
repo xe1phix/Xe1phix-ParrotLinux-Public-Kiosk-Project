@@ -1,0 +1,2 @@
+TorBrowser {Firejail Sandbox Profile}
+firejail --profile=/etc/firejail/tor-browser-en.profile /usr/bin/tor-browser-en
