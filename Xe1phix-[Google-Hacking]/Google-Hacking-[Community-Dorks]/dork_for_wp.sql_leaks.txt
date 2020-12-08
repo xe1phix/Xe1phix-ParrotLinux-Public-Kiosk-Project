@@ -1,0 +1,6964 @@
+inurl:/wp-content/uploads/ filetype:sql
+inurl:wp-content/uploads/dump.sql
+intext:xampp-dav-unsecure:$apr1$6O9scpDQ$JGw2Tjz0jkrqfKh5hhiqD1
+filetype:sql insite:pass && user
+List of Phone Numbers (In XLS File ) allinurl:telefonos filetype:xls
+intitle:index.of? configuration.php.zip
+inurl:"trace.axd" ext:axd "Application Trace"
++intext:"AWSTATS DATA FILE" filetype:txt
+inurl:config/databases.yml -trac -trunk -"Google Code" -source -repository
+inurl:phpinfo.php
+inurl:configuration.php-dist
+inurl:printer/main.html
+intitle:"Index.of" "attachments"
+site:target.com ext:xml | ext:conf | ext:cnf | ext:reg | ext:inf | ext:rdp | ext:cfg | ext:txt | ext:ora | ext:ini
+intext:"SteamUserPassphrase=" intext:"SteamAppUser=" -"username" -"user"
+
+inurl:admin filetype:asp inurl:userlist
+inurl:admin inurl:userlist
+
+filetype:reg reg HKEY_CURRENT_USER username
+filetype:reg reg +intext:"internet account manager
+Google for: +intext:"webalizer" +intext:"Total Usernames" +intext:"Usage Statistics for"
+filetype:conf inurl:proftpd.conf -sample
+"index of" / lck
+index.of perform.ini
+
+1-(username=* | username:* |) | ( ((password=* | password:*) | (passwd=* | passwd:*) | (credentials=* | credentials:*)) | ((hash=* | hash:*) | (md5:* | md5=*)) | (inurl:auth | inurl:passwd | inurl:pass) ) filetype:log
+
+ 
+
+2 - "Powered by kryCMS"
+
+ 
+
+3 - inurl:.php intitle:- BOFF 1.0 intext:[ Sec. Info ]
+
+ 
+
+4 - inurl:wp-content/plugins/age-verification/age-verification.php
+
+ 
+
+5 - inurl:"/showPlayer.php?id=" intext:"powered by ellistonSPORT"
+
+ 
+
+6 - inurl:"mod.php?mod=blog" intext:"powered by DIY-CMS"
+
+ 
+
+7 - inurl:cgi-bin/cosmobdf.cgi?
+
+ 
+
+8 - allintext:D.N.I filetype:xls
+
+9 - inurl:RgFirewallRL.asp | inurl:RgDmzHost.asp | inurl:RgMacFiltering.asp | inurl:RgConnect.asp | inurl:RgEventLog.asp | inurl:RgSecurity.asp | inurl:RgContentFilter.asp | inurl:wlanRadio.asp
+
+ 
+
+  10 - intitle:SpectraIV-IP
+
+ 
+
+Files containing usernames
+
+These files contain usernames, but no passwords... Still, google finding usernames on a web site...
+
+ 
+
+site:extremetracking.com inurl:"login="
+
+ 
+
+intext:"SteamUserPassphrase=" intext:"SteamAppUser=" -"username" -"user"
+
+ 
+
+OWA Public folders & Address book
+
+ 
+
+filetype:conf inurl:proftpd.conf -sample
+
+ 
+
+filetype:log username putty
+
+ 
+
+filetype:reg reg +intext:"internet account manager"
+
+ 
+
+filetype:reg reg HKEY_CURRENT_USER username
+
+ 
+
++intext:"webalizer" +intext:"Total Usernames" +intext:"Usage Statistics for"
+
+ 
+
+inurl:php inurl:hlstats intext:"Server Username"
+
+ 
+
+index.of perform.ini
+
+ 
+
+"index of" / lck
+
+ 
+
+inurl:admin filetype:asp inurl:userlist
+
+ 
+
+inurl:admin inurl:userlist
+
+ 
+
+sh_history files
+
+ 
+
+bash_history files
+
+ 
+
+ 
+
+ 
+
+Sensitive Directories
+
+Google's collection of web sites sharing sensitive directories. The files contained in here will vary from sesitive to uber-secret!
+
+ 
+
+allintext:"WebServerX Server at"
+
+ 
+
+intitle:index.of ios -site:cisco.com
+
+ 
+
+intitle:index.of cisco asa -site:cisco.com
+
+ 
+
+intitle:index.of.config
+
+ 
+
+allintitle:"FirstClass Login"
+
+ 
+
+inurl:install.pl intext:"Reading path paramaters" -edu
+
+ 
+
+"Warning: Installation directory exists at" "Powered by Zen Cart" -demo
+
+ 
+
+"Welcome to the directory listing of" "NetworkActiv-Web-Server"
+
+ 
+
+log inurl:linklint filetype:txt -"checking"
+
+ 
+
+"Directory Listing for" "Hosted by Xerver"
+
+ 
+
+intitle:"pictures thumbnails" site:pictures.sprintpcs.com
+
+ 
+
+intitle:"Folder Listing" "Folder Listing" Name Size Date/Time File Folder
+
+ 
+
+intitle:"Backup-Management (phpMyBackup v.0.4 beta * )" -johnny.ihackstuff
+
+ 
+
+intitle:index.of WEB-INF
+
+ 
+
+intitle:index.of /maildir/new/
+
+ 
+
+ 
+
+filetype:ini Desktop.ini intext:mydocs.dll
+
+ 
+
+filetype:torrent torrent
+
+ 
+
+"Index of" rar r01 nfo Modified 2004
+
+ 
+
+"Web File Browser" "Use regular expression"
+
+ 
+
+intitle:"HFS /" +"HttpFileServer"
+
+ 
+
+intitle:upload inurl:upload intext:upload -forum -shop -support -w3c
+
+ 
+
+intitle:"index of" inurl:ftp (pub | incoming)
+
+ 
+
+allinurl:"/*/_vti_pvt/" | allinurl:"/*/_vti_cnf/"
+
+ 
+
+intitle:index.of abyss.conf
+
+ 
+
+intitle:"Index of /CFIDE/" administrator
+
+ 
+
+"Powered by Invision Power File Manager" (inurl:login.php) | (intitle:"Browsing
+
+directory /" )
+
+ 
+
+intitle:"index of" "parent directory" "desktop.ini" site:dyndns.org
+
+ 
+
+intext:"Powered By: TotalIndex" intitle:"TotalIndex"
+
+ 
+
+"intitle:Index.Of /" stats merchant cgi-* etc
+
+ 
+
+intitle:"index of" intext:"content.ie5"
+
+ 
+
+intitle:"index of" -inurl:htm -inurl:html mp3
+
+ 
+
+index.of.dcim
+
+ 
+
+intitle:"Directory Listing For" intext:Tomcat -int
+
+ 
+
+intitle:"webadmin - /*" filetype:php directory filename permission
+
+ 
+
+intitle:index.of (inurl:fileadmin | intitle:fileadmin)
+
+ 
+
+intitle:"Index of *" inurl:"my shared folder" size modified
+
+ 
+
+intitle:index.of /AlbumArt_
+
+intext:"d.aspx?id" || inurl:"d.aspx?id"
+
+ 
+
+intitle:index.of (inurl:fileadmin | intitle:fileadmin)
+
+ 
+
+"index of" / picasa.ini
+
+ 
+
+index.of.password
+
+ 
+
+ 
+
+Sensitive Directories 2
+
+ 
+
+inurl:explorer.cfm inurl:(dirpath|This_Directory)
+
+ 
+
+filetype:cfg ks intext:rootpw -sample -test -howto
+
+ 
+
+"Index Of /network" "last modified"
+
+ 
+
+intitle:intranet inurl:intranet +intext:"human resources"
+
+ 
+
+inurl:/tmp
+
+ 
+
+"index of" inurl:recycler
+
+ 
+
+inurl:/pls/sample/admin_/help/
+
+ 
+
+inurl:ojspdemos
+
+ 
+
+inurl:j2ee/examples/jsp
+
+ 
+
+"index of cgi-bin"
+
+ 
+
+intitle:"Index of" cfide
+
+ 
+
+intitle:"index.of.personal"
+
+ 
+
+intitle:"Index of c:\Windows"
+
+ 
+
+"Welcome to phpMyAdmin" " Create new database"
+
+ 
+
+inurl:backup intitle:index.of inurl:admin
+
+ 
+
+ 
+
+Vulnerable Files
+
+Vulnerable files that Google can find on websites...
+
+ 
+
+inurl:"simplenews/admin"
+
+ 
+
+inurl:updown.php | intext:"Powered by PHP Uploader Downloader"
+
+ 
+
+inurl:guestbook/guestbooklist.asp "Post Date" From
+
+ 
+
+intitle:"CJ Link Out V1"
+
+ 
+
+"powered by mailgust"
+
+ 
+
+"powered by my little forum"
+
+ 
+
+intitle:"Control panel" "Control Panel Login" ArticleLive inurl:admin -demo
+
+ 
+
+inurl:cartwiz/store/index.asp
+
+ 
+
+"e107.org 2002/2003" inurl:forum_post.php?nt
+
+ 
+
+"maxwebportal" inurl:"default" "snitz forums" +"homepage" -intitle:maxwebportal
+
+ 
+
+"Mail-it Now!" intitle:"Contact form" | inurl:contact.php
+
+ 
+
+"Warning:" "Cannot execute a blank command in"
+
+ 
+
+"Powered by Xcomic"
+
+ 
+
+"Powered by FunkBoard"
+
+ 
+
+"Powered by FlexPHPNews" inurl:news | inurl:press
+
+ 
+
+"Powered By: Simplicity oF Upload" inurl:download.php | inurl:upload.php
+
+ 
+
+inurl:nquser.php filetype:php
+
+ 
+
+PHPFreeNews inurl:Admin.php
+
+ 
+
+"Powered by SilverNews"
+
+ 
+
+"Powered by Gravity Board"
+
+ 
+
+filetype:mdb "standard jet"
+
+ 
+
+intitle:"PHPstat" intext:"Browser" intext:"PHPstat setup"
+
+ 
+
+intitle:"SSHVnc Applet"OR intitle:"SSHTerm Applet"
+
+ 
+
+inurl:cgi-bin inurl:bigate.cgi
+
+ 
+
+filetype:pl -intext:"/usr/bin/perl" inurl:webcal (inurl:webcal | inurl:add | inurl:delete |
+
+ 
+
+filetype:mdb inurl:"news/news"
+
+ 
+
+inurl:php.exe filetype:exe -example.com
+
+ 
+
+"Powered by Land Down Under 601"
+
+ 
+
+ext:asp "powered by DUForum" inurl:(messages|details|login|default|register)
+
+-site:duware.com
+
+ 
+
+ext:asp inurl:DUgallery intitle:"3.0" -site:dugall
+
+ 
+
+filetype:cgi inurl:cachemgr.cgi
+
+ 
+
+"powered by YellDL"
+
+ 
+
+inurl:click.php intext:PHPClickLog
+
+ 
+
+"File Upload Manager v1.3" "rename to"
+
+ 
+
+intitle:"phpremoteview" filetype:php "Name, Size,
+
+ 
+
+intitle:"ASP FileMan" Resend -site:iisworks.com
+
+ 
+
+ezBOO "Administrator Panel" -cvs
+
+ 
+
+intitle:mywebftp "Please enter your password"
+
+ 
+
+intitle:"Directory Listing" "tree view"
+
+ 
+
+inurl:changepassword.cgi -cvs
+
+ 
+
+inurl:" WWWADMIN.PL" intitle:"wwwadmin"
+
+ 
+
+inurl:cgi.asx?StoreID
+
+ 
+
+filetype:lit lit (books|ebooks)
+
+ 
+
+PHP-Nuke - create super user right now !
+
+ 
+
+Gallery configuration setup files
+
+ 
+
+inurl:"nph-proxy.cgi" "Start browsing through this CGI-based proxy"
+
+ 
+
+ 
+
+ 
+
+inurl:"plog/register.php"
+
+ 
+
+inurl:robpoll.cgi filetype:cgi
+
+ 
+
+intitle:"PHP Explorer" ext:php (inurl:phpexplorer.php | inurl:list.php |
+
+inurl:browse.php)
+
+ 
+
+ext:cgi inurl:ubb6_test
+
+ 
+
+filetype:inc inc intext:setcookie
+
+ 
+
+filetype:wsdl wsdl
+
+filetype:cnf my.cnf -cvs -example
+
+ 
+
+filetype:php inurl:"viewfile" -"index.php" -"idfil
+
+ 
+
+intitle:"Index of /" modified php.exe
+
+ 
+
+ 
+
+Vulnerable Servers
+
+These searches reveal servers with specific vulnerabilities. These are found in a different way than the searches found in the "Vulnerable Files" section.
+
+ 
+
+inurl:/vb/install/upgrade.php
+
+ 
+
+inurl:/vb/install/install.php
+
+ 
+
+"CGI-Telnet Unit-x Team Connected to *.com" OR "CGI-Telnet Unit-x Team Connected to"
+
+ 
+
+"www.*.com - c99shell" OR "www.*.net - c99shell" OR "www.*.org – c99shell"
+
+ 
+
+"safe_mode: * PHP version: * cURL: * MySQL: * MSSQL: * PostgreSQL: * Oracle: *"
+
+ 
+
+"r57shell"
+
+ 
+
+"r57shell 1.4"
+
+ 
+
+"[ phpinfo ] [ php.ini ] [ cpu ] [ mem ] [ users ] [ tmp ] [ delete ]"
+
+ 
+
+inurl:index.php?pagedb=rss -Vulnerability -inurl
+
+ 
+
+intitle:"Uploader - Uploader v6" -pixloads.com
+
+ 
+
+intitle:"MvBlog powered"
+
+ 
+
+intitle:"Horde :: My Portal" -"[Tickets"
+
+ 
+
+inurl:rpSys.html
+
+filetype:pl intitle:"Ultraboard Setup"
+
+ 
+
+"Welcome to Administration" "General" "Local Domains" "SMTP Authentication" inurl:admin
+
+ 
+
+XOOPS Custom Installation
+
+ 
+
+"you can now password" | "this is a special page only seen by you. your profile visitors"
+
+ 
+
+"set up the administrator user" inurl:pivot
+
+ 
+
+"html allowed" guestbook
+
+ 
+
+"Powered by: vBulletin Version 1.1.5"
+
+ 
+
+inurl:"/NSearch/AdminServlet"
+
+ 
+
+inurl:servlet/webacc
+
+ 
+
+"There are no Administrators Accounts" inurl:admin.php -mysql_fetch_row
+
+ 
+
+intitle:"Mail Server CMailServer Webmail" "5.2"
+
+ 
+
+inurl:newsdesk.cgi? inurl:"t="
+
+ 
+
+(inurl:/shop.cgi/page=) | (inurl:/shop.pl/page=)
+
+ 
+
+inurl:aol*/_do/rss_popup?blogID=
+
+ 
+
+ 
+
+intitle:phpMyAdmin "Welcome to phpMyAdmin ***" "running on * as root@*"
+
+ 
+
+ 
+
+intext:"Warning: * am able * write ** configuration file" "includes/configure.php" -Forums
+
+ 
+
+allinurl:"index.php" "site=sglinks"
+
+ 
+
+inurl:"index.php? module=ew_filemanager"
+
+ 
+
+filetype:cgi inurl:"fileman.cgi"
+
+ 
+
+filetype:cgi inurl:"Web_Store.cgi"
+
+ 
+
+("Indexed.By"|"Monitored.By") hAcxFtpScan
+
+ 
+
+"Welcome to the Prestige Web-Based Configurator"
+
+ 
+
+filetype:php inurl:vAuthenticate
+
+ 
+
+intitle:"Samba Web Administration Tool" intext:"Help Workgroup"
+
+ 
+
+intitle:"Gateway Configuration Menu"
+
+ 
+
+inurl:pls/admin_/gateway.htm
+
+ 
+
+allinurl:install/install.php
+
+ 
+
+allinurl:intranet admin
+
+ 
+
+"Select a database to view" intitle:"filemaker pro"
+
+ 
+
+"Welcome to PHP-Nuke" congratulations
+
+ 
+
+inurl:info.inc.php
+
+ 
+
+inurl:footer.inc.php
+
+ 
+
+inurl:search.php vbulletin
+
+ 
+
+"Welcome to Intranet"
+
+ 
+
+intitle:"Remote Desktop Web Connection"
+
+ 
+
+inurl:ManyServers.htm
+
+ 
+
+Gallery in configuration mode
+
+ 
+
+"YaBB SE Dev Team"
+
+ 
+
+Hassan Consulting's Shopping Cart Version 1.18
+
+ 
+
+ 
+
+Error Messages
+
+Error messages that say WAY too much!
+
+ 
+
+"plugins/wp-db-backup/wp-db-backup.php"
+
+ 
+
+allintext:"fs-admin.php"
+
+ 
+
+intitle:"Apache Tomcat" "Error Report"
+
+ 
+
+"Unable to jump to row" "on MySQL result index" "on line"
+
+ 
+
+"Warning: Bad arguments to (join|implode) () in" "on line" -help -forum
+
+ 
+
+"Warning:" "failed to open stream: HTTP request failed" "on line"
+
+ 
+
+"Warning: mysql_connect(): Access denied for user: '*@*" "on line" -help -forum
+
+ 
+
+"Warning: Division by zero in" "on line" -forum
+
+ 
+
+filetype:asp + "[ODBC SQL"
+
+ 
+
+"Warning: Supplied argument is not a valid File-Handle resource in"
+
+ 
+
+intitle:"Default PLESK Page"
+
+ 
+
+"Parse error: parse error, unexpected T_VARIABLE" "on line" filetype:php
+
+ 
+
+"[SQL Server Driver][SQL Server]Line 1: Incorrect syntax near" -forum -thread -showthread
+
+ 
+
+intitle:Configuration.File inurl:softcart.exe
+
+ 
+
+"The script whose uid is " "is not allowed to access"
+
+ 
+
+snitz! forums db path error
+
+ 
+
+filetype:log "PHP Parse error" | "PHP Warning" | "PHP Error"
+
+ 
+
+"ASP.NET_SessionId" "data source="
+
+ 
+
+"ORA-12541: TNS:no listener" intitle:"error occurred"
+
+ 
+
+filetype:php inurl:"logging.php" "Discuz" error
+
+ 
+
+"Internal Server Error" "server at"
+
+ 
+
+PHP application warnings failing "include_path"
+
+ 
+
+intext:"Warning: Failed opening" "on line" "include_path"
+
+ 
+
+ht://Dig htsearch error
+
+ 
+
+intitle:"Error Occurred While Processing Request"
+
+ 
+
+intitle:"Error using Hypernews" "Server Software"
+
+ 
+
+"Invision Power Board Database Error"
+
+ 
+
+"error found handling the request" cocoon filetype:xml
+
+ 
+
+intitle:"Execution of this script not permitted"
+
+ 
+
+intitle:"Error Occurred" "The error occurred in" filetype:cfm
+
+ 
+
+warning "error on line" php sablotron
+
+ 
+
+"Fatal error: Call to undefined function" -reply -the -next
+
+ 
+
+filetype:asp "Custom Error Message" Category Source
+
+ 
+
+"Can't connect to local" intitle:warning
+
+ 
+
+intitle:"Under construction" "does not currently have"
+
+ 
+
+"access denied for user" "using password"
+
+ 
+
+"Warning: Cannot modify header information - headers already sent"
+
+ 
+
+"Warning: pg_connect(): Unable to connect to PostgreSQL server: FATAL"
+
+ 
+
+An unexpected token "END-OF-STATEMENT" was found
+
+ 
+
+"detected an internal error [IBM][CLI Driver][DB2/6000]"
+
+ 
+
+"A syntax error has occurred" filetype:ihtml
+
+ 
+
+ 
+
+Error Messages 2
+
+Error messages that say WAY too much!
+
+ 
+
+"An illegal character has been found in the statement" -"previous message"
+
+ 
+
+"Syntax error in query expression " -the
+
+ 
+
+supplied argument is not a valid PostgreSQL result
+
+ 
+
+"PostgreSQL query failed: ERROR: parser: parse error"
+
+ 
+
+"Incorrect syntax near"
+
+ 
+
+"Unclosed quotation mark before the character string"
+
+ 
+
+"ORA-00933: SQL command not properly ended"
+
+ 
+
+"ORA-00921: unexpected end of SQL command"
+
+ 
+
+"ORA-00936: missing expression"
+
+ 
+
+"Supplied argument is not a valid MySQL result resource"
+
+ 
+
+"You have an error in your SQL syntax near"
+
+ 
+
+mysql error with query
+
+ 
+
+Internal Server Error
+
+ 
+
+IIS web server error messages
+
+ 
+
+Windows 2000 web server error messages
+
+ 
+
+IIS 4.0 error messages
+
+ 
+
+sitebuilderpictures
+
+ 
+
+sitebuilderfiles
+
+ 
+
+sitebuildercontent
+
+ 
+
+ORA-00921: unexpected end of SQL command
+
+ 
+
+"Chatologica MetaSearch" "stack tracking:"
+
+ 
+
+ 
+
+"supplied argument is not a valid MySQL result resource"
+
+Coldfusion Error Pages
+
+ 
+
+ 
+
+Files containing passwords
+
+Passwords found by Google
+
+ 
+
+inurl:-cfg intext:"enable password"
+
+ 
+
+"login: *" "password= *" filetype:xls
+
+ 
+
+ext:php intext:"$dbms""$dbhost""$dbuser""$dbpasswd""$table_prefix""phpbb_installed"
+
+ 
+
+ 
+
+inurl:"calendarscript/users.txt"
+
+filetype:sql "insert into" (pass|passwd|password)
+
+ 
+
+filetype:reg reg +intext:ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂWINVNC3ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â
+
+ 
+
+ext:asa | ext:bak intext:uid intext:pwd -"uid..pwd" database | server | dsn
+
+ 
+
+enable password | secret "current configuration" -intext:the
+
+ 
+
+ext:passwd -intext:the -sample -example
+
+ 
+
+inurl:"editor/list.asp" | inurl:"database_editor.asp" | inurl:"login.asa" "are set"
+
+ 
+
+filetype:bak createobject sa
+
+ 
+
+inurl:ventrilo_srv.ini adminpassword
+
+ 
+
+"parent directory" +proftpdpasswd
+
+ 
+
+ext:yml database inurl:config
+
+ 
+
+inurl:"Sites.dat"+"PASS="
+
+ 
+
+server-dbs "intitle:index of"
+
+inurl:/yabb/Members/Admin.dat
+
+ 
+
+"admin account info" filetype:log
+
+ 
+
+"your password is" filetype:log
+
+ 
+
+intitle:rapidshare intext:login
+
+ 
+
+intext:"enable password 7"
+
+ 
+
+filetype:dat inurl:Sites.dat
+
+ 
+
+ext:inc "pwd=" "UID="
+
+ 
+
+[WFClient] Password= filetype:ica
+
+ 
+
+inurl:cgi-bin inurl:calendar.cfg
+
+ 
+
+intitle:"phpinfo()" +"mysql.default_password" +"Zend Scripting Language Engine"
+
+ 
+
+inurl:pass.dat
+
+ 
+
+inurl:perform.ini filetype:ini
+
+ 
+
+intext:"powered by EZGuestbook"
+
+ 
+
+nurl:server.cfg rcon password
+
+ 
+
+!Host=*.* intext:enc_UserPassword=* ext:pcf
+
+ 
+
+wwwboard WebAdmin inurl:passwd.txt wwwboard|webadmin
+
+ 
+
+filetype:inf sysprep
+
+ 
+
+ext:txt inurl:unattend.txt
+
+ 
+
+filetype:sql ("values * MD5" | "values * password" | "values * encrypt")
+
+ 
+
+"Powered by DUpaypal" -site:duware.com
+
+filetype:inc mysql_connect OR mysql_pconnect
+
+ 
+
+ext:ini Version=4.0.0.4 password
+
+ 
+
+ext:ini eudora.ini
+
+ 
+
+intext:"powered by Web Wiz Journal"
+
+ 
+
+inurl:filezilla.xml -cvs
+
+ 
+
+inurl:"GRC.DAT" intext:"password"
+
+ 
+
+filetype:log "See `ipsec –copyright"
+
+ 
+
+"powered by dudownload" -site:duware.com
+
+ 
+
+intitle:dupics inurl:(add.asp | default.asp | view.asp | voting.asp) -site:duware.com
+
+ 
+
+"powered by duclassmate" -site:duware.com
+
+ 
+
+"Powered by Duclassified" -site:duware.com "DUware All Rights reserved"
+
+ 
+
+"Powered by Dudirectory" -site:duware.com
+
+ 
+
+"Powered by Duclassified" -site:duware.com
+
+ 
+
+filetype:ini inurl:"serv-u.ini"
+
+ 
+
+inurl:pap-secrets -cvs
+
+ 
+
+inurl:chap-secrets -cvs
+
+ 
+
+filetype:ini inurl:flashFXP.ini
+
+ 
+
+"Powered By Elite Forum Version *.*"
+
+ 
+
+filetype:mdb wwforum
+
+ 
+
+"index of/" "ws_ftp.ini" "parent directory"
+
+ 
+
+filetype:config config intext:appSettings "User ID"
+
+ 
+
+LeapFTP intitle:"index.of./" sites.ini modified
+
+ 
+
+filetype:ini wcx_ftp
+
+ 
+
+LeapFTP intitle:"index.of./" sites.ini modified
+
+ 
+
+filetype:conf oekakibbs
+
+ 
+
+"http://*:*@www" domainname
+
+ 
+
+filetype:bak inurl:"htaccess|passwd|shadow|htusers"
+
+ 
+
+inurl:/db/main.mdb
+
+ 
+
+inurl:nuke filetype:sql
+
+ 
+
+filetype:ini ServUDaemon
+
+ 
+
+filetype:pass pass intext:userid
+
+ 
+
+"AutoCreate=TRUE password=*"
+
+ 
+
+inurl:/wwwboard
+
+ 
+
+filetype:pwl pwl
+
+ 
+
+ext:pwd inurl:(service | authors | administrators | users) "# -FrontPage-"
+
+ 
+
+ 
+
+Files containing passwords 2
+
+Passwords found by Google
+
+ 
+
+ 
+
+intitle:"Index of" passwords modified
+
+inurl:lilo.conf filetype:conf password -tatercounter2000 -bootpwd -man
+
+ 
+
+NickServ registration passwords
+
+ 
+
+psyBNC config files
+
+ 
+
+filetype:mdb inurl:users.mdb
+
+ 
+
+inurl:ccbill filetype:log
+
+ 
+
+inurl:ospfd.conf intext:password -sample -test -tutorial -download
+
+ 
+
+inurl:zebra.conf intext:password -sample -test -tutorial -download
+
+ 
+
+filetype:pwd service
+
+ 
+
+filetype:sql password
+
+ 
+
+filetype:sql +"IDENTIFIED BY" -cvs
+
+ 
+
+filetype:ldb admin
+
+ 
+
+filetype:cfg mrtg "target[*]" -sample -cvs -example
+
+ 
+
+filetype:dat wand.dat
+
+ 
+
+signin filetype:url
+
+ 
+
+filetype:netrc password
+
+ 
+
+filetype:ini ws_ftp pwd
+
+ 
+
+inurl:"slapd.conf" intext:"rootpw" -manpage -"Manual Page" -man: -sample
+
+ 
+
+inurl:"slapd.conf" intext:"credentials" -manpage -"Manual Page" -man: -sample
+
+ 
+
+filetype:inc dbconn
+
+ 
+
+inurl:"wvdial.conf" intext:"password"
+
+ 
+
+filetype:pem intext:private
+
+ 
+
+filetype:conf slapd.conf
+
+ 
+
+filetype:dat "password.dat"
+
+ 
+
+filetype:log inurl:"password.log"
+
+ 
+
+filetype:url +inurl:"ftp://" +inurl:"@"
+
+ 
+
+inurl:vtund.conf intext:pass -cvs
+
+ 
+
+filetype:reg reg HKEY_CURRENT_USER SSHHOSTKEYS
+
+ 
+
+filetype:reg reg +intext:"defaultusername" +intext:"defaultpassword"
+
+ 
+
+filetype:inc intext:mysql_connect
+
+ 
+
+filetype:properties inurl:db intext:password
+
+ 
+
+intitle:"index of" intext:globals.inc
+
+ 
+
+inurl:perform filetype:ini
+
+ 
+
+intitle:"index of" intext:connect.inc
+
+ 
+
+eggdrop filetype:user user
+
+ 
+
+filetype:cfm "cfapplication name" password
+
+ 
+
+allinurl: admin mdb
+
+ 
+
+intitle:Index.of etc shadow
+
+ 
+
+inurl:secring ext:skr | ext:pgp | ext:bak
+
+ 
+
+ 
+
+intitle:index.of administrators.pwd
+
+htpasswd
+
+ 
+
+passlist.txt (a better way)
+
+ 
+
+trillian.ini
+
+ 
+
+inurl:config.php dbuname dbpass
+
+ 
+
+auth_user_file.txt
+
+ 
+
+filetype:xls username password email
+
+ 
+
+etc (index.of)
+
+ 
+
+passlist
+
+ 
+
+config.php
+
+ 
+
+passwd / etc (reliable)
+
+ 
+
+spwd.db / passwd
+
+ 
+
+htpasswd / htgroup
+
+ 
+
+htpasswd / htpasswd.bak
+
+ 
+
+pwd.db
+
+ 
+
+master.passwd
+
+ 
+
+ 
+
+Sensitive Online Shopping Info
+
+Examples of queries that can reveal online shopping info like customer data, suppliers, orders, creditcard numbers, credit card info, etce
+
+ 
+
+intext:"Powered by X-Cart: shopping cart software" -site:x-cart.com
+
+ 
+
+intext:"powered by Hosting Controller" intitle:Hosting.Controller
+
+ 
+
+site:ups.com intitle:"Ups Package tracking" intext:"1Z ### ### ## #### ### #"
+
+ 
+
+inurl:midicart.mdb
+
+ 
+
+"More Info about MetaCart Free"
+
+ 
+
+inurl:shopdbtest.asp
+
+ 
+
+Comersus.mdb database
+
+ 
+
+VP-ASP Shop Administrators only
+
+ 
+
+POWERED BY HIT JAMMER 1.0!
+
+ 
+
+ 
+
+Network or vulnerability data
+
+These pages contain such things as firewall logs, honeypot logs, network information, IDS logs
+
+ 
+
+ 
+
+intitle:r57shell +uname -bbpress
+
+ 
+
+"The statistics were last updated" "Daily"-microsoft.com
+
+ 
+
+inurl:/counter/index.php intitle:"+PHPCounter 7.*"
+
+ 
+
+inurl:CrazyWWWBoard.cgi intext:"detailed debugging information"
+
+ 
+
+inurl:ovcgi/jovw
+
+ 
+
+inurl:proxy | inurl:wpad ext:pac | ext:dat findproxyforurl
+
+ 
+
+inurl:webalizer filetype:png -.gov -.edu -.mil -opendarwin
+
+ 
+
+intitle:"Retina Report" "CONFIDENTIAL INFORMATION"
+
+ 
+
+"Shadow Security Scanner performed a vulnerability assessment"
+
+ 
+
+"The following report contains confidential information" vulnerability -search
+
+ 
+
+inurl:status.cgi?host=all
+
+ 
+
+inurl:login.jsp.bak
+
+ 
+
+"Traffic Analysis for" "RMON Port * on unit *"
+
+ 
+
+"powered | performed by Beyond Security's Automated Scanning" -kazaa -example
+
+ 
+
+intitle:"PHPBTTracker Statistics" | intitle:"PHPBT Tracker Statistics"
+
+ 
+
+intitle:"BNBT Tracker Info"
+
+ 
+
+intitle:"Azureus : Java BitTorrent Client Tracker"
+
+ 
+
+inurl:"install/install.php"
+
+ 
+
+intext:"Welcome to the Web V.Networks" intitle:"V.Networks [Top]" -filetype:htm
+
+ 
+
+intitle:"start.managing.the.device" remote pbx acc
+
+ 
+
+ext:cfg radius.cfg
+
+ 
+
+filetype:php inurl:ipinfo.php "Distributed Intrusion Detection System"
+
+ 
+
+inurl:"sitescope.html" intitle:"sitescope" intext:"refresh" -demo
+
+ 
+
+intitle:"twiki" inurl:"TWikiUsers"
+
+ 
+
+"Phorum Admin" "Database Connection" inurl:forum inurl:admin
+
+ 
+
+"Output produced by SysWatch *"
+
+ 
+
+inurl:testcgi xitami
+
+ 
+
+intitle:"sysinfo * " intext:"Generated by Sysinfo * written by The Gamblers."
+
+ 
+
+ 
+
+Network or vulnerability data 2
+
+These pages contain such things as firewall logs, honeypot logs, network information, IDS logs
+
+ 
+
+inurl:portscan.php "from Port"|"Port Range"
+
+ 
+
+inurl:/adm-cfgedit.php
+
+ 
+
+inurl:webutil.pl
+
+ 
+
+inurl:statrep.nsf -gov
+
+ 
+
+inurl:/cgi-bin/finger? "In real life"
+
+ 
+
+inurl:/cgi-bin/finger? Enter (account|host|user|username)
+
+ 
+
+filetype:php inurl:nqt intext:"Network Query Tool"
+
+ 
+
+inurl:"map.asp?" intitle:"WhatsUp Gold"
+
+ 
+
+ext:cgi intext:"nrg-" " This web page was created on "
+
+ 
+
+((inurl:ifgraph "Page generated at") OR ("This page was built using ifgraph"))
+
+ 
+
+inurl:"/catalog.nsf" intitle:catalog
+
+ 
+
+"Powered by phpOpenTracker" Statistics
+
+ 
+
+site:netcraft.com intitle:That.Site.Running Apache
+
+ 
+
+"this proxy is working fine!" "enter *" "URL***" * visit
+
+ 
+
+"apricot - admin" 00h
+
+ 
+
+"by Reimar Hoven. All Rights Reserved. Disclaimer" | inurl:"log/logdb.dta"
+
+ 
+
+intitle:"Microsoft Site Server Analysis"
+
+ 
+
+Analysis Console for Incident Databases
+
+ 
+
+Looking Glass
+
+ 
+
+"Version Info" "Boot Version" "Internet Settings"
+
+ 
+
+intitle:"ADSL Configuration page"
+
+ 
+
+filetype:vsd vsd network -samples -examples
+
+ 
+
+filetype:pdf "Assessment Report" nessus
+
+ 
+
+inurl:phpSysInfo/ "created by phpsysinfo"
+
+ 
+
+"SnortSnarf alert page"
+
+ 
+
+"Network Host Assessment Report" "Internet Scanner"
+
+ 
+
+"This report lists" "identified by Internet Scanner"
+
+ 
+
+intitle:"Nessus Scan Report" "This file was generated by Nessus"
+
+ 
+
+ 
+
+Pages containing login portals
+
+These are login pages for various services. Consider them the front door of a website's more sen- sitive functions.
+
+ 
+
+inurl:src/login.php
+
+ 
+
+inurl:/dana-na/auth/
+
+ 
+
+"Remote Supervisor Adapter II" inurl:userlogin_logo.ssi
+
+ 
+
+||Powered by [ClipBucket 2.0.91]
+
+ 
+
+intitle:ARI "Phone System Administrator"
+
+ 
+
+intitle:"AdventNet ManageEngine ServiceDesk Plus" intext:"Remember Me"
+
+ 
+
+inurl:"/?pagename=CustomerLogin"
+
+ 
+
+inurl:"/?pagename=AdministratorLogin"
+
+ 
+
+inurl:+:8443/login.php3
+
+ 
+
+intitle:"Login to @Mail" (ext:pl | inurl:"index") -dwaffleman
+
+ 
+
+"SurgeMAIL" inurl:/cgi/user.cgi ext:cgi
+
+ 
+
+intitle:Ampache intitle:"love of music" password | login | "Remember Me." -welcome
+
+ 
+
+FlashChat v4.5.7
+
+ 
+
+intitle:"eXist Database Administration" -demo
+
+ 
+
+(intitle:"WmSC e-Cart Administration")|(intitle:"WebMyStyle e-Cart Administration")
+
+ 
+
+(intitle:"Please login - Forums powered by UBB.threads")|(inurl:login.php "ubb")
+
+ 
+
+intitle:"SHOUTcast Administrator" inurl:admin.cgi
+
+ 
+
+intitle:IMP inurl:imp/index.php3
+
+ 
+
+intitle:"TWIG Login"
+
+ 
+
+"SquirrelMail version" "By the SquirrelMail Development Team"
+
+ 
+
+(intitle:"rymo Login")|(intext:"Welcome to rymo") -family
+
+ 
+
+inurl:"/slxweb.dll/external?name=(custportal|webticketcust)"
+
+ 
+
+intitle:"Employee Intranet Login"
+
+ 
+
+inurl:"php121login.php"
+
+ 
+
+Please enter a valid password! inurl:polladmin
+
+ 
+
+intitle:"EZPartner" -netpond
+
+ 
+
+intitle:"Login to @Mail" (ext:pl | inurl:"index") -dwaffleman
+
+ 
+
+"Web-Based Management" "Please input password to login" -inurl:johnny.ihackstuff.com
+
+ 
+
+inurl:2000 intitle:RemotelyAnywhere -site:realvnc.comg
+
+ 
+
+inurl:"/admin/configuration. php?" Mystore
+
+ 
+
+inurl:ids5web
+
+ 
+
+"Powered by Midmart Messageboard" "Administrator Login"
+
+ 
+
+intitle:Ovislink inurl:private/login
+
+ 
+
+"intitle:3300 Integrated Communications Platform" inurl:main.htm
+
+ 
+
+"bp blog admin" intitle:login | intitle:admin -site:johnny.ihackstuff.com
+
+ 
+
+"Emergisoft web applications are a part of our"
+
+ 
+
+intitle:"Admin login" "Web Site Administration" "Copyright"
+
+ 
+
+"site info for" "Enter Admin Password"
+
+ 
+
+inurl:webvpn.html "login" "Please enter your"
+
+ 
+
+"This is a restricted Access Server" "Javascript Not Enabled!"|"Messenger Express" -edu -ac
+
+ 
+
+intitle:"Merak Mail Server Web Administration" -ihackstuff.com
+
+ 
+
+"Powered by Merak Mail Server Software" -.gov -.mil -.edu
+
+ 
+
+"iCONECT 4.1 :: Login"
+
+ 
+
+intitle:"Novell Web Services" "GroupWise" -inurl:"doc/11924" -.mil -.edu -.gov -filetype:pdf
+
+ 
+
+intitle:"*- HP WBEM Login" | "You are being prompted to provide login account information for *" | "Please provide the information requested and press
+
+ 
+
+intitle:"EXTRANET login" -.edu -.mil -.gov -johnny.ihackstuff
+
+ 
+
+intitle:"EXTRANET * - Identification"
+
+ 
+
+intitle:"OnLine Recruitment Program - Login" -johnny.ihackstuff
+
+ 
+
+intitle:"Docutek ERes - Admin Login" -edu
+
+ 
+
+inurl:ocw_login_username
+
+ 
+
+intitle:"iDevAffiliate - admin" -demo
+
+ 
+
+intitle:"Supero Doctor III" -inurl:supermicro
+
+ 
+
+"Please login with admin pass" -"leak" -sourceforge
+
+ 
+
+intitle:"Admin Login" "admin login" "blogware"
+
+ 
+
+intitle:"Login Forum Powered By AnyBoard" intitle:"If you are a new user:" intext:"Forum Powered By AnyBoard" inurl:gochat -edu
+
+ 
+
+intitle:"Login to the forums - @www.aimoo.com" inurl:login.cfm?id=
+
+ 
+
+intitle:"i-secure v1.1" -edu
+
+ 
+
+inurl:/modcp/ intext:Moderator+vBulletin
+
+ 
+
+intitle:"PHProjekt - login" login password
+
+ 
+
+"login prompt" inurl:GM.cgi
+
+ 
+
+"Powered by Monster Top List" MTL numrange:200-
+
+ 
+
+intitle:"Content Management System" "user name"|"password"|"admin" "Microsoft IE 5.5" -mambo -johnny.ihackstuff
+
+ 
+
+"Please authenticate yourself to get access to the management interface"
+
+ 
+
+"You have requested to access the management functions" -.edu
+
+ 
+
+intitle:"web-cyradm"|"by Luc de Louw" "This is only for authorized users" -tar.gz -site:web-cyradm. org -johnny.ihackstuff
+
+ 
+
+intext:"Master Account" "Domain Name" "Password" inurl:/cgi-bin/qmailadmin
+
+ 
+
+intitle:"Content Management System" "user name"|"password"|"admin" "Microsoft IE 5.5" -mambo -johnny.ihackstuff
+
+ 
+
+inurl:csCreatePro.cgi
+
+ 
+
+ 
+
+Pages containing login portals 2
+
+These are login pages for various services. Consider them the front door of a website's more sen- sitive functions.
+
+ 
+
+intitle:"xams 0.0.0..15 – Login"
+
+ 
+
+"HostingAccelerator" intitle:"login" +"Username" -"news" -demo
+
+ 
+
+"inspanel" intitle:"login" -"cannot" "Login ID" -site:inspediumsoft.com
+
+ 
+
+intitle:communigate pro entrance
+
+ 
+
+intitle:"AlternC Desktop"
+
+ 
+
+intitle:phpnews.login
+
+ 
+
+intitle:"Cisco CallManager User Options Log On" "Please enter your User ID and Password in the spaces provided below and click the Log On button to co
+
+ 
+
+inurl:"default/login.php" intitle:"kerio"
+
+ 
+
+intitle:"Member Login" "NOTE: Your browser must have cookies enabled in order to log into the site." ext:php OR ext:cgi
+
+ 
+
+"This section is for Administrators only. If you are an administrator then please"
+
+ 
+
+intitle:"Welcome to Mailtraq WebMail"
+
+ 
+
+intitle:"TOPdesk ApplicationServer"
+
+ 
+
+"You have requested access to a restricted area of our website. Please authenticate yourself to continue."
+
+ 
+
+inurl:textpattern/index.php
+
+ 
+
+intitle:"Login to Cacti"
+
+ 
+
+intitle:"XMail Web Administration Interface" intext:Login intext:password
+
+ 
+
+intext:"Welcome to" inurl:"cp" intitle:"H-SPHERE" inurl:"begin.html" -Fee
+
+ 
+
+allintitle:"Welcome to the Cyclades"
+
+ 
+
+intitle:"VisNetic WebMail" inurl:"/mail/"
+
+ 
+
+inurl:/SUSAdmin intitle:"Microsoft Software Update Services"
+
+ 
+
+inurl:exchweb/bin/auth/owalogon.asp
+
+ 
+
+inurl:Citrix/MetaFrame/default/default.aspx
+
+ 
+
+inurl::2082/frontend -demo
+
+ 
+
+intitle:"WorldClient" intext:"Ãƒâ€šÃ‚Â© (2003|2004) Alt-N Technologies."
+
+ 
+
+intitle:open-xchange inurl:login.pl
+
+ 
+
+intitle:"site administration: please log in" "site designed by emarketsouth"
+
+ 
+
+inurl:gnatsweb.pl
+
+ 
+
+intitle:"SFXAdmin - sfx_global" | intitle:"SFXAdmin - sfx_local" | intitle:"SFXAdmin – sfx_test"
+
+ 
+
+intitle:"Zope Help System" inurl:HelpSys
+
+ 
+
+intitle:ilohamail "Powered by IlohaMail"
+
+ 
+
+intitle:ilohamail intext:"Version 0.8.10" "Powered by IlohaMail"
+
+ 
+
+intitle:"inc. vpn 3000 concentrator"
+
+ 
+
+intext:"vbulletin" inurl:admincp
+
+ 
+
+intitle:endymion.sakÃƒÆ'Ã‚Â©.mail.login.page | inurl:sake.servlet
+
+ 
+
+inurl:bin.welcome.sh | inurl:bin.welcome.bat | intitle:eHealth.5.0
+
+ 
+
+intitle:"Flash Operator Panel" -ext:php -wiki -cms -inurl:asternic -inurl:sip -intitle:ANNOUNCE -inurl: lists
+
+ 
+
+intitle:asterisk.management.portal web-access
+
+ 
+
+intitle:"ListMail Login" admin -demo
+
+ 
+
+ext:cgi intitle:"control panel" "enter your owner password to continue!"
+
+ 
+
+intitle:"VMware Management Interface:" inurl:"vmware/en/"
+
+ 
+
+inurl:webmail./index.pl "Interface"
+
+ 
+
+"Powered by UebiMiau" -site:sourceforge.net
+
+ 
+
+allinurl:wps/portal/ login
+
+ 
+
+inurl:"suse/login.pl"
+
+ 
+
+intitle:"SuSE Linux Openexchange Server" "Please activate JavaScript!"
+
+ 
+
+intitle:"Kurant Corporation StoreSense" filetype:bok
+
+ 
+
+inurl:WCP_USER
+
+ 
+
+intitle:opengroupware.org "resistance is obsolete" "Report Bugs" "Username" "password"
+
+ 
+
+"Microsoft CRM : Unsupported Browser Version"
+
+ 
+
+intitle:"welcome to netware *" -site:novell.com
+
+ 
+
+intitle:Group-Office "Enter your username and password to login"
+
+ 
+
+inurl:orasso.wwsso_app_admin.ls_login
+
+ 
+
+intitle:"ePowerSwitch Login"
+
+ 
+
+inurl:"usysinfo?login=true"
+
+ 
+
+intext:"Mail admins login here to administrate your domain."
+
+ 
+
+PhotoPost PHP Upload
+
+ 
+
+PHPhotoalbum Statistics
+
+ 
+
+PHPhotoalbum Upload
+
+ 
+
+inurl:"631/admin" (inurl:"op=*") | (intitle:CUPS)
+
+ 
+
+intitle:"VNC viewer for Java"
+
+ 
+
+inurl:"Activex/default.htm" "Demo"
+
+ 
+
+"pcANYWHERE EXPRESS Java Client"
+
+ 
+
+intext:""BiTBOARD v2.0" BiTSHiFTERS Bulletin Board"
+
+ 
+
+intitle:Login intext:"RT is Ãƒâ€šÃ‚Â© Copyright"
+
+ 
+
+intitle:"Athens Authentication Point"
+
+ 
+
+inurl:1810 "Oracle Enterprise Manager"
+
+ 
+
+intitle:"WebLogic Server" intitle:"Console Login" inurl:console
+
+ 
+
+intitle:"MX Control Console" "If you can't remember"
+
+ 
+
+inurl:"1220/parse_xml.cgi?"
+
+ 
+
+intitle:"vhost" intext:"vHost . 2000-2004"
+
+ 
+
+intitle:"VitalQIP IP Management System"
+
+ 
+
+intext:"Storage Management Server for" intitle:"Server Administration"
+
+ 
+
+intitle:"PHP Advanced Transfer" inurl:"login.php"
+
+ 
+
+inurl:coranto.cgi intitle:Login (Authorized Users Only)
+
+ 
+
+inurl:/webedit.* intext:WebEdit Professional -html
+
+ 
+
+intitle:"phpPgAdmin - Login" Language
+
+ 
+
+inurl:postfixadmin intitle:"postfix admin" ext:php
+
+ 
+
+intext:"Icecast Administration Admin Page" intitle:"Icecast Administration Admin Page"
+
+inurl:irc filetype:cgi cgi:irc
+
+ 
+
+intitle:"php icalendar administration" -site:sourceforge.net
+
+ 
+
+inurl:login.php "SquirrelMail version"
+
+ 
+
+inurl:/dana-na/auth/welcome.html
+
+ 
+
+intitle:plesk inurl:login.php3
+
+ 
+
+"OPENSRS Domain Management" inurl:manage.cgi
+
+ 
+
+"Login - Sun Cobalt RaQ"
+
+ 
+
+intitle:"ISPMan : Unauthorized Access prohibited"
+
+ 
+
+intitle:"Virtual Server Administration System"
+
+ 
+
+"VHCS Pro ver" -demo
+
+ 
+
+inurl:confixx inurl:login|anmeldung
+
+ 
+
+inurl:"calendar.asp?action=login"
+
+ 
+
+"IMail Server Web Messaging" intitle:login
+
+ 
+
+intitle:"remote assessment" OpenAanval Console
+
+ 
+
+"WebExplorer Server - Login" "Welcome to WebExplorer Server"
+
+ 
+
+intitle:"Philex 0.2*" -script -site:freelists.org
+
+ 
+
+intitle:"MailMan Login"
+
+ 
+
+intitle:"oMail-admin Administration - Login" -inurl:omnis.ch
+
+ 
+
+intitle:"microsoft certificate services" inurl:certsrv
+
+ 
+
+ 
+
+ 
+
+Pages containing login portals 3
+
+These are login pages for various services. Consider them the front door of a website's more sen- sitive functions.
+
+ 
+
+inurl:mewebmail
+
+ 
+
+W-Nailer Upload Area
+
+ 
+
+inurl:"typo3/index.php?u=" -demo
+
+ 
+
+inurl:administrator "welcome to mambo"
+
+ 
+
+ez Publish administration
+
+ 
+
+intitle:"Tomcat Server Administration"
+
+ 
+
+intitle:"Login - powered by Easy File Sharing Web
+
+ 
+
+"Login to Usermin" inurl:20000
+
+ 
+
+intitle:"TUTOS Login"
+
+ 
+
+filetype:pl "Download: SuSE Linux Openexchange Server CA"
+
+ 
+
+4images Administration Control Panel
+
+ 
+
+intitle:Novell intitle:WebAccess "Copyright *-* Novell, Inc"
+
+ 
+
+inurl:"gs/adminlogin.aspx"
+
+ 
+
+intitle:Login * Webmailer
+
+ 
+
+Login ("Powered by Jetbox One CMS ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢" | "Powered by Jetstream Ãƒâ€šÃ‚Â© *")
+
+ 
+
+intitle:"ITS System Information" "Please log on to the SAP System"
+
+ 
+
+Novell NetWare intext:"netware management portal version"
+
+ 
+
+"powered by CuteNews" "2003..2005 CutePHP"
+
+ 
+
+inurl:cgi-bin/ultimatebb.cgi?ubb=login
+
+intitle:"please login" "your password is *"
+
+ 
+
+Ultima Online loginservers
+
+ 
+
+"WebSTAR Mail - Please Log In"
+
+ 
+
+intitle:"teamspeak server-administration
+
+ 
+
+inurl:/cgi-bin/sqwebmail?noframes=1
+
+ 
+
+(inurl:"ars/cgi-bin/arweb?O=0" | inurl:arweb.jsp)
+
+ 
+
+intitle:Node.List Win32.Version.3.11
+
+ 
+
+inurl:"utilities/TreeView.asp"
+
+ 
+
+ASP.login_aspx "ASP.NET_SessionId"
+
+ 
+
+Powered by INDEXU
+
+ 
+
+phpWebMail
+
+ 
+
+filetype:php inurl:"webeditor.php"
+
+ 
+
+CGI:IRC Login
+
+ 
+
+Outlook Web Access (a better way)
+
+ 
+
+"ttawlogin.cgi/?action="
+
+ 
+
+intitle:"Welcome Site/User Administrator" "Please select the language" -demos
+
+ 
+
+intitle:"ZyXEL Prestige Router" "Enter password"
+
+ 
+
+filetype:r2w r2w
+
+ 
+
+inurl:search/admin.php
+
+ 
+
+inurl:/eprise/
+
+ 
+
+intitle:"Dell Remote Access Controller"
+
+ 
+
+"please log in"
+
+ 
+
+inurl:login filetype:swf swf
+
+ 
+
+inurl:"webadmin" filetype:nsf
+
+ 
+
+intitle:"eMule *" intitle:"- Web Control Panel" intext:"Web Control Panel" "Enter your password here."
+
+ 
+
+inurl:/Citrix/Nfuse17/
+
+ 
+
+inurl:metaframexp/default/login.asp | intitle:"Metaframe XP Login"
+
+ 
+
+intitle:Remote.Desktop.Web.Connection inurl:tsweb
+
+ 
+
+intitle:"MikroTik RouterOS Managing Webpage"
+
+ 
+
+"VNC Desktop" inurl:5800
+
+ 
+
+inurl:/admin/login.asp
+
+ 
+
+inurl:login.asp
+
+ 
+
+inurl:":10000" intext:webmin
+
+ 
+
+inurl:login.cfm
+
+ 
+
+intitle:"ColdFusion Administrator Login"
+
+ 
+
+ 
+
+Various Online Devices
+
+This category contains things like printers, video cameras, and all sorts of cool things found on the web with Google.
+
+ 
+
+inurl:/level/15/exec/-
+
+ 
+
+inurl:/exec/show/tech-support/cr
+
+ 
+
+inurl:/level/15/exec/-/configure/http
+
+ 
+
+allintitle:"SyncThru Web Service"
+
+ 
+
+intitle:"EvoCam" inurl:"webcam.html"
+
+ 
+
+intitle:Top "Vantage Service Gateway" -inurl:zyxel
+
+ 
+
+intitle:"Net2Phone Init Page"
+
+ 
+
+intitle:"Your Network Device" Status (LAN | WAN)
+
+ 
+
+"Welcome to the CyberGuard unit!"
+
+ 
+
+"LANCOM DSL/*-* Office *" "Entry Page"
+
+ 
+
+inurl:wrcontrollite
+
+ 
+
+allintitle:"DVR login"
+
+ 
+
+intitle:"stingray fts login" | ( login.jsp intitle:StingRay )
+
+ 
+
+intitle:"BlueNet Video Viewer"
+
+ 
+
+allintitle: Axis 2.10 OR 2.12 OR 2.30 OR 2.31 OR 2.32 OR 2.33 OR 2.34 OR 2.40 OR 2.42 OR 2.43 "Network Camera "
+
+ 
+
+intitle:"Live View / - AXIS" | inurl:view/view.shtml OR inurl:view/indexFrame.shtml
+
+| intitle:"MJPG Live Demo" | "intext:Select preset position"
+
+ 
+
+intitle:"Divar Web Client"
+
+ 
+
+allintitle: EDR400 login | Welcome
+
+ 
+
+allintitle: EDR1600 login | Welcome
+
+ 
+
+allintitle:Edr1680 remote viewer
+
+ 
+
+allintitle: EverFocus | EDSR | EDSR400 Applet
+
+ 
+
+intitle:"SNC-RZ30 HOME" -demo
+
+ 
+
+inurl:cgi-bin/guestimage.html
+
+ 
+
+(intitle:(EyeSpyFX|OptiCamFX) "go to camera")|(inurl:servlet/DetectBrowser)
+
+ 
+
+intitle:"Veo Observer XT" -inurl:shtml|pl|php|htm|asp|aspx|pdf|cfm -intext:observer
+
+ 
+
+intitle:"iGuard Fingerprint Security System"
+
+ 
+
+intitle:"Device Status Summary Page" -demo
+
+ 
+
+(intitle:MOBOTIX intitle:PDAS) | (intitle:MOBOTIX intitle:Seiten) | (inurl:/pda/index.html +camera)
+
+ 
+
+intitle:"IVC Control Panel"
+
+ 
+
+intitle:"Edr1680 remote viewer"
+
+ 
+
+"OK logout" inurl:vb.htm?logout=1
+
+ 
+
+intitle:"DVR Client" -the -free -pdf -downloads -blog -download -dvrtop
+
+ 
+
+intitle:"GigaDrive Utility"
+
+ 
+
+intitle:"Ethernet Network Attached Storage Utility"
+
+ 
+
+intitle:"Skystream Networks Edge Media Router" -securitytracker.com
+
+ 
+
+intitle:"NAS" inurl:indexeng.html
+
+ 
+
+intitle:"WxGoos-" ("Camera image"|"60 seconds" )
+
+ 
+
+intitle:"AR-*" "browser of frame dealing is necessary"
+
+ 
+
+intitle:"Webview Logon Page"
+
+ 
+
+inurl:setdo.cgi intext:"Set DO OK"
+
+ 
+
+intext:"Welcome to Taurus" "The Taurus Server Appliance" intitle:"The Taurus Server Appliance"
+
+ 
+
+intitle:"::::: INTELLINET IP Camera Homepage :::::
+
+ 
+
+intitle:"Dell Laser Printer *" port_0 -johnny.ihackstuff
+
+ 
+
+DCS inurl:"/web/login.asp"
+
+ 
+
+intitle:Axis inurl:"/admin/admin.shtml"
+
+ 
+
+ 
+
+Various Online Devices 2
+
+This category contains things like printers, video cameras, and all sorts of cool things found on the web with Google.
+
+ 
+
+inurl:/img/vr.htm
+
+ 
+
+inurl:Printers/ipp_0001.asp
+
+ 
+
+intitle:"Snap Server" intitle:"Home" "Active Users"
+
+ 
+
+intitle:"Sony SNT-V304 Video Network Station" inurl:hsrindex.shtml
+
+ 
+
+Display Cameras intitle:"Express6 Live Image"
+
+ 
+
+intitle:"Iomega NAS Manager" -ihackstuff.com
+
+ 
+
+intitle:Cisco "You are using an old browser or have disabled javascript. You must use version 4 or higher of Netscape Navigator/Communicator"
+
+intitle:"Summit Management Interface" -georgewbush.org.uk
+
+ 
+
+intitle:"SNOIE Intel Web Netport Manager" OR intitle:"Intel Web Netport Manager Setup/Status"
+
+ 
+
+"This page is for configuring Samsung Network Printer" | printerDetails.htm
+
+("port_255/home")|(inurl:"home?port=255")
+
+ 
+
+intitle:"IQeye302 | IQeye303 | IQeye601 | IQeye602 | IQeye603" intitle:"Live Images"
+
+ 
+
+(intitle:"VisionGS Webcam Software")|(intext:"Powered by VisionGS Webcam") -showthread.php -showpost.php -"Search Engine" -computersglobal.com -site:g
+
+ 
+
+intitle:"Biromsoft WebCam" -4.0 -serial -ask -crack -software -a -the -build -download -v4 -3.01 -numrange:1-10000
+
+ 
+
+intitle:"Netcam" intitle:"user login"
+
+ 
+
+intitle:"Orite IC301" | intitle:"ORITE Audio IP-Camera IC-301" -the -a
+
+Phaser numrange:100-100000 Name DNS IP "More Printers" index help filetype:html | filetype: shtml
+
+ 
+
+intitle:"netbotz appliance" -inurl:.php -inurl:.asp -inurl:.pdf -inurl:securitypipeline -announces
+
+ 
+
+intitle:"NetCam Live Image" -.edu -.gov -johnny.ihackstuff.com
+
+ 
+
+intitle:"INTELLINET" intitle:"IP Camera Homepage"
+
+ 
+
+intitle:iDVR -intitle:"com | net | shop" -inurl:"asp | htm | pdf | html | php | shtml | com | at | cgi | tv"
+
+ 
+
+"Summary View of Sensors" | "sensorProbe8 v *" | "
+
+ 
+
+intitle:"HP ProCurve Switch *" "This product requires a frame capable browser."
+
+ 
+
+intitle:"V1" "welcome to phone settings" password
+
+ 
+
+intitle:"WEBDVR" -inurl:product -inurl:demo
+
+ 
+
+intitle:"Java Applet Page" inurl:ml
+
+ 
+
+intitle:"Veo Observer Web Client"
+
+ 
+
+intitle:"Middle frame of Videoconference Management System" ext:htm
+
+ 
+
+intitle:"TANDBERG" "This page requires a frame capable browser!"
+
+ 
+
+tilt intitle:"Live View / - AXIS" | inurl:view/view.shtml
+
+ 
+
+intitle:"AXIS 240 Camera Server" intext:"server push" -help
+
+ 
+
+intitle:"GCC WebAdmin" -gcc.ru
+
+ 
+
+"RICOH Network Printer D model-Restore Factory"
+
+ 
+
+intitle:"Dell Laser Printer M5200" port_0
+
+ 
+
+inurl:"CgiStart?page="
+
+ 
+
+inurl:"S=320x240" | inurl:"S=160x120" inurl:"Q=Mob
+
+ 
+
+(cam1java)|(cam2java)|(cam3java)|(cam4java)|(cam5java)|(cam6java) -navy.mil -backflip -power. ne.jp
+
+ 
+
+intitle:"Netopia Router (*.)""to view this site"
+
+ 
+
+( intitle:"PacketShaper Login")|(intitle:"PacketShaper Customer Login")
+
+ 
+
+intitle:"PacketShaper Customer Login"
+
+ 
+
+intitle:"Dell *" inurl:port_0
+
+ 
+
+"To view the Web interface of the SpeedTouch, JavaScript must be supported and enabled on your browser!" -site:webblernet.nl -site:ihackstuff.com -sit
+
+inurl:start.htm?scrw=
+
+ 
+
+intitle:"--- VIDEO WEB SERVER ---" intext:"Video Web Server" "Any time & Any where" username password
+
+ 
+
+intext:"Powered by: Adobe PrintGear" inurl:admin
+
+ 
+
+intitle:"InterJak Web Manager"
+
+ 
+
+intitle:"SWW link" "Please wait....."
+
+ 
+
+inurl:"port_255" -htm
+
+ 
+
+intitle:"Freifunk.Net - Status" -site:commando.de
+
+ 
+
+ext:dhtml intitle:"document centre|(home)" OR intitle:"xerox"
+
+ 
+
+"Please use Netscape 2.0 or enhance !!" -site:dlink.com -site:ovislink.com.tw
+
+ 
+
+intitle:"NeroNET - burning online"
+
+ 
+
+Winamp Web Interface
+
+ 
+
+intitle:"OfficeConnect Cable/DSL Gateway" intext:"Checking your browser"
+
+ 
+
+inurl:JPGLogin.htm
+
+ 
+
+"display printer status" intitle:"Home"
+
+ 
+
+intitle:jdewshlp "Welcome to the Embedded Web Server!"
+
+ 
+
+inurl:/en/help.cgi "ID=*"
+
+ 
+
+intitle:"Lexmark *" inurl:port_0
+
+ 
+
+intitle:"OfficeConnect Wireless 11g Access Point" "Checking your browser"
+
+ 
+
+"Webthru User Login"
+
+ 
+
+intitle:"actiontec" main setup status "Copyright 2001 Actiontec Electronics Inc"
+
+ 
+
+intitle:"BorderWare MXtreme Mail Firewall Login"
+
+ 
+
+intitle:"Service Managed Gateway Login"
+
+ 
+
+intitle:"Flash Operator Panel" -ext:php -wiki -cms -inurl:asternic -inurl:sip -intitle:ANNOUNCE -inurl:lists
+
+ 
+
+intitle:asterisk.management.portal web-access
+
+ 
+
+intitle:HomeSeer.Web.Control | Home.Status.Events.Log
+
+ 
+
+intitle:"active webcam page"
+
+ 
+
+intitle:"Dell Laser Printer" ews
+
+ 
+
+allintitle:Brains, Corp. camera
+
+ 
+
+inurl:camctrl.cgi
+
+ 
+
+intext:"Please enter correct password for Administrator Access. Thank you" "Copyright Ãƒâ€šÃ‚Â© 2003 SMC Networks, Inc. All rights reserved."
+
+ 
+
+intitle:"supervisioncam protocol"
+
+ 
+
+intitle:Linksys site:ourlinksys.com
+
+ 
+
+intitle:"DEFAULT_CONFIG – HP"
+
+ 
+
+intitle:"switch login" "IBM Fast Ethernet Desktop"
+
+ 
+
+intitle:"Brother" intext:"View Configuration" intext:"Brother Industries, Ltd."
+
+ 
+
+intitle:"Connection Status" intext:"Current login"
+
+ 
+
+inurl:na_admin
+
+ 
+
+intitle:"EpsonNet WebAssist Rev"
+
+ 
+
+intitle:"EverFocus.EDSR.applet"
+
+ 
+
+inurl:"8003/Display?what="
+
+ 
+
+allinurl:index.htm?cus?audio
+
+ 
+
+intitle:"Browser Launch Page"
+
+ 
+
+intitle:"Network Print Server" intext:"http://www.axis.com" filetype:shtm
+
+ 
+
+intitle:"Setup Home" "You will need * log in before * * change * settings"
+
+ 
+
+filetype:cgi transcoder.cgi
+
+ 
+
+inurl:"next_file=main_fs.htm" inurl:img inurl:image.cgi
+
+ 
+
+intitle:"SpeedStream * Management Interface"
+
+ 
+
+intitle:"Sipura.SPA.Configuration" -.pdf
+
+ 
+
+intitle:"Cayman-DSL.home"
+
+ 
+
+intitle:"Spam Firewall" inurl:"8000/cgi-bin/index.cgi"
+
+ 
+
+intitle:"iVISTA.Main.Page"
+
+ 
+
+inurl:":631/printers" -php -demo
+
+ 
+
+intitle:"AudioReQuest.web.server"
+
+ 
+
+intitle:"V-Gear BEE"
+
+ 
+
+ 
+
+ 
+
+Various Online Devices 3
+
+This category contains things like printers, video cameras, and all sorts of cool things found on the web with Google.
+
+ 
+
+intitle:"Live NetSnap Cam-Server feed"
+
+ 
+
+axis storpoint "file view" inurl:/volumes/
+
+ 
+
+inurl:"printer/main.html" intext:"settings"
+
+ 
+
+intext:"MaiLinX Alert (Notify)" -site:networkprinters.com
+
+ 
+
+"Copyright (c) Tektronix, Inc." "printer status"
+
+ 
+
+inurl:"ipp/pdisplay.htm"
+
+ 
+
+intitle:"Smoothwall Express" inurl:cgi-bin "up * days"
+
+ 
+
+intitle:"ipcop – main"
+
+ 
+
+intitle:"EvoCam" inurl:"webcam.html"
+
+ 
+
+"Starting SiteZAP 6.0"
+
+ 
+
+inurl:axis-cgi
+
+ 
+
+"intitle:Cisco Systems, Inc. VPN 3000 Concentrator"
+
+ 
+
+intext:"UAA (MSB)" Lexmark -ext:pdf
+
+ 
+
+intext:"Ready with 10/100T Ethernet"
+
+ 
+
+intitle:"Home" "Xerox Corporation" "Refresh Status"
+
+ 
+
+WebControl intitle:"AMX NetLinx"
+
+ 
+
+"please visit" intitle:"i-Catcher Console" Copyright "iCode Systems"
+
+ 
+
+intitle:"toshiba network camera - User Login"
+
+ 
+
+inurl:"level/15/exec/-/show"
+
+ 
+
+site:.viewnetcam.com -www.viewnetcam.com
+
+ 
+
+ 
+
+intitle:"DVR Web client"
+
+ 
+
+inurl:TiVoConnect?Command=QueryServer
+
+ 
+
+inurl:netw_tcp.shtml
+
+ 
+
+(inurl:webArch/mainFrame.cgi ) | (intitle:"web image monitor" -htm -solutions)
+
+ 
+
+intitle:"my webcamXP server!" inurl:":8080"
+
+ 
+
+camera linksys inurl:main.cgi
+
+ 
+
+intitle:"DEFAULT_CONFIG – HP"
+
+ 
+
+intitle:"switch home page" "cisco systems" "Telnet – to"
+
+ 
+
+intitle:"axis storpoint CD" intitle:"ip address"
+
+ 
+
+intitle:webeye inurl:login.ml
+
+ 
+
+inurl:hp/device/this.LCDispatcher
+
+ 
+
+Canon ImageReady machines
+
+ 
+
+intitle:"lantronix web-manager"
+
+ 
+
+intitle:RICOH intitle:"Network Administration"
+
+ 
+
+Aficio 1022
+
+ 
+
+Konica Network Printer Administration
+
+ 
+
+("Fiery WebTools" inurl:index2.html) | "WebTools enable * * observe, *, * * * flow * print jobs"
+
+ 
+
+intitle:"The AXIS 200 Home Page"
+
+ 
+
+More Axis netcams !
+
+ 
+
+intitle:"dreambox web"
+
+ 
+
+Phasers 4500/6250/8200/8400
+
+ 
+
+Canon Webview netcams
+
+ 
+
+Xerox PhaserÃƒâ€šÃ‚Â® 840 Color Printer
+
+ 
+
+Xerox Phaser 8200
+
+ 
+
+Xerox PhaserÃƒâ€šÃ‚Â® 740 Color Printer
+
+ 
+
+Xerox Phaser 6250
+
+ 
+
+intitle:"BorderManager Information alert"
+
+ 
+
+intitle:"Live View / - AXIS"
+
+ 
+
+"powered by webcamXP" "Pro|Broadcast"
+
+ 
+
+Panasonic WJ-NT104 netcams
+
+ 
+
+Mobotix netcams
+
+                                                                                        
+
+ 
+
+sony SNC-RZ20 network cameras
+
+ 
+
+seyeon FlexWATCH cameras
+
+ 
+
+sony SNC-RZ30 Network Cameras
+
+ 
+
+ 
+
+Advisories and Vulnerabilities
+
+These searches locate vulnerable servers. These searches are often generated from various secu- rity advisory posts, and in many cases are product or version-specific.
+
+ 
+
+intext: Copyright+MantisBT Group
+
+ 
+
+"Powered By PageAdmin CMS Free Version"
+
+ 
+
+"powered by simpleview CMS"
+
+ 
+
+"POWERED BY: WEBINSPIRE"
+
+ 
+
+inurl:showcat.asp?id=
+
+ 
+
+inurl:panorama-viewer.php?id=
+
+ 
+
+inurl:com_amresurrected
+
+ 
+
+"Powered by SOOP Portal Raven 1.0b"
+
+ 
+
+inurl:page.php?intPageID=
+
+ 
+
+intitle:PhpMyAdmin inurl:error.php
+
+ 
+
+inurl:index.php?option=com_lqm "showResults"
+
+ 
+
+"SOOP Portal 2.0"php Kolay Forum (php KF) © 2007 - 2010 phpKF Ekibi
+
+ 
+
+"Powered By Dejcom Market CMS"
+
+ 
+
+inurl:"index.php?option=com_annuaire"
+
+ 
+
+inurl:index.php?option=com_doqment&cid=
+
+ 
+
+inurl:"index.php?option=com_catalogue"
+
+ 
+
+inurl:"index.php?option=com_storedirectory"
+
+ 
+
+"Powered by SiteEngine"
+
+ 
+
+inurl:"index.php?option=com_jeajaxeventcalendar"
+
+ 
+
+"Site produced by GeneralProducts.co.uk"
+
+ 
+
+inurl:"?act=phpinfo"
+
+ 
+
+inurl:"?delete" +intext:"PHP version" +intext:"Safe_mode"
+
+ 
+
+inurl:"jscripts/tiny_mce/plugins/tinybrowser/"
+
+ 
+
+("powered by nocc" intitle:"NOCC Webmail") -site:sourceforge.net -Zoekinalles.nl -analysis
+
+ 
+
+inurl:"index.php?ind=blog"
+
+ 
+
+"powered by bitweaver"
+
+ 
+
+"Powered by Shadowed Portal"
+
+ 
+
+"Powered by Quick.Cart"
+
+ 
+
+inurl:"com_sqlreport"
+
+ 
+
+insite: SmarterMail Enterprise 7.1
+
+ 
+
+"this site is using the webspell script (version: 4.01.02)"
+
+ 
+
+inurl:wp-login.php Register Username Password -echo
+
+ 
+
+"Page created in" "seconds by glFusion" +RSS
+
+ 
+
+"powered by ThWboard"
+
+ 
+
+"Powered by XMB"
+
+ 
+
+"This web site was made with MD-Pro"
+
+ 
+
+pixelpost "RSS 2.0" "ATOM feed" "Valid xHTML / Valid CSS"
+
+ 
+
+"powered by gcards"
+
+ 
+
+intitle:"X7 Chat Help Center"|"Powered By X7 Chat"
+
+ 
+
+"This is a Free & Open Source mailing list manager"
+
+ 
+
+"powered by tikiwiki"
+
+ 
+
+"This site is powered by e107"
+
+ 
+
+inurl:imageview5
+
+ 
+
+ 
+
+ 
+
+ 
+
+SQL Doorks
+
+inurl:index.php?id=
+
+inurl:trainers.php?id=
+
+inurl:buy.php?category=
+
+inurl:article.php?ID=
+
+inurl:play_old.php?id=
+
+inurl:Pageid=
+
+inurl:games.php?id=
+
+inurl:page.php?file=
+
+inurl:newsDetail.php?id=
+
+inurl:gallery.php?id=
+
+inurl:article.php?id=
+
+inurl:show.php?id=
+
+inurl:staff_id=
+
+inurl:newsitem.php?num=
+
+inurl:readnews.php?id=
+
+inurl:top10.php?cat=
+
+inurl:historialeer.php?num=
+
+inurl:reagir.php?num=
+
+inurl:forum_bds.php?num=
+
+inurl:game.php?id=
+
+inurl:view_product.php?id=
+
+inurl:newsone.php?id=
+
+inurl:sw_comment.php?id=
+
+inurl:news.php?id=
+
+inurl:avd_start.php?avd=
+
+inurl:event.php?id=
+
+inurl:product-item.php?id=
+
+inurl:sql.php?id=
+
+inurl:news_view.php?id=
+
+inurl:select_biblio.php?id=
+
+inurl:humor.php?id=
+
+inurl:aboutbook.php?id=
+
+inurl:fiche_spectacle.php?id=
+
+inurl:communique_detail.php?id=
+
+inurl:sem.php3?id=
+
+inurl:kategorie.php4?id=
+
+inurl:news.php?id=
+
+inurl:index.php?id=
+
+inurl:faq2.php?id=
+
+inurl:show_an.php?id=
+
+inurl:preview.php?id=
+
+inurl:loadpsb.php?id=
+
+inurl:opinions.php?id=
+
+inurl:spr.php?id=
+
+inurl:pages.php?id=
+
+inurl:announce.php?id=
+
+inurl:clanek.php4?id=
+
+inurl:participant.php?id=
+
+inurl:download.php?id=
+
+inurl:main.php?id=
+
+inurl:review.php?id=
+
+inurl:chappies.php?id=
+
+inurl:read.php?id=
+
+inurl:prod_detail.php?id=
+
+inurl:viewphoto.php?id=
+
+inurl:article.php?id=
+
+inurl:person.php?id=
+
+inurl:productinfo.php?id=
+
+inurl:showimg.php?id=
+
+inurl:view.php?id=
+
+inurl:website.php?id=
+
+inurl:hosting_info.php?id=
+
+inurl:gallery.php?id=
+
+inurl:rub.php?idr=
+
+inurl:view_faq.php?id=
+
+inurl:artikelinfo.php?id=
+
+inurl:detail.php?ID=
+
+inurl:index.php?=
+
+inurl:profile_view.php?id=
+
+inurl:category.php?id=
+
+inurl:publications.php?id=
+
+inurl:fellows.php?id=
+
+inurl:downloads_info.php?id=
+
+inurl:prod_info.php?id=
+
+inurl:shop.php?do=part&id=
+
+inurl:Productinfo.php?id=
+
+inurl:collectionitem.php?id=
+
+inurl:band_info.php?id=
+
+inurl:product.php?id=
+
+inurl:releases.php?id=
+
+inurl:ray.php?id=
+
+inurl:produit.php?id=
+
+inurl:pop.php?id=
+
+inurl:shopping.php?id=
+
+inurl:clubpage.php?id=
+
+inurl:memberInfo.php?id=
+
+inurl:section.php?id=
+
+inurl:theme.php?id=
+
+inurl:page.php?id=
+
+inurl:shop_category.php?id=
+
+inurl:transcript.php?id=
+
+inurl:channel_id=
+
+inurl:item_id=
+
+inurl:newsid=
+
+inurl:trainers.php?id=
+
+inurl:news-full.php?id=
+
+inurl:news_display.php?getid=
+
+inurl:index2.php?option=
+
+inurl:readnews.php?id=
+
+inurl:top10.php?cat=
+
+inurl:newsone.php?id=
+
+inurl:event.php?id=
+
+inurl:product-item.php?id=
+
+inurl:sql.php?id=
+
+inurl:aboutbook.php?id=
+
+inurl:review.php?id=
+
+inurl:loadpsb.php?id=
+
+inurl:ages.php?id=
+
+inurl:material.php?id=
+
+inurl:clanek.php4?id=
+
+inurl:announce.php?id=
+
+inurl:chappies.php?id=
+
+inurl:read.php?id=
+
+inurl:viewapp.php?id=
+
+inurl:viewphoto.php?id=
+
+inurl:rub.php?idr=
+
+inurl:galeri_info.php?l=
+
+inurl:review.php?id=
+
+inurl:iniziativa.php?in=
+
+inurl:curriculum.php?id=
+
+inurl:labels.php?id=
+
+inurl:story.php?id=
+
+inurl:look.php?ID=
+
+inurl:newsone.php?id=
+
+inurl:aboutbook.php?id=
+
+inurl:material.php?id=
+
+inurl:opinions.php?id=
+
+inurl:announce.php?id=
+
+inurl:rub.php?idr=
+
+inurl:galeri_info.php?l=
+
+inurl:tekst.php?idt=
+
+inurl:newscat.php?id=
+
+inurl:rubrika.php?idr=
+
+inurl:rubp.php?idr=
+
+inurl:offer.php?idf=
+
+inurl:art.php?idm=
+
+inurl:title.php?id=
+
+forum_bds.php?num=
+
+show_an.php?id=
+
+preview.php?id=
+
+loadpsb.php?id=
+
+opinions.php?id=
+
+spr.php?id=
+
+announce.php?id=
+
+participant.php?id=
+
+download.php?id=
+
+main.php?id=
+
+review.php?id=
+
+chappies.php?id=
+
+read.php?id=
+
+prod_detail.php?id=
+
+article.php?id=
+
+person.php?id=
+
+productinfo.php?id=
+
+showimg.php?id=
+
+view.php?id=
+
+website.php?id=
+
+hosting_info.php?id=
+
+gery.php?id=
+
+rub.php?idr=
+
+view_faq.php?id=
+
+artikelinfo.php?id=
+
+detail.php?ID=
+
+index.php?=
+
+profile_view.php?id=
+
+category.php?id=
+
+publications.php?id=
+
+fellows.php?id=
+
+downloads_info.php?id=
+
+prod_info.php?id=
+
+shop.php?do=part&id=
+
+collectionitem.php?id=
+
+band_info.php?id=
+
+product.php?id=
+
+releases.php?id=
+
+ray.php?id=
+
+produit.php?id=
+
+pop.php?id=
+
+shopping.php?id=
+
+productdetail.php?id=
+
+post.php?id=
+
+viewshowdetail.php?id=
+
+clubpage.php?id=
+
+memberInfo.php?id=
+
+section.php?id=
+
+theme.php?id=
+
+page.php?id=
+
+shredder-categories.php?id=
+
+tradeCategory.php?id=
+
+shop_category.php?id=
+
+transcript.php?id=
+
+channel_id=
+
+item_id=
+
+newsid=
+
+trainers.php?id=
+
+news-full.php?id=
+
+news_display.php?getid=
+
+index2.php?option=
+
+readnews.php?id=
+
+newsone.php?id=
+
+product-item.php?id=
+
+pages.php?id=
+
+clanek.php4?id=
+
+viewapp.php?id=
+
+viewphoto.php?id=
+
+galeri_info.php?l=
+
+iniziativa.php?in=
+
+curriculum.php?id=
+
+labels.php?id=
+
+story.php?id=
+
+look.php?ID=
+
+aboutbook.php?id=
+
+buy.php?category=
+
+pageid=
+
+page.php?file=
+
+show.php?id=
+
+newsitem.php?num=
+
+readnews.php?id=
+
+top10.php?cat=
+
+reagir.php?num=
+
+forum_bds.php?num=
+
+game.php?id=
+
+view_product.php?id=
+
+sw_comment.php?id=
+
+news.php?id=
+
+avd_start.php?avd=
+
+event.php?id=
+
+sql.php?id=
+
+select_biblio.php?id=
+
+ogl_inet.php?ogl_id=
+
+fiche_spectacle.php?id=
+
+kategorie.php4?id=
+
+faq2.php?id=
+
+show_an.php?id=
+
+loadpsb.php?id=
+
+announce.php?id=
+
+participant.php?id=
+
+download.php?id=
+
+article.php?id=
+
+person.php?id=
+
+productinfo.php?id=
+
+showimg.php?id=
+
+rub.php?idr=
+
+view_faq.php?id=
+
+artikelinfo.php?id=
+
+index.php?=
+
+profile_view.php?id=
+
+category.php?id=
+
+fellows.php?id=
+
+downloads_info.php?id=
+
+prod_info.php?id=
+
+shop.php?do=part&id=
+
+collectionitem.php?id=
+
+band_info.php?id=
+
+product.php?id=
+
+viewshowdetail.php?id=
+
+clubpage.php?id=
+
+memberInfo.php?id=
+
+tradeCategory.php?id=
+
+transcript.php?id=
+
+item_id=
+
+news-full.php?id=
+
+aboutbook.php?id=
+
+preview.php?id=
+
+material.php?id=
+
+read.php?id=
+
+viewapp.php?id=
+
+story.php?id=
+
+newsone.php?id=
+
+rubp.php?idr=
+
+art.php?idm=
+
+title.php?id=
+
+index1.php?modo=
+
+include.php?*[*]*=
+
+nota.php?pollname=
+
+index3.php?p=
+
+padrao.php?pre=
+
+home.php?pa=
+
+main.php?type=
+
+sitio.php?start=
+
+indishell.in
+
+*.php?include=
+
+general.php?xlink=
+
+show.php?go=
+
+nota.php?ki=
+
+down*.php?oldal=
+
+layout.php?disp=
+
+enter.php?chapter=
+
+base.php?incl=
+
+enter.php?mod=
+
+show.php?corpo=
+
+head.php?*[*]*=
+
+info.php?strona=
+
+template.php?str=
+
+main.php?doshow=
+
+view.php?*[*]*=
+
+index.php?to=
+
+page.php?cmd=
+
+view.php?b=
+
+info.php?option=
+
+show.php?x=
+
+template.php?texto=
+
+index3.php?ir=
+
+print.php?chapter=
+
+file.php?inc=
+
+file.php?cont=
+
+view.php?cmd=
+
+include.php?chapter=
+
+path.php?my=
+
+principal.php?param=
+
+general.php?menue=
+
+index1.php?b=
+
+info.php?chapter=
+
+nota.php?chapter=
+
+general.php?include=
+
+start.php?addr=
+
+index1.php?qry=
+
+index1.php?loc=
+
+page.php?addr=
+
+index1.php?dir=
+
+principal.php?pr=
+
+press.php?seite=
+
+head.php?cmd=
+
+home.php?sec=
+
+home.php?category=
+
+standard.php?cmd=
+
+mod*.php?thispage=
+
+base.php?to=
+
+view.php?choix=
+
+base.php?panel=
+
+template.php?mod=
+
+info.php?j=
+
+path.php?start=
+
+page.php?chapter=
+
+home.php?recipe=
+
+enter.php?pname=
+
+layout.php?path=
+
+print.php?open=
+
+mod*.php?channel=
+
+down*.php?phpbb_root_path=
+
+*inc*.php?str=
+
+gery.php?phpbb_root_path=
+
+include.php?middlePart=
+
+sub*.php?destino=
+
+info.php?read=
+
+home.php?sp=
+
+main.php?strona=
+
+sitio.php?get=
+
+sitio.php?index=
+
+index3.php?option=
+
+enter.php?a=
+
+main.php?second=
+
+print.php?pname=
+
+blank.php?itemnav=
+
+blank.php?pagina=
+
+index1.php?d=
+
+down*.php?where=
+
+*inc*.php?include=
+
+path.php?pre=
+
+home.php?loader=
+
+start.php?eval=
+
+index.php?disp=
+
+head.php?mod=
+
+sitio.php?section=
+
+nota.php?doshow=
+
+home.php?seite=
+
+home.php?a=
+
+page.php?url=
+
+pagina.php?left=
+
+layout.php?c=
+
+principal.php?goto=
+
+standard.php?base_dir=
+
+home.php?where=
+
+page.php?sivu=
+
+*inc*.php?adresa=
+
+padrao.php?str=
+
+include.php?my=
+
+show.php?home=
+
+index.php?load=
+
+index3.php?rub=
+
+sub*.php?str=
+
+start.php?index=
+
+nota.php?mod=
+
+sub*.php?mid=
+
+index1.php?*[*]*=
+
+pagina.php?oldal=
+
+padrao.php?loc=
+
+padrao.php?rub=
+
+page.php?incl=
+
+gery.php?disp=
+
+nota.php?oldal=
+
+include.php?u=
+
+principal.php?pagina=
+
+print.php?choix=
+
+head.php?filepath=
+
+include.php?corpo=
+
+sub*.php?action=
+
+head.php?pname=
+
+press.php?dir=
+
+show.php?xlink=
+
+file.php?left=
+
+nota.php?destino=
+
+general.php?module=
+
+index3.php?redirect=
+
+down*.php?param=
+
+default.php?ki=
+
+padrao.php?h=
+
+padrao.php?read=
+
+mod*.php?cont=
+
+index1.php?l=
+
+down*.php?pr=
+
+gery.php?viewpage=
+
+template.php?load=
+
+nota.php?pr=
+
+padrao.php?destino=
+
+index2.php?channel=
+
+principal.php?opcion=
+
+start.php?str=
+
+press.php?*[*]*=
+
+index.php?ev=
+
+pagina.php?pre=
+
+nota.php?content=
+
+include.php?adresa=
+
+sitio.php?t=
+
+index.php?sivu=
+
+principal.php?q=
+
+path.php?ev=
+
+print.php?module=
+
+index.php?loc=
+
+nota.php?basepath=
+
+padrao.php?tipo=
+
+index2.php?in=
+
+principal.php?eval=
+
+file.php?qry=
+
+info.php?t=
+
+enter.php?play=
+
+general.php?var=
+
+principal.php?s=
+
+standard.php?pagina=
+
+standard.php?subject=
+
+base.php?second=
+
+head.php?inc=
+
+pagina.php?basepath=
+
+main.php?pname=
+
+*inc*.php?modo=
+
+include.php?goto=
+
+file.php?pg=
+
+head.php?g=
+
+general.php?header=
+
+start.php?*root*=
+
+enter.php?pref=
+
+index3.php?open=
+
+start.php?module=
+
+main.php?load=
+
+enter.php?pg=
+
+padrao.php?redirect=
+
+pagina.php?my=
+
+gery.php?pre=
+
+enter.php?w=
+
+info.php?texto=
+
+enter.php?open=
+
+base.php?rub=
+
+gery.php?*[*]*=
+
+include.php?cmd=
+
+standard.php?dir=
+
+layout.php?page=
+
+index3.php?pageweb=
+
+include.php?numero=
+
+path.php?destino=
+
+index3.php?home=
+
+default.php?seite=
+
+path.php?eval=
+
+base.php?choix=
+
+template.php?cont=
+
+info.php?pagina=
+
+default.php?x=
+
+default.php?option=
+
+gery.php?ki=
+
+down*.php?second=
+
+blank.php?path=
+
+pagina.php?v=
+
+file.php?pollname=
+
+index3.php?var=
+
+layout.php?goto=
+
+pagina.php?incl=
+
+home.php?action=
+
+include.php?oldal=
+
+indishell.in
+
+print.php?left=
+
+print.php?u=
+
+nota.php?v=
+
+home.php?str=
+
+press.php?panel=
+
+page.php?mod=
+
+default.php?param=
+
+down*.php?texto=
+
+mod*.php?dir=
+
+view.php?where=
+
+blank.php?subject=
+
+path.php?play=
+
+base.php?l=
+
+index2.php?rub=
+
+general.php?opcion=
+
+layout.php?xlink=
+
+padrao.php?name=
+
+pagina.php?nivel=
+
+default.php?oldal=
+
+template.php?k=
+
+main.php?chapter=
+
+layout.php?chapter=
+
+layout.php?incl=
+
+include.php?url=
+
+base.php?sivu=
+
+index.php?link=
+
+sub*.php?cont=
+
+info.php?oldal=
+
+general.php?rub=
+
+default.php?str=
+
+head.php?ev=
+
+sub*.php?path=
+
+view.php?page=
+
+main.php?j=
+
+index2.php?basepath=
+
+gery.php?qry=
+
+main.php?url=
+
+default.php?incl=
+
+show.php?redirect=
+
+index1.php?pre=
+
+general.php?base_dir=
+
+start.php?in=
+
+show.php?abre=
+
+index1.php?home=
+
+home.php?ev=
+
+index2.php?ki=
+
+base.php?pag=
+
+default.php?ir=
+
+general.php?qry=
+
+index2.php?home=
+
+press.php?nivel=
+
+enter.php?pr=
+
+blank.php?loader=
+
+start.php?cmd=
+
+padrao.php?d=
+
+sitio.php?recipe=
+
+principal.php?read=
+
+standard.php?showpage=
+
+main.php?pg=
+
+page.php?panel=
+
+press.php?addr=
+
+template.php?s=
+
+main.php?tipo=
+
+*inc*.php?ev=
+
+padrao.php?page=
+
+show.php?thispage=
+
+home.php?secao=
+
+main.php?start=
+
+enter.php?mid=
+
+press.php?id=
+
+main.php?inc=
+
+index3.php?cmd=
+
+index.php?pname=
+
+press.php?subject=
+
+include.php?sec=
+
+index3.php?xlink=
+
+general.php?texto=
+
+index3.php?go=
+
+index.php?cmd=
+
+index3.php?disp=
+
+index3.php?left=
+
+sub*.php?middle=
+
+show.php?modo=
+
+index1.php?pagina=
+
+head.php?left=
+
+show.php?z=
+
+start.php?basepath=
+
+blank.php?strona=
+
+template.php?y=
+
+page.php?where=
+
+layout.php?category=
+
+index1.php?my=
+
+mod*.php?m=
+
+index.php?recipe=
+
+template.php?path=
+
+pagina.php?dir=
+
+sitio.php?abre=
+
+index1.php?recipe=
+
+blank.php?page=
+
+sub*.php?category=
+
+*inc*.php?body=
+
+enter.php?middle=
+
+home.php?path=
+
+down*.php?pre=
+
+base.php?w=
+
+main.php?path=
+
+nota.php?ir=
+
+press.php?link=
+
+gery.php?pollname=
+
+down*.php?open=
+
+down*.php?pageweb=
+
+default.php?eval=
+
+view.php?showpage=
+
+show.php?get=
+
+sitio.php?tipo=
+
+layout.php?cont=
+
+default.php?destino=
+
+padrao.php?seccion=
+
+down*.php?r=
+
+main.php?param=
+
+standard.php?e=
+
+down*.php?in=
+
+nota.php?include=
+
+sitio.php?secao=
+
+print.php?my=
+
+general.php?abre=
+
+general.php?link=
+
+default.php?id=
+
+standard.php?panel=
+
+show.php?channel=
+
+enter.php?r=
+
+index3.php?phpbb_root_path=
+
+gery.php?where=
+
+head.php?middle=
+
+sub*.php?load=
+
+gery.php?sp=
+
+show.php?chapter=
+
+sub*.php?b=
+
+general.php?adresa=
+
+print.php?goto=
+
+sub*.php?sp=
+
+template.php?doshow=
+
+padrao.php?base_dir=
+
+index2.php?my=
+
+include.php?w=
+
+start.php?op=
+
+main.php?section=
+
+view.php?header=
+
+layout.php?menue=
+
+head.php?y=
+
+sub*.php?content=
+
+show.php?type=
+
+base.php?id=
+
+mod*.php?qry=
+
+default.php?strona=
+
+sitio.php?chapter=
+
+gery.php?index=
+
+nota.php?h=
+
+page.php?oldal=
+
+enter.php?panel=
+
+blank.php?t=
+
+start.php?pollname=
+
+sub*.php?module=
+
+enter.php?thispage=
+
+mod*.php?index=
+
+sitio.php?r=
+
+sub*.php?play=
+
+index2.php?doshow=
+
+index2.php?chapter=
+
+show.php?path=
+
+gery.php?to=
+
+info.php?base_dir=
+
+gery.php?abre=
+
+gery.php?pag=
+
+view.php?channel=
+
+default.php?mod=
+
+index.php?op=
+
+general.php?pre=
+
+padrao.php?type=
+
+template.php?pag=
+
+standard.php?pre=
+
+blank.php?ref=
+
+down*.php?z=
+
+general.php?inc=
+
+home.php?read=
+
+pagina.php?section=
+
+default.php?basepath=
+
+index.php?pre=
+
+sitio.php?pageweb=
+
+base.php?seite=
+
+*inc*.php?j=
+
+index2.php?filepath=
+
+file.php?type=
+
+index1.php?oldal=
+
+index2.php?second=
+
+index3.php?sekce=
+
+info.php?filepath=
+
+base.php?opcion=
+
+path.php?category=
+
+index3.php?start=
+
+start.php?rub=
+
+*inc*.php?i=
+
+blank.php?pre=
+
+general.php?channel=
+
+index2.php?OpenPage=
+
+page.php?section=
+
+mod*.php?middle=
+
+index1.php?goFile=
+
+blank.php?action=
+
+principal.php?loader=
+
+sub*.php?op=
+
+main.php?addr=
+
+start.php?mid=
+
+gery.php?secao=
+
+pagina.php?tipo=
+
+index.php?w=
+
+head.php?where=
+
+principal.php?tipo=
+
+press.php?loader=
+
+gery.php?showpage=
+
+gery.php?go=
+
+enter.php?start=
+
+press.php?lang=
+
+general.php?p=
+
+index.php?sekce=
+
+index2.php?get=
+
+sitio.php?go=
+
+include.php?cont=
+
+sub*.php?where=
+
+index3.php?index=
+
+path.php?recipe=
+
+info.php?loader=
+
+print.php?sp=
+
+path.php?body=
+
+principal.php?menue=
+
+print.php?cont=
+
+pagina.php?z=
+
+default.php?mid=
+
+blank.php?xlink=
+
+sub*.php?oldal=
+
+general.php?b=
+
+include.php?left=
+
+print.php?sivu=
+
+file.php?middle=
+
+standard.php?str=
+
+gery.php?get=
+
+main.php?v=
+
+down*.php?subject=
+
+enter.php?sivu=
+
+path.php?option=
+
+index.php?strona=
+
+index1.php?choix=
+
+index2.php?f=
+
+press.php?destino=
+
+pagina.php?channel=
+
+principal.php?b=
+
+home.php?include=
+
+head.php?numero=
+
+general.php?ref=
+
+main.php?dir=
+
+gery.php?cont=
+
+principal.php?type=
+
+file.php?param=
+
+default.php?secao=
+
+path.php?pageweb=
+
+info.php?r=
+
+view.php?pg=
+
+pagina.php?choix=
+
+default.php?itemnav=
+
+index2.php?cmd=
+
+layout.php?url=
+
+index.php?path=
+
+index1.php?second=
+
+start.php?modo=
+
+index1.php?get=
+
+index3.php?my=
+
+info.php?l=
+
+template.php?left=
+
+head.php?loc=
+
+page.php?ir=
+
+print.php?path=
+
+down*.php?path=
+
+sitio.php?opcion=
+
+pagina.php?category=
+
+press.php?menu=
+
+index2.php?pref=
+
+sitio.php?incl=
+
+show.php?ki=
+
+index3.php?x=
+
+page.php?strona=
+
+*inc*.php?open=
+
+index3.php?secao=
+
+standard.php?*[*]*=
+
+template.php?basepath=
+
+standard.php?goFile=
+
+index2.php?ir=
+
+file.php?modo=
+
+gery.php?itemnav=
+
+main.php?oldal=
+
+down*.php?showpage=
+
+start.php?destino=
+
+blank.php?rub=
+
+path.php?ir=
+
+layout.php?var=
+
+index1.php?texto=
+
+start.php?pg=
+
+index1.php?showpage=
+
+info.php?go=
+
+path.php?load=
+
+index3.php?abre=
+
+blank.php?where=
+
+info.php?start=
+
+page.php?secao=
+
+nota.php?pag=
+
+nota.php?second=
+
+index2.php?to=
+
+standard.php?name=
+
+start.php?strona=
+
+mod*.php?numero=
+
+press.php?home=
+
+info.php?z=
+
+mod*.php?path=
+
+blank.php?base_dir=
+
+base.php?texto=
+
+nota.php?secc=
+
+index.php?tipo=
+
+index.php?goto=
+
+print.php?pag=
+
+view.php?secao=
+
+general.php?strona=
+
+show.php?my=
+
+page.php?e=
+
+padrao.php?index=
+
+gery.php?thispage=
+
+start.php?base_dir=
+
+default.php?tipo=
+
+gery.php?panel=
+
+standard.php?ev=
+
+standard.php?destino=
+
+general.php?middle=
+
+main.php?basepath=
+
+standard.php?q=
+
+index1.php?tipo=
+
+mod*.php?choix=
+
+template.php?ir=
+
+show.php?adresa=
+
+general.php?mid=
+
+index3.php?adresa=
+
+pagina.php?sec=
+
+template.php?secao=
+
+home.php?w=
+
+general.php?content=
+
+sub*.php?recipe=
+
+main.php?category=
+
+enter.php?viewpage=
+
+main.php?ir=
+
+show.php?pageweb=
+
+principal.php?ir=
+
+default.php?pageweb=
+
+index.php?oldal=
+
+head.php?d=
+
+gery.php?mid=
+
+index.php?type=
+
+standard.php?j=
+
+show.php?oldal=
+
+enter.php?link=
+
+enter.php?content=
+
+blank.php?filepath=
+
+standard.php?channel=
+
+base.php?*[*]*=
+
+info.php?incl=
+
+down*.php?include=
+
+press.php?modo=
+
+file.php?choix=
+
+press.php?type=
+
+blank.php?goto=
+
+index3.php?showpage=
+
+principal.php?subject=
+
+start.php?chapter=
+
+show.php?r=
+
+pagina.php?thispage=
+
+general.php?chapter=
+
+page.php?base_dir=
+
+page.php?qry=
+
+show.php?incl=
+
+page.php?*[*]*=
+
+main.php?h=
+
+file.php?seccion=
+
+default.php?pre=
+
+principal.php?index=
+
+principal.php?inc=
+
+home.php?z=
+
+pagina.php?in=
+
+show.php?play=
+
+nota.php?subject=
+
+default.php?secc=
+
+default.php?loader=
+
+padrao.php?var=
+
+mod*.php?b=
+
+default.php?showpage=
+
+press.php?channel=
+
+pagina.php?ev=
+
+sitio.php?name=
+
+page.php?option=
+
+press.php?mid=
+
+down*.php?corpo=
+
+view.php?get=
+
+print.php?thispage=
+
+principal.php?home=
+
+show.php?param=
+
+standard.php?sivu=
+
+index3.php?panel=
+
+include.php?play=
+
+path.php?cmd=
+
+file.php?sp=
+
+template.php?section=
+
+view.php?str=
+
+blank.php?left=
+
+nota.php?lang=
+
+path.php?sivu=
+
+main.php?e=
+
+default.php?ref=
+
+start.php?seite=
+
+default.php?inc=
+
+print.php?disp=
+
+home.php?h=
+
+principal.php?loc=
+
+index3.php?sp=
+
+gery.php?var=
+
+sub*.php?base_dir=
+
+path.php?middle=
+
+pagina.php?str=
+
+base.php?play=
+
+base.php?v=
+
+sitio.php?sivu=
+
+unknown.soldier
+
+main.php?r=
+
+file.php?nivel=
+
+start.php?sivu=
+
+template.php?c=
+
+general.php?second=
+
+sub*.php?mod=
+
+home.php?loc=
+
+head.php?corpo=
+
+standard.php?op=
+
+index2.php?inc=
+
+info.php?pref=
+
+base.php?basepath=
+
+print.php?basepath=
+
+*inc*.php?m=
+
+base.php?home=
+
+layout.php?strona=
+
+padrao.php?url=
+
+sitio.php?oldal=
+
+pagina.php?read=
+
+index1.php?go=
+
+standard.php?s=
+
+page.php?eval=
+
+index.php?j=
+
+pagina.php?pr=
+
+start.php?secao=
+
+template.php?*[*]*=
+
+nota.php?get=
+
+index3.php?link=
+
+home.php?e=
+
+gery.php?name=
+
+nota.php?eval=
+
+sub*.php?abre=
+
+index2.php?load=
+
+principal.php?in=
+
+view.php?load=
+
+mod*.php?action=
+
+default.php?p=
+
+head.php?c=
+
+template.php?viewpage=
+
+view.php?mid=
+
+padrao.php?addr=
+
+view.php?go=
+
+file.php?basepath=
+
+home.php?pre=
+
+include.php?goFile=
+
+layout.php?play=
+
+index1.php?subject=
+
+info.php?middlePart=
+
+down*.php?pg=
+
+sub*.php?body=
+
+index.php?option=
+
+sub*.php?chapter=
+
+default.php?t=
+
+head.php?opcion=
+
+nota.php?panel=
+
+sitio.php?left=
+
+show.php?include=
+
+pagina.php?start=
+
+head.php?choix=
+
+index3.php?tipo=
+
+index3.php?choix=
+
+down*.php?channel=
+
+base.php?pa=
+
+nota.php?sekce=
+
+show.php?l=
+
+show.php?index=
+
+blank.php?url=
+
+start.php?thispage=
+
+nota.php?play=
+
+show.php?second=
+
+enter.php?include=
+
+principal.php?middle=
+
+main.php?where=
+
+padrao.php?link=
+
+path.php?strona=
+
+index3.php?read=
+
+mod*.php?module=
+
+standard.php?viewpage=
+
+standard.php?pr=
+
+*inc*.php?showpage=
+
+pagina.php?ref=
+
+path.php?pname=
+
+padrao.php?mid=
+
+info.php?eval=
+
+include.php?path=
+
+page.php?subject=
+
+sub*.php?qry=
+
+head.php?module=
+
+nota.php?opcion=
+
+head.php?abre=
+
+base.php?str=
+
+home.php?body=
+
+gery.php?module=
+
+head.php?sivu=
+
+page.php?inc=
+
+pagina.php?header=
+
+mod*.php?v=
+
+home.php?doshow=
+
+padrao.php?n=
+
+index1.php?chapter=
+
+padrao.php?basepath=
+
+index.php?r=
+
+index3.php?seccion=
+
+sitio.php?mid=
+
+index.php?where=
+
+general.php?type=
+
+pagina.php?goto=
+
+page.php?pa=
+
+default.php?menue=
+
+main.php?goto=
+
+index1.php?abre=
+
+info.php?seccion=
+
+index2.php?pa=
+
+layout.php?pageweb=
+
+nota.php?disp=
+
+index1.php?body=
+
+default.php?nivel=
+
+show.php?header=
+
+down*.php?pag=
+
+start.php?tipo=
+
+standard.php?w=
+
+index.php?open=
+
+blank.php?menu=
+
+general.php?nivel=
+
+padrao.php?nivel=
+
+*inc*.php?addr=
+
+index.php?var=
+
+home.php?redirect=
+
+*inc*.php?link=
+
+*inc*.php?incl=
+
+padrao.php?corpo=
+
+down*.php?url=
+
+enter.php?goto=
+
+down*.php?addr=
+
+sub*.php?j=
+
+principal.php?f=
+
+sub*.php?menue=
+
+index2.php?section=
+
+general.php?my=
+
+head.php?loader=
+
+general.php?goto=
+
+include.php?dir=
+
+start.php?header=
+
+blank.php?in=
+
+base.php?name=
+
+nota.php?goFile=
+
+head.php?base_dir=
+
+mod*.php?recipe=
+
+press.php?pr=
+
+padrao.php?*[*]*=
+
+layout.php?opcion=
+
+print.php?rub=
+
+index.php?pr=
+
+general.php?seite=
+
+pagina.php?numero=
+
+*inc*.php?pg=
+
+nota.php?rub=
+
+view.php?seite=
+
+pagina.php?recipe=
+
+index.php?pref=
+
+page.php?action=
+
+page.php?ev=
+
+show.php?ir=
+
+head.php?index=
+
+mod*.php?pname=
+
+view.php?ir=
+
+*inc*.php?start=
+
+principal.php?rub=
+
+principal.php?corpo=
+
+padrao.php?middle=
+
+base.php?pname=
+
+template.php?header=
+
+view.php?sp=
+
+main.php?name=
+
+nota.php?m=
+
+blank.php?open=
+
+head.php?dir=
+
+page.php?pname=
+
+*inc*.php?k=
+
+index.php?pollname=
+
+head.php?oldal=
+
+index1.php?str=
+
+template.php?choix=
+
+down*.php?pollname=
+
+page.php?recipe=
+
+template.php?corpo=
+
+nota.php?sec=
+
+info.php?*[*]*=
+
+sub*.php?*[*]*=
+
+page.php?q=
+
+index1.php?type=
+
+gery.php?y=
+
+standard.php?lang=
+
+gery.php?page=
+
+index.php?action=
+
+press.php?pname=
+
+down*.php?v=
+
+index3.php?second=
+
+show.php?recipe=
+
+main.php?pre=
+
+file.php?numero=
+
+print.php?str=
+
+standard.php?link=
+
+nota.php?OpenPage=
+
+view.php?pollname=
+
+print.php?l=
+
+index.php?go=
+
+standard.php?numero=
+
+view.php?pr=
+
+down*.php?read=
+
+down*.php?action=
+
+index1.php?OpenPage=
+
+principal.php?left=
+
+mod*.php?start=
+
+file.php?body=
+
+gery.php?pg=
+
+blank.php?qry=
+
+base.php?eval=
+
+default.php?left=
+
+gery.php?param=
+
+blank.php?pa=
+
+nota.php?b=
+
+path.php?loader=
+
+start.php?o=
+
+include.php?include=
+
+nota.php?corpo=
+
+enter.php?second=
+
+sub*.php?pname=
+
+mod*.php?pageweb=
+
+principal.php?addr=
+
+standard.php?action=
+
+template.php?lang=
+
+include.php?basepath=
+
+sub*.php?ir=
+
+down*.php?nivel=
+
+path.php?opcion=
+
+print.php?category=
+
+print.php?menu=
+
+layout.php?secao=
+
+template.php?param=
+
+standard.php?ref=
+
+base.php?include=
+
+blank.php?body=
+
+path.php?pref=
+
+print.php?g=
+
+padrao.php?subject=
+
+nota.php?modo=
+
+index3.php?loader=
+
+template.php?seite=
+
+general.php?pageweb=
+
+index2.php?param=
+
+path.php?nivel=
+
+page.php?pref=
+
+press.php?pref=
+
+enter.php?ev=
+
+standard.php?middle=
+
+index2.php?recipe=
+
+blank.php?dir=
+
+home.php?pageweb=
+
+view.php?panel=
+
+down*.php?home=
+
+head.php?ir=
+
+mod*.php?ir=
+
+show.php?pagina=
+
+default.php?base_dir=
+
+show.php?loader=
+
+path.php?mid=
+
+blank.php?abre=
+
+down*.php?choix=
+
+info.php?opcion=
+
+page.php?loader=
+
+principal.php?oldal=
+
+index1.php?load=
+
+home.php?content=
+
+pagina.php?sekce=
+
+file.php?n=
+
+include.php?redirect=
+
+print.php?itemnav=
+
+enter.php?index=
+
+print.php?middle=
+
+sitio.php?goFile=
+
+head.php?include=
+
+enter.php?e=
+
+index.php?play=
+
+enter.php?id=
+
+view.php?mod=
+
+show.php?nivel=
+
+file.php?channel=
+
+layout.php?choix=
+
+info.php?body=
+
+include.php?go=
+
+index3.php?nivel=
+
+sub*.php?include=
+
+path.php?numero=
+
+principal.php?header=
+
+main.php?opcion=
+
+enter.php?s=
+
+sub*.php?pre=
+
+include.php?index=
+
+gery.php?pageweb=
+
+padrao.php?path=
+
+info.php?url=
+
+press.php?ev=
+
+index1.php?pg=
+
+print.php?in=
+
+general.php?modo=
+
+head.php?ki=
+
+press.php?my=
+
+index1.php?pollname=
+
+principal.php?to=
+
+default.php?play=
+
+page.php?g=
+
+nota.php?pg=
+
+blank.php?destino=
+
+blank.php?z=
+
+*default.php?page=
+
+*default.php?body=
+
+*index.php?url=
+
+*index.php?arquivo=
+
+index.php?include=
+
+index.php?visualizar=
+
+index.php?pagina=
+
+index.php?page=
+
+index.php?p=
+
+index.php?cont=
+
+index.php?x=
+
+index.php?cat=
+
+index.php?site=
+
+index.php?configFile=
+
+index.php?do=
+
+index2.php?x=
+
+Index.php?id=
+
+template.php?pagina
+
+cgi-bin/ikonboard.cgi
+
+cgi-bin/acart/acart.pl?&page=
+
+cgi-bin/quikstore.cgi?category=
+
+cgi-bin/ubb/ubb.cgi?g=
+
+cgi-bin/hinsts.pl?
+
+cgi-bin/bp/bp-lib.pl?g=
+
+ccbill/whereami.cgi?g=ls
+
+cgi-bin/telnet.cgi
+
+cgi-bin/1/cmd.cgi
+
+encore/forumcgi/display.cgi?
+
+events.cgi?t=
+
+powerup.cgi?a=latest&t=
+
+lc.cgi?a=
+
+news.cgi?a=114&t=
+
+biznews.cgi?a=33&t=
+
+jobs.cgi?a=9&t=
+
+articles.cgi?a=34&t=
+
+events.cgi?a=155&t=
+
+latinbitz.cgi?t=
+
+newsdesk.cgi?t=
+
+media.cgi?a=11&t=
+
+reporter.cgi?t=
+
+news.cgi?t=
+
+news.cgi?a=latest&t=
+
+whereami.cgi?g=id
+
+auktion.pl?menue=
+
+i-m/i-m.cgi?p=
+
+vote.pl?action=show&id=
+
+shop.pl/page=
+
+index.php?include=
+
+index.php?open=
+
+index.php?visualizar=
+
+main.php?x=
+
+main.php?page=
+
+index.php?meio.php=
+
+index.php?page=
+
+index.php?action=
+
+index5.php?configFile=
+
+index5.php?page=
+
+index5.php?content=
+
+index5.php?x=
+
+index5.php?open=
+
+index5.php?m=
+
+index5.php?site=
+
+index5.php?cat=
+
+index.php?d=
+
+index.php?a=
+
+index.php?b=
+
+index.php?c=
+
+index.php?e=
+
+index.php?f=
+
+index.php?g=
+
+index.php?h=
+
+index.php?i=
+
+index.php?j=
+
+index.php?k=
+
+index.php?l=
+
+index.php?m=
+
+index.php?n=
+
+index.php?o=
+
+index.php?p=
+
+index.php?q=
+
+index.php?r=
+
+index.php?s=
+
+index.php?t=
+
+index.php?u=
+
+index.php?v=
+
+index.php?x=
+
+indishell.in
+
+index.php?y=
+
+index.php?z=
+
+index.php?loc=
+
+index.php?seite=
+
+index2.php?d=
+
+index2.php?a=
+
+index.php?ir=
+
+index.php?secao=
+
+index2.php?b=
+
+index2.php?c=
+
+index2.php?e=
+
+index2.php?f=
+
+index2.php?g=
+
+index2.php?h=
+
+index2.php?i=
+
+index2.php?j=
+
+index2.php?k=
+
+index2.php?l=
+
+index2.php?m=
+
+index2.php?n=
+
+index2.php?o=
+
+index2.php?p=
+
+index2.php?q=
+
+index2.php?r=
+
+index2.php?s=
+
+index2.php?t=
+
+index2.php?u=
+
+index2.php?v=
+
+index2.php?x=
+
+index2.php?y=
+
+index2.php?z=
+
+index5.php?inc=
+
+index5.php?pg=
+
+index5.php?lv1=
+
+index.php?sub=
+
+index.php?sub2=
+
+index.php?pg=
+
+index.php?lv1=
+
+index.php?directfile=
+
+index.php?funcion=
+
+index.php?ll=
+
+index.php?lnk=
+
+index5.php?main=
+
+index5.php?include=
+
+index5.php?root=
+
+index5.php?pagina=
+
+index.php?theme=
+
+index.php?acao=
+
+index5.php?cont=
+
+index5.php?pag=
+
+index5.php?p=
+
+index5.php?lang=
+
+index5.php?language=
+
+template.php?pagina=
+
+llindex.php?sub=
+
+index2.php?pg=
+
+index2.php?lv1=
+
+index2.php?sub=
+
+index2.php?directfile=
+
+index2.php?funcion=
+
+index2.php?sub2=
+
+index2.php?ll=
+
+index2.php?lnk=
+
+index5.php?body=
+
+index5.php?visualizar=
+
+index5.php?do=
+
+index2.php?theme=
+
+index2.php?acao=
+
+index2:php?aa=
+
+index3:php?aa=
+
+index.php?server=
+
+index.php?cal=
+
+index.php?prefix=
+
+index.php?root_PATH=
+
+index.php?path=
+
+index.php?gorumdir=
+
+index2.php?cont=
+
+index2.php?server=
+
+index2.php?cal=
+
+index2.php?prefix=
+
+index2.php?root_PATH=
+
+index2.php?path= AKI
+
+exibir.php?abre=
+
+exibir.php?page=
+
+exibir.php?get=
+
+exibir.php?p=
+
+exibir.php?lang=
+
+index2.php?gorumdir=
+
+index2.php?pag=
+
+index2.php?lang=
+
+index2.php?language=
+
+index2.php?content=
+
+index.php?middle=
+
+index.php?configFile=
+
+module_db.php?pivot_path=
+
+initdb.php?absolute_path=
+
+step_one.php?server_inc=
+
+pipe.php?HCL_path=
+
+write.php?dir=
+
+header.php?systempath=
+
+theme.php?THEME_DIR=
+
+index.php?pageurl=
+
+expanded.php?conf=
+
+addevent.inc.php?agendax_path=
+
+Packages.php?sourcedir=
+
+_functions.php?prefix
+
+addedit.php?root_dir=
+
+view.php?root_dir=
+
+vw_files.php?root_dir=
+
+viewgantt.php?root_dir=
+
+init.inc.php?CPG_M_DIR=
+
+editor.php?root=
+
+lib.php?root=
+
+secure_img_render.php?p=
+
+default.php?page=
+
+arquivo.php?data=
+
+word.php?id=
+
+mod.php?mod=
+
+index.php?plugin=
+
+sendpage.php?page=
+
+index.php?hl=
+
+modules.php?op=
+
+index.php?templateid=
+
+article.php?sid=
+
+.php?item_id="
+
+.php?f_content="
+
+.php?from="
+
+.php?mid="
+
+.php?lest="
+
+.php?east="
+
+.gov.br/index.php?arquivo=
+
+index.php?vpagina=
+
+index.php?arq=
+
+index.php?pg_ID=
+
+index.php?pg=
+
+home.php?page=
+
+.php?abrir="
+
+.php?club_id="
+
+.php?filepath="
+
+.php?nextpage="
+
+.php?searchcode_id="
+
+.php?sourcedir="
+
+.php?theme_dir="
+
+.php?thread_id="
+
+main.php?x=
+
+main.php?page=
+
+*default.php?page=
+
+*default.php?body=
+
+default.php?page=
+
+*index.php?url=
+
+*index.php?arquivo=
+
+index.php?meio.php=
+
+index.php?include=
+
+index.php?open=
+
+index.php?visualizar=
+
+index.php?pagina=
+
+index.php?inc=
+
+index.php?page=
+
+index.php?pag=
+
+index.php?p=
+
+index.php?content=
+
+index.php?cont=
+
+index.php?c=
+
+index.php?meio=
+
+index.php?x=
+
+index.php?cat=
+
+index.php?site=
+
+index.php?configFile=
+
+index.php?action=
+
+index.php?do=
+
+index2.php?x=
+
+Index.php?id=
+
+index2.php?content=
+
+template.php?pagina
+
+phpshop/index.php?base_dir=
+
+admin.php?cal_dir=
+
+contacts.php?cal_dir=
+
+convert-date.php?cal_dir=
+
+html/affich.php?base=
+
+gery/init.php?HTTP_POST_VARS=
+
+pm/lib.inc.php?pm_path=
+
+ideabox/include.php?gorumDir=
+
+cgi-bin/ikonboard.cgi
+
+cgi-bin/ubb/ubb.cgi?g=
+
+cgi-bin/hinsts.pl?
+
+cgi-bin/bp/bp-lib.pl?g=
+
+ccbill/whereami.cgi?g=ls
+
+cgi-bin/telnet.cgi
+
+cgi-bin/1/cmd.cgi
+
+encore/forumcgi/display.cgi?
+
+arg.php?arg= .php?arg=
+
+args.php?arg= .php?arg=
+
+atom.php5?page= .php5?id=
+
+auto.php?inc= .php?inc="
+
+base.php?f1= .php?f1="
+
+board.php?see= .php?see="
+
+book.php5?page= php5?page=
+
+index1.php?= "index1.php?="
+
+index1.php?= index1.php?=
+
+index1.php?= "index1.php?=*.php?
+
+index2.php?= "index2.php?="
+
+index2.php?= index2.php?=
+
+index2.php?= "index2.php?=*.php?"
+
+index.php?body= index.php?body=
+
+index.php?body= "index.php?body="
+
+index.php?go1= index.php?go1=
+
+index.php?go1= "index.php?go1="
+
+index.php?go= "index.php?go="
+
+index.php?go= index.php?go=
+
+index.php?site1= index.php?site1=
+
+index.php?site1= "index.php?site1="
+
+index.php?site= "index.php?site="
+
+index.php?site= index.php?site=
+
+index.php?var1= "index.php?var1="
+
+index.php?var1= index.php?var1=
+
+index.php?var2= index.php?var2=
+
+index.php?var= index.php?va21=
+
+index.php?var= index.php?var=
+
+index.php?var= "index.php?var1="
+
+index.php?var= index.php?var1=
+
+index.php?var= "index.php?var2="
+
+index.php?var= index.php?var2=
+
+index1.php?arg= .php?arg=
+
+index1.php?arq= .php?arq=
+
+index1.php?func= .php?func="
+
+index1.php?inc= .php?inc="
+
+index1.php?lk= .php?lk="
+
+/index1.php?ln= .php?ln=
+
+index1.php?ltr= .php?ltr="
+
+index1.php?mid= index1.php?mid=
+
+index1.php?page= index1.php?page="
+
+index1.php?p= .php?p="
+
+index1.php?p= .php?pag="
+
+index1.php?p= .php?page="
+
+index1.php?p= .php?pg="
+
+index1.php?s= index1.php?s="
+
+index1.php?show= index1.php?show="
+
+index1.php?show= .php?show="
+
+index1.php?table= .php?table=
+
+index2.php?arg= .php?arg=
+
+index2.php?arq= .php?arq=
+
+index2.php?c= index2.php?c="
+
+index2.php?c= .php?c="
+
+index2.php?cont= index2.php?cont="
+
+index2.php?cont= .php?cont="
+
+index2.php?i= /index2.php?i=
+
+index2.php?inc= .php?inc="
+
+index2.php?l= .php?l="
+
+index2.php?lg= index.php?lg="
+
+index2.php?lk= .php?lk="
+
+index2.php?ln= index.php?ln="
+
+index2.php?ln= .php?ln="
+
+index2.php?lng= index.php?lng="
+
+index2.php?loca= index2.php?loca=
+
+index2.php?loca= .php?loca=
+
+index2.php?meio= .php?meio=
+
+index2.php?s= index2.php?s="
+
+index2.php?s= .php?s="
+
+index2.php?table= .php?table=
+
+index2.php?x= index2.php?x=
+
+index2.php?x= .php?x=
+
+index.php3?act= index.php3?act=
+index.php3?act= .php3?act=
