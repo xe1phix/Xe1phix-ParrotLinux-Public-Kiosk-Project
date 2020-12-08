@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# List all available commands (bash, ksh93)
+printf "%s\n" ${PATH//:/\/* }
+
+# Find the cover image for an album
+albumart(){ local y="$@";awk '/View larger image/{gsub(/^.*largeImagePopup\(.|., .*$/,"");print;exit}' <(curl -s 'http://www.albumart.org/index.php?srchkey='${y// /+}'&itempage=1&newsearch=1&searchindex=Music');}
+
+# search ubuntu packages to find which package contains the executable program programname
+apt-file find bin/programname
+
+# umount all nfs mounts on machine
+umount -a -t nfs
+
+# cpu and memory usage top 10 under Linux
+ps -eo user,pcpu,pmem | tail -n +2 | awk '{num[$1]++; cpu[$1] += $2; mem[$1] += $3} END{printf("NPROC\tUSER\tCPU\tMEM\n"); for (user in cpu) printf("%d\t%s\t%.2f\t%.2f\n",num[user], user, cpu[user], mem[user]) }'
+
+# Display a block of text with AWK
+sed -n /start_pattern/,/stop_pattern/p file.txt
+
+# lotto generator
+echo $(shuf -i 1-49 | head -n6 | sort -n)
+
+# create iso image from a directory
+mkisofs -o XYZ.iso XYZ/
+
+# Get absolut path to your bash-script
+script_path=$(cd $(dirname $0);pwd)
+
+# Display the history and optionally grep
+h() { if [ -z "$1" ]; then history; else history | grep "$@"; fi; }
+
+# Check a server is up. If it isn't mail me.
+ping -q -c1 -w3 brandx.jp.sme 2&>1 /dev/null || echo brandx.jp.sme ping failed | mail -ne -s'Server unavailable' joker@jp.co.uk
+
+# Remount a usb disk in Gnome without physically removing and reinserting
+eject /dev/sdb; sleep 1; eject -t /dev/sdb
+
+# Create an SSH connection (reverse tunnel) through your firewall.
+ssh -R 2001:localhost:22 [username]@[remote server ip]
+
+# On screen display of a command.
+date|osd_cat
+
+# List dot-files and dirs, but not . or ..
+ls -A
+
+# randomize hostname and mac address, force dhcp renew. (for anonymous networking)
+dhclient -r && rm -f /var/lib/dhcp3/dhclient* && sed "s=$(hostname)=REPLACEME=g" -i /etc/hosts && hostname "$(echo $RANDOM | md5sum  | cut -c 1-7 | tr a-z A-Z)" && sed "s=REPLACEME=$(hostname)=g" -i /etc/hosts && macchanger -e eth0 && dhclient
+
+# create pdf files from text files or stdout.
+enscript jrandom.txt -o - | ps2pdf - ~/tmp/jrandom.pdf  (from file) or: ls | enscript -o - | ps2pdf - ~/tmp/ls.pdf (from stdout)
+
+# save  date and time for each command in history
+export HISTTIMEFORMAT='%F %T '
+
+# 32 bits or 64 bits?
+sudo lshw -C cpu|grep width
+
+# Execute text from the OS X clipboard.
+`pbpaste` | pbcopy
+
+# Show apps that use internet connection at the moment. (Multi-Language)
+netstat -lantp | grep -i stab | awk -F/ '{print $2}' | sort | uniq
+
+# Start an X app remotely
+ssh -f user@remote.ip DISPLAY=:0.0 smplayer movie.avi
+
+# connect via ssh using mac address
+sudo arp -s 192.168.1.200  00:35:cf:56:b2:2g temp && ssh root@192.168.1.200
+
+# Finding files with different extensions
+find . -regex '.*\(h\|cpp\)'
+
+# convert unixtime to human-readable with awk
+echo 1234567890 | awk '{ print strftime("%c", $0); }'
+
+# AD: Diff 2 entire servers at ScriptRock.com

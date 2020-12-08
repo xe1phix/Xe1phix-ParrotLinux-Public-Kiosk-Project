@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Find out the starting directory of a script
+echo "${0%/*}"
+
+# Selecting a random file/folder of a folder
+shuf -n1 -e *
+
+# List your MACs address
+lsmac() { ifconfig -a | sed '/eth\|wl/!d;s/   Link.*HWaddr//' ; }
+
+# ssh to machine behind shared NAT
+ssh -NR 0.0.0.0:2222:127.0.0.1:22 user@jump.host.com
+
+# Countdown Clock
+MIN=10;for ((i=MIN*60;i>=0;i--));do echo -ne "\r$(date -d"0+$i sec" +%H:%M:%S)";sleep 1;done
+
+# list all file extensions in a directory
+find . -type f | awk -F'.' '{print $NF}' | sort| uniq -c | sort -g
+
+# Send an http HEAD request w/curl
+curl -I http://localhost
+
+# view hex mode in vim
+:%!xxd
+
+# Kill all Zombie processes (Guaranteed!)
+kill -9 `ps -xaw -o state -o ppid | grep Z | grep -v PID | awk '{print $2}'`
+
+# prevent accidents and test your command with echo
+echo rm *.txt
+
+# Get My Public IP Address
+curl ifconfig.me
+
+# pretend to be busy in office to enjoy a cup of coffee
+for i in `seq 0 100`;do timeout 6 dialog --gauge "Install..." 6 40 "$i";done
+
+# Empty a file
+:> file
+
+# Better way to use notify-send with at or cron
+DISPLAY=:0.0 XAUTHORITY=~/.Xauthority notify-send test
+
+# Emptying a text file in one shot
+:%d
+
+# computes the most frequent used words of a text file
+cat WAR_AND_PEACE_By_LeoTolstoi.txt | tr -cs "[:alnum:]" "\n"| tr "[:lower:]" "[:upper:]" | awk '{h[$1]++}END{for (i in h){print h[i]" "i}}'|sort -nr | cat -n | head -n 30
+
+# Get your external IP address without curl
+wget -qO- icanhazip.com
+
+# Countdown Clock
+MIN=1 && for i in $(seq $(($MIN*60)) -1 1); do echo -n "$i, "; sleep 1; done; echo -e "\n\nBOOOM! Time to start."
+
+# Print info about your real user.
+who loves mum
+
+# Serve current directory tree at http://$HOSTNAME:8080/
+twistd -n web --path .
+
+# JSON processing with Python
+curl -s "http://feeds.delicious.com/v2/json?count=5" | python -m json.tool | less -R
+
+# Move items from subdirectories to current directory
+find -type f -exec mv {} . \;
+
+# Restrict the bandwidth for the SCP command
+scp -l10 pippo@serverciccio:/home/zutaniddu/* .
+
+# Optimize PDF documents
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf
+
+# live ssh network throughput test
+pv /dev/zero|ssh $host 'cat > /dev/null'
+
+# AD: Diff 2 entire servers at ScriptRock.com

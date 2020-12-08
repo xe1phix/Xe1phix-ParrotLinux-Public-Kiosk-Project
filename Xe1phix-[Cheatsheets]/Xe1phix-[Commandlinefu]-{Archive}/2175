@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Screenshot pipe to remote host, adding URL to clipboard, notifying when done. (without saving locally)
+DATE=$(date +%Y-%m-%d_%H-%M-%S)-$(($(date +%N)/10000000)); HOST=ssh_host; DEST=file_dest; URL=url/screenshot_$DATE.png; import -window root png:- | ssh $HOST "cat > $DEST/screenshot_$DATE.png"; echo $URL | xclip; notify-send -u low "Title" "Message"
+
+# Multiple variable assignments from command output in BASH
+eval $(date +"day=%d; month=%m; year=%y")
+
+# netstat with group by ip adress
+netstat -ntu | awk ' $5 ~ /^[0-9]/ {print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
+
+# whowatch: Linux and UNIX interactive, process and users monitoring tool
+whowatch
+
+# Prepend a text to a file.
+sed -i '1s/^/text to prepend\n/' file1
+
+# Run a command as root, with a delay
+sudo bash -c "sleep 1h ; command"
+
+# List your MACs address
+cat /sys/class/net/*/address
+
+# List your interfaces and MAC addresses
+for f in /sys/class/net/*; do echo -e "$(basename $f)\t$(cat $f/address)"; done
+
+# shutdown pc in 4 hours without needing to keep terminal open / user logged in.
+shutdown -h 240 & disown
+
+# bulk rename files with sed, one-liner
+ls * | sed -e 'p;s/foo/bar/' | xargs -n2 mv
+
+# Put a console clock in top right corner
+while true; do tput sc; tput cup 0 $(($(tput cols)-74)); w | grep load; tput rc; sleep 10; done &
+
+# Indent a one-liner.
+declare -f <function name>
+
+# a fast way to repeat output a byte
+tr '\0' '\377' < /dev/zero|dd count=$((<bytes>/512))
+
+# monitor a tail -f command with multiple processes
+tail -f somefile |tee >(grep --line-buffered '1' > one.txt) |tee >(grep --line-buffered '2' > two.txt)
+
+# Fast file backup
+cp filename{,.`date +%Y%m%d`}
+
+# Get a BOFH excuse
+telnet towel.blinkenlights.nl 666 | sed "s/=== The BOFH Excuse Server ===//" | tr -d '\n' && echo
+
+# cd into another dir to run a one-liner, but implicitly drop back to your $OLD_PWD after
+( cd $DIR; command; )
+
+# Display HTTP-header using curl
+curl -I g.cn
+
+# Create a 5 MB blank file
+dd if=/dev/zero of=testfile bs=1024 count=5000
+
+# remove empty lines in place with backup
+sed -e '/^$/d' -i .bak filewithempty.lines
+
+# Console clock -- within screen
+echo 'hardstatus alwayslastline " %d-%m-%y %c:%s | %w"' >> $HOME/.screenrc; screen
+
+# Console clock
+watch -n1 'date "+%T"'
+
+# Calculate sum of N numbers (Thanks to flatcap)
+seq -s "+" 3 | bc
+
+# Console clock
+yes "echo -ne '\r'\`date\`;sleep 1" | sh
+
+# list all file extensions in a directory
+ls -Xp | grep -Eo "\.[^/]+$" | sort | uniq
+
+# AD: Diff 2 entire servers at ScriptRock.com

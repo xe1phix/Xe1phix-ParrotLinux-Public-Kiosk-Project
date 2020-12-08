@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Tells the shell you are using
+ps -p $$
+
+# Stream (almost) any music track in mplayer
+python2 -c 'import urllib2 as u, sys as s, json as j, subprocess as p;p.call(["mplayer", u.urlopen(j.loads(u.urlopen("http://ex.fm/api/v3/song/search/%s" % "+".join(s.argv[1:])).read())["songs"][0]["url"]).geturl().split("#")[0]])' lenny kravitz fly away
+
+# Check motherboard manufacturer, product name, version and serial number
+dmidecode | grep -i 'Base Board Information' -A4 -B1
+
+# print text in colors green, cyan, blue or red (see sample output for usage)
+color () { local color=39; local bold=0; case $1 in green) color=32;; cyan) color=36;; blue) color=34;; gray) color=37;; darkgrey) color=30;; red) color=31;; esac; if [[ "$2" == "bold" ]]; then bold=1; fi; echo -en "\033[${bold};${color}m"; }
+
+# Merge AVI-files without recoding
+cat part1.avi part2.avi part3.avi > tmp.avi && mencoder -forceidx -oac copy -ovc copy tmp.avi -o output.avi && rm -f tmp.avi
+
+# check the status of 'dd' in progress (OS X)
+pv -tpreb /dev/sda | dd of=/dev/sdb bs=1M
+
+# foo <--> german translation with dict.leo.org
+leo (){ l="en"; if [ "${1:0:1}" = "-" ]; then l=${1:1:2};shift;fi;Q="$*";curl -s "https://dict.leo.org/${l}de/?search=${Q// /%20}" | html2text | sed -e '0,/H.ufigste .*/d;/Weitere Aktionen/,$d;/f.r Sie .*:/,$d' | grep -aEA900 '^\*{5} .*$'; }
+
+# Use GNU info with a pager
+info --subnodes -o - <item> | less
+
+# get a random 0/1, use it for on/off, yes/no
+echo $[RANDOM % 2]
+
+# SSH Auto-login with password
+sshpass -p "YOUR_PASSWORD" ssh -o StrictHostKeyChecking=no YOUR_USERNAME@SOME_SITE.COM
+
+# Use Vim to convert text to HTML.
+vimhtml() { [[ -f "$1" ]] || return 1; vim +'syn on | run! syntax/2html.vim | wq | q' "$1";}
+
+# find unreadable file
+sudo -u apache find . -not -readable
+
+# create new branch from stashed changes
+git stash branch testchanges
+
+# SMTP Analysis
+tcpdump -l -s0 -w - tcp dst port 25 | strings | grep -i 'MAIL FROM\|RCPT TO'
+
+# vim multiple files at one time, split vertically.
+vim -O file1 file2
+
+# Limit the cpu usage of a process
+prlimit --cpu=10 sort -u hugefile
+
+# check for write/read permissions
+find ~/ -type d \( -wholename '/dev/*' -o -wholename '/sys/*' -o -wholename '/proc/*' \) -prune -o -exec test -w {} \; -exec echo {} writable \; 2>/dev/null
+
+# Tail a log-file over the network
+(echo -e "HTTP/1.1 200 Ok\n\r"; tail -f /var/log/syslog) | nc -l 1234
+
+# Write on the console without being registered
+_ls
+
+# pid of manually selecting window
+xprop | awk '/PID/ {print $3}'
+
+# List directories recursively showing its sizes using only ls and grep
+ls -lhR | grep -e "total\|:$"
+
+# Mplayer save stream to file
+mplayer -nolirc <Streaming_URL> -dumpstream -dumpfile output.mp3
+
+# Find out if a module is installed in perl
+perldoc -l Module::Name 2>/dev/null
+
+# Remove the first character of each line in a file
+sed "s/^.//g" files
+
+# Open (in vim) all modified files in a git repository
+vim `git status --porcelain | sed -ne 's/^ M //p'`
+
+# AD: Diff 2 entire servers at ScriptRock.com

@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Split a tarball into multiple parts
+tar cf - <dir>|split -b<max_size>M - <name>.tar.
+
+# Remove executable bit from all files in the current directory recursively, excluding other directories
+chmod -R -x+X *
+
+# More precise BASH debugging
+env PS4=' ${BASH_SOURCE}:${LINENO}(${FUNCNAME[0]}) ' sh -x /etc/profile
+
+# Show me a histogram of the busiest minutes in a log file:
+cat /var/log/secure.log | awk '{print substr($0,0,12)}' | uniq -c | sort -nr | awk '{printf("\n%s ",$0) ; for (i = 0; i<$1 ; i++) {printf("*")};}'
+
+# Print a great grey scale demo !
+yes "$(seq 232 255;seq 254 -1 233)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .01; done
+
+# Smiley Face Bash Prompt
+PS1="\`if [ \$? = 0 ]; then echo \e[33\;40m\\\^\\\_\\\^\e[0m; else echo \e[36\;40m\\\-\e[0m\\\_\e[36\;40m\\\-\e[0m; fi\` \u \w:\h)"
+
+# Create a list of binary numbers
+echo {0..1}{0..1}{0..1}{0..1}
+
+# Create a system overview dashboard on F12 key
+bind '"\e[24~"':"\"ps -elF;df -h;free -mt;netstat -lnpt;who -a\C-m"""
+
+# coloured tail
+tail -f FILE | perl -pe 's/KEYWORD/\e[1;31;43m$&\e[0m/g'
+
+# disable history for current shell session
+unset HISTFILE
+
+# Search for commands from the command line
+clfu-seach <search words>
+
+# How to run X without any graphics hardware
+startx -- `which Xvfb` :1 -screen 0 800x600x24 && DISPLAY=:1 x11vnc
+
+# Install a Firefox add-on/theme to all users
+sudo firefox -install-global-extension /path/to/add-on
+
+# clear current line
+CTRL+u
+
+# Quickly generate an MD5 hash for a text string using OpenSSL
+echo -n 'text to be encrypted' | openssl md5
+
+# Terminate a frozen SSH-session
+RETURN~.
+
+# Backup a remote database to your local filesystem
+ssh user@host 'mysqldump dbname | gzip' > /path/to/backups/db-backup-`date +%Y-%m-%d`.sql.gz
+
+# Generat a Random MAC address
+MAC=`(date; cat /proc/interrupts) | md5sum | sed -r 's/^(.{10}).*$/\1/; s/([0-9a-f]{2})/\1:/g; s/:$//;'`
+
+# Batch convert files to utf-8
+find . -name "*.php" -exec iconv -f ISO-8859-1 -t UTF-8 {} -o ../newdir_utf8/{} \;
+
+# Get http headers for an url
+curl -I www.commandlinefu.com
+
+# Generate QR code for a WiFi hotspot
+qrencode -s 7 -o qr-wifi.png "WIFI:S:$(zenity --entry --text="Network name (SSID)" --title="Create WiFi QR");T:WPA;P:$(zenity --password --title="Wifi Password");;"
+
+# Check if system is 32bit or 64bit
+arch
+
+# vi a remote file
+vi scp://username@host//path/to/somefile
+
+# Show permissions of current directory and all directories upwards to /
+namei -m $(pwd)
+
+# move you up one directory quickly
+shopt -s autocd
+
+# AD: Diff 2 entire servers at ScriptRock.com

@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Remove a file whose name begins with a dash ( - ) character
+rm ./-filename
+
+# Create MySQL-Dump, copy db to other Server and upload the db.
+mysqldump -uUserName -pPassword tudb | ssh root@rootsvr.com "mysql -uUserName -pPassword -h mysql.rootsvr.com YourDBName"
+
+# Change the window title of your xterm
+echo "^[]0;My_Title_Goes _Here^G"
+
+# Change the ownership of all files owned by one user.
+find /home -uid 1056 -exec chown 2056 {} \;
+
+# Find all the files more than 10MB, sort in descending order of size and record the output of filenames and size in a text file.
+find . -size +10240k -exec ls -l {} \; | awk '{ print $5,"",$9 }'|sort -rn > message.out
+
+# Forward port 8888 to remote machine for SOCKS Proxy
+ssh -D 8888 user@site.com
+
+# Compress files found with find
+find ~/bin/ -name "*sh" -print0 | xargs -0t tar -zcvf foofile.tar.gz
+
+# Always tail/edit/grep the latest file in a directory of timestamped files
+tail -f /path/to/timestamped/files/file-*(om[1])
+
+# gpg decrypt a file
+gpg --output foo.txt --decrypt foo.txt.pgp
+
+# phpinfo from the command line
+echo "<?php phpinfo(); ?>" | php > phpinfo.txt
+
+# Know which modules are loaded on an Apache server
+apache2 -t -D DUMP_MODULES
+
+# Do a command but skip recording it in the bash command history
+_cd ~/nsfw; mplayer midget_donkey.mpeg
+
+# Determine an image's dimensions
+identify -format "%wx%h" /path/to/image.jpg
+
+# Copy your SSH public key on a remote machine for passwordless login.
+cat ~/.ssh/*.pub | ssh user@remote-system 'umask 077; cat >>.ssh/authorized_keys'
+
+# Email a file to yourself
+uuencode $file $file | /usr/bin/mailx -s "$file" ${USER}
+
+# List all execs in $PATH, usefull for grepping the resulting list
+find ${PATH//:/ } -executable -type f -printf "%f\n"
+
+# Show sorted list of files with sizes more than 1MB in the current dir
+du -hs * | grep '^[0-9,]*[MG]' | sort -rn
+
+# Unix time to local time
+date -R -d @1234567890
+
+# Remove EXIF data from images with progress
+i=0; f=$(find . -type f -iregex ".*jpg");c=$(echo $f|sed "s/ /\n/g"| wc -l);for x in $f;do i=$(($i + 1));echo "$x $i of $c"; mogrify -strip $x;done
+
+# Look for IPv4 address in files.
+alias ip4grep "grep -E '([0-9]{1,3}\.){3}[0-9]{1,3}'"
+
+# Make a thumbnail image of first page of a PDF.
+convert -resize 200 -sharpen 40 some_file.pdf[0] some_file.jpg
+
+# trace the system calls made by a process (and its children)
+strace -f -s 512 -v ls -l
+
+# Switch to a user with "nologin" shell
+sudo -u username bash
+
+# Find and list users who talk like "lolcats"
+cd ~/.purple/logs/; egrep -ri "i can haz|pwn|l33t|w00|zomg" * | cut -d'/' -f 3 | sort | uniq | xargs -I {} echo "Note to self: ban user '{}'"
+
+# Dump root ext3 fs over ssh
+dump 0f - / | bzip -c9 | ssh user@host "cat > /home/user/root.dump.bz2"
+
+# AD: Diff 2 entire servers at ScriptRock.com

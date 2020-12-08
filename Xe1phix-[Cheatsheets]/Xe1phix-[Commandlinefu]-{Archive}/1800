@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Get International Space Station sighting information for your city
+links -dump "http://spaceflight.nasa.gov/realdata/sightings/cities/view.cgi?country=United_States&region=Wisconsin&city=Portage" | sed -n '/--/,/--/p'
+
+# shutdown pc in a 4 hours
+shutdown -h +240
+
+# List your MACs address
+ifconfig eth0 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'
+
+# Concating pdf files
+pdftk inp1.pdf inp2.pdf inp3.pdf cat output out.pdf
+
+# Indent a one-liner.
+type <function name>
+
+# Auto Get Missing Launchpad Keys
+sudo apt-get update 2> /tmp/keymissing; for key in $(grep "NO_PUBKEY" /tmp/keymissing |sed "s/.*NO_PUBKEY //"); do echo -e "\nProcessing key: $key"; gpg --keyserver pool.sks-keyservers.net --recv $key && gpg --export --armor $key |sudo apt-key add -; done
+
+# let the cow suggest some commit messages for you
+curl -s http://whatthecommit.com/index.txt | cowsay
+
+# Report all quota usage
+quota -q $(cat /etc/passwd|cut -d ':' -f 1)
+
+# Checks throughput between two nodes
+cat /dev/zero | pv | ssh 192.168.1.2 "cat > /dev/null"
+
+# determine if tcp port is open
+lsof -i :22
+
+# Replace all in last command
+!!:gs/data/index/
+
+# Google Translate
+wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=translation+example&sl=auto&tl=fr" | sed 's/\[\[\[\"//' | cut -d \" -f 1
+
+# run a command from within vi without exiting
+:! <bash_command>
+
+# PDF simplex to duplex merge
+pdftk A=odd.pdf B=even.pdf shuffle A1-end Bend-1S output duplex.pdf
+
+# Rotate a single page PDF by 180 degrees
+pdftk in.pdf cat 1S output out.pdf
+
+# Console clock
+watch -t -n1 'date "+%r %F %A"'
+
+# Simulate typing
+echo "You can have a bit more realistic typing with some shell magic." | pv -qL $[10+(-2 + RANDOM%5)]
+
+# String to binary
+perl -nle 'printf "%0*v8b\n"," ",$_;'
+
+# Run local bash script on remote server
+ssh -T user@server < script.sh
+
+# Arch Linux sort installed packages by size
+paste <(pacman -Q | awk '{ print $1; }' | xargs pacman -Qi | grep 'Size' | awk '{ print $4$5; }') <(pacman -Q | awk '{print $1; }') | sort -n | column -t
+
+# Install a basic FreeBSD system
+dd if=mfsbsd.iso | ssh distant.server dd of=/dev/sda
+
+# Create a tar of directory structure only
+tar -cf ~/out.tar --no-recursion --files-from <(find . -type d)
+
+# Remove all files except list
+rm -rf !(@(file1|file2|...))
+
+# Remove all .svn folders
+find . -depth -name .svn -type d -exec rm -fr {} \;
+
+# do 'foo' until it exits successfully, pausing in between crashes
+until foo some args; do echo "crashed: $?  respawning..." >&2; sleep 10; done
+
+# AD: Diff 2 entire servers at ScriptRock.com

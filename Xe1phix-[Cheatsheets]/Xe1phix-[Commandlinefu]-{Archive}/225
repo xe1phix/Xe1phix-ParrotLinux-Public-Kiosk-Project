@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# throttle bandwidth with cstream
+tar -cj /backup | cstream -t 777k | ssh host 'tar -xj -C /backup'
+
+# Run a long job and notify me when it's finished
+./my-really-long-job.sh && notify-send "Job finished"
+
+# Make anything more awesome
+command | figlet
+
+# When feeling down, this command helps
+sl
+
+# Nicely display permissions in octal format with filename
+stat -c '%A %a %n' *
+
+# Create a single-use TCP (or UDP) proxy
+nc -l -p 2000 -c "nc example.org 3000"
+
+# runs a bash script in debugging mode
+bash -x ./post_to_commandlinefu.sh
+
+# find geographical location of an ip address
+lynx -dump http://www.ip-adress.com/ip_tracer/?QRY=$1|grep address|egrep 'city|state|country'|awk '{print $3,$4,$5,$6,$7,$8}'|sed 's\ip address flag \\'|sed 's\My\\'
+
+# read manpage of a unix command as pdf in preview (Os X)
+man -t UNIX_COMMAND | open -f -a preview
+
+# Instead of writing a multiline if/then/else/fi construct you can do that by one line
+[[ test_condition ]] && if_true_do_this || otherwise_do_that
+
+# Speed up launch of firefox
+find ~ -name '*.sqlite' -exec sqlite3 '{}' 'VACUUM;' \;
+
+# format txt as table not joining empty columns
+column -tns: /etc/passwd
+
+# Shell recorder with replay
+script -t /tmp/mylog.out 2>/tmp/mylog.time; <do your work>; <CTRL-D>; scriptreplay /tmp/mylog.time /tmp/mylog.out
+
+# Bind a key with a command
+bind '"\C-l":"ls -l\n"'
+
+# List files with quotes around each filename
+ls -Q
+
+# Listen to BBC Radio from the command line.
+bbcradio() { local s PS3="Select a station: ";select s in 1 1x 2 3 4 5 6 7 "Asian Network an" "Nations & Local lcl";do break;done;s=($s);mplayer -playlist "http://www.bbc.co.uk/radio/listen/live/r"${s[@]: -1}".asx";}
+
+# Get your external IP address
+curl ip.appspot.com
+
+# List installed deb packages by size
+dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n
+
+# Monitor bandwidth by pid
+nethogs -p eth0
+
+# Execute a command with a timeout
+timeout 10 sleep 11
+
+# Remove color codes (special characters) with sed
+sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"
+
+# send echo to socket network
+echo "foo" > /dev/tcp/192.168.1.2/25
+
+# use vim to get colorful diff output
+svn diff | view -
+
+# find files containing text
+grep -lir "some text" *
+
+# Perform a branching conditional
+true && { echo success;} || { echo failed; }
+
+# AD: Diff 2 entire servers at ScriptRock.com

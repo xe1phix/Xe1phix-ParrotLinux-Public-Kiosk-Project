@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Detect Language of a string
+detectlanguage(){ curl -s "http://ajax.googleapis.com/ajax/services/language/detect?v=1.0&q=$@" | sed 's/{"responseData": {"language":"\([^"]*\)".*/\1\n/'; }
+
+# Tell Analytics to fuck itself.
+gofuckanalytics() { echo "DELETE FROM moz_cookies WHERE name LIKE '__utm%';" | sqlite3 $( find ~/.mozilla -name cookies.sqlite ) }
+
+# Top ten (or whatever) memory utilizing processes (with children aggregate)
+ps axo rss,comm,pid | awk '{ proc_list[$2]++; proc_list[$2 "," 1] += $1; } END { for (proc in proc_list) { printf("%d\t%s\n", proc_list[proc "," 1],proc); }}' | sort -n | tail -n 10
+
+# simple backup with rsync
+0 10 * * * rsync -rau /[VIPdirectory] X.X.X.X:/backup/[VIPdirectory]
+
+# Get all mac address
+ifconfig | awk '/HWaddr/ { print $NF }'
+
+# tail: watch a filelog
+tail -n 50 -f /var/log/apache2/access_log /var/log/apache2/error_log
+
+# Type a random string into a X11 window
+sleep 3 && xdotool type --delay 0ms texthere
+
+# Google Spell Checker
+spellcheck(){ typeset y=$@;curl -sd "<spellrequest><text>$y</text></spellrequest>" https://www.google.com/tbproxy/spell|sed -n '/s="[0-9]"/{s/<[^>]*>/ /g;s/\t/ /g;s/ *\(.*\)/Suggestions: \1\n/g;p}'|tee >(grep -Eq '.*'||echo -e "OK");}
+
+# Weather on the Command line
+lynx -dump http://api.wunderground.com/weatherstation/WXCurrentObXML.asp?ID=KCALOSAN32 | grep GMT | awk '{print $3}'
+
+# Do some Perl learning...
+podwebserver& sleep 2; elinks 'http://127.0.0.1:8020'
+
+# Using numsum to sum a column of numbers.
+numsum count.txt
+
+# Finding all files on local file system with SUID and SGID set
+find / \( -local -o -prune \) \( -perm -4000 -o -perm -2000 \) -type f -exec ls -l {} \;
+
+# download file1 file2 file3 file4 .... file 100
+wget http://domain.com/file{1..100}
+
+# Lookup your own IPv4 address
+dig +short myip.opendns.com @resolver1.opendns.com
+
+# Find the location of the currently loaded php.ini file
+php -i | grep php.ini
+
+# scan folder to check syntax error in php files
+find . -name "*.php" -exec php -l {} \;
+
+# Sniffing network to generate a pcap file in CLI mode on a remote host and open it via local Wireshark ( GUI ).
+tcpdump -v -i <INTERFACE> -s 0 -w /tmp/sniff.pcap port <PORT> # On the remote side
+
+# create disk copy over the net without temp files
+SOURCE: dd if=/dev/sda bs=16065b | netcat ip-target 1234 TARGET: netcat -l -p 1234 | dd of=/dev/mapper/laptop bs=16065b STATS on target: watch -n60 -- kill -USR1 $(pgrep dd)
+
+# Find and copy scattered mp3 files into one directory
+find . -iname '*.mp3' -type f -print0 | xargs -I{} -0 cp {} </path>
+
+# convert pdf to graphic file format (jpg , png , tiff ... )
+convert sample.pdf sample.jpg
+
+# Match a URL
+egrep 'https?://([[:alpha:]]([-[:alnum:]]+[[:alnum:]])*\.)+[[:alpha:]]{2,3}(:\d+)?(/([-\w/_\.]*(\?\S+)?)?)?'
+
+# set your ssd disk as a non-rotating medium
+sudo echo 0 > /sys/block/sdb/queue/rotational
+
+# urldecoding
+perl -pe 's/%([0-9a-f]{2})/sprintf("%s", pack("H2",$1))/eig'
+
+# Plot frequency distribution of words from files on a terminal.
+cat *.c | { printf "se te du\nplot '-' t '' w dots\n"; tr '[[:upper:]]' '[[:lower:]]' | tr -s [[:punct:][:space:]] '\n' | sort | uniq -c | sort -nr | head -n 100 | awk '{print $1}END{print "e"}'; } | gnuplot
+
+# Real time satellite wheather wallpaper
+curl http://www.cpa.unicamp.br/imagens/satelite/ult.gif | xli -onroot -fill stdin
+
+# AD: Diff 2 entire servers at ScriptRock.com

@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Get list of servers with a specific port open
+nmap -sT -p 80 -oG - 192.168.1.* | grep open
+
+# Simple multi-user encrypted chat server for 5 users
+ncat -vlm 5 --ssl --chat 9876
+
+# Check if your ISP is intercepting DNS queries
+dig +short which.opendns.com txt @208.67.220.220
+
+# Remove a range of lines from a file
+sed -i <file> -re '<start>,<end>d'
+
+# cat a bunch of small files with file indication
+grep . *
+
+# df without line wrap on long FS name
+df -P | column -t
+
+# Stop Flash from tracking everything you do.
+for i in ~/.adobe ~/.macromedia ; do ( rm $i/ -rf ; ln -s /dev/null $i ) ; done
+
+# List all open ports and their owning executables
+lsof -i -P | grep -i "listen"
+
+# Create a single PDF from multiple images with ImageMagick
+convert *.jpg output.pdf
+
+# Purge configuration files of removed packages on  debian based systems
+aptitude purge '~c'
+
+# Monitor open connections for httpd including listen, count and sort it per IP
+watch "netstat -plan|grep :80|awk {'print \$5'} | cut -d: -f 1 | sort | uniq -c | sort -nk 1"
+
+# Remote screenshot
+DISPLAY=":0.0" import -window root screenshot.png
+
+# Define words and phrases with google.
+define(){ local y="$@";curl -sA"Opera" "http://www.google.com/search?q=define:${y// /+}"|grep -Po '(?<=<li>)[^<]+'|nl|perl -MHTML::Entities -pe 'decode_entities($_)' 2>/dev/null;}
+
+# track flights from the command line
+flight_status() { if [[ $# -eq 3 ]];then offset=$3; else offset=0; fi; curl "http://mobile.flightview.com/TrackByRoute.aspx?view=detail&al="$1"&fn="$2"&dpdat=$(date +%Y%m%d -d ${offset}day)" 2>/dev/null |html2text |grep ":"; }
+
+# Harder, Faster, Stronger SSH clients
+ssh -4 -C -c blowfish-cbc
+
+# Empty a file
+truncate -s0 file
+
+# Clean up poorly named TV shows.
+rename -v 's/.*[s,S](\d{2}).*[e,E](\d{2}).*\.avi/SHOWNAME\ S$1E$2.avi/' poorly.named.file.s01e01.avi
+
+# Pretty Print a simple csv in the command line
+column -s, -t <tmp.csv
+
+# Cleanup firefox's database.
+find ~/.mozilla/firefox/ -type f -name "*.sqlite" -exec sqlite3 {} VACUUM \;
+
+# check open ports
+lsof -Pni4 | grep LISTEN
+
+# Find Duplicate Files (based on MD5 hash)
+find -type f -exec md5sum '{}' ';' | sort | uniq --all-repeated=separate -w 33 | cut -c 35-
+
+# Triple monitoring in screen
+tmpfile=$(mktemp) && echo -e 'startup_message off\nscreen -t top htop\nsplit\nfocus\nscreen -t nethogs nethogs wlan0\nsplit\nfocus\nscreen -t iotop iotop' > $tmpfile && sudo screen -c $tmpfile
+
+# Save an HTML page, and covert it to a .pdf file
+wget $URL | htmldoc --webpage -f "$URL".pdf - ; xpdf "$URL".pdf &
+
+# Find broken symlinks and delete them
+find -L /path/to/check -type l -delete
+
+# create an emergency swapfile when the existing swap space is getting tight
+sudo dd if=/dev/zero of=/swapfile bs=1024 count=1024000;sudo mkswap /swapfile; sudo swapon /swapfile
+
+# AD: Diff 2 entire servers at ScriptRock.com

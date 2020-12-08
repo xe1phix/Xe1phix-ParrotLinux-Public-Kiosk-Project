@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Clean your broken terminal
+stty sane
+
+# Play music from youtube without download
+wget -q -O - `youtube-dl -b -g $url`| ffmpeg -i - -f mp3 -vn -acodec libmp3lame -| mpg123  -
+
+# generate a unique and secure password for every website that you login to
+sitepass() { echo -n "$@" |  md5sum | sha1sum | sha224sum | sha256sum | sha384sum | sha512sum | gzip - | strings -n 1 | tr -d "[:space:]"  | tr -s '[:print:]' | tr '!-~' 'P-~!-O' | rev | cut -b 2-11; history -d $(($HISTCMD-1)); }
+
+# Search back through previous commands
+Ctrl-R <search-text>
+
+# Identify differences between directories (possibly on different servers)
+diff <(ssh server01 'cd config; find . -type f -exec md5sum {} \;| sort -k 2') <(ssh server02 'cd config;find . -type f -exec md5sum {} \;| sort -k 2')
+
+# Show directories in the PATH, one per line
+echo $PATH | tr \: \\n
+
+# Replace spaces in filenames with underscores
+rename -v 's/ /_/g' *
+
+# Show directories in the PATH, one per line
+echo "${PATH//:/$'\n'}"
+
+# move a lot of files over ssh
+rsync -az /home/user/test user@sshServer:/tmp/
+
+# find and delete empty dirs, start in current working dir
+find . -empty -type d -exec rmdir {} +
+
+# Convert "man page" to text file
+man ls | col -b > ~/Desktop/man_ls.txt
+
+# List your largest installed packages.
+wajig large
+
+# Monitor TCP opened connections
+watch -n 1 "netstat -tpanl | grep ESTABLISHED"
+
+# Fix Ubuntu's Broken Sound Server
+sudo killall -9 pulseaudio; pulseaudio >/dev/null 2>&1 &
+
+# Download all Delicious bookmarks
+curl -u username -o bookmarks.xml https://api.del.icio.us/v1/posts/all
+
+# beep when a server goes offline
+while true; do [ "$(ping -c1W1w1 server-or-ip.com | awk '/received/ {print $4}')" != 1 ] && beep; sleep 1; done
+
+# Number of open connections per ip.
+netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
+
+# Create a favicon
+convert -colors 256 -resize 16x16 face.jpg face.ppm && ppmtowinicon -output favicon.ico face.ppm
+
+# Check Ram Speed and Type in Linux
+sudo dmidecode --type 17 | more
+
+# Run the Firefox Profile Manager
+firefox -no-remote -P
+
+# Add forgotten changes to the last git commit
+git commit --amend
+
+# Sort dotted quads
+sort -nt . -k 1,1 -k 2,2 -k 3,3 -k 4,4
+
+# Extract audio from a video
+ffmpeg -i video.avi -f mp3 audio.mp3
+
+# Get Dell Service Tag Number from a Dell Machine
+sudo dmidecode | grep Serial\ Number | head -n1
+
+# Resume aborted scp file transfers
+rsync --partial --progress --rsh=ssh SOURCE DESTINATION
+
+# AD: Diff 2 entire servers at ScriptRock.com

@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Perform a reverse DNS lookup
+dig -x 74.125.45.100
+
+# Disable beep sound from your computer
+echo "blacklist pcspkr"|sudo tee -a /etc/modprobe.d/blacklist.conf
+
+# Rip DVD to YouTube ready MPEG-4 AVI file using mencoder
+mencoder -oac mp3lame -lameopts cbr=128 -ovc lavc -lavcopts vcodec=mpeg4 -ffourcc xvid -vf scale=320:-2,expand=:240:::1 -o output.avi dvd://0
+
+# Quick command line math
+expr 512 \* 7
+
+# Catch a proccess from a user and strace it.
+x=1; while [ $x = 1 ]; do process=`pgrep -u username`; if [ $process ]; then x=0; fi;  done; strace -vvtf -s 256  -p $process
+
+# Show apps that use internet connection at the moment.
+netstat -lantp | grep -i establ | awk -F/ '{print $2}' | sort | uniq
+
+# Change Title of Terminal Window to Verbose Info useful at Login
+echo -ne "\033]0;`id -un`:`id -gn`@`hostname||uname -n|sed 1q` `who -m|sed -e "s%^.* \(pts/[0-9]*\).*(\(.*\))%[\1] (\2)%g"` [`uptime|sed -e "s/.*: \([^,]*\).*/\1/" -e "s/ //g"` / `ps aux|wc -l`]\007"
+
+# Record MP3 audio via ALSA using ffmpeg
+ffmpeg -f alsa -ac 2 -i hw:1,0 -acodec libmp3lame -ab 96k output.mp3
+
+# Happy Days
+echo {1..3}" o'clock" ROCK
+
+# search for a file in PATH
+type <filename>
+
+# no more line wrapping in your terminal
+function nowrap { export COLS=`tput cols` ; cut -c-$COLS ; unset COLS ; }
+
+# Display the standard deviation of a column of numbers with awk
+awk '{delta = $1 - avg; avg += delta / NR; mean2 += delta * ($1 - avg); } END { print sqrt(mean2 / NR); }'
+
+# Edit your command in vim ex mode by &lt;ctrl-f&gt;
+<ctrl-f> in ex mode in vim
+
+# How to know the total number of packages available
+apt-cache stats
+
+# List of reverse DNS records for a subnet
+nmap -R -sL 209.85.229.99/27 | awk '{if($3=="not")print"("$2") no PTR";else print$3" is "$2}' | grep '('
+
+# How to run a command on a list of remote servers read from a file
+dsh -M -c -f servers -- "command HERE"
+
+# Get Dollar-Euro exchage rate
+curl -s wap.kitco.com/exrate.wml | awk ' BEGIN { x=0; FS = "<" } { if ($0~"^<br/>") {x=0} if (x==1) {print $1} if ($0~"EUR/US") {x=1} }'
+
+# An alarm clock using xmms2 and at
+at 6:00 <<< "xmms2 play"
+
+# scp a good script from host A which has no public access to host C, but with a hop by host B
+cat nicescript |ssh middlehost "cat | ssh -a root@securehost 'cat > nicescript'"
+
+# get the latest version
+mirror=ftp://somemirror.com/with/alot/versions/but/no/latest/link; latest=$(curl -l $mirror/ 2>/dev/null | grep util | tail -1); wget $mirror/$latest
+
+# print file without duplicated lines usind awk
+awk '!($0 in a) {a[$0];print}' file
+
+# Copy via tar pipe while preserving file permissions (cp does not!; run this command with root!)
+cp -pr olddirectory newdirectory
+
+# YES = NO
+yes n
+
+# Print a random 8 digit number
+jot -r -n 8 0 9 | rs -g 0
+
+# for all who don't have the watch command
+watch() { while test :; do clear; date=$(date); echo -e "Every "$1"s: $2 \t\t\t\t $date"; $2; sleep $1; done }
+
+# AD: Diff 2 entire servers at ScriptRock.com

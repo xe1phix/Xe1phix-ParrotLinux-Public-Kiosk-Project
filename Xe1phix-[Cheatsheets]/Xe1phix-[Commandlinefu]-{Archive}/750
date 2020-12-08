@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# play high-res video files on a slow processor
+mplayer -framedrop -vfm ffmpeg -lavdopts lowres=1:fast:skiploopfilter=all
+
+# Create directory named after current date
+mkdir $(date +%Y%m%d)
+
+# Displays the attempted user name, ip address, and time of SSH failed logins on Debian machines
+awk '/sshd/ && /Failed/ {gsub(/invalid user/,""); printf "%-12s %-16s %s-%s-%s\n", $9, $11, $1, $2, $3}' /var/log/auth.log
+
+# Monitor dynamic changes in the dmesg log.
+watch "dmesg |tail -15"
+
+# Generate a list of installed packages on Debian-based systems
+dpkg --get-selections > LIST_FILE
+
+# find the process that is using a certain port e.g. port 3000
+lsof -P | grep ':3000'
+
+# Pause Current Thread
+ctrl-z
+
+# Convert .wma files to .ogg with ffmpeg
+find -name '*wma' -exec ffmpeg -i {} -acodec vorbis -ab 128k {}.ogg \;
+
+# Find distro name and/or version/release
+cat /etc/*-release
+
+# Generate Random Passwords
+< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c6
+
+# bash shortcut: !$ !^ !* !:3 !:h and !:t
+echo foo bar foobar barfoo && echo !$ !^  !:3 !* &&  echo /usr/bin/foobar&& echo !$:h !$:t
+
+# Grep without having it show its own process in the results
+ps aux | grep "[s]ome_text"
+
+# Find recursively, from current directory down, files and directories whose names contain single or multiple whitespaces and replace each such occurrence with a single underscore.
+find  ./  -name '*'  -exec  rename  's/\s+/_/g'  {}  \;
+
+# Tells which group you DON'T belong to (opposite of command "groups") --- uses sed
+sed -e "/$USER/d;s/:.*//g" /etc/group | sed -e :a -e '/$/N;s/\n/ /;ta'
+
+# Quickly get summary of sizes for files and folders
+du -sh *
+
+# Echo the latest commands from commandlinefu on the console
+wget -O - http://www.commandlinefu.com/commands/browse/rss 2>/dev/null | awk '/\s*<title/ {z=match($0, /CDATA\[([^\]]*)\]/, b);print b[1]} /\s*<description/ {c=match($0, /code>(.*)<\/code>/, d);print d[1]"\n"} '
+
+# du with colored bar graph
+du -x --max-depth=1|sort -rn|awk -F / -v c=$COLUMNS 'NR==1{t=$1} NR>1{r=int($1/t*c+.5); b="\033[1;31m"; for (i=0; i<r; i++) b=b"#"; printf " %5.2f%% %s\033[0m %s\n", $1/t*100, b, $2}'|tac
+
+# drop first column of output by piping to this
+awk '{ $1="";print}'
+
+# Mount a VMware virtual disk (.vmdk) file on a Linux box
+kpartx -av <image-flat.vmdk>; mount -o /dev/mapper/loop0p1 /mnt/vmdk
+
+# Get the Nth argument of the last command (handling spaces correctly)
+!:n
+
+# Convert JSON to YAML
+ruby -ryaml -rjson -e 'puts YAML.dump(JSON.parse(STDIN.read))' < file.json > file.yaml
+
+# The fastest remote directory rsync over ssh archival I can muster (40MB/s over 1gb NICs)
+rsync -aHAXxv --numeric-ids --delete --progress -e "ssh -T -c arcfour -o Compression=no -x" user@<source>:<source_dir> <dest_dir>
+
+# open two files side by side in vim (one window, two panes)
+vim -O file1 file2
+
+# Temporarily ignore mismatched SSH host key
+ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no username@host
+
+# Remove all zero size files from current directory (not recursive)
+find . -maxdepth 1 -size 0c -delete
+
+# AD: Diff 2 entire servers at ScriptRock.com

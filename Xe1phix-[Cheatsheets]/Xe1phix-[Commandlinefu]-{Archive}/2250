@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Google URL shortener
+googl () { curl -s -d "url=${1}" http://goo.gl/api/url | sed -n "s/.*:\"\([^\"]*\).*/\1\n/p" ;}
+
+# Upload folder to imageshack.us (forum)
+imageshack() { for files in *; do curl -H Expect: -F fileupload="@$files" -F xml=yes -# "http://www.imageshack.us/index.php" | grep image_link | sed -e 's/<image_link>/[IMG]/g' -e 's/<\/image_link>/[\/IMG]/g'; done; }
+
+# Kill any process with one command using program name
+kill -9 `ps ax | egrep [f]elix.jar | egrep -o -e '^ *[0-9]+'`
+
+# Get Futurama quotations from slashdot.org servers
+curl -Is slashdot.org | sed -n '5p' | sed 's/^X-//'
+
+# write the output of a command to /var/log/user.log... each line will contain $USER, making this easy to grep for.
+log() { (echo "\$ $@";$@) | logger -t $USER; }
+
+# Randomize lines in a file
+sort -R SOMEFILE
+
+# Randomize lines in a file
+shuf SOMEFILE
+
+# kill some pids without specific pid
+pkill -9 search_criteria
+
+# Verify if ntpd is working properly
+ntpq -p
+
+# print shared library dependencies
+LD_TRACE_LOADED_OBJECTS=1 name_of_executable
+
+# Unzip multiple files with one command
+unzip '*.zip'
+
+# Trace a DNS query from root to the authoritive servers.
+dig +trace google.com
+
+# Boot another OS at next startup
+echo "savedefault --default=2 --once" | grub --batch; sudo reboot
+
+# preserve disk; keep OS clean
+ram() { for i in /tmp /altroot;do mount -t tmpfs tmpfs $i;done&& for i in /var /root /etc $HOME; do find -d $i |cpio -pdmv /tmp&& mount -t tmpfs tmpfs $i&& mv -v /tmp$i/* $i&& rm -vrf /tmp$i ; done ;} usage: (in rc sequence) ram
+
+# Install your ssh key file on a remote system
+ssh user@remote 'cat >> ~/.ssh/authorized_keys2' < ~/.ssh/id_rsa.pub
+
+# distribution specific information
+lsb_release -a
+
+# For finding out if something is listening on a port and if so what the daemon is.
+fuser -n tcp {0..65535}
+
+# execute your commands hiding secret bits from history records
+read -e -s -p "Password: " password
+
+# List files by quoting or escaping special characters.
+ls --quoting-style={escape,shell,c}
+
+# I finally found out how to use notify-send with at or cron
+echo notify-send test | at now+1minute
+
+# List files with full path
+find $(pwd) -maxdepth 1
+
+# Extract all of the files on an RPM on a non-RPM *nix
+rpm2cpio package.rpm |cpio -dimv
+
+# List all authors of a particular git project
+git log --format='%aN <%aE>' | awk '{arr[$0]++} END{for (i in arr){print arr[i], i;}}' | sort -rn | cut -d\  -f2-
+
+# vim's pastetoggle: when you press f9 'paste' is on , press f9 again and 'paste' is off, and so forth (works in insert-mode and command-mode)
+:set pt=<f9>
+
+# bash script to zip a folder while ignoring git files and copying it to dropbox
+git archive HEAD --format=zip > archive.zip
+
+# AD: Diff 2 entire servers at ScriptRock.com

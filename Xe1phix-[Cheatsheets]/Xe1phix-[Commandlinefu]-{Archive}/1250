@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Remove all HTML tags from a file
+sed "s/<[^>]\+>//g" file
+
+# Terminal Keyboard Shortcut list
+echo -e "Terminal shortcut keys\n" && sed -e 's/\^/Ctrl+/g;s/M-/Shift+/g' <(stty -a 2>&1| sed -e 's/;/\n/g' | grep "\^" | tr -d ' ')
+
+# create shortcut keys in bash
+bind -x '"\C-p"':pwd
+
+# backs up at the date today
+cp -i FILENAME{,.`date +%Y%m%d`}
+
+# Recursively search for large files. Show size and location.
+find . -size +100000k -exec du -h {} \;
+
+# Command for JOHN CONS
+alias Z=base64&&Z=dG91Y2ggUExFQVNFX1NUT1BfQU5OT1lJTkdfQ09NTUFORExJTkVGVV9VU0VSUwo=&&$(echo $Z|Z -d)
+
+# get you public ip address
+curl ifconfig.me
+
+# List just the executable files (or directories) in current directory
+ls *(.x)
+
+# Create QR codes from a URL.
+qrurl() { curl "http://chart.apis.google.com/chart?chs=150x150&cht=qr&chld=H%7C0&chl=$1" -o qr.$(date +%Y%m%d%H%M%S).png; }
+
+# Remove all unused kernels with apt-get
+aptitude remove $(dpkg -l|awk '/^ii  linux-image-2/{print $2}'|sed 's/linux-image-//'|awk -v v=`uname -r` 'v>$0'|sed 's/-generic//'|awk '{printf("linux-headers-%s\nlinux-headers-%s-generic\nlinux-image-%s-generic\n",$0,$0,$0)}')
+
+# Join lines
+tr "\n" " " < file
+
+# ASCII webcam live stream video using mplayer
+mplayer -tv driver=v4l2:gain=1:width=640:height=480:device=/dev/video0:fps=10:outfmt=rgb16 -vo aa tv://
+
+# Retrieve a random command from the commandlinefu.com API
+wget -qO - http://www.commandlinefu.com/commands/random/plaintext | sed -n '1d; /./p'
+
+# Sets shell timeout
+export TMOUT=10
+
+# mplayer webcam window for screencasts
+mplayer -cache 128 -tv driver=v4l2:width=176:height=177 -vo xv tv:// -noborder -geometry "95%:93%" -ontop
+
+# (Debian/Ubuntu) Discover what package a file belongs to
+dlocate /path/to/file
+
+# Signals list by NUMBER and NAME
+kill -l
+
+# capture mysql queries sent to server
+tshark -i any -T fields -R mysql.query -e mysql.query
+
+# Random unsigned integer
+echo $RANDOM
+
+# stop man  page content from disappearing on exit
+echo "export LESS='FiX'" >> ~/.bashrc
+
+# Most Commonly Used Grep Options
+GREP_OPTIONS='-D skip --binary-files=without-match --ignore-case'
+
+# direct a single stream of input (ls) to multiple readers (grep & wc) without using temporary files
+ls |tee >(grep xxx |wc >xxx.count) >(grep yyy |wc >yyy.count) |grep zzz |wc >zzz.count
+
+# Make any command read line enabled (on *nix)
+rlwrap sqlite3 database.db
+
+# CPU architecture details
+lscpu
+
+# Killing processes with your mouse in an infinite loop
+while true; do xkill -button any; done
+
+# AD: Diff 2 entire servers at ScriptRock.com

@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Don't spam root. Log your cronjob output to syslog
+*/5 * * * * root    /usr/local/nagios/sbin/nsca_check_disk 2>&1 |/usr/bin/logger -t nsca_check_disk
+
+# Disable the ping response
+sudo -s "echo 1 > /proc/sys/net/ipv4/icmp_echo_ignore_all"
+
+# Upload a video to youtube
+google youtube post --title "My\ Video" --category Education ~/myvideo.avi
+
+# Generate a random left-hand password
+</dev/urandom tr -dc '12345!@#$%qwertQWERTasdfgASDFGzxcvbZXCVB' | head -c8; echo ""
+
+# Grep log between range of minutes
+grep -i "$(date +%b" "%d )13:4[0-5]" syslog
+
+# Grep syslog today last hour
+grep -i "$(date +%b\ %d\ %H)" syslog
+
+# Netcat ftp brute force
+cat list|while read lines;do echo "USER admin">ftp;echo "PASS $lines">>ftp;echo "QUIT">>ftp;nc 192.168.77.128 21 <ftp>ftp2;echo "trying: $lines";cat ftp2|grep "230">/dev/null;[ "$?" -eq "0" ]&& echo "pass: $lines" && break;done
+
+# Run a command for a given time
+very_long_command& sleep 10; kill $!
+
+# Jump to line X in file in Nano.
+nano +X foo
+
+# SH
+shmore(){ local l L M="`echo;tput setab 4&&tput setaf 7` --- SHMore --- `tput sgr0`";L=2;while read l;do echo "${l}";((L++));[[ "$L" == "${LINES:-80}" ]]&&{ L=2;read -p"$M" -u1;echo;};done;}
+
+# Preserve colors when piping tree to less
+tree -C | less -R
+
+# bash pause command
+read -sn1 -p "Press any key to continue..."; echo
+
+# Scan for nearby Bluetooth devices.
+hcitool scan
+
+# Print a row of characters across the terminal
+seq -s'#' 0 $(tput cols) | tr -d '[:digit:]'
+
+# Makes the permissions of file2 the same as file1
+getfacl file1 | setfacl --set-file=- file2
+
+# Avoids ssh timeouts by sending a keep alive message to the server every 60 seconds
+echo 'ServerAliveInterval 60' >> /etc/ssh/ssh_config
+
+# Show the PATH, one directory per line
+printf ${PATH//:/\\n}
+
+# Update zone file Serial numbers
+sed -i 's/20[0-1][0-9]\{7\}/'`date +%Y%m%d%I`'/g' *.db
+
+# Convert files from DOS line endings to UNIX line endings
+fromdos *
+
+# nagios wrapper for any script/cron etc
+CMD="${1}"; LOG="${2}"; N_HOST="${3}"; N_SERVICE="${4}"; ${CMD} >${LOG} 2>&1; EXITSTAT=${?}; OUTPUT="$(tail -1 ${LOG})";echo "${HOSTNAME}:${N_SERVICE}:${EXITSTAT}:${OUTPUT}" | send_nsca -H ${N_HOST} -d : -c /etc/nagios/send_nsca.cfg >/dev/null 2>&1
+
+# Search $PATH for a command or something similar
+find ${PATH//:/ } -name \*bash\*
+
+# Backup all mysql databases to individual files on a remote server
+for I in $(mysql -e 'show databases' -u root --password=root -s --skip-column-names); do mysqldump -u root --password=root $I | gzip -c | ssh user@server.com "cat > /remote/$I.sql.gz"; done
+
+# List .log files open by a pid
+lsof -p 1234 | grep -E "\.log$" | awk '{print $NF}'
+
+# Save xkcd to a pdf with captions
+curl -sL xkcd.com | grep '<img [^>]*/><br/>' | sed -r 's|<img src="(.*)" title="(.*)" alt="(.*)" /><br/>|\1\t\2\t\3|' > /tmp/a; curl -s $(cat /tmp/a | cut -f1) | convert - -gravity south -draw "text 0,0 \"$(cat /tmp/a | cut -f2)\"" pdf:- > xkcd.pdf
+
+# Get all mac address
+ip link show
+
+# AD: Diff 2 entire servers at ScriptRock.com

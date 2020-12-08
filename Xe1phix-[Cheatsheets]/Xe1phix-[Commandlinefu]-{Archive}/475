@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Follow tail by name (fix for rolling logs with tail -f)
+tail -F file
+
+# Show git branches by date - useful for showing active branches
+for k in `git branch|perl -pe s/^..//`;do echo -e `git show --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" $k|head -n 1`\\t$k;done|sort -r
+
+# Get your public ip using dyndns
+curl -s http://checkip.dyndns.org/ | grep -o "[[:digit:].]\+"
+
+# Display current bandwidth statistics
+ifstat -nt
+
+# Given process ID print its environment variables
+sed 's/\o0/\n/g' /proc/INSERT_PID_HERE/environ
+
+# restoring some data from a corrupted text file
+( cat badfile.log ; tac badfile.log | tac ) > goodfile.log
+
+# view the system console remotely
+sudo cat /dev/vcs1 | fold -w 80
+
+# Look up the definition of a word
+curl dict://dict.org/d:something
+
+# Diff files on two remote hosts.
+diff <(ssh alice cat /etc/apt/sources.list) <(ssh bob cat /etc/apt/sources.list)
+
+# Ctrl+S Ctrl+Q terminal output lock and unlock
+Ctrl+S Ctrl+Q
+
+# Redirect STDIN
+< /path/to/file.txt grep foo
+
+# I hate `echo X | Y`
+base64 -d <<< aHR0cDovL3d3dy50d2l0dGVyc2hlZXAuY29tL3Jlc3VsdHMucGhwP3U9Y29tbWFuZGxpbmVmdQo=
+
+# Send keypresses to an X application
+xvkbd -xsendevent -text "Hello world"
+
+# Add calendar to desktop wallpaper
+convert -font -misc-fixed-*-*-*-*-*-*-*-*-*-*-*-* -fill black -draw "text 270,260 \" `cal` \"" testpic.jpg newtestpic.jpg
+
+# Run any GUI program remotely
+ssh -fX <user>@<host> <program>
+
+# Browse system RAM in a human readable form
+sudo cat /proc/kcore | strings | awk 'length > 20' | less
+
+# Backup your hard drive with dd
+sudo dd if=/dev/sda of=/media/disk/backup/sda.backup
+
+# Calculates the date 2 weeks ago from Saturday the specified format.
+date -d '2 weeks ago Saturday' +%Y-%m-%d
+
+# Get Cisco network information
+tcpdump -nn -v -i eth0 -s 1500 -c 1 'ether[20:2] == 0x2000'
+
+# Press ctrl+r in a bash shell and type a few letters of a previous command
+^r in bash begins a reverse-search-history with command completion
+
+# Quick glance at who's been using your system recently
+last  | grep -v "^$" | awk '{ print $1 }' | sort -nr | uniq -c
+
+# ping a range of IP addresses
+nmap -sP 192.168.1.100-254
+
+# Use last argument of last command
+file !$
+
+# Count files beneath current directory (including subfolders)
+find . -type f | wc -l
+
+# Determine if a port is open with bash
+: </dev/tcp/127.0.0.1/80
+
+# AD: Diff 2 entire servers at ScriptRock.com

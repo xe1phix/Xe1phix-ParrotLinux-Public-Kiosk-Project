@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# find .txt files inside a directory and replace every occurrance of a word inside them via sed
+find . -name '*.txt' -exec sed -ir 's/this/that/g' {} \;
+
+# split a string (2)
+read VAR1 VAR2 VAR3 < <(echo aa bb cc); echo $VAR2
+
+# which process has a port open
+lsof -i :80
+
+# Redirect a filehandle from a currently running process.
+yes 'Y'|gdb -ex 'p close(1)' -ex 'p creat("/tmp/output.txt",0600)' -ex 'q' -p pid
+
+# Synthesize text as speech
+echo "hello world"  | festival --tts
+
+# Mute xterm
+xset b off
+
+# Force machine to reboot no matter what (even if /sbin/shutdown is hanging)
+echo 1 > /proc/sys/kernel/sysrq; echo b > /proc/sysrq-trigger
+
+# vimdiff local and remote files via ssh
+vimdiff /path/to/file scp://remotehost//path/to/file
+
+# Generate a graph of package dependencies
+apt-cache dotty apache2 | dot -T png | display
+
+# Extract a remote tarball in the current directory without having to save it locally
+curl http://example.com/foo.tar.gz | tar zxvf -
+
+# Copy history from one terminal to another
+history -w <switch to another terminal> history -r
+
+# Create an SSH tunnel for accessing your remote MySQL database with a local port
+ssh -CNL 3306:localhost:3306 user@site.com
+
+# Parse a quoted .csv file
+awk -F'^"|", "|"$' '{ print $2,$3,$4 }' file.csv
+
+# Does a full update and cleaning in one line
+sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoclean && sudo apt-get autoremove
+
+# Copy something to multiple SSH hosts with a Bash loop
+for h in host1 host2 host3 host4 ; { scp file user@$h:/destination_path/ ; }
+
+# ubuntu easter eggs
+apt-get moo
+
+# Removes file with a dash in the beginning of the name
+rm -- --myfile
+
+# quick input
+alt + .
+
+# Configure second monitor to sit to the right of laptop
+xrandr --output LVDS --auto --output VGA --auto --right-of LVDS
+
+# know the current running shell (the true)
+echo $0
+
+# Create a mirror of a local folder, on a remote server
+rsync -e "/usr/bin/ssh -p22" -a --progress --stats --delete -l -z -v -r -p /root/files/ user@remote_server:/root/files/
+
+# top 10 commands used
+sed -e 's/ *$//' ~/.bash_history | sort | uniq -cd | sort -nr | head
+
+# rsync with progress bar.
+rsync -av --progress ./file.txt user@host:/path/to/dir
+
+# Quick way to sum every numbers in a file written line by line
+(sed 's/^/x+=/' [yourfile] ; echo x) | bc
+
+# Clear mistyped passwords from password prompt
+^u
+
+# AD: Diff 2 entire servers at ScriptRock.com

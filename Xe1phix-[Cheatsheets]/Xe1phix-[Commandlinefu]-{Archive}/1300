@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# See why a program can't seem to access a file
+strace php tias.php -e open,access 2>&1 | grep foo.txt
+
+# Open files in a split windowed Vim
+vim -o file1 file2...
+
+# Unix commandline history substitution like ^foo^bar BUT for multiple replacements
+!!:gs/Original/New/
+
+# Limit bandwidth usage by any program
+trickle -d 60 wget http://very.big/file
+
+# Watch active calls on an Asterisk PBX
+watch -n 1 "sudo asterisk -vvvvvrx 'core show channels' | grep call"
+
+# Multi-line grep
+perl -ne 'BEGIN{undef $/}; print "$ARGV\t$.\t$1\n" if m/(first line.*\n.*second line)/mg'
+
+# split and combine different pages from different pdf's
+pdftk A=chapters.pdf B=headings.pdf C=covers.pdf cat C1 B1 A1-7 B2 A8-10 C2 output book.pdf
+
+# Download free e-books
+wget -erobots=off --user-agent="Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.3) Gecko/2008092416 Firefox/3.0.3" -H -r -l2 --max-redirect=1 -w 5 --random-wait -PmyBooksFolder -nd --no-parent -A.pdf http://URL
+
+# Get the weather forecast for the next 24 to 48 for your location.
+weather(){ curl -s "http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=${@:-<YOURZIPORLOCATION>}"|perl -ne '/<title>([^<]+)/&&printf "%s: ",$1;/<fcttext>([^<]+)/&&print $1,"\n"';}
+
+# Use bash history with process substitution
+<(!!)
+
+# Define words and phrases with google.
+define(){ local y="$@";curl -sA"Opera" "http://www.google.com/search?q=define:${y// /+}"|grep -Eo '<li>[^<]+'|sed 's/^<li>//g'|nl|/usr/bin/perl -MHTML::Entities -pe 'decode_entities($_)';}
+
+# Do some learning...
+for i in $(ls /usr/bin); do whatis $i | grep -v nothing; done | more
+
+# Check RAM size
+free -mto
+
+# Remove everything except that file
+( shopt -s extglob; rm !(<PATTERN>) )
+
+# get bofh excuse from a trusted source :-)
+telnet bofh.jeffballard.us 666
+
+# Rename .JPG to .jpg recursively
+find /path/to/images -name '*.JPG' -exec bash -c 'mv "$1" "${1/%.JPG/.jpg}"' -- {} \;
+
+# Increase mplayer maximum volume
+mplayer dvd:// -softvol -softvol-max 500
+
+# Display the output of a command from the first line until the first instance of a regular expression.
+command | sed -n '1,/regex/p'
+
+# Check reverse DNS
+dig +short -x {ip}
+
+# Show when filesystem was created
+dumpe2fs -h /dev/DEVICE | grep 'created'
+
+# See non printable caracters like tabulations, CRLF, LF line terminators ( colored )
+od -c <FILE> | grep --color '\\.'
+
+# generate random password
+openssl rand -base64 6
+
+# Determine what an process is actually doing
+sudo strace -pXXXX -e trace=file
+
+# Shell function to exit script with error in exit status and print optional message to stderr
+die(){ result=$1;shift;[ -n "$*" ]&&printf "%s\n" "$*" >&2;exit $result;}
+
+# Mount a Windows share on the local network (Ubuntu) with user rights and use a specific samba user
+sudo mount -t cifs -o user,username="samba username" //$ip_or_host/$sharename /mnt
+
+# AD: Diff 2 entire servers at ScriptRock.com

@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Create a nifty overview of the hardware in your computer
+lshw -html > hardware.html
+
+# delete a line from your shell history
+history -d
+
+# Save your sessions in vim to resume later
+:mksession! <filename>
+
+# How to establish a remote Gnu screen session that you can re-connect to
+ssh -t user@some.domain.com /usr/bin/screen -xRR
+
+# Bind a key with a command
+bind -x '"\C-l":ls -l'
+
+# Random Number Between 1 And X
+echo $[RANDOM%X+1]
+
+# notify yourself when a long-running command which has ALREADY STARTED is finished
+<ctrl+z> fg; notify_me
+
+# Create colorized html file from Vim or Vimdiff
+:TOhtml
+
+# GREP a PDF file.
+pdftotext [file] - | grep 'YourPattern'
+
+# convert unixtime to human-readable
+date -d @1234567890
+
+# Convert PDF to JPG
+for file in `ls *.pdf`; do convert -verbose -colorspace RGB -resize 800 -interlace none -density 300 -quality 80 $file `echo $file | sed 's/\.pdf$/\.jpg/'`; done
+
+# Prettify an XML file
+tidy -xml -i -m [file]
+
+# Tell local Debian machine to install packages used by remote Debian machine
+ssh remotehost 'dpkg --get-selections' | dpkg --set-selections && dselect install
+
+# find all file larger than 500M
+find / -type f -size +500M
+
+# Lists all listening ports together with the PID of the associated process
+lsof -Pan -i tcp -i udp
+
+# Alias HEAD for automatic smart output
+alias head='head -n $((${LINES:-`tput lines 2>/dev/null||echo -n 12`} - 2))'
+
+# Colorful man
+apt-get install most && update-alternatives --set pager /usr/bin/most
+
+# live ssh network throughput test
+yes | pv | ssh $host "cat > /dev/null"
+
+# copy working directory and compress it on-the-fly while showing progress
+tar -cf - . | pv -s $(du -sb . | awk '{print $1}') | gzip > out.tgz
+
+# prints line numbers
+nl
+
+# A fun thing to do with ram is actually open it up and take a peek. This command will show you all the string (plain text) values in ram
+sudo strings /dev/mem
+
+# Diff on two variables
+diff <(echo "$a") <(echo "$b")
+
+# Manually Pause/Unpause Firefox Process with POSIX-Signals
+killall -STOP -m firefox
+
+# Use lynx to run repeating website actions
+lynx -accept_all_cookies -cmd_script=/your/keystroke-file
+
+# Display a list of committers sorted by the frequency of commits
+svn log -q|grep "|"|awk "{print \$3}"|sort|uniq -c|sort -nr
+
+# AD: Diff 2 entire servers at ScriptRock.com

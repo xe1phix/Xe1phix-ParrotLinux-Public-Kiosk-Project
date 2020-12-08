@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Alias for getting OpenPGP keys for Launchpad PPAs on Ubuntu
+alias launchpadkey="sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys"
+
+# Using bash inline
+<<<"k=1024; m=k*k; g=k*m; g" bc
+
+# Merges given files line by line
+paste -d ',:' file1 file2 file3
+
+# Go (cd) directly into a new temp folder
+cd "$(mktemp -d)"
+
+# Dumping Audio stream from flv (using ffmpeg)
+ffmpeg -i <filename>.flv -vn <filename>.mp3
+
+# Convert a file from ISO-8859-1 (or whatever) to UTF-8 (or whatever)
+tcs -f 8859-1 -t utf /some/file
+
+# Execute multiple commands from history
+!219 ; !229 ; !221
+
+# burn an ISO image to writable CD
+wodim cdimage.iso
+
+# Interactively build regular expressions
+txt2regex
+
+# printing barcodes
+ls /home | head -64 | barcode -t 4x16 | lpr
+
+# vi keybindings with info
+info --vi-keys
+
+# Watch the progress of 'dd'
+dd if=/dev/urandom of=file.img bs=4KB& pid=$!
+
+# backup and synchronize entire remote folder locally (curlftpfs and rsync over FTP using FUSE FS)
+curlftpfs ftp://YourUsername:YourPassword@YourFTPServerURL /tmp/remote-website/ && rsync -av /tmp/remote-website/* /usr/local/data_latest && umount /tmp/remote-website
+
+# Find brute force attempts on SSHd
+cat /var/log/secure | grep sshd | grep Failed | sed 's/invalid//' | sed 's/user//' | awk '{print $11}' | sort | uniq -c | sort -n
+
+# raw MySQL output to use in pipes
+mysql DATABASE -N -s -r -e 'SQL COMMAND'
+
+# Edit the last or previous command line in an editor then execute
+fc [history-number]
+
+# List the largest directories & subdirectoties in the current directory sorted from largest to smallest.
+du -k | sort -r -n | more
+
+# Decreasing the cdrom device speed
+eject -x 4
+
+# Convert images to a multi-page pdf
+convert -adjoin -page A4 *.jpeg multipage.pdf
+
+# Poke a Webserver to see what it's powered by.
+wget -S -O/dev/null "INSERT_URL_HERE" 2>&1 | grep Server
+
+# Print text string vertically, one character per line.
+echo Print text vertically|sed 's/\(.\)/\1\n/g'
+
+# Exclude svn directories with grep
+grep -r --exclude-dir=.svn PATTERN PATH
+
+# Check for login failures and summarize
+zgrep "Failed password" /var/log/auth.log* | awk '{print $9}' | sort | uniq -c | sort -nr | less
+
+# Quickly find a count of how many times invalid users have attempted to access your system
+gunzip -c /var/log/auth.log.*.gz | cat - /var/log/auth.log /var/log/auth.log.0 | grep "Invalid user" | awk '{print $8;}' | sort | uniq -c | less
+
+# New files from parts of current buffer
+:n,m w newfile.txt
+
+# AD: Diff 2 entire servers at ScriptRock.com

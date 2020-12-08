@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# (Git) Revert files with changed mode, not content
+git diff --numstat | awk '{if ($1 == "0" && $2 == "0") print $3}'  | xargs git checkout HEAD
+
+# View webcam output using mplayer
+mplayer tv:// -tv driver=v4l2:width=640:height=480:device=/dev/video0:fps=30:outfmt=yuy2
+
+# Record audio and video from webcam using ffmpeg
+ffmpeg -f alsa -r 16000 -i hw:2,0 -f video4linux2 -s 800x600 -i /dev/video0 -r 30 -f avi -vcodec mpeg4 -vtag xvid -sameq -acodec libmp3lame -ab 96k output.avi
+
+# Happy Days
+echo {'1,2,3',4}" o'clock" ROCK
+
+# Dump dvd from a different machine onto this one.
+ssh user@machine_A dd if=/dev/dvd0 > dvddump.iso
+
+# Convert multiple files using avidemux
+for i in `ls`;do avidemux  --video-codec Xvid4 --load $i --save $i.mp4 --quit; done
+
+# Ignore a directory in SVN, permanently
+svn propset svn:ignore "*" tool/templates_c; svn commit -m "Ignoring tool/templates_c"
+
+# Share your terminal session (remotely or whatever)
+screen -x
+
+# Clone IDE Hard Disk
+sudo dd if=/dev/hda1 of=/dev/hdb2
+
+# When was your OS installed?
+ls -lct /etc/ | tail -1 | awk '{print $6, $7, $8}'
+
+# Create a large test file (taking no space).
+dd bs=1 seek=2TB if=/dev/null of=ext3.test
+
+# Download Apple movie trailers
+wget -U "QuickTime/7.6.2 (qtver=7.6.2;os=Windows NT 5.1Service Pack 3)" `echo http://movies.apple.com/movies/someHDmovie_720p.mov | sed 's/\([0-9][0-9]\)0p/h\10p/'`
+
+# Download entire commandlinefu archive to single file
+for x in `seq 0 25 $(curl "http://www.commandlinefu.com/commands/browse"|grep "Terminal - All commands" |perl -pe 's/.+(\d+),(\d+).+/$1$2/'|head -n1)`; do curl "http://www.commandlinefu.com/commands/browse/sort-by-votes/plaintext/$x" ; done > a.txt
+
+# Remotely sniff traffic and pass to snort
+ssh root@pyramid \ "tcpdump -nn -i eth1 -w -" | snort -c /etc/snort/snort.conf -r -
+
+# Show GCC-generated optimization commands when using the "-march=native" or "-mtune=native" switches for compilation.
+cc -march=native -E -v - </dev/null 2>&1 | grep cc1
+
+# return external ip
+wget -O - -q icanhazip.com
+
+# Get a regular updated list of zombies
+watch "ps auxw | grep 'defunct' | grep -v 'grep' | grep -v 'watch'"
+
+# get time in other timezones
+tzwatch
+
+# Copy ssh keys to user@host to enable password-less ssh logins.
+ssh-copy-id user@host
+
+# run a VirtualBox virtual machine without a gui
+VBoxHeadless -s <name|uuid>
+
+# Sum columns from CSV column $COL
+perl  -ne 'split /,/ ; $a+= $_[3]; END {print $a."\n";}' -f ./file.csv
+
+# Go to parent directory of filename edited in last command
+cd `dirname $_`
+
+# Sort your music
+for file in *.mp3;do mkdir -p "$(mp3info -p "%a/%l" "$file")" && ln -s "$file" "$(mp3info -p "%a/%l/%t.mp3" "$file")";done
+
+# use wget to check if a remote file exists
+wget --spider -v http://www.server.com/path/file.ext
+
+# convert a web page into a pdf
+touch $2;firefox -print $1 -printmode PDF -printfile $2
+
+# AD: Diff 2 entire servers at ScriptRock.com

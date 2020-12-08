@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Print one . instead of each line
+alias ...="awk '{fflush(); printf \".\"}' && echo \"\""
+
+# Ping all hosts on 192.168.1.0/24
+for i in {0..255} ; do (ping 192.168.1.$i -c 1  > /dev/null && echo "192.168.1.$i" & ) ; done
+
+# Show errors in the kernel ring buffer
+dmesg -xT -l err,crit,emerg
+
+# Securely stream (and save) a file from a remote server
+ssh USER@HOST cat REMOTE_FILE.mp4 | tee LOCAL_FILE.mp4 | mplayer -
+
+# Stream and copy a video from lan
+nc HOST PORT | tee movie.mp4 | mplayer -
+
+# guitar synthesizer in one line of C
+f=220;echo "int s=16e3/$f;main(i){unsigned char v[s];read(0,v,s);for(;;)putchar(v[i%s]=(v[i%s]+v[++i%s])/2);}"|gcc -x c -&&./a.out</dev/urandom|aplay -d 2
+
+# Convert JSON to YAML
+python -c 'import sys, yaml, json; yaml.safe_dump(json.load(sys.stdin), sys.stdout, default_flow_style=False)' < file.json > file.yaml
+
+# chmod - change file permissions of a file to be similar of another
+chmod --reference=file1 file2
+
+# ls -qaltr   # list directory in chronological order, most recent files at end of list
+ls -qaltr   # list directory in chronological order, most recent files at end of list
+
+# launch bash without using any letters
+${0/-/}
+
+# Create A Continuous Yahoo! News Ticker For The Terminal
+while true;do n="$(curl -s http://news.yahoo.com/rss/|sed 's/</\n/g'|grep "title>"|sed -e '/^\// d' -e 's/title>/---------- /g' -e '1,3d'|tr '\n' ' ')";for i in $(eval echo {0..${#n}});do echo -ne "\e[s\e[0;0H${n:$i:$COLUMNS}\e[u";sleep .15;done;done &
+
+# Migrate Server with rsync
+rsync -ayz -e ssh --exclude=/proc --exclude=/sys --exclude=/dev / root@NEWHOST:/MNTDIR
+
+# resume download using curl
+curl -C - -o partially_downloaded_file 'www.example.com/path/to/the/file'
+
+# Simulate slow network connection locally
+sudo tc qdisc add dev lo root netem delay 500ms
+
+# generate a randome 10 character password
+tr -dc A-Za-z0-9_ < /dev/urandom | head -c 10 | xargs
+
+# Make changes in .bashrc immediately available
+. ~/.bashrc
+
+# open two files on top of each other in vim (one window, two panes)
+vim -o file1 file2
+
+# vim as a pager - similar to less command but with color
+alias vless='/usr/share/vim/vimcurrent/macros/less.sh'
+
+# Remove comments from files
+sed -e '/^#/d' -e 's/#.*$//' in
+
+# Stop procrastination on Facebook.com
+sudo sh -c "echo '127.0.0.1 www.facebook.com' >> /etc/hosts"
+
+# Rank top 10 most frequently used commands
+history | cut -c8- | sort | uniq -c | sort -rn | head
+
+# Create a local compressed tarball from remote host directory
+ssh user@host "tar -cf - /path/to/dir" | gzip > dir.tar.gz
+
+# Print all lines between two line numbers
+awk 'NR >= 3 && NR <= 6' /path/to/file
+
+# Show network throughput
+tcpdump -w - |pv -bert >/dev/null
+
+# convert from decimal to hexadecimal
+hex() { printf "%X\n" $1; }
+
+# AD: Diff 2 entire servers at ScriptRock.com

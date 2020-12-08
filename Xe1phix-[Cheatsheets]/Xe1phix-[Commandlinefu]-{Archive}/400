@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Hide the name of a process listed in the `ps` output
+exec -a "/sbin/getty 38400 tty7" your_cmd -erase_all_files
+
+# Remove a line from a file using sed (useful for updating known SSH server keys when they change)
+ssh-keygen -R <thehost>
+
+# Show what PID is listening on port 80 on Linux
+fuser -v 80/tcp
+
+# save man-page as pdf
+man -t awk | ps2pdf - awk.pdf
+
+# List by size all of the directories in a given tree.
+du -h /path | sort -h
+
+# Find the most recently changed files (recursively)
+find . -type f -printf '%TY-%Tm-%Td %TT %p\n' | sort
+
+# All IP connected to  my host
+netstat -lantp | grep ESTABLISHED |awk '{print $5}' | awk -F: '{print $1}' | sort -u
+
+# rsync instead of scp
+rsync --progress --partial --rsh="ssh -p 8322" --bwlimit=100 --ipv4 user@domain.com:~/file.tgz .
+
+# Figure out what shell you're running
+echo $0
+
+# Download a file and uncompress it while it downloads
+wget http://URL/FILE.tar.gz -O - | tar xfz -
+
+# Rename all .jpeg and .JPG files to have .jpg extension
+rename 's/\.jpe?g$/.jpg/i' *
+
+# Remove Thumbs.db files from folders
+find ./ -name Thumbs.db -delete
+
+# List open files that have no links to them on the filesystem
+lsof +L1
+
+# Display BIOS Information
+# dd if=/dev/mem bs=1k skip=768 count=256 2>/dev/null | strings -n 8
+
+# open path with your default program (on Linux/*BSD)
+xdg-open [path]
+
+# Copy an element from the previous command
+!:1-3
+
+# View user activity per directory.
+sudo lsof -u someuser -a +D /etc
+
+# use the previous commands params in the current command
+!!:[position]
+
+# Mirror a directory structure from websites with an Apache-generated file indexes
+lftp -e "mirror -c" http://example.com/foobar/
+
+# Quickly share code or text from vim to others.
+:w !curl -F "sprunge=<-" http://sprunge.us | xclip
+
+# copy from host1 to host2, through your host
+ssh root@host1 "cd /somedir/tocopy/ && tar -cf - ." | ssh root@host2 "cd /samedir/tocopyto/ && tar -xf -"
+
+# Convert all Flac in a directory to Mp3 using maximum quality variable bitrate
+for file in *.flac; do flac -cd "$file" | lame -q 0 --vbr-new -V 0 - "${file%.flac}.mp3"; done
+
+# Limit bandwidth usage by apt-get
+sudo apt-get -o Acquire::http::Dl-Limit=30 upgrade
+
+# Tune your guitar from the command line.
+for n in E2 A2 D3 G3 B3 E4;do play -n synth 4 pluck $n repeat 2;done
+
+# grep -v with multiple patterns.
+grep 'test' somefile | grep -vE '(error|critical|warning)'
+
+# AD: Diff 2 entire servers at ScriptRock.com

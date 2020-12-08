@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# check the status of 'dd' in progress (OS X)
+CTRL + T
+
+# Find usb device
+diff <(lsusb) <(sleep 3s && lsusb)
+
+# Take screenshot through SSH
+DISPLAY=:0.0 import -window root /tmp/shot.png
+
+# Opens vi/vim at pattern in file
+vi +/pattern [file]
+
+# April Fools' Day Prank
+PROMPT_COMMAND='if [ $RANDOM -le 3200 ]; then printf "\0337\033[%d;%dH\033[4%dm \033[m\0338" $((RANDOM%LINES+1)) $((RANDOM%COLUMNS+1)) $((RANDOM%8)); fi'
+
+# Pipe stdout and stderr, etc., to separate commands
+some_command > >(/bin/cmd_for_stdout) 2> >(/bin/cmd_for_stderr)
+
+# Schedule a script or command in x num hours, silently run in the background even if logged out
+( ( sleep 2h; your-command your-args ) & )
+
+# Go to parent directory of filename edited in last command
+cd !$:h
+
+# Draw a Sierpinski triangle
+perl -e 'print "P1\n256 256\n", map {$_&($_>>8)?1:0} (0..0xffff)' | display
+
+# List all files opened by a particular command
+lsof -c dhcpd
+
+# Gets a random Futurama quote from /.
+curl -Is slashdot.org | egrep '^X-(F|B|L)' | cut -d \- -f 2
+
+# recursive search and replace old with new string, inside files
+$ grep -rl oldstring . |xargs sed -i -e 's/oldstring/newstring/'
+
+# shut of the screen.
+xset dpms force standby
+
+# List the number and type of active network connections
+netstat -ant | awk '{print $NF}' | grep -v '[a-z]' | sort | uniq -c
+
+# Encrypted archive with openssl and tar
+tar --create --file - --posix --gzip -- <dir> | openssl enc -e -aes256 -out <file>
+
+# Create strong, but easy to remember password
+read -s pass; echo $pass | md5sum | base64 | cut -c -16
+
+# Convert seconds into minutes and seconds
+bc <<< 'obase=60;299'
+
+# A child process which survives the parent's death (for sure)
+( command & )
+
+# Use file(1) to view device information
+file -s /dev/sd*
+
+# prevent accidents while using wildcards
+rm *.txt <TAB> <TAB>
+
+# intersection between two files
+grep -Fx -f file1 file2
+
+# Insert  the  last  argument  of  the previous command
+<ESC> .
+
+# View the newest xkcd comic.
+xkcd(){ wget -qO- http://xkcd.com/|tee >(feh $(grep -Po '(?<=")http://imgs[^/]+/comics/[^"]+\.\w{3}'))|grep -Po '(?<=(\w{3})" title=").*(?=" alt)';}
+
+# Press Any Key to Continue
+read -sn 1 -p "Press any key to continue..."
+
+# backup all your commandlinefu.com favourites to a plaintext file
+clfavs(){ URL="http://www.commandlinefu.com";wget -O - --save-cookies c --post-data "username=$1&password=$2&submit=Let+me+in" $URL/users/signin;for i in `seq 0 25 $3`;do wget -O - --load-cookies c $URL/commands/favourites/plaintext/$i >>$4;done;rm -f c;}
+
+# AD: Diff 2 entire servers at ScriptRock.com

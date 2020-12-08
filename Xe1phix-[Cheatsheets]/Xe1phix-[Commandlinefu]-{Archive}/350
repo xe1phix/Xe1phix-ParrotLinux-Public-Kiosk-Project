@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Relocate a file or directory, but keep it accessible on the old location throug a simlink.
+mv $1 $2 && ln -s $2/$(basename $1) $(dirname $1)
+
+# a short counter
+yes '' | cat -n
+
+# Rsync remote data as root using sudo
+rsync --rsync-path 'sudo rsync' username@source:/folder/ /local/
+
+# Convert all MySQL tables and fields to UTF8
+mysql --database=dbname -B -N -e "SHOW TABLES"  | awk '{print "ALTER TABLE", $1, "CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;"}' | mysql --database=dbname &
+
+# Using awk to sum/count a column of numbers.
+cat count.txt | awk '{ sum+=$1} END {print sum}'
+
+# Pipe STDOUT to vim
+tail -1000 /some/file | vim -
+
+# Copy stdin to your X11 buffer
+ssh user@host cat /path/to/some/file | xclip
+
+# Get info about remote host ports and OS detection
+nmap -sS -P0 -sV -O <target>
+
+# Copy a file structure without files
+find * -type d -exec mkdir /where/you/wantem/\{\} \;
+
+# Start a new command in a new screen window
+alias s='screen -X screen'; s top; s vi; s man ls;
+
+# Extract audio from Flash video (*.flv) as mp3 file
+ffmpeg -i video.flv -vn -ar 44100 -ac 2 -ab 192k -f mp3 audio.mp3
+
+# convert from hexidecimal or octal to decimal
+echo $((0x1fe)) $((033))
+
+# Convert seconds into minutes and seconds
+echo 'obase=60;299' | bc
+
+# List files accessed by a command
+strace -ff -e trace=file my_command 2>&1 | perl -ne 's/^[^"]+"(([^\\"]|\\[\\"nt])*)".*/$1/ && print'
+
+# Short and elegant way to backup a single file before you change it.
+cp httpd.conf{,.bk}
+
+# Find all the links to a file
+find -L / -samefile /path/to/file -exec ls -ld {} +
+
+# Recover tmp flash videos (deleted immediately by the browser plugin)
+for h in `find /proc/*/fd -ilname "/tmp/Flash*" 2>/dev/null`; do ln -s "$h" `readlink "$h" | cut -d' ' -f1`; done
+
+# send a circular
+echo "dear admin, please ban eribsskog" | wall
+
+# Visit wikileaks.com
+echo 213.251.145.96 wikileaks.com >>/etc/hosts
+
+# Make sudo forget password instantly
+sudo -K
+
+# Print a row of characters across the terminal
+printf "%`tput cols`s"|tr ' ' '#'
+
+# Convert text to picture
+echo -e "Some Text Line1\nSome Text Line 2" | convert -background none -density 196  -resample 72 -unsharp 0x.5 -font "Courier" text:- -trim +repage -bordercolor white -border 3  text.gif
+
+# download and unpack tarball without leaving it sitting on your hard drive
+wget -qO - http://example.com/path/to/blah.tar.gz | tar xzf -
+
+# List all authors of a particular git project
+git log --format='%aN' | sort -u
+
+# Colored diff ( via vim ) on 2 remotes files on your local computer.
+vimdiff scp://root@server-foo.com//etc/snmp/snmpd.conf scp://root@server-bar.com//etc/snmp/snmpd.conf
+
+# AD: Diff 2 entire servers at ScriptRock.com

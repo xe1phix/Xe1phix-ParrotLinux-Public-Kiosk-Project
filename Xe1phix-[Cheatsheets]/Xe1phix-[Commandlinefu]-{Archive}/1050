@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# do something else while waiting for an event, such as reboot
+until (ssh root@10.1.1.39 2> /dev/null); do date; sleep 15; done
+
+# add the result of a command into vi
+:r! <bash_command>
+
+# Calculate N!
+seq -s* 10 |bc
+
+# Figure out what shell you're running
+readlink -f /proc/$$/exe
+
+# network throughput test
+iperf -s
+
+# Perl One Liner to Generate a Random IP Address
+echo $((RANDOM%256)).$((RANDOM%256)).$((RANDOM%256)).$((RANDOM%256))
+
+# Use wget to download one page and all it's requisites for offline viewing
+wget -e robots=off -E -H -k -K -p http://<page>
+
+# Convert a string to "Title Case"
+echo "this is a test" | sed 's/.*/\L&/; s/[a-z]*/\u&/g'
+
+# One liner to kill a process when knowing only the port where the process is running
+fuser -k <port>
+
+# retab in vim, tab to space or space to tab, useful in python
+:ret
+
+# Delete backward from cursor, useful when you enter the wrong password
+Ctrl + u
+
+# Join lines
+cat file | tr "\n" " "
+
+# Use result of the last command
+`!!`
+
+# Capture video of a linux desktop
+ffmpeg -y -f alsa -ac 2 -i pulse -f x11grab -r 30 -s `xdpyinfo | grep 'dimensions:'|awk '{print $2}'` -i :0.0 -acodec pcm_s16le output.wav -an -vcodec libx264 -vpre lossless_ultrafast -threads 0 output.mp4
+
+# Create date-based tgz of current dir, runs in the background, very very cool
+alias tarred='( ( D=`builtin pwd`; F=$(date +$HOME/`sed "s,[/ ],#,g" <<< ${D/${HOME}/}`#-%F.tgz); tar --ignore-failed-read --transform "s,^${D%/*},`date +${D%/*}.%F`,S" -czPf "$F" "$D" &>/dev/null ) & )'
+
+# Find out my Linux distribution name and version
+lsb_release -a
+
+# Backup (archive) your Gmail IMAP folders.
+mailutil transfer {imap.gmail.com/ssl/user=john@gmail.com} Gmail/
+
+# resize all JPG images in folder and create new images (w/o overwriting)
+for file in *.jpg; do convert "$file" -resize 800000@ -quality 80 "small.$file"; done
+
+# Show the UUID of a filesystem or partition
+blkid /dev/sda7
+
+# Copy without overwriting
+cp -n <src> <dst>
+
+# Convert all .flac from a folder subtree in 192Kb mp3
+find . -type f -iname '*.flac' | while read FILE; do FILENAME="${FILE%.*}"; flac -cd "$FILE" | lame -b 192 - "${FILENAME}.mp3"; done
+
+# See The MAN page for the last command
+man !!:0
+
+# find broken symbolic links
+find -L . -type l
+
+# Find all symlinks that link to directories
+find -type l -xtype d
+
+# Delay execution until load average falls under 1.5
+echo 'some command' | batch
+
+# AD: Diff 2 entire servers at ScriptRock.com

@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Kills a process that is locking a file.
+fuser -k filename
+
+# python smtp server
+python -m smtpd -n -c DebuggingServer localhost:1025
+
+# Remove duplicate entries in a file without sorting.
+awk '!x[$0]++' <file>
+
+# Insert the last command without the last argument (bash)
+!:-
+
+# Find Duplicate Files (based on size first, then MD5 hash)
+find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
+
+# Display which distro is installed
+cat /etc/issue
+
+# Copy your SSH public key on a remote machine for passwordless login - the easy way
+ssh-copy-id username@hostname
+
+# Extract tarball from internet without local saving
+wget -qO - "http://www.tarball.com/tarball.gz" | tar zxvf -
+
+# Find the process you are looking for minus the grepped one
+ps aux | grep [p]rocess-name
+
+# Google Translate
+translate(){ wget -qO- "http://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=$1&langpair=$2|${3:-en}" | sed 's/.*"translatedText":"\([^"]*\)".*}/\1\n/'; }
+
+# Rip audio from a video file.
+mplayer -ao pcm -vo null -vc dummy -dumpaudio -dumpfile <output-file> <input-file>
+
+# Matrix Style
+tr -c "[:digit:]" " " < /dev/urandom | dd cbs=$COLUMNS conv=unblock | GREP_COLOR="1;32" grep --color "[^ ]"
+
+# Inserts the results of an autocompletion in the command line
+ESC *
+
+# Copy your ssh public key to a server from a machine that doesn't have ssh-copy-id
+cat ~/.ssh/id_rsa.pub | ssh user@machine "mkdir ~/.ssh; cat >> ~/.ssh/authorized_keys"
+
+# Define a quick calculator function
+? () { echo "$*" | bc -l; }
+
+# Print all the lines between 10 and 20 of a file
+sed -n '10,20p' <filename>
+
+# replace spaces in filenames with underscores
+rename 'y/ /_/' *
+
+# Stream YouTube URL directly to mplayer.
+i="8uyxVmdaJ-w";mplayer -fs $(curl -s "http://www.youtube.com/get_video_info?&video_id=$i" | echo -e $(sed 's/%/\\x/g;s/.*\(v[0-9]\.lscache.*\)/http:\/\/\1/g') | grep -oP '^[^|,]*')
+
+# Graphical tree of sub-directories
+ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
+
+# A fun thing to do with ram is actually open it up and take a peek. This command will show you all the string (plain text) values in ram
+sudo dd if=/dev/mem | cat | strings
+
+# Create a CD/DVD ISO image from disk.
+readom dev=/dev/scd0 f=/path/to/image.iso
+
+# intercept stdout/stderr of another process
+strace -ff -e trace=write -e write=1,2 -p SOME_PID
+
+# Easily search running processes (alias).
+alias 'ps?'='ps ax | grep '
+
+# Copy a file using pv and watch its progress
+pv sourcefile > destfile
+
+# Make directory including intermediate directories
+mkdir -p a/long/directory/path
+
+# AD: Diff 2 entire servers at ScriptRock.com

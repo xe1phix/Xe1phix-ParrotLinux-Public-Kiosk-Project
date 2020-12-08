@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# phpinfo from the command line
+php -i
+
+# run a command whenever a file is touched
+ontouchdo(){ while :; do a=$(stat -c%Y "$1"); [ "$b" != "$a" ] && b="$a" && sh -c "$2"; sleep 1; done }
+
+# exclude a column with awk
+awk '{ $5=""; print }' file
+
+# Escape potential tarbombs
+atb() { l=$(tar tf $1); if [ $(echo "$l" | wc -l) -eq $(echo "$l" | grep $(echo "$l" | head -n1) | wc -l) ]; then tar xf $1; else mkdir ${1%.tar.gz} && tar xf $1 -C ${1%.tar.gz}; fi ;}
+
+# pretend to be busy in office to enjoy a cup of coffee
+for i in {0..600}; do echo $i; sleep 1; done | dialog --gauge "Install..." 6 40
+
+# Get notified when a job you run in a terminal is done, using NotifyOSD
+alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png "[$?] $(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/;\s*alert$//'\'')"'
+
+# runs a X session within your X session
+ssh -C -Y -l$USER xserver.mynet.xx 'Xnest -geometry 1900x1150 -query localhost'
+
+# use screen as a terminal emulator to connect to serial consoles
+screen /dev/tty<device> 9600
+
+# sends a postscript file to a postscript printer using netcat
+cat my.ps | nc -q 1 hp4550.mynet.xx 9100
+
+# lines in file2 that are not in file1
+grep -Fxv -f file1 file2
+
+# Display which distro is installed
+cat /etc/*release
+
+# intercept stdout/stderr of another process
+strace -ff -e write=1,2 -s 1024 -p PID  2>&1 | grep "^ |" | cut -c11-60 | sed -e 's/ //g' | xxd -r -p
+
+# send DD a signal to print its progress
+while :;do killall -USR1 dd;sleep 1;done
+
+# Open Remote Desktop (RDP) from command line and connect local resources
+rdesktop -a24 -uAdministrator -pPassword  -r clipboard:CLIPBOARD -r disk:share=~/share -z -g 1280x900 -0 $@ &
+
+# Using mplayer to play the audio only but suppress the video
+mplayer -vo null something.mpg
+
+# See your current RAM frequency
+dmidecode -t 17 | awk -F":" '/Speed/ { print $2 }'
+
+# scp with compression.
+scp -C 10.0.0.4:/tmp/backup.sql /path/to/backup.sql
+
+# Perl Command Line Interpreter
+perl -e 'while(1){print"> ";eval<>}'
+
+# Find unused IPs on a given subnet
+nmap -T4 -sP 192.168.2.0/24 && egrep "00:00:00:00:00:00" /proc/net/arp
+
+# find and delete empty dirs, start in current working dir
+find . -type d -empty -delete
+
+# Check which files are opened by Firefox then sort by largest size.
+lsof -p $(pidof firefox) | awk '/.mozilla/ { s = int($7/(2^20)); if(s>0) print (s)" MB -- "$9 | "sort -rn" }'
+
+# bash screensaver (scrolling ascii art with customizable message)
+while [ 1 ]; do banner 'ze missiles, zey are coming! ' | while IFS="\n" read l; do echo "$l"; sleep 0.01; done; done
+
+# Copy a folder tree through ssh using compression (no temporary files)
+ssh <host> 'tar -cz /<folder>/<subfolder>' | tar -xvz
+
+# Remove lines that contain a specific pattern($1) from file($2).
+sed -i '/myexpression/d' /path/to/file.txt
+
+# geoip information
+curl -s "http://www.geody.com/geoip.php?ip=$(curl -s icanhazip.com)" | sed '/^IP:/!d;s/<[^>][^>]*>//g'
+
+# AD: Diff 2 entire servers at ScriptRock.com

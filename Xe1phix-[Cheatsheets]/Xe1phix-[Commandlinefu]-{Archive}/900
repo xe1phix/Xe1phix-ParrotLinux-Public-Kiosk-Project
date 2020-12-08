@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Screensaver
+alias screensaver='for ((;;)); do echo -ne "\033[$((1+RANDOM%LINES));$((1+RANDOM%COLUMNS))H\033[$((RANDOM%2));3$((RANDOM%8))m$((RANDOM%10))"; sleep 0.1 ; done'
+
+# ROT13 using the tr command
+alias rot13="tr a-zA-Z n-za-mN-ZA-M"
+
+# Tricky implementation of two-dimensional array in Bash.
+arr[i*100+j]="whatever"
+
+# Terrorist threat level text
+echo "Terrorist threat level: `od -An -N1 -i /dev/random`"
+
+# Bash logger
+script /tmp/log.txt
+
+# RTFM function
+rtfm() { help $@ || info $@ || man $@ || $BROWSER "http://www.google.com/search?q=$@"; }
+
+# back ssh from firewalled hosts
+ssh -R 5497:127.0.0.1:22 -p 62220 user@public.ip
+
+# Rename HTML files according to their title tag
+perl -wlne'/title>([^<]+)/i&&rename$ARGV,"$1.html"' *.html
+
+# rename files according to file with colums of corresponding names
+xargs -n 2 mv < file_with_colums_of_names
+
+# Create a new file
+> file
+
+# Monitor a file with tail with timestamps added
+tail -f file | awk '{now=strftime("%F %T%z\t");sub(/^/, now);print}'
+
+# Check disk for bad sectors
+badblocks -n -s -b 2048 /dev/sdX
+
+# Create a file of a given size in linux
+truncate -s 1M file
+
+# pretend to be busy in office to enjoy a cup of coffee
+while [ true ]; do head -n 100 /dev/urandom; sleep .1; done | hexdump -C | grep "ca fe"
+
+# Extended man command
+/usr/bin/man $* || w3m -dump http://google.com/search?q="$*"\&btnI | less
+
+# Show which process is blocking umount (Device or resource is busy)
+lsof /folder
+
+# run command on a group of nodes
+mussh -h host1 host2 host3 -c uptime
+
+# Setting global redirection of STDERR to STDOUT in a script
+exec 2>&1
+
+# Outgoing IP of server
+dig +short @resolver1.opendns.com myip.opendns.com
+
+# Isolate file name from full path/find output
+echo ${fullpath##*/}
+
+# Show numerical values for each of the 256 colors in bash
+for i in {0..255}; do echo -e "\e[38;05;${i}m${i}"; done | column -c 80 -s '  '; echo -e "\e[m"
+
+# Use Kernighan & Ritchie coding style in C program
+indent -kr hello.c
+
+# Have a random "cow" say a random thing
+fortune | cowsay -f $(ls /usr/share/cowsay/cows/ | shuf -n1)
+
+# backup with mysqldump a really big mysql database to a remote machine over ssh
+mysqldump -q --skip-opt --force --log-error=dbname_error.log -uroot -pmysqlpassword dbname | ssh -C user@sshserver 'cd /path/to/backup/dir; cat > dbname.sql'
+
+# Tail -f at your own pace
+tail -fs 1 somefile
+
+# AD: Diff 2 entire servers at ScriptRock.com

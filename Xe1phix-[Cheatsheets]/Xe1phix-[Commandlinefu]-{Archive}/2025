@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Sort files by size
+ls -l | sort -nk5
+
+# colored prompt
+export PS1='\[\033[0;35m\]\h\[\033[0;33m\] \w\[\033[00m\]: '
+
+# Create a backup of file being edited while using vi
+:!cp % %-
+
+# Display calendar with specific national holidays and week numbers
+gcal -K -q GB_EN 2009 # display holidays in UK/England for 2009 (with week numbers)
+
+# Simplified video file renaming
+for f in *;do mplayer $f;read $n;mv $f $n;done
+
+# Add a Clock to Your CLI
+export PS1="${PS1%\\\$*}"' \t \$ '
+
+# Delete files older than..
+find /dir_name -mtime +5 -exec rm {} \
+
+# Converts a single FLAC file with associated cue file into multiple FLAC files
+cuebreakpoints "$2" | shnsplit -o flac "$1"
+
+# Installing True-Type fonts
+ttmkfdir mkfontdir fc-cache /usr/share/fonts/miscttf
+
+# Replicate a directory structure dropping the files
+for x in `find /path/ -type d | cut -b bytesoffoldername-`; do mkdir -p newpath/$x; done
+
+# useful tail on /var/log to avoid old logs or/and gzipped files
+tail -f *[!.1][!.gz]
+
+# Remount root in read-write mode.
+sudo mount -o remount,rw /
+
+# Mount proc
+mount -t proc{,,}
+
+# Check the status of a network interface
+mii-tool [if]
+
+# Random play a mp3 file
+mpg123 "`locate -r '\.mp3$'|awk '{a[NR]=$0}END{print a['"$RANDOM"' % NR]}'`"
+
+# for too many arguments by *
+echo *.log | xargs <command>
+
+# Find files that are older than x days
+find . -type f -mtime +7 -exec ls -l {} \;
+
+# restore the contents of a deleted file for which a descriptor is still available
+N="filepath" ; P=/proc/$(lsof +L1 | grep "$N" | awk '{print $2}')/fd ; ls -l $P | sed -rn "/$N/s/.*([0-9]+) ->.*/\1/p" | xargs -I_ cat $P/_ > "$N"
+
+# use vi key bindings at the command line
+set -o vi
+
+# take execution time of several commands
+time { <command1> ; <command2> ; <command...> ; }
+
+# Convert file type to unix utf-8
+ex some_file "+set ff=unix fileencoding=utf-8" "+x"
+
+# Enter your ssh password one last time
+cat .ssh/id_dsa.pub | ssh elsewhere "[ -d .ssh ] || mkdir .ssh ; cat >> .ssh/authorized_keys"
+
+# Watch the disk fill up
+watch -n 1 df
+
+# convert filenames in current directory to lowercase
+for i in *; do mv "$i" "$(echo $i|tr A-Z a-z)"; done
+
+# Want to known what time is it in another part of the world ?
+TZ=Indian/Maldives date
+
+# AD: Diff 2 entire servers at ScriptRock.com

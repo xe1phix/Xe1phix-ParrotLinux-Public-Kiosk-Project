@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Resume scp of a big file
+rsync --partial --progress --rsh=ssh  $file_source $user@$host:$destination_file
+
+# Switch 2 characters on a command line.
+ctrl-t
+
+# Use tee + process substitution to split STDOUT to multiple commands
+some_command | tee >(command1) >(command2) >(command3) ... | command4
+
+# Fast, built-in pipe-based data sink
+<COMMAND> |:
+
+# Repoint an existing symlink to a new location
+ln -nsf <TARGET> <LINK>
+
+# GRUB2: set Super Mario as startup tune
+echo "GRUB_INIT_TUNE=\"1000 334 1 334 1 0 1 334 1 0 1 261 1 334 1 0 1 392 2 0 4 196 2\"" | sudo tee -a /etc/default/grub > /dev/null && sudo update-grub
+
+# exclude a column with cut
+cut -f5 --complement
+
+# Close a hanging ssh session
+~.
+
+# Recover a deleted file
+grep -a -B 25 -A 100 'some string in the file' /dev/sda1 > results.txt
+
+# Makes you look busy
+alias busy='my_file=$(find /usr/include -type f | sort -R | head -n 1); my_len=$(wc -l $my_file | awk "{print $1}"); let "r = $RANDOM % $my_len" 2>/dev/null; vim +$r $my_file'
+
+# Duplicate several drives concurrently
+dd if=/dev/sda | tee >(dd of=/dev/sdb) | dd of=/dev/sdc
+
+# Create an audio test CD of sine waves from 1 to 99 Hz
+(echo CD_DA; for f in {01..99}; do echo "$f Hz">&2; sox -nt cdda -r44100 -c2 $f.cdda synth 30 sine $f; echo TRACK AUDIO; echo FILE \"$f.cdda\" 0; done) > cdrdao.toc && cdrdao write cdrdao.toc && rm ??.cdda cdrdao.toc
+
+# Find files that were modified by a given command
+touch /tmp/file ; $EXECUTECOMMAND ; find /path -newer /tmp/file
+
+# Quickly graph a list of numbers
+gnuplot -persist <(echo "plot '<(sort -n listOfNumbers.txt)' with lines")
+
+# Brute force discover
+sudo zcat /var/log/auth.log.*.gz | awk '/Failed password/&&!/for invalid user/{a[$9]++}/Failed password for invalid user/{a["*" $11]++}END{for (i in a) printf "%6s\t%s\n", a[i], i|"sort -n"}'
+
+# Analyse an Apache access log for the most common IP addresses
+tail -10000 access_log | awk '{print $1}' | sort | uniq -c | sort -n | tail
+
+# prevent large files from being cached in memory (backups!)
+nocache <I/O-heavy-command>
+
+# Limit the cpu usage of a process
+sudo cpulimit -p pid -l 50
+
+# Generate an XKCD #936 style 4 word password
+shuf -n4 /usr/share/dict/words | tr -d '\n'
+
+# Single use vnc-over-ssh connection
+ssh -f -L 5900:localhost:5900 your.ssh.server "x11vnc -safer -localhost -nopw -once -display :0"; vinagre localhost:5900
+
+# Diff remote webpages using wget
+diff <(wget -q -O - URL1) <(wget -q -O - URL2)
+
+# List alive hosts in specific subnet
+nmap -sP 192.168.1.0/24
+
+# processes per user counter
+ps hax -o user | sort | uniq -c
+
+# View all date formats, Quick Reference Help Alias
+alias dateh='date --help|sed -n "/^ *%%/,/^ *%Z/p"|while read l;do F=${l/% */}; date +%$F:"|'"'"'${F//%n/ }'"'"'|${l#* }";done|sed "s/\ *|\ */|/g" |column -s "|" -t'
+
+# your terminal sings
+echo {1..199}" bottles of beer on the wall, cold bottle of beer, take one down, pass it around, one less bottle of beer on the wall,, " | espeak -v english -s 140
+
+# AD: Diff 2 entire servers at ScriptRock.com

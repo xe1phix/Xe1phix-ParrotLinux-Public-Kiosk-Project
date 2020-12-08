@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Convert ascii string to hex
+echo -n "text" | od -A n -t x1 |sed 's/ /\\x/g'
+
+# delay execution of a command that needs lots of memory and CPU time until the resources are available
+( ( while [ 2000 -ge "$(free -m | awk '/buffers.cache:/ {print $4}')" ] || [ $(echo "$(uptime | awk '{print $10}' | sed -e 's/,$//' -e 's/,/./') >= $(grep -c ^processor /proc/cpuinfo)" | bc) -eq 1 ]; do sleep 10; done; my-command > output.txt ) & )
+
+# Pass TAB as field separator to sort, join, cut, etc.
+sort -t $'\t' -k 2 input.txt
+
+# Short one line while loop that outputs parameterized content from one file to another
+cut -f 1 three-column.txt > first-column.txt
+
+# Short one line while loop that outputs parameterized content from one file to another
+awk '{print $1}' < three-column.txt > first-column.txt
+
+# connects to a serial console
+cu -s 9600 -l /dev/ttyS0
+
+# Get all ip address for the host
+hostname -I
+
+# Print a date from 3 days ago
+TZ=PST8PDT+72 date '+%Y_%m_%d'
+
+# Recursively remove all subversion folders
+find . -name .svn  -exec rm \-rf {} \;
+
+# Print number of mb of free ram
+grep '^MemFree:' /proc/meminfo | awk '{ mem=($2)/(1024) ; printf "%0.0f MB\n", mem }'
+
+# Stop or Start (Restart) a Windows service from a Linux machine
+net rpc -I ADDRESS -U USERNAME%PASSWORD service {stop|start} SVCNAME
+
+# Big Countdown Clock with hours, minutes and seconds
+watch -tn1 'date +%r | figlet'
+
+# list folders containing less than 2 MB of data
+find . -type d -exec du -sk '{}' \; | awk '($1 < 2048) {print $2}'
+
+# MySQL dump restore with progress bar and ETA
+pv bigdump.sql.gz | gunzip | mysql
+
+# Remove all unused kernels with apt-get
+dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs sudo apt-get -y purge
+
+# Create user add lines from partial passwd file
+awk -F: '{print "useradd -u "$3,"-c \""$5"\"","-s "$7,$1}' passwd
+
+# Execute a command with a timeout
+$COMMAND 2>&1 >/dev/null & WPID=$!; sleep $TIMEOUT && kill $! & KPID=$!; wait $WPID
+
+# Streaming HTML5 video to icecast server using dvgrab, ffmpeg2theora and oggfwd
+dvgrab --format raw - | tee dvstream.dv | ffmpeg2theora -A 45 -V 400 -c 1 -f dv -x 360 -y 288 -o /dev/stdout - | tee savelivestream.ogv | oggfwd -p -d "Stream description" -n "Streamname" my.icecastserver.com 80 icecastpassword /stream.ogv
+
+# Maximum PNG compression with optipng, advpng, and advdef
+optipng -o3 *png && advpng -z -4 *png && advdef -z -4 *png
+
+# Listing only one repository with yum
+yum --disablerepo=* --enablerepo=epel list available
+
+# List processes playing sound
+lsof | grep pcm
+
+# killall -r ".*my-process.*"
+Kill all process using regular expression (-r option)
+
+# Easily decode unix-time (funtion)
+utime { date -d @$1; }
+
+# ping MAC ADDRESS
+ping -c 2 `arp-scan 10.1.1.0/24 | awk '/00:1b:11:dc:a9:65/ {print $1}'`
+
+# bash-quine
+s='s=\47%s\47; printf "$s" "$s"'; printf "$s" "$s"
+
+# AD: Diff 2 entire servers at ScriptRock.com

@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Short Information about loaded kernel modules
+modinfo $(cut -d' ' -f1 /proc/modules) | sed '/^dep/s/$/\n/; /^file\|^desc\|^dep/!d'
+
+# aptitude easter eggs
+aptitude moo
+
+# another tweet function
+tweet () { curl -u UserName -d status="$*" http://twitter.com/statuses/update.xml; }
+
+# Press Any Key to Continue
+read -sn 1 -p 'Press any key to continue...';echo
+
+# enumerate with padding
+echo {001..5}
+
+# What is my ip?
+curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
+
+# tail, with specific pattern colored
+tail -F file | egrep --color 'pattern|$'
+
+# Count the total number of files in each immediate subdirectory
+find . -type f -printf "%h\n" | cut -d/ -f-2 | sort | uniq -c | sort -rn
+
+# Transforms a file to all uppercase.
+tr '[:lower:]' '[:upper:]' <"$1"
+
+# sort lines by length
+awk '{print length, $0;}' | sort -nr
+
+# Refresh the cache of font directory
+sudo fc-cache -f -v
+
+# Convert unix timestamp to date
+date -ud "1970-01-01 + 1234567890 seconds"
+
+# Verify MD5SUMS but only print failures
+md5sum --check MD5SUMS | grep -v ": OK"
+
+# Change newline to space in a file just using echo
+echo $(</tmp/foo)
+
+# send kernel log (dmesg) notifications to root via cron
+(crontab -l; echo '* * * * * dmesg -c'; ) | crontab -
+
+# Matrix Style
+check the sample output below, the command was too long :(
+
+# Detect if we are running on a VMware virtual machine
+dmidecode | awk '/VMware Virtual Platform/ {print $3,$4,$5}'
+
+# convert .bin / .cue into .iso image
+bchunk IMAGE.bin IMAGE.cue IMAGE.iso
+
+# Visualizing system performance data
+(echo "set terminal png;plot '-' u 1:2 t 'cpu' w linespoints;"; sudo vmstat 2 10 | awk 'NR > 2 {print NR, $13}') | gnuplot > plot.png
+
+# Test file system performance
+bonnie++ -n 0 -u 0 -r <physical RAM> -s <2 x physical ram> -f -b -d <mounted disck>
+
+# Record audio and video from webcam using mencoder
+mencoder tv:// -tv driver=v4l2:width=800:height=600:device=/dev/video0:fps=30:outfmt=yuy2:forceaudio:alsa:adevice=hw.2,0 -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=1800 -ffourcc xvid -oac mp3lame -lameopts cbr=128 -o output.avi
+
+# random xkcd comic
+display "$(wget -q http://dynamic.xkcd.com/comic/random/ -O - | grep -Po '(?<=")http://imgs.xkcd.com/comics/[^"]+(png|jpg)')"
+
+# Compute running average for a column of numbers
+awk '{avg += ($1 - avg) / NR;} END { print avg; }'
+
+# Quick and dirty convert to flash
+ffmpeg -i inputfile.mp4 outputfile.flv
+
+# sort lines by length
+perl -lne '$l{$_}=length;END{for(sort{$l{$a}<=>$l{$b}}keys %l){print}}' < /usr/share/dict/words | tail
+
+# AD: Diff 2 entire servers at ScriptRock.com

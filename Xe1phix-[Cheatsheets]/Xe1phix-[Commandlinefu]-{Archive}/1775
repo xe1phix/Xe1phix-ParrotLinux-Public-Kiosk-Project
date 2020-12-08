@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# draw matrix using dot
+echo 'graph{node[shape=record];rankdir=LR;matrix[label="{1|2|3}|{4|5|6}|{7|8|9}",color=red]}' | dot -Tpng | display
+
+# vim read stdin
+ls | vim +'set bt=nowrite' -
+
+# Lists all usernames in alphabetical order
+awk -F ':' '{print $1 | "sort";}' /etc/passwd
+
+# Show Apt/Dpkg configuration
+apt-config dump
+
+# gag version of current date
+ddate
+
+# ascii digital clock
+watch -tn1 'date +%T | xargs banner'
+
+# use mplayer to watch Apple Movie Trailer instead of quicktime player
+mplayer -rtsp-stream-over-tcp -user-agent QuickTime/7.6.4 http://trailers.apple.com/movies/HDmovie-h720p.mov
+
+# Rsync two directories with filtered extensions
+rsync -rv --include '*/' --include '*.txt' --exclude '*' srcDir/ desDir/
+
+# Expand shortened URLs
+expandurl() { curl -sIL $1 | grep ^Location; }
+
+# FizzBuzz one-liner in Python
+python -c'for i in range(1,101):print"FizzBuzz"[i*i%3*4:8--i**4%5]or i'
+
+# Open a file explorer on a split screen inside your vim session
+:Sex
+
+# Trick find -exec option to execute alias
+find . -exec `alias foo | cut -d"'" -f2` {} \;
+
+# To play a file at 1.5 times normal speed  without increasing the pitch
+mplayer -af scaletempo=scale=1.5 foo.mp3
+
+# Show line numbers in a text file
+cat -n file.txt
+
+# Renaming a file without overwiting an existing file name
+mv -b old_file_name new_and_already_existent_file_name
+
+# Search and Replace across multiple files
+grep -lr -e '<oldword>' * | xargs sed -i 's/<oldword>/<newword>/g'
+
+# ssh autocomplete based on ~/.ssh/config
+perl -ne 'print "$1 " if /^Host (.+)$/' ~/.ssh/config
+
+# Highlight network TX, RX information change
+watch -n 2 -d '/sbin/ifconfig eth0'
+
+# Find the package a command belongs to on debian-based distros
+apt-file search iostat
+
+# Backup entire system through SSH
+ssh -C USER@HOST tar -c --exclude /proc --exclude /sys / | tar -x
+
+# Share a screen session
+screen -x <screen_id>
+
+# Using Git, stage all manually deleted files.
+git add -u
+
+# Retrieve the size of a file on a server
+wget --spider $URL 2>&1 | awk '/Length/ {print $2}'
+
+# full memcache client in under 255 chars (uses dd, sed and nc)
+mem(){ { case $1 in st*|[vgid]*) printf "%s " "$@";; *) dd if=$3 2>&1|sed '$!d;/^0/d;s/ .*//;s/^/'"$1"' '"$2"' 1 0 /; r '"$3"'' 2>/dev/null;;esac;printf "\r\nquit\r\n";}|nc -n 127.0.0.1 11211; }
+
+# Email yourself after a job is done
+<command>; echo "job done"|mail email@email.com -s'job done'
+
+# AD: Diff 2 entire servers at ScriptRock.com

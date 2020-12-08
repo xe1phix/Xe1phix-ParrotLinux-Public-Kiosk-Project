@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# A command to post a message to Twitter that includes your geo-location and a short URL.
+curl --user "USERNAME:PASSWORD" -d status="MESSAGE_GOES_HERE $(curl -s tinyurl.com/api-create.php?url=URL_GOES_HERE) $(curl -s api.hostip.info/get_html.php?ip=$(curl ip.appspot.com))" -d source="cURL" twitter.com/statuses/update.json -o /dev/null
+
+# Find unused IPs on a given subnet
+fping -r1 -g <subnet> 2> /dev/null | grep unreachable | cut -f1 -d' '
+
+# delete duplicate lines from a file and keep the order of the other lines
+cat -n <file> | sort -k 2 | uniq -f 1 | sort -n | cut -f 2-
+
+# Copy a file using dd and watch its progress
+dd if=fromfile of=tofile & DDPID=$! ; sleep 1 ; while kill -USR1 $DDPID ; do sleep 5; done
+
+# Every Nth line position # (AWK)
+awk 'NR%3==1' file
+
+# List all authors of a particular git project
+git shortlog -s | cut -c8-
+
+# Resize a Terminal Window
+printf "\e[8;70;180;t"
+
+# Print a row of 50 hyphens
+perl -le'print"-"x50'
+
+# Setup a persistant SSH tunnel w/ pre-shared key authentication
+autossh -f -i /path/to/key -ND local-IP:PORT User@Server
+
+# get xclip to own the clipboard contents
+xclip -o -selection clipboard | xclip -selection clipboard
+
+# Extract tarball from internet without local saving
+wget -O - http://example.com/a.gz | tar xz
+
+# Another Matrix Style Implementation
+echo -ne "\e[32m" ; while true ; do echo -ne "\e[$(($RANDOM % 2 + 1))m" ; tr -c "[:print:]" " " < /dev/urandom | dd count=1 bs=50 2> /dev/null ; done
+
+# count and number lines of output, useful for counting number of matches
+ps aux | grep [a]pache2 | nl
+
+# List the size (in human readable form) of all sub folders from the current location
+du -sch ./*
+
+# Analyse compressed Apache access logs for the most commonly requested pages
+zcat access_log.*.gz | awk '{print $7}' | sort | uniq -c | sort -n | tail -n 20
+
+# Send a local file via email
+mpack -s "Backup: $file" "$file" email@id.com
+
+# Send a local file via email
+mutt your@email_address.com -s "Message Subject Here" -a attachment.jpg </dev/null
+
+# list all opened ports on host
+nmap -p 1-65535 --open localhost
+
+# extract plain text from MS Word docx files
+unzip -p some.docx word/document.xml | sed -e 's/<[^>]\{1,\}>//g; s/[^[:print:]]\{1,\}//g'
+
+# Find jpeg images and copy them to a central location
+find . -iname "*.jpg" -print0 | tr '[A-Z]' '[a-z]' | xargs -0 cp --backup=numbered -dp -u --target-directory {location} &
+
+# copy ACL of one file to another using getfacl and setfacl
+getfacl <file-with-acl> | setfacl -f - <file-with-no-acl>
+
+# determine if tcp port is open
+nmap -p 80 hostname
+
+# Convert wmv into avi
+mencoder infile.wmv -ofps 23.976 -ovc lavc -oac copy -o outfile.avi
+
+# prints line numbers
+cat -n
+
+# Generate a binary file with all ones (0xff) in it
+tr '\000' '\377' < /dev/zero | dd of=allones bs=1024 count=2k
+
+# AD: Diff 2 entire servers at ScriptRock.com

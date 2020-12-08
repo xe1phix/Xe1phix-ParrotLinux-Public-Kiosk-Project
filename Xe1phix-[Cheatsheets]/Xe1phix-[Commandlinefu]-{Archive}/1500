@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# get a random command
+ls /usr/bin | shuf -n 1
+
+# a simple bash one-liner to create php file and call php function
+php -r 'echo str_rot13 ("Hello World");'
+
+# Get the full path to a file
+readlink -e /bin/ls
+
+# Find the process you are looking for minus the grepped one
+ps -ef | grep c\\ommand
+
+# Look for English words in /dev/urandom
+head -100000 /dev/urandom | strings|tr '[A-Z]' '[a-z]'|sort >temp.txt && wget -q http://www.mavi1.org/web_security/wordlists/webster-dictionary.txt -O-|tr '[A-Z]' '[a-z]'|sort >temp2.txt&&comm -12 temp.txt temp2.txt
+
+# Look for English words in /dev/urandom
+head -100000 /dev/urandom | strings > temp.txt && for w in $(cat webster-dictionary.txt); do if [ ${#w} -gt 3 ]; then grep -io $w temp.txt; fi; done
+
+# Takes all file except file between !()
+rm !(file_to_keep_undeleted)
+
+# Batch rename extension of all files in a folder, in the example from .txt to .md
+rename 's/.txt/.md/i' *
+
+# Monitor a file with tail with timestamps added
+tail -f file | while read line; do echo -n $(date -u -Ins); echo -e "\t$line"; done
+
+# Undo
+[Ctrl+_]
+
+# Shows what processes need to be restarted after system upgrade
+deadlib() { lsof | grep 'DEL.*lib' | cut -f 1 -d ' ' | sort -u; }
+
+# Don't save commands in bash history (only for current session)
+unset HISTFILE
+
+# Trigger a command each time a file is created in a directory (inotify)
+inotifywait -mrq -e CREATE --format %w%f /path/to/dir | while read FILE; do chmod g=u "$FILE"; done
+
+# Display text as though it is being typed out in real time
+echo "text to be displayed" | pv -qL 10
+
+# Generate list of words and their frequencies in a text file.
+tr A-Z a-z | tr -cs a-z '\n' | sort | uniq -c
+
+# Kill any process with one command using program name
+killall <name>
+
+# Stream YouTube URL directly to mplayer.
+ID=52DnUo6wJto;mplayer -fs $(echo "http://youtube.com/get_video.php?&video_id=$ID$(wget -qO - 'http://youtube.com/watch?v='$ID | perl -ne 'print $1."&asv=" if /^.*(&t=.*?)&.*$/; print "&fmt=".$1 if /^.*&fmt_map=(22).*$/')")
+
+# Take a screenshot of the focused window with a 4 second countdown
+scrot -ucd4 -e 'eog $f'
+
+# View the newest xkcd comic.
+eog `curl -s http://xkcd.com/ | sed -n 's/<h3>Image URL.*: \(.*\)<\/h3>/\1/p'`
+
+# Calculate md5 sums for every file in a directory tree
+find . -type f -exec md5sum {} \; > sum.md5
+
+# Stream audio over ssh
+ssh [user]@[address] "mpg321 -" < [file].mp3
+
+# Show the number of current httpd processes
+pgrep -c httpd
+
+# Print a list of installed Perl modules
+perl -MExtUtils::Installed -e '$inst = ExtUtils::Installed->new(); @modules = $inst->modules(); print join("\n", @modules);'
+
+# Find all active ip's in a subnet
+nmap -v -sP 192.168.0.0/16 10.0.0.0/8
+
+# Socksify any program to avoid restrictive firwalls
+tsocks <program>
+
+# AD: Diff 2 entire servers at ScriptRock.com

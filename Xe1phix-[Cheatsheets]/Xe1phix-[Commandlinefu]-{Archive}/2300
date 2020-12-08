@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# fix flash video (flv) file (ffmpeg)
+ffmpeg -i broken.flv -acodec copy -vcodec copy fixed.flv
+
+# embed referred images in HTML files
+grep -ioE "(url\(|src=)['\"]?[^)'\"]*" a.html | grep -ioE "[^\"'(]*.(jpg|png|gif)" | while read l ; do sed -i "s>$l>data:image/${l/[^.]*./};base64,`openssl enc -base64 -in $l| tr -d '\n'`>" a.html ; done;
+
+# Search shoutcast web radio by keyword
+echo "Keyword?";read keyword;query="http://www.shoutcast.com/sbin/newxml.phtml?search="$keyword"";curl -s $query |awk -F '"' 'NR <= 4 {next}NR>15{exit}{sub(/SHOUTcast.com/,"http://yp.shoutcast.com/sbin/tunein-station.pls?id="$6)}{print i++" )"$2}'
+
+# Auto download Ubuntu 10.04 LTS with super fast zsync
+mv ubuntu-10.04-rc-desktop-amd64.iso ubuntu-10.04-desktop-amd64.iso; i=http://releases.ubuntu.com/10.04/ubuntu-10.04-desktop-amd64.iso.zsync; while true; do if wget $i; then zsync $i; date; break; else sleep 30; fi; done
+
+# Count occurrences per minute in a log file
+grep <something> logfile | cut -c2-18 | uniq -c
+
+# Realtime apache hits per second
+tail -f access_log | cut -c2-21 | uniq -c
+
+# Simplest  port scanner
+for p in {1..1023}; do(echo >/dev/tcp/localhost/$p) >/dev/null 2>&1 && echo "$p open"; done
+
+# Get the list of root nameservers for a given TLD
+dig +short NS org.
+
+# Extract title from HTML files
+awk 'BEGIN{IGNORECASE=1;FS="<title>|</title>";RS=EOF} {print $2}' file.html
+
+# convert ascii string to hex
+echo $ascii | perl -ne 'printf "%x", ord for split //'
+
+# remove empty lines
+sed '/^$/d'
+
+# Quickly analyse an Apache error log
+for i in emerg alert crit error warn ; do awk '$6 ~ /^\['$i'/ {print substr($0, index($0,$6)) }' error_log | sort | uniq -c | sort -n | tail -1;  done
+
+# Hex math with bc
+echo 'obase=16; C+F' | bc
+
+# Print a row of characters across the terminal
+printf -v row "%${COLUMNS}s"; echo ${row// /#}
+
+# bash pause command
+read -p "Press enter to continue.."
+
+# Grab a list of MP3s out of Firefox's cache
+for i in `ls ~/.mozilla/firefox/*/Cache`; do file $i | grep -i mpeg | awk '{print $1}' | sed s/.$//; done
+
+# Determine whether a CPU has 64 bit capability or not
+if cat /proc/cpuinfo | grep " lm " &> /dev/null; then echo "Got 64bit" ; fi
+
+# most used commands in history (comprehensive)
+history | perl -F"\||<\(|;|\`|\\$\(" -alne 'foreach (@F) { print $1 if /\b((?!do)[a-z]+)\b/i }' | sort | uniq -c | sort -nr | head
+
+# Get your outgoing IP address
+curl -s icanhazip.com
+
+# ssh: change directory while connecting
+ssh -t server 'cd /etc && $SHELL'
+
+# Create and replay macros in vim
+<esc> q a ...vim commands... <esc> q (to record macro) @a (plays macro 'a').
+
+# Capture screen and mic input using FFmpeg and ALSA
+ffmpeg -f alsa -itsoffset 00:00:02.000 -ac 2 -i hw:0,0 -f x11grab -s $(xwininfo -root | grep 'geometry' | awk '{print $2;}') -r 10 -i :0.0 -sameq -f mp4 -s wvga -y intro.mp4
+
+# set desktop background to highest-rated image from Reddit /r/wallpapers
+curl http://www.reddit.com/r/wallpapers.rss | grep -Eo 'http:[^&]+jpg' | head -1 | xargs feh --bg-seamless
+
+# Convert files from DOS line endings to UNIX line endings
+sed -i 's/^M//' file
+
+# Show simple disk IO table using snmp
+watch -n1 snmptable -v2c -c public localhost diskIOTable
+
+# AD: Diff 2 entire servers at ScriptRock.com

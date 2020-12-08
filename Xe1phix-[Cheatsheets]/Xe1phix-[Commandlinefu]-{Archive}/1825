@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# duration of the DNS-query
+server=8.8.8.8; host="apple.com"; queries=128; for i in `seq $queries`; do let x+=`dig @${server} $host | grep "Query time" | cut -f 4 -d " "`; done && echo "scale=3;($x/${queries})" | bc
+
+# Fibonacci numbers with awk
+awk 'func f(n){return(n<2?n:f(n-1)+f(n-2))}BEGIN{while(a<24){print f(a++)}}'
+
+# Rename all (jpg) files written as 3 number in 4 numbers.
+for i in ???.jpg; do mv $i $(printf %04d $(basename $i .jpg) ).jpg ; done
+
+# List files
+Esc-/ Esc-/
+
+# BASH one-liner to get the current week number
+date +"%V"
+
+# kill all process that belongs to you
+pkill -u `whoami`
+
+# Show exit status of all portions of a piped command eg. ls |this_doesn't_exist |wc
+echo ${PIPESTATUS[@]}
+
+# Simplest way to get size (in bytes) of a file
+du -b filename
+
+# Fix "broken" ID3 tags in the current directory and subdirectories
+find -iname '*mp3' -exec mid3iconv {} \;
+
+# Take screenshot through SSH
+xwd -root -display :0.0| xwdtopnm | pnmtopng > Screenshot.png
+
+# phpinfo from the command line
+php -r "phpinfo();"
+
+# Create a file of a given size in linux
+dd if=/dev/zero of=foo.txt bs=1M count=1
+
+# convert all flac files in a folder to mp3 files with a bitrate of 192 kbps
+for f in *;do flac -cd $f |lame -b 192 - $f.mp3;done
+
+# livehttpheaders (firefox addon) replacement
+liveh(){ tcpdump -lnAs512 ${1-} tcp |sed ' s/.*GET /GET /;s/.*Host: /Host: /;s/.*POST /POST /;/[GPH][EOo][TSs]/!d;w '"${2-liveh.txt}"' ' >/dev/null ;} # usage: liveh [-i interface] [output-file] && firefox &
+
+# View details of network activity, malicious or otherwise within a port range.
+lsof -i :555-7000
+
+# diff files while disregarding indentation and trailing white space
+diff -b $file1 $file2 # GNU Tools
+
+# pretend to be busy in office to enjoy a cup of coffee
+export GREP_COLOR='1;32'; cat /dev/urandom | hexdump -C | grep --color=auto "ca fe"
+
+# Google URL shortener
+curl -s -d'&url=URL' http://goo.gl/api/url | sed -e 's/{"short_url":"//' -e 's/","added_to_history":false}/\n/'
+
+# Compress excutable files in place.
+gzexe name ...
+
+# DVD ripping with ffmpeg
+cat VIDEO_TS/VTS_01_[1234].VOB | nice ffmpeg -i - -s 512x384 -vcodec libtheora -acodec libvorbis ~/Videos/dvd_rip.ogg
+
+# Simultaneously running different Firefox profiles
+firefox -P <profile_name> -no-remote
+
+# static compilation
+st() { LDFLAGS=-static CFLAGS=-static CXXFLAGS=-static NOSHARED=yes ./configure $@ ;} usage: st [configure operands]
+
+# Remove Thumbs.db files from folders
+rm -f **/Thumbs.db
+
+# Revert all modified files in an SVN repo
+svn st | grep -e '^M' | awk '{print $2}' | xargs svn revert
+
+# What is my public IP-address?
+dig @208.67.222.222 myip.opendns.com
+
+# AD: Diff 2 entire servers at ScriptRock.com

@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Lists installed kernels
+ls -1 /lib/modules
+
+# Print Memory Utilization Percentage For a specific process and it's children
+TOTAL_RAM=`free | head -n 2 | tail -n 1 | awk '{ print $2 }'`; PROC_RSS=`ps axo rss,comm | grep [h]ttpd | awk '{ TOTAL += $1 } END { print TOTAL }'`; PROC_PCT=`echo "scale=4; ( $PROC_RSS/$TOTAL_RAM ) * 100" | bc`; echo "RAM Used by HTTP: $PROC_PCT%"
+
+# a function to create a box of '=' characters around a given string.
+box() { t="$1xxxx";c=${2:-=}; echo ${t//?/$c}; echo "$c $1 $c"; echo ${t//?/$c}; }
+
+# Show top committers for SVN repositority for today
+svn log -r {`date "+%Y-%m-%d"`}:HEAD|grep '^r[0-9]' |cut -d\| -f2|sort|uniq -c
+
+# Url Encode
+echo "$url" | perl -MURI::Escape -ne 'chomp;print uri_escape($_),"\n"'
+
+# How to secure delete a file
+shred -u -z -n 17 rubricasegreta.txt
+
+# Show some trivia related to the current date
+calendar
+
+# Erase a word
+<CTRL+w>
+
+# Give to anyone a command to immediatly find a particular part of a man.
+man <COMMAND> | less +'/pattern'
+
+# Query Wikipedia via console over DNS
+mwiki () { blah=`echo $@ | sed -e 's/ /_/g'`; dig +short txt $blah.wp.dg.cx; }
+
+# Show git branches by date - useful for showing active branches
+for k in `git branch|sed s/^..//`;do echo -e `git log -1 --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" "$k"`\\t"$k";done|sort
+
+# Replace space in filename
+rename "s/ *//g" *.jpg
+
+# Chage default shell for all users [FreeBSD]
+cd /usr/home && for i in *;do chsh -s bash $i;done
+
+# mount an iso
+mount -o loop -t iso9660 my.iso /mnt/something
+
+# climagic's New Year's Countdown clock
+while V=$((`date +%s -d"2010-01-01"`-`date +%s`));do if [ $V == 0 ];then figlet 'Happy New Year!';break;else figlet $V;sleep 1;clear;fi;done
+
+# Empty a file
+> foobar.txt
+
+# Copy a file over SSH without SCP
+ssh HOST cat < LOCALFILE ">" REMOTEFILE
+
+# Print trending topics on Twitter
+curl -s search.twitter.com | awk -F'</?[^>]+>' '/\/intra\/trend\//{print $2}'
+
+# Another Matrix Style Implementation
+COL=$(( $(tput cols) / 2 )); clear; tput setaf 2; while :; do tput cup $((RANDOM%COL)) $((RANDOM%COL)); printf "%$((RANDOM%COL))s" $((RANDOM%2)); done
+
+# Block the 6700 worst spamhosts
+wget -q -O - http://someonewhocares.org/hosts/ | grep ^127 >> /etc/hosts
+
+# List the size (in human readable form) of all sub folders from the current location
+du -sh */
+
+# determine if tcp port is open
+nc -zw2 www.example.com 80 && echo open
+
+# Determining the excat memory usages by certain PID
+pmap -d <<pid>>
+
+# Script executes itself on another host with one ssh command
+[ $1 == "client" ] && hostname || cat $0 | ssh $1 /bin/sh -s client
+
+# Find all dot files and directories
+echo .*
+
+# AD: Diff 2 entire servers at ScriptRock.com

@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Synchronize date and time with a server over ssh
+date --set="$(ssh user@server date)"
+
+# Google text-to-speech in mp3 format
+wget -q -U Mozilla -O output.mp3 "http://translate.google.com/translate_tts?ie=UTF-8&tl=en&q=hello+world
+
+# Sort the size usage of a directory tree by gigabytes, kilobytes, megabytes, then bytes.
+du -b --max-depth 1 | sort -nr | perl -pe 's{([0-9]+)}{sprintf "%.1f%s", $1>=2**30? ($1/2**30, "G"): $1>=2**20? ($1/2**20, "M"): $1>=2**10? ($1/2**10, "K"): ($1, "")}e'
+
+# Duplicate installed packages from one machine to the other (RPM-based systems)
+ssh root@remote.host "rpm -qa" | xargs yum -y install
+
+# Draw kernel module dependancy graph.
+lsmod | perl -e 'print "digraph \"lsmod\" {";<>;while(<>){@_=split/\s+/; print "\"$_[0]\" -> \"$_\"\n" for split/,/,$_[3]}print "}"' | dot -Tpng | display -
+
+# Download Youtube video with wget!
+wget http://www.youtube.com/watch?v=dQw4w9WgXcQ -qO- | sed -n "/fmt_url_map/{s/[\'\"\|]/\n/g;p}" | sed -n '/^fmt_url_map/,/videoplayback/p' | sed -e :a -e '$q;N;5,$D;ba' | tr -d '\n' | sed -e 's/\(.*\),\(.\)\{1,3\}/\1/' | wget -i - -O surprise.flv
+
+# Binary Clock
+watch -n 1 'echo "obase=2;`date +%s`" | bc'
+
+# Download all images from a site
+wget -r -l1 --no-parent -nH -nd -P/tmp -A".gif,.jpg" http://example.com/images
+
+# What is my public IP-address?
+curl ifconfig.me
+
+# Backup all MySQL Databases to individual files
+for I in $(mysql -e 'show databases' -s --skip-column-names); do mysqldump $I | gzip > "$I.sql.gz"; done
+
+# which program is this port belongs to ?
+lsof -i tcp:80
+
+# Remind yourself to leave in 15 minutes
+leave +15
+
+# using `!#$' to referance backward-word
+cp /work/host/phone/ui/main.cpp !#$:s/host/target
+
+# Find out how much data is waiting to be written to disk
+grep ^Dirty /proc/meminfo
+
+# Use tee to process a pipe with two or more processes
+echo "tee can split a pipe in two"|tee >(rev) >(tr ' ' '_')
+
+# Port Knocking!
+knock <host> 3000 4000 5000 && ssh -p <port> user@host && knock <host> 5000 4000 3000
+
+# Add timestamp to history
+export HISTTIMEFORMAT="%F %T "
+
+# Search recursively to find a word or phrase in certain file types, such as C code
+find . -name "*.[ch]" -exec grep -i -H "search pharse" {} \;
+
+# Recursively change permissions on files, leave directories alone.
+find ./ -type f -exec chmod 644 {} \;
+
+# Bring the word under the cursor on the :ex line in Vim
+:<C-R><C-W>
+
+# Block known dirty hosts from reaching your machine
+wget -qO - http://infiltrated.net/blacklisted|awk '!/#|[a-z]/&&/./{print "iptables -A INPUT -s "$1" -j DROP"}'
+
+# make directory tree
+mkdir -p work/{d1,d2}/{src,bin,bak}
+
+# find files in a date range
+find . -type f -newermt "2010-01-01" ! -newermt "2010-06-01"
+
+# Get your outgoing IP address
+dig +short myip.opendns.com @resolver1.opendns.com
+
+# Compare two directory trees.
+diff <(cd dir1 && find | sort) <(cd dir2 && find | sort)
+
+# AD: Diff 2 entire servers at ScriptRock.com

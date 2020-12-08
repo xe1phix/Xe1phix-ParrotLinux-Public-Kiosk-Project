@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Port scan a range of hosts with Netcat.
+for i in {21..29}; do nc -v -n -z -w 1 192.168.0.$i 443; done
+
+# Log your internet download speed
+echo $(date +%s) > start-time; URL=http://www.google.com; while true; do echo $(curl -L --w %{speed_download} -o/dev/null -s $URL) >> bps; sleep 10; done &
+
+# Show Directories in the PATH Which does NOT Exist
+(IFS=:;for p in $PATH; do test -d $p || echo $p; done)
+
+# Backup files older than 1 day on /home/dir, gzip them, moving old file to a dated file.
+find /home/dir -mtime +1 -print -exec gzip -9 {} \; -exec mv {}.gz {}_`date +%F`.gz \;
+
+# alias to close terminal with :q
+alias ':q'='exit'
+
+# display an embeded help message from bash script  header
+[ "$1" == "--help" ] && { sed -n -e '/^# Usage:/,/^$/ s/^# \?//p' < $0; exit; }
+
+# Sort file greater than a specified size  in human readeable format including their path and typed by color, running from current directory
+find ./ -size +10M -type f -print0 | xargs -0 ls -Ssh1 --color
+
+# print file without duplicated lines using awk
+awk '!a[$0]++' file
+
+# Get the 10 biggest files/folders for the current direcotry
+du -sk * |sort -rn |head
+
+# Get your external IP address
+curl -s 'http://checkip.dyndns.org' | sed 's/.*Current IP Address: \([0-9\.]*\).*/\1/g'
+
+# Send email with one or more binary attachments
+echo "Body goes here" | mutt -s "A subject" -a /path/to/file.tar.gz recipient@example.com
+
+# convert a web page into a png
+touch $2;firefox -print $1 -printmode PNG -printfile $2
+
+# uncomment the lines where the word DEBUG is found
+sed '/^#.*DEBUG.*/ s/^#//' $FILE
+
+# this toggles mute on the Master channel of an alsa soundcard
+amixer sset Master toggle
+
+# Submit data to a HTML form with POST method and save the response
+curl -sd 'rid=value&submit=SUBMIT' <URL> > out.html
+
+# count how many times a string appears in a (source code) tree
+$ grep -or string path/ | wc -l
+
+# Search commandlinefu from the CLI
+curl -sd q=Network http://www.commandlinefu.com/search/autocomplete |html2text -width 100
+
+# Compare a remote file with a local file
+vimdiff <file> scp://[<user>@]<host>/<file>
+
+# Using netcat to copy files between servers
+On target: "nc -l 4000 | tar xvf -" On source: "tar -cf - . | nc target_ip 4000"
+
+# Search command history on bash
+ctrl + r
+
+# Redirect incoming traffic to SSH, from a port of your choosing
+iptables -t nat -A PREROUTING -p tcp --dport [port of your choosing] -j REDIRECT --to-ports 22
+
+# alt + 1 .
+alt + 1 .
+
+# Create several copies of a file
+for i in {1..5}; do cp test{,$i};done
+
+# Search for a single file and go to it
+cd $(dirname $(find ~ -name emails.txt))
+
+# Nice info browser
+pinfo
+
+# AD: Diff 2 entire servers at ScriptRock.com

@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Getting information about model no. of computer
+dmidecode | grep -i prod
+
+# New command with the last argument of the previous command.
+command !$
+
+# See the 10 programs the most used
+sed -e "s/| /\n/g" ~/.bash_history | cut -d ' ' -f 1 | sort | uniq -c | sort -nr | head
+
+# ssh -A user@somehost
+ssh -A user@somehost
+
+# Search previous commands from your .bash_history
+ctrl + r
+
+# C one-liners
+/lib/ld-linux.so.2 =(echo -e '#include <stdio.h>\nint main(){printf("c one liners\\n");}' | gcc -x c -o /dev/stdout -)
+
+# show lines that appear in both file1 and file2
+comm -1 -2 <(sort file1) <(sort file2)
+
+# nmap IP block and autogenerate comprehensive Nagios service checks
+nmap -sS -O -oX /tmp/nmap.xml 10.1.1.0/24 -v -v && perl nmap2nagios.pl -v -r /tmp/10net.xml -o /etc/nagios/10net.cfg
+
+# ionice limits process I/O, to keep it from swamping the system (Linux)
+ionice -c3 find /
+
+# Runs a command without hangups.
+nohup <command> &
+
+# Summarize Apache Extended server-status to show longest running requests
+links --dump 1 http://localhost/server-status|grep ^[0-9]|awk 'BEGIN {print "Seconds, PID, State, IP, Domain, TYPE, URL\n--"} $4 !~ /[GCRK_.]/ {print $6, $2, $4, $11, $12, $13 " " $14|"sort -n"}'
+
+# Repeatedly purge orphaned packages on Debian-like Linuxes
+while [ $(deborphan | wc -l) -gt 0 ]; do dpkg --purge $(deborphan); done
+
+# Insert a colon between every two digits
+sed 's/\(..\)/\1:/g;s/:$//' mac_address_list
+
+# Unencrypted voicechat
+On PC1:  nc -l -p 6666 > /dev/dsp   On PC2:  cat /dev/dsp | nc <PC1's IP> 6666
+
+# Watch Data Usage on eth0
+watch ifconfig eth0
+
+# Display IPs accessing your Apache webserver.
+egrep -o '\b[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\b' access.log | sort -u
+
+# Show all programs on UDP and TCP ports with timer information
+netstat -putona
+
+# Show a passive popup in KDE
+kdialog --passivepopup <text> <timeout>
+
+# Change string in many files at once and more.
+find . -type f -exec grep -l XXX {} \;|tee /tmp/fileschanged|xargs perl -pi.bak -e 's/XXX/YYY/g'
+
+# Octal ls
+ls -l | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf("%0o ",k);print}'
+
+# Find 'foo' string inside files
+find . -type f -print | xargs grep foo
+
+# Watch for when your web server returns
+watch -n 15 curl -s --connect-timeout 10 http://www.google.com/
+
+# find the difference between two nodes
+diff <(ssh nx915000 "rpm -qa") <(ssh nx915001 "rpm -qa")
+
+# a find and replace within text-based files, to locate and rewrite text en mass.
+find . -name "*.txt" | xargs perl -pi -e 's/old/new/g'
+
+# do a full file listing of every file found with locate
+locate searchstring | xargs ls -l
+
+# AD: Diff 2 entire servers at ScriptRock.com

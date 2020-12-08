@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Use Cygwin to talk to the Windows clipboard
+cat /dev/clipboard; $(somecommand) > /dev/clipboard
+
+# List programs with open ports and connections
+lsof -i
+
+# Find corrupted jpeg image files
+find . -name "*jpg" -exec jpeginfo -c {} \; | grep -E "WARNING|ERROR"
+
+# 'Fix' a typescript file created by the 'script' program to remove control characters
+cat typescript | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b > typescript-processed
+
+# Share a 'screen'-session
+screen -x
+
+# Purge configuration files of removed packages on  debian based systems
+sudo aptitude purge `dpkg --get-selections | grep deinstall | awk '{print $1}'`
+
+# Show all detected mountable Drives/Partitions/BlockDevices
+hwinfo --block --short
+
+# Fibonacci numbers with awk
+seq 50| awk 'BEGIN {a=1; b=1} {print a; c=a+b; a=b; b=c}'
+
+# Merge *.pdf files
+gs -q -sPAPERSIZE=letter -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=out.pdf `ls *.pdf`
+
+# quickly change all .html extensions on files in folder to .htm
+for i in *.html ; do mv $i ${i%.html}.htm ; done
+
+# Delete the specified line
+sed -i 8d ~/.ssh/known_hosts
+
+# Read the output of a command into the buffer in vim
+:r !command
+
+# Find broken symlinks
+find . -type l ! -exec test -e {} \; -print
+
+# ssh tunnel with auto reconnect ability
+while [ ! -f /tmp/stop ]; do ssh -o ExitOnForwardFailure=yes -R 2222:localhost:22 target "while nc -zv localhost 2222; do sleep 5; done"; sleep 5;done
+
+# find process associated with a port
+fuser [portnumber]/[proto]
+
+# scping files with streamlines compression (tar gzip)
+tar czv file1 file2 folder1 | ssh user@server tar zxv -C /destination
+
+# add all files not under version control to repository
+svn status |grep '\?' |awk '{print $2}'| xargs svn add
+
+# Show how old your linux OS installtion is
+sudo tune2fs -l $(df -h / |(read; awk '{print $1; exit}')) | grep -i created
+
+# Discover the process start time
+ps -eo pid,lstart,cmd
+
+# Automatically find and re-attach to a detached screen session
+screen -D -R
+
+# This is how you should push a string in a command's stdin.
+command <<< word
+
+# ping as traceroute
+for i in {1..30}; do  ping -t $i -c 1 google.com; done | grep "Time to live exceeded"
+
+# what model of computer I'm using?
+sudo dmidecode | grep Product
+
+# Extract tar content without leading parent directory
+tar -xaf archive.tar.gz --strip-components=1
+
+# Target a specific column for pattern substitution
+awk '{gsub("foo","bar",$5)}1' file
+
+# AD: Diff 2 entire servers at ScriptRock.com

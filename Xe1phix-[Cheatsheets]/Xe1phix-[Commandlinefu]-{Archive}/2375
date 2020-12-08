@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Monitor memory usage
+watch vmstat -sSM
+
+# Convert encoding of given files from one encoding to another
+iconv -f utf8 -t utf16 /path/to/file
+
+# Mount a partition from dd disk image
+mount -o loop,offset=$((512*x)) /path/to/dd/image /mount/path
+
+# Start another X session in a window
+startx -- /usr/bin/Xephyr :2
+
+# Locking and unlocking files and mailboxes
+lockfile
+
+# Short Information about loaded kernel modules
+awk '{print $1}' "/proc/modules" | xargs modinfo | awk '/^(filename|desc|depends)/'
+
+# Shows you how many hours of avi video you have.
+/usr/share/mplayer/midentify.sh `find . -name "*.avi" -print` | grep ID_LENGTH | awk -F "=" '{sum += $2} END {print sum/60/60; print "hours"}'
+
+# Output Detailed Process Tree for any User
+psu(){ command ps -Hcl -F S f -u ${1:-$USER}; }
+
+# Create date based backups
+backup() { for i in "$@"; do cp -va $i $i.$(date +%Y%m%d-%H%M%S); done }
+
+# Create subdirectory and move files into it
+(ls; mkdir subdir; echo subdir) | xargs mv
+
+# Play random music from blip.fm
+mpg123 `curl -s http://blip.fm/all | sed -e 's#"#\n#g'  | grep mp3$  | xargs`
+
+# Commit only newly added files to subversion repository
+svn ci `svn stat |awk '/^A/{printf $2" "}'`
+
+# Use the arguments used in the last command
+mkdir !*
+
+# Sort the size usage of a directory tree by gigabytes, kilobytes, megabytes, then bytes.
+dh() { du -ch --max-depth=1 "${@-.}"|sort -h }
+
+# Go up multiple levels of directories quickly and easily.
+cd() { if [[ "$1" =~ ^\.\.+$ ]];then local a dir;a=${#1};while [ $a -ne 1 ];do dir=${dir}"../";((a--));done;builtin cd $dir;else builtin cd "$@";fi ;}
+
+# Display GCC Predefined Macros
+gcc -dM -E - <<<''
+
+# Enable cd by variable names
+shopt -s cdable_vars
+
+# Get ssh server fingerprints
+ssh-keygen -l -f /etc/ssh/ssh_host_rsa_key.pub && ssh-keygen -l -f /etc/ssh/ssh_host_dsa_key.pub
+
+# Prints per-line contribution per author for a GIT repository
+git ls-files | xargs -n1 -d'\n' -i git-blame {} | perl -n -e '/\s\((.*?)\s[0-9]{4}/ && print "$1\n"' | sort -f | uniq -c -w3 | sort -r
+
+# geoip lookup
+geoip(){curl -s "http://www.geody.com/geoip.php?ip=${1}" | sed '/^IP:/!d;s/<[^>][^>]*>//g' ;}
+
+# Show current weather for any US city or zipcode
+weather() { lynx -dump "http://mobile.weather.gov/port_zh.php?inputstring=$*" | sed 's/^ *//;/ror has occ/q;2h;/__/!{x;s/\n.*//;x;H;d};x;s/\n/ -- /;q';}
+
+# validate the syntax of a perl-compatible regular expression
+perl -we 'my $regex = eval {qr/.*/}; die "$@" if $@;'
+
+# Perform sed substitution on all but the last line of input
+sed -e "$ ! s/$/,/"
+
+# List your largest installed packages.
+dpkg --get-selections | cut -f1 | while read pkg; do dpkg -L $pkg | xargs -I'{}' bash -c 'if [ ! -d "{}" ]; then echo "{}"; fi' | tr '\n' '\000' | du -c --files0-from - | tail -1 | sed "s/total/$pkg/"; done
+
+# print crontab entries for all the users that actually have a crontab
+for USER in `cut -d ":" -f1 </etc/passwd`; do crontab -u ${USER} -l 1>/dev/null 2>&1; if [ ! ${?} -ne 0 ]; then echo -en "--- crontab for ${USER} ---\n$(crontab -u ${USER} -l)\n"; fi; done
+
+# AD: Diff 2 entire servers at ScriptRock.com

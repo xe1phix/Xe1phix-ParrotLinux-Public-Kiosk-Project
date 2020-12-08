@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# concat multiple videos into one (and add an audio track)
+cat frame/*.mpeg | ffmpeg -i $ID.mp3 -i - -f dvd -y track/$ID.mpg 2>/dev/null
+
+# Get Futurama quotations from slashdot.org servers
+echo -e "HEAD / HTTP/1.1\nHost: slashdot.org\n\n" | nc slashdot.org 80 | egrep "Bender|Fry" | sed "s/X-//"
+
+# Change the case of a single word in vim
+g~w
+
+# Encrypted archive with openssl and tar
+tar c folder_to_encrypt | openssl enc -aes-256-cbc -e > secret.tar.enc
+
+# Follow the most recently updated log files
+ls -drt /var/log/* | tail -n5 | xargs sudo tail -n0 -f
+
+# cat large file to clipboard with speed-o-meter
+pv large.xml | xclip
+
+# Merge several pdf files into a single file
+gs -q -sPAPERSIZE=a4 -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=out.pdf a.pdf b.pdf c.pdf
+
+# Update dyndns.org with your external IP.
+curl -v -k -u user:password "https://members.dyndns.org/nic/update?hostname=<your_domain_name_here>&myip=$(curl -s http://checkip.dyndns.org | sed 's/[a-zA-Z<>/ :]//g')&wildcard=NOCHG&mx=NOCHG&backmx=NOCHG"
+
+# Migrate existing Ext3 filesystems to Ext4
+tune2fs -O extents,uninit_bg,dir_index /dev/yourpartition
+
+# Update your OpenDNS network ip
+wget -q --user=<username> --password=<password> 'https://updates.opendns.com/nic/update?hostname=your_opendns_hostname&myip=your_ip' -O -
+
+# On-the-fly unrar movie in .rar archive and play it, does also work on part archives.
+unrar p -inul foo.rar|mplayer -
+
+# detach remote console for long running operations
+dtach -c /tmp/wires-mc mc
+
+# Apply substitution only on the line following a marker
+sed '/MARKER/{N;s/THIS/THAT/}'
+
+# Read a keypress without echoing it
+stty cbreak -echo; KEY=$(dd bs=1 count=1 2>/dev/null); stty -cbreak echo
+
+# Setup an ssh tunnel
+ssf -f -N -L 4321:home.network.com:25 user@home.network.com
+
+# Synchronize both your system clock and hardware clock and calculate/adjust time drift
+ntpdate pool.ntp.org && hwclock --systohc && hwclock --adjust
+
+# Get line number of all matches in a file
+awk '/match/{print NR}' file
+
+# Get yesterday's date or a previous time
+date -d '1 day ago'; date -d '11 hour ago'; date -d '2 hour ago - 3 minute'; date -d '16 hour'
+
+# Getting Screen's Copy Buffer Into X's Copy Buffer (on Linux)
+Type "c-a b" in gnu screen after updating your .screenrc (See Description below).
+
+# Skip over .svn directories when using the "find" command.
+find . -not \( -name .svn -prune \)
+
+# Simplification of "sed 'your sed stuff here' file > file2 && mv file2 file"
+sed -i 'your sed stuff here' file
+
+# Check if a process is running
+kill -0 [pid]
+
+# Send a binary file as an attachment to an email
+uuencode archive.tar.gz archive.tar.gz | mail -s "Emailing: archive.tar.gz" user@example.com
+
+# Record live sound in Vorbis (eg for bootlegs or to take audio notes)
+rec -c 2 -r 44100 -s -t wav - | oggenc -q 5 --raw --raw-chan=2 --raw-rate=44100 --raw-bits=16 - > MyLiveRecording.ogg
+
+# Follow the flow of a log file
+tailf file.log
+
+# AD: Diff 2 entire servers at ScriptRock.com

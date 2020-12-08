@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# List latest 5 modified files recursively
+find . -type f -printf '%T@ %TY-%Tm-%Td %TH:%TM:%.2TS %p\n' | sort -nr | head -n 5 | cut -f2- -d" "
+
+# Examine processes generating traffic on your website
+netstat -np | grep -v ^unix
+
+# Search and play youtube videos directly to terminal (no X needed)
+pyt() { youtube-dl -q --max-downloads 1 --no-playlist --default-search ${2:-ytsearch} "$1" -o - | mplayer -vo null /dev/fd/3 3<&0 </dev/tty; }
+
+# drop first column of output by piping to this
+tr -s ' ' | cut -d' ' -f2-
+
+# Reload all sysctl variables without reboot
+sysctl --system
+
+# Network Proxy to dump the application level forward traffic in plain text in the console and in a file.
+mkfifo fifo; while true ; do      echo "Waiting for new event";     nc -l 8080 < fifo | tee -a proxy.txt /dev/stderr | nc 192.168.0.1 80 > fifo ;  done
+
+# Get HTTP status code with curl
+curl --write-out %{http_code} --silent --output /dev/null localhost
+
+# Are there any words in the English language that use at least half of the alphabet without repeating any letters?
+cat /usr/share/dict/words | egrep '^\w{13,}$' | egrep -iv '(\w).*\1'
+
+# separate (emphasize) digital strings from other text
+sed 's/[0-9]\+/ [&] /g'
+
+# ping a host until it responds, then play a sound, then exit
+Mac OSX: ping -oc 30 8.8.4.4  > /dev/null && say "Google name server is up" || say "This host is down"
+
+# Find dead symbolic links
+find -L -type l
+
+# Determine if photos have been rotated to portrait orientation instead of normal landscape orientation
+for i in *; do identify $i | awk  '{split($3,a,"x"); if (a[2]>a[1]) print $1;}'; done
+
+# Print ASCII Character Chart
+for i in {1..256};do p="  $i";echo -e "${p: -3} \\0$(($i/64*100+$i%64/8*10+$i%8))";done|cat -t|column -c120
+
+# Bitcoin Brainwallet Base58 Encoder
+function b58encode () { local b58_lookup_table=({1..9} {A..H} {J..N} {P..Z} {a..k} {m..z}); bc<<<"obase=58;ibase=16;${1^^}"|(read -a s; for b58_index in "${s[@]}" ; do printf %s ${b58_lookup_table[ 10#"$b58_index" ]}; done); }
+
+# poor man's vpn
+sshuttle --dns -vvr user@server 0/0
+
+# Read choice from user instantaneously
+read -N1
+
+# Random Number Between 1 And 256
+od -An -N1 -tu1 /dev/random
+
+# find previously entered commands
+<ctrl>+r
+
+# Welcome humans!
+firefox about:robots
+
+# Diff 2 file struct - Useful for branch diff and jars diff(uncompressed)
+diff <(cd A; find -type f|xargs md5sum ) <(cd B; find -type f | xargs md5sum )
+
+# network interface and routing summary
+nmap --iflist
+
+# Compress blank lines
+cat -s
+
+# Encrypt and password-protect execution of any bash script, Version 2
+read -p 'Script: ' S && C=$S.crypt H='eval "$((dd if=$0 bs=1 skip=//|gpg -d)2>/dev/null)"; exit;' && gpg -c<$S|cat >$C <(echo $H|sed s://:$(echo "$H"|wc -c):) - <(chmod +x $C)
+
+# Tail a log-file over the network
+socat -u FILE:/var/log/syslog,ignoreeof TCP4-LISTEN:12345,fork,reuseaddr
+
+# generate 30 x 30 matrix
+hexdump -v -e '"%u"' </dev/urandom|fold -60|head -n 30|sed 's/\(.\{2\}\)/\1 /g'
+
+# AD: Diff 2 entire servers at ScriptRock.com

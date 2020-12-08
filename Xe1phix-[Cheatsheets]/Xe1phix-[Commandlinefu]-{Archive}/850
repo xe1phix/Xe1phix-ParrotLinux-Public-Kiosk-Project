@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# loop over a set of items that contain spaces
+ls | while read ITEM; do echo "$ITEM"; done
+
+# Converts to PDF all the OpenOffice.org files in the directory
+for i in $(ls *.od{tp}); do unoconv -f pdf $i; done
+
+# Create a bunch of dummy files for testing
+touch {1..10}.txt
+
+# Traceroute w/TCP to get through firewalls.
+tcptraceroute www.google.com
+
+# Split File in parts
+split -b 19m file Nameforpart
+
+# Create an SSH SOCKS proxy server on localhost:8000 that will re-start itself if something breaks the connection temporarily
+autossh -f -M 20000 -D 8000 somehost -N
+
+# To get you started!
+vimtutor
+
+# Remove all subversion files from a project recursively
+rm -rf `find . -type d -name .svn`
+
+# Exclude grep from your grepped output of ps (alias included in description)
+ps aux | grep [h]ttpd
+
+# renames multiple files that match the pattern
+rename 's/foo/bar/g' *
+
+# Block an IP address from connecting to a server
+iptables -A INPUT -s 222.35.138.25/32 -j DROP
+
+# infile search and replace on N files (including backup of the files)
+perl -pi.bk -e's/foo/bar/g' file1 file2 fileN
+
+# Show running services (using systemctl)
+command systemctl --no-page --no-legend --plain -t service --state=running
+
+# Binary clock
+perl -e 'for(;;sleep 1){printf"\r"."%.4b "x6,split"",`date +%H%M%S`}'
+
+# pulsed terminal clock
+clear;while true;sleep 1;do for((a=1;a<=$(tput cols)/3;a++));do tput cup 0 $a;echo " " $(date);done;sleep 1;for((a;a>=1;a--));do tput cup 0 $a;echo $(date) " ";done;done
+
+# Create a bunch of dummy text files
+base64 /dev/urandom | head -c 33554432 | split -b 8192 -da 4  - dummy.
+
+# removes characters from cursor to the end of line
+Ctrl+k
+
+# All what exists in dir B and not in dir A will be copied from dir B to new or existing dir C
+rsync -v -r --size-only --compare-dest=../A/ B/ C/
+
+# find previously entered commands (requires configuring .inputrc)
+<Meta-p> (aka <ALT+P>)
+
+# Add directory to $PATH if it's not already there
+if [[ ":$PATH:" != *":$dir:"* ]]; then PATH=${PATH}:$dir; fi
+
+# Debug how files are being accessed by a process
+inotifywait -m -r .
+
+# Retry the previous command until it exits successfully
+!!; while [ $? -ne 0 ]; do !!; done
+
+# Search google.com on your terminal
+Q="YOURSEARCH"; GOOG_URL="http://www.google.com/search?q="; AGENT="Mozilla/4.0"; stream=$(curl -A "$AGENT" -skLm 10 "${GOOG_URL}\"${Q/\ /+}\"" | grep -oP '\/url\?q=.+?&amp' | sed 's/\/url?q=//;s/&amp//'); echo -e "${stream//\%/\x}"
+
+# Play awesome rythmic noise using aplay
+echo "main(i){for(i=0;;i++)putchar(((i*(i>>8|i>>9)&46&i>>8))^(i&i>>13|i>>6));}" | gcc -x c - && ./a.out | aplay
+
+# Turns red the stderr output
+color()(set -o pipefail;"$@" 2>&1>&3|sed $'s,.*,\e[31m&\e[m,'>&2)3>&1
+
+# AD: Diff 2 entire servers at ScriptRock.com

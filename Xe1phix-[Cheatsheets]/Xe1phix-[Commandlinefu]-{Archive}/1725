@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Bitcoin Brainwallet Checksum Calculator
+function brainwallet_checksum () { (o='openssl sha256 -binary'; p='printf';($p %b "\x80";$p %s "$1"|$o)|$o|sha256sum|cut -b1-8); }
+
+# Bitcoin Brainwallet Exponent Calculator
+function brainwallet_exponent () { printf %s "$1"|sha256sum|head -c 64; }
+
+# Piping Microphone Audio Over Netcat
+port=3333;card=0;subdevice=0;arecord -D hw:${card},${subdevice} -f S16_LE -c2|nc -l $port
+
+# Get a BOFH excuse
+telnet towel.blinkenlights.nl 666 2>/dev/null |tail -2
+
+# Convert a script to one-liner
+(sed 's/#.*//g'|sed '/^ *$/d'|tr '\n' ';'|xargs echo) < script.sh
+
+# Get a list of all TODO/FIXME tasks left to be done in your project
+alias tasks='grep --exclude-dir=.git -rEI "TODO|FIXME" . 2>/dev/null'
+
+# Found how how much memory in kB $PID is occupying in Linux
+echo 0$(awk '/Pss/ {printf "+"$2}' /proc/$PID/smaps)|bc
+
+# Command to rename multiple file in one go
+rename 's/.xls/.ods/g' *.xls
+
+# Delete all empty lines from a file with vim
+:v/./d
+
+# Waste time for about 3 minutes
+for i in {1..20}; do fortune -w ; sleep 3; clear; done
+
+# Find last modified files in a directory and its subdirectories
+find . -type f -print0 | xargs -0 stat -c'%Y :%y %12s %n' | sort -nr | cut -d: -f2- | head
+
+# Graphically show percent of mount space used
+for m in `df -P | awk -F ' ' '{print $NF}' | sed -e "1d"`;do n=`df -P | grep "$m$" | awk -F ' ' '{print $5}' | cut -d% -f1`;i=0;if [[ $n =~ ^-?[0-9]+$ ]];then printf '%-25s' $m;while [ $i -lt $n ];do echo -n '=';let "i=$i+1";done;echo " $n";fi;done
+
+# Fetch the current human population of Earth
+curl -s http://www.census.gov/popclock/data/population/world | awk -F'[:,]' '{print $7}'
+
+# Find files and list them sorted by modification time
+find -printf "%C@ %p\n"|sort
+
+# Creating A Single Image Video With Audio via ffmpeg
+ffmpeg -loop 1 -i image.png -i sound.mp3 -shortest video.mp4
+
+# sqlite3 cmd to extract Firefox bookmarks from places.sqlite
+sqlite3 ~/.mozilla/firefox/*default/places.sqlite "select a.url, a.title from moz_places a, moz_bookmarks b where a.id=b.fk and b.parent=2;"
+
+# Remove ( color / special / escape / ANSI ) codes, from text, with sed
+sed "s,\x1B\[[0-9;]*[a-zA-Z],,g"
+
+# mailx to send mails from console
+true | mailx -n -a MYTEXT.txt -r my@mail.com -s log -S smtp=mail.com -S smtp-auth-user=MYUSER -S smtp-auth-password=MYPASSWORD FRIEND@mail.com
+
+# Encrypt and password-protect execution of any bash script
+echo "eval \"\$(dd if=\$0 bs=1 skip=XX 2>/dev/null|gpg -d 2>/dev/null)\"; exit" > script.secure; sed -i s:XX:$(stat -c%s script.secure): script.secure; gpg -c < script.bash >> script.secure; chmod +x script.secure
+
+# convert single digit to double digits
+rename 's/\d+/sprintf("%02d",$&)/e' -- $@
+
+# dd with progress bar and statistics to gzipped image
+sudo dd if=/dev/sdc bs=4096 | pv -s  `sudo mount /dev/sdc /media/sdc && du -sb /media/sdc/ |awk '{print $1}' && sudo umount /media/sdc`| sudo dd bs=4096 of=~/USB_BLACK_BACKUP.IMG
+
+# Take screenshots with imagemagick
+import -window root -quality 98 screenshot.png
+
+# Output as many input
+echo 'foo' | tee >(wc -c) >(grep o) >(grep f)
+
+# network usage per process
+sudo nethogs eth0
+
+# move up through directories faster (set in your /etc/profile or .bash_profile)
+function up { cd $(eval printf '../'%.0s {1..$1}) && pwd; }
+
+# AD: Diff 2 entire servers at ScriptRock.com

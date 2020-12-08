@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# What is my ip?
+curl http://www.whatismyip.org/
+
+# Get the total length of all video / audio in the current dir (and below) in H:m:s
+find -type f -name "*.avi" -print0 | xargs -0  mplayer -vo dummy -ao dummy -identify 2>/dev/null | perl -nle '/ID_LENGTH=([0-9\.]+)/ && ($t +=$1) && printf "%02d:%02d:%02d\n",$t/3600,$t/60%60,$t%60' | tail -n 1
+
+# Send data securly over the net.
+cat /etc/passwd | openssl aes-256-cbc -a -e -pass pass:password | netcat -l -p 8080
+
+# When was your OS installed?
+ls -lct /etc | tail -1 | awk '{print $6, $7}'
+
+# Parallel file downloading with wget
+wget -nv http://en.wikipedia.org/wiki/Linux -O- | egrep -o "http://[^[:space:]]*.jpg" | xargs -P 10 -r -n 1 wget -nv
+
+# How to run a command on a list of remote servers read from a file
+while read server; do ssh -n user@$server "command"; done < servers.txt
+
+# Replace spaces in filenames with underscorees
+ls | while read f; do mv "$f" "${f// /_}";done
+
+# find the biggest files recursively, no matter how many
+find . -type f -printf '%20s %p\n' | sort -n | cut -b22- | tr '\n' '\000' | xargs -0 ls -laSr
+
+# grep certain file types recursively
+grep -r --include="*.[ch]" pattern .
+
+# Change proccess affinity.
+taskset -cp <core> <pid>
+
+# back up your commandlinefu contributed commands
+curl http://www.commandlinefu.com/commands/by/<your username>/rss|gzip ->commandlinefu-contribs-backup-$(date +%Y-%m-%d-%H.%M.%S).rss.gz
+
+# currently mounted filesystems in nice layout
+column -t /proc/mounts
+
+# benchmark web server with apache benchmarking tool
+ab -n 9000 -c 900 localhost:8080/index.php
+
+# Salvage a borked terminal
+echo <ctrl-v><esc>c<enter>
+
+# Multiple SSH Tunnels
+ssh -L :: -L :: @
+
+# LDAP search to query an ActiveDirectory server
+ldapsearch -LLL -H ldap://activedirectory.example.com:389 -b 'dc=example,dc=com' -D 'DOMAIN\Joe.Bloggs' -w 'p@ssw0rd' '(sAMAccountName=joe.bloggs)'
+
+# Easily scp a file back to the host you're connecting from
+mecp () { scp "$@" ${SSH_CLIENT%% *}:Desktop/; }
+
+# Super Speedy Hexadecimal or Octal Calculations and Conversions to Decimal.
+echo "$(( 0x10 )) - $(( 010 )) = $(( 0x10 - 010 ))"
+
+# find and replace tabs for spaces within files recursively
+find ./ -type f -exec sed -i 's/\t/  /g' {} \;
+
+# Delete all files found in directory A from directory B
+for file in <directory A>/*; do rm <directory B>/`basename $file`; done
+
+# synchronicity
+cal 09 1752
+
+# Terminal redirection
+script /dev/null | tee /dev/pts/3
+
+# Rot13 using the tr command
+alias rot13="tr '[A-Za-z]' '[N-ZA-Mn-za-m]'"
+
+# Measures download speed on eth0
+while true; do X=$Y; sleep 1; Y=$(ifconfig eth0|grep RX\ bytes|awk '{ print $2 }'|cut -d : -f 2); echo "$(( Y-X )) bps"; done
+
+# Clean swap area after using a memory hogging application
+swapoff -a ; swapon -a
+
+# AD: Diff 2 entire servers at ScriptRock.com

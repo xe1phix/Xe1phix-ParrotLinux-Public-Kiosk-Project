@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Reset terminal that has been buggered by binary input or similar
+stty sane
+
+# list processes with established tcp connections (without netstat)
+lsof -i -n | grep ESTABLISHED
+
+# Count the number of characters in each line
+awk '{count[length]++}END{for(i in count){printf("%d: %d\n", count[i], i)}}'
+
+# list your device drivers
+lspci -vv
+
+# Display all readline binding that use CTRL
+bind -p | grep -F "\C"
+
+# Changes standard mysql client output to 'less'.
+echo -e "[mysql]\npager=less -niSFX" >> ~/.my.cnf
+
+# Recursively remove directory with many files quickly
+blank=$(mktemp -d); rsync --delete "$blank/" "bigdir/"; rmdir "$blank"
+
+# check remote port  without telnet
+cat < /dev/tcp/74.125.224.40/80
+
+# Search and play youtube videos directly to terminal (no X needed)
+pyt() { id=$(curl -s 'https://www.youtube.com/results?search_query='$(tr \  + <<<"$1") | grep -om3 '"[[:alnum:]]\{11\}"' | awk NR==3 | tr -d \"); youtube-dl -q 'https://www.youtube.com/watch?v='"$id" -o - | mplayer -vo null /dev/fd/3 3<&0 </dev/tty; }
+
+# SSH connection through host in the middle; with key redirection
+ssh -o "ProxyCommand ssh user@reachable_host -W %h:%p" user@unreacheable_host
+
+# Grep only files matching certain pattern (Advanced)
+find . -path "*/any_depth/*" -exec grep "needle" {} +
+
+# Show all available cows
+for i in /usr/share/cowsay/cows/*.cow; do cowsay -f $i "$i"; done
+
+# Do command when logged in from certain ips using ssh
+if [ "${SSH_CLIENT%% *}" == "ipaddr" ]; then command; fi
+
+# View all new log messages in real time with color
+find /var/log -type f -iregex '.*[^\.][^0-9]+$' -not -iregex '.*gz$' 2> /dev/null | xargs tail -n0 -f | ccze -A
+
+# List Listen Port by numbers
+netstat -tlpn | sort -t: -k2 -n
+
+# View online pdf documents in cli
+curl 'LINK' | pdftotext - - | less
+
+# Securely destroy data on given device hugely faster than /dev/urandom
+openssl enc -aes-256-ctr -pass pass:"$(dd if=/dev/urandom bs=128 count=1 2>/dev/null | base64)" -nosalt < /dev/zero > randomfile.bin
+
+# Performance tip: compress /usr/
+[ ! -d /squashed/usr ] && mkdir -p /squashed/usr/{ro,rw} ; mksquashfs /usr /squashed/usr/usr.sfs.new -b 65536 ; mv /squashed/usr/usr.sfs.new /squashed/usr/usr.sfs ; reboot
+
+# camelcase to underscore
+echo thisIsATest | sed -E 's/([A-Z])/_\L\1/g'
+
+# gh or "grep history" - define a function gh combining history and grep to save typing
+function gh () { history | grep $* ; }  # gh or "grep history"
+
+# Make changes in .bashrc immediately available
+bashrc-reload() { builtin unalias -a; builtin unset -f $(builtin declare -F | sed 's/^.*declare[[:blank:]]\+-f[[:blank:]]\+//'); . ~/.bashrc; }
+
+# Remove orphaned dependencies on Arch
+pacman -Qdt -q | xargs pacman --noconfirm -R
+
+# Grabs a random image from "~/wallpapers" and sets as the background
+cd ~/wallpapers; feh --bg-fill "$( ls | sort -R | head -n 1 )"
+
+# Show complete URL in netstat output
+netstat -tup -W | column -t
+
+# Geolocate a given IP address
+curl ipinfo.io/<ipaddress>
+
+# AD: Diff 2 entire servers at ScriptRock.com

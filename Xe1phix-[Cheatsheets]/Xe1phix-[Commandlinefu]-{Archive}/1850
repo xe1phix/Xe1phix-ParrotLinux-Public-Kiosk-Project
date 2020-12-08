@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Remove color codes (special characters) with sed
+sed -r "s:\x1B\[[0-9;]*[mK]::g"'
+
+# tee to a file descriptor
+tee >(cat - >&2)
+
+# Remove all the files except abc in the directory
+find * -maxdepth 1 -type f ! -name abc -delete
+
+# Transcode .flac to .wav with gstreamer
+for i in *.flac; do gst-launch filesrc location="$i" ! flacdec ! wavenc ! filesink location="${i%.flac}.wav"; done
+
+# Clean up display when the bash prompt is displayed
+export PS1="\[\017\033[m\033[?9l\033[?1000l\]$PS1"
+
+# 'hpc' in the shell - starts a maximum of n compute commands modulo n controlled in parallel, using make
+echo -n 'targets = $(subst .png,.jpg,$(wildcard *.png))\n$(targets):\n     convert $(subst .jpg,.png,$@) $@ \nall : $(targets)' | make -j 4 -f - all
+
+# Virtual Console lock program
+vlock
+
+# 'hpc' in the box - starts a maximum of n compute commands modulo n controlled in parallel
+c=0; n=8; while true; do r=`echo $RANDOM%5 |bc`; echo "sleep $r"; sleep $r& 2>&1 >/dev/null && ((c++)); [ `echo "$c%$n" | bc` -eq 0 ] && echo "$c waiting" && wait; done
+
+# Print stack trace of a core file without needing to enter gdb interactively
+gdb --batch --quiet -ex "thread apply all bt full" -ex "quit" ${exe} ${corefile}
+
+# Save your open windows to a file so they can be opened after you restart
+wmctrl -l -p | while read line; do ps -o cmd= "$(echo "$line" | awk '$0=$3')"; done > ~/.windows
+
+# Set a Reminder for yourself via the notification system
+sleep 6s && notify-send -t 10000 -u critical "remember to think" &
+
+# Get IPv4 of eth0 for use with scripts
+ifconfig eth0 | grep "inet " | cut -d ':' -f2 | awk '{print $1}'
+
+# Prepare a commandlinefu command.
+goclf() { type "$1" | sed '1d' | tr -d "\n" | tr -s '[:space:]'; echo }
+
+# Runs a command without hangups.
+screen -d -m command &
+
+# Import SQL into MySQL with a progress meter
+(pv -n ~/database.sql | mysql -u root -pPASSWORD -D database_name) 2>&1 | zenity --width 550 --progress --auto-close --auto-kill --title "Importing into MySQL" --text "Importing into the database"
+
+# Forget remembered path locations of previously ran commands
+hash -r
+
+# matrix in your term
+cmatrix -abx
+
+# make, or run a script, everytime a file in a directory is modified
+while inotifywait -r -e MODIFY dir/; do make; done;
+
+# Test network speed without wasting disk
+dd if=/dev/zero bs=4096 count=1048576 | ssh user@host.tld 'cat > /dev/null'
+
+# translate what is in the clipboard in english and write it to the terminal
+wget -qO - "http://ajax.googleapis.com/ajax/services/language/translate?langpair=|en&v=1.0&q=`xsel`" |cut -d \" -f 6
+
+# Launch firefox on a remote linux server
+ssh -fY user@REMOTESERVER firefox -no-remote
+
+# List bash functions defined in .bash_profile or .bashrc
+declare -F | cut -d ' ' -f 3
+
+# Display which distro is installed
+lsb_release -a
+
+# cleanup /tmp directory
+find /tmp -type f -atime +1 -delete
+
+# Get size of terminal
+resize
+
+# AD: Diff 2 entire servers at ScriptRock.com

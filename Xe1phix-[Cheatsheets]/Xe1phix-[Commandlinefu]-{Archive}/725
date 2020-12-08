@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Upgrade all perl modules via CPAN
+cpan -r
+
+# List your largest installed packages (on Debian/Ubuntu)
+dpigs
+
+# rsync + find
+find . -name "whatever.*" -print0 | rsync -av --files-from=- --from0 ./ ./destination/
+
+# autossh + ssh + screen = super rad perma-sessions
+AUTOSSH_POLL=1 autossh -M 21010 hostname -t 'screen -Dr'
+
+# List Network Tools in Linux
+apropos network |more
+
+# Record microphone input and output to date stamped mp3 file
+arecord -q -f cd -r 44100 -c2 -t raw | lame -S -x -h -b 128 - `date +%Y%m%d%H%M`.mp3
+
+# Find running binary executables that were not installed using dpkg
+cat /var/lib/dpkg/info/*.list > /tmp/listin ; ls /proc/*/exe |xargs -l readlink | grep -xvFf /tmp/listin; rm /tmp/listin
+
+# cycle through a 256 colour palette
+yes "$(seq 1 255)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .01; done
+
+# move a lot of files over ssh
+tar -cf - /home/user/test | gzip -c | ssh user@sshServer 'cd /tmp; tar xfz -'
+
+# Cleanup firefox's database.
+pgrep -u `id -u` firefox-bin || find ~/.mozilla/firefox -name '*.sqlite'|(while read -e f; do echo 'vacuum;'|sqlite3 "$f" ; done)
+
+# vim easter egg
+$ vim ... :help 42
+
+# Find the process you are looking for minus the grepped one
+pgrep command_name
+
+# Update twitter via curl
+curl -u user -d status="Tweeting from the shell" http://twitter.com/statuses/update.xml
+
+# ssh autocomplete
+complete -W "$(echo $(grep '^ssh ' .bash_history | sort -u | sed 's/^ssh //'))" ssh
+
+# Get all IPs via ifconfig
+ifconfig | perl -nle'/dr:(\S+)/ && print $1'
+
+# VIM: Replace a string with an incrementing number between marks 'a and 'b (eg, convert string ZZZZ to 1, 2, 3, ...)
+:let i=0 | 'a,'bg/ZZZZ/s/ZZZZ/\=i/ | let i=i+1
+
+# Get the canonical, absolute path given a relative and/or noncanonical path
+readlink -f ../super/symlink_bon/ahoy
+
+# Create a Multi-Part Archive Without Proprietary Junkware
+tar czv Pictures | split -d -a 3 -b 16M - pics.tar.gz.
+
+# List and delete files older than one year
+find <directory path> -mtime +365 -and -not -type d -delete
+
+# Display last exit status of a command
+echo $?
+
+# Enable ** to expand files recursively (>=bash-4.0)
+shopt -s globstar
+
+# Command Line to Get the Stock Quote via Yahoo
+curl -s 'http://download.finance.yahoo.com/d/quotes.csv?s=csco&f=l1'
+
+# Plays Music from SomaFM
+read -p "Which station? "; mplayer --reallyquiet -vo none -ao sdl http://somafm.com/startstream=${REPLY}.pls
+
+# Convert camelCase to underscores (camel_case)
+sed -r 's/([a-z]+)([A-Z][a-z]+)/\1_\l\2/g' file.txt
+
+# Set your profile so that you resume or start a screen session on login
+echo "screen -DR" >> ~/.bash_profile
+
+# AD: Diff 2 entire servers at ScriptRock.com

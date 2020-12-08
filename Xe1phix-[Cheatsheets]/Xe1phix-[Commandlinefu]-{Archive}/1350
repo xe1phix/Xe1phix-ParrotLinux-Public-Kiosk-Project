@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# log your PC's motherboard and CPU temperature along with the current date
+echo `date +%m/%d/%y%X |awk '{print $1;}' `" => "` cat /proc/acpi/thermal_zone/THRM/temperature | awk '{print $2, $3;}'` >> datetmp.log
+
+# watch iptables counters
+watch --interval 0 'iptables -nvL | grep -v "0     0"'
+
+# Connect to SMTP server using STARTTLS
+openssl s_client -starttls smtp -crlf -connect 127.0.0.1:25
+
+# Silently Execute a Shell Script that runs in the background and won't die on HUP/logout
+nohup /bin/sh myscript.sh 1>&2 &>/dev/null 1>&2 &>/dev/null&
+
+# Get the size of all the directories in current directory (Sorted Human Readable)
+sudo du -ks $(ls -d */) | sort -nr | cut -f2 | xargs -d '\n' du -sh 2> /dev/null
+
+# Extract dd-image from VirtualBox VDI container and mount it
+vditool COPYDD my.vdi my.dd ; sudo mount -t ntfs -o ro,noatime,noexex,loop,offset=32256 my.dd ./my_dir
+
+# Change Windows Domain password from Linux
+smbpasswd -r <domain-server> -U <user name>
+
+# Remove newlines from output
+grep . filename
+
+# Get the size of all the directories in current directory
+du --max-depth=1
+
+# Alert on Mac when server is up
+ping -o -i 30 HOSTNAME && osascript -e 'tell app "Terminal" to display dialog "Server is up" buttons "It?s about time" default button 1'
+
+# Copy a directory recursively without data/files
+find . -type d -exec env d="$dest_root" sh -c ' exec mkdir -p -- "$d/$1"' '{}' '{}' \;
+
+# ssh and attach to a screen in one line.
+ssh -t user@host screen -x <screen name>
+
+# Save man pages to pdf
+man -t man | ps2pdf - > man.pdf
+
+# Find the dates your debian/ubuntu packages were installed.
+ls /var/lib/dpkg/info/*.list -lht |less
+
+# Resets your MAC to a random MAC address to make you harder to find.
+ran=$(head /dev/urandom | md5sum); MAC=00:07:${ran:0:2}:${ran:3:2}:${ran:5:2}:${ran:7:2}; sudo ifconfig wlan0 down hw ether $MAC; sudo ifconfig wlan0 up; echo ifconfig wlan0:0
+
+# Use a decoy while scanning ports to avoid getting caught by the sys admin :9
+sudo nmap -sS 192.168.0.10 -D 192.168.0.2
+
+# permanently let grep colorize its output
+echo alias grep=\'grep --color=auto\' >> ~/.bashrc ; . ~/.bashrc
+
+# Matrix Style
+LC_ALL=C tr -c "[:digit:]" " " < /dev/urandom | dd cbs=$COLUMNS conv=unblock | GREP_COLOR="1;32" grep --color "[^ ]"
+
+# Move files around local filesystem with tar without wasting space using an intermediate tarball.
+( cd SOURCEDIR && tar cf - . ) | (cd DESTDIR && tar xvpf - )
+
+# Scan Network for Rogue APs.
+nmap -A -p1-85,113,443,8080-8100 -T4 --min-hostgroup 50 --max-rtt-timeout 2000 --initial-rtt-timeout 300 --max-retries 3 --host-timeout 20m --max-scan-delay 1000 -oA wapscan 10.0.0.0/8
+
+# find the 10 latest (modified) files
+ls -1t | head -n10
+
+# purge installed but unused linux headers, image, or modules
+dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs sudo apt-get -y purge
+
+# Paste the contents of OS X clipboard into a new text file
+pbpaste > newfile.txt
+
+# du disk top 10
+for i in `du --max-depth=1 $HOME | sort -n -r | awk '{print $1 ":" $2}'`; do size=`echo $i | awk -F: '{print $1}'`; dir=`echo $i | awk -F: '{print $NF}'`; size2=$(($size/1024)); echo "$size2 MB used by $dir"; done | head -n 10
+
+# Get pages number of the pdf file
+pdfinfo Virtualization_A_Beginner_Guide.pdf | awk /Pages/
+
+# AD: Diff 2 entire servers at ScriptRock.com

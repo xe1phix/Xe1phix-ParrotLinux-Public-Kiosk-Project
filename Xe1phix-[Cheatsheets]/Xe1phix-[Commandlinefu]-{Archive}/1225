@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Set up alarm with fade-in, for graceful awakening
+at 8:30 <<<'mpc volume 20; mpc play; for i in `seq 1 16`; do sleep 2; mpc volume +5; done'
+
+# generate random identicon
+curl -s "http://www.gravatar.com/avatar/`uuidgen | md5sum | awk '{print $1}'`?s=64&d=identicon&r=PG" | display
+
+# remap Caps_Lock to Escape
+xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+
+# Show IP Address in prompt --> PS1 var
+export PS1="[\u@`hostname -I` \W]$ "
+
+# gzip compression with progress bar and remaining time displayed
+pv file | gzip > file.gz
+
+# Clear filesystem memory cache
+sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+
+# Save a file you edited in vim without the needed permissions
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+
+# Recording the desktop and an application audio source for webcast
+ffmpeg -f alsa -ac 2 -i pulse -f x11grab -r 30 -s 1024x768 -i :0.0 -acodec pcm_s16le -vcodec libx264 -vpre lossless_ultrafast -threads 0 ./Desktop/mydesktop.mkv
+
+# Binary difference of two files
+bsdiff <oldfile> <newfile> <patchfile>
+
+# output length of longest line
+wc -L
+
+# Find all files of a type and copy them elsewhere while keeping intact their full directory structure using find and cpio
+find . -iname "*.flac" | cpio -pdm /Volumes/Music/FLAC
+
+# Chmod all directories (excluding files)
+find public_html/ -type d -exec chmod 755 {} +
+
+# Stream YouTube URL directly to mplayer.
+mplayer -fs -cookies -cookies-file /tmp/cookie.txt $(youtube-dl -g --cookies /tmp/cookie.txt "http://www.youtube.com/watch?v=PTOSvEX-YeY")
+
+# Create a QR code image in MECARD format
+qrencode -o myqr.png 'MECARD:N:Lee,Chris;TEL:8881234567;EMAIL:chris.lee@somedomain.com;;'
+
+# To Stop or Start (Restart) a Windows service from a Linux machine
+net rpc -I indirizzoip -U nomeutente%password servizio {stop|start} nomedelservizio
+
+# Get all files of particular type (say, PDF) listed on some wegpage (say, example.com)
+wget -r -A .pdf -l 5 -nH --no-parent http://example.com
+
+# Cheap iftop
+watch 'netstat -anptu |egrep "^Proto|:80 "'
+
+# Load average + API google chart
+limite="5";load5=$(awk '{print $1}' /proc/loadavg);echo "http://chart.apis.google.com/chart?chxr=0,0,5&chxt=y&chs=700x240&cht=gm&chds=0,"$limite"&chd=t:"$load5"&chl="$load5"&chtt=$(hostname)+load+average"
+
+# mirrors directory to a ftp server
+lftp -ulogin,passwd -e "mirror --reverse /my/from/dir/ /ftp/target/dir/" ftp.server.xx
+
+# Watch Aljazeera live
+rtmpdump -v -r rtmp://livestfslivefs.fplive.net/livestfslive-live/ -y "aljazeera_en_veryhigh" -a "aljazeeraflashlive-live" -o -| mplayer -
+
+# function to edit your history file
+eh () { history -a ; vi ~/.bash_history ; history -r ; }
+
+# easily strace all your apache processes
+ps auxw | grep sbin/apache | awk '{print"-p " $2}' | xargs strace
+
+# va - alias for editing aliases
+alias va='vi ~/.aliases; source ~/.aliases && echo "aliases sourced"'
+
+# cd to (or operate on) a file across parallel directories
+cd ${PWD/a/b}
+
+# ARP Scan
+sudo arp-scan -l
+
+# AD: Diff 2 entire servers at ScriptRock.com

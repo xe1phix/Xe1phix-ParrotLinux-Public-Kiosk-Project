@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Shutdown a Windows machine from Linux
+net rpc shutdown -I ipAddressOfWindowsPC -U username%password
+
+# Put a console clock in top right corner
+while sleep 1;do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done &
+
+# Set audible alarm when an IP address comes online
+ping -i 60 -a IP_address
+
+# List of commands you use most often
+history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
+
+# Simulate typing
+echo "You can simulate on-screen typing just like in the movies" | pv -qL 10
+
+# 32 bits or 64 bits?
+getconf LONG_BIT
+
+# Reboot machine when everything is hanging
+<alt> + <print screen/sys rq> + <R> - <S> - <E> - <I> - <U> - <B>
+
+# Display the top ten running processes - sorted by memory usage
+ps aux | sort -nk +4 | tail
+
+# quickly rename a file
+mv filename.{old,new}
+
+# Push your present working directory to a stack that you can pop later
+pushd /tmp
+
+# escape any command aliases
+\[command]
+
+# Watch Network Service Activity in Real-time
+lsof -i
+
+# Create a script of the last executed command
+echo "!!" > foo.sh
+
+# Delete all files in a folder that don't match a certain file extension
+rm !(*.foo|*.bar|*.baz)
+
+# Sharing file through http 80 port
+nc -v -l 80 < file.ext
+
+# diff two unsorted files without creating temporary files
+diff <(sort file1) <(sort file2)
+
+# Reuse all parameter of the previous command line
+!*
+
+# Easy and fast access to often executed commands that are very long and complex.
+some_very_long_and_complex_command # label
+
+# Show apps that use internet connection at the moment. (Multi-Language)
+lsof -P -i -n
+
+# Display a block of text with AWK
+awk '/start_pattern/,/stop_pattern/' file.txt
+
+# Set CDPATH to ease navigation
+CDPATH=:..:~:~/projects
+
+# Backticks are evil
+echo "The date is: $(date +%D)"
+
+# save command output to image
+ifconfig | convert label:@- ip.png
+
+# Show File System Hierarchy
+man hier
+
+# Add Password Protection to a file your editing in vim.
+vim -x <FILENAME>
+
+# AD: Diff 2 entire servers at ScriptRock.com

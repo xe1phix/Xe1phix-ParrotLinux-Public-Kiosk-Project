@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Create a zip file ignoring .svn files
+zip -r foo.zip DIR -x "*/.svn/*"
+
+# Skip over .svn directories when using the
+find . -name .svn -prune -o -print
+
+# Sync MySQL Servers via secure SSH-tunnel
+ssh -f -L3307:127.0.0.1:3306 -N -t -x user@host sleep 600 ; mk-table-sync --execute --verbose u=root,p=xxx,h=127.0.0.1,P=3307 u=root,p=xxx,h=localhost
+
+# Let your computer lull you to sleep
+echo {1..199}" sheep," | espeak -v english -s 80
+
+# Who needs pipes?
+B <<< $(A)
+
+# Unlock your KDE4.3 session remotely
+qdbus org.kde.screenlocker /MainApplication quit
+
+# Verbosely delete files matching specific name pattern, older than 15 days.
+find /backup/directory -name "FILENAME_*" -mtime +15 | xargs rm -vf
+
+# Remove empty directories
+find . -type d -empty -delete
+
+# Download all Phrack .tar.gzs
+curl http://www.phrack.org/archives/tgz/phrack[1-67].tar.gz -o phrack#1.tar.gz
+
+# Terminal redirection
+script -f /dev/pts/3
+
+# insert ip range using vim
+:for i in range(1,255) | .put='192.168.0.'.i | endfor
+
+# Check which files are opened by Firefox then sort by largest size.
+FFPID=$(pidof firefox-bin) && lsof -p $FFPID | awk '{ if($7>0) print ($7/1024/1024)" MB -- "$9; }' | grep ".mozilla" | sort -rn
+
+# Find the process you are looking for minus the grepped one
+ps -C command
+
+# Regex to remove HTML-Tags from a file
+sed -e :a -e 's/<[^>]*>//g;/</N;//ba' index.html
+
+# Get a regular updated list of zombies
+watch "ps auxw | grep [d]efunct"
+
+# Testing php configuration
+php -i
+
+# Check if a domain is available and get the answer in just one line
+whois domainnametocheck.com | grep match
+
+# A fun thing to do with ram is actually open it up and take a peek. This command will show you all the string (plain text) values in ram
+strings /dev/mem|less
+
+# Conficker Detection with NMAP
+nmap -PN -d -p445 --script=smb-check-vulns --script-args=safe=1 IP-RANGES
+
+# find and delete empty directories recursively
+find . -depth -type d -empty -exec rmdir -v {} +
+
+# Use Linux coding style in C program
+indent -linux helloworld.c
+
+# create an incremental backup of a directory using hard links
+rsync -a --delete --link-dest=../lastbackup $folder $dname/
+
+# How many files in the current directory ?
+find . -maxdepth 1 -type f | wc -l
+
+# Delete all but latest file in a directory
+ls -pt1 | sed '/.*\//d' | sed 1d | xargs rm
+
+# create directory and set owner/group/mode in one shot
+install -o user -g group -m 0700 -d /path/to/newdir
+
+# AD: Diff 2 entire servers at ScriptRock.com

@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Create a persistent connection to a machine
+ssh -MNf <user>@<host>
+
+# Processor / memory bandwidthd? in GB/s
+dd if=/dev/zero of=/dev/null bs=1M count=32768
+
+# Mount a .iso file in UNIX/Linux
+mount /path/to/file.iso /mnt/cdrom -oloop
+
+# Remove a line in a text file. Useful to fix
+ssh-keygen -R <the_offending_host>
+
+# Remove security limitations from PDF documents using ghostscript
+gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=OUTPUT.pdf -c .setpdfwrite -f INPUT.pdf
+
+# Makes the permissions of file2 the same as file1
+chmod --reference file1 file2
+
+# Attach screen over ssh
+ssh -t remote_host screen -r
+
+# Show a 4-way scrollable process tree with full details.
+ps awwfux | less -S
+
+# List all bash shortcuts
+bind -P
+
+# Recursively remove all empty directories
+find . -type d -empty -delete
+
+# To print a specific line from a file
+sed -n 5p <file>
+
+# directly ssh to host B that is only accessible through host A
+ssh -t hostA ssh hostB
+
+# Share a terminal screen with others
+% screen -r someuser/
+
+# Run a command only when load average is below a certain threshold
+echo "rm -rf /unwanted-but-large/folder" | batch
+
+# Start COMMAND, and kill it if still running after 5 seconds
+timeout 5s COMMAND
+
+# RTFM function
+rtfm() { help $@ || man $@ || $BROWSER "http://www.google.com/search?q=$@"; }
+
+# pretend to be busy in office to enjoy a cup of coffee
+cat /dev/urandom | hexdump -C | grep "ca fe"
+
+# Remove all files previously extracted from a tar(.gz) file.
+tar -tf <file.tar.gz> | xargs rm -r
+
+# Broadcast your shell thru ports 5000, 5001, 5002 ...
+script -qf | tee >(nc -kl 5000) >(nc -kl 5001) >(nc -kl 5002)
+
+# Edit a google doc with vim
+google docs edit --title "To-Do List" --editor vim
+
+# Eavesdrop on your system
+diff <(lsof -p 1234) <(sleep 10; lsof -p 1234)
+
+# Run a file system check on your next boot.
+sudo touch /forcefsck
+
+# List only the directories
+ls -d */
+
+# Create a quick back-up copy of a file
+cp file.txt{,.bak}
+
+# Retry the previous command until it exits successfully
+until !!; do :; done
+
+# AD: Diff 2 entire servers at ScriptRock.com

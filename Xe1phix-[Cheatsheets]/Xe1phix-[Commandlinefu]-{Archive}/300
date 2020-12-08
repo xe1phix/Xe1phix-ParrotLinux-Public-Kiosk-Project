@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# convert uppercase files to lowercase files
+rename 'y/A-Z/a-z/' *
+
+# List of commands you use most often
+history | awk '{print $2}' | sort | uniq -c | sort -rn | head
+
+# Notepad in a browser (type this in the URL bar)
+data:text/html, <html contenteditable>
+
+# Display current time in requested time zones.
+zdump Japan America/New_York
+
+# dmesg with colored human-readable dates
+dmesg -T|sed -e 's|\(^.*'`date +%Y`']\)\(.*\)|\x1b[0;34m\1\x1b[0m - \2|g'
+
+# Stamp a text line on top of the pdf pages.
+echo "This text gets stamped on the top of the pdf pages." | enscript -B -f Courier-Bold16 -o- | ps2pdf - | pdftk input.pdf stamp - output output.pdf
+
+# Print diagram of user/groups
+awk 'BEGIN{FS=":"; print "digraph{"}{split($4, a, ","); for (i in a) printf "\"%s\" [shape=box]\n\"%s\" -> \"%s\"\n", $1, a[i], $1}END{print "}"}' /etc/group|display
+
+# Create a file server, listening in port 7000
+while true; do nc -l 7000 | tar -xvf -; done
+
+# bypass any aliases and functions for the command
+\foo
+
+# Share your terminal session real-time
+mkfifo foo; script -f foo
+
+# Rapidly invoke an editor to write a long, complex, or tricky command
+<ESC> v or ctrl-x ctrl-e
+
+# Find Duplicate Files (based on size first, then MD5 hash)
+fdupes -r .
+
+# stderr in color
+mycommand 2> >(while read line; do echo -e "\e[01;31m$line\e[0m"; done)
+
+# VI config to save files with +x when a shebang is found on line 1
+au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod +x <afile> | endif | endif
+
+# dd with progress bar and statistics
+sudo dd if=/dev/sdc bs=4096 | pv -s 2G | sudo dd bs=4096 of=~/USB_BLACK_BACKUP.IMG
+
+# Delete all empty lines from a file with vim
+:g/^$/d
+
+# perl one-liner to get the current week number
+date +%V
+
+# Backup all MySQL Databases to individual files
+for db in $(mysql -e 'show databases' -s --skip-column-names); do mysqldump $db | gzip > "/backups/mysqldump-$(hostname)-$db-$(date +%Y-%m-%d-%H.%M.%S).gz"; done
+
+# Ultimate current directory usage command
+ncdu
+
+# Terminal - Show directories in the PATH, one per line with sed and bash3.X `here string'
+tr : '\n' <<<$PATH
+
+# Have an ssh session open forever
+autossh -M50000 -t server.example.com 'screen -raAd mysession'
+
+# Recursively compare two directories and output their differences on a readable format
+diff -urp /originaldirectory /modifieddirectory
+
+# DELETE all those duplicate files but one based on md5 hash comparision in the current directory tree
+find . -type f -print0|xargs -0 md5sum|sort|perl -ne 'chomp;$ph=$h;($h,$f)=split(/\s+/,$_,2);print "$f"."\x00" if ($h eq $ph)'|xargs -0 rm -v --
+
+# List recorded formular fields of Firefox
+cd ~/.mozilla/firefox/ && sqlite3 `cat profiles.ini | grep Path | awk -F= '{print $2}'`/formhistory.sqlite "select * from moz_formhistory" && cd - > /dev/null
+
+# Get all the keyboard shortcuts in screen
+^A ?
+
+# AD: Diff 2 entire servers at ScriptRock.com

@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Another Curl your IP command
+curl -s http://checkip.dyndns.org | sed 's/[a-zA-Z<>/ :]//g'
+
+# count IPv4 connections per IP
+netstat -anp |grep 'tcp\|udp' | awk '{print $5}' | sed s/::ffff:// | cut -d: -f1 | sort | uniq -c | sort -n
+
+# Files extension change
+rename .oldextension .newextension *.oldextension
+
+# archive all files containing local changes (svn)
+svn st | cut -c 8- | sed 's/^/\"/;s/$/\"/' | xargs tar -czvf ../backup.tgz
+
+# Just run it ;)
+echo SSBMb3ZlIFlvdQo= | base64 -d
+
+# pattern match in awk - no grep
+awk '/pattern1/ && /pattern2/ && !/pattern3/ {print}'
+
+# Optimal way of deleting huge numbers of files
+find /path/to/dir -type f -print0 | xargs -0 rm
+
+# Disco lights in the terminal
+while true; do printf "\e[38;5;$(($(od -d -N 2 -A n /dev/urandom)%$(tput colors)))m.\e[0m"; done
+
+# Select rectangular screen area
+Ctrl + Alt
+
+# quick copy
+cp foo{,bak}
+
+# Sending a file over icmp with hping
+hping3 10.0.2.254 --icmp --sign MSGID1 -d 50 -c 1 --file a_file
+
+# Fetch the current human population of Earth
+curl -s http://www.census.gov/popclock/data/population/world | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["world"]["population"]'
+
+# Kill a broken ssh connection
+<Return>~.
+
+# Convert Shell Text to Upper/Lower Case
+ALT-U / ALT-L
+
+# Binary digits Matrix effect
+perl -e '$|++; while (1) { print " " x (rand(35) + 1), int(rand(2)) }'
+
+# repeat a command every one second
+watch -n 1 "do foo"
+
+# Update all packages installed via homebrew
+brew update && brew upgrade `brew outdated`
+
+# Daemonize nc - Transmit a file like a http server
+while ( nc -l 80 < /file.htm > : ) ; do : ; done &
+
+# diff current vi buffer edits against original file
+:w !diff -u % -
+
+# Redirect  tar extract to another directory
+tar xfz filename.tar.gz -C PathToDirectory
+
+# print multiplication formulas
+seq 9 | sed 'H;g' | awk -v RS='' '{for(i=1;i<=NF;i++)printf("%dx%d=%d%s", i, NR, i*NR, i==NR?"\n":"\t")}'
+
+# Find Malware in the current and sub directories by MD5 hashes
+IFS=$'\n' && for f in `find . -type f -exec md5sum "{}" \;`; do echo $f | sed -r 's/^[^ ]+/Checking:/'; echo $f | cut -f1 -d' ' | netcat hash.cymru.com 43 ; done
+
+# Execute a command, convert output to .png file, upload file to imgur.com, then returning the address of the .png.
+imgur(){ $*|convert label:@- png:-|curl -F "image=@-" -F "key=1913b4ac473c692372d108209958fd15" http://api.imgur.com/2/upload.xml|grep -Eo "<original>(.)*</original>" | grep -Eo "http://i.imgur.com/[^<]*";}
+
+# all out
+pkill -KILL -u username
+
+# Numeric zero padding file rename
+rename 's/\d+/sprintf("%04d",$&)/e' *.jpg
+
+# AD: Diff 2 entire servers at ScriptRock.com

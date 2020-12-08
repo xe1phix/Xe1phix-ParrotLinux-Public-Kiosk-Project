@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Get a stream feed from a Twitter user
+step1 ; step2 ; step3 ; step4 ; curl -o- --get 'https://stream.twitter.com/1/statuses/filter.json' --header "$oauth_header" --data "follow=$id"
+
+# open a screenshot of a remote desktop via ssh
+xloadimage <(ssh USER@HOSTNAME DISPLAY=:0.0 import -window root png:-)
+
+# Find ulimit values of currently running process
+cat /proc/PID/limits
+
+# Check your spelling
+aspell -a <<< '<WORDS>'
+
+# Find all files larger than 500M and less than 1GB
+find / -type f -size +500M -size -1G
+
+# Show bandwidth use oneliner
+while true; do cat /proc/net/dev; sleep 1; done | awk -v dc="date \"+%T\"" '/eth0/{i = $2 - oi; o = $10 - oo; oi = $2; oo = $10; dc|getline d; close(dc); if (a++) printf "%s %8.2f KiB/s in %8.2f KiB/s out\n", d, i/1024, o/1024}'
+
+# Change/Modify timestamp interactively
+touch -d $(zenity --calendar --date-format=%F) filename
+
+# sort the contents of a text file in place.
+sort -g -o list.txt{,}
+
+# Instantly load bash history of one shell into another running shell
+$ history -a #in one shell , and $ history -r #in another running shell
+
+# Watch several log files of different machines in a single multitail window on your own machine
+multitail -l 'ssh machine1 "tail -f /var/log/apache2/error.log"' -l 'ssh machine2 "tail -f /var/log/apache2/error.log"'
+
+# copy with progress bar - rsync
+rsync -rv <src> <dst> --progress
+
+# Multiple variable assignments from command output in BASH
+read day month year < <(date +'%d %m %y')
+
+# Generate a random password 30 characters long
+gpg --gen-random --armor 1 30
+
+# Run a ext4 file system check and badblocks scan with progress info
+fsck.ext4 -cDfty -C 0 /dev/sdxx
+
+# List your MACs address
+cat /sys/class/net/eth0/address
+
+# Rename all files which contain the sub-string 'foo', replacing it with 'bar'
+for i in ./*foo*;do mv -- "$i" "${i//foo/bar}";done
+
+# Create a 5 MB blank file via a seek hole
+dd if=/dev/zero of=testfile.seek seek=5242879 bs=1 count=1
+
+# Make vim open in tabs by default (save to .profile)
+alias vim="vim -p"
+
+# Secure copy from one server to another without rsync and preserve users, etc
+tar -czvf - /src/dir | ssh remotehost "(cd /dst/dir ; tar -xzvf -)"
+
+# the same as [Esc] in vim
+Ctrl + [
+
+# View ~/.ssh/known_hosts key information
+ssh-keygen -l -f ~/.ssh/known_hosts
+
+# Binary clock
+perl -e 'for(;;){@d=split("",`date +%H%M%S`);print"\r";for(0..5){printf"%.4b ",$d[$_]}sleep 1}'
+
+# Function to split a string into an array
+read -a ARR <<<'world domination now!'; echo ${ARR[2]};
+
+# Generate MD5 hash for a string
+md5sum <<<"test"
+
+# Recompress all .gz files in current directory using bzip2 running 1 job per CPU core in parallel
+parallel -j+0 "zcat {} | bzip2 >{.}.bz2 && rm {}" ::: *.gz
+
+# AD: Diff 2 entire servers at ScriptRock.com

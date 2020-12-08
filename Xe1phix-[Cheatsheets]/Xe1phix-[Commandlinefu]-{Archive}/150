@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Intercept, monitor and manipulate a TCP connection.
+mkfifo /tmp/fifo; cat /tmp/fifo | nc -l -p 1234 | tee -a to.log | nc machine port | tee -a from.log > /tmp/fifo
+
+# Quick access to ASCII code of a key
+showkey -a
+
+# ls not pattern
+ls !(*.gz)
+
+# run complex remote shell cmds over ssh, without escaping quotes
+ssh host -l user $(<cmd.txt)
+
+# A robust, modular log coloriser
+ccze
+
+# Colorized grep in less
+grep --color=always | less -R
+
+# Find files that have been modified on your system in the past 60 minutes
+sudo find / -mmin 60 -type f
+
+# check site ssl certificate dates
+echo | openssl s_client -connect www.google.com:443 2>/dev/null |openssl x509 -dates -noout
+
+# Convert Youtube videos to MP3
+youtube-dl -t --extract-audio --audio-format mp3 YOUTUBE_URL_HERE
+
+# Control ssh connection
+[enter]~?
+
+# Python version 3: Serve current directory tree at http://$HOSTNAME:8000/
+python -m http.server
+
+# Remove a line in a text file. Useful to fix "ssh host key change" warnings
+sed -i 8d ~/.ssh/known_hosts
+
+# Create a directory and change into it at the same time
+md () { mkdir -p "$@" && cd "$@"; }
+
+# Show apps that use internet connection at the moment.
+lsof -P -i -n | cut -f 1 -d " "| uniq | tail -n +2
+
+# Given a file path, unplug the USB device on which the file is located (the file must be on an USB device !)
+echo $(sudo lshw -businfo | grep -B 1 -m 1 $(df "/path/to/file" | tail -1 | awk '{print $1}' | cut -c 6-8) | head -n 1 | awk '{print $1}' | cut -c 5- | tr ":" "-") | sudo tee /sys/bus/usb/drivers/usb/unbind
+
+# Exclude multiple columns using AWK
+awk '{$1=$3=""}1' file
+
+# easily find megabyte eating files or directories
+alias dush="du -sm *|sort -n|tail"
+
+# Exclude .svn, .git and other VCS junk for a pristine tarball
+tar --exclude-vcs -cf src.tar src/
+
+# analyze traffic remotely over ssh w/ wireshark
+ssh root@server.com 'tshark -f "port !22" -w -' | wireshark -k -i -
+
+# Remove blank lines from a file using grep and save output to new file
+grep . filename > newfilename
+
+# exit without saving history
+kill -9 $$
+
+# Copy a MySQL Database to a new Server via SSH with one command
+mysqldump --add-drop-table --extended-insert --force --log-error=error.log -uUSER -pPASS OLD_DB_NAME | ssh -C user@newhost "mysql -uUSER -pPASS NEW_DB_NAME"
+
+# Get the IP of the host your coming from when logged in remotely
+echo ${SSH_CLIENT%% *}
+
+# Save a file you edited in vim without the needed permissions (no echo)
+:w !sudo tee > /dev/null %
+
+# output your microphone to a remote computer's speaker
+arecord -f dat | ssh -C user@host aplay -f dat
+
+# AD: Diff 2 entire servers at ScriptRock.com

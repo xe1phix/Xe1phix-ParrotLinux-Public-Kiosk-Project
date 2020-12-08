@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Create a thumbnail from a video file
+thumbnail() { ffmpeg  -itsoffset -20 -i $i -vcodec mjpeg -vframes 1 -an -f rawvideo -s 640x272 ${i%.*}.jpg }
+
+# Test speaker channels
+speaker-test -D plug:surround51 -c 6 -l 1 -t wav
+
+# Remove color codes (special characters) with sed
+sed -r "s/\x1B\[([0-9]{1,3}((;[0-9]{1,3})*)?)?[m|K]//g
+
+# Get the absolute path of a file
+absolute_path () { readlink -f "$1"; };
+
+# Postpone a command [zsh]
+<alt+q>
+
+# backup local MySQL database into a folder and removes older then 5 days backups
+mysqldump -uUSERNAME -pPASSWORD database | gzip > /path/to/db/files/db-backup-`date +%Y-%m-%d`.sql.gz ;find /path/to/db/files/* -mtime +5 -exec rm {} \;
+
+# Auto Rotate Cube (compiz)
+wmctrl -o 2560,0 ;sleep 2 ; echo "FIRE 001" | osd_cat -o 470 -s 8 -c red -d 10 -f -*-bitstream\ vera\ sans-*-*-*--250-*-*-*-*-*-*-* ; sleep 1; wmctrl -o 0,0
+
+# Turn On/Off Keyboard LEDs via commandline
+xset led 3
+
+# Show bash's function definitions you defined in .bash_profile or .bashrc
+declare -f [ function_name ]
+
+# lotto generator
+shuf -i 1-49 | head -n6 | sort -n| xargs
+
+# Function to output an ASCII character given its decimal equivalent
+chr () { printf \\$(($1/64*100+$1%64/8*10+$1%8)); }
+
+# Determine MAC address of remote host when you know its IP address
+arping 192.168.1.2
+
+# Comment out a line in a file
+sed -i '19375 s/^/#/' file
+
+# Insert a comment on command line for reminder
+ls -alh #mycomment
+
+# Install a LAMP server in a Debian based distribution
+sudo tasksel install lamp-server
+
+# Create a single-use TCP proxy with debug output to stderr
+socat -v tcp4-l:<port> tcp4:<host>:<port>
+
+# Backup all MySQL Databases to individual files
+mysql -e 'show databases' | sed -n '2,$p' | xargs -I DB 'mysqldump DB > DB.sql'
+
+# Get the total length of all videos in the current dir in H:m:s
+mplayer -vo dummy -ao dummy -identify * 2>&1 | grep ID_LENGTH  | sed 's/.*=\([0-9]*\)/\1/' | xargs echo | sed 's/ /+/g' | bc | awk 'S=$1; {printf "%dh:%dm:%ds\n",S/(60*60),S%(60*60)/60,S%60}'
+
+# Restart command if it dies.
+ps -C program_name || { program_name & }
+
+# Upgrade all perl modules via CPAN
+perl -MCPAN -e 'CPAN::Shell->install(CPAN::Shell->r)'
+
+# Remove invalid key from the known_hosts file for the IP address of a host
+ssh-keygen -R `host hostname | cut -d " " -f 4`
+
+# Execute a command with a timeout
+perl -e "alarm 10; exec @ARGV" "somecommand"
+
+# print all except first collumn
+awk '{$1=""; print}'
+
+# Convert mp3/wav file to asterisk ulaw for music on hold (moh)
+sox -v 0.125 -V <mp3.mp3> -t au -r 8000 -U -b -c 1 <ulaw.ulaw> resample -ql
+
+# for loop with leading zero in bash 3
+seq -s " " -w 3 20
+
+# AD: Diff 2 entire servers at ScriptRock.com

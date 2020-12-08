@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# List open IPv4 connections
+lsof -Pnl +M -i4
+
+# background a wget download
+wget -b http://dl.google.com/android/android-sdk_r14-linux.tgz
+
+# Convert text to uppercase
+upper() { echo ${@^^}; }
+
+# check open ports (both ipv4 and ipv6)
+netstat -plnt
+
+# Set audible alarm when an IP address comes online
+until ping -c1 ADDRESS;do true;done;zenity --warning --text "ADDRESS is back"
+
+# Print a cron formatted time for 2 minutes in the future (for crontab testing)
+crontest () { date '-d +2 minutes' +'%M %k %d %m *'; }
+
+# Comment current line
+<ESC> #
+
+# cut audio file
+ffmpeg -ss 00:00:30 -t 00:02:58 -i input.mp3 -acodec copy ouput.mp3
+
+# Check if your webserver supports gzip compression with curl
+curl -I -H "Accept-Encoding: gzip,deflate" http://example.org
+
+# get cookies from firefox
+echo ".mode tabs select host, case when host glob '.*' then 'TRUE' else 'FALSE' end, path, case when isSecure then 'TRUE' else 'FALSE' end, expiry, name, value from moz_cookies;" | sqlite3 ~/.mozilla/firefox/*.default/cookies.sqlite
+
+# View files opened by a program on startup and shutdown
+sudo lsof -rc command >> /tmp/command.txt
+
+# Generate a random password 30 characters long
+pwgen 30 1
+
+# Show 'Hardware path'-style tree of all devices in Linux
+lshw -short
+
+# Replace duplicate files by hardlinks
+fdupes -r -1 path | while read line; do j="0"; for file in ${line[*]}; do if [ "$j" == "0" ]; then j="1"; else ln -f ${line// .*/} $file; fi; done; done
+
+# Protect directory from an overzealous rm -rf *
+sudo chattr -R +i dirname
+
+# Sort specific lines while editing within vi
+:33,61 !sort
+
+# Rename all files which contain the sub-string 'foo', replacing it with 'bar'
+rename 's/foo/bar/g' ./*
+
+# Stop All Wine Apps and Processes
+wineserver -k
+
+# connects to a serial console
+screen /dev/ttyS0 9600
+
+# Place the argument of the most recent command on the shell
+<Esc> _
+
+# Find today created files
+find directory/ -mtime 0 -type f
+
+# Remove trailing space in vi
+:%s/\s\+$//
+
+# simulated text generator
+tr -dc a-z0-9   </dev/urandom   | tr 0-8 \ | tr 9 \\n |  sed 's/^[ \t]*//'  | fmt -u
+
+# Binary Clock
+watch -n 1 'date "+obase=2; print %H,\":\",%M,\":\",%S" |bc'
+
+# Using NMAP to check if a port is open or close
+nmap -oG - -T4 -p22 -v 192.168.0.254 | grep ssh
+
+# AD: Diff 2 entire servers at ScriptRock.com

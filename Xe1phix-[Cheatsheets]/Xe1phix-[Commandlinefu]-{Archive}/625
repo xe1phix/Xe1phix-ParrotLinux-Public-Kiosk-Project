@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Run a command when a file is changed
+while inotifywait -e modify /tmp/myfile; do firefox; done
+
+# Substrings a variable
+var='123456789'; echo ${var:<start_pos>:<offset>}
+
+# One command line web server on port 80 using nc (netcat)
+while true ; do nc -l 80  < index.html ; done
+
+# RDP through SSH tunnel
+ssh -f -L3389:<RDP_HOST>:3389 <SSH_PROXY> "sleep 10" && rdesktop -T'<WINDOW_TITLE>' -uAdministrator -g800x600 -a8 -rsound:off -rclipboard:PRIMARYCLIPBOARD -5 localhost
+
+# "Clone" a list of installed packages from one Debian/Ubuntu Server to another
+apt-get install `ssh root@host_you_want_to_clone "dpkg -l | grep ii" | awk '{print $2}'`
+
+# Remote screenshot
+ssh user@remote-host "DISPLAY=:0.0 import -window root -format png -"|display -format png -
+
+# add the result of a command into vi
+!!command
+
+# Place the NUM-th argument of the most recent command on the shell
+<ALT>+<.> or <ALT>+<NUM>+<.> or <ALT>+<NUM>,<ALT>+<.>
+
+# Find the package a command belongs to on Debian
+dpkg -S $( which  ls )
+
+# Look up a unicode character by name
+egrep -i "^[0-9a-f]{4,} .*$*" $(locate CharName.pm) | while read h d; do /usr/bin/printf "\U$(printf "%08x" 0x$h)\tU+%s\t%s\n" $h "$d"; done
+
+# Start dd and show progress every X seconds
+dd if=/path/inputfile | pv | dd of=/path/outpufile
+
+# Ask user to confirm
+Confirm() { read -sn 1 -p "$1 [Y/N]? "; [[ $REPLY = [Yy] ]]; }
+
+# Random unsigned integer
+echo $(openssl rand 4 | od -DAn)
+
+# kill all process that belongs to you
+kill -9 -1
+
+# Make a file not writable / immutable by root
+sudo chattr +i <file>
+
+# analyze traffic remotely over ssh w/ wireshark
+ssh root@HOST tcpdump -U -s0 -w - 'not port 22' | wireshark -k -i -
+
+# Send email with curl and gmail
+curl -n --ssl-reqd --mail-from "<user@gmail.com>" --mail-rcpt "<user@server.tld>" --url smtps://smtp.gmail.com:465 -T file.txt
+
+# translates acronyms for you
+wtf is <acronym>
+
+# Delete DOS Characters via VIM (^M)
+:set ff=unix
+
+# Create an animated gif from a Youtube video
+url=http://www.youtube.com/watch?v=V5bYDhZBFLA; youtube-dl -b $url; mplayer $(ls ${url##*=}*| tail -n1) -ss 00:57 -endpos 10 -vo gif89a:fps=5:output=output.gif -vf scale=400:300 -nosound
+
+# Print just line 4 from a textfile
+sed -n '4{p;q}'
+
+# Print just line 4 from a textfile
+sed -n '4p'
+
+# Quick HTML image gallery from folder contents
+find . -iname '*.jpg' -exec echo '<img src="{}">' \; > gallery.html
+
+# Resume a detached screen session, resizing to fit the current terminal
+screen -raAd
+
+# Start a HTTP server which serves Python docs
+pydoc -p 8888 & gnome-open http://localhost:8888
+
+# AD: Diff 2 entire servers at ScriptRock.com

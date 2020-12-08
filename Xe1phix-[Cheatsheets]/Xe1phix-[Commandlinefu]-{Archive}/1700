@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Get MX records for a domain
+dig foo.org mx +short
+
+# Test for Weak SSL Ciphers
+openssl s_client -connect [host]:[sslport] -cipher LOW
+
+# Display any tcp connections to apache
+for i in `ps aux | grep httpd | awk '{print $2}'`; do lsof -n -p $i | grep ESTABLISHED; done;
+
+# Count the number of queries to a MySQL server
+echo "SHOW PROCESSLIST\G" | mysql -u root -p | grep "Info:" | awk -F":" '{count[$NF]++}END{for(i in count){printf("%d: %s\n", count[i], i)}}' | sort -n
+
+# Outputs a sorted list of disk usage to a text file
+du | sort -gr > file_sizes
+
+# Optimal way of deleting huge numbers of files
+rsync -a --delete empty-dir/ target-dir/
+
+# Copy the contents of one partition to another
+rsync -avxHAXW --info=progress2 /old-disk /new-disk/
+
+# total percentage of memory use for all processes with a given name
+ps -eo pmem,comm | grep java | awk '{sum+=$1} END {print sum " % of RAM"}'
+
+# check open ports without netstat or lsof
+declare -a array=($(tail -n +2 /proc/net/tcp | cut -d":" -f"3"|cut -d" " -f"1")) && for port in ${array[@]}; do echo $((0x$port)); done
+
+# Get simple weather info from a zip code
+weather() { curl -s "http://www.wunderground.com/q/zmw:$1.1.99999" | grep "og:title" | cut -d\" -f4 | sed 's/&deg;/ degrees F/'; }
+
+# Randomly run command
+ran() { [ $((RANDOM%100)) -lt "$1" ] && shift && "$@"; }
+
+# Prepend text to a file
+echo "text to prepend" | cat - file
+
+# aplay some whitenoise
+aplay -c 2 -f S16_LE -r 44100 /dev/urandom
+
+# Show drive names next to their full serial number (and disk info)
+find /dev/disk/by-id -type l -printf "%l\t%f\n" | cut -b7- | sort
+
+# Convert A USB Cable Into A Smart Home Gadget
+mysms='xxx0001234@messaging.sprintpcs.com' ; expect -c "log_user 0 ; set timeout -1 ; spawn usbmon -i usb0 ; expect -re \"C.*Ii.*-2:128\" { spawn sendmail $mysms ; send \"Smart Home Sensor Triggered\n.\n\" ; expect }"
+
+# Show max lengths of all fields in a pipe delimited file with header row
+awk -F"|" 'BEGIN {OFS="|"} NR==1 {for (b=1;b<=NF;b++) {hdr[b]=$b} } NR > 1 {for (i=1;i<=NF;i++) {if(length($i) > max[i]) max[i] = length($i)} } END {for (i=1;i <= NF;i++) print hdr[i],max[i]+0}' pipe_delimited_file.psv
+
+# Get a free shell account on a community server
+sh <(curl hashbang.sh)
+
+# Rename file to same name plus datestamp of last modification.
+mv -iv $FILENAME{,.$(stat -c %Z $FILENAME)}
+
+# Find size in kilobyte of files that are deleted but still in use and therefore consumes diskspace
+lsof -ns | grep REG | grep deleted | awk '{s+=$7/1024} END {print s}'
+
+# Split a large file, without wasting disk space
+FILE=file_name; CHUNK=$((64*1024*1024)); SIZE=$(stat -c "%s" $FILE); for ((i=0; i < $SIZE; i+=$CHUNK)); do losetup --find --show --offset=$i --sizelimit=$CHUNK $FILE; done
+
+# Viewable terminal session over network.
+mkfifo /tmp/view; nc -l 9876 < /tmp/view& script -f /tmp/view
+
+# Simple colourized JSON formatting for BASH
+alias pp='python -mjson.tool|pygmentize -l js'
+
+# Shows cpu load in percent
+sed -e 's/ .*//' -e 's/\.//' -e 's/^0*//' /proc/loadavg
+
+# Reverse SSHfs mount,
+dpipe /usr/lib/openssh/sftp-server = ssh $REMOTE_HOST sshfs whatever:$LOCAL_PATH $REMOTE_PATH -o slave
+
+# Bitcoin Brainwallet Private Key Calculator
+(read -r passphrase; b58encode 80$( brainwallet_exponent "$passphrase" )$( brainwallet_checksum "$passphrase" ))
+
+# AD: Diff 2 entire servers at ScriptRock.com

@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Do some learning...
+ls /usr/bin | xargs whatis | grep -v nothing | less
+
+# Insert  the  last  argument  of  the previous command
+<ALT> .
+
+# Carriage return for reprinting on the same line
+while true; do echo -ne "$(date)\r"; sleep 1; done
+
+# command line calculator
+calc(){ awk "BEGIN{ print $* }" ;}
+
+# Backup a local drive into a file on the remote host via ssh
+dd if=/dev/sda | ssh user@server 'dd of=sda.img'
+
+# Kill processes that have been running for more than a week
+find /proc -user myuser -maxdepth 1 -type d -mtime +7 -exec basename {} \; | xargs kill -9
+
+# Print text string vertically, one character per line.
+echo "vertical text" | grep -o '.'
+
+# Add prefix onto filenames
+rename 's/^/prefix/' *
+
+# Stream YouTube URL directly to mplayer
+id="dMH0bHeiRNg";mplayer -fs http://youtube.com/get_video.php?video_id=$id\&t=$(curl -s http://www.youtube.com/watch?v=$id | sed -n 's/.*, "t": "\([^"]*\)", .*/\1/p')
+
+# Salvage a borked terminal
+<ctrl+j>stty sane<ctrl+j>
+
+# Pick a random line from a file
+shuf -n1 file.txt
+
+# Get all these commands in a text file with description.
+for x in `jot - 0 2400 25`; do curl "http://www.commandlinefu.com/commands/browse/sort-by-votes/plaintext/$x"  ; done > commandlinefu.txt
+
+# Stripping ^M at end of each line for files
+dos2unix <filenames>
+
+# Backup files incremental with rsync to a NTFS-Partition
+rsync -rtvu --modify-window=1 --progress /media/SOURCE/ /media/TARGET/
+
+# Find removed files still in use via /proc
+find -L /proc/*/fd -links 0 2>/dev/null
+
+# Connect to google talk through ssh by setting your IM client to use the localhost 5432 port
+ssh -f -N -L 5432:talk.google.com:5222 user@home.network.com
+
+# urldecoding
+sed -e's/%\([0-9A-F][0-9A-F]\)/\\\\\x\1/g' | xargs echo -e
+
+# for all flv files in a dir, grab the first frame and make a jpg.
+for f in *.flv; do ffmpeg -y -i "$f" -f image2 -ss 10 -vframes 1 -an "${f%.flv}.jpg"; done
+
+# wrap long lines of a text
+fold -s -w 90 file.txt
+
+# Validate and pretty-print JSON expressions.
+echo '{"json":"obj"}' | python -m simplejson.tool
+
+# Grep colorized
+grep -i --color=auto
+
+# from within vi, pipe a chunk of lines to a command line and replace the chunk with the result
+!}sort
+
+# Append stdout and stderr to a file, and print stderr to the screen [bash]
+somecommand 2>&1 >> logfile | tee -a logfile
+
+# Grep for word in directory (recursive)
+grep --color=auto -iRnH "$search_word" $directory
+
+# Unix alias for date command that lets you create timestamps in ISO 8601 format
+alias timestamp='date "+%Y%m%dT%H%M%S"'
+
+# AD: Diff 2 entire servers at ScriptRock.com

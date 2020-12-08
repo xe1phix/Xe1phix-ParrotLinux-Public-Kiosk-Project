@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Monitor a file with tail with timestamps added
+tail -f file | while read line; do printf "$(date -u '+%F %T%z')\t$line\n"; done
+
+# Suspend an ssh session.
+~ ctrl-z
+
+# Find broken symlinks in the current directory and its subdirectories.
+find -L -type l
+
+# Recursively remove 0kb files from a directory
+find . -empty -type f -delete
+
+# Bash: escape '-' character in filename
+mv -- -filename filename
+
+# Recursively remove .svn directories from a local repository
+find . -type d -name .svn -execdir rm -rf {} +
+
+# Detach a process from the current shell
+ping -i1 www.google.com &> /dev/null & disown
+
+# Command to logout all the users in one command
+who -u | grep -vE "^root " | kill `awk '{print $7}'`
+
+# Read PDFs in the command line
+pdftohtml -i -stdout FILE.pdf | w3m -T text/html
+
+# List only executables installed by a debian package
+dpkg -L iptables | perl -lne 'print if -f && -x'
+
+# Lists all files and directories with modified time newer than a given date
+touch -t "YYYYMMDDhhmm.ss" ~/.ts ; find . -newer ~/.ts
+
+# Get information on your graphics card on linux (such as graphics memory size)
+for I in `/sbin/lspci |awk '/VGA/{print $1}'`;do /sbin/lspci -v -s $I;done
+
+# Get IP from hostname
+dig +short google.com
+
+# Get IP from hostname
+ping -c 1 google.com | egrep -m1 -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'
+
+# Broadcast your shell thru port 5000
+bash -i 2>&1 | tee /dev/stderr | nc -l 5000
+
+# Remove comments and empty lines from a conf file
+grep ^[^#] /etc/file.conf
+
+# Get a list of ssh servers on the local subnet
+nmap -p 22 --open -sV 192.168.2.0/24
+
+# display date of last time a process was started in `date` format
+ps -o lstart <pid>
+
+# Quick directory bookmarks
+to() { eval dir=\$$1; cd "$dir"; }
+
+# Monitoring file handles used by a particular process
+lsof -c <process name> -r
+
+# move cursor to beginning of command line
+Ctrl+a
+
+# Command line calculator
+awk "BEGIN{ print $* }"
+
+# Sort on multiple dis-contiguous keys/fields (can even specify key number/field from the end)
+file /bin/* | msort -j -l -n-1 -n2 2> /dev/null
+
+# Create an easy to pronounce shortened URL from CLI
+shout () { curl -s "http://shoutkey.com/new?url=$1" | sed -n 's/\<h1\>/\&/p' | sed 's/<[^>]*>//g;/</N;//b' ;}
+
+# show framebuffer console modes to use in grub vga option
+sudo hwinfo --framebuffer
+
+# AD: Diff 2 entire servers at ScriptRock.com

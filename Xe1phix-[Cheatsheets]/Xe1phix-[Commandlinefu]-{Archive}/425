@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# redirect stdout and stderr each to separate files and print both to the screen
+(some_command 2>&1 1>&3 | tee /path/to/errorlog ) 3>&1 1>&2 | tee /path/to/stdoutlog
+
+# Identify long lines in a file
+awk 'length>72' file
+
+# get all pdf and zips from a website using wget
+wget --reject html,htm --accept pdf,zip -rl1 url
+
+# Mount the first NTFS partition inside a VDI file (VirtualBox Disk Image)
+mount -t ntfs-3g -o ro,loop,uid=user,gid=group,umask=0007,fmask=0117,offset=0x$(hd -n 1000000  image.vdi | grep "eb 52 90 4e 54 46 53" | cut -c 1-8) image.vdi /mnt/vdi-ntfs
+
+# Use all the cores or CPUs when compiling
+make -j 4
+
+# Prints total line count contribution per user for an SVN repository
+svn ls -R | egrep -v -e "\/$" | xargs svn blame | awk '{print $2}' | sort | uniq -c | sort -r
+
+# Analyze awk fields
+awk '{print NR": "$0; for(i=1;i<=NF;++i)print "\t"i": "$i}'
+
+# Colored SVN diff
+svn diff <file> | vim -R -
+
+# Run a command, store the output in a pastebin on the internet and place the URL on the xclipboard
+ls | curl -F 'sprunge=<-' http://sprunge.us | xclip
+
+# Find if the command has an alias
+type -all command
+
+# Find last reboot time
+who -b
+
+# Show a config file without comments
+egrep -v "^$|^[[:space:]]*#" /etc/some/file
+
+# Start screen in detached mode
+screen -d -m [<command>]
+
+# Schedule a download at a later time
+echo 'wget url' | at 01:00
+
+# iso-8859-1 to utf-8 safe recursive rename
+detox -r -s utf_8 /path/to/old/win/files/dir
+
+# create dir tree
+mkdir -p doc/{text/,img/{wallpaper/,photos/}}
+
+# Delete all empty lines from a file with vim
+:g!/\S/d
+
+# List the files any process is using
+lsof +p xxxx
+
+# Show biggest files/directories, biggest first with 'k,m,g' eyecandy
+du --max-depth=1 | sort -r -n | awk '{split("k m g",v); s=1; while($1>1024){$1/=1024; s++} print int($1)" "v[s]"\t"$2}'
+
+# change directory to actual path instead of symlink path
+cd `pwd -P`
+
+# Download an entire static website to your local machine
+wget --recursive  --page-requisites --convert-links www.moyagraphix.co.za
+
+# Recursively remove .svn directories from the current location
+find . -type d -name '.svn' -print0 | xargs -0 rm -rdf
+
+# Use top to monitor only all processes with the same name fragment 'foo'
+top -p $(pgrep -d , foo)
+
+# delete command line last word
+ctrl+w
+
+# Draw kernel module dependancy graph.
+lsmod | awk 'BEGIN{print "digraph{"}{split($4, a, ","); for (i in a) print $1, "->", a[i]}END{print "}"}'|display
+
+# AD: Diff 2 entire servers at ScriptRock.com

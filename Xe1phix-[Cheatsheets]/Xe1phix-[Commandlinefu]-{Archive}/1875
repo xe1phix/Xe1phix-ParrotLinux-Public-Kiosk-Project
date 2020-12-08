@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Merge tarballs
+cat 1.tar.gz 2.tar.gz > 3.tar.gz; tar zxvfi 3.tar.gz
+
+# Print current runlevel
+who -r
+
+# Count lines of code across multiple file types, sorted by least amount of code to greatest
+find . \( -iname '*.[ch]' -o -iname '*.php' -o -iname '*.pl' \) -exec wc -l {} + | sort -n
+
+# Produce a pseudo random password with given length in base 64
+openssl rand -base64 <length>
+
+# processes per user counter
+ps aux |awk '{$1}  {++P[$1]} END {for(a in P) if (a !="USER") print a,P[a]}'
+
+# Get Lorum Ipsum random text from lorumipsum.com
+lynx -source http://www.lipsum.com/feed/xml?amount=3|perl -p -i -e 's/\n/\n\n/g'|sed -n '/<lipsum>/,/<\/lipsum>/p'|sed -e 's/<[^>]*>//g'
+
+# create a .avi with many .jpg
+mencoder "mf://*.jpg" -mf fps=8 -o ./video.avi -ovc lavc
+
+# Lock the hardware eject button of the cdrom
+eject -i 1
+
+# Show interface/ip using awk
+ifconfig -a| awk '/^wlan|^eth|^lo/ {;a=$1;FS=":"; nextline=NR+1; next}{ if (NR==nextline) { split($2,b," ")}{ if ($2 ~ /[0-9]\./) {print a,b[1]}; FS=" "}}'
+
+# Sort the current buffer in vi or vim.
+:%sort
+
+# Perl Simple Webserver
+perl -MIO::All -e 'io(":8080")->fork->accept->(sub { $_[0] < io(-x $1 ? "./$1 |" : $1) if /^GET \/(.*) / })'
+
+# Sync the date of one server to that of another.
+sudo date -s  "$(ssh user@server.com "date -u")"
+
+# Send your svn diff to meld
+svn diff --diff-cmd='meld' -r 100:BASE FILE
+
+# colorize your svn diff
+svn diff | vim -
+
+# Change prompt to MS-DOS one (joke)
+export PS1="C:\$( pwd | sed 's:/:\\\\\:g' )> "
+
+# Capture video of a linux desktop
+ffmpeg -f x11grab -s `xdpyinfo | grep 'dimensions:'|awk '{print $2}'` -r 25 -i :0.0 -sameq /tmp/out.mpg > /root/howto/capture_screen_video_ffmpeg
+
+# Show top SVN committers for the last month
+svn log -r {`date +"%Y-%m-%d" -d "1 month ago"`}:HEAD|grep '^r[0-9]' |cut -d\| -f2|sort|uniq -c
+
+# Print a row of 50 hyphens
+seq -s" " -50 -1 | tr -dc -
+
+# Restore mysql database uncompressing on the fly.
+zcat database.sql.gz | mysql -uroot -p'passwd' database
+
+# dump a single table of a database to file
+mysqldump -u UNAME -p DBNAME TABLENAME> FILENAME
+
+# Get your public ip
+curl -s ip.appspot.com
+
+# Group OR'd commands where you expect only one to work
+( zcat $FILE || gzcat $FILE || bzcat2 $FILE ) | less
+
+# See a full last history by expanding logrotated wtmp files
+( last ; ls -t /var/log/wtmp-2* | while read line ; do ( rm /tmp/wtmp-junk ; zcat $line 2>/dev/null || bzcat $line ) > /tmp/junk-wtmp ; last -f /tmp/junk-wtmp ; done ) | less
+
+# Pronounce an English word using Merriam-Webster.com
+pronounce(){ wget -qO- $(wget -qO- "http://www.m-w.com/dictionary/$@" | grep 'return au' | sed -r "s|.*return au\('([^']*)', '([^'])[^']*'\).*|http://cougar.eb.com/soundc11/\2/\1|") | aplay -q; }
+
+# show git commit history
+git reflog show | grep '}: commit' | nl | sort -nr | nl | sort -nr | cut --fields=1,3 | sed s/commit://g | sed -e 's/HEAD*@{[0-9]*}://g'
+
+# AD: Diff 2 entire servers at ScriptRock.com

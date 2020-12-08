@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Compare copies of a file with md5
+cmp file1 file2
+
+# backup delicious bookmarks
+curl --user login:password -o DeliciousBookmarks.xml -O 'https://api.del.icio.us/v1/posts/all'
+
+# Continue a current job in the background
+<ctrl+z> bg
+
+# Get all links of a website
+lynx -dump http://www.domain.com | awk '/http/{print $2}'
+
+# Find all active ip's in a subnet
+sudo arp-scan -I eth0 192.168.1.0/24
+
+# Display BIOS Information
+dmidecode -t bios
+
+# Disassemble some shell code
+echo -ne "<shellcode>" | x86dis -e 0 -s intel
+
+# List bash functions defined in .bash_profile or .bashrc
+compgen -A function
+
+# ignore the .svn directory in filename completion
+export FIGNORE=.svn
+
+# Working random fact generator
+wget randomfunfacts.com -O - 2>/dev/null | grep \<strong\> | sed "s;^.*<i>\(.*\)</i>.*$;\1;"
+
+# Remote backups with tar over ssh
+tar jcpf - [sourceDirs] |ssh user@host "cat > /path/to/backup/backupfile.tar.bz2"
+
+# Pronounce an English word using Dictionary.com
+pronounce(){ wget -qO- $(wget -qO- "http://dictionary.reference.com/browse/$@" | grep 'soundUrl' | head -n 1 | sed 's|.*soundUrl=\([^&]*\)&.*|\1|' | sed 's/%3A/:/g;s/%2F/\//g') | mpg123 -; }
+
+# Change pidgin status
+purple-remote "setstatus?status=away&message=AFK"
+
+# Grep by paragraph instead of by line.
+grepp() { [ $# -eq 1 ] && perl -00ne "print if /$1/i" || perl -00ne "print if /$1/i" < "$2";}
+
+# Vim: Switch from Horizontal split to Vertical split
+^W-L
+
+# Numbers guessing game
+A=1;B=100;X=0;C=0;N=$[$RANDOM%$B+1];until [ $X -eq $N ];do read -p "N between $A and $B. Guess? " X;C=$(($C+1));A=$(($X<$N?$X:$A));B=$(($X>$N?$X:$B));done;echo "Took you $C tries, Einstein";
+
+# Update twitter via curl (and also set the "from" bit)
+curl -u twitter-username -d status="Hello World, Twitter!" -d source="cURL" http://twitter.com/statuses/update.xml
+
+# Sort all running processes by their memory & CPU usage
+ps aux --sort=%mem,%cpu
+
+# Change user, assume environment, stay in current dir
+su -- user
+
+# Save current layout of top
+<Shift + W>
+
+# Function that outputs dots every second until command completes
+sleeper(){ while `ps -p $1 &>/dev/null`; do echo -n "${2:-.}"; sleep ${3:-1}; done; }; export -f sleeper
+
+# Testing hard disk reading speed
+hdparm -t /dev/sda
+
+# How fast is the connexion to a URL, some stats from curl
+URL="http://www.google.com";curl -L --w "$URL\nDNS %{time_namelookup}s  conn %{time_connect}s  time %{time_total}s\nSpeed %{speed_download}bps Size %{size_download}bytes\n" -o/dev/null -s $URL
+
+# An easter egg built into python to give you the Zen of Python
+python -c 'import this'
+
+# Get all IPs via ifconfig
+ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'
+
+# AD: Diff 2 entire servers at ScriptRock.com

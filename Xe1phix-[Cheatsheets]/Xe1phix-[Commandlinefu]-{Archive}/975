@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# sends your internal IP by email
+ifconfig en1 | awk '/inet / {print $2}' | mail -s "hello world" email@email.com
+
+# Download schedule
+echo 'wget url' | at 12:00
+
+# Use mtr to create a text file report
+mtr --report --report-cycles 10 www.google.com > google_net_report.txt
+
+# Quick screenshot
+import -pause 5 -window root desktop_screenshot.jpg
+
+# Quicker move to parent directory
+alias ..='cd ..'
+
+# Show webcam output
+mplayer tv:// -tv driver=v4l:width=352:height=288
+
+# Open the last file you edited in Vim.
+alias lvim="vim -c \"normal '0\""
+
+# Keep from having to adjust your volume constantly
+find . -iname \*.mp3 -print0 | xargs -0 mp3gain -krd 6 && vorbisgain -rfs .
+
+# [re]verify a disc with very friendly output
+dd if=/dev/cdrom | pv -s 700m | md5sum | tee test.md5
+
+# Processes by CPU usage
+ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed "/^ 0.0 /d"
+
+# Rotate a set of photos matching their EXIF data.
+jhead -autorot *.jpg
+
+# awk using multiple field separators
+awk -F "=| "
+
+# Shows size of dirs and files, hidden or not, sorted.
+du -cs * .[^\.]* | sort -n
+
+# Launch a command from a manpage
+!date
+
+# hard disk information - Model/serial no.
+hdparm -i[I] /dev/sda
+
+# Use mplayer to save video streams to a file
+mplayer -dumpstream -dumpfile "yourfile" -playlist "URL"
+
+# Wrap text files on the command-line for easy reading
+fold -s <filename>
+
+# Re-read partition table on specified device without rebooting system (here /dev/sda).
+blockdev --rereadpt /dev/sda
+
+# Speak the top 6 lines of your twitter timeline every 5 minutes.....
+while [ 1 ]; do curl -s -u username:password  http://twitter.com/statuses/friends_timeline.rss|grep title|sed -ne 's/<\/*title>//gp' | head -n 6 |festival --tts; sleep 300;done
+
+# Get your mac to talk to you
+say -v Vicki "Hi, I'm a mac"
+
+# Sort a one-per-line list of email address, weeding out duplicates
+sed 's/[ \t]*$//' < emails.txt | tr 'A-Z' 'a-z' | sort | uniq > emails_sorted.txt
+
+# recursively change file name from uppercase to lowercase (or viceversa)
+find . -type f|while read f; do mv $f `echo $f |tr '[:upper:]' '[ :lower:]'`; done
+
+# Check the age of the filesystem
+df / | awk '{print $1}' | grep dev | xargs tune2fs -l | grep create
+
+# Backup all MySQL Databases to individual files
+for I in `echo "show databases;" | mysql | grep -v Database`; do    mysqldump $I > "$I.sql"; done
+
+# Click on a GUI window and show its process ID and command used to run the process
+xprop | awk '/PID/ {print $3}' | xargs ps h -o pid,cmd
+
+# AD: Diff 2 entire servers at ScriptRock.com

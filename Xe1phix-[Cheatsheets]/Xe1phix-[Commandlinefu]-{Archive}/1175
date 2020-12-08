@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# mp3 streaming
+nc -l -p 2000 < song.mp3
+
+# VIM version 7: edit in tabs
+vim -p file1 file2 ...
+
+# Use /dev/full to test language I/O-failsafety
+perl -e 'print 1, 2, 3' > /dev/full
+
+# Open a man page as a PDF in Gnome
+TF=`mktemp` && man -t YOUR_COMMAND >> $TF && gnome-open $TF
+
+# List your sudo rights
+sudo -l
+
+# List only directory names
+ls -d */
+
+# Export MySQL query as .csv file
+echo "SELECT * FROM table; " | mysql -u root -p${MYSQLROOTPW} databasename | sed 's/\t/","/g;s/^/"/;s/$/"/;s/\n//g' > outfile.csv
+
+# Add temporary swap space
+dd if=/dev/zero of=/swapfile bs=1M count=64; chmod 600 /swapfile; mkswap /swapfile; swapon /swapfile
+
+# scp file from hostb to hostc while logged into hosta
+scp user@hostb:file user@hostc:
+
+# Convert mysql database from latin1 to utf8
+mysqldump --add-drop-table -uroot -p "DB_name"  | replace CHARSET=latin1 CHARSET=utf8 | iconv -f latin1 -t utf8 | mysql -uroot -p "DB_name"
+
+# Get contents from hosts, passwd, groups even if they're in DB/LDAP/other
+getent [group|hosts|networks|passwd|protocols|services] [keyword]
+
+# Get a quick list of all user and group owners of files and dirs under the cwd.
+find -printf '%u %g\n' | sort | uniq
+
+# Wget Command to Download Full Recursive Version of Web Page
+wget -p --convert-links http://www.foo.com
+
+# recurisvely md5 all files in a tree
+find ./backup -type f -print0 | xargs -0 md5sum > /checksums_backup.md5
+
+# seq can produce the same thing as Perl's ... operator.
+for i in $(seq 1 50) ; do echo Iteration $i ; done
+
+# watch process stack, sampled at 1s intervals
+watch -n 1 'pstack 12345 | tac'
+
+# Add all unversioned files to svn
+svn st | grep "^\?" | awk "{print \$2}" | xargs svn add $1
+
+# cat a file backwards
+tac file.txt
+
+# fast access to any of your favorite directory.
+alias pi='`cat ~/.pi | grep ' ; alias addpi='echo "cd `pwd`" >> ~/.pi'
+
+# Remove invalid host keys from ~/.ssh/known_hosts
+ssh-keygen -R \[localhost\]:8022
+
+# Show the command line for a PID, converting nulls to spaces and a newline
+xargs -0a /proc/27288/cmdline echo
+
+# Check how far along (in %) your program is in a file
+F=bigdata.xz; lsof -o0 -o -Fo $F | awk -Ft -v s=$(stat -c %s $F) '/^o/{printf("%d%%\n", 100*$2/s)}'
+
+# What is my ip?
+curl ifconfig.co/all.json
+
+# What is my ip?
+curl ifconfig.co
+
+# a function to find the fastest free DNS server
+timeDNS() { parallel -j0 --tag dig @{} "$*" ::: 208.67.222.222 208.67.220.220 198.153.192.1 198.153.194.1 156.154.70.1 156.154.71.1 8.8.8.8 8.8.4.4 | grep Query | sort -nk5; }
+
+# AD: Diff 2 entire servers at ScriptRock.com

@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# mkdir & cd into it as single command
+mkdir /home/foo/doc/bar && cd $_
+
+# Create a pdf version of a manpage
+man -t manpage | ps2pdf - filename.pdf
+
+# Remove all but one specific file
+rm -f !(survivior.txt)
+
+# return external ip
+curl icanhazip.com
+
+# Multiple variable assignments from command output in BASH
+read day month year <<< $(date +'%d %m %y')
+
+# git remove files which have been deleted
+git add -u
+
+# Edit a file on a remote host using vim
+vim scp://username@host//path/to/somefile
+
+# Rapidly invoke an editor to write a long, complex, or tricky command
+fc
+
+# Show apps that use internet connection at the moment. (Multi-Language)
+ss -p
+
+# Monitor progress of a command
+pv access.log | gzip > access.log.gz
+
+# Graph # of connections for each hosts.
+netstat -an | grep ESTABLISHED | awk '{print $5}' | awk -F: '{print $1}' | sort | uniq -c | awk '{ printf("%s\t%s\t",$2,$1) ; for (i = 0; i < $1; i++) {printf("*")}; print "" }'
+
+# Generate a random password 30 characters long
+strings /dev/urandom | grep -o '[[:alnum:]]' | head -n 30 | tr -d '\n'; echo
+
+# Record a screencast and convert it to an mpeg
+ffmpeg -f x11grab -r 25 -s 800x600 -i :0.0 /tmp/outputFile.mpg
+
+# Convert seconds to human-readable format
+date -d@1234567890
+
+# Job Control
+^Z $bg $disown
+
+# Monitor the queries being run by MySQL
+watch -n 1 mysqladmin --user=<user> --password=<password> processlist
+
+# Send pop-up notifications on Gnome
+notify-send ["<title>"] "<body>"
+
+# Search for a <pattern> string inside all files in the current directory
+grep -RnisI <pattern> *
+
+# Display a cool clock on your terminal
+watch -t -n1 "date +%T|figlet"
+
+# Open Finder from the current Terminal location
+open .
+
+# Show numerical values for each of the 256 colors in bash
+for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done
+
+# Check your unread Gmail from the command line
+curl -u username:password --silent "https://mail.google.com/mail/feed/atom" | tr -d '\n' | awk -F '<entry>' '{for (i=2; i<=NF; i++) {print $i}}' | sed -n "s/<title>\(.*\)<\/title.*name>\(.*\)<\/name>.*/\2 - \1/p"
+
+# Search commandlinefu.com from the command line using the API
+cmdfu(){ curl "http://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ | openssl base64)/plaintext"; }
+
+# (Debian/Ubuntu) Discover what package a file belongs to
+dpkg -S /usr/bin/ls
+
+# Get the 10 biggest files/folders for the current direcotry
+du -s * | sort -n | tail
+
+# AD: Diff 2 entire servers at ScriptRock.com

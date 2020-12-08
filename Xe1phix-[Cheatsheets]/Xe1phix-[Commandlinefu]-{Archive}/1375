@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Backup sda5 partition to ftp ( using pipes and gziped backup )
+dd if=/dev/sda5 bs=2048 conv=noerror,sync | gzip -fc | lftp -u user,passwd domain.tld -e "put /dev/stdin -o backup-$(date +%Y%m%d%H%M).gz; quit"
+
+# backup and remove files with access time older than 5 days.
+tar -zcvpf backup_`date +"%Y%m%d_%H%M%S"`.tar.gz `find <target> -atime +5` 2> /dev/null | xargs rm -fr ;
+
+# Vi - Matching Braces, Brackets, or Parentheses
+%
+
+# View and review the system process tree.
+pstree -Gap | less -r
+
+# Prevent shell autologout
+unset TMOUT
+
+# Random line from bash.org  (funny IRC quotes)
+curl -s http://bash.org/?random1|grep -oE "<p class=\"quote\">.*</p>.*</p>"|grep -oE "<p class=\"qt.*?</p>"|sed -e 's/<\/p>/\n/g' -e 's/<p class=\"qt\">//g' -e 's/<p class=\"qt\">//g'|perl -ne 'use HTML::Entities;print decode_entities($_),"\n"'|head -1
+
+# Add a shadow to picture
+convert {$file_in} \( +clone -background black -shadow 60x5+10+10 \) +swap -background none -layers merge +repage  {$file_out}
+
+# Releases Firefox of a still running message
+rm ~/.mozilla/firefox/<profile_dir>/.parentlock
+
+# Execute a command on logout
+trap cmd 0
+
+# See most used commands
+history|awk '{print $2}'|awk 'BEGIN {FS="|"} {print $1}'|sort|uniq -c|sort -r
+
+# dstat - a mix of vmstat, iostat, netstat, ps, sar...
+dstat -ta
+
+# Dump HTTP header using wget
+wget --server-response --spider http://www.example.com/
+
+# Find the 20 biggest directories on the current filesystem
+du -xk | sort -n | tail -20
+
+# Using ASCII Art output on MPlayer
+mplayer -vo aa <video file>
+
+# Make the "tree" command pretty and useful by default
+alias tree="tree -CAFa -I 'CVS|*.*.package|.svn|.git' --dirsfirst"
+
+# run php code inline from the command line
+php -r 'echo strtotime("2009/02/13 15:31:30")."\n";'
+
+# Display which user run process from given port name
+fuser -nu tcp 3691
+
+# Edit the Last Changed File
+vim $( ls -t | head -n1 )
+
+# Fast command-line directory browsing
+function cdls { cd $1; ls; }
+
+# Bash prompt with user name, host, history number, current dir and just a touch of color
+export PS1='\n[\u@\h \! \w]\n\[\e[32m\]$ \[\e[0m\]'
+
+# Quickly analyze apache logs for top 25 most common IP addresses.
+cat $(ls -tr | tail -1) | awk '{ a[$1] += 1; } END { for(i in a) printf("%d, %s\n", a[i], i ); }' | sort -n  | tail -25
+
+# show dd progress
+killall -USR1 dd
+
+# Copy specific files to another machine, keeping the file hierarchy
+tar cpfP - $(find <somedir> -type f -name *.png) | ssh user@host | tar xpfP -
+
+# skip broken piece of a loop but not exit the loop entirely
+ctrl + \
+
+# Convert a bunch of HTML files from ISO-8859-1 to UTF-8 file encoding in a folder and all sub-folders
+for x in `find . -name '*.html'` ; do iconv -f ISO-8859-1 -t UTF-8 $x > "$x.utf8"; rm $x; mv "$x.utf8" $x; done
+
+# AD: Diff 2 entire servers at ScriptRock.com

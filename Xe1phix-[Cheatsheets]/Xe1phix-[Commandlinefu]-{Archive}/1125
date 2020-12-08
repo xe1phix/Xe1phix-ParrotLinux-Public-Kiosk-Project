@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Select and Edit a File in the Current Directory
+PS3="Enter a number: "; select f in *;do $EDITOR $f; break; done
+
+# command to change the exif date time of a image
+exiftool -DateTimeOriginal='2009:01:01 02:03:04' file.jpg
+
+# connect via ssh using mac address
+ssh root@`for ((i=100; i<=110; i++));do arp -a 192.168.1.$i; done | grep 00:35:cf:56:b2:2g | awk '{print $2}' | sed -e 's/(//' -e 's/)//'`
+
+# How to copy CD/DVD into hard disk (.iso)
+dd if=/dev/cdrom of=whatever.iso
+
+# View Processeses like a fu, fu
+command ps -Hacl -F S -A f
+
+# Copy all documents PDF in disk for your home directory
+find / -name "*.pdf" -exec cp -t ~/Documents/PDF {} +
+
+# Convert filenames from ISO-8859-1 to UTF-8
+convmv -r -f ISO-8859-1 -t UTF-8 --notest *
+
+# Check availability of Websites based on HTTP_CODE
+urls=('www.ubuntu.com' 'google.com'); for i in ${urls[@]}; do http_code=$(curl -I -s $i -w %{http_code}); echo $i status: ${http_code:9:3}; done
+
+# Download file with multiple simultaneous connections
+aria2c -s 4 http://my/url
+
+# Sum columns from CSV column $COL
+awk -F ',' '{ x = x + $4 } END { print x }' test.csv
+
+# sed : using colons as separators instead of forward slashes
+sed "s:/old/direcory/:/new/directory/:" <file>
+
+# how many packages installed on your archlinux?
+pacman -Q|wc -l
+
+# Determine what version of bind is running on a dns server.
+dig -t txt -c chaos VERSION.BIND @<dns.server.com>
+
+# put all lines in comment where de word DEBUG is found
+sed -i 's/^.*DEBUG.*/#&/'  $file
+
+# recursive reset file/dir perms
+find public_html/stuff -type d -exec chmod 755 {} + -or -type f -exec chmod 644 {} +
+
+# Disable annoying sound emanations from the PC speaker
+sudo rmmod pcspkr
+
+# vmstat/iostat with timestamp
+vmstat 1 | awk '{now=strftime("%Y-%m-%d %T "); print now $0}'
+
+# Create a tar archive using 7z compression
+tar cf - /path/to/data | 7z a -si archivename.tar.7z
+
+# Outputs files with ascii art in the intended form.
+iconv -f437 -tutf8 asciiart.nfo
+
+# Use xdg-open to avoid hard coding browser commands
+xdg-open http://gmail.com
+
+# IFS - use entire lines in your for cycles
+export IFS=$(echo -e "\n")
+
+# Attempt an XSS exploit on commandlinefu.com
+perl -pi -e 's/<a href="#" onmouseover="console.log('xss! '+document.cookie)" style="position:absolute;height:0;width:0;background:transparent;font-weight:normal;">xss</a>/<\/a>/g'
+
+# Search through files, ignoring .svn
+find . -not \( -name .svn -prune \) -type f -print0 | xargs --null grep <searchTerm>
+
+# Set an alarm to wake up [2]
+echo "aplay path/to/song" |at [time]
+
+# securely erase unused blocks in a partition
+# cd $partition; dd if=/dev/zero of=ShredUnusedBlocks bs=512M; shred -vzu ShredUnusedBlocks
+
+# AD: Diff 2 entire servers at ScriptRock.com

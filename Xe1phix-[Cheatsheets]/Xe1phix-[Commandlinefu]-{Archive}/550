@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Add your public SSH key to a server in one command
+cat .ssh/id_rsa.pub | ssh hostname 'cat >> .ssh/authorized_keys'
+
+# Show which programs are listening on TCP and UDP ports
+netstat -plunt
+
+# cycle through a 256 colour palette
+yes "$(seq 232 255;seq 254 -1 233)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .01; done
+
+# random git-commit message
+git commit -m "$(curl -s http://whatthecommit.com/index.txt)";
+
+# Download all mp3's listed in an html page
+wget -r -l1 -H -t1 -nd -N -np -A.mp3 -erobots=off [url of website]
+
+# Google text-to-speech in mp3 format
+t2s() { wget -q -U Mozilla -O $(tr ' ' _ <<< "$1"| cut -b 1-15).mp3 "http://translate.google.com/translate_tts?ie=UTF-8&tl=en&q=$(tr ' ' + <<< "$1")"; }
+
+# Google verbatim search on your terminal
+function google { Q="$@"; GOOG_URL='https://www.google.de/search?tbs=li:1&q='; AGENT="Mozilla/4.0"; stream=$(curl -A "$AGENT" -skLm 10 "${GOOG_URL}${Q//\ /+}" | grep -oP '\/url\?q=.+?&amp' | sed 's|/url?q=||; s|&amp||'); echo -e "${stream//\%/\x}"; }
+
+# grep processes list avoiding the grep itself
+ps axu | grep [a]pache2
+
+# Swap the two last arguments of the current command line
+<ctrl+e> <esc+t>
+
+# Transfer a file to multiple hosts over ssh
+pscp -h hosts.txt -l username /etc/hosts /tmp/hosts
+
+# tail a log over ssh
+ssh  -t remotebox "tail -f /var/log/remote.log"
+
+# du with colored bar graph
+t=$(df|awk 'NR!=1{sum+=$2}END{print sum}');sudo du / --max-depth=1|sed '$d'|sort -rn -k1 | awk -v t=$t 'OFMT="%d" {M=64; for (a=0;a<$1;a++){if (a>c){c=a}}br=a/c;b=M*br;for(x=0;x<b;x++){printf "\033[1;31m" "|" "\033[0m"}print " "$2" "(a/t*100)"% total"}'
+
+# sort the output of the 'du' command by largest first, using human readable output.
+du -h --max-depth=1 |sort -rh
+
+# Verify/edit bash history command before executing it
+shopt -s histverify
+
+# Resize an image to at least a specific resolution
+convert -resize '1024x600^' image.jpg small-image.jpg
+
+# Query well known ports list
+getent services <<service>>
+
+# Create .pdf from .doc
+oowriter -pt pdf your_word_file.doc
+
+# Diff XML files
+diffxml() { diff -wb <(xmllint --format "$1") <(xmllint --format "$2"); }
+
+# Discovering all open files/dirs underneath a directory
+lsof +D <dirname>
+
+# Check syntax for all PHP files in the current directory and all subdirectories
+find . -name \*.php -exec php -l "{}" \;
+
+# clear screen, keep prompt at eye-level (faster than clear(1), tput cl, etc.)
+cls(){ printf "\33[2J";} or, if no printf, cat >cls;<ctrl-v><ctrl+[>[2J<enter><ctrl+d> cls(){ cat cls;}
+
+# Google text-to-speech in mp3 format
+say(){ mplayer -user-agent Mozilla "http://translate.google.com/translate_tts?tl=en&q=$(echo $* | sed 's#\ #\+#g')" > /dev/null 2>&1 ;  }
+
+# Down for everyone or just me?
+down4me() { wget -qO - "http://www.downforeveryoneorjustme.com/$1" | sed '/just you/!d;s/<[^>]*>//g' ; }
+
+# A formatting test for David Winterbottom: improving commandlinefu for submitters
+echo "?????, these are the umlauted vowels I sing to you. Oh, and sometimes ?, but I don't sing that one cause it doesn't rhyme."
+
+# Run a program transparently, but print a stack trace if it fails
+gdb -batch -ex "run" -ex "bt" ${my_program} 2>&1 | grep -v ^"No stack."$
+
+# AD: Diff 2 entire servers at ScriptRock.com

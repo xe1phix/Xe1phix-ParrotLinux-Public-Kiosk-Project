@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Print just line 4 from a textfile
+awk 'NR==4'
+
+# Adding leading zeros to a filename (1.jpg -> 001.jpg)
+zmv '(<1->).jpg' '${(l:3::0:)1}.jpg'
+
+# Copy an element from the previous command
+!:n
+
+# Remove all unused kernels with apt-get
+aptitude remove $(dpkg -l|egrep '^ii  linux-(im|he)'|awk '{print $2}'|grep -v `uname -r`)
+
+# Check a nfs mountpoint and force a remount if it does not reply after a given timeout.
+NFSPATH=/mountpoint TIMEOUT=5; perl -e "alarm $TIMEOUT; exec @ARGV" "test -d $NFSPATH" || (umount -fl $NFSPATH; mount $NFSPATH)
+
+# let a cow tell you your fortune
+fortune | cowsay
+
+# List your installed Firefox extensions
+grep -hIr :name ~/.mozilla/firefox/*.default/extensions | tr '<>=' '"""' | cut -f3 -d'"' | sort -u
+
+# Google Translate
+translate() { lng1="$1";lng2="$2";shift;shift; wget -qO- "http://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=${@// /+}&langpair=$lng1|$lng2" | sed 's/.*"translatedText":"\([^"]*\)".*}/\1\n/'; }
+
+# run remote linux desktop
+xterm -display :12.0 -e ssh -X user@server &
+
+# List complete size of directories (do not consider hidden directories)
+du -hs */
+
+# Find pages returning 404 errors in apache logs
+awk '$9 == 404 {print $7}' access_log | uniq -c | sort -rn | head
+
+# Robust expansion (i.e. crash) of bash variables with a typo
+set -eu
+
+# easily find megabyte eating files or directories
+du -cks * | sort -rn | while read size fname; do for unit in k M G T P E Z Y; do if [ $size -lt 1024 ]; then echo -e "${size}${unit}\t${fname}"; break; fi; size=$((size/1024)); done; done
+
+# Get your outgoing IP address
+curl -s ip.appspot.com
+
+# Copy file content to X clipboard
+:%y *
+
+# Simple addicting bash game.
+count="1" ; while true ; do read next ; if [[ "$next" = "$last" ]] ; then count=$(($count+1)) ; echo "$count" ; else count="1" ; echo $count ; fi ; last="$next" ; done
+
+# Query Wikipedia via console over DNS
+mwiki() { dig +short txt "$*".wp.dg.cx; }
+
+# Recover remote tar backup with ssh
+ssh user@host "cat /path/to/backup/backupfile.tar.bz2" |tar jpxf -
+
+# Using mplayer to play the audio only but suppress the video
+mplayer -novideo something.mpg
+
+# Get your commandlinefu points (upvotes - downvotes)
+username=matthewbauer; curl -s http://www.commandlinefu.com/commands/by/$username/json | tr '{' '\n' | grep -Eo ',"votes":"[0-9\-]+","' | grep -Eo '[0-9\-]+' | tr '\n' '+' | sed 's/+$/\n/' | bc
+
+# split a multi-page PDF into separate files
+pdftk in.pdf burst
+
+# Extend a logical volume to use up all the free space in a volume group
+lvextend -l +100%FREE /dev/VolGroup00/LogVol00
+
+# grab all commandlinefu shell functions into a single file, suitable for sourcing.
+export QQ=$(mktemp -d);(cd $QQ; curl -s -O http://www.commandlinefu.com/commands/browse/sort-by-votes/plaintext/[0-2400:25];for i in $(perl -ne 'print "$1\n" if( /^(\w+\(\))/ )' *|sort -u);do grep -h -m1 -B1 $i *; done)|grep -v '^--' > clf.sh;rm -r $QQ
+
+# Replace spaces in filenames with underscores
+rename 's/ /_/g' *
+
+# Recursively grep thorugh directory for string in file.
+grep -r -i "phrase" directory/
+
+# AD: Diff 2 entire servers at ScriptRock.com

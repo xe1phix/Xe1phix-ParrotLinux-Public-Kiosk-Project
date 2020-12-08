@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Create executable, automountable filesystem in a file, with password!
+dd if=/dev/zero of=T bs=1024 count=10240;mkfs.ext3 -q T;E=$(echo 'read O;mount -o loop,offset=$O F /mnt;'|base64|tr -d '\n');echo "E=\$(echo $E|base64 -d);eval \$E;exit;">F;cat <(dd if=/dev/zero bs=$(echo 9191-$(stat -c%s F)|bc) count=1) <(cat T;rm T)>>F
+
+# launch bash without using any letters
+"$(- 2>&1)";${_%%:*}
+
+# shush MOTD
+touch ~/.hushlogin
+
+# Limit the transfer rate and size of data over a pipe
+cat /dev/urandom | pv -L 3m | dd bs=1M count=100 iflag=fullblock > /dev/null
+
+# download 10 random wallpapers from google
+for i in {1..10};do wget $(wget -O- -U "" "http://images.google.com/images?imgsz=xxlarge&hl=en&q=wallpaper+HD&start=$(($RANDOM%900+100))" --quiet | grep -oe 'http://[^"]*\.jpg' | head -1);done
+
+# Complete TCP Handshake on a given host-port
+nc -zvw 1 host port
+
+# Rip a CD/DVD to ISO format.
+dd if=/dev/cdrom of=~/cdrom_image.iso
+
+# Quickly CD Out Of Directories
+up() { [ $(( $1 + 0 )) -gt 0 ] && cd $(eval "printf '../'%.0s {1..$1}"); }
+
+# List all commands present on system
+compgen -c | sort -u > commands && less commands
+
+# Find out how old a web page is
+wget -S --spider http://osswin.sourceforge.net/ 2>&1 | grep Mod
+
+# convert doc to pdf
+unoconv -f pdf filename.doc
+
+# Search commandlinefu and view syntax-highlighted results in vim
+cmdfu(){ local t=~/cmdfu;echo -e "\n# $1 {{{1">>$t;curl -s "commandlinefu.com/commands/matching/$1/`echo -n $1|base64`/plaintext"|sed '1,2d;s/^#.*/& {{{2/g'>$t;vim -u /dev/null -c "set ft=sh fdm=marker fdl=1 noswf" -M $t;rm $t; }
+
+# what model of computer I'm using?
+sudo hal-get-property --udi /org/freedesktop/Hal/devices/computer --key 'system.hardware.product'
+
+# Remove a range of lines from a file
+vi +'<start>,<end>d' +wq <filename>
+
+# Remove a line from a file using sed (useful for updating known SSH server keys when they change)
+sed -i '${LINE}d' ~/.ssh/known_host
+
+# Display the number of connections to a MySQL Database
+mysql -u root -p -BNe "select host,count(host) from processlist group by host;" information_schema
+
+# Lists all usernames in alphabetical order
+cut -d: -f1 /etc/passwd | sort
+
+# Copy all files, including hidden files, recursively without traversing backward
+cp -r * .??* /dest
+
+# Print all lines between two line numbers
+sed -n '3,6p' /path/to/file
+
+# Unlock more space form your hard drive
+tune2fs -m 1 /dev/sda6
+
+# prettier "cal" command
+cal |grep -A7 -B7 --color=auto $(date +%d)
+
+# Temporarily suspend and unsuspend a foreground job
+^Z <...> %
+
+# find system's indianness
+python -c "import sys;print (sys.byteorder) + ' endian'"
+
+# convert UNIX timestamp to UTC timestamp
+TZ=UTC date -d @1320198157
+
+# Find out which debian package a command (executable) belongs to on debian-based distros
+function whichpkg() { readlink -f "$(which $1)" | xargs --no-run-if-empty dpkg -S; }
+
+# AD: Diff 2 entire servers at ScriptRock.com

@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# validate json
+curl -s -X POST http://www.jsonlint.com/ajax/validate -d json="`cat file.js`" -d reformat=no
+
+# Simple top directory usage with du flips for either Linux or base Solaris
+( du -xSk || du -kod ) | sort -nr | head
+
+# Let's make screen and ssh-agent friends
+eval `ssh-agent`; screen
+
+# print all network interfaces' names and IPv4 addresses
+alias ips='ip a | awk '\''/inet /&&!/ lo/{print $NF,$2}'\'' | column -t'
+
+# Recursively remove .svn directories
+find . -type d -name .svn -delete
+
+# Mouse Tracking
+while true; do xdotool getmouselocation | sed 's/x:\(.*\) y:\(.*\) screen:.*/\1, \2/' >> ./mouse-tracking; sleep 10; done
+
+# Start another instance of X via SSH
+startx -- /usr/X11R6/bin/Xnest :5 -geometry 800x600
+
+# Extract audio from start to end position from a video
+mplayer -vc null -vo null -ao pcm <input video file> -ss <start> -endpos <end>
+
+# Change display resolution
+xrandr -s 1280x1024
+
+# Simulate typing
+echo "pretty realistic virtual typing" | randtype -m 4
+
+# See your current RAM frequency
+/usr/sbin/dmidecode | grep -i "current speed"
+
+# Numerically sorted human readable disk usage
+du -x --max-depth=1 | sort -n | awk '{ print $2 }' | xargs du -hx --max-depth=0
+
+# Introduction to user commands
+man intro
+
+# shows the full path of shell commands
+which command
+
+# Turn shell tracing and verbosity (set -xv) on/off with 1 command!
+xv() { case $- in *[xv]*) set +xv;; *) set -xv ;; esac }
+
+# convert a line to a space
+cat file | tr '\n' ''
+
+# Clean way of re-running bash startup scripts.
+exec bash
+
+# split a multi-page PDF into separate files
+gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -dFirstPage=2 -dLastPage=2 -sOutputFile=page2.pdf multipageinputfile.pdf
+
+# Pipe text from shell to windows cut and paste buffer using PuTTY and XMing.
+echo "I'm going to paste this into WINDERS XP" | xsel -i
+
+# Dump sqlite database to plain text format
+echo '.dump' | sqlite3 your_sqlite.db > your_sqlite_text.txt
+
+# nice disk usage, sorted by size, see description for full command
+du -sk ./* | sort -nr
+
+# Facebook Email Scraper
+fbemailscraper YourFBEmail Password
+
+# How to backup hard disk timely?
+rsync -a --link-dest=/media/backup/$HOSTNAME/$PREVDATE '--exclude=/[ps][ry][os]' --exclude=/media/backup/$HOSTNAME / /media/backup/$HOSTNAME/$DATE/
+
+# grep (or anything else) many files with multiprocessor power
+find . -type f | parallel -j+0 grep -i foobar
+
+# recursive search and replace old with new string, inside files
+grep -rl oldstring . | parallel sed -i -e 's/oldstring/newstring/'
+
+# AD: Diff 2 entire servers at ScriptRock.com

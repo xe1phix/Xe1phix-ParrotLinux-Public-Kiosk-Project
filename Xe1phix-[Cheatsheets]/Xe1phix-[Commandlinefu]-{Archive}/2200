@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Customize time format of 'ls -l'
+ls -l --time-style=+"%Y-%m-%d %H:%M:%S"
+
+# eavesdrop
+ssh USER@REMOTESYSTEM arecord - | aplay -
+
+# Download Entire YouTube Channel - all of a user's videos
+yt-chanrip() { for i in $(curl -s http://gdata.youtube.com/feeds/api/users/"$1"/uploads | grep -Eo "watch\?v=[^[:space:]\"\'\\]{11}" | uniq); do youtube-dl --title --no-overwrites http://youtube.com/"$i"; done }
+
+# let the cow suggest some commit messages for you
+while true; do lynx --dump http://whatthecommit.com/ | head -n 1 | cowsay; sleep 2; done
+
+# tar and remove files which are older that 100 days
+find . -type f -mtime +100 -exec tar rvf my.tar --remove-files {} \;
+
+# Quick searching with less
+zless +/search_pattern file.gz
+
+# m4a to mp3 conversion with ffmpeg and lame
+ffmpeg -i input.m4a -acodec libmp3lame -ab 128k output.mp3
+
+# Terminal - Prints out, what the users name, notifyed in the gecos field, is
+getent passwd $(whoami) | cut -f 5 -d: | cut -f 1 -d,
+
+# Remove all HTML tags from a file
+awk '{gsub("<[^>]*>", "")}1' file
+
+# Use AbiWord to generate a clean HTML document from a Microsoft Word document.
+abiword --to=html file.doc --exp-props=
+
+# RTFM function
+rtfm() { help $@ || $@ -h || $@ --help || man $@ || $BROWSER "http://www.google.com/search?q=$@"; }
+
+# Find a CommandlineFu users average command rating
+wget -qO- www.commandlinefu.com/commands/by/PhillipNordwall | awk -F\> '/num-votes/{S+=$2; I++}END{print S/I}'
+
+# Set laptop display brightness
+echo <percentage> > /proc/acpi/video/VGA/LCD/brightness
+
+# update you web
+git archive --format=tar HEAD | (cd /var/www/ && tar xf -)
+
+# get you public ip address
+curl http://ifconfig.me/ip
+
+# Create QR codes from a URL.
+qrurl() { curl -sS "http://chart.apis.google.com/chart?chs=200x200&cht=qr&chld=H|0&chl=$1" -o - | display -filter point -resize 600x600 png:-; }
+
+# Remove duplicate rows of an un-sorted file based on a single column
+awk '{ if ($1 in stored_lines) x=1; else print; stored_lines[$1]=1 }' infile.txt > outfile.txt
+
+# print line and execute it in BASH
+bash -x script.sh
+
+# show all established tcp connections on os x
+lsof -iTCP -sTCP:ESTABLISHED | awk '{print $1}' | sort -u
+
+# Monitor cpu freq and temperature
+watch --interval 1 "cat /proc/acpi/thermal_zone/THRM/*; cat /proc/cpuinfo | grep MHz; cat /proc/acpi/processor/*/throttling"
+
+# Batch rename extension of all files in a folder, in the example from .txt to .md
+mmv "*.txt" "#1.md"
+
+# Binary clock
+read -a A<<<".*.**..*....*** 8 9 5 10 6 0 2 11 7 4";for C in `date +"%H%M"|fold -w1`;do echo "${A:${A[C+1]}:4}";done
+
+# syncronizing datas beetween two folder (A and B) excluding some directories in A (dir1 and dir2)
+rsync -av --ignore-existing --exclude="dir1" --exclude="dir2" /pathA /pathB
+
+# Create a persistent remote Proxy server through an SSH channel
+ssh -fND localhost:PORT USER@SSH_ENABLED_SERVER
+
+# Add a GPL license file to your project
+wget -O LICENSE.txt http://www.gnu.org/licenses/gpl-3.0.txt
+
+# AD: Diff 2 entire servers at ScriptRock.com

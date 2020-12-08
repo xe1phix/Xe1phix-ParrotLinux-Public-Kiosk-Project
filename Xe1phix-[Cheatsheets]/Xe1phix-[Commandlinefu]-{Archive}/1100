@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Remove everything except that file
+find . ! -name <FILENAME> -delete
+
+# Remove today's Debian installed packages
+grep -e `date +%Y-%m-%d` /var/log/dpkg.log | awk '/install / {print $4}' | uniq | xargs apt-get -y remove
+
+# Edit video by cutting the part you like without transcoding.
+mencoder -ss <start point> -endpos <time from start point> -oac copy -ovc copy <invid> -o <outvid>
+
+# Pretty man pages under X
+function manpdf() {man -t $1 | ps2pdf - - | epdfview -}
+
+# silent/shh - shorthand to make commands really quiet
+silent(){ $@ > /dev/null 2>&1; }; alias shh=silent
+
+# Rename .JPG to .jpg recursively
+find /path/to/images -name '*.JPG' -exec rename "s/.JPG/.jpg/g" \{\} \;
+
+# external projector for presentations
+xrandr --auto
+
+# Extract tarball from internet without local saving
+curl http://example.com/a.gz | tar xz
+
+# show ls colors with demo
+echo $LS_COLORS | sed 's/:/\n/g' | awk -F= '!/^$/{printf("%s \x1b[%smdemo\x1b[0m\n",$0,$2)}'
+
+# Change your swappiness Ratio under linux
+sysctl vm.swappiness=50
+
+# Get the time from NIST.GOV
+cat </dev/tcp/time.nist.gov/13
+
+# exit if another instance is running
+pidof -x -o $$ ${0##*/} && exit
+
+# Merge Two or More PDFs into a New Document
+pdftk 1.pdf 2.pdf 3.pdf cat output 123.pdf
+
+# Upload images to omploader.org from the command line.
+ompload() { curl -# -F file1=@"$1" http://ompldr.org/upload|awk '/Info:|File:|Thumbnail:|BBCode:/{gsub(/<[^<]*?\/?>/,"");$1=$1;print}';}
+
+# Execute most recent command containing search string.
+!?<string>?
+
+# Display GCC Predefined Macros
+gcc -dM -E - < /dev/null
+
+# Password Generation
+pwgen --alt-phonics --capitalize 9 10
+
+# Extract a bash function
+sed -n '/^function h\(\)/,/^}/p' script.sh
+
+# Monitor a file's size
+watch -n60 du /var/log/messages
+
+# Using tput to save, clear and restore the terminal contents
+tput smcup; echo "Doing some things..."; sleep 2; tput rmcup
+
+# Get a MySQL DB dump from a remote machine
+ssh user@host "mysqldump -h localhost -u mysqluser -pP@$$W3rD databasename | gzip -cf" | gunzip -c > database.sql
+
+# A little bash daemon =)
+echo "Starting Daemon"; ( while :; do sleep 15; echo "I am still running =]"; done ) & disown -h -ar $!
+
+# Changing the terminal title to the last shell command
+trap 'echo -e "\e]0;$BASH_COMMAND\007"' DEBUG
+
+# save  date and time for each command in history
+export HISTTIMEFORMAT="%h/%d-%H:%M:%S "
+
+# Create/open/use encrypted directory
+encfs ~/.crypt ~/crypt
+
+# AD: Diff 2 entire servers at ScriptRock.com

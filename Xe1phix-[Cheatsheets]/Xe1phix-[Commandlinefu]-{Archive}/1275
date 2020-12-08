@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# ROT13 whole file in vim.
+ggg?G
+
+# Compress a series of png pictures to an avi movie.
+mencoder "mf://*.png" -mf fps=2 -o output.avi -ovc lavc -lavcopts vcodec=mpeg4
+
+# Print all 256 colors for testing TERM or for a quick reference
+( x=`tput op` y=`printf %$((${COLUMNS}-6))s`;for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;done; )
+
+# Search commandlinefu.com from the command line using the API
+curl "http://www.commandlinefu.com/commands/matching/$(echo "$@" | sed 's/ /-/g')/$(echo -n $@ | base64)/plaintext"
+
+# execute your commands and avoid history records
+cat | bash
+
+# Find default gateway
+ip route | awk '/default/{print $3}'
+
+# reset hosed terminal
+cls(){ printf "\033c";} or, if no printf, cat > c ;<ctrl+v> <ctrl+[>c <enter><ctrl-d> c(){ cat c;} #usage: c
+
+# Stream audio over ssh
+sox Klaxon.mp3 -t wav - |ssh thelab@company.com paplay
+
+# ls not pattern
+ls -I "*.gz"
+
+# Replace multiple file extensions with a single extension
+for f in t1.bmp t2.jpg t3.tga; do echo ${f%.*}.png; done
+
+# Display connections histogram
+netstat -an | grep ESTABLISHED | awk '\''{print $5}'\'' | awk -F: '\''{print $1}'\'' | sort | uniq -c | awk '\''{ printf("%s\t%s\t",$2,$1); for (i = 0; i < $1; i++) {printf("*")}; print ""}'\''
+
+# Lets Tux say the random fact. [add it to .bashrc to see it in new terminal window]
+wget randomfunfacts.com -O - 2>/dev/null|grep \<strong\>|sed "s;^.*<i>\(.*\)</i>.*$;\1;"|cowsay -f tux
+
+# grep binary (hexadecimal) patterns
+grep -P "\x05\x00\xc0" mybinaryfile
+
+# Get a brief overview of how many files and directories are installed
+locate -S
+
+# merge vob files to mpg
+cat VTS_05_1.VOB VTS_05_2.VOB VTS_05_3.VOB VTS_05_4.VOB > mergedmovie.mpg
+
+# Advanced LS Output using Find for Formatted/Sortable File Stat info
+find $PWD -maxdepth 1 -printf '%.5m %10M %#9u:%-9g %#5U:%-5G  [%AD | %TD | %CD]  [%Y] %p\n'
+
+# Apply permissions only to files
+chmod 644 $(find . -type f)
+
+# copy file to clipboard
+xclip file.txt
+
+# find out how many days since given date
+echo $((($(date +%s)-$(date +%s -d "march 1"))/86400))
+
+# Quickly create simple text file from command line w/o using vi/emacs
+cat > <file_name> << "EOF"
+
+# Play 89.3 @TheCurrent and get system notifications on song changes.
+mplayer http://minnesota.publicradio.org/tools/play/streams/the_current.pls < /dev/null | grep --line-buffered "StreamTitle='.*S" -o | grep --line-buffered "'.*'" -o > mus & tail -n0 -f mus | while read line; do notify-send "Music Change" "$line";done
+
+# Reboot as a different OS in Grub
+echo "savedefault --default=2 --once" | grub --batch; sudo reboot
+
+# Realtime lines per second in a log file
+tail -f access.log | pv -l -i10 -r >/dev/null
+
+# see the TIME_WAIT and ESTABLISHED nums of the network
+netstat -n | awk '/^tcp/ {++B[$NF]} END {for(a in B) print a, B[a]}'
+
+# deaggregate ip ranges
+/bin/grep - ipranges.txt | while read line; do ipcalc $line ; done  | grep -v deag
+
+# AD: Diff 2 entire servers at ScriptRock.com

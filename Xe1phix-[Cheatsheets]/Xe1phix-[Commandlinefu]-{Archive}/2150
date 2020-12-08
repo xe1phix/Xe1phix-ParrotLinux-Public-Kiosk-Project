@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Get mouse location (X,Y coordinates)
+xdotool getmouselocation
+
+# Unrar all multipart rar archives in directory
+for f in /*part1.rar;do unrar e .$f.;done
+
+# regex for turning a URL into a real hyperlink (i.e. for posting somewhere that accepts basic html)
+sed "s/\([a-zA-Z]*\:\/\/[^ ]*\)\(.*\)/\<a href=\"\1\"\>\1\<\/a\>\2/"
+
+# commit message generator - whatthecommit.com
+curl http://whatthecommit.com/index.txt
+
+# convert from decimal to hexadecimal
+hex() { bc <<< "obase=16; $1"; }
+
+# List all databases in Postgres and their (byte/human) sizes, ordering by byte size descending
+psql -c "SELECT pg_database.datname, pg_database_size(pg_database.datname), pg_size_pretty(pg_database_size(pg_database.datname)) FROM pg_database ORDER BY pg_database_size DESC;" -d <ANYDBNAME>
+
+# create thumbnail of pdf
+convert -resize 200 awk.pdf[0] awk.png
+
+# capture selected window
+import -window `xwininfo | awk '/Window id/{print $4; exit}'` `uuidgen`.png
+
+# Get the 10 biggest files/folders for the current direcotry
+du -sh * | sort -rh | head
+
+# Rsync a directory excluding pesky .svn dirs
+rsync -rv --exclude .svn src/dir/ dest/dir/
+
+# Using json.tool from the shell to validate and pretty-print
+echo '{"json":"obj"}' | python -mjson.tool
+
+# video thumbnail gallery
+totem-video-thumbnailer -pg 25 in_video out_png
+
+# Skip filenames with control characters, a.k.a tab,newline etc
+find . ! -name "$(printf '*[\001-\037\177]*')"
+
+# Extract extention of a file
+filext () { echo ${1##*.}; }
+
+# List processes sorted by CPU usage
+ps -ef --sort=-%cpu
+
+# Jump up to any directory above the current one
+upto() { cd "${PWD/\/$@\/*//$@}" }
+
+# Suppress output of loud commands you don't want to hear from
+quietly() { "$@" |&:; }
+
+# Copy your ssh public key to a server from a machine that doesn't have ssh-copy-id
+cat ~/.ssh/id_rsa.pub | ssh <REMOTE> "(cat > tmp.pubkey ; mkdir -p .ssh ; touch .ssh/authorized_keys ; sed -i.bak -e '/$(awk '{print $NF}' ~/.ssh/id_rsa.pub)/d' .ssh/authorized_keys;  cat tmp.pubkey >> .ssh/authorized_keys; rm tmp.pubkey)"
+
+# check open ports (both ipv4 and ipv6)
+lsof -Pn | grep LISTEN
+
+# Determine if a command is in your $PATH using POSIX
+command -v bash
+
+# Creating ISO Images from CDs/DVDs
+dd if=/dev/cdrom of=~/cd_image.iso
+
+# Google text-to-speech in mp3 format
+p=$(echo "hello world, how r u?"|sed 's/ /+/g');wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?tl=en\&q=$p|mpg123 -
+
+# dont execute command just add it to history as a comment, handy if your command is not "complete" yet
+#command
+
+# Capitalize first letter of each word in a string
+echo 'fOo BaR' | tr '[A-Z]' '[a-z]' | sed 's/\(^\| \)\([a-z]\)/\1\u\2/g'
+
+# Copy sparse files
+cp --sparse=always <SRC> <DST>
+
+# AD: Diff 2 entire servers at ScriptRock.com

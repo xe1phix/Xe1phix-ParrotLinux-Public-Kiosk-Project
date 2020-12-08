@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Which fonts are installed?
+fc-list | cut -d ':' -f 1 | sort -u
+
+# Print IP of any interface. Useful for scripts.
+ip route show dev ppp0 | awk '{ print $7 }'
+
+# Replace Solaris vmstat numbers with human readable format
+vmstat 1 10 | /usr/xpg4/bin/awk -f ph-vmstat.awk
+
+# Split lossless audio (ape, flac, wav, wv) by cue file
+cuebreakpoints <cue file> | shnsplit -o <lossless audio type> <audio file>
+
+# Securely destroy data (including whole hard disks)
+shred targetfile
+
+# Mount a disk image (dmg) file in Mac OSX
+hdiutil attach somefile.dmg
+
+# Date shows dates at other times/dates
+date -d '2 weeks ago'
+
+# Convert a SVG file to grayscale
+inkscape -f file.svg --verb=org.inkscape.color.grayscale --verb=FileSave --verb=FileClose
+
+# need ascii art pictures for you readme text ?
+boxes -d dog  or   cowsay -f tux $M
+
+# Show the power of the home row on the Dvorak Keyboard layout
+egrep -ci ^[aoeuidhtns-]+$ /usr/share/dict/words
+
+# Convert images (jpg, png, ...) into a PDF
+convert images*.* <my_pdf>.pdf
+
+# get the top 10 longest filenames
+find | sed -e "s/^.*\///" | awk ' BEGIN { FS=""} { print NF "  " $0  } ' | sort -nrf | head -10
+
+# Search for a word in less
+\bTERM\b
+
+# backup a directory in a timestamped tar.gz
+tar -czvvf backup$(date "+%Y%m%d_%H%M%S").tar.gz /path/to/dir
+
+# Have subversion ignore a file pattern in a directory
+svn propset svn:ignore "*txt" log/
+
+# Show a Command's Short Description
+whatis [command-name]
+
+# Hiding password while reading it from keyboard
+save_state=$(stty -g);echo -n "Password: ";stty -echo;read password;stty "$save_state";echo "";echo "You inserted $password as password"
+
+# List files above a given threshold
+find . -type f -size +25000k -exec ls -lh {} \; | awk '{ print $8 ": " $5 }'
+
+# rapidshare download script in 200 characters
+u=`curl -d 'dl.start=Free' $(curl $1|perl -wpi -e 's/^.*"(http:\/\/rs.*)" method.*$/$1/'|egrep '^http'|head -n1)|grep "Level(3) \#2"|perl -wpi -e 's/^.*(http:\/\/rs[^\\\\]*).*$/$1/'`;sleep 60;wget $u
+
+# Play musical notes from octave of middle C
+man beep | sed -e '1,/Note/d; /BUGS/,$d' | awk '{print $2}' | xargs -IX sudo beep -f X -l 500
+
+# Use a Gmail virtual disk (GmailFS) on Ubuntu
+mount.gmailfs none /mount/path/ [-o username=USERNAME[,password=PASSWORD][,fsname=VOLUME]] [-p]
+
+# Remote copy directories and files through an SSH tunnel host
+rsync -avz -e 'ssh -A sshproxy ssh' srcdir remhost:dest/path/
+
+# Pack up some files into a tarball on a remote server without writing to the local filesystem
+tar -czf - * | ssh example.com "cat > files.tar.gz"
+
+# Kill all processes beloging to a single user.
+kill -9 `ps -u <username> -o "pid="`
+
+# Convert .flv to .3gp
+ffmpeg -i file.flv -r 15 -b 128k -s qcif -acodec amr_nb -ar 8000 -ac 1 -ab 13 -f 3gp -y out.3gp
+
+# AD: Diff 2 entire servers at ScriptRock.com

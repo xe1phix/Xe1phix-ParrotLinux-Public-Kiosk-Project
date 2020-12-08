@@ -1,0 +1,78 @@
+# commandlinefu.com - questions/comments: tech@commandlinefu.com
+
+# Count number of files in a directory
+perl -le 'print ~~ map {-s} <*>'
+
+# grep tab (\t)
+grep $'\t' sample.txt
+
+# diff the outputs of two programs
+diff <(exiftool img_1.jpg) <(exiftool img_2.jpg)
+
+# Compress and store the image of a disk over the network
+dd if=<device> | pv | nc <target> <port>
+
+# put an unpacked .deb package back together
+dpkg-repack firefox
+
+# Rank top 10 most frequently used commands
+history | awk '{print $2}' | sort | uniq -c | sort -rn | head
+
+# Change/Modify timestamp
+touch --date "2010-01-05" /tmp/filename
+
+# Google text-to-speech in local language or language of choice
+say() { if [[ "${1}" =~ -[a-z]{2} ]]; then local lang=${1#-}; local text="${*#$1}"; else local lang=${LANG%_*}; local text="$*";fi; mplayer "http://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&q=${text}" &> /dev/null ; }
+
+# Real full backup copy of /etc folder
+rsync -a /etc /destination
+
+# see who's using DOM storage a/k/a Web Storage, super cookies
+strings ~/.mozilla/firefox/*/webappsstore.sqlite|grep -Eo "^.+\.:" |rev
+
+# Move all files in subdirectories to current dir
+find ./ -type f -exec mv {} . \;
+
+# Quick network status of machine
+netstat -tn | awk 'NR>2 {print $6}' | sort | uniq -c | sort -rn
+
+# Capitalize first letter of each word in a string
+read -ra words <<< "<sentence>" && echo "${words[@]^}"
+
+# comment current line(put # at the beginning)
+<Alt-Shift-#>
+
+# Enter parameter if empty (script becomes interactive when parameters are missing)
+param=${param:-$(read -p "Enter parameter: "; echo "$REPLY")}
+
+# Re-use the previous command output
+newcommand $(!!)
+
+# make image semi-transparent
+convert input.png -alpha set -channel A -fx 0.5 output.png
+
+# Grep Recursively Through Single File Extension
+grep --include=*.py -lir "delete" .
+
+# output length of longest line
+awk '(length > n) {n = length} END {print n}'
+
+# List only the directories
+find . -maxdepth 1 -type d | sort
+
+# Merge PDFs into single file
+gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=output.pdf input1.pdf input2.pdf ...
+
+# delete a particular line by line number in file
+sed -i 3d ~/.ssh/known_hosts
+
+# Create cheap and easy index.html file
+for i in *; do echo "<li><a href='$i'>$i</a>";  done > index.html
+
+# Timer with sound alarm
+say(){ mplayer -user-agent Mozilla "http://translate.google.com/translate_tts?tl=en&q=$(echo $* | sed 's#\ #\+#g')" > /dev/null 2>&1 ;  }; sleep 3s && say "wake up, you bastard"
+
+# cpu stress test
+taskset  0x00000001 yes > /dev/null &
+
+# AD: Diff 2 entire servers at ScriptRock.com
