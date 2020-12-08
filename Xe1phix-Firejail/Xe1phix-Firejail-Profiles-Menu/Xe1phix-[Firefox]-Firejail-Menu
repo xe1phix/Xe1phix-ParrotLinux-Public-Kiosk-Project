@@ -1,5 +1,0 @@
-Firefox {Firejail Profile}
-firejail --profile=/etc/firejail/firefox-common.profile /usr/bin/firefox %u
-/usr/share/icons/maia/apps/scalable/firefox-developer-icon.svg
-/usr/share/icons/maia/apps/scalable/firefox-trunk.svg
-/usr/share/icons/maia/apps/scalable/firefox.svg

@@ -1,2 +1,0 @@
-Thunderbird {Firejail Sandboxed}
-firejail --profile=/etc/firejail/thunderbird.profile /usr/bin/thunderbird %U

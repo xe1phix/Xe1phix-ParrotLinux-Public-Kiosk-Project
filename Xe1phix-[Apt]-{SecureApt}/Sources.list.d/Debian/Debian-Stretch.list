@@ -1,0 +1,57 @@
+## =========================================================================================== ##
+## ----------------------------------- Debian Stretch Stable --------------------------------- ##
+## =========================================================================================== ##
+## ------------------------------------------------------------------------------------------- ##
+## https://ftp-master.debian.org/keys.html
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## https://ftp-master.debian.org/keys/archive-key-9.asc
+## https://ftp-master.debian.org/keys/archive-key-9-security.asc
+## ------------------------------------------------------------------------------------------- ##
+## 
+## ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ ##
+## curl --verbose --progress-bar --tlsv1.2 --url=https://ftp-master.debian.org/keys/archive-key-9.asc --output ~/GnuPG/archive-key-9.asc && gpg --keyid-format long --import archive-key-9.asc && gpg --fingerprint 
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~  ##
+## curl --verbose --progress-bar --tlsv1.2 --url=https://ftp-master.debian.org/keys/archive-key-9-security.asc --output ~/GnuPG/archive-key-9-security.asc && gpg --keyid-format long --import archive-key-9-security.asc && gpg --fingerprint 
+## ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ ##
+## 
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## (Debian 9/stretch) archive signing key has the fingerprint E1CF 20DD FFE4 B89E 8026 58F1 E0B1 1894 F66A EC98.
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## (Debian 9/stretch) security archive signing key has the fingerprint 6ED6 F5CB 5FA6 FB2F 460A E88E EDA0 D238 8AE2 2BA9. 
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## 
+## ----------------------------------------------------------------------------------------------------------- ##
+## gpg --verbose --lsign 6ED6F5CB5FA6FB2F460AE88EEDA0D2388AE22BA9
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## gpg --verbose --lsign E1CF20DDFFE4B89E802658F1E0B11894F66AEC98
+## ----------------------------------------------------------------------------------------------------------- ##
+## 
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+deb http://deb.debian.org/debian stretch main contrib non-free
+deb-src http://deb.debian.org/debian stretch main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+deb http://deb.debian.org/debian stretch-updates main contrib non-free
+deb-src http://deb.debian.org/debian stretch-updates main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+deb http://security.debian.org/debian-security/ stretch/updates main contrib non-free
+deb-src http://security.debian.org/debian-security/ stretch/updates main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+
+## ============================================================================================= ##
+## ----------------------------------- Debian Stretch With Tor --------------------------------- ##
+## ============================================================================================= ##
+## --------------------------------------------------------------------------------------------- ##
+## https://onion.debian.org/
+## https://wiki.debian.org/SourcesList#Using_Tor_with_Apt
+## --------------------------------------------------------------------------------------------- ##
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## deb tor+http://vwakviie2ienjx6t.onion/debian stretch main
+## deb-src tor+http://vwakviie2ienjx6t.onion/debian stretch main
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## deb tor+http://sgvtcaew4bxjd7ln.onion/debian-security stretch/updates main
+## deb-src tor+http://sgvtcaew4bxjd7ln.onion/debian-security stretch/updates main
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## deb tor+http://vwakviie2ienjx6t.onion/debian stretch-updates main
+## deb-src tor+http://vwakviie2ienjx6t.onion/debian stretch-updates main
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+

@@ -1,2 +1,0 @@
-VLC Media Player {Firejail NoNet Profile}
-firejail --name=vlc --profile=/etc/firejail/vlc.profile --net=none /usr/bin/vlc

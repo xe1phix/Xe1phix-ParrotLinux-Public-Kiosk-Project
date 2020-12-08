@@ -1,0 +1,12 @@
+## ========================================================================================== ##
+## 		[+] MIT (Massachussetts Institute of Technology) - USA ‐ Massachussetts - 1 Gbps
+## ========================================================================================== ##
+
+## http://mirrors.mit.edu/parrot/
+
+## deb http://mit‐usa.archive.parrotsec.org/parrot/ parrot main contrib non‐free
+## deb‐src http://mit‐usa.archive.parrotsec.org/parrot/ parrot main contrib non‐free
+
+deb http://mirrors.mit.edu/parrot/ parrot main contrib non-free
+## deb-src http://mirrors.mit.edu/parrot/ parrot main contrib non-free
+

@@ -1,2 +1,0 @@
-Geany {Firejail Sandboxed}
-firejail --profile=/etc/firejail/geany.profile /usr/bin/geany %U

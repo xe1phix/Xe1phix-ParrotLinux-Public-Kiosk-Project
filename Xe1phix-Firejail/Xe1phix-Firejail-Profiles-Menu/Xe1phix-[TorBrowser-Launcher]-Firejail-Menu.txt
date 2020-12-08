@@ -1,2 +1,0 @@
-TorBrowser-Launcher {Firejail Sandbox Profile}
-firejail --profile=/etc/firejail/torbrowser-launcher.profile /usr/bin/torbrowser-launcher

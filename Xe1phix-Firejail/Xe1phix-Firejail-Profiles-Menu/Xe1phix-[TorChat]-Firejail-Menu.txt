@@ -1,2 +1,0 @@
-TorChat Instant Messenger {Firejail Sandbox Profile}
-firejail --profile=/etc/firejail/torchat.profile /usr/bin/torchat

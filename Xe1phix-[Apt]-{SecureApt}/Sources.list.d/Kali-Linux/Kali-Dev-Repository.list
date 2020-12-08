@@ -1,0 +1,5 @@
+##-=================================-##
+## ===== kali-Dev Repository ====== ##
+##-=================================-##
+## deb [arch=amd64] http://http.kali.org/kali/ kali-dev main contrib non-free
+## deb [arch=amd64] http://http.kali.org/kali/ kali-dev main/debian-installer

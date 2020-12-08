@@ -1,0 +1,6 @@
+##-==========================================-##
+## ===== Kali-Bleeding-Edge Repository ====== ##
+##-==========================================-##
+## deb http://repo.kali.org/kali/ kali-bleeding-edge main
+## deb http://http.kali.org/dists/kali/ kali-bleeding-edge
+

@@ -1,0 +1,29 @@
+## This file is part of Whonix.
+## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+## Using specific codenames (for example: "wheezy") rather than generic code
+## names (for example: "stable") because grml-debootstrap did not support
+## generic code names for --release. See also:
+## github.com/grml/grml-debootstrap/issues/37
+
+## Using contrib, because it contains virtualbox-guest-x11.
+
+## Using http://snapshot.debian.org/ to create verifiable builds.
+##
+## 1. Go to for example:
+##    - http://snapshot.debian.org/archive/debian-security/
+##    - http://snapshot.debian.org/archive/debian/
+## 2. Then for example click on 2013 09
+##    - http://snapshot.debian.org/archive/debian-security/?year=2013&month=10
+##    - http://snapshot.debian.org/archive/debian/?year=2013&month=10
+## 3. Scroll down and for example click on 2013-09-19 21:48:59
+##    - http://snapshot.debian.org/archive/debian-security/20130919T215514Z/
+##    - http://snapshot.debian.org/archive/debian/20130919T214859Z/
+## 4. See note above!
+##    - See note above!
+##    - See note above!
+deb http://snapshot.debian.org/archive/debian-security/20150609T203313Z/ jessie/updates main contrib
+deb http://snapshot.debian.org/archive/debian/20150610T104057Z/ jessie main contrib
+
+## We currently do not need any source packages for building Whonix.

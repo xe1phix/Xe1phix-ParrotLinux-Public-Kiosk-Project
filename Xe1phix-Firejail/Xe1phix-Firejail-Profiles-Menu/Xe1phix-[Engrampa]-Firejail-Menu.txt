@@ -1,2 +1,0 @@
-Engrampa Archive Manager {Firejail Sandboxed}
-firejail --profile=/etc/firejail/engrampa.profile /usr/bin/engrampa %U

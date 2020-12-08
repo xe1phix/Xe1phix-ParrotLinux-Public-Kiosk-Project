@@ -1,0 +1,9 @@
+##-=============================================-##
+## ===== Kali-Security Updates Repository ====== ##
+##-=============================================-##
+## deb http://security.kali.org/kali-security/ kali/updates main contrib non-free
+## ----------------------------------------------------------------------------------- ##
+## deb tor+http://security.kali.org/kali-security/ kali/updates main contrib non-free
+## ----------------------------------------------------------------------------------- ##
+## deb-src http://security.kali.org/kali-security/ kali/updates main contrib non-free
+

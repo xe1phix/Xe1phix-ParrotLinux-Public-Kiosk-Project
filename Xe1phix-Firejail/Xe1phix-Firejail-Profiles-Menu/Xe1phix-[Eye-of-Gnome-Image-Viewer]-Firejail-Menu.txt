@@ -1,2 +1,0 @@
-Eye of Gnome Image Viewer {Firejail Sandboxed}
-firejail --profile=/etc/firejail/eog.profile /usr/bin/eog %U

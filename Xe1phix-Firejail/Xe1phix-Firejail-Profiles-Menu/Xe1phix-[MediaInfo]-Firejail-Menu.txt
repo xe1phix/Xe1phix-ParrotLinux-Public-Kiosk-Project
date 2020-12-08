@@ -1,2 +1,0 @@
-MediaInfo-gtk {Firejail Sandboxed}
-firejail --profile=/etc/firejail/mediainfo.profile /usr/bin/mediainfo-gui %f

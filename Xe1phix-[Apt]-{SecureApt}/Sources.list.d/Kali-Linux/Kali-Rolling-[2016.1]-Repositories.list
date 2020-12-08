@@ -1,0 +1,35 @@
+
+#####################################################
+##-=============================================-##
+## ===== Kali 2016.1. Rolling Repository ====== ##
+##-=============================================-##
+#####################################################
+
+
+##-==========================================================================-##
+## deb http://http.kali.org/kali/ kali-rolling main contrib non-free
+## deb-src http://http.kali.org/kali/ kali-rolling main contrib non-free
+##-==========================================================================-##
+## deb http://http.kali.org/kali/ kali-rolling-only main contrib non-free
+## deb-src http://http.kali.org/kali/ kali-rolling-only main contrib non-free
+##-==========================================================================-##
+## deb http://http.kali.org/kali/ kali-current-proposed-updates main contrib non-free
+## deb-src http://http.kali.org/kali/ kali-current-proposed-updates main contrib non-free
+##-==========================================================================-##
+## deb http://http.kali.org/kali/ sana-proposed-updates main contrib non-free
+## deb-src http://http.kali.org/kali/ sana-proposed-updates main contrib non-free
+##-==========================================================================-##
+## deb http://http.kali.org/kali/ kali-current main contrib non-free
+## deb-src http://http.kali.org/kali/ kali-current main contrib non-free
+##-==========================================================================-##
+## deb http://http.kali.org/kali/ kali-experimental main contrib non-free
+## deb-src http://http.kali.org/kali/ kali-experimental main contrib non-free
+##-==========================================================================-##
+## deb http://http.kali.org/kali/ kali-dev main contrib non-free
+## deb-src http://http.kali.org/kali/ kali-dev main contrib non-free
+##-==========================================================================-##
+## deb http://http.kali.org/kali/ kali-last-snapshot main contrib non-free
+## deb-src http://http.kali.org/kali/ kali-last-snapshot main contrib non-free
+##-==========================================================================-##
+
+

@@ -1,4 +1,0 @@
-Telegram Desktop {Firejail Sandbox}
-firejail --profile=/etc/firejail/telegram.profile /usr/bin/telegram-desktop -- %u
-Official desktop version of Telegram messaging app
-/usr/share/icons/maia/apps/scalable/telegram.svg

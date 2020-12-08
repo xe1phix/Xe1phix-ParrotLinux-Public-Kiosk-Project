@@ -1,2 +1,0 @@
-Audacious {Firejail Sandboxed}
-firejail --profile=/etc/firejail/audacious.profile --net=none /usr/bin/audacious

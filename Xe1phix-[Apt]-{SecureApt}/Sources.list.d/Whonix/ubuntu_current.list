@@ -1,0 +1,15 @@
+## This file is part of Whonix.
+## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+## NOTE:
+## There is no support for machines based on Ubuntu by Whonix developers.
+## This file only exists, to make Whonix's build environment compatible
+## with Travis CI.
+
+## Using multiverse, because it contains virtualbox-guest-x11.
+
+deb http://us.archive.ubuntu.com/ubuntu/ precise-security main universe multiverse
+deb http://us.archive.ubuntu.com/ubuntu/ precise main universe multiverse
+
+## We currently do not need any source packages for building Whonix.

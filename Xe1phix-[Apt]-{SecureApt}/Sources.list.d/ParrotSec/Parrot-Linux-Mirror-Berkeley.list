@@ -1,0 +1,9 @@
+## =============================================================================== ##
+## 		[+] Berkeley Open Computing Facility - USA5 ‐ California - 1 Gbps
+## =============================================================================== ##
+
+## https://mirrors.ocf.berkeley.edu/parrot/
+
+deb http://mirrors.ocf.berkeley.edu/parrot/ parrot main contrib non‐free
+## deb‐src http://mirrors.ocf.berkeley.edu/parrot/ parrot main contrib non‐free
+

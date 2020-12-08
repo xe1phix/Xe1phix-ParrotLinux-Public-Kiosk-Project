@@ -1,0 +1,17 @@
+## This file is part of Whonix.
+## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+## Using specific codenames (for example: "wheezy") rather than generic code
+## names (for example: "stable") because grml-debootstrap did not support
+## generic code names for --release. See also:
+## github.com/grml/grml-debootstrap/issues/37
+
+## Using contrib, because it contains virtualbox-guest-x11.
+
+## If you do not care about verifiable builds, and just want to build for
+## yourself.
+deb http://security.debian.org jessie/updates main contrib
+deb http://ftp.us.debian.org/debian jessie main contrib
+
+## We currently do not need any source packages for building Whonix.

@@ -1,2 +1,0 @@
-Metadata Anonymization Toolkit (MAT) {Firejail Sandboxed}
-firejail --profile=/etc/firejail/mat.profile /usr/bin/mat-gui

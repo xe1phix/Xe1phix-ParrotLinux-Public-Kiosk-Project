@@ -1,3 +1,0 @@
-mpv Media Player {Private Firejail Sandbox}
-firejail --profile=/etc/firejail/mpv.profile --private --net=none /usr/bin/mpv --player-operation-mode=pseudo-gui
-/usr/share/icons/maia/apps/scalable/mpv.svg

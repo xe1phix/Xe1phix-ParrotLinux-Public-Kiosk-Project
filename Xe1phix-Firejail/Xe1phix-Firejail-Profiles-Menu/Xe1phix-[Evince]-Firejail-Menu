@@ -1,4 +1,0 @@
-Evince Document Viewer {Firejail Sandbox Profile}
-firejail --profile=/etc/firejail/evince.profile /usr/bin/evince %U
-/usr/share/icons/maia/apps/scalable/evince.svg
-View multi-page documents
