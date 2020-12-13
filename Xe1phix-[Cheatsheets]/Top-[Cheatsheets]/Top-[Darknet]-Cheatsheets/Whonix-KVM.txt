@@ -1,0 +1,1131 @@
+## Whonix-KVM.txt
+
+Contents
+
+    General
+        What is KVM?
+        Why Use KVM Over VirtualBox?
+    First time user?
+    KVM Setup Instructions
+        Before installing
+        Install KVM
+            Debian
+            Arch Linux
+            Other Distributions
+        Notice
+        Addgroup
+            Other distributions
+        Reboot
+        Network Start
+        Build from Scratch
+        Download and Extract
+            Introduction
+            Download Whonix
+            Verify the Whonix images
+            Decompress
+        XML Modification (OPTIONAL)
+        Importing Whonix VM Templates
+        Manipulating QCOW2 Images
+        Moving Whonix Image Files
+        Cleanup
+        Start
+            Graphical User Interface (GUI)
+            Command Line Interface (CLI)
+        Adjust Display Resolution
+        After installing
+        Uninstall
+    KVM Upgrade Instructions
+    Stay tuned
+        Introduction
+        Whonix News Forums
+        Operating System Updates
+        Tor Browser
+        Whonix Version Check and Whonix News
+    Running Whonixcheck
+        How to Manually Run Whonixcheck
+        Sample Whonixcheck Output
+    Tor Bootstrap
+    Social Media Profiles
+    Source Code
+    Known bugs
+        Suspend / Hibernate Issues
+        Mounting (CD / DVD) Devices
+        VLC / Video Player Crash
+        Network Manager Systray Unmanaged Devices
+        All Platforms
+            "apt-get source package" will show "dpkg-source: warning: failed to verify signature"
+            Proxychains Tor Browser Issue
+        Non-Qubes-Whonix
+            Suspend / Hibernate Issues
+            Mounting (CD / DVD) Devices
+            VLC / Video Player Crash
+            Network Manager Systray Unmanaged Devices
+        Qubes-Whonix
+            Unexpected timedatectl NTP Result
+            Missing Qubes Appmenu Entries in anon-whonix
+            Template Installation qubesctl Error
+    Optional
+        Multiple Whonix-Gateways
+        Testing Upcoming Versions
+        Snaphot Migration
+        Compressing Disk Images
+        3D Graphics Acceleration
+        Shared Folders
+        USB Passthrough
+            Sandboxing Untrusted USB Drives
+        Editing an imported Machine's XML Configuration
+        Disable Microphone Input
+        Creating Multiple Internal Networks
+        Alternative Configurations
+        How to leave KVM when no X is running
+        Setting up gdb to work with qemu-kvm via libvirt
+        Unsafe Features
+            LVM Storage
+            HugePages
+            Memory Ballooning
+            Clipboard Sharing
+            KSM
+            Device Passthrough
+        XML Settings
+    Troubleshooting
+        Reboot?
+        Unable to connect to libvirt.
+        Unable to open a connection to the libvirt management daemon.
+        hda-duplex not supported in this QEMU binary
+        process exited while connecting to monitor: ioctl(KVM_CREATE_VM) failed
+        Permissions
+        Add Version Numbers to Support Request
+        User Help Forum
+        Alternative Guides
+    Development
+    Footnotes
+
+General
+What is KVM?
+
+For an openly developed, FOSS GPL licensed hypervisor, it is recommended you use KVM [Kernel Virtual Machine] that comes with the GNU/Linux OS. KVM combined with the VirtualMachineManager front-end should provide a familiar and intuitive, easy to use GUI.
+
+For a detailed view on its security merits read the audit report issued by an independent security auditing firm.
+
+A supported platform that can run Whonix. There are also others.
+Why Use KVM Over VirtualBox?
+
+Recently, the VirtualBox developer team have taken the decision to switch out the BIOS in their hypervisor with one that requires compilation by a toolchain that does not meet the definition of Free Software as per the guidelines of the Free Software Foundation. This move has been deemed problematic for free and open source software projects like Debian, on which Whonix is based.
+
+The issues of the Open Watcom License are explained in this thread on the Debian Mailinglist and can be summarized as issues surrounding the contradictory language of the license, the assertion of patents against software that relies on it and the placing of certain restrictions on uses of the software.
+
+For those who care about running Free Software and appreciate its ethical views, it is recommended that you avoid running VirtualBox, for that reason alone if nothing else. Read more about why you should avoid non free software.
+
+Besides this licensing issue which may or may not be of concern to users, a more tangible reason can be the security practices of Oracle, the corporation behind VirtualBox. Recent events and news (see Snowden leaks) have shown the urgent need for increased transparency and trust in the digital world. Oracle is infamous for their lack of transparency in disclosing security bugs details and for discouraging public full disclosure by third parties. Security through obscurity is the modus operandi at Oracle.
+
+Not going public with a vulnerability and its details only leads to laziness and complacency on part of the company that fields the affected products. A 0day reported privately to Oracle in 2008 by an independent security researcher has remained unfixed as of 2012 when this post was written.
+
+Furthermore VirtualBox contains significant functionality that is only available as a proprietary extension, such as USB and PCI passthrough and RDP connectivity. Seeing Oracle's unfriendly track record with the free software community in the past; examples include OpenSolaris and OpenOffice, it would not be a stretch to imagine them charging money for the closed up features at some point in the future or simply abandoning the project if they cannot monetize it to their liking.
+First time user?
+
+Whonix default password info box
+	The default username is: user
+The default password is: changeme
+
+Whonix first time users warning
+	Warning:
+
+    If you do not know what metadata or a man-in-the-middle attack is.
+    If you think nobody can eavesdrop on your communications because you are using Tor.
+    If you have no idea how Whonix works.
+
+Then read the About, Warning and Do Not pages to decide whether Whonix is the right tool for you based on its limitations.
+
+KVM Setup Instructions
+Before installing
+
+Read and apply the Pre-Installation Security Advice.
+Install KVM
+
+Debian
+
+If you are using Debian stable (currently: Stretch), click on expand on the right.
+Arch Linux
+
+If you are using Arch Linux, click on expand on the right.
+Other Distributions
+
+If you are using a Linux distribution, that is not documented above, click on expand on the right.
+
+Please feel free to share detailed instructions for other distributions!
+Notice
+
+These are workarounds to problems affecting KVM on Debian Stable.
+
+
+    The KVM qxl package: xserver-xorg-video-qxl suffers from performance bugs caused by the Xorg surfaces feature. You will notice the graphics lagging even during mundane tasks such as scrolling down a webpage. This has been reported extensively and fixed upstream in testing. Until testing becomes stable, a workaround provided by a Whonix package is available.[2][3]
+
+In the guest install the fix:
+
+sudo apt-get install qxl-xorg-enhance
+
+
+    Whonix 13 users: To get rid of the Whonixcheck PVClock warning, upgrade the packages in the VM. This assumes you have enabled the Whonix stable repo:
+
+sudo apt-get update && apt-get dist-upgrade
+
+Addgroup
+
+In order to be able to manage virtual machines as regular (non-root) user, you need to add that user to the libvirt and the kvm group. Assuming the simple use case, that you wish to use KVM with the user you are currently logged in, and assuming you are using Debian, simply use the following command. (On Ubuntu the group names vary and is called libvirtd instead).
+
+sudo addgroup "$(whoami)" libvirt
+
+sudo addgroup "$(whoami)" kvm
+
+[4]
+Other distributions
+
+If you are using other distributions, have a look at your distribution's manual. (Such as Arch Linux's libvirt wiki page.)
+Reboot
+
+After installation of kvm, reboot is required! After adding users to groups, reboot is required!
+
+sudo reboot
+
+Network Start
+
+Although it has nothing to do with Whonix since 14+, it's helpful when running other VMs.
+
+Make sure KVM's / QEMU's default networking is enabled and started.[5] [6]
+
+virsh -c qemu:///system net-autostart default
+
+virsh -c qemu:///system net-start default
+
+Build from Scratch
+
+Advanced users are encouraged to build Whonix images for high security assurance.
+Download and Extract
+Introduction
+
+It is highly recommended you read and apply the steps outlined here. By applying a known and tested configuration, you will be better off in convenience and security.
+
+Make sure you use the qcow2 images that are provided by the Whonix project instead of rolling your own. [7] They contain important performance optimizations. [8] (Unless you created them from source. [9])
+
+If you have issues with free disk space, using a file system supporting sparse files is recommended, also see forum discussion.
+
+Already have existing Whonix libvirt images? Consider #Cleanup first.
+
+For simplicity, so you can copy and paste the following commands without changes, download and store Whonix's images in your home folder (/home/<your user name>).
+Download Whonix
+
+Version: 13.0.0.1.4
+Info
+	Download both Gateway and Workstation virtual machine images.
+	Whonix-Gateway
+(1.7 GB) 	Whonix-Workstation
+(2.0 GB) 	Anonymous Download
+Possible [10] 	Download Security
+without Verification 	Download Security
+with Verification
+Https long.png
+	Download (v3 Onion) 	Download (v3 Onion) 	Yes [10] 	Medium 	High [11]
+Button sig.png 	OpenPGP Signature
+
+(v3 Onion) ( sha512, sig)
+	OpenPGP Signature (v3 Onion)
+
+( sha512, sig)
+	Yes [10] 	- 	-
+Crypto key.png 	Verify the images using the Signing Key 	Yes [10] 	- 	-
+
+
+Verify the Whonix images
+
+    For Linux: Debian, Whonix, etc. using kgpg
+    For Linux with the command line
+
+Decompress
+
+Use tar to decompress the archive.
+
+tar -xvf Whonix-Gateway*.libvirt.xz
+
+tar -xvf Whonix-Workstation*.libvirt.xz
+
+Do not use unxz! Extract the images using tar.
+XML Modification (OPTIONAL)
+
+Modifying a machine's XML file gives more fine grained control over its settings than what is exposed through the virt-manager GUI. Unless you know what you are doing, editing configuration defaults is neither recommended nor necessary.
+
+Open Whonix-Gateway*.xml in an editor.
+
+If you are using a graphical environment, run.
+[select code]
+kwrite Whonix-Gateway*.xml
+
+If you are using a terminal (Konsole), run.
+[select code]
+nano Whonix-Gateway*.xml
+
+Open Whonix-Workstation*.xml in an editor.
+
+If you are using a graphical environment, run.
+[select code]
+kwrite Whonix-Workstation*.xml
+
+If you are using a terminal (Konsole), run.
+[select code]
+nano Whonix-Workstation*.xml
+
+You could always edit the XML files later too, if needed as explained in the #Editing an imported Machine's XML Configuration chapter.
+Importing Whonix VM Templates
+
+The supplied XML files serve as a description for libvirt, that tell it what properties a Whonix machine and networking it should have.
+
+Legacy instructions: applies up to Whonix 13
+
+1. First we will start with Whonix-Gateway:
+
+virsh -c qemu:///system define Whonix-Gateway*.xml
+
+2. Followed by the Whonix isolated internal network (XML also in the same folder as Whonix Gateway):
+
+virsh -c qemu:///system net-define Whonix_network*.xml
+
+If the definition of the Whonix internal network fails because the network bridge "virbr1" already exists, edit the Whonix_network*.xml file and change the name to one that doesnt exist, e.g. "virbr2" (you can list all existing bridge adapters with "sudo brctl show").
+
+virsh -c qemu:///system net-autostart Whonix
+
+virsh -c qemu:///system net-start Whonix
+
+3. Lastly the Whonix-Workstation:
+
+virsh -c qemu:///system define Whonix-Workstation*.xml
+
+
+New Settings for Whonix 14+
+
+1. Add and activate the virtual networks (settings files also in the same folder as Whonix Gateway). If the definition of the Whonix internal network fails because the virtual bridge "virbr2" already exists, edit the internal_network*.xml file and change the name to one that doesnt exist, e.g. "virbr3" (you can list all existing bridge adapters with "sudo brctl show"):
+
+virsh -c qemu:///system net-define Whonix_external*.xml
+
+virsh -c qemu:///system net-define Whonix_internal*.xml
+
+
+virsh -c qemu:///system net-autostart external
+
+virsh -c qemu:///system net-start external
+
+virsh -c qemu:///system net-autostart internal
+
+virsh -c qemu:///system net-start internal
+
+
+2. Followed by importing the Whonix Gateway and Workstation images:
+
+virsh -c qemu:///system define Whonix-Gateway*.xml
+
+virsh -c qemu:///system define Whonix-Workstation*.xml
+
+Manipulating QCOW2 Images
+
+To interact with KVM disk images use qemu-img. It can resize, convert virtual disks to other formats and more. Its not necessary nor recommended to change the official images so proceed only if you know what you are doing.
+
+See the manual for more commands [12]
+Moving Whonix Image Files
+
+The XML files are configured to point to the default storage location of: /var/lib/libvirt/images These steps will show how to move the images there in order for the machines to boot.
+
+Note: It is highly recommended you use this default path for storing the images to avoid any conflicts with AppArmor or SELinux, which will prevent the machines from booting.
+
+It is recommended to move the image files instead of copying them:
+
+sudo mv Whonix-Gateway*.qcow2 /var/lib/libvirt/images/Whonix-Gateway.qcow2
+
+sudo mv Whonix-Workstation*.qcow2 /var/lib/libvirt/images/Whonix-Workstation.qcow2
+
+Whonix disk images are sparse files, meaning they expand when filled rather than allocating their entire size, 100GB outright. These are known as sparse files and need special commands when copying them to ensure they don't lose this property, leading them to occupy all the actual space. We are copying to a privileged location in the system, so we have run with higher privileges (sudo):
+
+sudo cp --sparse=always Whonix-Gateway*.qcow2 /var/lib/libvirt/images/Whonix-Gateway.qcow2
+
+sudo cp --sparse=always Whonix-Workstation*.qcow2 /var/lib/libvirt/images/Whonix-Workstation.qcow2
+
+Cleanup
+
+After importing Whonix, you are advised to delete the archives (.libvirt.xz files) and the temporarily extracted folders or to move them into a custom location. This is useful to avoid conflicts and confusion should you later download a new version of Whonix.
+
+To delete them.
+
+rm Whonix-Gateway*.libvirt.xz
+
+rm Whonix-Workstation*.libvirt.xz
+
+rm -r Whonix-Gateway*
+
+rm -r Whonix-Workstation*
+
+rm -r external_network*
+
+rm -r internal_network*
+
+Start
+
+If you know Virtual Machine Manager, there is nothing special about starting Whonix VMs compared to starting other VMs. First start Whonix-Gateway, then start Whonix-Workstation.
+Graphical User Interface (GUI)
+
+Start Virtual Machine Manager.
+
+Start Menu -> Applications -> System -> Virtual Machine Manager
+
+Start Whonix-Gateway.
+
+click on Whonix-Gateway -> click open -> click the play symbol
+
+Repeat the same for Whonix-Workstation.
+Command Line Interface (CLI)
+
+Use
+
+virsh -c qemu:///system start Whonix-Gateway
+
+To start Whonix-gateway. Respectively
+
+virsh -c qemu:///system start Whonix-Workstation
+
+To start workstation
+Adjust Display Resolution
+
+With the QXL driver (installed by default) you can seamlessly adjust the display resolution to adjust to your Host screen size.[13]
+
+Virt-Manager Whonix-Workstation window -> View -> Scale Display -> Always | Check: Auto resize VM with window
+
+After installing
+
+Read and apply the Post Installation Security Advice.
+Uninstall
+
+If you want to remove Whonix KVM VMs, Whonix network and Whonix images, click on Expand on the right.
+KVM Upgrade Instructions
+
+Its highly recommended that you uninstall older Whonix versions and always run the newer one. Note that Whonix supports in-place apt-get upgrades too.
+
+First, move your data out of the VM via shared folders and perform the cleanup steps followed by installation of the new images.
+Stay tuned
+Introduction
+
+It is important to read the latest Whonix news to stay in touch with ongoing developments. This way, users also benefit from notifications about important security vulnerabilities and improved releases which address identified issues, like those found affecting the updater or other core elements.
+
+Whonix News Forums
+
+For user convenience, there are multiple avenues for receiving news. Choose the most suitable option from this list:
+
+    Whonix Important News Forum Tag - Only critical information is reported. This includes security vulnerabilities and new stable Whonix versions. It is best suited for people with very limited time and interest in Whonix development and news.
+    Whonix News Forums - This includes everything including important news and has a relaxed posting policy. Testers-only and developers Whonix versions are announced here, along with the publishing of news about updated articles, new features, future features, development, calls for testing, general project ideas and so on.
+    Other choices. [14]
+
+
+If time-constrained, users should at least read the Whonix Important News Forum Tag. Follow the Whonix News Forums if interested in learning about anonymity / privacy / security-related issues in detail, or to follow recent Whonix developments.
+Operating System Updates
+
+As strongly recommended in the Security Guide, it is necessary to regularly check for operating system updates on the host operating system, and both the Whonix-Workstation and Whonix-Gateway.
+Tor Browser
+whonixcheck graphical user interface screenshot
+whonixcheck
+
+Tor Browser's built-in update check mechanism also works in Whonix, so use it whenever updates become available. [15]
+
+For additional information about Tor Browser updates see Tor Browser. Additionally, consider subscribing to https://blog.torproject.org for developments from The Tor Project.
+
+Whonix Version Check and Whonix News
+whonixcheck graphical user interface screnshot
+Whonix Version Check (first rectangle in black) and
+Whonix News (second rectangle in green)
+
+
+Whonixcheck will also automatically provide notifications about new Whonix versions and critical Whonix News updates. [16]
+Running Whonixcheck
+
+By default, Whonixcheck runs automatically from time to time whenever the user starts up a Whonix-Workstation (commonly called whonix-ws). Whonixcheck verifies that the Whonix system is up-to-date and that everything is in proper working order.
+
+Even though Whonixcheck should run automatically and periodically, [17] users can also manually run Whonixcheck to check the system status by following the directions below.
+How to Manually Run Whonixcheck
+
+If you are using Qubes-Whonix, complete the following steps. [18]
+
+Qubes App Launcher (blue/grey "Q") -> click on the Whonix VM you want to check -> whonixcheck / System Check
+
+If you are using a graphical Whonix, complete the following steps.
+
+Start Menu -> System -> whonixcheck
+
+If you are using a terminal-only Whonix, complete the following steps.
+[select code]
+whonixcheck
+
+Depending on the system specifications, Whonixcheck may take up to a few minutes to run. Assuming everything is working as intended, the output should highlight each "INFO" heading in green (not red). A successful Whonixcheck process results in output similar to the sample below.
+Sample Whonixcheck Output
+
+INFO: SocksPort Test Result: Connected to Tor. IP: 146.10.104.240 
+
+INFO: TransPort Test Result: Connected to Tor. IP: 91.89.96.88 
+
+INFO: Stream Isolation Test Result: Functional. 
+
+INFO: Whonix News Result:
+√ Up to date: whonix-workstation-packages-dependencies 3.4.2-1
+
+INFO: Debian Package Update Check Result: No updates found via apt-get. 
+
+INFO: Whonix APT Repository: Enabled. When the Whonix team releases JESSIE updates, they will be AUTOMATICALLY installed (when you run apt-get dist-upgrade) along with updated packages from the Debian team. Please read https://www.whonix.org/wiki/Trust to understand the risk. If you want to change this, use: 
+dom0 -> Start Menu -> Template: whonix-ws -> Whonix Repository 
+
+Tor Bootstrap
+
+Tor bootstrap refers to the process of attempting to connect to the Tor network (successfully or unsuccessfully). Familiar output related to this process includes: "Tor connecting xx percent...", "Tor not connected", "Tor connected" and so on. Bootstrapping does not refer to related concepts, such as whether connections are "secure", "not secure", "anonymous" or "not anonymous".
+Social Media Profiles
+
+There are some Whonix Social Media Profiles online, but please do not rely on them for the latest Whonix News or to contact Whonix developers (see Contact for contact information).
+
+As some users will disregard this advice, messages from the Whonix Feature Blog are automatically mirrored to the Whonix Twitter Profile and the Whonix Facebook Profile. However, they are not mirrored to the Whonix Google+ Profile.
+
+Soon:
+
+    Diaspora Whonix
+    Tumblr
+
+If it is safe to inform others about Whonix, feel free to Contribute via an anonymous account that follows or likes these profiles. This page can be shared on: | .
+Source Code
+
+If Whonix source code updates are of interest, subscribe to code changes.
+Known bugs
+
+Non-Qubes-Whonix means all Whonix platforms except Qubes-Whonix. This includes KVM, VirtualBox and Physical Isolation.
+Suspend / Hibernate Issues
+
+Short: Avoid suspending or hilbernating the computer or Whonix VMs while Whonix is running.
+
+Long: Network Time Syncing, Troubleshooting#Clock Fix. [19]
+Mounting (CD / DVD) Devices
+
+If the device auto mounter is broken, see if Start menu -> System Settings -> Removable Media helps.
+
+The following workaround can be used.
+
+[select code]
+sudo mkdir /mnt/cdrom
+[select code]
+sudo mount -o ro /dev/cdrom /mnt/cdrom/
+
+Using the ro flag will mount the CD / DVD in read-only mode. If a CD / DVD is not being mounted, then drop the "-o ro" parameter.
+
+Forum discussion:
+https://forums.whonix.org/t/workstation11-doesnt-mount-hdds/1313
+
+Help fixing this bug is welcome! (ticket)
+VLC / Video Player Crash
+
+The following workaround can be used.
+
+VLC -> Tools -> Preferences -> Video -> Output -> X11 -> Save
+Network Manager Systray Unmanaged Devices
+
+Network manger question mark.png Short answer: Unmanaged devices are unrelated to Whonix functioning and should not concern the user.
+Long answer: [20]
+All Platforms
+"apt-get source package" will show "dpkg-source: warning: failed to verify signature"
+
+This is not a security issue, but only a warning. Read the entire thread here for more information.
+
+This warning message can be removed with the following workaround below.
+
+1. Modify /etc/dpkg/origins/default
+
+[select code]
+sudo unlink /etc/dpkg/origins/default
+[select code]
+sudo ln -s /etc/dpkg/origins/debian /etc/dpkg/origins/default
+
+2. Download the source package
+
+[select code]
+apt-get source package
+
+3. Undo afterwards to prevent unexpected issues
+
+[select code]
+sudo unlink /etc/dpkg/origins/default
+[select code]
+sudo ln -s /etc/dpkg/origins/whonix /etc/dpkg/origins/default
+
+Proxychains Tor Browser Issue
+
+Using Tor Browser in conjunction with proxychains for the connection scheme: User -> Tor -> Proxy -> Internet
+does not currently work. For more information, see here.
+Non-Qubes-Whonix
+
+Non-Qubes-Whonix means all Whonix platforms except Qubes-Whonix. This includes KVM, VirtualBox and Physical Isolation.
+Suspend / Hibernate Issues
+
+Short: Avoid suspending or hilbernating the computer or Whonix VMs while Whonix is running.
+
+Long: Network Time Syncing, Troubleshooting#Clock Fix. [21]
+Mounting (CD / DVD) Devices
+
+If the device auto mounter is broken, see if Start menu -> System Settings -> Removable Media helps.
+
+The following workaround can be used.
+
+[select code]
+sudo mkdir /mnt/cdrom
+[select code]
+sudo mount -o ro /dev/cdrom /mnt/cdrom/
+
+Using the ro flag will mount the CD / DVD in read-only mode. If a CD / DVD is not being mounted, then drop the "-o ro" parameter.
+
+Forum discussion:
+https://forums.whonix.org/t/workstation11-doesnt-mount-hdds/1313
+
+Help fixing this bug is welcome! (ticket)
+VLC / Video Player Crash
+
+The following workaround can be used.
+
+VLC -> Tools -> Preferences -> Video -> Output -> X11 -> Save
+Network Manager Systray Unmanaged Devices
+
+Network manger question mark.png Short answer: Unmanaged devices are unrelated to Whonix functioning and should not concern the user.
+Long answer: [22]
+Qubes-Whonix
+Unexpected timedatectl NTP Result
+
+When sys-whonix launches in Qubes-Whonix 13, a false positive warning appears stating:
+
+ERROR: Systemd Clock Check Result: 
+Unexpected results by timedatectl. 
+timedatectl_output_pretty: 
+Local time: Fri 2018-01-12 14:04:59 UTC
+Universal time: Fri 2018-01-12 14:04:59 UTC
+RTC time: Fri 2018-01-12 14:04:06
+Time zone: Etc/UTC (UTC, +0000)
+NTP enabled: yes 
+NTP synchronized: no
+RTC in local TZ: no
+DST active: n/a
+It is generally recommended to keep the default as per Whonix Design. [1] If you did not change timezone related settings, please report this Whonix bug. If you know what you are doing and changed this on purpose, feel free to disable this check. [2] 
+
+[1] https://www.whonix.org/wiki/Dev/Design-Shared#timezone 
+[2] Create a file /etc/whonix.d/50_whonixcheck_user and add: 
+whonixcheck_skip_functions+=" check_systemd_clock "
+
+Although NTP is enabled, it is inactive (dead) and does not pose any threat to anonymity. This problem has been rectified in the Whonix 14 release.
+Missing Qubes Appmenu Entries in anon-whonix
+
+In Qubes R3.2, anon-whonix in Whonix 14 does not have Qubes appmenus (start menu) entries by default. These must be manually added:
+
+Qubes appmenu -> anon-whonix -> Add more shortcuts
+
+This issue has been fixed in Qubes R4. [23]
+Template Installation qubesctl Error
+
+The following qubesctl error message can be safely ignored: [24]
+
+[user@dom0 ~]$ sudo qubesctl state.sls qvm.anon-whonix
+[ERROR   ] Command ['dnf', '--quiet', 'clean', 'expire-cache', '--disablerepo=*', '--enablerepo=qubes-templates-community-testing'] failed with return code: 1                                                                                                                
+[ERROR   ] output: Error: Unknown repo: 'qubes-templates-community-testing'
+
+Optional
+Multiple Whonix-Gateways
+
+In this scenario Workstations will not be able to communicate. This is recommended to keep different Tor activity profiles completely separate from each other. To run multiple Whonix-Gateways you need to clone existing machines. These steps assume an existing Whonix install.
+
+
+1. Create clones of the Gateway and Workstation VMs rolled back to clean snapshots:
+
+In Virtual Machine Manager:
+
+Highlight VM -> Open -> Virtual Machine -> Clone... -> Clone
+
+
+2. Export Whonix's internal network settings:
+
+sudo virsh net-dumpxml internal > internal2.xml
+
+
+3. Edit the network configuration to make it unique. Change the name and bridge name. Delete the mac address and uuid parameters. Alternatively, replace the configuration with the example below:
+
+<network>
+  <name>internal2</name>
+  <bridge name='virbr3' stp='on' delay='0'/>
+</network>
+
+Save and exit:
+
+CTRL-X
+y
+CTRL-M
+
+Note that virbr1 is assigned to the external network (NAT NIC), and virbr2 to the internal network (Whonix NIC), therefore, the network name was changed to internal2 and the bridge name to virbr3.
+
+4. Import and start the new network:
+
+virsh -c qemu:///system net-define internal2.xml
+
+virsh -c qemu:///system net-autostart internal2
+
+virsh -c qemu:///system net-start internal2
+
+5. Attach the Gateway and Workstation VM NICs to the new network. Its important you pay attention and match internal network interfaces to the newer ones and not switch to a NIC that connects outside. To edit the VM virtual NIC settings:
+
+Highlight VM -> Open -> Settings -> NIC virtual hardware -> Set Network Source to: Virtual network 'internal2' : Isolated network, internal and host routing only
+
+Note that the network is exclusively internal and does not communicate with the host in any way.
+
+6. Its recommended that you also edit the cloned workstation's configuration and change the pinned CPU's number to a different number (3 or 4) than used by the gateway and primary workstation. Only works if you have a quadcore system.
+Testing Upcoming Versions
+
+Download the test images from latest folder listed here. Apply the #Multiple_Whonix-Gateways for running Whonix versions side by side with some differences:
+
+1. Rename the test Whonix images to something unique, preferably by appending the version number to the name.
+
+2. Edit the XML templates and change the VM names.
+
+3. Import the images by following the installation steps #Importing_Whonix_VM_Templates but keep in mind you must use the full name of the new images. Do not import the Network templates.
+Snaphot Migration
+
+If the VM has snapshots that you want to preserve, you should dump the snapshot xml-files of the source VM with:[25]
+
+List snapshot names of the VM:
+
+virsh snapshot-list --name $dom
+
+Dump each snapshot you want to back-up:
+
+virsh snapshot-dumpxml $dom $name > file.xml 
+
+
+Then for restoring snapshots at the destination use:
+
+virsh snapshot-create --redefine $dom file.xml
+
+
+If you also care about which snapshot is the current one, then additionally do on the source VM:
+
+virsh snapshot-current --name $dom
+
+and on the destination:
+
+virsh snapshot-current $dom $name
+
+Compressing Disk Images
+
+You may find it easier to move the sparse image files when they are compressed in a tarball.
+
+To re-compress files use:
+
+tar -Sczvf whonix.tar.gz <multiple file names separated by spaces>
+
+3D Graphics Acceleration
+
+By Debian Stretch freeze the software requirements should be met. Other distros may be different so refer to the needed library versions here.
+
+Change your Workstation VM's XML settings as below:
+
+<graphics type='spice'>
+  <listen type='none'/>
+  <gl enable='yes'/>
+</graphics>
+<video>
+  <model type='virtio'/>
+</video>
+
+Shared Folders
+
+To move data between the guest and host follow these steps.
+
+On the host run the following command in terminal (Start Menu -> Applications -> System -> Terminal).
+
+sudo mkdir /home/yourusername/shared
+
+You must adjust permissions on the host to allow read and write access to the folder with chmod:
+
+sudo chmod 777 /home/yourusername/shared
+
+Enable shared folders in VirtManager:
+
+VirtManager -> click once on virtual machine -> Edit -> Virtual Machine Details -> Details -> Add Hardware -> File System
+
+Set:
+
+Mode: Mapped [26]
+
+Driver: Default
+
+Source Path: /home/yourusername/shared
+
+Target Path: shared
+
+Click finish. Done.
+
+
+Whonix Workstation should automatically find and mount the shared directory once its created and enabled on the Host.
+
+
+Note: If your system is configured to use a Mandatory Access Control framework you may need to configure exceptions to allow the confined guests to communicate with the shared folder on the host.
+
+Tests with Apparmor has shown it to operate transparently with shared folders without needing any manual exception configuration by the user.
+
+On the host chmod must be applied to the shared folder's contents to access the files:
+
+sudo chmod 777 -R  /home/yourusername/shared
+
+If you are using commandline instead of virt-manager to edit your vm's device settings, add this next section to the xml.
+
+<filesystem type='mount' accessmode='mapped'>
+    <source dir='/home/yourusername/shared'/>
+    <target dir='shared'/>
+</filesystem>
+
+USB Passthrough
+
+Libvirt supports passing through a computer's integrated webcam or any other USB devices.[27][28]
+Ambox warning pn.svg.png
+	Warning: You should only connect USB devices to Whonix-Workstation when it is in a clean, trusted state. The only safe and recommended way to move files out of a VM is through Shared Folders.
+
+
+Then in the Details pane change the Controller USB device model:
+
+Hypervisor Default -> USB 2
+
+
+While Whonix-Workstation is turned off, add four USB Redirection devices or as many as the number of USB ports the machine has to cover them all:
+
+Whonix-Workstation viewer window -> View -> Details -> Add Hardware -> USB Redirection
+
+
+Start Whonix-Workstation and select the device connected to the host you want to passthrough:
+
+Whonix-Workstation viewer window -> File -> Redirect USB -> Choose: Webcam (or another USB Device)
+
+Note that the last step needs to be done on demand as the device passed through is not set permanently across reboots. This prevents mistakes like USB passthrough when the VM is in an untrusted state.
+
+
+Sandboxing Untrusted USB Drives
+
+Apply these steps before the instructions above to auto-sandbox untrusted USB flash drives. USB auto-redirection is disabled by default by Debian maintainers to prevent accidental passthrough of clean USB devices to untrusted guests.[29][30] so they must be reverted temporarily. Once you are done, change them back to safe defaults by going through the steps in reverse order.
+
+
+Limitations
+
+These steps apply to USB storage devices only. Portable devices such as phones and tablets are problematic and may not be successfully auto-redirected.
+
+The USB drive will only be isolated as long as the Whonix-Workstation is running. Do not close VM GUI window or the device will be reassigned to the host. The VM window must be in focus (either mouse grabbed or in fullscreen mode just to be safe) when initially plugging in the device. You can minimize the VM window after its detected in the guest. You don't have to wait for the VM to completely boot too.
+
+This isolation method is not fool-proof as a sophisticated attacker can tweak their BadUSB payload to crash the guest and cause the host to take control of the device and parse its malicious code.
+
+
+Edit the libvirt glib-2.0 schema:
+
+kdesudo kate /usr/share/glib-2.0/schemas/10_virt-manager.gschema.override
+
+
+Change default contents:
+
+[org.virt-manager.virt-manager.console]
+auto-redirect=false
+
+to
+
+[org.virt-manager.virt-manager.console]
+
+
+Recompile for them to take effect[31] Close all instances of Libvirt/Virtual Machine Manager and restart them for the new settings to apply:
+
+sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+
+
+Add the USB Redirection devices as specified in previous instructions then boot Whonix-Workstation and connect the USB thumbdrive. It should be automatically seen in the guest only.
+Editing an imported Machine's XML Configuration
+
+Eventually configure your faviorite editor to make changes. Set visual to your favorite editor (must be installed, examples are kwrite, leafpad, kate, vi, nano, vim, etc.).
+
+export VISUAL=kwrite
+
+Edit.
+
+virsh -c qemu:///system edit Whonix-Gateway
+
+Disable Microphone Input
+
+Microphone input to guests, while a nice feature for VoIP, is dangerous to have on by default. It is good practice to disable the microphone on your host system through sound settings if you are not actively using it.
+
+Its not currently possible to ship a configuration file with the guest microphone input muted. If you need to have the host microphone turned on while denying access to the guest, mute the "virt-manager: record" device that shows up in the host's audio task-bar menu.
+Creating Multiple Internal Networks
+
+Open Whonix's network XML file and change the name attribute to something different than the internal network you are currently running, for example 'Whonix2' 'Whonix3' and so on. The default name used is 'Whonix'.
+Alternative Configurations
+
+Libvirt can support a variety of containment mechanisms. Currently supported ones are KVM on the x86_64 platform and QEMU. More configurations could be added at a later date. If you have hardware virtualization extensions, always use the KVM one.
+
+To use another configuration, import its XML file with virsh.
+How to leave KVM when no X is running
+
+Situation... User is in terminal in a VM... No X is running ("sudo service kdm stop"). User wants to switch back to the host... How to do this?
+
+The emulated tablet device handles this by not allowing the mouse to be captured by the guest. Its still possible though:
+
+press Ctrl_L & Alt_L
+
+Setting up gdb to work with qemu-kvm via libvirt
+
+If you want to be able to debug a Linux kernel that’s running as a KVM guest, you need to specify the ‘-s’ parameter for the command line of qemu-kvm. The problem is, there’s no (easy) way to do this when you’re using libvirt and virt-manager to manager your virtual machines, instead of using KVM directly. What you need to do is change the XML configuration of the virtual machine so that the ‘-s’ parameter is passed on to qemu-kvm
+
+virsh edit guestvm
+
+Here, guestvm is the name of the VM that is managed via virt-manager. This will bring up the XML configuration of the VM in your editor. The first line of the XML file should be:
+
+<domain type='kvm'>
+
+This has to be changed to
+
+<domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
+
+and you also need to add:
+
+<qemu:commandline>
+<qemu:arg value='-s'/>
+</qemu:commandline>
+
+under the <domain> level of the XML. After you save and quit the editor, the new configuration will come into effect. When you start the virtual machine, there will be a local TCP port (1234 by default) that can be used as a remote debugging port from gdb. You can connect to this port by using the command
+
+target remote localhost:1234
+
+from gdb running on the host machine.
+
+Source: [32]
+Unsafe Features
+
+The features below have serious security implications and should not be used. This applies to all hypervisors in general.
+LVM Storage
+
+QCOW2 virtual disk images are the recommended and default storage format for KVM.
+
+LVM or any other storage mechanism must be avoided for security and privacy.
+
+LVM misconfiguration has serious security consequences and exposes the host filesystem to the processes running on the guest. [33]
+
+Because a virtual disk is no longer used, where the low-level view of the storage can be controlled, data created by VMs can easily be recovered and exfiltrated by malicious forensics tools run in a VM at a later time. This is extremely dangerous and can expose all kinds of information originally created in a VM of higher trust level. This leads to deanonymization, past session linking and theft of sensitive information and keys.[34][35] Disabled in cloud tenancy environments.
+HugePages
+
+THP/Hugepages aid rowhammer attacks[36] and memory de-duplication attacks (see KSM below) and so must be disabled for the guest and on the host. As far is what we know Debian hosts do not enable this feature. Disabled in cloud tenancy environments.
+Memory Ballooning
+
+Memory ballooning can potentially be abused by malicious guests to mount rowhammer attacks on the host.[37]
+Clipboard Sharing
+
+SPICE allows accelerated graphics and clipboard sharing. The clipboard is disabled by default for security reasons to prevent accidentally copying a link to a website you visited anonymously to your non-anonymous host browser or vice versa.
+KSM
+
+KSM is a memory de-deuplication feature that conserves memory by combining identical pages across VM RAM. It is not enabled by default. Enabling this feature is dangerous because it allows cross-VM snooping by a malicious process.[38] It can infer what programs and what pages are being visited outside the VM. [39] Disabled in cloud tenancy environments. This feature can also allow attackers to modify/steal APT keys and source lists of the host. [40][41]
+Device Passthrough
+
+Both USB and PCI device passthrough would allow advanced attackers to flash the firmware of those devcies and infect the host or other VMs.[42]
+XML Settings
+
+TODO: Soon here xml settings will be explained here.
+Troubleshooting
+Reboot?
+
+Did you reboot after installing KVM?
+
+Did you reboot after adding users to groups?
+
+Add this information should you make a support request.
+Unable to connect to libvirt.
+
+If you are getting the following error.
+
+Unable to connect to libvirt.
+
+Verify that the 'libvirtd' daemon is running.
+
+Libvirt URI is: qemu:///system
+
+Make sure you added groups and rebooted.
+Unable to open a connection to the libvirt management daemon.
+
+If you are getting the following error.
+
+Unable to open a connection to the libvirt management daemon.
+
+Libvirt URI is: qemu:///system
+
+Verify that:
+- The 'libvirtd' daemon has been started
+
+Check your KVM installation.
+
+sudo service qemu-system-x86 restart ; echo $? ; sudo service libvirt-bin restart ; echo $? ; sudo service libvirt-guests restart ; echo $?
+
+Should show.
+
+0
+[ ok ] Restarting libvirt management daemon: /usr/sbin/libvirtd.
+0
+
+Running guests on default URI: no running guests.
+0
+
+If you see that, it could be a permissions problem.
+hda-duplex not supported in this QEMU binary
+
+Maybe you are a member of the libvirt group, but not have the lkvm group?
+
+Maybe changing
+
+    <sound model='ich6'>
+
+to
+
+    <sound model='ac97'>
+
+will help.
+process exited while connecting to monitor: ioctl(KVM_CREATE_VM) failed
+
+If you get the following error.
+
+Error starting domain: internal error: process exited while connecting to monitor: ioctl(KVM_CREATE_VM) failed: 16 Device or resource busy
+failed to initialize KVM: Device or resource busy
+
+Maybe you have other non-KVM VMs, such as VirtualBox VMs already running? This is not possible. Running two hypervisors at the same time is not supported by KVM / VirtualBox.
+Permissions
+
+ls -la /var/run/libvirt/libvirt-sock
+
+Add Version Numbers to Support Request
+
+Having issues, make sure you add what versions of libvirt-bin, qemu-kvm and virt-manager you are using. If you are using Debian, you can use the following command to determine them.
+
+dpkg-query --show --showformat='${Package} ${Version} \n' libvirt-bin qemu-kvm virt-manager
+
+User Help Forum
+
+Whonix KVM User Help Forum
+Alternative Guides
+
+For alternative installation guides contributed by community members please check:
+KVM/Installation Screenshots
+Development
+
+    Dev/KVM
+    KVM Whonix Bug Tracker
+    whonix-libvirt github
+
+Footnotes
+
+If this action is taken, sudo can be used as outlined below and elsewhere. Otherwise, it is necessary to manually switch to root and/or use su as per About#Based_on_Debian.
+https://forums.whonix.org/t/qxl-slowness-fix/1759
+https://phabricator.whonix.org/T511
+By default Debian doesn't use sudo so you can add the groups with usermod. If your user is "foo" you would do:
+
+usermod -a -G libvirt foo
+
+And.
+
+usermod -a -G kvm foo
+
+https://forums.whonix.org/t/kvm-networking-broken/644
+https://wiki.debian.org/KVM#Troubleshooting
+As in, manually converting them from .ova to .qcow2 is no longer recommended, since you can download .qcow images from the Whonix project.
+As per build-steps.d/2400_convert-img-to-qcow2, these are "-o cluster_size=2M" and "-o preallocation=metadata".
+Because then you have the same performance optimizations.
+By using the Tor Browser Bundle (TBB). For an introduction, see Tor Browser. See also Hide Tor and Whonix from your ISP.
+It does not matter if the bulk download is done over an insecure channel if OpenPGP verification is used at the end.
+http://linux.die.net/man/1/qemu-img
+https://elmarco.fedorapeople.org/manual.html
+Other choices:
+
+    Whonix Important News Forum Tag RSS .
+    Whonix News Forums RSS .
+    Subscribe to the Whonix News Forums by e-mail. When registered at the Whonix Forums, specific categories of interest such as the Whonix News Forums can be selected.
+    Whonix News Forums posts are mirrored to the Whonix Development Mailing List (broken)
+    Whonix Social Media Profiles
+
+The only exception is Tor Browser running in a DisposableVM in Qubes-Whonix, since the update will not persist.
+For example: When a version becomes unsupported, if manual user action is required, if major features break, or if security vulnerabilities are found. The policy is to use Whonix News sparingly.
+This does not happen every time the user starts a Whonix-Workstation.
+Qubes VM Manager -> right-click on the Whonix VM you want to check -> select "Run command in VM"
+
+Type the following.
+[select code]
+konsole
+Then press.
+
+<ENTER>
+
+Type the following.
+
+[select code]
+whonixcheck
+
+Then press.
+
+<ENTER>
+
+https://github.com/QubesOS/qubes-issues/issues/1764
+Whonix does not use network manager to manage either eth0 or eth1.
+
+    In Non-Qubes-Whonix, networking is managed by ifupdown.
+    Qubes-Whonix uses a custom /lib/systemd/system/qubes-whonix-network.service and is unaffected by this issue.
+
+It is unnecessary to port to network manager at this point, because there is no reason besides this issue. Ifupdown has functioned admirably in Whonix for a long time and is well tested. It is unclear if network manager, specifically cli, is ready for the prime time yet. Network manager is simply reporting information that it does not manage these devices; this is not an error.
+To reduce confusion, the ideal Whonix default would either: prevent the systray item starting, hide the systray item, or suppress the information being presented. Network manager is installed so users can easily setup VPNs with its intuitive graphical user interface.
+All attempts to fix this long-standing issue have failed. Help is welcome to fix it.
+Fix Unmanaged Devices Network Manager
+https://github.com/QubesOS/qubes-issues/issues/1764
+Whonix does not use network manager to manage either eth0 or eth1.
+
+    In Non-Qubes-Whonix, networking is managed by ifupdown.
+    Qubes-Whonix uses a custom /lib/systemd/system/qubes-whonix-network.service and is unaffected by this issue.
+
+It is unnecessary to port to network manager at this point, because there is no reason besides this issue. Ifupdown has functioned admirably in Whonix for a long time and is well tested. It is unclear if network manager, specifically cli, is ready for the prime time yet. Network manager is simply reporting information that it does not manage these devices; this is not an error.
+To reduce confusion, the ideal Whonix default would either: prevent the systray item starting, hide the systray item, or suppress the information being presented. Network manager is installed so users can easily setup VPNs with its intuitive graphical user interface.
+All attempts to fix this long-standing issue have failed. Help is welcome to fix it.
+Fix Unmanaged Devices Network Manager
+To fix this in Qubes R3.2, developers would need to backport Qubes-Whonix salt:
+
+    From Qubes R4: https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/tree/master/qvm
+    To Qubes R3.2: https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/tree/release3.2/qvm
+
+https://github.com/QubesOS/qubes-issues/issues/4154
+https://serverfault.com/a/648871
+The file sharing mode mapped is just an example, using squash or passthrough is possible by selecting them from the drop down menu. Mapped is recommended for security.
+https://bugzilla.redhat.com/show_bug.cgi?id=1135488
+https://askubuntu.com/questions/564708/qemu-kvm-virt-manager-passthrough-of-usb-webcam-to-windows-7-enterprise-creates
+https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=765016
+https://anonscm.debian.org/cgit/pkg-libvirt/virt-manager.git/commit/?id=d81fd3c3af1abde1fa0e2bf3b79643f36836f45b
+https://developer.gnome.org/gio/stable/glib-compile-schemas.html
+https://gymnasmata.wordpress.com/2010/12/02/setting-up-gdb-to-work-with-qemu-kvm-via-libvirt/
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Virtualization_Administration_Guide/sect-Virtualization-Adding_storage_devices_to_guests-Adding_hard_drives_and_other_block_devices_to_a_guest.html
+https://github.com/fog/fog/issues/2525
+https://news.ycombinator.com/item?id=6983097
+http://arxiv.org/pdf/1507.06955v1.pdf
+https://www.whonix.org/pipermail/whonix-devel/2016-September/000746.html
+Dedup Est Machina: Memory Deduplication as an Advanced Exploitation Vector
+https://staff.aist.go.jp/c.artho/papers/EuroSec2011-suzaki.pdf
+Flip Feng Shui: Hammering a Needle in the Software Stack
+https://archive.is/aB7Kg
+
+    http://docs.openstack.org/security-guide/compute/hardening-the-virtualization-layers.html#physical-hardware-pci-passthrough
+
+Random News:
+
+Do you wonder why Whonix will always be free? Check out Why Whonix is Free Software.
+
+https | (forcing) onion
+
+Share: |
+
+This is a wiki. Want to improve this page? Help is welcome and volunteer contributions are happily considered! See Conditions for Contributions to Whonix, then Edit! IP addresses are scrubbed, but editing over Tor is recommended. Edits are held for moderation.
+
+Whonix is a licensee of the Open Invention Network. Unless otherwise noted, the content of this page is copyrighted and licensed under the same Libre Software license as Whonix itself. (Why?)
+Category:
+
+    Documentation
+
+    This page was last edited on 30 July 2018, at 02:49.
