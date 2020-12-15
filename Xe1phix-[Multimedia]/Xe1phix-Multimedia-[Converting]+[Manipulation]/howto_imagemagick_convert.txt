@@ -1,0 +1,659 @@
+#####################################
+#
+# imagemagick resize images
+#
+#####################################
+sudo apt-get install imagemagick
+
+convert rose.jpg -resize 50% rose1a.png
+convert rose.jpg -resize 150x rose1a.png
+
+convert howtogeek.png -quality 95 howtogeek.jpg
+convert example.png -resize 200×100 example.png
+convert example.png -resize 200×100! example.png
+convert example.png -resize 200 example.png
+convert example.png -resize x100 example.png
+
+convert howtogeek.jpg -rotate 90 howtogeek-rotated.jpg
+convert howtogeek.jpg -charcoal 2 howtogeek-charcoal.jpg #Effects
+convert howtogeek.jpg -implode 1 howtogeek-imploded.jpg #Effects
+
+for file in *.png; do convert $file -rotate 90 rotated-$file; done # batch
+
+convert dragon.gif    -resize 4096@  pixel_dragon.gif
+convert dragon.gif    -resize 64x64\!  exact_dragon.gif # exact size
+convert dragon.gif    -resize 64x64\>  shrink_dragon.gif # downsize
+convert dragon.gif    -resize 64x64^  fill_dragon.gif # upsize
+
+#crop
+convert dragon.gif      -resize 64x64^ \
+          -gravity center -extent 64x64  fill_crop_dragon.gif
+
+
+# --------------------------------
+# ART
+# --------------------------------
+
+# built-in tile patterns
+convert -size 8x8 pattern:CrossHatch30 -scale 800% scale_crosshatch.gif
+
+# built-in tile patterns
+convert pattern:gray50 scale_gray_norm.gif
+convert pattern:gray50 -scale 36 scale_gray_mag.gif
+
+# blur
+convert rose:  -scale 25%  -scale 70x46\!  rose_pixelated.gif
+
+# built-in tile patterns
+convert -size 10x10 pattern:gray50  checks.gif
+convert checks.gif  -filter box      -resize 8x8  checks_box.gif
+convert checks.gif                   -scale  8x8  checks_scale.gif
+convert checks.gif  -filter triangle -resize 8x8  checks_triangle.gif
+
+# a line of dots.
+convert -size 150x60 xc: -draw 'line 0,59 149,0' line_orig.gif
+convert line_orig.gif  -sample 50x20  line_sample.gif
+
+convert -size 8x8 pattern:CrossHatch30 -virtual-pixel tile \
+          -magnify -magnify -magnify magnify_crosshatch.gif
+
+
+# write text
+magick convert -size 320x85 canvas:none -font Bookman-DemiItalic -pointsize 72 \
+  -draw "text 25,60 \'Magick\'" -channel RGBA -blur 0x6 -fill darkred -stroke magenta \
+  -draw "text 20,55 \'Magick\'" fuzzy-magick.png
+
+https://www.howtogeek.com/109369/how-to-quickly-resize-convert-modify-images-from-the-linux-terminal/
+https://www.imagemagick.org/script/convert.php
+http://www.imagemagick.org/Usage/resize/
+
+---------------------------------------------------------------
+
+Compress PDF
+https://askubuntu.com/questions/113544/how-can-i-reduce-the-file-size-of-a-scanned-pdf-file
+
+convert -density 200x200 -quality 60 -compress jpeg input.pdf output.pdf
+convert -density 1500x150 -quality 95 -compress jpeg input.pdf output.pdf
+convert -compress Zip -density 150x150 input.pdf output.pdf
+convert -density 135x135 -quality 70 -compress jpeg -resize 22.588% doc_orig.pdf doc_lowres.pdf
+
+#### gs
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook   -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf
+
+### pdf2ps && ps2pdf
+pdf2ps input.pdf output.ps && ps2pdf output.ps output.pdf
+
+
+sudo add-apt-repository ppa:jfswitz/released
+sudo apt-get update
+sudo apt-get install pdf-compressor
+
+----------------------------------------------------------------
+
+sudo add-apt-repository ppa:jfswitz/released
+sudo apt-get update
+sudo apt-get install pdf-compressor
+
+https://github.com/johnfrancisgit/pdf-compressor
+
+.........
+
+#sudo apt-get install zenity ghostscript
+sudo apt-get install ghostscript
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=<desired output name>.pdf <your PDF file>.pdf
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=out.pdf in.pdf
+
+sudo apt-get install zenity ghostscript
+mkdir -p ~/.local/share/nautilus/scripts/
+cd ~/.local/share/nautilus/scripts/
+rm "Compress PDF" #in case you're using an older version
+wget http://launchpad.net/compress-pdf/1.x/1.4/+download/Compress-PDF-1.4.tar.gz
+tar zxvf Compress-PDF-1.4.tar.gz && rm Compress-PDF-1.4.tar.gz
+
+
+sudo apt-get install qpdf
+qpdf --linearize input.pdf output.pdf
+
+http://www.webupd8.org/2010/11/download-compress-pdf-12-nautilus.html
+https://wiki.ubuntuusers.de/Nautilus/Skripte/PDF-Komprimierung/
+http://qpdf.sourceforge.net/
+
+
+##############################
+#
+#  config limits
+#
+##############################
+
+
+$HOME/.config/ImageMagick
+https://imagemagick.org/script/resources.php
+http://www.imagemagick.org/Usage/
+sudo vi /etc/ImageMagick-6/policy.xml
+
+Define arguments for the MAGICK_AREA_LIMIT, MAGICK_DISK_LIMIT, MAGICK_MAP_LIMIT, and MAGICK_MEMORY_LIMIT environment variables with SI prefixes (.e.g 100MB). MAGICK_WIDTH_LIMIT and MAGICK_HEIGHT_LIMIT accepts pixel suffixes such as MP for mega-pixels (e.g. 100MP).
+
+export MAGICK_THREAD_LIMIT=2; sudo nice -n 19 convert autosize_wet.jpg -resize 1920x -quality 85  autosize_wet2.jpg
+export MAGICK_THROTTLE=50;
+export MAGICK_THREAD_LIMIT=2;
+export MAGICK_THROTTLE=5;
+SetEnv MAGICK_THROTTLE 100
+
+convert -font Ravie -pointsize 72  label:'Get Wet!' -border 10 \
+          -tile tile_aqua.jpg   -draw "color 0,0 reset"  \
+          -tile tile_water.jpg -gravity center -annotate +0+0 'Get Wet!' \
+          autosize_wet.jpg
+
+from this page -- http://www.imagemagick.org/Usage/text/
+
+
+convert -size 800x120 xc:black -font Corsiva -pointsize 100 \
+          -tile tile_disks.jpg   -annotate +20+80 'Psychedelic!' \
+          -trim +repage  -bordercolor black  -border 10   funfont_groovy.jpg
+
+
+convert ( -size 800x495 canvas:none ) (newimage.png -resize 1780x1200) -geometry -618-522 -composite changedimage.png
+convert ( -size 800x495 canvas:none ) (newimage.png -resize 1780x1200) -geometry -618-522 -composite -limit throttle 100 changedimage.png
+unrecognized resource type `throttle' @ error/convert.c/ConvertImageCommand/2022.
+
+----------------------------------------------------------------------------------------
+
+convert -density 300 test.pdf -quality 85 testpic.jpg
+convert -density 300 test.pdf -resize 990x1400 -quality 85 testpic.jpg
+convert -density 300 test.pdf -background white -alpha off -resize 990x1400 -quality 85 test.jpg
+convert -density 300 test.pdf -bordercolor white -border 0 -resize 990x1400 -quality 85 testpic.jpg
+
+----------------------------------------------------------------------------------------
+
+# http://xmodulo.com/convert-pdf-files-to-jpg-format-on-linux.html
+# http://codegist.net/code/mime-to-pdf/
+
+sudo apt-get install imagemagick
+convert -density 400 my_filename.pdf -resize 2000x1500 my_filename%d.jpg
+convert -density 300 file.pdf file.jpg
+convert -density 300 file.pdf page_%04d.jpg
+convert -density 150 input.pdf -quality 90 output.png
+convert -density 400 converted.pdf -resize 800x600 my_filename%d.jpg
+
+for i in `ls *.pdf`; do convert "$i" "$i".jpg; done
+for i in `ls *.pdf`; do convert -density 300 "$i" "$i".jpg; done
+
+for file in *.pdf; do \
+echo $file;\
+convert -density 600x600 -resize 800x560 -quality 90 $file `echo $file|cut -f1 -d'.'`.png;\
+done
+
+
+----------------------------------------------------------------------------------------
+
+##############################################
+#
+#  convert PPT  2 PDF
+#
+##############################################
+
+# https://wiki.ubuntuusers.de/unoconv/
+sudo apt-get install unoconv
+unoconv OPTIONEN DATEI1 DATEI2
+unoconv --listener OPTIONEN
+unoconv -f odt datei.doc # Word (.doc) nach LibreOffice (.odt)
+unoconv -f xls tabellenkalkulation.csv # CSV nach Excel
+unoconv -f pdf *.*  # Alle Dateien in einem Ordner ins PDF-Format konvertieren
+unoconv -f pdf -o ~/PDF-Dateien/ *.*
+unoconv --export Quality=100 filename.pptx filename.pdf
+
+----------------------------------------------------------------------------------------
+
+#!/bin/bash
+
+DPI=150
+PDF_DESTINATION=""
+
+help() {
+echo "optimize_pdf help"
+echo "-h : show this help"
+echo "-d : (optional) output pdf document resolution, by default : 150"
+echo "-s : pdf source file, this file must exist"
+echo "-o : pdf output file"
+}
+
+full_path() {
+if [ -z $1 ]; then
+exit;
+else
+if [ `expr substr ${1:-a} 1 2` != "/" ]; then
+FULL_FILE=`pwd`"/"$1
+fi
+fi
+echo $FULL_FILE
+}
+
+isNumeric(){ echo "$@" | grep -q -v "[^0-9]" ;}
+
+while getopts "s:o:d:h" flag
+do
+case $flag in
+#Source : source file
+"s")
+PDF_FILE=`full_path $OPTARG`
+if [ ! -e $PDF_FILE ]; then
+echo "Please provide a valid source file"
+exit=1
+fi
+;;
+#Output : output file
+"o")
+PDF_DESTINATION=$OPTARG
+;;
+#Dpi : desired resolution
+"d")
+if [ -z `isNumeric $OPTARG` ]; then
+DPI=$OPTARG
+else
+echo "Please provide a numeric value for your DPI"
+exit=1
+fi
+;;
+"h")
+exit=1
+;;
+esac
+done
+
+#Is there a target file?
+if [ -z $PDF_DESTINATION ]; then
+echo "Please provide a file name for output"
+exit=1
+fi
+
+#At least one error, we're not going any further
+if [ $exit ]; then
+help
+exit
+fi
+
+pdftops \
+-paper match \
+-nocrop \
+-noshrink \
+-nocenter \
+-level3 \
+-q \
+"$PDF_FILE" - \
+| ps2pdf14 \
+-dEmbedAllFonts=true \
+-dUseFlateCompression=true \
+-dOptimize=true \
+-dProcessColorModel=/DeviceRGB \
+-dUseCIEColor=true \
+-r72 \
+-dDownsampleGrayImages=true \
+-dGrayImageResolution=$DPI \
+-dAutoFilterGrayImages=false \
+-dGrayImageDownsampleType=/Bicubic \
+-dDownsampleMonoImages=true \
+-dMonoImageResolution=$DPI \
+-dMonoImageDownsampleType=/Bicubic \
+-dDownsampleColorImages=true \
+-dColorImageResolution=$DPI \
+-dAutoFilterColorImages=false \
+-dColorImageDownsampleType=/Bicubic \
+-dPDFSETTINGS=/prepress \
+- "$PDF_DESTINATION"
+
+/path/to/optimize_pdf.sh -s input.pdf -o output.pdf
+------------------
+
+
+
+
+
+#############################
+#
+#	ImageMagick Options
+#
+#############################
+
+http://xahlee.info/img/imagemagic.html
+http://www.imagemagick.org/Usage/compose/#blend_use
+https://www.imagemagick.org/script/command-line-options.php#linear-stretch
+https://www.imagemagick.org/script/command-line-options.php
+
+
+sudo apt-get install imagemagick
+sudo apt-get install graphicsmagick # for GraphicsMagick, just add gm  in front of the command.
+
+
+convert p1.gif p2.png # convert
+convert -scale 50% -quality 80% old.png new.jpg # scale and compress
+convert -trim cat.png cat.png #
+convert -crop 853x368+0+56 old.png new.png # crop
+convert -modulate 150,100,100 old.png new.png # increase brightness
+convert -modulate 100,130,100 old.png new.png # increase saturation
+convert -flatten old.png new.png # replace transparency/alpha with white
+convert -type Grayscale old.png new.png # change color image to gray scale
+convert -depth 8 old.png new.png #  reduce bits per pixel
+convert -dither -colors 256 old.png new.png # reduce colors
+convert -sharpen 2 old.png new.png # sharpen a image
+convert -blur 1 old.png new.png #  blur a image
+
+convert -fill red -draw 'text 20 20 "© 2006 example.com"' old.png new.png # insert copyright notice
+# Use -gravity SouthEast -font helvetica to put the text in other corners, and change font.
+composite -watermark {argument}  -gravity South  sphinx.gif  cyclops.gif   {result}
+
+convert -border 1 -bordercolor black cat.png cat2.png #  add a border
+convert -rotate 90 x.png x.png # rotate a image
+
+# left/right flip
+convert -flop x.png x.png
+
+# up/down flip
+convert -flip x.png x.png
+
+# join images vertically
+convert x1.png x2.png x3.png -append out.png
+
+# join images horizontally
+convert x1.png x2.png x3.png +append out.png
+
+batch process
+find . -name "*png" | xargs -l -i basename "{}" ".png" | xargs -l -i  convert -quality 85% "{}.png" "{}.jpg"
+
+
+
+
+
+################################################
+#
+#	Read EXIF
+#
+################################################
+
+identify -format '%[EXIF:*]' image.jpg
+identify -format '%[EXIF:*]' image.jpg
+identify -verbose rose.jpg
+
+https://www.imagemagick.org/script/identify.php
+http://www.imagemagick.org/Usage/photos/
+https://mikebeach.org/2011/12/17/how-to-retrieve-exif-data-from-the-command-line-in-ubuntu-linux/
+
+identify -verbose imagename
+
+identify -format "%[EXIF:*]" pagoda_sm.jpg |\
+      sed 's/\(.\{46\}\).*/\1/' | column -c 110
+
+identify -format "%[exif:*time*]" pagoda_sm.jpg
+identify -format '%[exif:orientation]' pagoda_sm.jpg
+identify -verbose /usr/share/backgrounds/Brrt.jpg | grep "exif:"
+
+
+
+
+
+########################################
+#
+#	CSS3 filter Property - W3Schools
+#
+########################################
+
+https://www.w3schools.com/cssref/css3_pr_filter.asp
+https://www.w3schools.com/cssref/playit.asp?filename=playcss_filter&preval=saturate(8)
+
+
+CSS Property:
+filter:
+
+blur(5px)
+brightness(200%)
+contrast(200%)
+drop-shadow(8px 8px 10px red)
+grayscale(100%)
+hue-rotate(90deg)
+invert(100%)
+opacity(30%)
+saturate(8)
+sepia(100%)
+contrast(200%) brightness(150%)
+none
+
+........
+
+<script>
+
+setTimeout(function(){
+	$("img").css({ "filter":"saturate(1.5) contrast(135%)"});
+},1500)
+
+$(document).click(function(){
+	setTimeout(function(){
+		$("img").css({ "filter":"saturate(1.5) contrast(135%)"});
+	},1000)
+});
+</script>
+
+
+
+
+###################################
+#
+# GhostScript
+#
+###################################
+
+
+convert input.tif[0] -density 600 -alpha Off -size 5809x9408 -depth 16 intermediate.ps
+convert input.tif[0] -density 600 -alpha Off -size 5809x9408 -depth 16 intermediate.ps
+gs -dPDFA=1 -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sDefaultRGBProfile=AdobeRGB1998.icc -dOverrideICC -sOutputFile=output.pdf -r600 -P PDFA_def.ps -f custom.joboptions intermediate.ps
+
+gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -dGraphicsAlphaBits=4 -sOutputFile=page_%02d.png brochure.ps convert brochure.ps im_page_%02d.png
+gs -sDEVICE=pngalpha -sOutputFile=cover.png -r144 cover.pdf
+gs -dNOPAUSE -dBATCH -sDEVICE=pngalpha -r72 -sOutputFile=test.png test.pdf
+
+gs -sDEVICE=png16m -dTextAlphaBits=4 -r300 -o a.png a.pdf
+gs -sDEVICE=jpeg -dTextAlphaBits=4 -r300 -o a.jpg a.pdf
+
+sDEVICE={jpeg,pngalpha,png16m...} - filetype
+-o - output file (%stdout to stdout)
+-dTextAlphaBits=4 - font antialiasing.
+-r300 - 300 dpi
+
+
+gs -sDEVICE=pngalpha       \
+   -o %stdout              \
+   -r144 cover.pdf         \
+   |                       \
+convert                    \
+   -background transparent \
+   -                       \
+    cover.png
+
+gs -sDEVICE=pngalpha -o file-%03d.png -r144 cover.pdf
+
+
+for i in {1..100}; do        \
+                             \
+  gs -sDEVICE=pngalpha       \
+     -dFirstPage="${i}"      \
+     -dLastPage="${i}"       \
+     -o %stdout              \
+     -r144 input.pdf         \
+     |                       \
+  convert                    \
+     -background transparent \
+     -                       \
+      page-${i}.png ;        \
+                             \
+done
+
+
+inkscape "$pdf" -z --export-dpi=600 --export-area-drawing --export-png="$pngfile"
+
+#!/bin/bash
+
+while [ $# -gt 0 ]; do
+
+pdf=$1
+echo "Converting "$pdf" ..."
+pngfile=`echo "$pdf" | sed 's/\.\w*$/.png/'`
+inkscape "$pdf" -z --export-dpi=600 --export-area-drawing --export-png="$pngfile"
+echo "Converted to "$pngfile""
+shift
+
+done
+
+echo "All jobs done. Exiting."
+
+
+
+
+
+
+
+
+#####################################################
+#
+#   JPEG-2000  no decode delegate for this image format
+#   https://www.imagemagick.org/script/jp2.php
+#   Must be compiled!!!!!!
+#
+#####################################################
+
+sudo apt install libjpeg62 libpng16-16   libopenjp2-7-dev
+
+Download the ImageMagik source cd ImageMagick-7.0.5-0
+wget https://launchpad.net/imagemagick/main/7.0.5-0/+download/ImageMagick-7.0.5-0.tar.gz
+wget http://mirror.sobukus.de/files/src/imagemagick/
+wget http://mirror.sobukus.de/files/src/imagemagick/ImageMagick-7.0.7-38.zip
+wget http://mirror.sobukus.de/files/src/imagemagick/ImageMagick-7.0.7-38.tar.gz
+
+Untar the source tar xfz ImageMagick-7.0.7-38.tar.gz
+cd ImageMagick-7.0.7-38
+
+Run Configure
+./configure --disable-shared --with-jp2=yes --with-openjp2=yes --with-png=yes
+
+Build the code (with 4 threads)
+ make -j4
+
+Install the buit execuatable
+ sudo make install
+
+identify -list format
+./configure --disable-shared
+
+
+-----------
+
+identify -list format
+gm convert -define 'jp2:rate=0.008' in.png out.jp2
+
+Installing libmagickwand-dev seemed to sort it out.
+
+1.sudo apt autoremove imagemagick
+2.rm /usr/bin/convert and rm /usr/bin/convert-im6
+3.sudo apt-get install imagemagick
+4.sudo apt-get install libmagickwand-dev
+
+sudo apt-get install openjpeg-tools
+j2k_to_image -i source file -o destination file
+j2k_to_image -i relax.jp2 -o relax.pgm
+for f in *.jp2; do jp2_to_image -i "$f" -o "$f.pgm"; done.
+
+mogrify -format jpg *.jp2
+mogrify -format jpg *.png
+
+-------------------------------------
+
+
+
+
+
+##############################################################################
+#
+#   RGB 3 Channels ImageMagick
+#
+##############################################################################
+
+https://imagemagick.org/script/color-management.php
+https://github.com/ImageMagick/ImageMagick/issues/162
+http://www.imagemagick.org/Usage/masking/#masked_compose
+http://www.imagemagick.org/Usage/masking/#alpha
+http://www.imagemagick.org/Usage/masking/
+https://imagemagick.org/script/convert.php
+https://gist.github.com/iCreateJB/4979468
+
+magick myimage.png -colorspace RGB -separate myimage_channels_%d.png
+magick myimage.png -set colorspace RGB -separate myimage_channels_%d.png
+magick myimage.png -set colorspace RGB -colorspace HSL -separate myimage_channels_%d.png
+
+convert 4.png -define png:color-type=2 5.png
+convert 5.png -type TrueColor -quality 90  6.png
+identify -verbose 6.png | grep "Type"
+
+convert logo: -resize 50% -colorspace gray -transparent white logo2gt.png
+convert logo2gt.png -type Truecolor -define png:color-type=6 -debug coder logo2gt_t6.png
+identify -verbose -debug coder -log %e file.png
+
+convert -size 100x100 gradient: -colorspace Gray r1.png
+convert rose: -colorspace gray -threshold 45% -depth 1 -type bilevel out_bw3.bmp
+convert rose: -colorspace gray  -type palette out_bw5.bmp
+
+convert rose: -mask rose_bg_mask.png \
+          -modulate 110,100,33.3  +mask rose_blue.png
+
+----
+
+convert -verbose basn3p04.png basn3p04_default.png
+generates a 16c paletted PNG from the 15c input. Ok, except that it added the color white, reported separately here.
+
+convert -type TrueColor -verbose basn3p04.png basn3p04_truecolor.png
+generates the same paletted PNG as (1), not the TrueColor you'd expect.
+
+convert -verbose basn0g04.png basn0g04_default.png
+generates a 4-bit grayscale PNG just like the input. All good.
+
+convert -type Palette -verbose basn0g04.png basn0g04_palette.png
+generates the same grayscale PNG as (3), failing to force Palette.
+
+convert -type TrueColor -verbose basn0g04.png basn0g04_truecolor.png
+again generates the same output as (3), failing to force TrueColor.
+
+convert -verbose basn3p04.png basn3p04_default.bmp
+generates a 15c indexed color BMP. All good. (Note that for BMP no color white is added which was a problem with PNG.)
+
+convert -type TrueColor -verbose basn3p04.png basn3p04_truecolor.bmp
+generates a TrueColor BMP. Again all good.
+
+convert -verbose basn0g04.png basn0g04_default.bmp
+also generates a TrueColor BMP though the input was 4-bit grayscale. Somewhat reasonable since there's no native grayscale BMP subformat, but a 4-bit palette would've been more efficient than 24-bit; there's only 16 grays.
+
+convert -type Palette -verbose basn0g04.png basn0g04_palette.bmp
+still generates a TrueColor BMP from the 4-bit grayscale input, failing to force Palette.
+
+##########################################################
+#
+#  FIX Error: /syntaxerror in (binary token, type=137)
+#
+##########################################################
+
+https://ghostscript.com/doc/9.21/Devices.htm
+http://www.libpng.org/pub/png/book/chapter11.html#png.ch11.div.10
+
+gs -sDEVICE=jpeg  -dNOPAUSE -dBATCH -dSAFER -sOutputFile=test.jpg test.jpg
+gs -sDEVICE=png16m -dNOPAUSE -dBATCH -dSAFER -sOutputFile=test.png test.png
+gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER -sOutputFile=test.pdf test.png
+
+
+##########################################################
+#
+#   Compress and resize images
+#
+##########################################################
+
+convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85% -resize 100 source.jpg result.jpg
+convert image.jpg -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace RGB image_converted.jpg
+mogrify -quality "97%" -resize 2048x2048 -filter Lanczos -interlace Plane -gaussian-blur 0.05
+convert -strip -interlace Plane -gaussian-blur 0.05 -quality 60% -adaptive-resize 60% img_original.jpg img_resize.jpg
+mogrify -quality "65%" -resize 200 -filter Lanczos -interlace Plane
+
