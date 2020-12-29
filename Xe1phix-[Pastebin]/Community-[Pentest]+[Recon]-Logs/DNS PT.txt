@@ -1,0 +1,154 @@
+Types of DNS Attacks Mitigated :
+1- DNS Amplification
+The most common form of attack occurs when a DNS response is significantly larger than a
+query. For instance, if an “open resolver” receives a query packet containing a large buffer advertisement from
+a “spoofed” requesting IP address, its reply can be quite large, resulting in a denial-of-service attack on the DNS
+server. 
+
+2- NXDomain (receives responses)
+A DNS server is flooded with queries for a non-existent domain (aka NXDomain). The recursive
+server doesn’t know the domain does not exist until it receives responses from the queries it initiates. The process
+consumes valuable server resources and overloads the cache. As a result, legitimate DNS queries are dropped or
+delayed.
+
+3- Phantom Domain:
+Attackers set up phantom domains that don’t respond to DNS queries. A recursive DNS server is
+forced to wait for responses, which consumes server resources, resulting in delayed or dropped responses.
+
+4- Random Sub-domain:
+Randomly generated attacks target sub-domains on a legitimate domain. To resolve the
+domains, a recursive DNS server spawns concurrent queries that inevitably hit the limit, while authoritative DNS
+servers experience DoS.
+
+5- Look-up Domain
+Attackers set up domains that establish TCP-based connections with a recursive DNS server and
+keep the connections alive with random responses. The server is tied up and eventually exhausts its resources.
+
+
+# Check for the DNS Amplification Attack Vulnerability
+https://help.1and1.com/servers-c37684/parallels-plesk-c37703/troubleshooting-c85156/check-for-the-dns-amplification-attack-vulnerability-a791842.html
+
+dns vulnerability test :
+http://openresolver.com/?ip=84.235.47.198
+
+طريقة مغرفة موقع مصاب بثغرة  DNS Amplification Attack Vulnerability
+
+dig +short test.openresolver.com TXT @212.18.66.66
+ نتيجة تظهر :
+"open-resolver-detected"
+طريقة اخرى :
+nslookup google.com 212.18.66.66
+
+يظهر معنا اي بي الموقع جوجل
+
+موقع فحص :
+http://openresolver.com/?ip=212.18.66.66
+
+# DNS zone transfer vulnerability check:
+nslookup
+> server <DNS you are querying>
+> set type=any
+> ls -d <target>
+or
+dig axfr @nsztm1.digi.ninja zonetransfer.me
+dig axfr example.com @ns1.example.com
+dig axfr example.com @ns2.example.com
+
+find dns of website :
+dig -t NS zonetransfer.me
+then by nmap :
+nmap -n -Pn -p53 --script dns-zone-transfer --script-args dns-zone-transfer.domain=zonetransfer.me nsztm2.digi.ninja
+
+# DNS open resolver test
+# dig +short test.openresolver.com TXT @1.1.1.1 (IP of the server)
+
+
+
+Zone Transfer
+Reverse Lookup
+Domain and Host Brute-Force
+Standard Record Enumeration (wildcard,SOA,MX,A,TXT etc.)
+Cache Snooping
+Zone Walking
+Google Lookup
+
+# Standard Record Enumeration
+dnsrecon.py -d URL
+
+# Zone Transfer
+dnsrecon.py -d URL -a 
+dnsrecon.py -d URL -t axfr
+
+# Reverse Lookup
+dnsrecon.py -r <startIP-endIP>
+dnsrecon.py -d <domain> -s
+
+# Domain Brute-Force
+dnsrecon.py -d <domain> -D <namelist> -t brt
+
+# Cache Snooping
+dnsrecon.py -t snoop -n Sever -D <Dict>
+nmap -Pn -sU -p 53 --script dns-cache-snoop.nse --script-args 'dns-cache-snoop.mode=nonrecursive' <IP>
+#Zone Walking
+dnsrecon.py -d <host> -t zonewalk
+
+
+other :
+For std, type: 
+dnsrecon -t std -d youtube.com
+
+For SRV type : 
+dnsrecon -t srv -d gmail.com
+
+For axfr, type:-
+dnsrecon -t axfr -d saintangelos.com
+
+For tld, type: 
+dnsrecon -t tld -d saintangelos.com
+========================================================================
+# Enumerate DNS Records using dnsdict6
+- ENUMERATION WITH DEFAULT SETTINGS
+dnsdict6 google.com
+
+dnsdict6 -d google.com
+
+
+- ENUMERATE  IPV4 IPV6, NAME SERVER, MAIL SERVER  WITH OPTIONS
+dnsdict6 -d46 -t 32  google.com
+
+-ENUMERATE SRV SERVICE RECORDS
+dnsdict6 -S google.com
+
+#####################################################################3
+
+Nslookup :
+
+# nslookup fasebutt.com ns1.pixelefx.net
+
+####################################################################
+
+traceroute <url>
+
+dnsenum.pl --enum -f dns.txt --update a -r url
+fierce.pl -dns url
+lbd.sh url
+nmap -PN -n -F -T4 -sV -A -oG temp.txt url
+dnsenum.pl --dnsserver 8.8.8.8 --enum -f dns-big.txt --update a -r microsoft.com
+nmap –sU –A –PN –n –pU:19,53,123,161 –script=ntp-monlist,dns-recursion,snmp-sysdescr <target>
+# Nmap UDP Reflector Scanning and filtering
+DNS: nmap -sU -pU:53 --script=dns-recursion -Pn -n -v <IP> | grep -B3 open | egrep -o "([0-9]{1,3}\.){3}[0-9]{1,3}"  > dnslist.txt
+# Scan from Recursive resolver dns
+http://openresolver.com/?ip=
+
+SCAN DDOS DNS :
+http://pastebin.com/6ZZS5c2j
+https://pentest-tools.com/network-vulnerability-scanning/dns-zone-transfer-check
+https://hackertarget.com/dns-lookup/
+https://hackertarget.com/zone-transfer/
+
+
+# check dns :
+- Checks for open recursion that can leave servers vulnerable to cache poisoning and DDos attacks
+- Checks IPv6 support and configuration for name servers and mail servers
+- DNS cache poisoning (DNS spoofing)
+-
