@@ -43,12 +43,11 @@ What's your daily regimen of supplements?
     [+] Clinical trials studying Citicoline have reported: 
           [+] Improved memory in patients with dementia 
           [+] Reduced damage to the brain after 
-                traumatic brain injury or stroke.
+              traumatic brain injury or stroke.
 
+    [?] A precursor for the synthesis of important phospholipids. 
+    [?] These phospholipids are essential to cell membranes. 
 
-
-A precursor for the synthesis of important phospholipids. 
-These phospholipids are essential to cell membranes. 
 <-------------------------->
    | Phosphatidylserine |     ~-> ( mg)
 <-------------------------->
@@ -56,9 +55,11 @@ These phospholipids are essential to cell membranes.
     [+] Enhances the production of acetylcholine in neurons.
     [+] Major components of cell membranes
     [+] 
-     [?] Phosphatidylserine > phosphatidylcholine
-          [?] Phosphatidylcholine has a weak bioavailability)
+    [?] Phosphatidylserine > phosphatidylcholine
+        [?] Phosphatidylcholine has a weak bioavailability)
     [+] 
+
+
 <----------------------------------------------------->
    | Alpha-GPC [L-Alpha glycerylphosphorylcholine] |     ~->  (250-500mg)
 <----------------------------------------------------->
@@ -70,6 +71,8 @@ These phospholipids are essential to cell membranes.
     [+] 
     [+] 
     [+] 
+
+
 <----------------------->
    | Phenylpiracetam |     ~->  (100mg)
 <----------------------->
@@ -79,18 +82,32 @@ These phospholipids are essential to cell membranes.
     [+] 
     [+] 
     [+] 
+
+
 <-------------------->
    | Multivitamin |     ~-> ( mg)
 <-------------------->
 
 
+
+
+
 ##-================================================================-##
 ##-><>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<><-##
 ##               ________________________________
-##           [+] Xe1phix Nootropic Mushroom Stack:
+##-=======->> {+} Xe1phix Nootropic Mushroom Stack:
 ##              /\T/\T/\T/\T/\T/\T/\T/\T/\T/\T/\T/\
 ##-><>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<><-##
 ##-================================================================-##
+
+
+
+##-==================================================================-##
+##~=~=~=~=~=~\\__________________________________________//~=~=~=~=~=~##
+##~=~=~=~=~=~// {+} Xe1phix Nootropic Mushroom Stack {+} \\~=~=~=~=~=~##
+##-==================================================================-##
+
+
 
 <------------------------------------------------>
    | Lions Mane [Hericium Erinaceus] Mushroom |     ~->  (250mg)
