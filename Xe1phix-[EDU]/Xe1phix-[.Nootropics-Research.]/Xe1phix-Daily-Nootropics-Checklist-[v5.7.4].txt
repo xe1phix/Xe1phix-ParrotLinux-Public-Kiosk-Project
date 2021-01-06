@@ -172,11 +172,11 @@ Immunostimulating properties in cells
 ##  [+] Protects brain cells against damage from Alzheimer’s disease. 
 ## ---------------------------------------------------------------------------------------------------- ##
 
-<[?]==================================[?]>
+<[?]==================================================================================[?]>
     <-------------------------------------------------------------------------------->
        [+] Clinical trials studying Lions Mane have reported: 
     <-------------------------------------------------------------------------------->
-<[?]==================================[?]>
+<[?]==================================================================================[?]>
              [+] Decreases the severity of brain damage after a stroke by 44%.
              [+] Reduces recovery time from Nervious system injuries by 23% – 41%.
                    [?] This is done by stimulating growth and repair of neural cells
