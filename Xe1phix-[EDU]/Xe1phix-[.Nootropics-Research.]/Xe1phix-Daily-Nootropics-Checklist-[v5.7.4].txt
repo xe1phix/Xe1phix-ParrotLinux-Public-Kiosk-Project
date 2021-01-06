@@ -1,8 +1,8 @@
 What's your daily regimen of supplements?
 
-<-------------------------->
-   | Choline Bitrate |  -  (1 gram)
-<-------------------------->
+<----------------------->
+   | Choline Bitrate |    ~-> (1 gram)
+<----------------------->
     [+] Enhances the production of acetylcholine in neurons.
     [+] Primary component of the neurotransmitter acetylcholine
     [+] prevents fat deposits in the liver
@@ -15,7 +15,7 @@ What's your daily regimen of supplements?
     [+] 
 
 <------------------>
-   | Citicoline |  -  (1 gram)
+   | Citicoline |    ~-> (1 gram)
 <------------------>
     [+] Enhances the production of acetylcholine in neurons.
     [+] Modulates acetylcholine, dopamine, and glutamate. 
@@ -49,9 +49,9 @@ What's your daily regimen of supplements?
 
 A precursor for the synthesis of important phospholipids. 
 These phospholipids are essential to cell membranes. 
-<-------------------------------->
-   | Phosphatidylserine |  -  ( mg)
-<-------------------------------->
+<-------------------------->
+   | Phosphatidylserine |    ~-> ( mg)
+<-------------------------->
 
     [+] Enhances the production of acetylcholine in neurons.
     [+] Major components of cell membranes
@@ -59,6 +59,10 @@ These phospholipids are essential to cell membranes.
      [?] Phosphatidylserine > phosphatidylcholine
           [?] Phosphatidylcholine has a weak bioavailability)
     [+] 
+<----------------------------------------------------->
+   | Alpha-GPC [L-Alpha glycerylphosphorylcholine] |     ~->  (250-500mg)
+<----------------------------------------------------->
+
   -------------------------------------------------------------------------
 > Alpha-GPC [L-Alpha glycerylphosphorylcholine]  -  (250-500mg)
   -------------------------------------------------------------------------
@@ -71,9 +75,9 @@ These phospholipids are essential to cell membranes.
     [+] 
     [+] 
     [+] 
-<------------------------------>
-   | Phenylpiracetam |  -  (100mg)
-<------------------------------>
+<----------------------->
+   | Phenylpiracetam |     ~->  (100mg)
+<----------------------->
     [+] Increases acetylcholine release within hippocampal cells.
     [+] 
     [+] 
@@ -87,9 +91,9 @@ These phospholipids are essential to cell membranes.
 > Xe1phix propriety mushroom blend
 
 
-<----------------------------------------------------------------------->
-   | Lions Mane [Hericium Erinaceus] Mushroom |  -  (250mg)
-<----------------------------------------------------------------------->
+<------------------------------------------------>
+   | Lions Mane [Hericium Erinaceus] Mushroom |     ~->  (250mg)
+<------------------------------------------------>
 
 Antibiotic
 Anticarcinogenic
@@ -234,16 +238,19 @@ Immunostimulating properties in cells
              [?] T helper cell (Th) 1 immune response. 
 ## ------------------------------------------------------------------------------------------------- ##
 
+<------------------------>
+   | Shitake Mushroom |     ~-> (250mg)
+<------------------------>
 
      -------------------------------
-   > Shitake Mushroom  -  (250mg)
+   > Shitake Mushroom     ~-> (250mg)
      -------------------------------
        [+] Support cellular health
        [+] Support cardiovascular function
        [+] Promote metabolic function
        [+] Promote the existence of good bacteria
      ------------------------------------
-   > Red Reishi Mushroom  -  (250mg)
+   > Red Reishi Mushroom     ~-> (250mg)
      ------------------------------------
        [+] Promotes respiratory health
        [+] 
@@ -260,7 +267,7 @@ Immunostimulating properties in cells
        [+] 
        [+] 
 <----------------------->
-   | Changa Mushroom |    ~-> (250mg)
+   | Changa Mushroom |     ~-> (250mg)
 <----------------------->
        [+] Shown to scavenge free radicals
        [+] Supports balanced levels of oxidation. 
@@ -269,7 +276,7 @@ Immunostimulating properties in cells
        [+] 
        [+] 
 <-------------------------->
-   | Cordycaps Mushroom |    ~-> (250mg)
+   | Cordycaps Mushroom |     ~-> (250mg)
 <-------------------------->
        [+] Carry beta-glucan Polysaccharides
              [?] Polysaccharides are known for their immune system promoting benefits.
@@ -288,7 +295,7 @@ Immunostimulating properties in cells
        [+] 
        [+] 
 <--------------------------->
-   | Black Hoof Mushroom |  -  (250mg)
+   | Black Hoof Mushroom |     ~-> (250mg)
 <--------------------------->
        [+] Carry Beta-Glugan (β-Glucan) Polysaccharides
              [?] Beta glucans help promote immune system function.
@@ -299,7 +306,7 @@ Immunostimulating properties in cells
              [?] The polysaccharides within Black Hoof promote neuroprotection
              [?] An increase in endurance during physical activity
 <------------------------------------------->
-   | Wolfiporia extensa (Poria) Mushroom |  -  (250mg)
+   | Wolfiporia extensa (Poria) Mushroom |     ~-> (250mg)
 <------------------------------------------->
        [+] Promote cerebral blood flow. 
        [+] Improves blood flow 
@@ -315,7 +322,7 @@ Immunostimulating properties in cells
        [+] Supports respiratory function.
        [+] Supports digestive health.
 <------------------->
-   | Huperzine A |  -  (250mg)
+   | Huperzine A |     ~-> (250mg)
 <------------------->
     [+] Indirectly causes an increase in acetylcholine.
           Allowing for a greater reuptake of the neurotransmitter.
@@ -331,17 +338,17 @@ Immunostimulating properties in cells
     [+] 
     [+] 
 <---------------->
-   | Kumbacha |  -  (1 bottle every other day)
+   | Kumbacha |     ~-> (1 bottle every other day)
 <---------------->
     [+] 
     [+] 
 <--------------------------->
-   | Apple cider vinegar |  -  (1 shot, every other day)
+   | Apple cider vinegar |     ~-> (1 shot, every other day)
 <--------------------------->
     [+] 
     [+] 
 <------------------------>
-   |  Eggs [Organic]  |  -  (2-5 eggs)
+   |  Eggs [Organic]  |     ~-> (2-5 eggs)
 <------------------------>
     [+] 
     [+] 
