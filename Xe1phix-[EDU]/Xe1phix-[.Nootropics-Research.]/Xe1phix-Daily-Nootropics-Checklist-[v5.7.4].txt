@@ -1,7 +1,7 @@
 What's your daily regimen of supplements?
 
 <----------------------->
-   | Choline Bitrate |    ~-> (1 gram)
+   | Choline Bitrate |     ~-> (1 gram)
 <----------------------->
     [+] Enhances the production of acetylcholine in neurons.
     [+] Primary component of the neurotransmitter acetylcholine
@@ -15,7 +15,7 @@ What's your daily regimen of supplements?
     [+] 
 
 <------------------>
-   | Citicoline |    ~-> (1 gram)
+   | Citicoline |     ~-> (1 gram)
 <------------------>
     [+] Enhances the production of acetylcholine in neurons.
     [+] Modulates acetylcholine, dopamine, and glutamate. 
@@ -50,7 +50,7 @@ What's your daily regimen of supplements?
 A precursor for the synthesis of important phospholipids. 
 These phospholipids are essential to cell membranes. 
 <-------------------------->
-   | Phosphatidylserine |    ~-> ( mg)
+   | Phosphatidylserine |     ~-> ( mg)
 <-------------------------->
 
     [+] Enhances the production of acetylcholine in neurons.
@@ -62,11 +62,6 @@ These phospholipids are essential to cell membranes.
 <----------------------------------------------------->
    | Alpha-GPC [L-Alpha glycerylphosphorylcholine] |     ~->  (250-500mg)
 <----------------------------------------------------->
-
-  -------------------------------------------------------------------------
-> Alpha-GPC [L-Alpha glycerylphosphorylcholine]  -  (250-500mg)
-  -------------------------------------------------------------------------
-    [+] 
     [+] Parasympathomimetic acetylcholine precursor
     [+] Natural choline compound found in the brain. 
     [+] Delivers choline across the blood–brain barrier
@@ -84,12 +79,18 @@ These phospholipids are essential to cell membranes.
     [+] 
     [+] 
     [+] 
-   ---------------------
-> Multivitamin
-   ---------------------
+<-------------------->
+   | Multivitamin |     ~-> ( mg)
+<-------------------->
 
-> Xe1phix propriety mushroom blend
 
+##-================================================================-##
+##-><>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<><-##
+##               ________________________________
+##           [+] Xe1phix Nootropic Mushroom Stack:
+##              /\T/\T/\T/\T/\T/\T/\T/\T/\T/\T/\T/\
+##-><>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<><-##
+##-================================================================-##
 
 <------------------------------------------------>
    | Lions Mane [Hericium Erinaceus] Mushroom |     ~->  (250mg)
@@ -200,11 +201,14 @@ Immunostimulating properties in cells
                    > Ischemic strokes
                    > Parkinson's disease
                    > Alzheimer's disease
-##-><>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>--<>-<>-<>-<>-<>-<>-<><-##
+<[?]==================================================================================[?]>
+##-><>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<V>-<>-<>-<>-<>-<>-<>-<>--<>-<>-<>-<>-<>-<>-<><-##
 <[?]==================================================================================[?]>
 <---------------------------------------------------------------------------------------->
-                   [+] End of Lions Mane clinical trial data 
+                    [+] End of Lions Mane Clinical Trial Data 
 <---------------------------------------------------------------------------------------->
+<[?]==================================================================================[?]>
+##-><>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<^>-<>-<>-<>-<>-<>-<>-<>--<>-<>-<>-<>-<>-<>-<><-##
 <[?]==================================================================================[?]>
        [+] Regenerates brain cells.
        [+] 
