@@ -136,9 +136,7 @@ Lions Mane NeuroPharmacology Classifications & Characteristics:
 
 
 
-       [+] Immunostimulating properties in cells
-
-       [+] Improves the functioning of the hippocampus
+##     [+] Improves the functioning of the hippocampus
        [+] Promotes healthier Hippocampal Neurogenesis
        [+] Promotes healthier Cerebellar Neurogenesis
        [+] Promotes the growth and formation of neural connections.
@@ -166,8 +164,18 @@ Lions Mane NeuroPharmacology Classifications & Characteristics:
              [?] Indirect defense (inhibited tumor neovascularization) 
              [?] T helper cell (Th) 1 immune response. 
 ## ------------------------------------------------------------------------------------------------- ##
+       [+] Stimulates the development of brain cells 
+       [+] Regenerates brain tissues
+       [+] Prevent neuronal damage created by Amyloid Beta plaques. 
+             [?] Amyloid Beta plaques collect in the brain during Alzheimer’s disease
+## ------------------------------- Commented Out ------------------------------------------- ##
+##  [+] Protects brain cells against damage from Alzheimer’s disease. 
+## ----------------------------------------------------------------------------------------- ##
 
+
+## ------------------------------------------------------------------------------------------------- ##
        [+] Increased antioxidant levels
+
 ## ------------------------------------------------------------------------------------------------- ##
        [+] Improves fat metabolism
        [+] Promotes gut microbiota growth
@@ -183,6 +191,7 @@ Lions Mane NeuroPharmacology Classifications & Characteristics:
              [?] Hericenone B reduces the rate of blood clotting 
              [?] Hericenone B reduces the risk of heart attack or stroke
 ## ------------------------------------------------------------------------------------------------- ##
+       [+] Activates Immunostimulating properties in cells.
        [+] Contains several polysaccharides such as: 
               > B-glucan (beta-glucan)
               > heteroglycans
@@ -192,24 +201,14 @@ Lions Mane NeuroPharmacology Classifications & Characteristics:
               > erinacine. 
        [+] Hericenones and Erinacines stimulate the growth of brain cells.
 ## ------------------------------------------------------------------------------------------------- ##
-       [+] 
-                 [?] 
-
-       [+] Stimulates the development of brain cells 
-       [+] Regenerates brain tissues
-       [+] Prevent neuronal damage created by Amyloid Beta plaques. 
-             [?] Amyloid Beta plaques collect in the brain during Alzheimer’s disease
-## ------------------------------- Commented Out ------------------------------------------- ##
-##  [+] Protects brain cells against damage from Alzheimer’s disease. 
-## ----------------------------------------------------------------------------------------- ##
 
 
 
-<[?]==================================================================================[?]>
-    <-------------------------------------------------------------------------------->
-       [+] Clinical trials studying Lions Mane have reported: 
-    <-------------------------------------------------------------------------------->
-<[?]==================================================================================[?]>
+<[?]============================================================================================[?]>
+   <------------------------------------------------------------------------------------------->
+      [+] Clinical Trial Researching The NeuroPharmacology of Lions Mane (Hericium Erinaceus)
+   <------------------------------------------------------------------------------------------->
+<[?]============================================================================================[?]>
              [+] Decreases the severity of brain damage after a stroke by 44%.
              [+] Reduces recovery time from Nervious system injuries by 23% – 41%.
                    [?] This is done by stimulating growth and repair of neural cells
@@ -236,37 +235,20 @@ Lions Mane NeuroPharmacology Classifications & Characteristics:
 <[?]==================================================================================[?]>
 ##-><>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<>-<^>-<>-<>-<>-<>-<>-<>-<>--<>-<>-<>-<>-<>-<>-<><-##
 <[?]==================================================================================[?]>
-       [+] Regenerates brain cells.
        [+] 
        [+] 
        [+] 
+          [?] 
        [+] 
        [+] 
        [+] 
-## ------------------------------------------------------------------------------------------------- ##
-       [+] Remyelination - Regeneration of the Myelin
-                                        sheaths of the axons of nerves
-             [?] Improves the ability to cover nerve tissues with myelin.
-             [?] Which is a crucial factor in nerve growth.
-       [+] Supports myelination and regeneration of brain cells.
-       [+] Promotes healthy Myelin genesis.
-       [+] Stimulates remyelination action after myelin damage.
-       [+] Stimulates nerve growth factor (NGF).
-       [+] Provides regulatory and protective effects on myelination.
-## ------------------------------------------------------------------------------------------------- ##
-       [+] Protects against neurotoxicity 
-             [?] by regulating neuronal survival and cell death pathways.
-       [+] Preventing the cytotoxicity of neuronal cells 
-       [+] Preventing the production of ROS
-       [+] Provides neuroprotective mechanism 
-       [+] Rescues the neurotoxic process by:
-             [?] The disruption of the IRE1α/TRAF2 interaction 
-             [?] The reduction of p21 and GADD45 expression. 
-       [+] Antitumor mechanisms: 
-             [?] Direct tumor attack (apoptosis and metastatic suppression) 
-             [?] Indirect defense (inhibited tumor neovascularization) 
-             [?] T helper cell (Th) 1 immune response. 
-## ------------------------------------------------------------------------------------------------- ##
+          [?] 
+##-#################################################################################### ##
+##-====================================================================================-##
+##                 [+] End of Lions Mane [Hericium Erinaceus] Section
+##-====================================================================================-##
+##-####################################################################################-##
+
 
 <------------------------>
    | Shitake Mushroom |     ~-> (250mg)
