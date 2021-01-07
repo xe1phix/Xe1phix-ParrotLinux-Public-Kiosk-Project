@@ -118,19 +118,23 @@
    | Lions Mane [Hericium Erinaceus] Mushroom |     ~->  (250mg)
 <------------------------------------------------>
 
-Antibiotic
-Anticarcinogenic
-Antidiabetic
-Antifatigue
-Antihypertensive
-antihyperlipodemic
-antisenescence
-cardioprotective
-hepatoprotective
-nephroprotective 
-neuroprotective properties
-Antioxidative
-Immunostimulating properties in cells
+Lions Mane NeuroPharmacology Classifications & Characteristics:
+
+--=[ Antibiotic ]=~-
+--=[ Anticarcinogenic ]=~-
+--=[ Antidiabetic ]=~-
+--=[ Antifatigue ]=~-
+--=[ Antihypertensive ]=~-
+--=[ antihyperlipodemic ]=~-
+--=[ antisenescence ]=~-
+--=[ cardioprotective ]=~-
+--=[ hepatoprotective ]=~-
+--=[ nephroprotective ]=~-
+--=[ neuroprotective ]=~-
+--=[ Antioxidative ]=~-
+--=[ Immunostimulating ]=~-
+
+properties in cells
 
 
        [+] Improves the functioning of the hippocampus
