@@ -20,28 +20,31 @@
     [+] 
     [+] 
 
-<------------------>
-   | Citicoline |     ~-> (1 gram)
-<------------------>
+<------------------------------------------------>
+   | Citicoline (Cytidine-5'-diphosphocholine) |     ~-> (1 gram)
+<------------------------------------------------>
+   | CDP-Choline
+<------------------------------------------------>
+    [+] Provides neuroprotective properties against stroke and dementia
     [+] Enhances the production of acetylcholine in neurons.
-    [+] Modulates acetylcholine, dopamine, and glutamate. 
+    [+] Modulates acetylcholine, dopamine, and glutamate.
+
     [+] Protects neurons from free radical damage.
-    [+] Promotes electrical impulses in the brain
-    [+] Promotes healthy mitochondrial function
+    [+] Promotes electrical impulses in the brain.
+    [+] Promotes healthy mitochondrial function.
+    [+] Improves the integrity of neuronal membranes.
     [+] Supports the synthesis and maintenance of cell membranes.
     [+] 
     [+] 
     [+] Involved in phospholipid metabolism
 
-    [+] Supports vital nutrients required to support 
-          your body's regeneration of Phospholipids. 
-          [?] Phospholipids make up 30% of our brain tissue
-          [?] Phospholipids provide essential protection for neurons
-          [?] Phospholipids support neural communication 
-    [+] 
+    [+] Provides vital nutrients required to support 
+        the body's regeneration of Phospholipids. 
+        [?] Phospholipids make up 30% of our brain tissue
+        [?] Phospholipids provide essential protection for neurons
+        [?] Phospholipids support neural communication 
+
     [+] Provides neuroprotective properties against stroke and dementia
-    [+] 
-    [+] Enhances the integrity of neuronal membranes
     [+] 
 
 
