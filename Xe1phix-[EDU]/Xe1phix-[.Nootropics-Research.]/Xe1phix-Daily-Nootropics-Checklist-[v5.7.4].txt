@@ -134,8 +134,9 @@ Lions Mane NeuroPharmacology Classifications & Characteristics:
 --=[ Antioxidative ]=~-
 --=[ Immunostimulating ]=~-
 
-properties in cells
 
+
+       [+] Immunostimulating properties in cells
 
        [+] Improves the functioning of the hippocampus
        [+] Promotes healthier Hippocampal Neurogenesis
@@ -143,10 +144,9 @@ properties in cells
        [+] Promotes the growth and formation of neural connections.
 
 ## ------------------------------------------------------------------------------------------------- ##
-       [+] Remyelination - Regeneration of the Myelin
-                                        sheaths of the axons of nerves
+       [+] Remyelination - Regeneration of the Myelin sheaths of the axons of nerves.
              [?] Improves the ability to cover nerve tissues with myelin.
-             [?] Which is a crucial factor in nerve growth.
+                 [?] Which is a crucial factor in nerve growth.
        [+] Supports myelination and regeneration of brain cells.
        [+] Promotes healthy Myelin genesis.
        [+] Stimulates remyelination action after myelin damage.
