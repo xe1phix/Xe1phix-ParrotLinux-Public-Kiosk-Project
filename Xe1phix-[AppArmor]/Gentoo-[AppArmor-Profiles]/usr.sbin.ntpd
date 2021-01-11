@@ -1,0 +1,73 @@
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2002-2009 Novell/SUSE
+#    Copyright (C) 2010 Canonical Ltd.
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+
+#include <tunables/global>
+#include <tunables/ntpd>
+/usr/sbin/ntpd flags=(attach_disconnected) {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/openssl>
+  #include <abstractions/xad>
+
+  capability dac_override,
+  capability ipc_lock,
+  capability net_bind_service,
+  capability setgid,
+  capability setuid,
+  capability sys_chroot,
+  capability sys_resource,
+  capability sys_time,
+  capability sys_nice,
+
+  network unspec dgram,
+
+  /drift/ntp.drift rwl,
+  /drift/ntp.drift.TEMP rwl,
+  /etc/ntp.conf r,
+  /etc/ntp/drift* rwl,
+  /etc/ntp.keys r,
+  /etc/ntp/step-tickers r,
+  /etc/ntpd.conf r,
+  /etc/ntpd.conf.tmp r,
+
+  /tmp/ntp* rwl,
+  /{usr/,usr/local/,}{s,}bin/ r,
+  /usr/sbin/ntpd rmix,
+  /var/lib/ntp/drift rwl,
+  /var/lib/ntp/drift.TEMP rwl,
+  /var/lib/ntp/drift/driftfile rw,
+  /var/lib/ntp/drift/driftfile.TEMP rw,
+  /var/lib/ntp/drift/ntp.drift rw,
+  /var/lib/ntp/drift/ntp.drift.TEMP rw,
+  /var/lib/ntp/etc/* r,
+  /var/lib/ntp/ntp.drift rw,
+  /var/lib/ntp/ntp.drift.TEMP rw,
+  /var/lib/ntp/{,var/}run/ntp/ntpd.pid w,
+  /var/log/ntp w,
+  /var/log/ntp.log w,
+  /var/log/ntpstats/loopstats* lrw,
+  /var/log/ntpstats/peerstats* lrw,
+  /var/opt/novell/xad/rpc/xadsd rw,
+  /{,var/}run/nscd/services r,
+  /{,var/}run/ntpd.pid w,
+  /{,var/}run/ntp/ntpd.pid w,
+  /var/tmp/ntp* rwl,
+  @{PROC}/@{pid}/net/if_inet6 r,
+
+  # allow access for when chrooted
+  /var/lib/ntp/@{PROC}/@{pid}/net/if_inet6 r,
+  /var/lib/ntp/@{PROC}/sys/kernel/ngroups_max r,
+
+  @{NTPD_DEVICE} rw,
+
+  # Site-specific additions and overrides. See local/README for details.
+  #include <local/usr.sbin.ntpd>
+}

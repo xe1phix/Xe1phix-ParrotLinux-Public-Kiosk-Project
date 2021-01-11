@@ -1,0 +1,32 @@
+# vim:syntax=apparmor
+# Author: Bozhin Zafirov <bozhin@abv.bg>
+
+#include <tunables/global>
+
+/opt/telegram/Telegram {
+  #include <abstractions/base>
+  #include <abstractions/fonts>
+  #include <abstractions/audio>
+  #include <abstractions/kde>
+  #include <abstractions/dbus-session>
+  #include <abstractions/nameservice>
+
+  # access to binary
+  /opt/telegram/Telegram rmPx,
+
+  owner @{HOME}/.local/share r,
+  owner @{HOME}/.local/share/TelegramDesktop/ rwk,
+  owner @{HOME}/.local/share/TelegramDesktop/** rwkl,
+  owner @{HOME}/.icons/** r,
+  owner @{HOME}/.cache/** rwk,
+
+  # home files
+  owner @{HOME}/ r,
+  owner @{HOME}/* rwk,
+
+  # shared libraries
+  /usr/lib/** rm,
+
+  # /proc
+  owner @{PROC}/*/cmdline r,
+}
