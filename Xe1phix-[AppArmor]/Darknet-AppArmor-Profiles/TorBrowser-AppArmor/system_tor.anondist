@@ -1,0 +1,53 @@
+## This file is part of Whonix.
+## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+## Begin Tor Local AppArmor Profile for Anonymity Distributions
+
+## Workaround for: config-package-dev clashes with AppArmor profiles
+## https://github.com/Whonix/Whonix/issues/66
+
+## A profile /etc/apparmor.d/anondist could not cover the system_tor
+## profile, since that is started by the /etc/init.d/tor init script.
+## https://github.com/Whonix/Whonix/issues/67
+
+  ## Anonymity Distributions
+  /etc/hosts.anondist r,
+  /etc/resolv.conf.anondist r,
+  /run/tor r,
+  /run/tor/log rwk,
+
+## Add permissions for obfsproxy and flashproxy.
+## AUDIT:
+## These profile rules may be too permissive. Needs audit and someone dedicated
+## to work on AppArmor profiles. It's not a serious security issue in any case,
+## because AppArmor isn't enabled by default in Debian jessie yet and little
+## work is being done on it at time of writing. So it's a lax AppArmor profile
+## versus no AppArmor at all.
+
+  ## obfsproxy
+  /usr/local/lib/python2.7/** r,
+  /var/log/tor/log rw,
+  /dev/urandom r,
+  /dev/random r,
+  /usr/** r,
+  /etc/python2.7/sitecustomize.py r,
+  ## https://www.whonix.org/forum/index.php/topic,559.30.html
+  #/usr/bin/obfsproxy rix,
+
+  ## flashproxy
+  @{HOME}/.tb/tor-browser/App/flashproxy-client rix,
+  @{HOME}/.tb/tor-browser/App/flashproxy-reg-appspot rix,
+  @{HOME}/.tb/tor-browser/App/flashproxy-reg-url rix,
+  @{HOME}/.tb/tor-browser/App/flashproxy-reg-http rix,
+  @{HOME}/.tb/tor-browser/App/flashproxy-reg-email rix,
+  @{HOME}/.tb/tor-browser/App/** rm,
+  /usr/bin/python2.7 rix,
+  /usr/lib/python2.7/dist-packages/** m,
+  /usr/lib/python2.7/lib-dynload/** m,
+  /usr/lib/pyshared/python2.7/OpenSSL/** m,
+  /usr/lib/python2.7/lib-dynload/** m,
+  /usr/lib/pyshared/python2.7/numpy/** m,
+  /proc/*/mounts r,
+
+## End Tor Local AppArmor Profile for Anonymity Distributions
