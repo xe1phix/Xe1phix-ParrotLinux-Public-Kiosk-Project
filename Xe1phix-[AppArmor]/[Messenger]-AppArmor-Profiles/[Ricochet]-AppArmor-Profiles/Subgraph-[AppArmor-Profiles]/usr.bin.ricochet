@@ -1,0 +1,56 @@
+# Last Modified: Thu Mar 31 16:49:19 2016
+#include <tunables/global>
+
+# ------------------------------------------------------------------
+#
+#    Copyleft (C) 2016 Jacob Appelbaum <jacob@appelbaum.net>
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+
+
+/usr/bin/ricochet {
+  #include <abstractions/audio>
+  #include <abstractions/kde>
+  #include <abstractions/nameservice>
+
+  network inet stream,
+  unix (receive) type=stream,
+  unix (send) type=stream,
+
+  /dev/shm/* rw,
+  /dev/shm/** rw,
+  /dev/shm/*/ a,
+  /dev/tty r,
+  /etc/debian_version r,
+  /etc/machine-id r,
+  /etc/os-release r,
+  /etc/udev/udev.conf r,
+  /home/*/.config/ibus/bus/* r,
+  /proc/[0-9]*/cmdline r,
+  /proc/sys/kernel/random/uuid r,
+  /run/udev/data/* r,
+  /sys/devices/pci[0-9]*/**/uevent r,
+  /sys/devices/system/cpu/ r,
+  /usr/bin/pulseaudio rix,
+  /usr/bin/ricochet r,
+  /usr/bin/tor rix,
+  /usr/lib/** mr,
+  /usr/share/themes/* r,
+  /usr/share/themes/**/* r,
+  /usr/share/tor/geoip r,
+  /usr/share/tor/geoip6 r,
+  /var/lib/dbus/machine-id r,
+  /var/run/tor/control rw,
+  /var/run/tor/socks rw,
+  owner /{dev,run}/shm/pulse-shm* m,
+  owner @{HOME}/.config/ricochet rw,
+  owner @{HOME}/.config/ricochet/** mrwk,
+  owner @{HOME}/.gtkrc-2.0 r,
+  owner @{HOME}/.local/share/Ricochet/ rw,
+  owner @{HOME}/.local/share/Ricochet/** mrwk,
+
+}
