@@ -1,0 +1,74 @@
+# ------------------------------------------------------------------
+#
+#   Copyright (C) 2016 Canonical Ltd.
+#
+#   This program is free software; you can redistribute it and/or
+#   modify it under the terms of version 2 of the GNU General Public
+#   License published by the Free Software Foundation.
+#
+#   Author: Jonathan Davies <jonathan.davies@canonical.com>
+#           Ryan Harper <ryan.harper@canonical.com>
+#
+# ------------------------------------------------------------------
+
+#include <tunables/global>
+
+/usr/lib/ipsec/charon flags=(attach_disconnected) {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/authentication>
+  #include <abstractions/openssl>
+  #include <abstractions/p11-kit>
+
+  capability ipc_lock,
+  capability net_admin,
+  capability net_raw,
+
+  # allow priv dropping (LP: #1333655)
+  capability chown,
+  capability setgid,
+  capability setuid,
+  capability setpcap,
+
+  # libcharon-extra-plugins: xauth-pam
+  capability audit_write,
+
+  # libstrongswan-standard-plugins: agent
+  capability dac_override,
+
+  network,
+  network raw,
+
+  /{,usr/}bin/dash                 rmPUx,
+
+  # libcharon-extra-plugins: kernel-libipsec
+  /dev/net/tun              rw,
+
+  /etc/ipsec.conf           r,
+  /etc/ipsec.secrets        r,
+  /etc/ipsec.*.secrets      r,
+  /etc/ipsec.d/             r,
+  /etc/ipsec.d/**           r,
+  /etc/ipsec.d/crls/*       rw,
+  /etc/opensc/opensc.conf   r,
+  /etc/strongswan.conf      r,
+  /etc/strongswan.d/        r,
+  /etc/strongswan.d/**      r,
+  /etc/tnc_config           r,
+
+  /proc/sys/net/core/xfrm_acq_expires   w,
+
+  /run/charon.*             rw,
+  /run/pcscd/pcscd.comm     rw,
+
+  /usr/lib/ipsec/charon     rmix,
+  /usr/lib/ipsec/imcvs/     r,
+  /usr/lib/ipsec/imcvs/**   rm,
+
+  /usr/lib/*/opensc-pkcs11.so rm,
+
+  /var/lib/strongswan/*     r,
+
+  # Site-specific additions and overrides. See local/README for details.
+  #include <local/usr.lib.ipsec.charon>
+}

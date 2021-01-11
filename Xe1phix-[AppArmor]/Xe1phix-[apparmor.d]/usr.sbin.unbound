@@ -1,0 +1,49 @@
+# Author: Simon Deziel
+# vim:syntax=apparmor
+#include <tunables/global>
+
+/usr/sbin/unbound flags=(attach_disconnected) {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/openssl>
+
+  # chown the PID/Unix control socket
+  capability chown,
+  # chmod the Unix control socket
+  capability fowner,
+  capability fsetid,
+
+  # added to abstractions/nameservices in Apparmor 2.12
+  /var/lib/sss/mc/initgroups r,
+
+  capability net_bind_service,
+  capability setgid,
+  capability setuid,
+  capability sys_chroot,
+  capability sys_resource,
+
+  # root hints from dns-data-root
+  /usr/share/dns/root.* r,
+
+  # non-chrooted paths
+  /etc/unbound/** r,
+  owner /etc/unbound/*.key* rw,
+  audit deny /etc/unbound/unbound_control.{key,pem} rw,
+  audit deny /etc/unbound/unbound_server.key w,
+
+  # chrooted paths
+  /var/lib/unbound/** r,
+  owner /var/lib/unbound/** rw,
+  audit deny /var/lib/unbound/**/unbound_control.{key,pem} rw,
+  audit deny /var/lib/unbound/**/unbound_server.key w,
+
+  /usr/sbin/unbound mr,
+
+  /{,var/}run/systemd/notify w,
+  /{,var/}run/{unbound/,}unbound.pid rw,
+
+  # Unix control socket
+  /{,var/}run/unbound.ctl rw,
+
+  #include <local/usr.sbin.unbound>
+}

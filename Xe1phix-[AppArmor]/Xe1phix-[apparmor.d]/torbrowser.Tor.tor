@@ -1,0 +1,26 @@
+#include <tunables/global>
+
+/home/*/.local/share/torbrowser/tbb/{i686,x86_64}/tor-browser_*/{Browser/TorBrowser/,}Tor/tor {
+  #include <abstractions/base>
+
+  network tcp,
+  network udp,
+
+  /etc/host.conf r,
+  /etc/nsswitch.conf r,
+  /etc/passwd r,
+  /etc/resolv.conf r,
+  owner @{HOME}/.local/share/torbrowser/tbb/{i686,x86_64}/tor-browser_*/{Browser/TorBrowser/,}Tor/tor mr,
+  owner @{HOME}/.local/share/torbrowser/tbb/{i686,x86_64}/tor-browser_*/{Browser/TorBrowser/,}Data/Tor/* rw,
+  owner @{HOME}/.local/share/torbrowser/tbb/{i686,x86_64}/tor-browser_*/{Browser/TorBrowser/,}Data/Tor/lock rwk,
+  owner @{HOME}/.local/share/torbrowser/tbb/{i686,x86_64}/tor-browser_*/{Browser/TorBrowser/Tor,Lib}/*.so mr,
+  owner @{HOME}/.local/share/torbrowser/tbb/{i686,x86_64}/tor-browser_*/{Browser/TorBrowser/Tor,Lib}/*.so.* mr,
+
+  @{PROC}/sys/kernel/random/uuid r,
+  /sys/devices/system/cpu/ r,
+
+  # OnionShare compatibility
+  /tmp/onionshare/** rw,
+
+  #include <local/torbrowser.Tor.tor>
+}
