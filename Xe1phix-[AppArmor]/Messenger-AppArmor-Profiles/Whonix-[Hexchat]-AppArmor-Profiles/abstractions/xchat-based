@@ -1,0 +1,101 @@
+## Copyright (C) 2014 troubadour <trobador@riseup.net>
+## Copyright (C) 2014 - 2020 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+   #include <abstractions/base>
+   #include <abstractions/bash>
+   #include <abstractions/fonts>
+   #include <abstractions/kde>
+   #include <abstractions/gnome>
+   #include <abstractions/X>
+   #include <abstractions/audio>
+
+   deny @{PROC}/** r,
+
+   @{HOME}/ r,
+   @{HOME}/.config/** rwk,
+   @{HOME}/.xchat2/ r,
+   @{HOME}/.xchat2/** rwixk,
+   @{HOME}/.config/ r,
+   @{HOME}/.config/hexchat/ r,
+   @{HOME}/.config/hexchat/** rwixk,
+   @{HOME}/.kde/share/config/gtkrc-2.0 r,
+   @{HOME}/.kde/share/config/oxygenrc r,
+   @{HOME}/.*/lib/python*/** r,
+
+   /bin/grep rix,
+   /bin/uname rix,
+   /bin/mkdir rix,
+   /bin/rm rix,
+
+   /usr/bin/grep rix,
+   /usr/bin/uname rix,
+   /usr/bin/mkdir rix,
+   /usr/bin/rm rix,
+
+   /dev/tty rwix,
+   /dev/null rw,
+
+   /etc/passwd r,
+   /etc/group r,
+   /etc/host.conf r,
+   /etc/hosts r,
+   /etc/resolv.conf r,
+   /etc/gai.conf r,
+   /etc/nsswitch.conf r,
+   /etc/ld.so.cache r,
+   /etc/machine-id r,
+   /etc/os-release r,
+   /etc/xdg/xfce4/helpers.rc r,
+   /etc/xfce4/defaults.list r,
+   /etc/python*/sitecustomize.py r,
+
+   /lib/*-linux-gnu/** mr,
+
+   /usr/bin/xchat rix,
+   /usr/bin/xdg-open rix,
+   /usr/bin/dbus-send rix,
+   /usr/bin/xprop  rix,
+   /usr/bin/exo-open rix,
+   /usr/bin/sensible-browser rix,
+   /usr/bin/zenity rix,
+   /usr/bin/torbrowser rix,
+   /usr/bin/basename rix,
+   /usr/bin/kde4-config rix,
+   /usr/bin/aplay rix,
+
+   /usr/lib/*-linux-gnu/** mrix,
+   /usr/lib/xchat/plugins/* mr,
+   /usr/lib/perl*/** mr,
+   /var/lib/snapd/desktop/applications/ r,
+   
+   ## The Ux permission is too dangerous to be enabled by default.
+   #/usr/lib/firefox-esr/firefox* Ux,
+   
+   /usr/lib/python*/lib-dynload/*.so mr,
+
+   /usr/local/lib/python*/dist-packages/ r,
+   /usr/local/lib/python*/dist-packages/* r,
+
+   /usr/share/icons/** r,
+   /usr/share/enchant/* r,
+   /usr/share/myspell/dicts/ r,
+   /usr/share/hunspell/ r,
+   /usr/share/hunspell/* r,
+   /usr/share/ca-certificates/** r,
+   /usr/share/xfce4/helpers/* r,
+   /usr/share/xfce4/applications/ r,
+   /usr/share/xfce4/applications/mimeinfo.cache r,
+   /usr/share/zenity/* r,
+   /usr/share/fontconfig/** r,
+   /usr/share/poppler/cMap/ r,
+   /usr/share/poppler/cMap/** r,
+   /usr/share/perl*/** mr,
+   /usr/share/tcltk/tcl8.5/* r,
+   /usr/share/pyshared/* r,
+   /usr/share/aspell/ r,
+   /usr/share/aspell/** r,
+
+   /var/lib/aspell/* r,
+
+   /run/*/resolv.conf r,
