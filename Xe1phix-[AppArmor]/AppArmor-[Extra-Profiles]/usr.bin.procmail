@@ -1,0 +1,37 @@
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2002-2006 Novell/SUSE
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+
+#include <tunables/global>
+
+/usr/bin/procmail {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/nameservice>
+  #include <abstractions/user-mail>
+
+  # procmail configuration
+  /etc/procmailrc       r,
+  @{HOME}/.procmail/*   rwl,
+  @{HOME}/.procmailrc   r,
+  @{HOME}/.procmail.log rwl,
+
+  # users want procmail to do many things:
+  @{HOME}/** rwl,
+
+  /dev/tty	        rw,
+  # common commands
+  /{usr/,}bin/bash      rmix,
+  /{usr/,}bin/date	    rmix,
+  /{usr/,}bin/gzip      rmix,
+  /usr/bin/formail      rmix,
+  /usr/bin/procmail     rmix,
+  /usr/bin/spamc        Px,
+  /usr/sbin/sendmail    rPx,
+}

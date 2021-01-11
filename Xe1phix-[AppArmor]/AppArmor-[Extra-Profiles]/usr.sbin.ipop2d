@@ -1,0 +1,24 @@
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2002-2005 Novell/SUSE
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+
+#include <tunables/global>
+
+/usr/sbin/ipop2d {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/authentication>
+  #include <abstractions/user-mail>
+  #include <abstractions/openssl>
+
+  /dev/urandom                           r     ,
+  /tmp/.*                                rwl   ,
+  /usr/sbin/ipop2d                       rmix,
+  /usr/share/ssl/certs/ipop2d.pem        r     ,
+}

@@ -1,0 +1,75 @@
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2002-2005 Novell/SUSE
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+# vim:syntax=apparmor
+
+#include <tunables/global>
+/usr/bin/opera {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/kde>
+  #include <abstractions/nameservice>
+  #include <abstractions/user-write>
+  #include <abstractions/user-download>
+  #include <abstractions/X>
+
+  capability dac_override,
+
+  /{usr/,}bin/bash mix,
+  /{usr/,}bin/sed mixr,
+  /{usr/,}bin/true mixr,
+  /etc/SuSE-release r,
+  /etc/X11/.qt_plugins_3.3rc.lock rw,
+  /etc/X11/.qtrc.lock rw,
+  /etc/cups/client.conf r,
+  /etc/cups/lpoptions r,
+  /etc/opera6rc        rw,
+  /etc/opera6rc.fixed rw,
+  @{PROC}/@{pid}/stat r,
+  @{PROC}/net/if_inet6 r,
+  @{PROC}/sys/vm/heap-stack-gap r,
+
+  @{HOME} r,
+  @{HOME}/.fonts.cache-* r,
+  @{HOME}/.fonts r,
+  @{HOME}/.fonts/** r,
+  @{HOME}/.kde/share/** r,
+  @{HOME}/OperaDownloads/* rw,
+  @{HOME}/.opera/** lrw,
+  @{HOME}/.opera r,
+  @{HOME}/tux/.fonts/ r,
+  @{HOME}/tux/.qt/.qtrx.lock k,
+  @{HOME}/tux/.opera/ w,
+
+  /opt/ r,
+  /opt/kde3/lib/kde3/plugins/integration/*.so mr,
+
+  /usr/ r,
+  /usr/share/** r,
+  /usr/bin/acroread rPx,
+  /usr/bin/opera r,
+  /usr/lib r,
+  /usr/lib/RealPlayer10/realplay rPx,
+  /usr/lib/RealPlayer10/realplay.bin rPx,
+  /usr/lib/browser-plugins r,
+  /usr/lib/browser-plugins/* mr,
+  /usr/lib/jvm/** mr,
+  /usr/lib/opera/** mixr,
+  /usr/local r,
+  /usr/share/opera/** r,
+  /{,var/}run/.resmgr_socket w,
+  /var/spool/cups/tmp/* lrw,
+
+  /usr/bin/opera mr,
+  /usr/lib/jvm/java-1.5.0-sun-1.5.0_update12/jre/lib/i386/*.so mr,
+  /usr/lib/jvm/java-1.5.0-sun-1.5.0_update12/jre/lib/i386/client/*.so mr,
+  /usr/lib/opera/*/opera ix,
+  /usr/lib/opera/*/works ixr,
+}

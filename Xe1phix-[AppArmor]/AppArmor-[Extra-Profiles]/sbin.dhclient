@@ -1,0 +1,80 @@
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2002-2005 Novell/SUSE
+#    Copyright (C) 2015 Christian Boltz
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+# Note that this profile doesn't include any NetDomain rules; dhclient uses
+# raw sockets, and thus cannot be confined with NetDomain
+#
+# Should these programs have their own domains?
+# /bin/ps                     mrix,
+# /sbin/arp                   mrix,
+# /usr/bin/dig                mrix,
+# /usr/bin/uptime             mrix,
+# /usr/bin/vmstat             mrix,
+# /usr/bin/w                  mrix,
+
+#include <tunables/global>
+
+profile dhclient /{usr/,}sbin/dhclient {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/nameservice>
+
+  capability net_raw,
+
+  network packet packet,
+  network packet raw,
+
+  /{usr/,}sbin/dhclient       mrix,
+
+  /{usr/,}bin/bash            mrix,
+  /{usr/,}bin/df              mrix,
+  /{usr/,}bin/netstat         Px,
+  /{usr/,}bin/ps              mrix,
+  /dev/random                 r,
+  /etc/dhclient.conf          r,
+  @{PROC}/                    r,
+  @{PROC}/interrupts          r,
+  @{PROC}/@{pid}/net/dev      r,
+  @{PROC}/rtc                 r,
+  # following rule shouldn't work, self is a symlink
+  @{PROC}/self/status         r,
+  /{usr/,}sbin/arp            mrix,
+  /usr/bin/dig                mrix,
+  /usr/bin/uptime             mrix,
+  /usr/bin/vmstat             mrix,
+  /usr/bin/w                  mrix,
+  /usr/lib/nm-dhcp-helper     rix,
+  /var/lib/dhcp/dhclient.leases     rw,
+  /var/lib/dhcp/dhclient-*.leases   rw,
+  /var/lib/dhcp6/dhclient.leases    rw,
+  /var/lib/NetworkManager/dhclient-*.conf  r,
+  /var/lib/NetworkManager/dhclient-*.lease rw,
+  /var/log/lastlog            r,
+  /var/log/messages           r,
+  /var/log/wtmp               r,
+  /{,var/}run/dhclient.pid    rw,
+  /{,var/}run/dhclient-*.pid  rw,
+  /var/spool                  r,
+  /var/spool/mail             r,
+
+  # This one will need to be fleshed out depending on what the user is doing
+  /{usr/,}sbin/dhclient-script mrpix,
+
+  /{usr/,}bin/grep mrix,
+  /{usr/,}bin/sleep mrix,
+  /etc/sysconfig/network/dhcp r,
+  /etc/sysconfig/network/scripts/functions.common r,
+  /etc/sysconfig/network/scripts/functions r,
+  /{usr/,}sbin/ip mrix,
+  /usr/lib/NetworkManager/nm-dhcp-client.action mrix,
+  /var/lib/dhcp/* rw,
+  /{,var/}run/nm-dhclient-*.conf r,
+
+}

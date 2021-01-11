@@ -1,0 +1,66 @@
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2002-2005 Novell/SUSE
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+# vim:syntax=apparmor
+
+#include <tunables/global>
+
+/usr/sbin/lighttpd {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/web-data>
+
+  # needed to change max file descriptors
+  capability sys_resource,
+
+  # network service ;)
+  capability net_bind_service,
+
+  # changing the uid/gid on startup
+  capability setgid,
+  capability setuid,
+
+  /etc/lighttpd r,
+  /etc/lighttpd/*.conf r,
+  /etc/lighttpd/conf.d/*.conf r,
+  /etc/lighttpd/auth.d/* r,
+  /etc/lighttpd/vhosts.d r,
+  /etc/lighttpd/vhosts.d/* r,
+  /usr/sbin/lighttpd mix,
+
+  /usr/lib/lighttpd/*.so mr,
+  /usr/lib64/lighttpd/*.so mr,
+
+  /etc/ssl/private/*.pem r,
+  # home dir. e.g. used for sockets.
+  /var/lib/lighttpd/ r,
+  /var/lib/lighttpd/** rwl,
+  # mod_compress cache
+  /var/cache/lighttpd/ r,
+  /var/cache/lighttpd/** rwl,
+  # pid
+  /{,var/}run/lighttpd.pid rwl,
+  # log files
+  /var/log/lighttpd/*.log rw,
+  # include_shell
+  /{usr/,}bin/bash mix,
+  /{usr/,}bin/zsh mix,
+  /{usr/,}bin/cat mix,
+
+  # Debian/Ubuntu integration in default installation
+  #include <abstractions/perl>
+  /etc/mime.types r,
+  /usr/share/lighttpd/ r,
+  /usr/share/lighttpd/*.pl rmix,
+  /etc/lighttpd/conf-available/ r,
+  /etc/lighttpd/conf-available/*.conf r,
+  /etc/lighttpd/conf-enabled/ r,
+  /etc/lighttpd/conf-enabled/*.conf r,
+}
+

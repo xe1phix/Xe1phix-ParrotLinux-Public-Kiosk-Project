@@ -1,0 +1,48 @@
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2002-2005 Novell/SUSE
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+
+#include <tunables/global>
+
+/usr/sbin/sendmail.sendmail {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+
+  @{PROC}/loadavg             r,
+  /etc/aliases                rw,
+  /etc/aliases.db             rw,
+  /etc/fstab                  r,
+  /etc/hosts.allow            r,
+  /etc/hosts.deny             r,
+  /etc/ldap.conf              r,
+  /etc/mail/statistics        rw,
+  /etc/mail/*                 r,
+  /etc/mtab                   r,
+  /etc/sendmail.cf            r,
+  /etc/sendmail.cw            r,
+  /etc/shells                 r,
+  /root/.forward              rw,
+  /root/dead.letter           w,
+  /usr/bin/procmail           Px,
+  /usr/kerberos/lib/lib*.so*  r,
+  /usr/lib/sasl               r,
+  /usr/lib/sasl/*             mr,
+  /usr/lib/sasl2              r,
+  /usr/lib/sasl2/*            mr,
+  /usr/sbin/sendmail.sendmail rmix,
+  /{,var/}run/sendmail.pid       rwl,
+  /{,var/}run/sm-client.pid      rwl,
+  /{,var/}run/utmp               rw,
+  /var/spool/clientmqueue     r,
+  /var/spool/clientmqueue/*   rwl,
+  /var/spool/mail             rwl,
+  /var/spool/mail/*           rwl,
+  /var/spool/mqueue           rwl,
+  /var/spool/mqueue/*         rwl,
+}

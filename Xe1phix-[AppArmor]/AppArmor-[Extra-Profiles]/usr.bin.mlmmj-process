@@ -1,0 +1,46 @@
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2002-2005 Novell/SUSE
+#    Copyright (C) Per Jessen <per@computer.org>
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+# vim:syntax=apparmor
+
+#include <tunables/global>
+
+/usr/bin/mlmmj-process {
+  #include <abstractions/base>
+
+  /usr/bin/mlmmj-process mr,
+  /usr/bin/mlmmj-send Px,
+  /usr/bin/mlmmj-sub Px,
+  /usr/bin/mlmmj-unsub Px,
+  /usr/bin/mlmmj-bounce Px,
+  # skeleton data
+  /usr/share/mlmmj/text.skel/ r,
+  /usr/share/mlmmj/text.skel/*/* r,
+
+  /var/spool/mlmmj/*/control/* r,
+  /var/spool/mlmmj/*/text/* r,
+  /var/spool/mlmmj/*/incoming/* rwl,
+  /var/spool/mlmmj/*/queue/** rwl,
+  /var/spool/mlmmj/*/subconf/* rwl,
+  /var/spool/mlmmj/*/unsubconf/* rwl,
+  /var/spool/mlmmj/*/mlmmj.operation.log rwk,
+  /var/spool/mlmmj/*/mlmmj.operation.log.rotated w,
+
+  /var/spool/mlmmj/*/nomailsubs.d/ r,
+  /var/spool/mlmmj/*/nomailsubs.d/* r,
+  /var/spool/mlmmj/*/subscribers.d/ r,
+  /var/spool/mlmmj/*/subscribers.d/* r,
+  /var/spool/mlmmj/*/digesters.d/ r,
+  /var/spool/mlmmj/*/digesters.d/* r,
+
+  /var/spool/mlmmj/*/moderation/* rw,
+  /etc/mlmmj/text/*/* r,
+
+}

@@ -1,0 +1,50 @@
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2002-2005 Novell/SUSE
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+# vim:syntax=apparmor
+# Last Modified: Wed Aug 31 11:14:09 2005
+
+#include <tunables/global>
+
+/usr/lib/RealPlayer10/realplay {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/fonts>
+  #include <abstractions/kde>
+  #include <abstractions/nameservice>
+  #include <abstractions/gnome>
+  #include <abstractions/user-download>
+  #include <abstractions/X>
+
+  /{usr/,}bin/bash mix,
+  /{usr/,}bin/sed mixr,
+  /{usr/,}bin/true mixr,
+  /etc/pango/pango.modules r,
+  /usr/share/icons r,
+  /usr/share/icons/** r,
+  /usr/share/themes/** r,
+  /dev/dsp0 w,
+  /etc/lsb-release r,
+
+  @{HOME}/.fonts.cache-* r,
+  @{HOME}/.mailcap rw,
+  @{HOME} r,
+  @{HOME}/ r,
+  @{HOME}/.realplayerrc rw,
+
+  /usr/lib/RealPlayer10/** mr,
+  /usr/lib/RealPlayer10/realplay.bin Pxr,
+  /usr/lib/firefox/firefox.sh Pxr,
+  /usr/bin/opera Pxr,
+  /usr/share/icons r,
+  /usr/share/icons/** r,
+  /usr/share/pixmaps r,
+  /usr/share/pixmaps/** r,
+}

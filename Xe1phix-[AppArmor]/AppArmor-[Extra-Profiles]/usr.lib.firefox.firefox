@@ -1,0 +1,129 @@
+# vim:syntax=apparmor
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2009-2011 Canonical Ltd.
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+
+#include <tunables/global>
+
+# We want to confine the binaries that match:
+#  /usr/lib/firefox-4.0b8/firefox
+#  /usr/lib/firefox-4.0b8/firefox
+# but not:
+#  /usr/lib/firefox-4.0b8/firefox.sh
+/usr/lib/firefox{,-[0-9]*}/firefox{,*[^s][^h]} {
+  #include <abstractions/audio>
+  #include <abstractions/cups-client>
+  #include <abstractions/dbus-session>
+  #include <abstractions/gnome>
+  #include <abstractions/ibus>
+  #include <abstractions/kde>
+  #include <abstractions/nameservice>
+
+  # for networking
+  network inet stream,
+  network inet6 stream,
+  @{PROC}/@{pid}/net/if_inet6 r,
+  @{PROC}/@{pid}/net/ipv6_route r,
+
+  # should maybe be in abstractions
+  /usr/share/xubuntu/applications/defaults.list r,
+  owner /tmp/** m,
+  owner /var/tmp/** m,
+  /tmp/.X[0-9]*-lock r,
+
+  /etc/timezone r,
+  /etc/writable/timezone r,
+  /etc/wildmidi/wildmidi.cfg r,
+
+  # firefox specific
+  /etc/firefox*/** r,
+  /etc/xul-ext/** r,
+  /etc/xulrunner{,-[0-9]*}/** r,
+  /etc/gre.d/* r,
+  /etc/mailcap r,
+  /etc/mime.types r,
+
+  # noisy
+  deny /usr/lib/firefox{,-[0-9]*}/** w,
+  deny /usr/lib/{firefox,xulrunner}-addons/** w,
+  deny /usr/lib/xulrunner-*/components/*.tmp w,
+  deny /.suspended r,
+  deny /boot/initrd.img* r,
+  deny /boot/vmlinuz* r,
+  deny /var/cache/fontconfig/ w,
+
+  deny /usr/bin/gconftool-2 x,
+
+  # These are needed when a new user starts firefox and firefox.sh is used
+  /usr/lib/firefox{,-[0-9]*}/** ixr,
+  deny /usr/lib/firefox/firefox.sh x,
+  /usr/bin/basename ixr,
+  /usr/bin/dirname ixr,
+  /usr/bin/pwd ixr,
+  /{usr/,}sbin/killall5 ixr,
+  /{usr/,}bin/which ixr,
+  /usr/bin/tr ixr,
+  @{PROC}/@{pid}/cmdline r,
+  @{PROC}/@{pid}/mountinfo r,
+  @{PROC}/@{pid}/stat r,
+  @{PROC}/@{pid}/status r,
+
+  /etc/mtab r,
+  /etc/fstab r,
+
+  # Needed for the crash reporter
+  owner @{PROC}/@{pid}/environ r,
+  owner @{PROC}/@{pid}/auxv r,
+  /etc/lsb-release r,
+  /usr/bin/expr ix,
+
+  # Needed for container to work in xul builds
+  /usr/lib/xulrunner-*/plugin-container ixr,
+
+  # Make browsing directories work
+  / r,
+  /**/ r,
+
+  # allow access to documentation and other files the user may want to look
+  # at in /usr
+  /usr/{include,share,src}/** r,
+
+  # Default profile allows downloads to ~/Downloads and uploads from ~/Public
+  owner @{HOME}/ r,
+  owner @{HOME}/Public/ r,
+  owner @{HOME}/Public/** r,
+  owner @{HOME}/Downloads/ r,
+  owner @{HOME}/Downloads/** rw,
+  owner @{HOME}/.thumbnails/*/*.png r,
+
+  # per-user firefox configuration
+  owner @{HOME}/.{firefox,mozilla}/ rw,
+  owner @{HOME}/.{firefox,mozilla}/** rw,
+  owner @{HOME}/.{firefox,mozilla}/**/*.{db,parentlock,sqlite}* k,
+  owner @{HOME}/.{firefox,mozilla}/plugins/** rm,
+  owner @{HOME}/.{firefox,mozilla}/**/plugins/** rm,
+  owner @{HOME}/.gnome2/firefox*-bin-* rw,
+
+  #
+  # Extensions
+  # /usr/share/.../extensions/... is already covered by '/usr/.../** r', above.
+  # Allow 'x' for downloaded extensions, but inherit policy for safety
+  owner @{HOME}/.mozilla/**/extensions/** mixr,
+
+  deny /usr/lib/firefox{,-[0-9]*}/update.test w,
+  deny /usr/lib/mozilla/extensions/**/ w,
+  deny /usr/lib/xulrunner-addons/extensions/**/ w,
+  deny /usr/share/mozilla/extensions/**/ w,
+  deny /usr/share/mozilla/ w,
+
+  # Site-specific additions and overrides. See local/README for details.
+  # Local path is disabled, we only enable them for profiles we promote
+  # out of extras.
+  ## include <local/usr.bin.firefox>
+}

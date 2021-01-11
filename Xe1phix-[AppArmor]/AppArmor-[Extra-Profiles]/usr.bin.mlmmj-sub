@@ -1,0 +1,42 @@
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2002-2005 Novell/SUSE
+#    Copyright (C) Per Jessen <per@computer.org>
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+# vim:syntax=apparmor
+
+#include <tunables/global>
+
+/usr/bin/mlmmj-sub {
+  #include <abstractions/base>
+
+  capability setuid,
+
+  /usr/bin/mlmmj-send Px,
+  /usr/bin/mlmmj-sub mr,
+  /var/spool/mlmmj/*/control/ r,
+  /var/spool/mlmmj/*/control/* r,
+  /var/spool/mlmmj/*/moderation/subscribe* rw,
+  /var/spool/mlmmj/*/queue/ rw,
+  /var/spool/mlmmj/*/queue/* rw,
+  /var/spool/mlmmj/*/subconf/ rw,
+  /var/spool/mlmmj/*/subconf/* rw,
+  /var/spool/mlmmj/*/subscribers.d/ rw,
+  /var/spool/mlmmj/*/subscribers.d/* rwk,
+  /var/spool/mlmmj/*/text/ r, #
+  /var/spool/mlmmj/*/text/* r,
+
+  /usr/share/mlmmj/text.skel/*/* r,
+
+  /var/spool/mlmmj/*/nomailsubs.d/ rw,
+  /var/spool/mlmmj/*/nomailsubs.d/* rwk,
+
+  /var/spool/mlmmj/*/digesters.d/ rw,
+  /var/spool/mlmmj/*/digesters.d/* rwk,
+
+}

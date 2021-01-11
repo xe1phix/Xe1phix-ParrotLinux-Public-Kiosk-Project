@@ -1,0 +1,38 @@
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2002-2005 Novell/SUSE
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+
+#include <tunables/global>
+
+/usr/sbin/in.ftpd {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/authentication>
+
+  /                                 r,
+  /dev/urandom                      r,
+  /etc/fstab                        r,
+  /etc/ftpaccess                    r,
+  /etc/ftpconversions               r,
+  /etc/ftphosts                     r,
+  /etc/ftpusers                     r,
+  /etc/shells                       r,
+
+  @{HOMEDIRS}                       r,
+  @{HOME}/**                        rwl,
+
+  /usr/sbin/in.ftpd                 r,
+  /usr/share/ssl/certs/ca-bundle.crt        r,
+  /usr/share/ssl/certs/ftpd-rsa.pem         r,
+  /usr/share/ssl/private/ftpd-rsa-key.pem   r,
+  /usr/share/ssl/.rnd               w,
+  /var/log/xferlog                  w,
+  /{,var/}run                          wr,
+  /{,var/}run/ftp.{pids,rips}-all      wr,
+}

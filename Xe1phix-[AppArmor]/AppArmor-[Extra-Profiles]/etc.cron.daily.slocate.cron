@@ -1,0 +1,26 @@
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2002-2005 Novell/SUSE
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+# slocate has its own profile that gives sufficient access to read the
+# database; this cronjob profile provides inherit access to slocate so
+# that it can traverse the whole filesystem.
+# 
+
+#include <tunables/global>
+
+/etc/cron.daily/slocate.cron {
+  #include <abstractions/base>
+  /{usr/,}bin/bash                 mixr,
+  /dev/tty                         wr  ,
+  /etc/cron.daily/slocate.cron     r   ,
+  /etc/mtab                        r   ,
+  /usr/bin/slocate                 mixr,
+  /usr/bin/renice                  mixr,
+  /**                              r   ,
+}

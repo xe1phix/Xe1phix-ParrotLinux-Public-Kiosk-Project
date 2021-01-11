@@ -1,0 +1,73 @@
+# vim:syntax=apparmor
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2002-2005 Novell/SUSE
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+
+#include <tunables/global>
+
+/usr/sbin/useradd {
+  #include <abstractions/authentication>
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/perl>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/wutmp>
+
+  capability audit_write,
+  capability chown,
+  capability dac_override,
+  capability fowner,
+  capability fsetid,
+  capability sys_resource,
+
+  /{usr/,}bin/bash mixr,
+  /etc/.pwd.lock rwk,
+  /etc/default/useradd r,
+  /etc/group* rwl,
+  /etc/gshadow* rwl,
+  /etc/login.defs r,
+  /etc/passwd* rwl,
+  /etc/shadow* rwl,
+  /etc/pwdutils/logging r,
+  /etc/skel r,
+  /etc/skel/** r,
+  /etc/subuid rw,
+  /etc/subuid- rw,
+  /etc/subuid+ rw,
+  /etc/subuid.* rwl,
+  /etc/subgid rw,
+  /etc/subgid- rw,
+  /etc/subgid+ rw,
+  /etc/subgid.* rwl,
+  @{HOMEDIRS}**  rw,
+  @{PROC}/@{pid}/mounts r,
+  @{PROC}/filesystems r,
+  /usr/lib*/pwdutils/*so* mr,
+  /usr/sbin/adduser rmix,
+  /usr/sbin/nscd rPix,
+  /{,usr/}sbin/pam_tally2 Cx -> pam_tally2,
+  /usr/sbin/useradd rmix,
+  /usr/sbin/useradd.local rmix,
+  /var/log/faillog rw,
+  /{,var/}run/nscd.pid rw,
+  /var/spool/mail/* rw,
+
+  profile pam_tally2 {
+    #include <abstractions/base>
+    #include <abstractions/consoles>
+    #include <abstractions/nameservice>
+
+    capability audit_write,
+
+    /{,usr/}sbin/pam_tally2 mr,
+    /var/log/tallylog rw,
+
+  }
+}

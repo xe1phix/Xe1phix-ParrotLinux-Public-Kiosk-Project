@@ -1,0 +1,24 @@
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2002-2005 Novell/SUSE
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+
+#include <tunables/global>
+
+/usr/bin/xfs {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+
+  /					r,
+  /dev/tty				wr,
+  /etc/X11/fs/config			r,
+  /etc/mtab				r,
+  /tmp/.font-unix/fs710[0-9]		wl,
+  /usr/bin/xfs                    	rmix,
+  /{,var/}run/xfs.pid			rw,
+}

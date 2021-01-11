@@ -1,0 +1,75 @@
+# vim:syntax=apparmor
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2002-2006 Novell/SUSE
+#    Copyright (C) 2016 Seth Arnold
+#    Copyright (C) 2016 Daniel Curtis
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+
+#include <tunables/global>
+
+/etc/cron.daily/logrotate {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/nameservice>
+
+  capability chown,
+  capability dac_override,
+  capability dac_read_search,
+  capability fowner,
+  capability fsetid,
+
+  /{usr/,}bin/{ba,da,}sh mixr,
+  /{usr/,}bin/cat mixr,
+  /{usr/,}bin/gzip mixr,
+  /{usr/,}bin/kill mixr,
+  /{usr/,}bin/logger mixr,
+  /{usr/,}bin/mv mixr,
+  /{usr/,}bin/sed mixr,
+  /{usr/,}bin/sleep mrix,
+  /{usr/,}bin/true mixr,
+  /etc/init.d/* mixr,
+  /usr/bin/head mrix,
+  /usr/bin/killall mixr,
+  /usr/sbin/invoke-rc.d mrix,
+  /usr/sbin/logrotate mixr,
+
+  ## see https://lists.ubuntu.com/archives/apparmor/2016-December/010359.html
+  /{usr/,}sbin/initctl Ux,
+  /{usr/,}sbin/runlevel Ux,
+
+  /var/log/ r,
+  /var/log/** rwl,
+
+  /var/lib/privoxy/log/**  rwl,
+  /var/lib64/privoxy/log/**  rwl,
+
+  / r,
+  /dev/tty rw,
+  /etc/cron.daily/logrotate r,
+  /etc/logrotate.conf r,
+  /etc/logrotate.d/ r,
+  /etc/logrotate.d/* r,
+  /etc/lsb-base-logging.sh r,
+
+#  @{PROC} r,
+#  @{PROC}/@{pid} r,
+  owner /tmp/file* wl,
+  owner /tmp/logrot* rwl,
+
+  /var/lib/logrotate/ r,
+  /var/lib/logrotate/* rw,
+
+  /{run,var}/lock/samba r,
+  /{,var/}run/httpd.pid r,
+  /{,var/}run/syslogd.pid r,
+  /{,var/}run/rsyslogd.pid r,
+
+  /var/spool/slrnpull/ wr,
+  /var/spool/slrnpull/log* wrl,
+}
