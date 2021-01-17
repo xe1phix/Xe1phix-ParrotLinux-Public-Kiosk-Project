@@ -337,6 +337,8 @@ Lions Mane NeuroPharmacology Classifications & Characteristics:
 <--------------------------->
    | Black Hoof Mushroom |     ~-> (250mg)
 <--------------------------->
+       [+] 
+       [+] Beta-Glugan (β-Glucan) content: 15%
        [+] Carry Beta-Glugan (β-Glucan) Polysaccharides
              [?] Beta glucans help promote immune system function.
        [+] Hispolon 
@@ -345,22 +347,29 @@ Lions Mane NeuroPharmacology Classifications & Characteristics:
        [+] Clinical trials studying Black Hoof have reported: 
              [?] The polysaccharides within Black Hoof promote neuroprotection
              [?] An increase in endurance during physical activity
+       [+] 
+       [+] promotes metabolic function
+       [+] Supports digestive health
+       [+] 
+       [+] 
+       [+] 
 <------------------------------------------->
    | Wolfiporia extensa (Poria) Mushroom |     ~-> (250mg)
 <------------------------------------------->
-       [+] Promote cerebral blood flow. 
-       [+] Improves blood flow 
+       [+] Improves cerebral blood flow. 
        [+] Promotes healthy levels of acetylcholine.
        [+] Supports memory formation.
        [+] Rich in beta glucans and triterpenoids 
              [?] Which stengthen the immune system. 
+       [+] Beta-Glucan (β-Glucan) content: 55%
+       [+] contains a mix of triterpene derivatives, and monosaccharides
        [+] Carries triterpenoid compounds. 
        [+] Triterpenoids - A class of compounds that 
-                                      promote healthy levels of oxidation.
-
+                            promote healthy levels of oxidation.
        [+] Pachymic acid supports healthy cellular function.
        [+] Supports respiratory function.
        [+] Supports digestive health.
+       [+] Promotes healthy levels of oxidation.
 <-------------------------------------------------->
     | Trametes Versicolor (Turkey Tail) Mushroom |     ~-> (250mg) 
 <-------------------------------------------------->
