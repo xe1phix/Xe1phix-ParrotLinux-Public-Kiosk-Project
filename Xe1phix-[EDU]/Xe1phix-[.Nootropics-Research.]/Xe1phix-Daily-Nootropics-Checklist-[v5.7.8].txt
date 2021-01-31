@@ -11,11 +11,12 @@
 <----------------------->
     [+] Enhances the production of acetylcholine in neurons.
     [+] Primary component of the neurotransmitter acetylcholine
+    [+] Cholinergic neurotransmission (as a precursor to acetylcholine synthesis).
     [+] Prevents fat deposits in the liver
     [+] Facilitates the movement of fats into cells. 
     [+] Found in all living cells
-    [+] 
-    [+] 
+    [+] Regulates brain tissue formation and maintenance.
+    [+] Allows acetylcholine to accumulate at higher levels than that which it otherwise would.
     [+] 
     [+] 
     [+] 
