@@ -82,9 +82,10 @@
     [+] facilitate the structural reorganization of neurons.
     [+] increased acetylcholine immunoreactivity in nerve fibers supplying cerebral cortex
     [+] 
-    [+] enhanced synaptic membrane formation
-    [+] 
-    [+] 
+    [+] Enhances synaptic membrane formation
+    [+] A source for glycerophosphate
+        [?] An important factor in phospholipid synthesis and cellular membrane structure.
+    [+] A protein Kinase C (PKC) activator
     [+] hippocampal acetylcholine release progressively increased from 139% to 245% during the 12 days
 
 <----------------------->
