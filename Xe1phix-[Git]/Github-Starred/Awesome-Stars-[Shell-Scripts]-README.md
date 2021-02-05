@@ -1,0 +1,354 @@
+## Shell 
+
+- [DietPi](https://github.com/MichaIng/DietPi) - Lightweight justice for your single-board computer!
+- [chain-docs](https://github.com/crypto-com/chain-docs) - Docs for http://github.com/crypto-com/chain-main/
+- [vscode-mdx](https://github.com/mdx-js/vscode-mdx) - MDX extension for Visual Studio Code
+- [rsync-deployments](https://github.com/Burnett01/rsync-deployments) - GitHub Action for deploying code via rsync over ssh
+- [docker-host](https://github.com/qoomon/docker-host) - A docker sidecar container to forward all traffic to local docker host or any other host
+- [cardano-haskell](https://github.com/input-output-hk/cardano-haskell) - Top level repository for building the Cardano Haskell node and related components and dependencies.
+- [docker-openldap](https://github.com/osixia/docker-openldap) - A docker image to run OpenLDAP 🐳
+- [erase-install](https://github.com/grahampugh/erase-install) - A script that automates downloading macOS installers and erasing or upgrading macOS in a single process.
+- [docker-timemachine](https://github.com/mbentley/docker-timemachine) - Docker image to run netatalk (compatible Time Machine for OS X)
+- [osx-images](https://github.com/cirruslabs/osx-images) - 
+- [bootstrappr](https://github.com/munki/bootstrappr) - A bare-bones tool to install a set of packages on a target volume.
+- [installr](https://github.com/munki/installr) - A tool designed for use in Recovery boot to do a "fresh" install of macOS and additional packages.
+- [macos-virtualbox](https://github.com/myspaghetti/macos-virtualbox) - Push-button installer of macOS Catalina, Mojave, and High Sierra guests in Virtualbox for Windows, Linux, and macOS
+- [winapps](https://github.com/Fmstrat/winapps) - Run Windows apps such as Microsoft Office/Adobe in Linux (Ubuntu/Fedora) and GNOME/KDE as if they were a part of the native OS, including Nautilus integration.
+- [kakao-qr-api](https://github.com/kiding/kakao-qr-api) - 카카오 QR 체크인 데이터를 대신 반환하는 AWS Lambda + API Gateway
+- [TabNine](https://github.com/codota/TabNine) - AI Code Completions
+- [install-nix-action](https://github.com/cachix/install-nix-action) - Installs Nix on GitHub Actions for the supported platforms: Linux and macOS.
+- [bash-concurrent](https://github.com/themattrix/bash-concurrent) - Bash function to run tasks in parallel and display pretty output as they complete.
+- [stay-at-home](https://github.com/junhoyeo/stay-at-home) - 🏠 This shell script makes sure you stay at home, safely.
+- [apt-fast](https://github.com/ilikenwf/apt-fast) - apt-fast: A shellscript wrapper for apt that speeds up downloading of packages.
+- [iconsur](https://github.com/rikumi/iconsur) - macOS Big Sur Adaptive Icon Generator
+- [docker-brew-ubuntu-core](https://github.com/tianon/docker-brew-ubuntu-core) - Official imports of the Ubuntu Core tarballs for use in Docker
+- [git-quick-stats](https://github.com/arzzen/git-quick-stats) - ▁▅▆▃▅ Git quick statistics is a simple and efficient way to access various statistics in git repository.
+- [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) - Over 230 terminal color schemes/themes for iTerm/iTerm2. Includes ports to Terminal, Konsole, PuTTY, Xresources, XRDB, Remmina, Termite, XFCE, Tilda, FreeBSD VT, Terminator, Kitty, MobaXterm, LXTerminal, Microsoft's Windows Terminal, Visual Studio, Alacritty
+- [easy_rust](https://github.com/Dhghomon/easy_rust) - Rust explained using easy English
+- [cgitc](https://github.com/simnalamburt/cgitc) - :shipit: Close Git Combat
+- [shellder](https://github.com/simnalamburt/shellder) - :shell: Featured zsh/fish shell theme
+- [check-spelling](https://github.com/check-spelling/check-spelling) - Spelling checker action
+- [go_build](https://github.com/ralfyang/go_build) - 귀찮아서 만든 Go-lang cross-platform build script
+- [dokku](https://github.com/dokku/dokku) - A docker-powered PaaS that helps you build and manage the lifecycle of applications
+- [super-linter](https://github.com/github/super-linter) - Combination of multiple linters to install as a GitHub Action
+- [dist](https://github.com/caddyserver/dist) - Resources for packaging and distributing Caddy
+- [USG_Orange](https://github.com/shisva/USG_Orange) - Remplacer sa Livebox par un routeur Ubiquiti USG/USGPRO
+- [git-fuzzy](https://github.com/bigH/git-fuzzy) - interactive `git` with the help of `fzf`
+- [google-font-download](https://github.com/neverpanic/google-font-download) - Locally host Google's web fonts
+- [actions](https://github.com/bltavares/actions) - Collection of linters and fixers as Github Actions - Alpha
+- [heroku-buildpack-nodejs](https://github.com/heroku/heroku-buildpack-nodejs) - The official Heroku buildpack for Node.js apps.
+- [pyenv-installer](https://github.com/pyenv/pyenv-installer) - This tool is used to install `pyenv` and friends.
+- [typewritten](https://github.com/reobin/typewritten) - A minimal, lightweight, informative zsh prompt theme
+- [attestation-covid19](https://github.com/teymour/attestation-covid19) - Generateur d'attestation numérique covid19
+- [cloudflare-warp-wg-client](https://github.com/aghorler/cloudflare-warp-wg-client) - A Cloudflare Warp connection script for Linux-based operating systems
+- [wireguard-docs](https://github.com/pirate/wireguard-docs) - 📖 Unofficial WireGuard Documentation: Setup, Usage, Configuration, and full example setups for VPNs supporting both servers & roaming clients.
+- [ua-client-hints](https://github.com/WICG/ua-client-hints) - Wouldn't it be nice if `User-Agent` was a (set of) client hints?
+- [resholve](https://github.com/abathur/resholve) - a shell resolver? :)
+- [scaleway_remote_backup](https://github.com/MoonCactus/scaleway_remote_backup) - Bash script to trigger remote backups of scaleway server instances
+- [initrd](https://github.com/scaleway/initrd) - :wrench: Initrd builder with qemu nbd metadata for Scaleway boot (armhf + x86_64)
+- [nench](https://github.com/n-st/nench) - VPS benchmark script — based on the popular bench.sh, plus CPU and ioping tests, and dual-stack IPv4 and v6 speedtests by default
+- [promptless](https://github.com/dylanaraps/promptless) - 🚀 A super fast and extremely minimal shell prompt.
+- [geometry](https://github.com/geometry-zsh/geometry) - geometry is a minimal, fully customizable and composable zsh prompt theme
+- [one-on-one](https://github.com/sophshep/one-on-one) - A template for a weekly 1:1 repo
+- [htrace.sh](https://github.com/trimstray/htrace.sh) - My simple Swiss Army knife for http/https troubleshooting and profiling.
+- [run-on-arch-action](https://github.com/uraimo/run-on-arch-action) - A Github Action that executes jobs/commands on non-x86 cpu architectures (ARMv6, ARMv7, aarch64, s390x, ppc64le)
+- [noreallyjustfuckingstopalready](https://github.com/eventi/noreallyjustfuckingstopalready) - Please OS X (or whatever your name is) just fucking reset your DNS cache please
+- [bpkg](https://github.com/bpkg/bpkg) - Lightweight bash package manager
+- [alfred-battery](https://github.com/BenziAhamed/alfred-battery) - An Alfred app workflow to display battery levels of your Apple devices
+- [alfred-docker-workflows](https://github.com/anmolnagpal/alfred-docker-workflows) - Alfred workflow for DevOps
+- [gvm](https://github.com/moovweb/gvm) - Go Version Manager
+- [AlfredDig](https://github.com/phallstrom/AlfredDig) - A workflow for Alfred to perform DNS lookups using dig and optionally copy a specific result to the clipboard.
+- [fish-ssh-agent](https://github.com/danhper/fish-ssh-agent) - 
+- [shlide](https://github.com/icyphox/shlide) - :framed_picture: a slide deck presentation tool written in pure bash
+- [homebrew-mac-cleanup](https://github.com/fwartner/homebrew-mac-cleanup) - 🗑️ Cleanup script for OSX
+- [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono) - JetBrains Mono – the free and open-source typeface for developers
+- [cursedfs](https://github.com/NieDzejkob/cursedfs) - Make a disk image formatted with both ext2 and FAT at once
+- [virtualfish](https://github.com/justinmayer/virtualfish) - Fish shell tool for managing Python virtual environments
+- [os](https://github.com/elementary/os) - The OS build system
+- [actions](https://github.com/elementary/actions) - Reusable GitHub Actions for elementary apps
+- [OpenVPN-Pihole](https://github.com/digitalocean/OpenVPN-Pihole) - https://marketplace.digitalocean.com/apps/openvpn-pihole
+- [ansible-lint-action](https://github.com/ansible/ansible-lint-action) - GitHub Action for running ansible-lint as part of your workflows! [ https://github.com/marketplace/actions/ansible-lint ]
+- [jenv](https://github.com/jenv/jenv) - Manage your Java environment
+- [compute-archlinux-image-builder](https://github.com/GoogleCloudPlatform/compute-archlinux-image-builder) - A tool to build a Arch Linux Image for GCE
+- [ansible-bundler](https://github.com/kriansa/ansible-bundler) - Turn Ansible playbooks into executable files
+- [pokemonsay](https://github.com/possatti/pokemonsay) - "pokemonsay" is like "cowsay" but for pokémon.
+- [lexend](https://github.com/ThomasJockin/lexend) - Lexend is a variable font empirically shown to significantly improve reading-proficiency.
+- [nix-env.fish](https://github.com/lilyball/nix-env.fish) - Nix environment setup for the fish shell
+- [systemd-ngrok](https://github.com/vincenthsu/systemd-ngrok) - Automatically start ngrok by systemd
+- [bocker](https://github.com/p8952/bocker) - Docker implemented in around 100 lines of bash
+- [nodenv](https://github.com/nodenv/nodenv) - Manage multiple NodeJS versions.
+- [rails-dev-box](https://github.com/rails/rails-dev-box) - A virtual machine for Ruby on Rails core development
+- [termux-packages](https://github.com/termux/termux-packages) - Android terminal and Linux environment - packages repository.
+- [settler](https://github.com/laravel/settler) - 
+- [macOS-Simple-KVM](https://github.com/foxlet/macOS-Simple-KVM) - Tools to set up a quick macOS VM in QEMU, accelerated by KVM.
+- [homestead](https://github.com/laravel/homestead) - 
+- [dockerfiles](https://github.com/clearlinux/dockerfiles) - Clear Linux-based Docker containers
+- [swupd-client](https://github.com/clearlinux/swupd-client) - Software update client
+- [action-shellcheck](https://github.com/ludeeus/action-shellcheck) - GitHub action for ShellCheck.
+- [dotfiles](https://github.com/jessfraz/dotfiles) - My dotfiles. Buyer beware ;)
+- [docker-browser-box](https://github.com/sameersbn/docker-browser-box) - Dockerized google-chome and tor-browser with audio support via pulseaudio
+- [osu-wine](https://github.com/ppy/osu-wine) - Wine container for running osu! on OS X. http://osx.ppy.sh
+- [ecs-deploy](https://github.com/silinternational/ecs-deploy) - Simple shell script for initiating blue-green deployments on Amazon EC2 Container Service (ECS)
+- [curl-for-win](https://github.com/curl/curl-for-win) - Reproducible curl (and OpenSSL) binaries for Windows
+- [nfs-server-alpine](https://github.com/sjiveson/nfs-server-alpine) - A handy Alpine Linux based NFS Server image running NFS v4 only, over TCP on port 2049
+- [quickstart-hashicorp-vault](https://github.com/aws-quickstart/quickstart-hashicorp-vault) - AWS Quick Start Team
+- [docker-maven](https://github.com/carlossg/docker-maven) - Official Docker image with Maven
+- [gitlab-aws-codecommit-mirror](https://github.com/rtCamp/gitlab-aws-codecommit-mirror) - Use AWS codecommit as a mirror for self hosted gitlab repo
+- [containers-roadmap](https://github.com/aws/containers-roadmap) - This is the public roadmap for AWS container services (ECS, ECR, Fargate, and EKS).
+- [nixos-in-place](https://github.com/jeaye/nixos-in-place) - Install NixOS on top of any existing Linux distribution without rebooting
+- [nixos-infect](https://github.com/elitak/nixos-infect) - [GPLv3+] install nixos over the existing OS in a DigitalOcean droplet (and others with minor modifications)
+- [nginx-cache-purge](https://github.com/perusio/nginx-cache-purge) - A bash script for deleting items from Nginx cache
+- [bats](https://github.com/sstephenson/bats) - Bash Automated Testing System
+- [ansible-netdata](https://github.com/jffz/ansible-netdata) - Ansible playbook to install netdata anywhere
+- [gentoo](https://github.com/gentoo/gentoo) - [MIRROR] Official Gentoo ebuild repository
+- [Fedora-Dockerfiles](https://github.com/fedora-cloud/Fedora-Dockerfiles) - Fedora Dockerfiles - No longer maintained. See: https://fedoraproject.org/wiki/Changes/Layered_Docker_Image_Build_Service
+- [tfenv](https://github.com/tfutils/tfenv) - Terraform version manager
+- [mysql](https://github.com/docker-library/mysql) - Docker Official Image packaging for MySQL Community Server
+- [kubernetes-lxd](https://github.com/corneliusweig/kubernetes-lxd) - A step-by-step guide to get kubernetes running inside an LXC container
+- [nsfw_data_scraper](https://github.com/alex000kim/nsfw_data_scraper) - Collection of scripts to aggregate image data for the purposes of training an NSFW Image Classifier
+- [vm](https://github.com/nextcloud/vm) - 💻☁📦 The (official) Nextcloud VM (virtual machine appliance), Home/SME Server and scripts for RPi (4).
+- [installimage](https://github.com/hetzneronline/installimage) - Bash scripts to universally deploy various distributions
+- [bento](https://github.com/chef/bento) - Packer templates for building minimal Vagrant baseboxes for multiple platforms
+- [nginx-admins-handbook](https://github.com/trimstray/nginx-admins-handbook) - How to improve NGINX performance, security, and other important things.
+- [bitbar-plugins](https://github.com/matryer/bitbar-plugins) - Plugin repository for BitBar
+- [pgbouncer_userlist_generator](https://github.com/chuckyz/pgbouncer_userlist_generator) - 
+- [cryptboot](https://github.com/xmikos/cryptboot) - Encrypted boot partition manager with UEFI Secure Boot support
+- [mitm-router](https://github.com/brannondorsey/mitm-router) - ☠ Man-in-the-middle wireless access point inside a docker container 🐳
+- [evil.sh](https://github.com/mathiasbynens/evil.sh) - :speak_no_evil: Subtle and not-so-subtle shell tweaks that will slowly drive people insane.
+- [mOSL](https://github.com/0xmachos/mOSL) - Bash script to audit and fix macOS Catalina (10.15.x) security settings
+- [zfs-prune-snapshots](https://github.com/bahamas10/zfs-prune-snapshots) - Remove snapshots from one or more zpools that match given criteria
+- [zfs-snapshot-all](https://github.com/bahamas10/zfs-snapshot-all) - Recursively snapshot all zpools
+- [zfs-auto-snapshot](https://github.com/zfsonlinux/zfs-auto-snapshot) - ZFS Automatic Snapshot Service for Linux
+- [branch-cleanup-action](https://github.com/jessfraz/branch-cleanup-action) - A GitHub action to automatically delete the branch after a pull request has been merged.
+- [k](https://github.com/supercrabtree/k) - k is the new l, yo
+- [og-aws](https://github.com/open-guides/og-aws) - 📙 Amazon Web Services — a practical guide
+- [lxc-proxmox-upgrade](https://github.com/azlux/lxc-proxmox-upgrade) - LXC Proxmox upgrade script
+- [mbp-2016-linux](https://github.com/Dunedan/mbp-2016-linux) - State of Linux on the MacBook Pro 2016 & 2017
+- [nextcloud-snap](https://github.com/nextcloud/nextcloud-snap) - ☁️📦 Nextcloud packaged as a snap
+- [docker-mailserver](https://github.com/tomav/docker-mailserver) - A fullstack but simple mailserver (smtp, imap, antispam, antivirus, ssl...) using Docker.
+- [ipv6-dhclient-script](https://github.com/outime/ipv6-dhclient-script) - IPv6 w/ dhclient configuration script (Debian/RedHat-based distros)
+- [distributions](https://github.com/nodesource/distributions) - NodeSource Node.js Binary Distributions
+- [caddy-docker](https://github.com/abiosoft/caddy-docker) - Docker container for Caddy
+- [elasticsearch](https://github.com/docker-library/elasticsearch) - https://github.com/docker-library/official-images/pull/4916
+- [warrior-code](https://github.com/ArchiveTeam/warrior-code) - 
+- [shpotify](https://github.com/hnarayanan/shpotify) - A command-line interface to Spotify
+- [rak8s](https://github.com/rak8s/rak8s) - Stand up a Raspberry Pi based Kubernetes cluster with Ansible
+- [c](https://github.com/ryanmjacobs/c) - Compile and execute C "scripts" in one go!
+- [mysqldump-secure](https://github.com/cytopia/mysqldump-secure) - [sh] Encrypted mysqldump script with compression, logging, blacklisting and Nagios/Icinga monitoring integration
+- [openssl-patch](https://github.com/hakasenyang/openssl-patch) - OpenSSL & NginX Patch
+- [linuxify](https://github.com/fabiomaia/linuxify) - 🍏🐧 Transparently transform the macOS CLI into a fresh GNU/Linux CLI experience.
+- [log2ram](https://github.com/azlux/log2ram) - ramlog like for systemd (Put log into a ram folder)
+- [grafana-on-raspberry](https://github.com/fg2it/grafana-on-raspberry) - Grafana packages for raspberry pi (armv6/armv7) and aarch64/arm64
+- [Mac-CLI](https://github.com/guarinogabriel/Mac-CLI) -  OS X command line tools for developers – The ultimate tool to manage your Mac. It provides a huge set of command line commands that automatize the usage of your OS X system.
+- [shaking-finger-action](https://github.com/jessfraz/shaking-finger-action) - A GitHub action that displays a gif of Conan O'Brien shaking his finger to a pull request on fail.
+- [nq-agent](https://github.com/nodequery/nq-agent) - The NodeQuery agent collects selected linux server data and sends them to our monitoring system for further processing.
+- [hello-world](https://github.com/docker-library/hello-world) - 
+- [docker-nfs-server](https://github.com/ehough/docker-nfs-server) - A lightweight, robust, flexible, and containerized NFS server.
+- [bashblog](https://github.com/cfenollosa/bashblog) - A single Bash script to create blogs. Download, run, write, done!
+- [fff](https://github.com/dylanaraps/fff) - 📁 A simple file manager written in bash.
+- [docker-alpine](https://github.com/gliderlabs/docker-alpine) - Alpine Linux Docker image. Win at minimalism!
+- [lxd](https://github.com/maikelwever/lxd) - Mirror from AUR to facilitate pull requests.
+- [bash-it](https://github.com/Bash-it/bash-it) - A community Bash framework.
+- [asdf-plugins](https://github.com/asdf-vm/asdf-plugins) - Central plugin repository for asdf
+- [asdf](https://github.com/asdf-vm/asdf) - Extendable version manager with support for Ruby, Node.js, Elixir, Erlang & more
+- [vmware-tools-patches](https://github.com/rasa/vmware-tools-patches) - Patch and build VMware tools automatically
+- [zsh-iterm-touchbar](https://github.com/iam4x/zsh-iterm-touchbar) - Display feedback of terminal in the 🍏 Touchbar
+- [docker-gc](https://github.com/spotify/docker-gc) - INACTIVE: Docker garbage collection of containers and images
+- [docker-elk](https://github.com/deviantony/docker-elk) - The Elastic stack (ELK) powered by Docker and Compose.
+- [vscodium](https://github.com/VSCodium/vscodium) - binary releases of VS Code without MS branding/telemetry/licensing
+- [motd](https://github.com/yboetz/motd) - Collection of 'message of the day' scripts
+- [timidity](https://github.com/feross/timidity) - Play MIDI files in the browser w/ Web Audio, WebAssembly, and libtimidity
+- [gluster-kubernetes](https://github.com/gluster/gluster-kubernetes) - GlusterFS Native Storage Service for Kubernetes
+- [k8s-ingress-setup](https://github.com/gokulchandra/k8s-ingress-setup) - 
+- [awesome-kubernetes](https://github.com/ramitsurana/awesome-kubernetes) - A curated list for awesome kubernetes sources :ship::tada:
+- [romana](https://github.com/romana/romana) - The Romana Project - Installation scripts, documentation, issue tracker and wiki. Start here.
+- [docker-nginx](https://github.com/nginxinc/docker-nginx) - Official NGINX Dockerfiles
+- [docker-privilege-escalation](https://github.com/KrustyHack/docker-privilege-escalation) - A docker example for privilege escalation
+- [prettyping](https://github.com/denilsonsa/prettyping) - `prettyping` is a wrapper around the standard `ping` tool, making the output prettier, more colorful, more compact, and easier to read.
+- [dind](https://github.com/jpetazzo/dind) - Docker in Docker
+- [spaceship-prompt](https://github.com/denysdovhan/spaceship-prompt) - :rocket::star: A Zsh prompt for Astronauts
+- [raspotify](https://github.com/dtcooper/raspotify) - Spotify Connect client for the Raspberry Pi that Just Works™
+- [ghost-on-github-pages](https://github.com/paladini/ghost-on-github-pages) - Ghost on Github Pages. Build and deploy Ghost for free in a few minutes.
+- [docker](https://github.com/jenkinsci/docker) - Docker official jenkins repo
+- [docker-hub-images](https://github.com/hashicorp/docker-hub-images) - Automatic builds of container images for Docker Hub
+- [wget-image-scraper](https://github.com/eduardschaeli/wget-image-scraper) - Scrapes images from a list of urls with wget
+- [Hack](https://github.com/source-foundry/Hack) - A typeface designed for source code
+- [official-images](https://github.com/docker-library/official-images) - Primary source of truth for the Docker "Official Images" program
+- [federation-tests](https://github.com/thefederationinfo/federation-tests) - WE MOVED TO FENEAS
+- [pure](https://github.com/rafaelrinaldi/pure) - Port of the `pure` ZSH prompt to Fish 🐟
+- [DellXPS15-9550-OSX](https://github.com/wmchris/DellXPS15-9550-OSX) - Tutorial for a full working Mac OS (10.11 up to 11.0) enviroment on the Dell XPS 15 (9550)
+- [install](https://github.com/Homebrew/install) - 📥 Homebrew (un)installer
+- [pyenv](https://github.com/pyenv/pyenv) - Simple Python version management
+- [goenv](https://github.com/syndbg/goenv) - :blue_car: Like pyenv and rbenv, but for Go.
+- [tiny-scripts](https://github.com/vitorgalvao/tiny-scripts) - Collection of small scripts
+- [docker](https://github.com/friendica/docker) - Docker image for Friendica
+- [sandmap](https://github.com/trimstray/sandmap) - Nmap on steroids. Simple CLI with the ability to run pure Nmap engine, 31 modules with 459 scan profiles.
+- [pure-bash-bible](https://github.com/dylanaraps/pure-bash-bible) - 📖 A collection of pure bash alternatives to external processes.
+- [void-packages](https://github.com/void-linux/void-packages) - The Void source packages collection
+- [plugin-nvm](https://github.com/derekstavis/plugin-nvm) - Node version manager wrapper for Fish shell
+- [nvm](https://github.com/nvm-sh/nvm) - Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions
+- [osxfuse](https://github.com/osxfuse/osxfuse) - FUSE extends macOS by adding support for user space file systems
+- [creative-cloud-linux](https://github.com/corbindavenport/creative-cloud-linux) - PlayOnLinux install script for Adobe Creative Cloud
+- [gitleaks-ci](https://github.com/zricethezav/gitleaks-ci) - gitleaks, but for PRs
+- [pure](https://github.com/sindresorhus/pure) - Pretty, minimal and fast ZSH prompt
+- [fontconfig-ultimate](https://github.com/bohoomil/fontconfig-ultimate) - freetype2-infinality run-time settings =&gt; infinality compatible fontconfig =&gt; infinality-bundle
+- [ppa-fonts](https://github.com/achaphiv/ppa-fonts) - 
+- [nginx-badbot-blocker](https://github.com/mariusv/nginx-badbot-blocker) - Block bad, possibly even malicious web crawlers (automated bots) using Nginx
+- [nginx-ultimate-bad-bot-blocker](https://github.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker) - Nginx Block Bad Bots, Spam Referrer Blocker, Vulnerability Scanners, User-Agents, Malware, Adware, Ransomware, Malicious Sites, with anti-DDOS, Wordpress Theme Detector Blocking and Fail2Ban Jail for Repeat Offenders
+- [multitor](https://github.com/trimstray/multitor) - Create multiple TOR instances with a load-balancing.
+- [freight](https://github.com/freight-team/freight) - A modern take on the Debian archive.
+- [asteroid](https://github.com/AsteroidOS/asteroid) - Build script for AsteroidOS, an open-source operating system for smartwatches
+- [restic-backup-docker](https://github.com/lobaro/restic-backup-docker) - A docker container to automate backups with restic
+- [crenv](https://github.com/crenv/crenv) - :gem: Crystal version manager like rbenv.
+- [WSL](https://github.com/microsoft/WSL) - Issues found on WSL
+- [docker-php-fpm](https://github.com/petrepatrasc/docker-php-fpm) - PHP-FPM 5.6/7.0 Docker Container
+- [duplicacy-autobackup](https://github.com/christophetd/duplicacy-autobackup) - :floppy_disk: Painless automated backups to multiple storage providers with Docker and duplicacy.
+- [Salamandre](https://github.com/mickdec/Salamandre) - Metasploit script allowing the creation, the listening, and the automatic rendering of a payload.
+- [cloud-storage-comparison](https://github.com/gilbertchen/cloud-storage-comparison) - Performance comparisons of cloud backup storages as Duplicacy backends
+- [docker-pi-hole](https://github.com/pi-hole/docker-pi-hole) - Pi-hole in a docker container
+- [jobber-cron](https://github.com/blacklabelops-legacy/jobber-cron) - Docker Container Cron Alternative With Jobber.
+- [docker-hackmd](https://github.com/hackmdio/docker-hackmd) - DEPRECATION: Please read our online documentation instead
+- [docker-gitlab](https://github.com/sameersbn/docker-gitlab) - Dockerized GitLab
+- [tigerlinux-extra-recipes](https://github.com/tigerlinux/tigerlinux-extra-recipes) - 
+- [docker-pgbouncer](https://github.com/Kotaimen/docker-pgbouncer) - PostgreSQL Connection Pooler in Docker.
+- [docker-draw.io](https://github.com/fjudith/docker-draw.io) - Dockerized draw.io based on tomcat:9-jre11 & tomcat:9-jre8-alpine official image.
+- [protonvpn-cli](https://github.com/ProtonVPN/protonvpn-cli) - Legacy protonvpn-cli: ProtonVPN Command-Line Tool for Linux and macOS. This has been superseded by https://github.com/ProtonVPN/protonvpn-cli-ng
+- [papirus-icon-theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) - Papirus icon theme for Linux
+- [la-capitaine-icon-theme](https://github.com/keeferrourke/la-capitaine-icon-theme) - La Capitaine is an icon pack designed to integrate with most desktop environments. The set of icons takes inspiration from the latest iterations of macOS and Google's Material Design.
+- [docker-postal](https://github.com/CatDeployed/docker-postal) - Docker container for Postal (atech/postal)
+- [wordpress](https://github.com/docker-library/wordpress) - Docker Official Image packaging for WordPress
+- [docker-minecraft-server](https://github.com/itzg/docker-minecraft-server) - Docker image that provides a Minecraft Server that will automatically download selected version at startup
+- [docker-unbound](https://github.com/obi12341/docker-unbound) - unbound DNS Resolver running in a Docker Container with DNSSEC enabled
+- [h2o.docker](https://github.com/lkwg82/h2o.docker) - docker files for h2o http2 webserver
+- [docker-get](https://github.com/32b/docker-get) - pull* docker images from git repositories
+- [docker-letsencrypt-nginx-proxy-companion](https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-companion) - LetsEncrypt companion container for nginx-proxy
+- [Docker](https://github.com/CachetHQ/Docker) - A Dockerized version of Cachet.
+- [docker-bench-security](https://github.com/docker/docker-bench-security) - The Docker Bench for Security is a script that checks for dozens of common best-practices around deploying Docker containers in production.
+- [percona](https://github.com/docker-library/percona) - DEPRECATED Docker Official Image packaging for Percona Server, new repo:
+- [mariadb](https://github.com/docker-library/mariadb) - Docker Official Image packaging for MariaDB
+- [docker](https://github.com/nextcloud/docker) - ⛴ Docker image of Nextcloud
+- [dockerfiles](https://github.com/rlister/dockerfiles) - Collection of dockerfiles for hub.docker.com/u/rlister
+- [docker-autoheal](https://github.com/willfarrell/docker-autoheal) - Monitor and restart unhealthy docker containers.
+- [fonts](https://github.com/powerline/fonts) - Patched fonts for Powerline users.
+- [fish-config](https://github.com/ByScripts/fish-config) - Fish Shell configuration files
+- [fizsh](https://github.com/zsh-users/fizsh) - Friendly Interactive ZSHell.
+- [ansible-role-backup](https://github.com/geerlingguy/ansible-role-backup) - Ansible Role - Backup for simple servers
+- [git-it-on.zsh](https://github.com/peterhurford/git-it-on.zsh) - Quickly navigate GitHub from the command line.
+- [prezto](https://github.com/sorin-ionescu/prezto) - The configuration framework for Zsh
+- [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) - 🙃  A delightful community-driven (with 1700+ contributors) framework for managing your zsh configuration. Includes nearly 300 optional plugins (rails, git, OSX, hub, capistrano, brew, ant, php, python, etc), over 140 themes to spice up your morning, and an auto-update tool so that makes it easy to keep up with the latest updates from the community.
+- [antigen](https://github.com/zsh-users/antigen) - The plugin manager for zsh.
+- [zsh-completions](https://github.com/zsh-users/zsh-completions) - Additional completion definitions for Zsh.
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) - Fish shell like syntax highlighting for Zsh.
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - Fish-like autosuggestions for zsh
+- [zsh-quickstart-kit](https://github.com/unixorn/zsh-quickstart-kit) - Simple ZSH quickstart for using ZSH and zgen
+- [ansible-examples](https://github.com/ansible/ansible-examples) - A few starter examples of ansible playbooks, to show features and how they work together.  See http://galaxy.ansible.com for example roles from the Ansible community for deploying many popular applications.
+- [lxd-forward](https://github.com/jorgeluiztaioque/lxd-forward) - A simple script to simplify port forward for LXC or LXD containers.
+- [nextcloudpi](https://github.com/nextcloud/nextcloudpi) - 📦 Build code for NextcloudPi: Raspberry Pi, Odroid, Rock64, Docker, curl installer...
+- [ruby-build](https://github.com/rbenv/ruby-build) - Compile and install Ruby
+- [rbenv](https://github.com/rbenv/rbenv) - Groom your app’s Ruby environment
+- [MySB](https://github.com/toulousain79/MySB) - MySB (MySeedBox) is more than a simplified installation script of a multi-users Seedbox. There are many solutions to install a Seedbox, but we never talk about safety and regular operations. MySB could be renamed MySSB (MySecuredSeedBox).
+- [awesome-raspberry-pi](https://github.com/thibmaek/awesome-raspberry-pi) - 📝 A curated list of awesome Raspberry Pi tools, projects, images and resources
+- [docs](https://github.com/docker-library/docs) - Documentation for Docker Official Images in docker-library
+- [wsl-terminal](https://github.com/mskyaxl/wsl-terminal) - Terminal emulator for Windows Subsystem for Linux (WSL)
+- [FADD](https://github.com/valentin2105/FADD) - Fully Automated Docker Deployments.
+- [dotfiles](https://github.com/mislav/dotfiles) - bash, zsh, git, tmux, personal toolbox
+- [get.acme.sh](https://github.com/acmesh-official/get.acme.sh) - get.acme.sh
+- [getmic.ro](https://github.com/benweissmann/getmic.ro) - The fastest way to install Micro
+- [dotfiles](https://github.com/thoughtbot/dotfiles) - A set of vim, zsh, git, and tmux configuration files.
+- [dotfiles](https://github.com/mathiasbynens/dotfiles) - :wrench: .files, including ~/.macos — sensible hacker defaults for macOS
+- [fisher](https://github.com/jorgebucaran/fisher) - A plugin manager for Fish.
+- [setup-ipsec-vpn](https://github.com/hwdsl2/setup-ipsec-vpn) - Scripts to build your own IPsec VPN server, with IPsec/L2TP and Cisco IPsec on Ubuntu, Debian and CentOS
+- [dotfiles](https://github.com/holman/dotfiles) - @holman does dotfiles
+- [docker-ghost](https://github.com/Wonderfall/docker-ghost) - Dockerfile for Ghost CMS.
+- [fetchmirrors](https://github.com/deadhead420/fetchmirrors) - Arch Linux pacman mirrorlist update utility
+- [hhvm-docker](https://github.com/hhvm/hhvm-docker) - Dockerfiles for HHVM
+- [vault-bash-completion](https://github.com/iljaweis/vault-bash-completion) - bash completion for Hashicorp Vault
+- [optimise-images](https://github.com/centminmod/optimise-images) - Batch image resizer, optimiser and profiler using ImageMagick convert, OptiPNG, JpegOptim and optional ZopfliPNG, Guetzli and MozJPEG.
+- [docker-reverse-nginx](https://github.com/xataz/docker-reverse-nginx) - 
+- [coinbash](https://github.com/8go/coinbash) - 💰 A bash script (CLI) for displaying crypto currencies market data in a terminal 🖥
+- [grafana-dashboards](https://github.com/mlabouardy/grafana-dashboards) - List of Grafana Dashboards 📺
+- [spectre-meltdown-checker](https://github.com/speed47/spectre-meltdown-checker) - Spectre, Meltdown, Foreshadow, Fallout, RIDL, ZombieLoad vulnerability/mitigation checker for Linux & BSD
+- [PKGBUILDs](https://github.com/archlinuxarm/PKGBUILDs) - PKGBUILDs modified to build on Arch Linux ARM
+- [mastodon-munin-plugins](https://github.com/cquest/mastodon-munin-plugins) - Munin plugins to graph a local mastodon instance activity
+- [terminals-are-sexy](https://github.com/k4m4/terminals-are-sexy) - 💥 A curated list of Terminal frameworks, plugins & resources for CLI lovers.
+- [nocdn](https://github.com/anjaraeu/nocdn) - Self-hosted alternative to CDNs.
+- [nsd-dnssec](https://github.com/hardware/nsd-dnssec) - :warning: UNMAINTAINED -Simple authoritative name server with DNSSEC support using Docker
+- [shell-safe-rm](https://github.com/kaelzhang/shell-safe-rm) - 😎 Safe-rm: A drop-in and much safer replacement of bash rm with nearly full functionalities and options of the rm command! Safe-rm will act exactly the same as the original rm command.
+- [tldr](https://github.com/tldr-pages/tldr) - 📚 Collaborative cheatsheets for console commands
+- [mastible](https://github.com/staticsafe/mastible) - An Ansible playbook to install Mastodon
+- [firefox-clean](https://github.com/afontenot/firefox-clean) - A PKGBUILD for Firefox with defaults for the privacy-conscious and power users
+- [babun](https://github.com/babun/babun) - Babun - a Windows shell you will love!
+- [vscode-bash-debug](https://github.com/rogalmic/vscode-bash-debug) - Bash shell debugger extension for VSCode (based on bashdb)
+- [fish-shell](https://github.com/fish-shell/fish-shell) - The user-friendly command line shell.
+- [linux-on-pixel-c](https://github.com/denysvitali/linux-on-pixel-c) - Documentation on how to run a Linux Distro on the Google Pixel C (2015)
+- [linshare](https://github.com/linagora/linshare) - LinShare
+- [imgur.sh](https://github.com/tremby/imgur.sh) - Bart's Imgur uploader bash script
+- [NodeOS](https://github.com/NodeOS/NodeOS) - Lightweight operating system using Node.js as userspace
+- [ramroot](https://github.com/arcmags/ramroot) - Load root file system to ram during boot.
+- [XPS9350-macOS](https://github.com/syscl/XPS9350-macOS) - macOS patches for Dell XPS 13 9350 (Skylake)
+- [oh-my-fish](https://github.com/oh-my-fish/oh-my-fish) - The Fish Shell Framework
+- [megadown](https://github.com/tonikelope/megadown) - Bash script for download files from mega.nz and megacrypter
+- [arch-tuto-installation](https://github.com/FredBezies/arch-tuto-installation) - Version en ligne de mon tutoriel pour installer Archlinux
+- [acme.sh](https://github.com/acmesh-official/acme.sh) - A pure Unix shell script implementing ACME client protocol
+- [dehydrated](https://github.com/dehydrated-io/dehydrated) - letsencrypt/acme client implemented as a shell-script – just add water
+- [pivpn](https://github.com/pivpn/pivpn) - The Simplest VPN installer, designed for Raspberry Pi
+- [mastodon_ynh](https://github.com/YunoHost-Apps/mastodon_ynh) - Free, open-source social network for YunoHost
+- [dnscrypt-autoinstall](https://github.com/simonclausen/dnscrypt-autoinstall) - Automatic installation and configuration of DNSCrypt (on Debian + Redhat like systems). This script will install DNSCrypt and configure it to start on boot and use an optional dnscrypt service.
+- [ssh-allow-friend](https://github.com/flplv/ssh-allow-friend) - A shell script to temporary allow ssh logins for friends
+- [takeover.sh](https://github.com/marcan/takeover.sh) - Wipe and reinstall a running Linux system via SSH, without rebooting. You know you want to.
+- [lang-french](https://github.com/qiaeru/lang-french) - French language pack to localize the Flarum forum software.
+- [discourse_docker](https://github.com/discourse/discourse_docker) - A Docker image for Discourse
+- [neofetch](https://github.com/dylanaraps/neofetch) - 🖼️  A command-line system information tool written in bash 3.2+
+- [ssh-key-adder](https://github.com/DSAndreee/ssh-key-adder) - Use SSH key adder to put your SSH key to your server authorized_keys list.
+- [kernel_autocompile](https://github.com/iFufutor/kernel_autocompile) - A bash script to simplify the compilation of Linux Kernel for Debian
+- [testssl.sh](https://github.com/drwetter/testssl.sh) - Testing TLS/SSL encryption anywhere on any port
+- [shinatra](https://github.com/benrady/shinatra) - A simple web server in 5 lines of bash
+- [easy-rsa](https://github.com/OpenVPN/easy-rsa) - easy-rsa - Simple shell based CA utility
+- [magic-device-tool](https://github.com/MariusQuabeck/magic-device-tool) - A simple and feature full batch tool to handle installing/replacing Operating Systems (Ubuntu Phone / Ubuntu Touch, Android, LineageOS, Maru OS, Sailfish OS and Phoenix OS) on your mobile devices.
+- [PiCAST](https://github.com/lanceseidman/PiCAST) - PiCAST turns your $35 Raspberry Pi in to a Chromecast like Device.
+- [pi-hole](https://github.com/pi-hole/pi-hole) - A black hole for Internet advertisements
+- [docker-flarum](https://github.com/mondediefr/docker-flarum) - :speech_balloon: :whale: Docker image of Flarum
+- [datacube](https://github.com/flemzord/datacube) - agent for https://datacube.io
+- [dynamic-motd](https://github.com/ldidry/dynamic-motd) - 
+- [plexupdate](https://github.com/mrworf/plexupdate) - Plex Update script to simplify the life of Linux Plex Media Server users.
+- [n](https://github.com/tj/n) - Node version management
+- [bm-RaspberryPi](https://github.com/blogmotion/bm-RaspberryPi) - Scripts liés à mon RaspberryPi (sh, bash, etc.)
+- [DPlatform-Shell](https://github.com/DFabric/DPlatform-Shell) - Deploy self-hosted apps easily: simple, bloat-free, independent installation
+- [ParrotMod_Nexus_7_2012](https://github.com/parrotgeek1/ParrotMod_Nexus_7_2012) - Optimizes the flash storage driver and RAM usage of the 2012 Nexus 7 to fix its extreme slowness. No longer supported.
+- [BruteX](https://github.com/1N3/BruteX) - Automatically brute force all services running on a target.
+- [seedbox](https://github.com/Kelvin-Chen/seedbox) - Docker containers for running a seedbox/media server
+- [swarm2k](https://github.com/swarmzilla/swarm2k) - The Docker Swarm 2000 Collaborative Project
+- [artwork](https://github.com/solus-project/artwork) - Solus Artwork
+- [ddos-deflate](https://github.com/jgmdev/ddos-deflate) - Fork of DDoS Deflate with fixes, improvements and new features.
+- [rutorrent-bonobox](https://github.com/exrat/rutorrent-bonobox) - Auto install script for rTorrent with ruTorrent
+- [screenFetch](https://github.com/KittyKatt/screenFetch) - Fetches system/theme information in terminal for Linux desktop screenshots.
+- [seafile-rpi](https://github.com/haiwen/seafile-rpi) - Seafile server package for Raspberry Pi.
+- [digitalocean-debian-to-arch](https://github.com/gh2o/digitalocean-debian-to-arch) - Script to convert a Debian installation on DigitalOcean to Arch Linux
+- [dockerfiles](https://github.com/Wonderfall/dockerfiles) - Discontinued. Fork at your will.
+- [csa](https://github.com/utrenkner/csa) - Compress Static (Web) Assets Using gzip/zopfli and brotli
+- [DDOS-Deflate-for-Debian-7](https://github.com/stylersnico/DDOS-Deflate-for-Debian-7) - DDOS Deflate for Debian 7
+- [nmd](https://github.com/stylersnico/nmd) - (d)DOS Deflate fork for the latest Gnu/Linux systems
+- [dns-failover-cloudflare-monit](https://github.com/novakin/dns-failover-cloudflare-monit) - Setup DNS Failover for Cloudflare with monit - https://www.noobunbox.net
+- [LinuxGSM](https://github.com/GameServerManagers/LinuxGSM) - The command-line tool for quick, simple deployment and management of Linux dedicated game servers.
+- [mailserver](https://github.com/hardware/mailserver) - :warning: UNMAINTAINED - Simple and full-featured mail server using Docker
+- [Chromium-OS-Overlays](https://github.com/tohipfortheroom/Chromium-OS-Overlays) - The most recent working Chromium OS overlays for the Raspberry Pi 2 (ChromiumRPI project)
+- [rpi-update](https://github.com/Hexxeh/rpi-update) - An easier way to update the firmware of your Raspberry Pi
+- [munin-rpi-temp](https://github.com/gajdipajti/munin-rpi-temp) - Munin plugin for monitoring Raspberry Pi internal & external temperature
+- [munin-rpi-internal-temp](https://github.com/yanjost/munin-rpi-internal-temp) - Munin plugin for monitoring Raspberry Pi internal temperature
+- [bashscanner](https://github.com/PatrolServer/bashscanner) - A fast way to scan your server for outdated software and potential exploits.
+- [asus-zenfone-5-root](https://github.com/sigo/asus-zenfone-5-root) - Little script, which will root your ASUS Zenfone 5
+- [ezservermonitor-sh](https://github.com/shevabam/ezservermonitor-sh) - eZ Server Monitor`sh - A simple and lightweight dashboard for Linux
+- [gitnonymous](https://github.com/chr15m/gitnonymous) - Pseudonymous Git commits over Tor
+- [openvpn-install](https://github.com/Nyr/openvpn-install) - OpenVPN road warrior installer for Ubuntu, Debian, CentOS and Fedora
+- [Dropbox-Uploader](https://github.com/andreafabrizi/Dropbox-Uploader) - Dropbox Uploader is a BASH script which can be used to upload, download, list or delete files from Dropbox, an online file sharing, synchronization and backup service.
+- [opengapps](https://github.com/opengapps/opengapps) - The main repository of the Open GApps Project
+- [yaourt](https://github.com/archlinuxfr/yaourt) - [unmaintained] A Pacman frontend with more features and AUR support
+- [ansible-diaspora](https://github.com/jaywink/ansible-diaspora) - Ansible role for diaspora*
+- [streisand](https://github.com/StreisandEffect/streisand) - Streisand sets up a new server running your choice of WireGuard, OpenConnect, OpenSSH, OpenVPN, Shadowsocks, sslh, Stunnel, or a Tor bridge. It also generates custom instructions for all of these services. At the end of the run you are given an HTML file with instructions that can be shared with friends, family members, and fellow activists.
+- [cloudbench](https://github.com/martinrusev/cloudbench) - 
+- [apricity-build](https://github.com/Apricity-OS/apricity-build) - ISO build scripts for Apricity OS
+- [OpenNIC-cli](https://github.com/angristan/OpenNIC-cli) - Set the nearest OpenNIC servers as your DNS resolvers on you GNU/Linux machine
+- [BacMan](https://github.com/quent1-fr/BacMan) - Bac(kup)Man(ager) est un script bash permettant de réaliser les sauvegardes compressées et chiffrées vers la plateforme Hubic d'OVH.
+- [youtube-dl-mp3](https://github.com/jweslley/youtube-dl-mp3) - Downloads videos from YouTube and convert them to mp3.
+- [pwd.sh](https://github.com/drduh/pwd.sh) - GPG symmetric password manager
+- [apaxy](https://github.com/oupala/apaxy) - a simple, customisable theme for your apache directory listing
