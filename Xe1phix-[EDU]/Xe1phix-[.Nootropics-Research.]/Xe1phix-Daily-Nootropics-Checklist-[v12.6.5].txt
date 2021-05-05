@@ -76,14 +76,10 @@
 <-------------------------->
    | Phosphatidylserine |     ~-> ( mg)
 <-------------------------->
-
     [+] Enhances the production of acetylcholine in neurons.
-    [+] Major components of cell membranes
-    [+] 
+    [?] Major components of cell membranes
     [?] Phosphatidylserine > phosphatidylcholine
         [?] Phosphatidylcholine has a weak bioavailability)
-    [+] 
-
 
 <----------------------------------------------------->
    | Alpha-GPC [L-Alpha glycerylphosphorylcholine] |     ~->  (250-500mg)
@@ -91,17 +87,25 @@
     [+] Parasympathomimetic acetylcholine precursor
     [+] Natural choline compound found in the brain. 
     [+] Delivers choline across the blood–brain barrier
-    [+] increased both acetylcholine binding, and cholinergic transportation for AChE activity
-    [+] 
-    [+] αGPC administration elevated Ach in the cerebral cortex, hippocampus, and striatum
-    [+] facilitate the structural reorganization of neurons.
-    [+] increased acetylcholine immunoreactivity in nerve fibers supplying cerebral cortex
-    [+] 
-    [+] Enhances synaptic membrane formation
-    [+] A source for glycerophosphate
-        [?] An important factor in phospholipid synthesis and cellular membrane structure.
-    [+] A protein Kinase C (PKC) activator
-    [+] hippocampal acetylcholine release progressively increased from 139% to 245% during the 12 days
+    [+] Alpha-GPC Increased both: 
+         ~> Acetylcholine binding 
+         ~> Cholinergic Transportation for AChE Activity.
+    [+] Alpha-GPC administration elevated Ach in the 
+         ~> Cerebral Cortex
+         ~> Hippocampus
+         ~> Striatum
+    [+] Alpha-GPC Facilitates the structural reorganization of neurons.
+    [+] increased acetylcholine immunoreactivity 
+        in the nerve fibers supplying the Cerebral Cortex
+    [+] Enhances Synaptic Membrane Formation
+    [+] Alpha GPC is a good source for Glycerophosphate
+        [?] Glycerophosphate is an important factor in 
+             ~> Phospholipid Synthesis and
+             ~> Cellular membrane structure
+    [+] Alpha-GPC is a Protein Kinase C (PKC) Activator
+    [?] Clinical trials showed that the 
+    [+] Hippocampal Acetylcholine release progressively increased 
+         [?] From 139% to 245% during the 12 days
 
 
 
@@ -133,12 +137,12 @@
 ## ------------------------------------------------------------------------------------------------------------- ##
     [?] Trials studying the effects of phenylpiracetam on ischemic stroke victims 
         showed that Phenylpiracetam Reduced the extent of 
-    [?] Neuralgic deficiency manifestations resulting from cerebral ischemia 
+    [?] Neurologically deficient manifestations resulting from cerebral ischemia 
 ## ------------------------------------------------------------------------------------------------------------- ##
 
                                                                                  
 ## ---------------------------------------------------------------------------------------- ##
-    [?]  In clinical trials, Drs compared the effectiveness of
+    [?]  In clinical trials; Drs compared the effectiveness of
          several motivation enhancing substances.
 ## ---------------------------------------------------------------------------------------- ##
     [?]  Subjects were given:
