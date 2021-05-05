@@ -291,13 +291,15 @@ Lions Mane NeuroPharmacology Classifications & Characteristics:
        [+] 
        [+] 
        [+] Contains the following polysaccharides:
-           > beta-glucans
-           > Fungal Immunomodulatory Proteins (FIPs)
-           > Ganoderic acids
-           > Coumarin
-           > Mannitol
-           > 
-       [+] Reishi spores contain a staggering amount of triterpenoids (in the 30% range)
+             ~> beta-glucans
+             ~> Fungal Immunomodulatory Proteins (FIPs)
+             ~> Ganoderic acids
+             ~> Coumarin
+             ~> Mannitol
+       [+] Reishi spores contain a staggering amount of Triterpenoids.
+       [+] Triterpenoids - Compounds that promote healthy levels of oxidation.
+
+           [?] 30% of Reishi spores are made up of Triterpenoids
            [?] 
 
 <------------------------>
@@ -393,11 +395,36 @@ Lions Mane NeuroPharmacology Classifications & Characteristics:
    | Huperzine A |     ~-> (250mg)
 <------------------->
     [+] Indirectly causes an increase in acetylcholine.
-          Allowing for a greater reuptake of the neurotransmitter.
+         [?] Allowing for a greater reuptake of the neurotransmitter.
+    [+] 
+    [+] 
+    [+] 
 
-    [+] 
-    [+] 
-    [+] 
+<----------------------->
+   | L-Phenylalanine |     ~-> (250mg)
+<----------------------->
+    [+] Phenylethylamine is characterized as a neurotransmitter or neuromodulator
+    [+] Phenylalanine is primarily converted into phenylethylamine.
+         ~> And to a less degree, it is also converted into tyrosine.
+## --------------------------------------------------------------------------------------------- ##
+##  [+]  Phenylalanine converts into phenylethylamine.
+## --------------------------------------------------------------------------------------------- ##
+    [+]  Phenylethylamine encourages the release of norepinephrine. 
+    [+]  Phenylalanine supports the following neurotransmitters:
+    [+]  Phenylethylamine has a direct effect on the release of:
+          ~>  Norepinephrine
+          ~>  Epinephrine
+          ~>  Serotonin
+          ~>  Melatonin
+    [+]  Nootropic effects of Phenylalanine:
+          ~>  Memory formation
+          ~>  Memory recall speed
+          ~>  Learning capacity
+    [+]  Studies suggest that phenylethylamine may encourage 
+          ~>  Improved mental clarity, 
+          ~>  A longer attention span, 
+          ~>  Greater concentration and focus on tasks.
+
  ------- ----------- --------
 > Green + White Tea + Matcha   ~->  (1 Gallon) 
  ------- ----------- --------
