@@ -103,15 +103,58 @@
     [+] A protein Kinase C (PKC) activator
     [+] hippocampal acetylcholine release progressively increased from 139% to 245% during the 12 days
 
-<----------------------->
-   | Phenylpiracetam |     ~->  (100mg)
-<----------------------->
+
+
+ _/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_
+<-------------------------------->
+       | Phenylpiracetam |     ~->  (100mg)
+<-------------------------------->
+
+## ----------------------------------- ##
+     [?] Psychoactive class:  
+          ~> Nootropic / Stimulant
+     [?] Chemical class:  
+          ~> Racetam
+## ----------------------------------- ##
     [+] Increases acetylcholine release within hippocampal cells.
-    [+] 
-    [+] 
-    [+] 
-    [+] 
-    [+] 
+    [+] Phenylpiracetam binds to α4β2 nicotinic acetylcholine receptors
+    [+] Phenylpiracetam is neurogenerative.
+    [+] Phenylpiracetam promotes neurogenesis.
+    [+] Phenylpiracetam demonstrates antiamnestic activity.
+    [+] Preserving adequate levels of acetylcholine as a primary mechanism.
+    [+] Phenylpiracetam acts as a dopamine re-uptake inhibitor
+    [+] Phenylpiracetam acts as a noradrenaline reuptake inhibitor
+    [+] Increase in extracellular dopamine levels after administration.
+    [+] Phenylpiracetam is known to increase operant behavior
+    [+] Local cerebral flow restoration upon the occlusion of carotid arteries
+                                                        
+## ------------------------------------------------------------------------------------------------------------- ##
+    [+] Clinical Trial Results From Observing The Effects of Phenylpiracetam 
+## ------------------------------------------------------------------------------------------------------------- ##
+    [?] Trials studying the effects of phenylpiracetam on ischemic stroke victims 
+        showed that Phenylpiracetam Reduced the extent of 
+    [?] Neuralgic deficiency manifestations resulting from cerebral ischemia 
+## ------------------------------------------------------------------------------------------------------------- ##
+
+                                                                                 
+## ---------------------------------------------------------------------------------------- ##
+    [?]  In clinical trials, Drs compared the effectiveness of
+         several motivation enhancing substances.
+## ---------------------------------------------------------------------------------------- ##
+    [?]  Subjects were given:
+          ~> methylphenidate
+          ~> d-amphetamine
+          ~> phenylpiracetam
+## --------------------------------------------------------------------------------------- ##
+    [?]  Rats given 10 mg/kg Methylphenidate; 
+          ~> Performed an average of 170% more work.
+    [?]  Rats given 1 mg/kg Amphetamine; 
+          ~> Performed an average of 150% more work.
+    [?]  Rats given 100 mg/kg Phenylpiracetam;
+          ~> Performed an average of 375% more work.
+## --------------------------------------------------------------------------------------- ##>
+
+
 
 <------------------->
     | Oxiracetam |     ~->  (100mg) 
