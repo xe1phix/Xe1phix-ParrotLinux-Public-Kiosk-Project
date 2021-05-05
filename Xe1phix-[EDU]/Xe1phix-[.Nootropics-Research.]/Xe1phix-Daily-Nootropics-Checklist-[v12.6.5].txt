@@ -29,34 +29,49 @@
     [+] Provides neuroprotective properties against stroke and dementia
     [+] Enhances the production of acetylcholine in neurons.
     [+] Modulates acetylcholine, dopamine, and glutamate.
-
     [+] Protects neurons from free radical damage.
     [+] Promotes electrical impulses in the brain.
     [+] Promotes healthy mitochondrial function.
     [+] Improves the integrity of neuronal membranes.
     [+] Supports the synthesis and maintenance of cell membranes.
-    [+] 
-    [+] 
     [+] Involved in phospholipid metabolism
-
+## -------------------------------------------------------------------------------- ##
     [+] Provides vital nutrients required to support 
         the body's regeneration of Phospholipids. 
         [?] Phospholipids make up 30% of our brain tissue
         [?] Phospholipids provide essential protection for neurons
         [?] Phospholipids support neural communication 
-
+## -------------------------------------------------------------------------------- ##
     [+] Provides neuroprotective properties against stroke and dementia
     [+] 
-
-
-
+## -------------------------------------------------------------------------------- ##
     [+] Clinical trials studying Citicoline have reported: 
           [+] Improved memory in patients with dementia 
           [+] Reduced damage to the brain after 
               traumatic brain injury or stroke.
-
+## -------------------------------------------------------------------------------- ##
     [?] A precursor for the synthesis of important phospholipids. 
     [?] These phospholipids are essential to cell membranes. 
+## -------------------------------------------------------------------------------- ##
+    [+] Clinical trials observing the effects of citicoline 
+        explain Citicolines neuroprotective nature:
+    [+] The following list was observed during clinical trials:
+## -------------------------------------------------------------------------------- ##
+        ~>  Preservation of cardiolipin & sphingomyelin
+            (an exclusive inner mitochondrial membrane component) 
+        ~>  Preservation of the arachidonic acid, 
+            content of PtdCho and phosphatidylethanolamine
+        ~>  Restoration of PtdCho levels
+        ~>  Stimulation of glutathione synthesis
+        ~>  Stimulation of glutathione reductase activity
+        ~>  Attenuating lipid peroxidation
+        ~>  Restoring Na(+)/K(+)-ATPase activity. 
+## -------------------------------------------------------------------------------- ##
+    [?] These observed effects of citicoline could be explained by:
+    [+] The attenuation of phospholipase A(2) activation
+## -------------------------------------------------------------------------------- ##
+
+
 
 <-------------------------->
    | Phosphatidylserine |     ~-> ( mg)
