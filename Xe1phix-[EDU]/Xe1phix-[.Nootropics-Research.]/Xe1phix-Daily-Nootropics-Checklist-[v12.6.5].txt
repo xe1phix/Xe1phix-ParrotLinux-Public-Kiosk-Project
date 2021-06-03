@@ -462,6 +462,21 @@ Lions Mane NeuroPharmacology Classifications & Characteristics:
     [+] 
     [+] 
 
+
+<----------------------->
+   | Bacopa Monnieri |     ~-> (350mg)
+<----------------------->
+    [+] Bacopa Monnieri acts via the following mechanisms
+        > anti-oxidant neuroprotection (via redox and enzyme induction)
+        > acetylcholinesterase inhibition
+        > choline acetyltransferase activation
+        > β-amyloid reduction
+        > increased cerebral blood flow
+        > neurotransmitter modulation (acetylcholine [ACh] 
+        > 5-hydroxytryptamine [5-HT]
+        > dopamine [DA]
+
+
 <----------------------->
    | L-Phenylalanine |     ~-> (250mg)
 <----------------------->
