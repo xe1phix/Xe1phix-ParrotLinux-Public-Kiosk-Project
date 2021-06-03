@@ -475,8 +475,35 @@ Lions Mane NeuroPharmacology Classifications & Characteristics:
         > neurotransmitter modulation (acetylcholine [ACh] 
         > 5-hydroxytryptamine [5-HT]
         > dopamine [DA]
+    [+] Repairs hippocampal cell damage 
+    [+] Promotes TMT-induced hippocampal neurogenesis.
+    [+] Synaptic plasticity-related signaling in the hippocampus.
+    [+] Protects cholinergic neurons in the medial septum.
+    [+] Increased the number of 5-bromo-2'-deoxyuridine (BrdU)-immunopositive cells 
+    [+] 
+    [+] 
+    [+] 
+    [+] 
 
+## ----------------------------------------------------------------------------- ##
+    [+] Clinical Trial Results From Observing The Effects of Bacopa Monnieri 
+## ----------------------------------------------------------------------------- ##
 
+    [+] A significant increase in neurogenesis was observed
+        in the dentate gyrus region 4 weeks after terminating 1-week treatment
+    [+] evidence for potential attenuation of dementia, Parkinson's disease.
+    [+] mice significantly enhanced hippocampal BrdU incorporation 
+        and expression of genes involved in neurogenesis.
+        (determined by RNAseq analysis).
+    [+] An active component promoted the proliferation of 
+        neural progenitor cells in vitro 
+        in a concentration-dependent manner 
+        via the facilitation of the Akt and ERK1/2 signaling. 
+    [+] Protects the hippocampal neurons from TMT-induced hippocampal lesions 
+        via promoting neuroregeneration in the dentate gyrus regions. 
+    [+] 
+    [+] 
+    [+] 
 <----------------------->
    | L-Phenylalanine |     ~-> (250mg)
 <----------------------->
