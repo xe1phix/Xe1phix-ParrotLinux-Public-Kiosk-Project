@@ -1,0 +1,76 @@
+# clone repo
+git clone https://bitbucket.org/LaNMaSteR53/recon-ng.git /opt/recon-ng
+
+workspaces add [Company Name - example SUCK_Company]
+
+add domains [DOMAIN - example suck.testlab]
+
+add companies
+
+#Look through Bing for domain names
+use recon/domains-hosts/bing_domain_web 
+run
+
+#Look through Google for domain names
+use recon/domains-hosts/google_site_web
+run
+
+#Brute-force subdomains
+use recon/domains-hosts/brute_hosts
+run
+
+#Look at netcraft for domain names
+use recon/domains-hosts/netcraft
+run
+
+#Resolve all the domain names to IP
+use recon/hosts-hosts/resolve
+run
+
+#Resolve all the IPs to hostnames/domain names
+use recon/hosts-hosts/reverse_resolve
+run
+
+#Look for a few files on the identified domains
+use discovery/info_disclosure/interesting_files
+run
+
+#This is where you add your infodb API key from earlier
+keys add ipinfodb_api [KEY ]
+
+#Find the location of the IPs that were discovered
+use recon/hosts-hosts/ipinfodb
+run
+
+#Find email addresses from the whois lookup
+use recon/domains-contacts/whois_pocs
+run
+
+#Look through the public PGP store for email addresses
+use recon/domains-contacts/pgp_search
+run
+
+#This will check all of the email accounts you have gathered against
+the �Have I Been PWN�ed� website. This will let you know if there
+are potentially leaked passwords that you might be able to use.
+use recon/contacts-credentials/hibp_paste
+run
+
+#Create a report
+use reporting/html
+set CREATOR HP2
+set CUSTOMER HP2
+run
+
+exit
+
+firefox /root/.recon-ng/workspaces/SUCK_Company/results.html
+
+
+
+
+
+
+
+
+
