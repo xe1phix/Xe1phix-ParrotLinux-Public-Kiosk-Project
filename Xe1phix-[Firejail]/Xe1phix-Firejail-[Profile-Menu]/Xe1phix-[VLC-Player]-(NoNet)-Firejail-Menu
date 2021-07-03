@@ -1,2 +1,3 @@
 VLC Media Player {Firejail NoNet Profile}
 firejail --name=vlc --profile=/etc/firejail/vlc.profile --net=none /usr/bin/vlc
+/usr/share/icons/hicolor/128x128/apps/vlc-xmas.png
