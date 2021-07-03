@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=lowriter
+Comment=LibreOffice Writer
+Icon=:resources/libreoffice-writer.png
+Exec=firejail --nonet --profile=/etc/firejail/libreoffice.profile /usr/bin/lowriter
