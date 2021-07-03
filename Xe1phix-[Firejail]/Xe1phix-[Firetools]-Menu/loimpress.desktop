@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=loimpress
+Comment=
+Icon=libreoffice-impress
+Exec=firejail --nonet --profile=/etc/firejail/libreoffice.profile /usr/bin//usr/bin/loimpress
