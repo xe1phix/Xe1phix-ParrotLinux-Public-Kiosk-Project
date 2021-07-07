@@ -1,0 +1,4 @@
+Syndie {Firejail Profile}
+firejail --profile=/etc/firejail/syndie.profile /usr/bin/syndie
+Distributed forum/blog reader
+/usr/share/icons/hicolor/scalable/apps/syndie-logo.svg

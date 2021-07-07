@@ -1,0 +1,4 @@
+Network Tools {Firejail Profile}
+Gnome-Nettool {Firejail Profile}
+firejail --profile=/etc/firejail/gnome-nettool.profile /usr/bin/gnome-nettool
+/usr/share/icons/maia/apps/scalable/gnome-nettool.svg

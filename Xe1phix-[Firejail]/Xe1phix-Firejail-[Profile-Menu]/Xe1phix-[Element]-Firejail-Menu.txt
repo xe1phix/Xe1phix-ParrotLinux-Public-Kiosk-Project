@@ -1,0 +1,4 @@
+Element {Firejail Profile}
+firejail --profile=/etc/firejail/element-desktop.profile /usr/bin/element-desktop
+/usr/share/icons/hicolor/256x256/apps/element-desktop.png
+All-in-one secure chat app for teams, friends and organisations

@@ -1,0 +1,5 @@
+Cutter {Firejail Profile}
+firejail --profile=/etc/firejail/cutter.profile /usr/bin/cutter
+/usr/share/icons/maia/apps/scalable/cutter.svg
+/usr/share/icons/hicolor/scalable/apps/cutter.svg
+QT GUI for rizin dissembler framework

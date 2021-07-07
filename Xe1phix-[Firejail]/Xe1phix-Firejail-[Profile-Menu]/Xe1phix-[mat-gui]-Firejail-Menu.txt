@@ -1,0 +1,5 @@
+mat-gui {Firejail Profile}
+firejail --profile=/etc/firejail/mat-gui.profile /usr/bin/mat-gui
+firejail --profile=/etc/firejail/mat-gui.profile /usr/bin/mat2
+/usr/share/icons/hicolor/scalable/apps/mat2.svg
+Metadata Anonymisation Toolkit

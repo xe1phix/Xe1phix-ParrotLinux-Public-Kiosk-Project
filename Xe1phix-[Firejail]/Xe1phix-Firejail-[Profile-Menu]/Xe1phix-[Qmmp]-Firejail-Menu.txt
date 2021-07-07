@@ -1,0 +1,4 @@
+Qmmp {Firejail Profile}
+firejail --profile=/etc/firejail/qmmp.profile /usr/bin/qmmp
+/usr/share/icons/hicolor/256x256/apps/qmmp.png
+Qt-based Multimedia Player

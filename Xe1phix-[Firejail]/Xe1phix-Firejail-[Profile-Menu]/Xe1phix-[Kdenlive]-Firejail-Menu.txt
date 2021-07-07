@@ -1,0 +1,5 @@
+Kdenlive {Firejail Profile}
+firejail --profile=/etc/firejail/kdenlive.profile /usr/bin/kdenlive %F
+/usr/share/icons/maia/apps/scalable/kdenlive.svg
+/usr/share/icons/hicolor/256x256/apps/kdenlive.png
+Nonlinear video editor by KDE

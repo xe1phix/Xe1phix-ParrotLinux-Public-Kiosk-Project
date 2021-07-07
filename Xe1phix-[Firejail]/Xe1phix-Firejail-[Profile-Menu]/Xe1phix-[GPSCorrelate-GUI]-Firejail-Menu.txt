@@ -1,0 +1,4 @@
+GPSCorrelate {Firejail Profile}
+firejail --profile=/etc/firejail/gpscorrelate-gui.profile /usr/bin/gpscorrelate-gui
+/usr/share/icons/hicolor/scalable/apps/gpscorrelate-gui.svg
+Add coordinates to jpeg images using gpx files

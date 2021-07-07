@@ -1,0 +1,3 @@
+MPlayer {Firejail Profile}
+firejail --profile=/etc/firejail/mplayer.profile /usr/bin/mplayer
+/usr/share/icons/oxygen/base/256x256/mimetypes/application-x-mplayer2.png

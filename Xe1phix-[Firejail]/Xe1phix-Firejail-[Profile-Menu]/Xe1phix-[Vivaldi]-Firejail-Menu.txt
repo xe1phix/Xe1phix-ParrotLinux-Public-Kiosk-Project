@@ -1,0 +1,4 @@
+Vivaldi {Firejail Profile}
+firejail --profile=/etc/firejail/vivaldi.profile /usr/bin/vivaldi
+firejail --profile=/etc/firejail/vivaldi.profile /usr/bin/vivaldi-stable
+

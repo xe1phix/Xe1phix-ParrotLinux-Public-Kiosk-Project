@@ -1,0 +1,5 @@
+Seahorse {Firejail Profile}
+Passwords and Keys {Firejail Profile}
+firejail --profile=/etc/firejail/seahorse.profile /usr/bin/seahorse
+/usr/share/icons/hicolor/256x256/apps/gcr-gnupg.png
+GNOME application for managing PGP keys

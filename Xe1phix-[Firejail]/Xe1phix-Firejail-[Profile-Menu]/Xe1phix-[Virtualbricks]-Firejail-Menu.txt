@@ -1,0 +1,3 @@
+Virtualbricks {Firejail Profile}
+firejail --profile=/etc/firejail/qemu-system-x86_64.profile /usr/bin/virtualbricks
+/usr/share/icons/maia/apps/scalable/virtualbox.svg

@@ -1,0 +1,4 @@
+Virt-Viewer {Firejail Profile}
+firejail --profile=/etc/firejail/qemu-system-x86_64.profile /usr/bin/virt-viewer
+/usr/share/icons/maia/apps/scalable/virt-viewer.svg
+/usr/share/icons/hicolor/256x256/apps/virt-viewer.png

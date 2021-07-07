@@ -1,0 +1,4 @@
+Flowblade {Firejail Profile}
+firejail --profile=/etc/firejail/flowblade.profile /usr/bin/flowblade
+/usr/share/icons/hicolor/128x128/apps/io.github.jliljebl.Flowblade.png
+Non-linear video editor

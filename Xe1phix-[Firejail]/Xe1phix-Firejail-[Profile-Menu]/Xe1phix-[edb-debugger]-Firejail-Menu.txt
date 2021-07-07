@@ -1,0 +1,3 @@
+edb-debugger {Firejail Profile}
+firejail --profile=/etc/firejail/edb.profile /usr/bin/edb
+/usr/share/icons/maia/apps/scalable/edb.svg

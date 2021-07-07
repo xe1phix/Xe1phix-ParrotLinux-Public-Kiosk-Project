@@ -1,0 +1,3 @@
+Claws Mail {Firejail Profile}
+firejail --profile=/etc/firejail/claws-mail.profile /usr/bin/claws-mail
+/usr/share/icons/maia/apps/scalable/claws-mail.svg

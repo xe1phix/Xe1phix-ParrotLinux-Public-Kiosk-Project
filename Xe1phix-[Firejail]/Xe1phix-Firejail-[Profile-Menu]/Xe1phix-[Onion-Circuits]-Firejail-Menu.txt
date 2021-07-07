@@ -1,0 +1,4 @@
+Onion Circuits {Firejail Profile}
+firejail --profile=/etc/firejail/onioncircuits.profile /usr/bin/onioncircuits
+/usr/share/icons/hicolor/scalable/apps/onioncircuits.svg
+Monitor Tor circuits and connections

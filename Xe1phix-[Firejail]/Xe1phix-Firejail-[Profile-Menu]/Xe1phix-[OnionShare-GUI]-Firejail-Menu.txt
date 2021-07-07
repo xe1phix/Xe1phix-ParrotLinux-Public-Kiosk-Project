@@ -1,0 +1,4 @@
+OnionShare-GUI {Firejail Profile}
+firejail --profile=/etc/firejail/onionshare-gui.profile /usr/bin/onionshare-gui
+/usr/share/icons/hicolor/scalable/apps/org.onionshare.OnionShare.svg
+Share a file securely and anonymously over Tor

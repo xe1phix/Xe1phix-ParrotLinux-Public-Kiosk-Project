@@ -1,0 +1,4 @@
+Ricochet IM {Firejail Profile}
+firejail --profile=/etc/firejail/ricochet.profile /usr/bin/ricochet
+/usr/share/icons/maia/apps/scalable/ricochet.svg
+Anonymous instant messaging

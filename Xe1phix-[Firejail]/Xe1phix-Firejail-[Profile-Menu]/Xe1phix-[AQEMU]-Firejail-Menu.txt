@@ -1,0 +1,4 @@
+AQEMU {Firejail Profile}
+firejail --profile=/etc/firejail/qemu-launcher.profile /usr/bin/aqemu
+/usr/share/icons/hicolor/48x48/apps/aqemu.png
+Front-end for QEMU and KVM

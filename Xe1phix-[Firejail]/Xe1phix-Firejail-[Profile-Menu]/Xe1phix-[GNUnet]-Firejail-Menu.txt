@@ -1,0 +1,4 @@
+GNUnet Secured P2P {Firejail Profile}
+firejail --profile=/etc/firejail/gnunet.profile /usr/bin/gnunet-fs-gtk
+/usr/share/icons/hicolor/scalable/apps/gnunet-fs-gtk.svg
+Share files using GNU's anonymous and censorship-resistant network

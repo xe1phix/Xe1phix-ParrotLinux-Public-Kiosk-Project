@@ -1,0 +1,4 @@
+Virtual Machine Manager {Firejail Profile}
+firejail --profile=/etc/firejail/qemu-system-x86_64.profile /usr/bin/virt-manager
+/usr/share/icons/maia/apps/scalable/virt-manager.svg
+Manage virtual machines

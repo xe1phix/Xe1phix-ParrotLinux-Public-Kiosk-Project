@@ -1,0 +1,5 @@
+VirtualBox {Firejail Profile}
+firejail --profile=/etc/firejail/virtualbox.profile /usr/bin/virtualbox
+/usr/share/icons/maia/apps/scalable/virtualbox.svg
+x86 virtualization solution
+Run several virtual systems on a single host computer
