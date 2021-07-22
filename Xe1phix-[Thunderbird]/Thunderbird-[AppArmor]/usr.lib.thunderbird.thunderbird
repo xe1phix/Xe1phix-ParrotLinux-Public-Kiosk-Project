@@ -1,0 +1,58 @@
+#include <tunables/global>
+
+/usr/lib/thunderbird/thunderbird {
+  #include <abstractions/audio>
+  #include <abstractions/base>
+  #include <abstractions/dbus>
+  #include <abstractions/fonts>
+  #include <abstractions/freedesktop.org>
+  #include <abstractions/gnome>
+  #include <abstractions/nameservice>
+  #include <abstractions/X>
+
+  @{HOME}/.thunderbird/ rw,
+  @{HOME}/.thunderbird/** rwk,
+  @{HOME}/.cache/thunderbird/ rw,
+  @{HOME}/.cache/thunderbird/** rwk,
+  @{HOME}/.config/dconf/user r,
+  @{HOME}/.local/share/fonts/ r,
+  @{HOME}/.local/share/fonts/** r,
+
+  /etc/thunderbird/** r,
+  /etc/xul-ext/** r,
+  /etc/mailcap r,
+  /etc/mime.types r,
+  /usr/share/mime/ r,
+  /usr/share/mime/** r,
+  /usr/lib/thunderbird/** r,
+  /usr/lib/thunderbird-addons/** rk,
+  /usr/share/glib-2.0/schemas/gschemas.compiled r,
+  /usr/share/hunspell/ r,
+  /usr/share/hunspell/* r,
+
+  /sys/devices/system/cpu/ r,
+  /sys/devices/system/cpu/** r,
+
+  owner /{,var/}run/user/*/dconf/user rw,
+  owner @{PROC}/[0-9]*/mountinfo r,
+  owner @{PROC}/[0-9]*/statm r,
+
+  /tmp/ r,
+  /tmp/orbit-* rw,
+
+  dbus,
+
+  # gnupg, for enigmail
+  /usr/bin/gpg rCx -> gpg,
+  profile gpg {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+
+    /usr/bin/gpg rix,
+    /usr/lib/gnupg/gpgkeys_hkp rix,
+    @{HOME}/.gnupg/ rw,
+    @{HOME}/.gnupg/** rwl,
+    @{HOME}/.gnupg/random_seed k,
+    owner /{,var/}run/user/*/keyring-** rw,
+  }
+}
