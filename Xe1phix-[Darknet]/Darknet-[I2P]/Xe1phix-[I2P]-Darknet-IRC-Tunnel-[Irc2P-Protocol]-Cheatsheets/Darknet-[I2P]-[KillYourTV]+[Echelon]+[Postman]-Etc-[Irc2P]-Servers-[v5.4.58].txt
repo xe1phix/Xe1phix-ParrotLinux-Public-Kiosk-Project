@@ -1,0 +1,94 @@
+
+## ################################################################################################## ##
+## =============================== Beginning of I2p Irc2p Topic ===================================== ##
+## ################################################################################################## ##
+
+
+
+##-==================================================================================-##
+## 						KillYourTV I2P IRC (IRC2P Protocol) Server
+##-==================================================================================-##
+## 
+## ---------------------------------------------------------------------------------- ##
+/join channel #irc2p	
+## ---------------------------------------------------------------------------------- ##
+KillYourTV / kytv on irc.oftc.net
+Killyourtv on irc.oftc.net
+KillYourTV on irc.killyourtv.i2p
+killyourtv / kytv on irc.freenode.net
+KillYourTV on irc.postman.i2p
+## ---------------------------------------------------------------------------------- ##
+## irc.killyourtv.i2p=CnG0yQheyd67rl1nHuYZp1sVZxzXHe05UPrmT0B3Vxtd51K-Cq5E6v5~UTrU5lqj56ggvnRl0I8jg1vPn0Q50IH6ght~4ThkKlwDwTOMHmROz3sR6WLCOvD4ZFMDBYjBsxjF3383YSIlYrh~laTXSzD~lPhHLGD1jFQksqea-87sM-yfRzCbA7UyaHtURJ7A3GOb8Bm8W25mPOHpM~xT0TONvbi45IVmAeWkuZ5IhBsrzhWvY1-Riy6IW6KSRoQIZtr5o23cVHkjUh8J-~SWZR5wIgECefrVVCt556qDn35I2829Jlk26-iI9glMrr7funaOtp1wnDvNPTijlxwkeAx9GKPCX48nCyxIUeSTwGv0grDPn43V94tV0LSq8mkXZ1akDJUNf33z2Uao-nCi-ufb0Mt0rzgdRVW1i79GQHk4XbApzjYUjyaSY4cuR0yBRFHrOcrFt~XJABpt9DYklu6y3n54uOLZeXGnE5nKCSHLqyS3dxPTObIQvhz~ZjHRAAAA
+## ---------------------------------------------------------------------------------- ##
+
+
+
+## ========================================= ##
+## -- KillYourTV Darknet IRC Channel Cert -- ##
+## ========================================= ##
+## http://killyourtv.i2p/ircserver/kytv-cacert.pem
+## /usr/local/share/ca-certificates/kytv-cacert.crt
+## update-ca-certificates
+
+
+
+
+##-============================================================================================================================-##
+##-~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~##
+## ---------------------------------------------------------------------------------------------------------------------------- ##
+##     [+] Darknet IRC Servers - I2P IRC Servers (Irc2P Protocol) + Tor Socks5 Anonymous IRC Servers (Onion v3 Protocol)        ##
+## ---------------------------------------------------------------------------------------------------------------------------- ##
+##-~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~##
+##-============================================================================================================================-##
+## 
+##\____________________________________________________________________________________________________________________________/##
+## ---------------------------------------------------------------------------------------------------------------------------- ##
+##  Irc2P							[[  xdg-open http://127.0.0.1:6668	   ]]	## IRC tunnel to access the Irc2P network		
+## ---------------------------------------------------------------------------------------------------------------------------- ##
+##  KillYourTV Irc2p IRC Server     [[ 	 hexchat irc.killyourtv.i2p:6668   ]]   ## KillYourTV (Top I2P Dev)
+##  Echelons Irc2p IRC Server		[[ 	 hexchat irc.echelon.i2p:6667	   ]]	## Echelon (Top I2P Dev)
+##  Meeh Irc2p IRC Server           [[   hexchat irc.meeh.i2p:6667         ]]	## Meeh (I2P Dev)
+##  Welterde Irc2p IRC Server       [[   hexchat irc.welterde.i2p:6667     ]]   ## Welterde (I2P Dev) 
+##  Postman Irc2p IRC Server        [[ 	 hexchat irc.postman.i2p:6667	   ]]	## Postman
+## ---------------------------------------------------------------------------------------------------------------------------- ##
+##  Indymedia Tor IRC Server        [[   hexchat h7gf2ha3hefoj5ls.onion    ]]	##  irc.indymedia.org
+##  OFTC Tor IRC Server             [[   hexchat 37lnq2veifl4kar7.onion    ]]	##  irc.oftc.net
+##  RiseUp Tor IRC Server           [[   hexchat ztmc4p37hvues222.onion    ]]	##  chat.riseup.net
+## ---------------------------------------------------------------------------------------------------------------------------- ##
+## 
+## ---------------------------------------------------------------------------------------------------------------------------- ##
+##  Stream Irc2p IRC Server         [[   hexchat irc.stream.i2p:6667	   ]]	## 
+##  puredev Irc2p IRC Server        [[   hexchat irc.puredev.i2p:6667	   ]]	## 
+##  philabs Irc2p IRC Server        [[   hexchat irc.philabs.i2p:6667	   ]]	## 
+##  dlms Irc2p IRC Server           [[   hexchat irc.dlms.i2p:6667	       ]]	## 
+## ---------------------------------------------------------------------------------------------------------------------------- ##
+
+
+
+
+## ========================================================================================================== ##
+## 										I2P Full IRC Addresses
+## ========================================================================================================== ##
+##
+## ==================================================================================================================================================== ##
+## irc.arcturus.i2p=8d5AIidKU7JudLbGi94VCS7Gu~SrSb4rxBp6ADbc9o0MiOp0vrKGVTdrWiDDLmlneRLqVTPIRmBkxB9PAtRZYmdvstiae9zat5twU7T~xA-mf95t1HZXPTMEnxOB6ZX~fSlxLWR3robKDq7L1DOF9aBXT5fw5KcdZmAw2pDeslobozNkB~38siDW3VEKQrNK6SlgkbcQ2ob5fQjUEN3IPnLbyhP4HAap0CppUfX3ix0YU1EP86XHig8ZUgmq2YQ8LpBOGZ21yHQ3pGDHuvgHHGl7bQqz2TV5MnyUaHkCAHu6d~agqdJc4ooORJZMUkWnFIbL4ioJbzZ9zPIPDam81Qw04MuTY5vPEz1Hx9egdWzJX-kCjFv~3-SPX0QVGYAY-cg~fIJfxH0G3jrjXOfGO6NelDiuyTGhvhCR1Y2O6jTqFyVyUc-WZAHAs2qRacfR-TtEpP2-s7fY191aWwxycD3tbXx1F0FG6AYJcnFhUFFp2uoUCryrY7HA6NA5lIDfAAAA
+## irc.baffled.i2p=AjR0lkZfdzmQqLofq5En-yeUYZ9XOugrcpqgA6giY1v880AnhB~xokcAdV76Sx~D3MLkXKjCYF-AMIrvfV8cRZ0XkY8FPFb-MnsnACGirQ4~WN6kEjQ18iEH-OStEeoATiEzCzhQlIaJkCLnRo~lAbsnmqMrV3tJIjdQOL~uxbZQB5rQl~50w01XWIzsjwo0ZqzPjsJ6715HMRp6hag0NYNgf8ZE7vFKkvRNubl60lI3LWduoA7BjwuqCvHP8QddYmmL1s-L0rjDB0JGxRJ7~YZlUA0BECTIxdv2Kv-QEwr2UmuSLFQiQ2jQ5U5z0tzwObaIcAX4aAaKY16mC~cQE5cltSS3ElnLrI0qhpIeTM6217uigbAO6iigYFK5sazru9YEt0jDk2gzxlTF6m5BAn70tnu5IAikzRe2NI8VnkRa7K473r~mS30CzwOHXuxlSEPQUK3AkkrQN1Nfw5dCBLTpIF6aMPqR5tracYPOEOlro76rzChnNu-QDZmOQGkxAAAA
+## irc.carambar.i2p=xfMseaHQgLA-MjJTKZoe8fL8cfjOhJBe1ii23jfdInJoioDTNRLJE4EnMxdda4Z2cCLM82Qcd7wqL2mv3uTRij-g9rgbSSxTZBv2TBfv8FkoOtAw3s3yUHCkYXUkjtj55gKv-wSvXCktEDyVt8u0dn4kAlkYg4PLQS2B5aFyL~IrZsV0URgTLxx0O3Ajmy2WLDjCM-jz0y7DKWSHDMJZu7Qm64z9IAVhIEV9yOThoBRnikXy9RJ5nCKEFgzrTHqUa9p9QivmGeP733kb0QC8BjyuPQRTlbaX~huR~3XlVtRx6qXNz6fJoKJL-WN3bJ9gO590MTrSy84d3dUsHtIPRHSwJ~KnpXXdwsLvaY-VItXuj9oKIosdDK0FEEuolm3nHqNmSZIpXXUQvjDvEw7Fxf2iRsK9x2tZnDJl4asN9I70wtyMt2EoXMU4UwGmaeGk3mkPeemCK3fms1NWCnDWfgKNvEru6CNOi38IVli~WHv9G47Uk2~atJbMt-6R~SBkAAAA
+## irc.dg.i2p=bunRitjuWmSGkf5UV7pnjMRIxmP7fuHy9SgDfAA0M~4TWoBr4Ji4m5AyMGzhAdNaQW6c2-0CIe~RCDZ~vcN-BSNpaqzd80gKhXYxqUQQB83XRWDdLz-z0H~Y15k90p~n0GUSzsjlZctkYglNMyQ8MAUIpUEiLz6MVwArZqUI-CDOE664ZazcGtSKfBLZKycHsSj6WfLbwl2-R5Zv4f5Xisv9Hd0b8BsqJEWn1AmBMhM7p8l7okM2ZcRnC5ypzBdLfLSdkGJ5dEZAJIxz-GhtB8rJ3e0jJkbFjknGrJfxbwt~5n00nVuiUNMro2JRxQ7w~VzMw~lYRq~1B5TMtaKRDhxk7pnv5MxmVBFNhcT~hImcyxfT7GfIPzYU9s~uiFReoSjAOJZv-rKq4Oyeyz-Pa6lcg-c3MtuTXjJ2BMX2dA5Jw0FFVDDMOdDL2b1lwtyseQQkGtc15i4EtNy6iJrkbqAnIhO86E2C3jDf~yt2FlDlcbx6dkflJ3y3j2Wu9DAgAAAA
+## irc.duck.i2p=Bxqr5E7-56oJeya1lsDLBN6L1gKme-FUS6Bh~TQS3HswomK9rpjrYNeqBTBoE8TCFl161~FI3soWqbnmFhIdhskausZsO0ez5-4IXMJW8NTilWqXQ3OJxA20M9grohx3RjkZgXU1ooTx7wviSHtXQYiiqnzGnIzmmEZo5-Xx6VjXakctebWwbi2PrsE6XLxrxXBzB34l4KlVsyX504BJiOT6KXNaVZxvG61GfGVfNHdeXljMDE5d25UdFC6RJdDnJ3Z7Yb7EjAww78aowbR0VCfJDH~cB868-VOKIxmor3Rs7giaLXmUyW~GRtFX10COJj5V6BrhKs61XOXxfbyQKGVXZ0mM2A8cdZE1ftr96SZgGy~V8uUHKvoa1HpjMNrPL5Tr6EGfJxOxAy6PHwotn6a8UMnCZgEdTbQ6U3BTywU~x3SCAQvfOT~dl3sZ-5ujYWNFRp7RhdY-WHn1Kj59MfU-VpczGYdV3bRkwT5lpIjST~vopLfkYUeB6gcVSr49AAAA
+## irc.echelon.i2p=ooAkOd014ooZXQ4rpvFsqAZ108YU9knllXDocY5fD84IrRVXDbRyUFtlboDmiKDPNRTY2JIXvb-l5FahAB9SUAZ8voAdH4ozHrigHVg6scVtwU7GCfjq5byuwnyemupgk6saBQKfuyc7k3bYl5Iro85Lnx6EnaYYbyWjMwoUWksI6o3Hp5bNyj2B5wHX7HLzeg1ByxQZ4Q8BZbALg8yIcvKn3rHN4tO9FhQ-e5u6hRxINbMtBL1Hasxl9I8XSI0yalKSsmpWDNxRcx-2VKlVh3MPK~9VZlBrQzXwObLmpTuTukeNt8nheFQ7mZVAHt~1gCs2TmjQPVm2g9BQ32zqCFDhePNfBcxcG-Xl56mE9n6kUvaJWsy5~VhiZZmCUGKWMx0uH7odSiC3ohNgv7dhDpANVA~gvt0IhhwlnifHBa~HHfjFQz75kl0nzv3htkcBfLt4M3AZ5bKLP8ymeGP5NYINf6uKNJA9XrSoBjmv0GqvBvDP0Zl5OO2tkIxOBEWfAAAA
+## irc.freshcoffee.i2p=VM42PrZcVJyDFV6Eqt1WkqZ6G260D72u6wsU8Bxt0oSDd5UtCkcrduYMl-~9bgc6AZJpJ1absO5-opUaSqA~0ypGox6gdlvKVCHqHhxR89VLy8nO-kS-cVBXb8TeUq5MdH3djZIQ8zKv9YL5Q9lGW2Nd1od~re~w2F5-AWM25y9P91Pu6wymokYlZoaIffG3O8aXA~0jBweqnE7epuSK5e~kZ~5omDBnfYlNC2MoNxgEiNbuyQdfXbLf5QjHzEIlIv1-BSym-OY9fCwqRuJc4eCKaXrMg6hy2U-HEkMz80Gq-2gEI-uxqTJHnNG4h276rU7ej1FpCPrsnXS0zSj7ppbksOBCrkqlNEYhy1wrCjoREfbBN9A1kHDTfT9cR73Ym8S2-incCzoQrcyJds-2KmXa5vfr5Pvt2v3SYXkrTKJzZXMhXotLP7CAzItVh~SXYMOQtiVd4NKXTgSmXVarewsHcbxnZuQUr0qimjAsTEJZPZMppQFNkfPAAqIoqz0wAAAA
+## irc.ircbnc.i2p=d1SmdtsIrD9HBWaHpGC~EsjKMEYwMmfLQgfl2qFrAJEQDzcv0IgZf~0m2ZZptKuCGD35l6GK9iQkAapCRaeJUpSwlu6ph5JzRjH03483hUjst3yvdb7LrT3J9-zDXTGBLLRbikTcyujKwYJPvBmfKRmj4CGaUN5AdhSJtWkDf7RGMTpS0PNTV7XlKNBBx51xk3a1T076Ha-Uhxfwa-fr48ovn9t1cwNA2~6h8YLDXAy8h5s6pCyjhu7H54qY4DkpQ2mj5Z5Zqo8cICihn058AAsUWDUCTBPqv8s2hS45AjB8So0OQ4uu5hOWXuditLtQQ24sPR1Q7ALByfSS-mEz4GksQ4kmXGqNZKb8lbAnItbopfk4P-HP~sIguoGPa5SDDFRHshFpDQOeugv88i71NsqBLy-sdQvpVG2I4txy~-8-VAWbcBPZ17uIeqaLpmRy05voM7QUACsU1S1MNb0PpSNz4fwR8TrPIK4e0pVH0SJNG~ZeWKd1HnZD4P5egs-2AAAA
+## irc.killyourtv.i2p=CnG0yQheyd67rl1nHuYZp1sVZxzXHe05UPrmT0B3Vxtd51K-Cq5E6v5~UTrU5lqj56ggvnRl0I8jg1vPn0Q50IH6ght~4ThkKlwDwTOMHmROz3sR6WLCOvD4ZFMDBYjBsxjF3383YSIlYrh~laTXSzD~lPhHLGD1jFQksqea-87sM-yfRzCbA7UyaHtURJ7A3GOb8Bm8W25mPOHpM~xT0TONvbi45IVmAeWkuZ5IhBsrzhWvY1-Riy6IW6KSRoQIZtr5o23cVHkjUh8J-~SWZR5wIgECefrVVCt556qDn35I2829Jlk26-iI9glMrr7funaOtp1wnDvNPTijlxwkeAx9GKPCX48nCyxIUeSTwGv0grDPn43V94tV0LSq8mkXZ1akDJUNf33z2Uao-nCi-ufb0Mt0rzgdRVW1i79GQHk4XbApzjYUjyaSY4cuR0yBRFHrOcrFt~XJABpt9DYklu6y3n54uOLZeXGnE5nKCSHLqyS3dxPTObIQvhz~ZjHRAAAA
+## irc.nickster.i2p=4xIbFi15l6BFLkKCPDEVcb23aQia4Ry1pQeC5C0RGzqy5IednmnDQqG5l8mDID8vL831rUmCrj~sC537iQiUXlkKFJvdiuI0HEL4c6a7NCYz3cPncc2Uz~gnlG1YOPv-CkxcXSHxxGrv0-HA281a87hrEc7uQ7hBLPybMl6-Z4k-qsyABDdaZwbqEJDWxJKWNfEWfhj2fHSuYB9c6CJgkPektLdMEIxIO4fWgRaIvyr0jt7ObBcB9QhvZAUnP5~iD9gnl~sxfSg~Zi7UW2sB0ewrb63KLZtRDXmnb-Gc3Cn-6oqvqt~YeNXW2OKiEMggkonLJR8RmdTsgMSwbHvXhyp0utqwgIIP7W0if0IIcDg7t38JzSo67uKs3m9aBf1kJWL~d31v6enPjIpgeLllJB6OaJVtKojn~Yi7Sje~5DJnLxiZVGf~Dn3a9IynFCQ6KXiPo-6418Wl2-vkrq0~cWjmlYMASR9AMILZMr1rOQUf748e92~oYwX2W5saRVnoAAAA
+## irc.orz.i2p=0oLxoY4VcI~e~OnFdHtYp9aghBcBLBK46BE-yffvaxsnsNgmf5xiRDORVJ0xjg6e8LZ-gTUXr5EHiJnJa5GEv3sris0PWEXW0QLV2WbkIOI3XNR8sa1WMAJYFX9wYSHNdGDuHj0Igcd9rxwaBufdcHeJ0WLvp1FXCMxEf9OTh52wL3ku5pPGlXaVp22RhJXqaKqGeIFh0A9t-gSF5cPB7D3jvoXPJlZtPFLkrsVQeDCpFC9TLaI2sebJjuEHaBhCLvjA8usG8WiZ0m-TVNwkg0XV~yy-rpOEGq-8CCLa1-7c6mc0gMmeolEFz9L9x6hXzw4TR0MXNMeu8nqeMhbvqws39iLiz1L2r6amzQrXjHReX1ibrEprNfLY~Ne1cgqQ5VsHpCr-UJv3D1QoFCJUwG7z0dJrgoi37aPRRjzUF-z67hi3z-ghKrY7d3m0YpTHUCwZ5o2uwUFM7xEvCXY4nQ8ndwEI0xJKfbBgWEmR8OxV3jbn9ZhSYSoygsbUQg55AAAA
+## irc.postman.i2p=d38SuD-ayF9gprdrl2uJM-FfFBor8qmBVQDxZt8SL7VZPUukrkzvxeaCE8riF5~2g1EgOA1nSfrQ4mt5NhuyL8MxGf6xByDng2lVCZ5Ks2InFVdaCEVg0BCfzdpztUGfO81oT7902zoE260P-qDuiSih5KMEouSWr7RPfP75ivoKfnRhVFcZiI36mRUfgOjKSGloeVLdkGIYh3AVYZ4MqQSWP-MXcY0xr1cD~G1ars2vfTNUjwErPirsyktbES0xXDtgr-Q7EF1vYo3cbPttFTyG6LUSEHvcHErfov5hAy~3lYkhgqMqVFyeKDEyb4ZkoSse1q2TpKxzmDAC95H4DQoxB6onvGjpgYQgwK3ZREf-0UVYY8eVHbnN~jTWLnIOdHfEbSMqN5OMYMeLvLc~SX-qKGNExTaA6Zl80QOkTF~Hh3lAONXUhJgPtzuV2igtXyV~BuhFuA8M2nu~HwLsgv5qPN8wInudXpzhhp~hG36tZ90OGDMSA-XXRMzwhHgCAAAA
+## ==================================================================================================================================================== ##
+
+
+
+
+## ################################################################################################## ##
+## ==================================== End of I2p Irc2p Topic ====================================== ##
+## ################################################################################################## ##
+

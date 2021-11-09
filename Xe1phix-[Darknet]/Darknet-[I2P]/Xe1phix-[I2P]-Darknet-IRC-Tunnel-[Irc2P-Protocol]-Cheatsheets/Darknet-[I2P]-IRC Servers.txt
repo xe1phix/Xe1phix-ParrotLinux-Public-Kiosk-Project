@@ -1,0 +1,11 @@
+##-====================================-##
+##	 [+]  Darknet-[I2P]-IRC Servers
+##-====================================-##
+##		>  irc.echelon.i2p
+##		>  irc.postman.i2p
+##		>  irc.killyourtv.i2p
+##		>  irc.devfs.i2p
+##		>  irc.dg.i2p
+##		>  irc.undefined.i2p
+##		>  irc.welterde.i2p
+##-====================================-##
