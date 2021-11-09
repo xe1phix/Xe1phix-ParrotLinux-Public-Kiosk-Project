@@ -1,0 +1,431 @@
+https://philosophos.github.io/articles/20170305~Installing-BlackArch-on-top-of-ArchLinux/
+https://www.ostechnix.com/install-blackarch-linux-arch-linux/
+https://blackarch.org/tmp/guide/pdf/blackarch_linux_guide.pdf
+
+
+Enable ssh service :
+if you want to use the first model (the SSH daemon is always active), type the following commands:
+
+sudo systemctl start sshd.service
+sudo systemctl enable sshd.service
+
+For the second model (launching SSH only on demand), do this:
+
+sudo systemctl start sshd.socket
+sudo systemctl enable sshd.socket
+
+if you want to change the port listening for the SSH in the second model, then you need to edit the file:
+
+systemctl edit sshd.socket
+
+[Socket]
+ListenStream=23456
+
+And also IP and port:
+
+[Socket]
+ListenStream=172.0.0.1:12345
+
+open ssh setting :
+
+nano /etc/ssh/sshd_config
+
+change this to
+# Authentication: 
+LoginGraceTime 2m 
+PermitRootLogin yes 
+StrictModes yes 
+MaxAuthTries 6 
+MaxSessions 10
+
+
+# Configuring the BlackArch login through SSH without a password
+On the local machine (from which we go):
+
+# ssh-keygen -t rsa
+Without a preliminary connection, execute the command on the remote machine (IP and change the username to your own):
+
+# ssh mial@192.168.1.35 mkdir .ssh
+
+# systemctlIs the main command of Systemd for managing the system 
+
+# Restart the system
+$ sudo systemctl reboot
+
+# Turn off the system and cut off the power
+$ sudo systemctl poweroff
+
+# CPU stops working
+$ sudo systemctl halt
+
+# Let the system enter hibernation
+$ sudo systemctl hibernate
+
+# Let the system enter interactive sleep state
+$ sudo systemctl hybrid-sleep
+
+# Start to enter rescue state (single user status)
+$ sudo systemctl rescue
+
+
+# systemd-analyzeThe command is used to view the startup time.
+
+# View startup time
+$ systemd-analyze
+
+# View the start time of each service
+$ systemd-analyze blame
+
+# Show waterfall-like startup process flow
+$ systemd-analyze critical-chain
+
+# Display the startup flow of the specified service
+$ systemd-analyze critical-chain atd.service
+
+
+# hostnamectlThe command is used to view information about the current host.
+
+# Display information about the current host
+$ hostnamectl
+
+# Set the host name.
+$ sudo hostnamectl set-hostname rhel7
+
+
+# localectlThe command is used to view localization settings.
+# View localization settings
+$ localectl
+
+# Set localization parameters.
+$ sudo localectl set-locale LANG=en_GB.utf8
+$ sudo localectl set-keymap en_GB
+
+# timedatectlThe command is used to view the current time zone settings.
+# View current time zone settings
+$ timedatectl
+
+# Show all available time zones
+$ timedatectl list-timezones
+
+# Set the current time zone
+$ sudo timedatectl set-timezone America/New_York
+$ sudo timedatectl set-time YYYY-MM-DD
+$ sudo timedatectl set-time HH:MM:SS
+
+# loginctlThe command is used to view the currently logged in user.
+# List current session
+$ loginctl list-sessions
+
+# List the currently logged in users
+$ loginctl list-users
+
+# List information showing the specified user
+$ loginctl show-user ruanyf
+
+
+For the user, the most common ones are the following commands for starting and stopping the Unit (mainly service).
+
+#Start a service now
+$ sudo systemctl start apache.service
+
+# Stop a service immediately
+$ sudo systemctl stop apache.service
+
+# Restart a service
+$ sudo systemctl restart apache.service
+
+# Kill all child processes of a service
+$ sudo systemctl kill apache.service
+
+# Reload a service's configuration file
+$ sudo systemctl reload apache.service
+
+# overload all modified configuration files
+$ sudo systemctl daemon-reload
+
+# Display all the underlying parameters of a Unit
+$ systemctl show httpd.service
+
+
+
+
+
+
+install any application :
+# sudo pacman -S openssh
+
+
+# you can install blackman like:
+$ sudo pacman -S blackman
+
+# Download, compile and install package:
+$ sudo blackman -i <package>
+ 
+# Download, compile and install whole category
+$ sudo blackman -g <group>
+  
+# Download, compile and install all BlackArch tools
+$ sudo blackman -a
+  
+# To list blackarch categories
+$ blackman -l
+  
+# To list category tools
+$ blackman -p <category>
+
+
+
+
+
+
+# Blackarch Manual User :
+
+what blackarch needs :
+
+1. ngrok
+2. Seth Perform a MitM attack and extract clear text credentials from RDP connections https://github.com/SySS-Research/Seth 
+2. https://github.com/m4n3dw0lf/pythem/wiki/Commands-Reference#scan
+3. Linkedin information gathering https://github.com/0x09AL/raven
+4. GitMiner v2.0 - Tool For Advanced Mining For Content On Github - DigitalMunition
+5. https://www.kitploit.com/2017/09/raven-linkedin-information-gathering.html
+6. Operative Framework – Open Source Intelligence Gathering Tool https://latesthackingnews.com/2018/08/20/operative-framework-open-source-information-gathering-tool/  
+2. SMBMap is a handy SMB enumeration tool
+3. https://github.com/byt3bl33d3r/DeathStar Automate getting Domain Admin using Empire
+2. Enumerating Domains of Specific Organisations  https://gist.github.com/milo2012/1714d2952c09b96ba2d8777f1cbf9de1
+2. https://github.com/lgandx/PCredz/ extract login info from network or pcap
+2. sipvicious (VOIP)
+3. Malware analysis https://github.com/reuteras/afar
+4. Malware analysis tips https://zeltser.com/remnux-malware-analysis-tips/
+2. cuckoo
+3. Punycode Phishing Domains Generator
+4. Quick Script to Test Domain Credentials on OWA (Outlook Web Access) Site  https://gist.githubusercontent.com/milo2012/885ecbd98f9407b2121884afee837eb5/raw/81be14c2242a7389fe27e583b006fb3da4d0a89b/testOWA.py
+5. owaDump – Another tool to use during Phishing Campaigns
+3. https://github.com/brad-accuvant/cuckoo-modified
+3. https://github.com/reuteras/cuckoo-tools
+4. https://github.com/spender-sandbox/cuckoo-modified
+5. oletools
+2. searchsploit (https://github.com/offensive-security/exploit-database)
+3. SharpShooter
+4. icebreaker 
+5. macro_pack
+6. rattler
+7. TheFatRat
+8. Stitch
+9. WordPress Exploit Framework
+
+
+
+## System use
+
+	ifconfig ens192 10.10.10.117
+	ip route add 0/0 via 10.10.10.1
+	echo nameserver 8.8.8.8 > /etc/resolv.conf
+	
+	
+
+### Enable network card
+View NIC
+ip addr
+
+Open network card
+
+	sudo ifconfig <interface> up
+
+### Enable dynamic IP acquisition
+
+	sudo dhcpcd
+
+### Boot self-start dhcp service
+
+	sudo systemctl enable dhcpcd
+
+Change vim to vi, remove the vi=vim of the user environment, and then apply the user environment variable.
+
+	vim ~/.bashrc
+
+	alias vi="vim
+
+### Application user environment variable
+
+	source ~/.bashrc
+
+Modify the update source
+Modify the /etc/pacman.d/mirrorlist file
+
+	sudo vim /etc/pacman.d/mirrorlist
+
+Add the source of the Chinese University of Science and Technology to the first line, and write the same source as /etc/pacman.conf
+
+Update only the warehouse
+
+	sudo pacman -Syy
+	
+update exploit searchsploit :
+
+		sploitctl -f 0
+
+
+
+Update warehouses and packages
+
+	sudo pacman -Syyu
+
+Forced update of BlackArch
+
+	sudo pacman -Syyu --needed --force blackarch
+
+Uninstall software
+
+	sudo pacman -Rs xxxx
+
+Clean up the package cache
+
+	sudo pacman -Sc
+
+	sudo pacman -Scc
+
+install software
+
+	sudo pacman -S vim tmux mariadb
+
+➊Enable mariadb
+
+	sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+
+	sudo systemctl restart mysqld
+
+	mysql_secure_installation
+
+➋ (optional) install open-vm-tools
+
+	sudo pacman -S open-vm-tools
+	sudo pacman -S open-vm-tools gtkmm3
+	pacman -S gtkmm
+	pacman -S open-vm-tools
+	cat /proc/version > /etc/arch-release
+	systemctl  enable vmtoolsd
+	sudo systemctl enable vmtoolsd --now
+	vmware-user
+	systemctl  start vmtoolsd 
+	systemctl enable vmtoolsd
+	systemctl enable vmware-vmblock-fuse
+	
+	nano /usr/lib/systemd/system/vmtoolsd.service
+	Add a line to  KillSignal=SIGKILL after the [service] item  
+
+
+
+➌ (I have nothing to do) install vmware-tools
+
+Enter root mode and enter the root password.
+	
+	su -
+
+
+Check if CD-ROM is mounted
+
+	ls /dev
+
+Create a new folder named cdrom in the /mnt directory.
+
+	mkdir /mnt/cdrom
+
+
+Mount the CD to the /mnt/cdrom directory
+
+	mount -t iso9660 /dev/cdrom /mnt/cdrom
+
+Copy the file named "VMwareTools-xxxxxx.tar.gz" to the /root directory
+
+	cp /mnt/cdrom/VMwareTools-xxxxxx.tar.gz /root/Desktop
+
+Create an init.d folder under /etc
+
+	mkdir /etc/init.d
+
+Go to the init.d folder
+
+	cd init.d
+
+Create 7 folders
+
+	for i in {0,1,2,3,4,5,6}; do mkdir rc$i.d; done
+
+Return to Desktop, extract the compressed package, install
+
+	./vmware-install.pl
+
+Start the graphical interface
+
+	/usr/bin/vmware-user
+	startx
+
+## Configuring an SSH public key connection
+
+
+	sudo nano /etc/ssh/sshd_config
+
+change this to
+
+	# Authentication: 
+	LoginGraceTime 2m 
+	PermitRootLogin yes 
+	StrictModes yes 
+	MaxAuthTries 6 
+	MaxSessions 10
+
+then :
+	
+	systemctl enable sshd.service
+	sudo systemctl start sshd.service
+	
+	
+	
+#Base Configuration Configuring the base system
+
+Language&Date&Hostname Language & Time & Hostname
+
+	sed -i '/ar_YE\|el_\|en_/s/^#//' /etc/locale.gen
+	locale-gen && echo LANG=en_US.UTF-8  > /etc/locale.conf
+	ln -s /usr/share/zoneinfo/Asia/Riyadh /etc/localtime
+	hwclock --systohc --utc
+	echo BlackArch > /etc/hostname
+	
+## (Optional) Configure a static IP
+
+	ifconfig -a
+	sudo nano /etc/netctl/ens33
+
+add to :
+
+	Interface=ens33
+	Connection=ethernet
+	IP=static
+	Address=('192.168.75.144/24')
+	Gateway='192.168.75.2'
+	DNS=('192.168.75.2')
+	TimeoutUp=300  
+	TimeoutCarrier=300
+
+
+
+https://philosophos.github.io/articles/20170217~Arch-Linux-Installation-Record/
+https://blackarch.ru/?p=543
+https://ramsdenj.com/2016/08/29/arch-linux-on-the-surface-pro-4.html
+http://kokizzu.blogspot.com/2014/07/archlinux-installation-tutorial.html
+
+
+install :
+http://trojanazhen.top/2017/06/19/2017-06-19_BlackArch/index.html
+http://kokizzu.blogspot.com/2014/07/archlinux-installation-tutorial.html
+
+
+change desktop :
+https://www.jianshu.com/p/82a40aac52aa
+https://itsfoss.com/things-to-do-after-installing-arch-linux/
+http://fasterland.net/how-to-install-kde-plasma-5-on-arch-linux.html
+https://www.titrias.com/installing-archlinux-kde/
+https://www.howtoforge.com/tutorial/arch-linux-kde-desktop/
+https://linuxhint.com/install-kde-plasma-arch-linux/
+https://gtklocker.com/2016/09/30/archlinux-vmware-guest.html
+https://securityonline.info/xfce-blackarch-linux/
