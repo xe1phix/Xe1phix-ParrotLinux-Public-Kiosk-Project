@@ -1,0 +1,25 @@
+## ============================================================================ ##
+## Route configuration fails with systemd-networkd
+## When using systemd-networkd to manage network connections and 
+## attempting to tunnel all outgoing traffic through the VPN,
+## OpenVPN may fail to add routes. 
+## This is a result of systemd-networkd attempting to manage
+## the tun interface before OpenVPN finishes configuring the routes.
+## ============================================================================ ##
+## When this happens, the following message will appear in the OpenVPN log.
+## 
+## openvpn[458]: RTNETLINK answers: Network is unreachable
+## openvpn[458]: ERROR: Linux route add command failed: external program exited with error status: 2
+## 
+## With systemd-233 (currently in testing), 
+## systemd-networkd can be configured to ignore the tun connections
+## and allow OpenVPN to manage them. To do this, create the following file:
+## ============================================================================ ##
+## /etc/systemd/network/90-tun-ignore.network
+
+[Match]
+Name=tun*
+[Link]
+Unmanaged=true
+
+
