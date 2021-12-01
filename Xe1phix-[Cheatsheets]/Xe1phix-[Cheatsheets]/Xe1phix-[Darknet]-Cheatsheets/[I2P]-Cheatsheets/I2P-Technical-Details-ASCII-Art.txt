@@ -1,0 +1,24 @@
+##~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=-=-=-=-=-=-=~=-=-=-=-=-=-=~=-=-=-=-=-=-=-=-##
+##     		 								[+]  I2P Technical Details:
+##~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=-=-=-=-=-=-=~=-=-=-=-=-=-=~=-=-=-=-=-=-=-=-##
+________________________________________________________________________________
+  [+] RouterInfo - A data structure to provide routers the information necessary for contacting 
+                             a specific router (their public keys, transport addresses, etc).
+________________________________________________________________________________
+  [+]  LeaseSet - gives routers the information necessary for contacting a particular destination. 
+________________________________________________________________________________
+  [+]  ElGamal/AES+SessionTags - Are used for end-to-end encryption in several parts of I2P:
+________________________________________________________________________________
+  		 [?]  To encrypt router-to-router tunnel building messages.
+  		 [?]  For encryption of some netDb stores
+		 	     -->  Queries sent to Floodfill Routers (destination-to-router or router-to-router).
+	  	 [?]  ElGamal is used to encrypt IV's and Session keys in a single block.
+________________________________________________________________________________
+  [+]  AES is used for Symmetric Encryption, in several cases:
+________________________________________________________________________________
+  		 [?]  To Transport Encryption (see section "Transports") after DH Key Exchange
+  		 [?]  AES Encrypted Payload using that key and IV.
+  		 [?]  Encryption of some netDb stores 
+			    [?]  Queries sent to Floodfill Routers (destination-to-router or router-to-router).
+
+

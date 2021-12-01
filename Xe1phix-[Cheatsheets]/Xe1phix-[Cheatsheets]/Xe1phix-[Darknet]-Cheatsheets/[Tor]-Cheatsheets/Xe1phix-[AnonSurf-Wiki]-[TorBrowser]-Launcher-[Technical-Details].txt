@@ -1,0 +1,17 @@
+
+##~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=-=-=-=-=-=--##
+##     		 [+]  TorBrowser Launcher Technical Details:
+##~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=-=-=-=-=-=--##
+## ------------------------------------------------------------------------------------------ ##
+##      [?]  When you start tor browser this is what happens:
+## ------------------------------------------------------------------------------------------ ##
+		[1]  Tor version check is performed
+		[2]  Tor browser signature is downloaded 
+			  to verify no MITM attempts were performed.
+		[3]  Tor tarball is downloaded
+		[4]  The tor tarball is verified by the developers signature
+		[5]  Either a GOOD SIGNATURE notification is presented 
+			   or a SIGNATURE VERIFICATION FAILED.
+		[6]  Tor is then decompressed and launched. 
+
+
