@@ -1,0 +1,476 @@
+ACRIDMINI - TAO computer hacking project
+ADJUTANT VENTURE - Intrusion set?
+ALOOFNESS - Cyber threat actor
+ALTEREDCARBON - An IRATEMONK implant for Seagate drives
+AMULETSTELLAR - Cyber threat actor sending malicious e-mails
+ANGRYNEIGHBOR - Family of radar retro-reflector tools used by NSA's TAO division
+APERTURESCIENCE - TAO computer hacking project
+ARGYLEALIEN - Method to cause a loss of data by exploiting zeroization of hard-drives
+ARKSTREAM - Implant used to reflash BIOS, installed by remote access or intercepted shipping
+ARROWECLIPSE - Counter CNE tool
+BADDECISION (BDN) - Hacking tool to redirect users of a wireless/802.11 network to NSA FOXACID servers
+BALLOONKNOT - TAO computer hacking project
+BANANAAID - NSA hacking tool or code included in the Shadow Brokers leak
+BANANABALLOT - A BIOS module associated with an implant (likely BANANAGLEE)
+BANNANADAIQUIRI - An implant associated with SCREAMINGPLOW
+BANANAGLEE - A non-persistent firewall software implant for Cisco ASA and PIX devices that allows remote JETPLOW installation
+BANANALIAR - A tool for connecting to an unspecified implant (likely BANANAGLEE)
+BARGLEE - A software implant for a firewall of an unknown vendor
+BARICE - A tool that provides a shell for installing the BARGLEE implant
+BARNFIRE - TAO tool to erase the BIOS on a brand of servers that act as a backbone to many rival governments
+BARPUNCH - A module for BANANAGLEE and BARGLEE implants
+BEACHHEAD - Computer exploit delivered by the FERRETCANON system
+BEECHPONY - A firewall implant that is a predecessor of BANANAGLEE
+BEIGETHICKET - Implant module related to the UNITEDRAKE framework, as revealed by the Shadow Brokers
+BENIGNCERTAIN - A tool that appears to be for sending certain types of Internet Key Exchange (IKE) packets to a remote host and parsing the response
+BERSERKR - Persistent backdoor that is implanted into the BIOS and runs from System Management Mode
+BILLOCEAN - Retrieves the serial number of a firewall, to be recorded in operation notes
+BISHOP KNIGHT - Major cyber threat category of Chinese attacks against NASA, DoD, DoE, part of BYZANTINE HADES, countered by the TUTELAGE system
+BLACK ENERGY Bot - Major cyber threat category countered by the TUTELAGE system
+BLATSTING - A firewall software implant that is used with EGREGIOUSBLUNDER (Fortigate) and ELIGIBLEBACHELOR (TOPSEC)
+BLINDDATE (BD) - Survey and exploitation hardware with a mobile antenna system to run BADDECISION, which allows for a SECONDDATE attack
+BLIND MARKSMAN - Major cyber threat category countered by the TUTELAGE system
+BLUISHDEFER - A subsystem mentioned in the UNITEDRAKE Manual as released by the Shadow Brokers
+BOOKISHMUTE - An exploit against an unknown firewall using Red Hat 6.0
+BORGERKING - Something related to Linux exploits
+BOTANICREALTY - Video demodulation tool (formerly: UNCANNY)
+BOXINGRUMBLE - Network attack that was countered by QUANTUMDNS
+BRICKTOP - Project to learn about new malware by intercepting e-mail from several security companies (2009)
+BROKENTIGO - Tool for computer network operations
+BULLDOZER - PCI bus hardware implant on intercepted shipping
+BUZZDIRECTION - A firewall software implant for Fortigate firewalls
+BYZANTINE - First word of nicknames for programs involving defense against Chinese cyber-warfare and US offensive cyber-warfare
+BYZANTINE ANCHOR - Chinese cyber attacks against a broad range of US targets since 2003, part of BYZANTINE HADES
+BYZANTINE CANDOR (BC) - Chinese cyber attacks against DoD and other US targets, part of BYZANTINE HADES, formerly TITAN RAIN III
+BYZANTINE FOOTHOLD (BF) - Major cyber threat category of Chinese attacks against TRANSCOM, PACOM and others, countered by the TUTELAGE system
+BYZANTINE HADES - Chinese computer network exploitation (CNE) against the US probably renamed to the LEGION-series
+BYZANTINE PRAIRIE - Chinese cyber attacks but inactive since 2008, part of BYZANTINE HADES
+BYZANTINE RAPTOR - Chinese cyber attacks against DoD and Congress, resurfaced 2008, part of BYZANTINE HADES
+BYZANTINE TRACE - Chinese cyber attacks against DoD, part of BYZANTINE HADES already indentified in 2007
+BYZANTINE VIKING - Major cyber threat category countered by the TUTELAGE system
+CAPTIVATEDAUDIENCE - Computer implant plug-in to take over a targeted computer’s microphone and record conversations taking place near the device
+CARBON PEPTIDE - Major cyber threat category, part of BYZANTINE HADES, countered by the TUTELAGE system
+CASTLECRASHER - Primary technique for executing DNT payloads for Windows computers
+CASTLECREEK (CC) - Hacking tool
+CATFLAP - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+CENTRICDUD - Tool that can read and write bytes in the CMOS of a targeted Windows computer
+CHAOSOVERLORD - TAO computer hacking project
+CHARMS - Alleged NSA implant, offered for sale by Shadow Brokers
+CHELSEABLUE - ?
+CHIMNEYPOOL - Framework or specification of GENIE-compliance for hardware/software implants
+CHOCOLATESHIP - TAO computer hacking project
+CHOCOPOP - SNOWGLOBE cyber threat process
+CLIMBINGSHIRT - Expeditionary Access Operations (EAO) in Iraq
+CLOUDSHIELD - System that terminates a client-side connection to a malicious server and blocks the server's response
+CLUCKLINE - A module for BANANAGLEE implants
+COLOSSUS - FTP mover on TAONet
+COMMON - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+COMMONDEER - Computer exploit for looking whether a computer has security software
+CONFICKER - Major cyber threat category countered by the TUTELAGE system
+CONJECTURE - Network compatible with HOWLERMONKEY
+CONTAINMENTGRID - A payload for the ELIGIBLEBOMBSHELL TOPSEC firewall exploit
+COTTONMOUTH (CM) - Computer implant devices used by NSA's TAO division
+COTTONMOUTH-I (CM-I) - USB hardware implant providing wireless bridge into target network and loading of exploit software onto target PCs, formerly DEWSWEEPER
+COTTONMOUTH-II (CM-II) - USB hardware host tap provides covert link over USP into target's network co-located with long haul relay; dual-stacked USB connector, consists of CM-I digital hardware plus long haul relay concealed in chassis; hub with switches is concealed in a dual stacked USB connector and hard-wired to provide intra-chassis link.
+COTTONMOUTH-III (CM-III) - Radio Frequency link for commands to software implants and data infiltration/exfiltration, short range inter-chassis link within RJ45 Dual Stacked USB connector
+CROSSBEAM - GSM module mating commercial Motorola cell with WagonBed controller board for collecting voice data content via GPRS (web), circuit-switched data, data over voice, and DTMF to secure facility, implanted cell tower switch
+CROSSBONES - Cyber threat analysis tool
+CROSSEYEDSLOTH - TAO computer hacking project
+CROWNPRINCE - Related to the MAKERSMARK intrusion set
+CROWNROYAL - Related to the MAKERSMARK intrusion set
+CRYPTICSENTINEL - Counter computer network exploitation (CCNE) project
+CURSES - Alleged NSA implant, offered for sale by Shadow Brokers
+CUTEBOY - Foreign (Chinese) computer network exploitation actor
+CYBERCOP - Cyber attack visualisation tool
+CYBERQUEST (CQ) - Cyber threat discovery mission? (since 2008)*
+DAMPCROWD - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+DANCING PANDA - Hacking effort by China in which private e-mails of top US officials were obtained; renamed into LEGION AMETHYST (since 2010)
+DAREDEVIL - Shooter/implant as part of the QUANTUM system
+DARKFIRE - TAO counter cyber attack project
+DARKHELMET - Counter computer network exploitation (CCNE) project
+DARKTHUNDER - TAO traffic shaping program supporting SSO cable tapping collection
+DAYTONSUNDAY - Implant module related to the UNITEDRAKE framework, as revealed by the Shadow Brokers
+DEAD SEA - Computer network exploitation tool (?)
+DEEPFRIEDPIG - Data processing system on TAONet, including SEAGULLFARO
+DEFIANTWARRIOR - Program under which a host computer that is infected with an exploitable bot can hijacked through a QUANTUMBOT attack and redirected to the NSA
+DEITYBOUNCE - Provides implanted software persistence on Dell PowerEdge RAID servers via motherboard BIOS using Intel's System Management Mode for periodic execution, installed via ArkStream to reflash the BIOS
+DEMENTIAWHEEL - Hacking tool
+DESERTWINTER - Codeword found in the source code used by the Equation hacking group
+DEWDROP - Implant presumably used by TAO's Equation Group and offered for sale by Shadow Brokers
+DEWSWEEPER - Technique to tap USB hardware hosts
+DIESEL RATTLE - Chinese cyber attacks against US ISPs, government, defense contractors and Japan, part of BYZANTINE HADES
+DIRESCALLOP - Tool that disables DeepFreeze without the need for a reboot
+DISABLEVALOR - Hacking tool
+DISCOROUTE - NAC/GCHQ repository for router configuration files from CNE and passive SIGINT, like for example telnet sessions
+DISCOVERY - Major cyber threat category countered by the TUTELAGE system
+DOCKETDICTATE - Something related to NSA's TAO division
+DOGROUND - Tool that seems to hide all traces of implant installation, as revealed by the Shadow Brokers
+DOUBLEPULSAR - Payload uploaded through the FUZZBUNCH framework, published by the Shadow Brokers
+DOURMAGNUM - Cyber threat activity from the Imam Hussein University
+DRINKPARSLEY - Codeword found in the source code used by the Equation hacking group
+DROPMIRE - Passive collection of emanations (e.g. from printers or faxes) by using a radio frequency antenna
+DROPOUTJEEP - STRAITBIZARRE-based software implant for iPhone, initially close access but later remotely
+DUBMOAT - Alleged NSA trojan, offered for sale by Shadow Brokers
+DURABLENAPKIN - A tool for injecting packets on LANs
+EARLYSHOVEL - Alleged NSA exploit, offered for sale by Shadow Brokers
+EASYKRAKEN - An IRATEMONK implantation for ARM-based Samsung drives
+EBB - Alleged NSA exploit, offered for sale by Shadow Brokers
+EBBISLAND - Alleged TAO exploit for the Solaris operating system, published by the Shadow Brokers
+ECLECTICPILOT - ?
+EGGBASKET - Alleged NSA exploit, offered for sale by Shadow Brokers
+EGOTISTICALGIRAFFE (EGGI) - NSA program for exploiting the TOR network
+EGOTISTICALGOAT (EGGO) - NSA tool for exploiting the TOR network
+EGREGIOUSBLUNDER (EGBL) - A remote code execution exploit for Fortigate firewalls that exploits a HTTP cookie overflow vulnerability
+ELATEDMONKEY - Alleged NSA exploit, offered for sale by Shadow Brokers
+ELDESTMYRIAD - Alleged NSA exploit, offered for sale by Shadow Brokers
+ELECTRICSLIDE - Alleged NSA exploit, offered for sale by Shadow Brokers
+ELEGANTEAGLE - Alleged NSA exploit, offered for sale by Shadow Brokers
+ELEONORE Exploit Kit - Major cyber threat category countered by the TUTELAGE system
+ELGINGAMBLE - Alleged NSA exploit, offered for sale by Shadow Brokers
+ELIGIBLEBACHELOR (ELBA) - An exploit for TOPSEC firewalls running the TOS operation system
+ELIGIBLEBOMBSHELL (ELBO) - A remote code execution exploit for TOPSEC firewalls that exploits a HTTP cookie command injection vulnerability
+ELIGIBLECANDIDATE (ELCA) - A remote code execution exploit for TOPSEC firewalls that exploits a HTTP cookie command injection vulnerability
+ELIGIBLECONTESTANT (ELCO) - A remote code execution exploit for TOPSEC firewalls that exploits a HTTP POST paramter injection vulnerability
+ENDLESSDONUT - Alleged NSA exploit, offered for sale by Shadow Brokers
+ENEMYRUN - Alleged NSA implant, offered for sale by Shadow Brokers
+ENGLANDBOGGY - Alleged NSA exploit, offered for sale by Shadow Brokers
+ENVISIONCOLLISION - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+ENVOYTOMATO - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+EPICBANANA (EPBA) - A privilege escalation exploit against Cisco Adaptive Security Appliance (ASA) and Cisco Private Internet eXchange (PIX) devices
+EPICHERO - Alleged NSA exploit, offered for sale by Shadow Brokers
+EQUATION Group - Nickname given by Kaspersky to a highly advanced computer hacking group, considered to be part of TAO
+ERRONEOUSINGENUITY (ERIN) - NSA tool for exploiting the TOR network
+ESCALATEPLOWMAN (ESPL) - A privilege escalation exploit against WatchGuard firewalls
+ESTOPMOONLIT - Alleged NSA exploit, offered for sale by Shadow Brokers
+EVOLVINGSTRATEGY - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+EWOK - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+EWORKFRENZY - Lotus Domino 6.5.4 and 7.0.2 exploit, published by the Shadow Brokers
+EXACTCHANGE - Alleged NSA exploit, offered for sale by Shadow Brokers
+EXPLODINGCAN - Remote IIS 6.0 exploit for Windows 2003, published by the Shadow Brokers
+EXPOXYRASIN - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+EXTRABACON (EXBA) - A remote code execution exploit against Cisco Adaptive Security Appliance (ASA) devices
+EXTREMEPARR - Alleged TAO exploit for the Solaris operating system, published by the Shadow Brokers
+EXZE - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+FABULOUSFABLE (FABFAB) - Tool used in automated SECONDDATE tasking
+FAKEDOUBT - An IRATEMONK implantation for ARM-based Hitachi drives
+FALSEMOREL - Allows for the deduction of the "enable" password from data freely offered by an unspecified firewall
+FANNER - Cyber threat actor
+FASHIONCLEFT - TAO/DNT protocol used by implants to exfiltrate collected network packets to the Common Data Receptor (CDR)
+FEEDTROUGH - A technique for persisting BANANAGLEE and ZESTYLEAK implants for Juniper NetScreen firewalls
+FELONYCROWBAR - System used to configure the UNITEDRAKE framework
+FERRETCANON - Subsystem of the FOXACID system
+FESTIVEWRAPPER - Something used for TAO botnet hacking
+FIGBUILD - External mission network for TAO/ROC hacking operations, connected to OPTICPINCH through ROOTKNOT (2009)
+FINKCOAT - ?
+FINKDIFFERENT (FIDI) - Tool used for exploiting TOR networks
+FIREWALK -Bidirectional network implant, passive gigabit ethernet traffic collector and active ethernet packet injector within RJ45 Dual Stacked USB connector, digital core used with HOWLERMONKEY, formerly RADON
+FLASHHANDLE Mission Management (FMM) - Database for generating and retaining crypto keys for encrypting data that have to be transferred onto internal TAO networks provides this to SURPASSPIN
+FLATLIQUID - TAO operation against the office of the Mexican president
+FLAXENPRECEPT - Common Data Receptor interface(?)
+FLEWAVENUE - Something mentioned in the UNITEDRAKE interface, as revealed by the Shadow Brokers
+FLOCKFORWARD - A payload for the ELIGIBLEBOMBSHELL TOPSEC firewall exploit
+FLUXBABBITT - Hardware implant for Dell PowerEdge RAID servers using Xeon processors
+FOGGYBOTTOM - Computer implant plug-in that records logs of internet browsing histories and collects login details and passwords used to access websites and email accounts
+FOGGYBOTTOM2 - Hacking tool mentioned in the UNITEDRAKE interface, as revealed by the Shadow Brokers
+FOGYNULL - DNT standard exfiltration protocol
+FORKPTY - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+FORRESTPLACE - Access system
+FOSHO - A Python library for creating HTTP exploits
+FOXACID (FA) - Originally a counter-terrorism mission against Al-Qaeda, now a network of covert internet servers used to exploit a target's browser through spam e-mail
+FOXSEARCH - Tool for monitoring a QUANTUM target which involves FOXACID servers
+FREEFLOW - One-way data diodes, see HANGARSURPLUS and SURPLUSHANGAR
+FREEZEPOST - Something related to NSA's TAO division
+FROZENGAZE - System related to SECONDDATE operations
+FRUGALSHOT - FOXACID servers for receiving callbacks from computers infected with NSA spying software
+FUNNELAPS - DNT standard exfiltration data format
+FUZZBUNCH - An exploit framework containing 15 exploits and advanced kernel-mode backdoors for Windows, published by the Shadow Brokers
+GADGET HISS - Computer network "intrusion set" already identified in 2007
+GECKO II - System consisting of hardware implant MR RF or GSM, UNITEDRAKE software implant, IRONCHEF persistence back door
+GENESIS - Modified GSM handset for covert network surveys, recording of RF spectrum use, and handset geolocation based on software defined radio
+GENIE - Overall close-access program, collection by Sigads US-3136 and US-3137
+GHOST - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+GHOSTRECON - Related to the VOYEUR intrusion set
+GNOMEFISHER - Major cyber threat category countered by the TUTELAGE system
+GNOMEVISION - Analytic tool for cyber attacks
+GODSURGE - Runs on FLUXBABBITT circuit board to provide software persistence by exploiting JTAG debugging interface of server processors, requires interdiction and removal of motherboard of JTAG scan chain reconnection
+GOLLUM - Computer implant created by a partner agency
+GOPHERRAGE - Pilot project that seeks to develop a hypervisor implant to provide implant capabilites and a back door
+GOPHERSET - Software implant on GMS SIM phase 2+ Toolkit cards that exfiltrates contact list, SMS and call log from handset via SMS to user-defined phone; malware loaded using USB smartcard reader or over-the-air.
+GOSSIPGIRL - Cyber threat actor
+GOTHAM - Processor for external monitor recreating target monitor from red video
+GOTHAMKNIGHT - A payload for the ELIGIBLEBOMBSHELL TOPSEC firewall exploit
+GOURMETTROUGH - Configurable implant for Juniper NetScreen firewalls including SSG type, minimal beaconing
+GROK - Computer implant plug-in used to log keystrokes
+GUMFISH - Computer implant plug-in to take over a computer’s webcam and snap photographs
+HALLUXWATER - Software implant as boot ROM upgrade for Huawei Eudemon firewalls, finds patch points in inbound packet processing, used in O2, Vodafone and Deutsche Telekom
+HAMMERCHANT - Implant for network routers to intercept and perform exploitation attacks against data sent through a Virtual Private Network (VPN) and/or phone calls via Skype and other VoIP software
+HAMMERMILL - Insertion Tool controls HEADWATER boot ROM backdoor
+HAMMERSTEIN - Implant for network routers to intercept and perform exploitation attacks against data sent through a Virtual Private Network (VPN) and/or phone calls via Skype and other VoIP software
+HANGARSURPLUS - Low-to-High diode used for botnet hacking
+HAPPYFOOT - Program that intercepts traffic generated by mobile apps that send a smartphone’s location to advertising networks
+HAPPYHOUR - Plug-in for the wireless survey and exploitation system BLINDDATE
+HAWALA - ?
+HEADMOVIES - TAO computer hacking project
+HEADWATER - Permanent backdoor in boot ROM for Huawei routers stable to firmware updates, installed over internet, capture and examination of all IP packets passing through host router, controlled by Hammermill Insertion Tool
+HEAVENSLEW - Subcomponent of the UNITEDRAKE system, mention in the manual released by the Shadow Brokers
+HIDDENTEMPLE - A payload for the ELIGIBLEBOMBSHELL TOPSEC firewall exploit
+HIGHLANDS - Technique for close access collection from computer implants
+HOGTECH - Streaming packets collected through hacking operations
+HOWLERMONKEY (HM) - Generic radio frequency (RF) transceiver tool used for various applications
+HUFF - System like FOXACID?
+HYDROCASTLE - Tool or database with 802.11 configuration data extracted from CNE activity in specific locations
+ICYTWINS - Processing system for data collected from vPCS shaping under the STEELFLAUTA program
+INCAADAM - Major intrusion set effort
+INCISION - Implant presumably used by TAO's Equation Group and offered for sale by Shadow Brokers
+INFOSPYDER - Mentioned in the UNITEDRAKE interface, as revealed by the Shadow Brokers
+INTOLERANT - Data set stolen by hackers, discovered and exploited by CSEC and Menwith Hill Station since 2010
+IRATEMONK - Hard drive firmware providing software persistence for desktops and laptops via Master Boot Record substitution, for Seagate Maxtor Samsung file systems FAR NRFS EXT3 UFS, payload is implant installer, shown at internet cafe
+IRONAVENGER - NSA hacking operation against an ally and an adversary (2010)
+IRONCHEF - Provides access persistence back door exploiting BIOS and SMM to communicate with a 2-way RF hardware implant
+IRONPERSISTANCE - Access Technologies Operations (ATO) operation support to DIA in Afghanistan
+ITIME - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+JACKLADDER - Implant presumably used by TAO's Equation Group and offered for sale by Shadow Brokers
+JEEPFLEA - TAO computer hacking project
+JEEPFLEA_MARKET - NSA/CSS Texas hacking operation against the SWIFT Service Bureau EastNets, with offices in Belgium, Jordan, Egypt and UAE
+JEEPFLEA_POWDER - NSA/CSS Texas hacking operation against the SWIFT Service Bureau BCG, which serves Panama and Venezuela
+JETPLOW - A firmware persistence implant for Cisco ASA and PIX devices that persists BANANAGLEE
+JIFFYRAUL - A module loaded into Cisco PIX firewalls with BANANAGLEE
+JOLLYROGER - Tool that provides metadata that describe the networking environment of TAO-implanted Windows PCs
+JUMPDOLLAR - Tool to support various file systems
+JUNIORMINT - Implant digital core, either mini printed circuit board or ultra-mini Flip Chip Module, contains ARM9 micro-controller, FPGA Flash SDRAM and DDR2 memories
+JUSTVISITING (JUVI) - Module that seems part of UNITEDRAKE, as revealed by the Shadow Brokers
+KILLSUIT - Mentioned in the UNITEDRAKE interface, as revealed by the Shadow Brokers
+KIRKBOMB - Windows kernel examination to detect loaded drivers and processes
+KOALAPUNCH - TAO computer hacking project
+KONGUR - Software implant restorable by GINSU after OS upgrade or reinstall
+KRISPYKREME - Implant module related to the UNITEDRAKE framework, as revealed by the Shadow Brokers
+LEAKYFAUCET - Flow repository of 802.11 WiFi IP addresses and clients via STUN data
+LEGION AMBER - Chinese hacking operation against a major US software company
+LEGION AMETHYST - Hacking effort by China in which private e-mails of top US officials were obtained; previously codenamed DANCING PANDA (since 2010)
+LEGION JADE - A group of Chinese hackers
+LEGION RUBY - A group of Chinese hackers
+LEGION YANKEE - Chinese hacking operation against the Pentagon and defense contractors (2011)*
+LIFESAVER - Technique which images the hard drive of computers
+LOUDAUTO - An ANGRYNEIGHBOR radar retro-reflector, microphone captures room audio by pulse position modulation of square wave
+LUTEUSICARUS - TAO computer hacking project
+LUTEUSOBSTOS - Codeword found in the source code used by the Equation hacking group
+MADBISHOP - Hard drive implant
+MAESTRO-II - Mini digital core implant, standard TAO implant architecture
+MAGICBEAN - Man-in-the-middle WiFi attack tool
+MAGICJACK - Alleged NSA implant, offered for sale by Shadow Brokers
+MAGICSQUIRREL - Man-in-the-middle WiFi attack tool
+MAGNETIC - Technique of sensor collection of magnetic emanations
+MAGNUMOPUS - TAO computer hacking project
+MAKERSMARK - Major cyber threat category countered by the TUTELAGE system identified in 2007
+MAVERICK CHURCH - Major cyber threat category countered by the TUTELAGE system, formerly BISHOP part of BYZANTINE HADES
+MIDDLEMAN - TAO covert network
+MINERALIZE - Technique for close access collection through LAN implants
+MIRROR - Automated survey system that can for example identify the presence of a VPN; interface to the ROADBED system
+MISTYVEAL (MV) - Another version of VALIDATOR for installation on a target's computer
+MOCCASIN - A hardware implant, permanently connected to a USB keyboard
+MONKEYCALENDAR - Software implant on GMS SIM cards that exfiltrates user geolocation data
+MOUSETRAP - Sandia implant for EFI
+MURPHYSLAW - TAO computer hacking project
+NATIVE DANCER - Major cyber threat category countered by the TUTELAGE system
+NEBULA - Base station router similar to CYCLONE Hx9
+NETSPYDER - Implant module related to the UNITEDRAKE framework, as revealed by the Shadow Brokers
+NIGHTWATCH - Portable computer in shielded case for recreating target monitor from progressive-scan non-interlaced VAGRANT signals
+NIGHTSTAND (NS) - Plug-in for the wireless survey and exploitation system BLINDDATE, which injects a packet that forces a client to access a monitored listening post
+NIGHTTRAIN - Major intrusion set effort
+NITESTAND - See NIGHTSTAND
+NITRO ZEUS - Umbrella program for hacking operations against Iranian critical civilian and military infrastructure
+NOPEN - A RAT or post-exploitation shell consisting of a client and a server that encrypts data using RC6, offered for sale by Shadow Brokers
+OLYMPIC - First word of nicknames for programs involving defense against Chinese cyber-warfare and US offensive cyber-warfare
+OLYMPIC GAMES - Joint US and Israel operation against the Iranian nuclear program (aka Stuxnet)*
+OLYMPUS - Software component of VALIDATOR/SOMBERKNAVE used to communicate via wireless LAN 802.11 hardware
+OPTICPINCH - Internal mission network for TAO/ROC hacking operations, connected to FIGBUILD through ROOTKNOT (2009)
+ORANGUTAN - Implant, tool or exploit presumably used by TAO's Equation Group
+ORLEANSTRIDE - Alleged NSA implant, offered for sale by Shadow Brokers
+PACKETWRENCH - Computer exploit delivered by the FERRETCANON system
+PANDAROCK - A tool for connecting to a POLARPAWS implant
+PANDORAS MAYHEM - Part of QUANTUM operations involving TUTELAGE
+PARCHDUSK (PD) - Productions Operation of NSA's TAO division
+PASSIONATEPOLKA - TAO tool for remotely bricking network cards
+PASTEPIG - NetApp on the TAONet/NSANet DMZ
+PATCHICILLIN - Implant, tool or exploit presumably used by TAO's Equation Group
+PCLEAN - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+PEDDLECHEAP - Computer exploit delivered by the FERRETCANON system
+PERFECT CITIZEN - Research and engineering program to counter cyberattacks, in cooperation with Raytheon
+PHOENIX Exploit Kit - Major cyber threat category countered by the TUTELAGE system
+PHOTOANGLO - A continuous wave generator and receiver. The bugs on the other end are ANGRYNEIGHBOR class
+PITIEDFOOL - A suite of CNA tools for use against file systems. Overwrites data to the point it is irrecoverable.
+PLAIDDIANA - Major intrusion set effort
+PLUCKHAGEN - An IRATEMONK implantation for ARM-based Fujitsu drives
+POLARBREEZE - NSA technique to tap into nearby computers
+POLARPAWS - An implant for a firewall form an unknown vendor
+POLARSNEEZE - An implant for a firewall form an unknown vendor
+POLARSTARKEY - Network Defense data source
+POLITERAIN - CNA team or operation from the ATO unit of TAO
+POPROCKS - Chinese cyber attacks against video conference provides, 2009 Navy Router Incident, part of BYZANTINE HADES
+POPQUIZ - Project of NSA's Research Directorate to collect network metadata on high-bandwidth protocols such as HTTP, SMTP and DNS (2008) or analytic tool for cyper attacks
+PORK - Alleged NSA implant, offered for sale by Shadow Brokers
+POTBED - TAO computer hacking project
+PROTOSS - Local computer handling radio frequency signals from implants
+PUZZLECUBE - TAO tasking database
+QFIRE - A consolidated QUANTUMTHEORY platform to reduce latencies by co-locating passive sensors with local decisioning and traffic injection (under development in 2011)
+QUANTUM - Secret servers placed by NSA at key places on the internet backbone; part of the TURMOIL program
+QUANTUMBISCUIT - Enhancement of QUANTUMINSERT for targets which are behind large proxies
+QUANTUMBOT - Method for taking control of idle IRC bots and botnets)
+QUANTUMBOT2 - Combination of Q-BOT and Q-BISCUIT for webbased botnets
+QUANTUMCOOKIE - Method to force cookies onto target computers
+QUANTUMCOPPER - Method for corrupting file uploads and downloads
+QUANTUMDIRK - Replacement for the QUANTUMINSERT hacking toolset that injects malicious content into chat services provided by websites such as Facebook and Yahoo
+QUANTUMDNS - DNS injection/redirection based off of A record queries
+QUANTUMHAND - Man-on-the-side technique using a fake Facebook server
+QUANTUMINSERT (QI) - Man-on-the-side technique that redirects target internet traffic to a FOXACID server for exploitation
+QUANTUMMUSH - Targeted spam exploitation method
+QUANTUMNATION - Umbrella for COMMONDEER and VALIDATOR computer exploits
+QUANTUMPHANTOM - Hijacks any IP address to use as covert infrastructure
+QUANTUMSKY - Malware used to block targets from accessing certain websites through RST packet spoofing
+QUANTUMSMACKDOWN - Method for using packet injection to block attacks against DoD computers
+QUANTUMSPIN - Exploitation method for instant messaging
+QUANTUMSQUEEL - Method for injecting MySQL persistant database connections
+QUANTUMSQUIRREL - Using any IP address as a covert infrastructure
+QUANTUMTHEORY (QT) - Computer hacking toolbox, which dynamically injects packets into target's network session
+QWERTY - TAO keylogger tool, probably a component of the WARRIORPRIDE malware framework
+RADON - Host tap that can inject Ethernet packets
+RAGEMASTER - Part of ANGRYNEIGHBOR radar retro-reflectors, for red video graphics array cable in ferrite bead RFI chokers between video card and monitor, target for RF flooding and collection of VAGRANT video signal
+RAISEBED - Access system
+RAPTOR JOY - Intrusion set?
+RAPTOR ROLEX - Intrusion set?
+RAPORT SAD - Intrusion set?
+RATWHARF - Cyber mission
+RECORDER - Major intrusion set effort
+REGIN - Highly sophisticated spyware found in computers systems worldwide, supposedly used by NSA and GCHQ (discovered in 2013, codename by Microsoft)
+REPLICANTFARM - Signature based output of the WARRIORPRIDE framework
+RETICULUM - Implant, tool or exploit presumably used by TAO's Equation Group
+RETURNSPRING - High-side server shown in UNITEDRAKE internet cafe monitoring graphic
+REXKWONDO - TAO project for shaping and MitM capabilities against Lebanon's internet traffic (2013)
+ROGUESAMURAI - Test framework of TAO's persistence division for testing computer exploits
+ROOTKNOT - One-way transfer device
+SADDLEBACK - Hacking tool that performs a firmware modification?
+SALVAGERABBIT - Mentioned in the UNITEDRAKE interface, as revealed by the Shadow Brokers
+SCHOOLMONTANA - Software implant for Juniper J-series routers used to direct traffic between server, desktop computers, corporate network and internet
+SCREAMINGHARPY - TAO computer hacking project
+SCREAMINGPLOW - Similar to JETPLOW
+SEAGULLFARO - Processing system on TAONet, part of DEEPFRIEDPIG part of OPTICPINCH in 2009
+SEASONEDMOTH (SMOTH) - Stage0 computer implant which dies after 30 days, deployed by the QUANTUMNATION method
+SECONDDATE - Method to influence real-time communications between client and server in order to redirect web-browsers to FOXACID malware servers, offered for sale by Shadow Brokers component of BADDECISION
+SEED SPHERE - Computer network "intrusion set" identified in 2007
+SENTRY EAGLE (SEE) - Overarching umbrella program for ECI compartments and SAP programs of the National Initiative to protect US cyberspace
+SENTRY HAWK - ECI compartment of SENTRY EAGLE that protects information about Computer Network Exploitation
+SENTRY FALCON - ECI compartment of SENTRY EAGLE that protects information about Computer Network Defense
+SERUM - Bank of servers within ROC managing approvals and ticket system
+SHADOWDRAGON - Major intrusion set effort
+SHAREDTAFFY - TAO computer hacking project
+SHARPFOCUS (SF2) - Productions Operation of NSA's TAO division
+SHARPSHADOW - TAO computer hacking project
+SHELLGREY - DNT standard exfiltration metadata format
+SHENTYSDELIGHT - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+SHEPARD - Related to the MAKERSMARK intrusion set
+SHORTSHEET - NSA tool for Computer Network Exploitation
+SHOTGIANT - NSA operation for hacking and monitoring the Huawei network (since 2009)
+SHOUTPIG - FTP server on the TAONet/NSANet DMZ
+SIDETRACK - Implant, tool or exploit presumably used by TAO's Equation Group
+SIERRAMONTANA - Software implant for Juniper M-series routers used by enterprises and service providers
+SIFT - Alleged NSA implant, offered for sale by Shadow Brokers
+SILLYBUNNY - Some kind of webbrowser tag which can be used as selector
+SKIMCOUNTRY - Alleged NSA implant, offered for sale by Shadow Brokers
+SKYHOOKCHOW - Codeword found in the source code used by the Equation hacking group
+SLICKERVICAR - Used with UNITEDRAKE or STRAITBIZARRE to upload hard drive firmware to implant IRATEMONK
+SLIPSTREAM - Part of the WARRIORPRIDE framework
+SLYHERETIC_CHECKER - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+SNORT - Repository of computer network attack techniques/coding
+SNOWGLOBE - Hacking operations against the US that may have originated in France
+SODAPRESSED - Linux application presistence
+SOLARTIME (SOTI) - Module that seems part of UNITEDRAKE, as revealed by the Shadow Brokers
+SOMBERKNAVE - Windows XP wireless software implant providing covert internet connectivity, routing TCP traffic via an unused 802.11 network device allowing OLYMPUS or VALIDATOR to call home from air-gapped computer
+SOUFFLETROUGH - Software implant in BIOS Juniper SSG300 and SSG500 devices, permanent backdoor, modifies ScreenOS at boot, utilizes Intel's System Management Mode
+SPARROW II - Airborne wireless network detector running BLINDDATE tools via 802.11
+SPECULATION - Protocol for over-the-air communication between COTTONMOUTH computer implant devices, compatible with HOWLERMONKEY
+SPINALTAP - NSA program for combining data from active hacking operations and passive signals intelligence collection
+SPITEFULANGEL - Hacking tool or method in or for the Python programming language
+SQUASHCHUNKY - Mentioned in the UNITEDRAKE interface, as revealed by the Shadow Brokers
+STEALTHFIGTHER - Codeword found in the source code used by the Equation hacking group
+STEELFLAUTA - TAO traffic shaping program supporting SSO cable tapping collection
+STOICSURGEON - Hacking tool presumably used by TAO's Equation Group, offered for sale by Shadow Brokers
+STORMPIG - Data cleanup tool on TAONet used for TAO botnet hacking
+STOWAGEWINK - Implant module related to the UNITEDRAKE framework, as revealed by the Shadow Brokers
+STRAITACID - Codeword found in the source code used by the Equation hacking group
+STRAI(GH)TBIZARRE (SBZ) - TAO software implant used to communicate through covert channels or spyware that can turn computers into disposable and non-attributable "shooter" nodes
+STRAITSHOOTER - Codeword found in the source code used by the Equation hacking group
+STRIFEWORLD - Alleged NSA implant, offered for sale by Shadow Brokers
+STRIKEZONE - Device running HOWLERMONKEY personality
+STRONGMITE - Computer at remote operations center used for long range communications
+STUCCOMONTANA - Software implant for Juniper T-Series routers used in large fixed-line, mobile, video, and cloud networks, otherwise just like SCHOOLMONTANA
+STUMPCURSOR - Foreign computer accessing program of the NSA's Tailored Access Operations
+STUXNET - A computer worm that was used to destroy Iran's nuclear centrifuges (discovered in 2010)
+STYLISHCHAMP - Tool that can create a HPA on a hard drive and then provide raw reads and writes to this area
+SUAVEEYEFUL - Alleged NSA implant, offered for sale by Shadow Brokers
+SUBTLESNOW - Major cyber threat category countered by the TUTELAGE system
+SUCTIONCHAR - Alleged NSA implant, offered for sale by Shadow Brokers
+SULPHURWRITE - Implant module related to the UNITEDRAKE framework, as revealed by the Shadow Brokers
+SUPERDRAKE - Cyber threat actor related to WIDOWKEY
+SURLEYSPAWN - Data RF retro-reflector, gathers keystrokes FSK frequency shift keyed radar retro-reflector, USB or IBM keyboards
+SURPASSPIN - Transfers commands and tasking instructions from TAO's internal to the external mission network receives messages from the FLASHHANDLE Mission Manager
+SURPLUSHANGAR (SH) - High-to-Low diode, used for the QUANTUM system and botnet hacking
+SUTURESAILOR - Printed circuit board digital core used with HOWLERMONKEY
+SWAP - Implanted software persistence by exploiting motherboard BIOS and hard drive Host Protected Area for execution before OS loads, operative on windows linux, freeBSD Solaris
+TEFLONDOOR - A self-destructing post-exploitation shell for executing an arbitrary file
+THERMALDIFFUSION - Mentioned in the UNITEDRAKE interface, as revealed by the Shadow Brokers
+TITAN RAIN - Presumably Chinese attacks on American computer systems (since 2003)
+TOAST - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+TORNSTEAK - Exploit solution for two firewall devices from a particular vendor
+TOTECHASER - Software implant in flash ROM windows CE for Thuraya 2520 satellite/GSM/web/email/MMS/GPS
+TOTEGHOSTLY - Modular implant for windows mobile OS based on SB using CP framework, Freeflow-compliant so supported by TURBULENCE architecture
+TRANSGRESSION - TAO/CES unit providing cryptanalytic support for various missions
+TREACLEBETA - TAO hacking against the Pakistani terrorist group Lashkar-e-Taiba
+TRINITY - Implant digital core concealed in COTTONMOUTH-I, providing ARM9 microcontroller, FPGA Flash and SDRAM memories
+TUNINGFORK - Sustained collection linked to SEAGULLFARO, previously NSA database or cyber threat analysis tool
+TURBINE - Active SIGINT: centralized automated command/control system for managing a large network of active computer implants for intelligence gathering (since 2010)
+TURBOPANDA - A tool that can be used to communicate with a HALLUXWATER implant and allows read/write to memory, execute an address or packet; joint NSA/CIA project on Huawei network equipment
+TUTELAGE - Active defense system with detection sensors that monitor network traffic at for example the NIPRNet in order to detect malicious code and network attacks, part of the TURBULENCE program
+TWEEZERS - Major intrusion set effort
+TWISTEDKILT - Writes to Host Protected area on hard drive to implant Swap and its implant installer payload, which can be used with the STYLISHCHAMP tool
+UNCANNY - Video demodulation tool (now: BOTANICREALTY)
+UNITEDRAKE (UR) - Fully extensible remote collection system designed for Windows targets,* delivered by the FERRETCANON system receiving e-mails and files
+UnPacMan - Processing system on TAONet, part of DEEPFRIEDPIG
+VAGRANT - Radar retro-reflector technique on video cable to reproduce open computer screens
+VALIANTSURF - A "major system acquisition" that enables more efficient Computer Network Operations (CNO) by the TAO division; it will integrate into the TURBULENCE architecture
+VALIDATOR - Computer exploit delivered by the FERRETCANON system for looking whether a computer has security software, runs as user process on target OS, modified for SCHOOLMONTANA, initiates a call home, passes to SOMBERKNAVE, downloads OLYMPUS and communicates with remote operation center
+VICTORYDANCE - Joint NSA-CIA operation to map WiFi fingerprints of nearly every major town in Yemen
+VIEWPLATE - Processor for external monitor recreating target monitor from red video
+VINYLSEAT - E-mails collected through hacking operations
+VIOLETSPIRIT - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+VITALAIR - NSA tool
+VITALAIR2 - Tool or database for automated scanned IP addresses for TAO known vulnerabilities
+VOYEUR - US monitoring operation in which an Iranian hacking operation against the US was detected
+VULCANDEATHGRIP - Repository for data collected from vPCS shaping under the STEELFLAUTA program
+WAGONBED - Hardware GSM controller board implant on CrossBeam or HP Proliant G5 server that communicates over I2C interface
+WAITAUTO - Network used by the Remote Operations Center of NSA's TAO division
+WALKERBLACK - Related to the MAKERSMARK intrusion set
+WARNVULCANO - Something residing on the WAITAUTO network used for TAO botnet hacking
+WARRIORPRIDE (WP) - Scalable, flexible and portable unified CNE platform used throughout the Five Eyes; equivalent at GCHQ is DAREDEVIL It was for example used to break into iPhones
+WATCHER - Tipping tool related to SECONDDATE operations, offered for sale by Shadow Brokers
+WAXTITAN - TAO computer hacking project
+WEASELWAGGLE - Major cyber threat category countered by the TUTELAGE system
+WELLSPRING - Tool that strips out facial images from e-mails and other communications, and displays those that might contain passport images
+WIDOWKEY - Major intrusion set effort, related to SUPERDRAKE
+WHISTLINGDUXIE - TAO computer hacking project
+WHITESPYDER - Mentioned in the UNITEDRAKE interface, as revealed by the Shadow Brokers
+WICKEDVICAR - Hacking tool used to perform remote survey and installation
+WIDOWKEY - Major cyber threat category countered by the TUTELAGE system
+WILDCHOCOBO - TAO computer hacking project
+WILDCOUGAR - TAO computer hacking project
+WILLOWVIXEN - Method to deploy malware by sending out spam e-mails that trick targets into clicking a malicious link
+WISTFULTOLL - Plug-in for UNITEDRAKE and STRAITBIZARRE used to harvest target forensics via Windows Management Instrumentation and Registry extractions, can be done through USB thumb drive
+WINTERLIGHT - A QUANTUM computer hacking program in which Sweden takes part
+WOBBLYLLAMA - A payload for the ELIGIBLEBOMBSHELL TOPSEC firewall exploit
+XTRACTPLEASING - Extracts something from a file and produces a PCAP file as output
+YELLOWPIN - Printed circuit board digital core used with HOWLERMONKEY
+YELLOWSPIRIT - Alleged NSA hacking tool, offered for sale by Shadow Brokers
+YELLPIG - FTP server on the TAONet/NSANet DMZ
+ZEBEDEE - Related to the MAKERSMARK intrusion set
+ZESTYLEAK - A software implant for Juniper NetScreen firewalls allowing remote JETPLOW firmware installation, also listed as a module for BANANAGLEE
+ZEUS - Major cyber threat category countered by the TUTELAGE system
+ZORIPIG - Itx on the TAONet/NSANet DMZ
