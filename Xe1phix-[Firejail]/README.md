@@ -185,6 +185,18 @@ ___
 ![Firejail - Firejail-UI - Capabilities](https://gitlab.com/xe1phix/xe1phix-linuxwiki/raw/master/Firejail/Firejail-Wiki-Screenshots/Firejail-Firetools-Firejail-UI/Firejail-Firemgr-Capabilities.png)
 
 
+## Firejail - Firejail Wizard - Custom DNS Servers: 
+![Firejail - Firejail Wizard - Custom DNS Servers](https://gitlab.com/xe1phix/xe1phix-linuxwiki/-/raw/master/Firejail/Firejail-Wiki-Screenshots/Firejail-Configuration-Wizard/Firejail-Wizard-Step-1.png)
+
+
+## Firejail - Firejail Wizard - View DNS Servers:
+![Firejail - Firejail Wizard - View DNS Servers](https://gitlab.com/xe1phix/ParrotSecWiki/-/blob/InfoSecTalk/Xe1phix-InfoSec-Talk-Materials/Secure-Linux-Networking-v2-%5BCornCon-2021%5D/Secure-Linux-Networking-v2-%5BScreenshots%5D/%5BFirejail%5D-Screenshots/firemon-DNS.png)
+
+
+## Firejail - Firejail CLI - AppArmor - Print:
+![Firejail - Firejail-UI - Capabilities](https://gitlab.com/xe1phix/ParrotSecWiki/-/blob/InfoSecTalk/Xe1phix-InfoSec-Talk-Materials/Secure-Linux-Networking-v2-%5BCornCon-2021%5D/Secure-Linux-Networking-v2-%5BScreenshots%5D/%5BFirejail%5D-Screenshots/%5BFirejail-AppArmor%5D-Screenshots/firejail-print-apparmor.png)
+
+
 
 ## Firejail Resources:
 - [Firejail Github](https://github.com/netblue30/firejail)
