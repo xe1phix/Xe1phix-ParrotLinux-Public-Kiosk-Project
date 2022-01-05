@@ -21,34 +21,32 @@
 
 
 ## --------------------------------------------------------------- ##
-noblacklist ${HOME}/.TelegramDesktop
-noblacklist ${HOME}/.local/share/TelegramDesktop
-noblacklist ${HOME}/.local/share/TelegramDesktop/DebugLogs
-noblacklist ${HOME}/Downloads/Telegram Desktop/
-noblacklist ${HOME}/Downloads/Telegram Desktop/Telegram-Queue
+## noblacklist ${HOME}/.$Directory
+noblacklist ${HOME}/Downloads/
 ## --------------------------------------------------------------- ##
 ## read-write ${HOME}/Downloads/Telegram Desktop/
 whitelist ${HOME}/Downloads/
-whitelist ${HOME}/Downloads/Telegram Desktop/
-read-only /usr/lib/parrot-skel
+## read-only ${HOME}/Downloads/
+## read-only ${HOME}/.$Directory
+## read-only ${HOME}/.mozilla
 ## --------------------------------------------------------------- ##
-blacklist /etc/firefox
-blacklist /etc/firefox-esr
-blacklist ${HOME}/.mozilla
+## blacklist /etc/$Directory
+## blacklist ${HOME}/.$Directory
+## blacklist ${HOME}/Downloads/
 ## --------------------------------------------------------------- ##
 ## firejail --read-only=~/.mozilla firefox
 ## firejail --read-write=${HOME}/Downloads/
 ## --------------------------------------------------------------- ##
-read-only /run/resolvconf/resolv.conf
-read-only /etc/resolv.conf
-read-only /etc/resolv.conf.head
-read-only /etc/firejail/
+## read-only /run/resolvconf/resolv.conf
+## read-only /etc/resolv.conf
+## read-only /etc/resolv.conf.head
+## read-only /etc/firejail/
 ## --------------------------------------------------------------- ##
-blacklist /mnt
-blacklist /boot
-blacklist /media
-blacklist /run/media
-blacklist /run/mount
+## blacklist /mnt
+## blacklist /boot
+## blacklist /media
+## blacklist /run/media
+## blacklist /run/mount
 ## read-only /usr/local/bin
 ## --------------------------------------------------------------- ##
 
@@ -105,8 +103,6 @@ dns 193.138.218.74
 ## 			Backplane OpenNIC DNS Server
 ## ------------------------------------------------ ##
 dns 172.98.193.62
-
-
 
 
 ##-===================================================-##
@@ -454,7 +450,7 @@ seccomp
 
 
 ##-=====================================-##
-##   [+] enable AppArmor confinement
+##   [+] Enable AppArmor Confinement
 ##-=====================================-##
 ## ----------------------------------------------------------------- ##
 ##  [?] AppArmor support is disabled by default at compile time. 
@@ -513,7 +509,7 @@ seccomp
 ## 
 ## 
 ## ------------------------------------------------- ##
-##   [?] see if AppArmor is loaded and enabled 
+##   [?] See if AppArmor is Loaded and Enabled 
 ##   [?]         (should print “Y”):
 ## ------------------------------------------------- ##
 ##  cat /sys/module/apparmor/parameters/enabled
@@ -529,13 +525,13 @@ seccomp
 ## 
 ##
 ##-======================================================================-##
-##   [+] aa-status - report the current state of AppArmor confinement
+##   [+] aa-status - Report The Current State of AppArmor Confinement
 ##-======================================================================-##
 ##  sudo apparmor_status --verbose
 ## 
 ## 
 ##-========================================================================-##
-##   [+] aa-complain - set an AppArmor security profile to complain mode
+##   [+] aa-complain - Set an AppArmor Security Profile To Complain Mode
 ##-========================================================================-##
 ## ------------------------------------------------------------------------ ##
 ##  [?] In complain mode, the security policy is not enforced 
@@ -567,9 +563,9 @@ seccomp
 
 
 
-## ------------------------------------------------ ##
-##   [+] 
-## ------------------------------------------------ ##
+##-============================================-##
+##   [+] Linux Capabilities (POSIX 1003.1e)
+##-============================================-##
 ## 
 ## ------------------------------- ##
 ## caps.keep $Caps
@@ -584,6 +580,9 @@ caps.drop all
 
 
 
+##-===================================================-##
+##   [+] CGroup v2 (Linux Control Groups)
+##-===================================================-##
 ## --------------------------------------------------- ##
 ##   [?] The sandbox is placed in g1 control group
 ## --------------------------------------------------- ##
@@ -592,17 +591,23 @@ caps.drop all
 ## --------------------------------------------------- ##
 
 
-## ------------------------------- ##
-##   [+] Enable IPC namespace
-## ------------------------------- ##
+##-=================================================================-##
+##   [+] IPC Namespoace Isolation
+##-=================================================================-##
+## ----------------------------------------------------------------- ##
+##   [?] Resource isolation for IPC Objects, and IPC Identifiers,
+## ----------------------------------------------------------------- ##
 ## ipc-namespace
 ## firejail --ipc-namespace
 ## ------------------------------- ##
 
 
-## ------------------------------------------------ ##
-##   [+] 
-## ------------------------------------------------ ##
+##-====================================================================-##
+##   [+] NoNewPrivledges - 
+##-====================================================================-##
+## -------------------------------------------------------------------- ##
+##   [?] Ensures that child processes cannot acquire new privileges.
+## -------------------------------------------------------------------- ##
 ## 
 ## ------------------------------- ##
 ## firejail --nonewprivs
@@ -610,6 +615,9 @@ caps.drop all
 nonewprivs
 
 
+##-================================================-##
+##   [+] User Namespace Isolation
+##-================================================-##
 ## ------------------------------------------------ ##
 ##   [+] Run program inside of a User_Namespace
 ## ------------------------------------------------ ##
@@ -619,7 +627,7 @@ noroot
 
 
 ## --------------------------------------------------- ##
-##   [+] 
+##   [+] OverlayFS - Mount an Overlay Filesystem 
 ## --------------------------------------------------- ##
 ## overlay
 ## firejail --overlay
