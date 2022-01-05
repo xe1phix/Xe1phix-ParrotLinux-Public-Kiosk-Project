@@ -102,6 +102,7 @@ ___
 - [Blacklist | File(s) & Directories](https://firejail.wordpress.com/features-3/#filesystem)
 - [Whitelist | File(s) & Directories](https://firejail.wordpress.com/features-3/#filesystem)
 - [Blacklist External Devices](https://firejail.wordpress.com/features-3/#filesystem)
+- Anonymous Machine-ID - Spoof unique machine-id number in /etc/machine-id
 - Blacklist 3D
 - [Blacklist /dev/](https://lwn.net/Articles/531114/)
 - [Blacklist /mnt/](https://lwn.net/Articles/531114/)
@@ -194,7 +195,7 @@ ___
 
 
 ## Firejail - Firejail CLI - AppArmor - Print:
-![Firejail - Firejail-UI - Capabilities](https://gitlab.com/xe1phix/ParrotSecWiki/-/blob/InfoSecTalk/Xe1phix-InfoSec-Talk-Materials/Secure-Linux-Networking-v2-%5BCornCon-2021%5D/Secure-Linux-Networking-v2-%5BScreenshots%5D/%5BFirejail%5D-Screenshots/%5BFirejail-AppArmor%5D-Screenshots/firejail-print-apparmor.png)
+![Firejail - Firejail-UI - Capabilities](https://gitlab.com/xe1phix/ParrotSecWiki/-/raw/InfoSecTalk/Xe1phix-InfoSec-Talk-Materials/Secure-Linux-Networking-v2-%5BCornCon-2021%5D/Secure-Linux-Networking-v2-%5BScreenshots%5D/%5BFirejail%5D-Screenshots/%5BFirejail-AppArmor%5D-Screenshots/firejail-print-apparmor.png?inline=false)
 
 
 
