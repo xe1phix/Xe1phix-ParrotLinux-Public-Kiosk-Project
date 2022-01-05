@@ -175,11 +175,12 @@ ___
 
 
 ## Firejail - Firejail CLI - Version:
-![Firejail - Firejail CLI - Version](https://gitlab.com/xe1phix/ParrotSecWiki/-/blob/InfoSecTalk/Xe1phix-InfoSec-Talk-Materials/Secure-Linux-Networking-v2-%5BCornCon-2021%5D/Secure-Linux-Networking-v2-%5BScreenshots%5D/%5BFirejail%5D-Screenshots/%5BFirejail-Compilation%5D-Screenshots/Firejail-Version-0.9.67.png)
+![Firejail - Firejail CLI - Version](https://gitlab.com/xe1phix/ParrotSecWiki/-/raw/InfoSecTalk/Xe1phix-InfoSec-Talk-Materials/Secure-Linux-Networking-v2-%5BCornCon-2021%5D/Secure-Linux-Networking-v2-%5BScreenshots%5D/%5BFirejail%5D-Screenshots/%5BFirejail-Compilation%5D-Screenshots/Firejail-Version-0.9.67.png?inline=false)
 
 
 ## Firejail - Firejail CLI - Compile From Source - Enable AppArmor:
-![Firejail - Firejail CLI - Compile From Source - Enable AppArmor](https://gitlab.com/xe1phix/ParrotSecWiki/-/blob/InfoSecTalk/Xe1phix-InfoSec-Talk-Materials/Secure-Linux-Networking-v2-%5BCornCon-2021%5D/Secure-Linux-Networking-v2-%5BScreenshots%5D/%5BFirejail%5D-Screenshots/%5BFirejail-Compilation%5D-Screenshots/Firejail-Enable-AppArmor.png)
+![Firejail - Firejail CLI - Compile From Source - Enable AppArmor](https://gitlab.com/xe1phix/ParrotSecWiki/-/raw/InfoSecTalk/Xe1phix-InfoSec-Talk-Materials/Secure-Linux-Networking-v2-%5BCornCon-2021%5D/Secure-Linux-Networking-v2-%5BScreenshots%5D/%5BFirejail%5D-Screenshots/%5BFirejail-Compilation%5D-Screenshots/Firejail-Enable-AppArmor.png?inline=false)
+
 
 ## Firejail Syntax Options:
 ![Firejail - Firejail Syntax](https://gitlab.com/xe1phix/xe1phix-linuxwiki/raw/master/Firejail/Firejail-Wiki-Screenshots/Firejail-Syntax/Firejail-Syntax.png)
