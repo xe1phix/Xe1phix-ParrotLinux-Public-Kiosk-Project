@@ -1,0 +1,5 @@
+## -------------------------------------------------------- ##
+##    Darknet-[I2P]-GnuPG-[KeyServers]:
+## -------------------------------------------------------- ##
+KillYourTV's SKS OpenPGP Keyserver                ||   http://killyourtv.i2p/sks    ||
+Echelon's I2P OpenPGP Public Key Server         ||   http://keys.echelon.i2p    ||
