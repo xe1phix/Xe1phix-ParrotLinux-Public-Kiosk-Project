@@ -59,7 +59,7 @@ ___
 - [Xe1phix Youtube Tutorial Videos](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#xe1phix-youtube-tutorial-videos)
 - [Xe1phix Archive.org Tutorial Videos](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#xe1phix-archiveorg-tutorial-videos)
 - [Xe1phix Bitchute Tutorial Videos](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#xe1phix-bitchute-tutorial-videos)
-- [Firejail - Firejail CLI - Compile From Source - Enable AppArmor](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#Firejail - Firejail CLI - Compile From Source - Enable AppArmor)
+- [Firejail - Firejail CLI - Compile From Source - Enable AppArmor](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#Firejail-Enable-AppArmor)
 - [Firejail Syntax Options](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#firejail-syntax-options)
 - [Firejail - Firetools - Firejail-UI](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#firejail-firetools-firejail-ui)
 - [Firejail - Firejail-UI - Capabilities](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#firejail-firejail-ui-capabilities)
@@ -180,7 +180,7 @@ ___
 
 
 ## Firejail - Firejail CLI - Compile From Source - Enable AppArmor:
-![Firejail - Firejail CLI - Compile From Source - Enable AppArmor](https://gitlab.com/xe1phix/ParrotSecWiki/-/raw/InfoSecTalk/Xe1phix-InfoSec-Talk-Materials/Secure-Linux-Networking-v2-%5BCornCon-2021%5D/Secure-Linux-Networking-v2-%5BScreenshots%5D/%5BFirejail%5D-Screenshots/%5BFirejail-Compilation%5D-Screenshots/Firejail-Enable-AppArmor.png?inline=false)
+![Firejail-Enable-AppArmor](https://gitlab.com/xe1phix/ParrotSecWiki/-/raw/InfoSecTalk/Xe1phix-InfoSec-Talk-Materials/Secure-Linux-Networking-v2-%5BCornCon-2021%5D/Secure-Linux-Networking-v2-%5BScreenshots%5D/%5BFirejail%5D-Screenshots/%5BFirejail-Compilation%5D-Screenshots/Firejail-Enable-AppArmor.png?inline=false)
 
 
 ## Firejail Syntax Options:
