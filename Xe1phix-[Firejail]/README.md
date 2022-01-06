@@ -55,7 +55,7 @@ ___
 
 ## Table of Contents:
 
-- [Firejail Features](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#firejail-features)
+- [Firejail Features](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/-/blob/master/Xe1phix-%5BFirejail%5D/README.md#firejail-features)
 - [Xe1phix Youtube Tutorial Videos](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#xe1phix-youtube-tutorial-videos)
 - [Xe1phix Archive.org Tutorial Videos](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#xe1phix-archiveorg-tutorial-videos)
 - [Xe1phix Bitchute Tutorial Videos](https://gitlab.com/xe1phix/ContainerizationFirejail/edit/master/README.md#xe1phix-bitchute-tutorial-videos)
