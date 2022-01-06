@@ -1,0 +1,90 @@
+## 
+##-===========================================================================================================-##
+## ----------------------------------------- Debian Stretch Stable ------------------------------------------- ##
+##-===========================================================================================================-##
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+deb http://deb.debian.org/debian stretch main contrib non-free
+## deb-src http://deb.debian.org/debian stretch main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+deb http://deb.debian.org/debian stretch-updates main contrib non-free
+## deb-src http://deb.debian.org/debian stretch-updates main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+deb http://security.debian.org/debian-security/ stretch/updates main contrib non-free
+## deb-src http://security.debian.org/debian-security/ stretch/updates main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## 
+## 
+##-===========================================================================================================-##
+## ---------------------------------------- Debian Stretch With Tor ------------------------------------------ ##
+##-===========================================================================================================-##
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## deb tor+http://vwakviie2ienjx6t.onion/debian stretch main
+## deb-src tor+http://vwakviie2ienjx6t.onion/debian stretch main
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## deb tor+http://sgvtcaew4bxjd7ln.onion/debian-security stretch/updates main
+## deb-src tor+http://sgvtcaew4bxjd7ln.onion/debian-security stretch/updates main
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## deb tor+http://vwakviie2ienjx6t.onion/debian stretch-updates main
+## deb-src tor+http://vwakviie2ienjx6t.onion/debian stretch-updates main
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## 
+## 
+##-===========================================================================================================-##
+## ----------------------------------------- Debian Buster Stable -------------------------------------------- ##
+##-===========================================================================================================-##
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+deb http://deb.debian.org/debian buster main contrib non-free
+## deb-src http://deb.debian.org/debian buster main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+deb http://deb.debian.org/debian buster-updates main contrib non-free
+## deb-src http://deb.debian.org/debian buster-updates main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+deb http://deb.debian.org/debian-security/ buster/updates main contrib non-free
+## deb-src http://deb.debian.org/debian-security/ buster/updates main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## 
+## 
+##-===========================================================================================================-##
+## ----------------------------------------- Debian Buster With Tor ------------------------------------------ ##
+##-===========================================================================================================-##
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## deb tor+http://vwakviie2ienjx6t.onion/debian buster main contrib non-free
+## deb-src tor+http://vwakviie2ienjx6t.onion/debian buster main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## deb tor+http://vwakviie2ienjx6t.onion/debian buster-updates main contrib non-free
+## deb-src tor+http://vwakviie2ienjx6t.onion/debian buster-updates main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## deb tor+http://sgvtcaew4bxjd7ln.onion/debian-security/ buster/updates main contrib non-free
+## deb-src tor+http://sgvtcaew4bxjd7ln.onion/debian-security/ buster/updates main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## 
+## 
+##-===========================================================================================================-##
+## --------------------------------------------- Debian Bullseye --------------------------------------------- ##
+##-===========================================================================================================-##
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+deb http://deb.debian.org/debian bullseye main contrib non-free
+## deb-src http://deb.debian.org/debian bullseye main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+deb http://deb.debian.org/debian-security/ bullseye-security main contrib non-free
+## deb-src http://deb.debian.org/debian-security/ bullseye-security main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+deb http://deb.debian.org/debian bullseye-updates main contrib non-free
+## deb-src http://deb.debian.org/debian bullseye-updates main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## 
+## 
+##-===========================================================================================================-##
+## --------------------------------------- Debian Bullseye With Tor ------------------------------------------ ##
+##-===========================================================================================================-##
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## deb tor+http://vwakviie2ienjx6t.onion/debian bullseye main contrib non-free
+## deb-src tor+http://vwakviie2ienjx6t.onion/debian bullseye main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## deb tor+http://sgvtcaew4bxjd7ln.onion/debian-security bullseye-security main contrib non-free
+## deb-src tor+http://sgvtcaew4bxjd7ln.onion/debian-security bullseye-security main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## deb tor+http://vwakviie2ienjx6t.onion/debian bullseye-updates main contrib non-free
+## deb-src tor+http://vwakviie2ienjx6t.onion/debian bullseye-updates main contrib non-free
+## ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ##
+## 
