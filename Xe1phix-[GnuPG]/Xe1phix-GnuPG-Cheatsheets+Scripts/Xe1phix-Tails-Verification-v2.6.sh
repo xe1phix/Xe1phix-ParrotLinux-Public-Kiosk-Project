@@ -1,9 +1,9 @@
 #!/bin/sh
 ## Xe1phix-Tails-Verification.sh
 
-curl --tlsv1 --url https://tails.boum.org/tails-signing.key --output /home/amnesia/Gnupg/tails-signing.key 
-curl --tlsv1 --url https://tails.boum.org/tails-signing.key --output /home/amnesia/Gnupg/tails-signing.key  | apt-key add tails-signing.key
-curl --tlsv1 --url https://tails.boum.org/tails-signing.key --output /home/amnesia/Gnupg/tails-signing.key  | gpg --keyid-format long --import tails-signing.key
+curl --tlsv1.3 --url https://tails.boum.org/tails-signing.key --output ~/Downloads/OS/Hashsums/tails-signing-key 
+curl --tlsv1.3 --url https://tails.boum.org/tails-signing.key --output ~/Downloads/OS/Hashsums/tails-signing-key  | apt-key add tails-signing.key
+curl --tlsv1.3 --url https://tails.boum.org/tails-signing.key --output ~/Downloads/OS/Hashsums/tails-signing-key  | gpg --keyid-format long --import tails-signing.key
 
 
 curl https://tails.boum.org/tails-signing.key | gpg --import
@@ -20,7 +20,7 @@ gpg: Good signature from "Tails developers <tails@boum.org>" [undefined]
 gpg:                 aka "Tails developers (offline long-term identity key) <tails@boum.org>" [full]
 
 
-curl --verbose --progress-bar --tlsv1 --url https://tails.boum.org/<tails.iso> \
+curl --verbose --progress-bar --tlsv1.3 --url https://tails.boum.org/<tails.iso> \
        | tee >(sha1sum > dvd.sha1) > dvd.iso
        
 gpg --verify Erinn Clark.asc sha256sums.txt
@@ -68,7 +68,7 @@ T(A)ILS Developers Signing key  (0xBE2CD9C1) 			Amnesia@boum.org
 gpg --keyserver x-hkp://pool.sks-keyservers.net --recv-keys 0x0D24B36AA9A2A651787876451202821CBE2CD9C1
 gpg --export 0D24B36AA9A2A651787876451202821CBE2CD9C1 | sudo apt-key add -
          Key fingerprint = 0D24 B36A A9A2 A651 7878  7645 1202 821C BE2C D9C1
-curl --tlsv1 --url https://tails.boum.org/tails-signing.key --output /home/amnesia/Gnupg/tails-signing.key  && gpg --keyid-format long --import tails-signing.key
+curl --tlsv1.3 --url https://tails.boum.org/tails-signing.key --output /home/amnesia/Gnupg/tails-signing.key  && gpg --keyid-format long --import tails-signing.key
 
 
 
@@ -79,6 +79,7 @@ gpg --keyserver x-hkp://pool.sks-keyservers.net --recv-keys 0xD6A948CF297F753930
 gpg --export D2C67D20E9C36C2AC5FE74A2D255D3F5C868227F | sudo apt-key add -
 gpg --export 043E0E69DD56BA595905875690BC9192B06291B2 | sudo apt-key add -
 gpg --export D6A948CF297F753930B4756AFA7F0E44D487F03F | sudo apt-key add -
+gpg --export A490D0F4D311A4153E2BB7CADBB802B258ACD84F | sudo apt-key add -
            Key fingerprint = D2C6 7D20 E9C3 6C2A C5FE  74A2 D255 D3F5 C868 227F
            Key fingerprint = 043E 0E69 DD56 BA59 5905  8756 90BC 9192 B062 91B2
            Key fingerprint = D6A9 48CF 297F 7539 30B4  756A FA7F 0E44 D487 F03F
