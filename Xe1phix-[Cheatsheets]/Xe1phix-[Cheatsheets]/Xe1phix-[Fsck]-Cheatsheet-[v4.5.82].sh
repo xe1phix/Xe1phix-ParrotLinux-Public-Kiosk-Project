@@ -21,7 +21,7 @@
 	e2fsck -B blocksize             ## Force blocksize when looking for superblock
 	e2fsck -j external_journal      ## Set location of the external journal
 	e2fsck -l bad_blocks_file       ## Add to badblocks list
-	e2fsck -L bad_blocks_file		## Set badblocks list
+	e2fsck -L bad_blocks_file       ## Set badblocks list
 ## ----------------------------------------------------------------------------------------------- ##
 	badblocks -o badblocks.rpt /dev/sda3 $TotalBlockCount
 
