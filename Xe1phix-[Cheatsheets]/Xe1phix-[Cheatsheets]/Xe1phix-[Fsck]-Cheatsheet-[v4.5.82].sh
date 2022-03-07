@@ -1,10 +1,10 @@
 #!/bin/sh
 ## ----------------------------------------------------------------------------------------------- ##
-	fsck -N				        ## dont execute, just show what could be done
-	fsck -As			        ## Check and repair all filesystems listed in /etc/fstab
-	fsck -f /dev/sda1	        ## Force a filesystem check on /dev/sda1
-	fsck -fv /dev/sda1	        ## Force another check, this time with verbose output:
-	fsck -y /dev/sda1	        ## During filesystem repair, do not ask questions and assume yes
+	fsck -N						## dont execute, just show what could be done
+	fsck -As					## Check and repair all filesystems listed in /etc/fstab
+	fsck -f /dev/sda1			## Force a filesystem check on /dev/sda1
+	fsck -fv /dev/sda1			## Force another check, this time with verbose output:
+	fsck -y /dev/sda1			## During filesystem repair, do not ask questions and assume yes
 ## ----------------------------------------------------------------------------------------------- ##
 	fsck.ext2 -c /dev/sda1		## Check a ext2 filesystem, running the badblocks command
 	e2fsck -c /dev/sda1			## mark all bad blocks and add them to the bad block inode to prevent 
