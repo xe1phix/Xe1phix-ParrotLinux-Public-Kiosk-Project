@@ -1,0 +1,40 @@
+# Hostname
+h=`hostname`
+
+# Command to read input & mask it
+cmd='read -sp "Enter password: " pass'
+
+# Path to aide integrity tool
+a="/usr/bin/aide"
+# Path to aide policy database
+adb="/var/lib/aide"
+
+# Path to tripwire integrity tool
+t="/usr/sbin/tripwire"
+# Path to tripwire policy database
+tdb="/var/lib/tripwire/"
+
+# Path to GnuGPG
+g="/usr/bin/gpg"
+
+# Path to stored encrypted policy files
+pt="/boot/.tools/audit/tripwire"
+pa="/boot/.tools/audit/aide"
+
+# Aide update policy baseline (decrypt, update database, encrypt & remove old)
+alias aide-update="$g --symmetric --cipher-algo aes256 -o $adb/aide.db.gz $pa/aide.db.new.gz.gpg && $a --update && $g --symmetric --cipher-algo aes256 -o $pa/aide.db.new.gz.gpg $adb/aide.db.new.gz && rm $adb/aide.db.*"
+
+# Aide check policy (decrypt, check database & remove)
+alias aide-check="$g --symmetric --cipher-algo aes256 -o $adb/aide.db.new.gz $pa/aide.db.new.gz.gpg && $a --init && $a --check && rm /var/lib/aide/aide.db.new.gz"
+
+# Initial setup of encrypted db & config for tripwire
+alias tripwire-save="$cmd; echo '${pass}'|$g --yes --batch --passphrase-fd 0 --symmetric --cipher-algo aes256 -o $pt/$h.twd.gpg $tdb/$h.twd"
+
+# Tripwire update policy baseline (disable high security mode, update policy, encrypt & remove old)
+alias tripwire-update="$cmd; echo '${pass}'|$g --yes --no-tty --batch --passphrase-fd 0 --decrypt -o $tdb/$h.twd $pt/$h.twd.gpg && $t -m p --secure-mode low /etc/tripwire/twpol.txt; echo '${pass}'|$g --yes --no-tty --batch --passphrase-fd 0 --symmetric --cipher-algo aes256 -o $pt/$h.twd.gpg $tdb/$h.twd; rm -fv $tdb/*.twd*"
+
+# Tripwire check policy (decrypt, check database & remove)
+alias tripwire-check="$cmd; echo '${pass}'|$g --yes --no-tty --batch --passphrase-fd 0 --decrypt -o $tdb/$h.twd $pt/$h.twd.gpg && $t --check; rm -fv $tdb/*.twd*"
+
+# Tripwire review report
+alias tripwire-report="twprint -m r --twrfile $1"

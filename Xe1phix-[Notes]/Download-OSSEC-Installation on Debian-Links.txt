@@ -1,0 +1,47 @@
+
+APT Automated Installation on Debian
+
+# Add Apt sources.lst
+                        wget -q -O - https://updates.atomicorp.com/installers/atomic | sudo bash
+
+                        # Update apt data
+                        sudo apt-get update
+
+                        # Server
+                        sudo apt-get install ossec-hids-server
+
+                        # Agent
+                        sudo apt-get install ossec-hids-agent
+
+Manual APT Installation on Debian
+
+    Add the GPG key
+
+wget -q -O - https://www.atomicorp.com/RPM-GPG-KEY.atomicorp.txt  | sudo apt-key add -
+
+    Add the repo configuration to sources.list
+
+source /etc/lsb-release
+
+                    # Ubuntu
+                    echo "deb https://updates.atomicorp.com/channels/atomic/ubuntu $DISTRIB_CODENAME main" >>  /etc/apt/sources.list.d/atomic.list
+
+                    # Debian
+                    echo "deb https://updates.atomicorp.com/channels/atomic/debian $DISTRIB_CODENAME main" >>  /etc/apt/sources.list.d/atomic.list
+
+    Install Agent or Server
+
+# Update apt data
+                    sudo apt-get update
+
+                    # Server
+                    sudo apt-get install ossec-hids-server
+
+                    # Agent
+                    sudo apt-get install ossec-hids-agent
+
+Debian
+7 (wheezy) 	https://updates.atomicorp.com/channels/ossec/debian/pool/main/o/
+8 (jessie) 	https://updates.atomicorp.com/channels/ossec/debian/pool/main/o/
+9 (stretch) 	https://updates.atomicorp.com/channels/ossec/debian/pool/main/o/
+10 (buster) 	https://updates.atomicorp.com/channels/ossec/debian/pool/main/o/

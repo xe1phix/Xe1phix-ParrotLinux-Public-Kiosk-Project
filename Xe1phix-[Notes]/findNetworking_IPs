@@ -1,0 +1,662 @@
+#!/bin/bash
+echo "This script shows a searies of examples of how to take the output of : ifconfig : and save one of the addresses to a variable that can latter be used"
+echo "__________________0.0.1__________________"
+echo "setting variables"
+fIP_nameScript=findNetworking_IPs
+echo "finding and setting : inet addr : and : Bcast : and : Mask : addresses to thier own variables"
+IP_inet_addr=`/sbin/ifconfig | grep -E 'inet addr' | grep -v '127.0.0.1' | awk '{gsub("addr:",""); print $2}'`
+IP_Bcast_addr=`/sbin/ifconfig | grep -E 'Bcast' | grep -v '127.0.0.1' | awk '{gsub("Bcast:",""); print $3}'`
+IP_Mask_addr=`/sbin/ifconfig | grep -E 'Mask' | grep -v '127.0.0.1' | awk '{gsub("Mask:",""); print $4}'`
+IP_inet6_addr=`/sbin/ifconfig | grep -E 'inet6 addr' | grep -v '127.0.0.1' | grep -v '1/128' | awk '{gsub("addr:",""); print $2}'`
+IP_local=`/sbin/ifconfig | grep -E 'inet addr' | grep -E '127.0.0.1' | awk '{gsub("addr:",""); print $2}'`
+echo "setting : user : and : home : paths to thier own variables"
+ : ${USER?} ${HOME?} 
+echo "setting a file path starting with your : $HOME : directory to save files to"
+fIP_savePath=$HOME/ARM_Mod/$fIP_nameScript
+echo "setting the the date to a variable and the time to another"
+todays_Date=$(date +"%m%d%Y")
+todays_Time=$(date +"%H%M")
+echo "end of variable decleraition"
+echo "__________________0.0.2__________________"
+echo "reading out variables to user"
+echo "__________________"
+echo "Your - inet addr - IP is : $IP_inet_addr"
+echo "Your - Bcast - IP is : $IP_Bcast_addr"
+echo "Your - Mask - IP is : $IP_Mask_addr"
+echo "Your - inet6 addr - IP is : $IP_inet6_addr"
+echo "Your - local IP - is : $IP_local"
+echo "the user name is : $USER : and the path to your home directory is : $HOME"
+echo "the file path that will be created and used in part 2 to save files to will be : $fIP_savePath"
+echo "end of variable read out"
+echo "__________________0.0.3__________________"
+{ 
+# confirm with the user 
+read -r -p "Do you wish to continue with part 1 of example? [y/N] " response 
+case "$response" in 
+	[yY][eE][sS]|[yY]) 
+# if yes, then continue with example 
+		echo "Clearing screen and starting part 1 of lesson in 3...2..1." && sleep 5
+		;; 
+	*) 
+#		 Otherwise exit.. 
+	echo "Good Night" 
+	exit 
+	;; 
+esac
+} 
+clear 
+echo "Start__________________Part_1__________________Start"
+echo "for example if we run : /sbin/ifconfig : or : sudo ifconfig : from the command line we should see..." && sleep 5
+sudo ifconfig
+echo "which gives us all sorts of information about your devices networking addresses"
+echo "__________________1.0.1__________________" && sleep 5
+echo "So using a combination of other commandline programs and pipes we can nerrow down what resulting information is displaid or place it in a variable"
+echo "for example if we wanted only the IP of : inet addr : then we can use a pipe out to : grep : with the : -E : option to nerrow down the results to only things with : inet addr : in the same line" && sleep 5
+/sbin/ifconfig | grep -E 'inet addr'
+echo "which gets us closer but there are still multiple entries and extra charicters." 
+echo "so we use another pipe and another : grep : command, this time with a : -V : option, to remove lines with : 127.0.0.1 : in the same line." && sleep 10
+/sbin/ifconfig | grep -E 'inet addr' | grep -v '127.0.0.1' 
+echo "giving us an even more nerrowed down list of results."
+echo "So lets pipe the results so far to : awk : and only print the second by using : print \$2 : within curly braces sorounded by single quotes" && sleep 5
+/sbin/ifconfig | grep -E 'inet addr' | grep -v '127.0.0.1' | awk '{ print $2}'
+echo "Now we have almost got just the numbers of : inet addr : out of all the information that : ifconfig : can provide. All that is left to remove is the : addr: : bit at the beguining of the line."
+echo "And to do that we need to add some modifierers to the : awk ... print : portion of this rather complicated one liner. Adding within the curly brackets : gsub\(\"addr:\",\"\"\)\; : just before the : print command should do the trick" && sleep 5
+/sbin/ifconfig | grep -E 'inet addr' | grep -v '127.0.0.1' | awk '{gsub("addr:",""); print $2}'
+echo "Great, so now we have the IP and can print it out, but, to save it to a variable we will have to encapsilate the entire line with : backtick : found just under the escape key and to the left of most quarty keyboards."
+echo "View $fIP_nameScript script with any text editer and you will find examples of this charicter being used for \$IP_inet_addr and \$IP_Mask_addr and so on, this special charicter is used to keep everything bound up till the variable is called"
+echo "End__________________Part_1__________________End" && sleep 10
+{ 
+# confirm with the user 
+read -r -p "Do you wish to continue with part 2 of example? [y/N] " response 
+case "$response" in 
+	[yY][eE][sS]|[yY]) 
+# if yes, then continue with example 
+		echo "Clearing screen and starting part 2 of lesson in 3...2..1." && sleep 3
+		;; 
+	*) 
+#		 Otherwise exit.. 
+	echo "Good Night" 
+	exit 
+	;; 
+esac
+} 
+clear 
+echo "Start__________________Part_2__________________Start"
+echo "So : Part 1 : of $fIP_nameScript shows us how to get a spicific block of data from a much larger block of data and print it or save the whole list of commands required to a much shorter variable"
+echo "In : Part 2 : we are going to use these variables to write this information to a few new files at the following directory : $fIP_savePath : which if you remember we set a variable to shorten it called : \$fIP_savePath" && sleep 5
+echo "__________________2.0.1__________________"
+echo "Making a directory path with : mkdir : and with : -p : option to tell mkdir to make the directories if any are missing"
+mkdir -p $fIP_savePath/saved
+echo "Now using : cat : and only one : greater than sign : this time because this will overwrite the data contained and that serves the function of updating the file if $fIP_nameScript is re-run. Furthermore in this example we will be using the : EndOfFile : command, note at the end that it has an entire line dedicated to it and this is required if you want the file to be writen out corectly" && sleep 10
+cat > $fIP_savePath/saved/local_addr.txt <<EOF
+$IP_local
+EOF
+echo "Now that we have your IP address saved to : $fIP_savePath : we can read it/'s contence with another program or script with a : cat : or : echo : commands or re-named/moved with the : mv : command or even sent to another device with the : ssh : or : scp : commands"
+echo "So lets do some of that, but first lets list the contence of the : $fIP_savePath : with the : ls : command which should show a file named : local_addr.txt : and not much else" && sleep 5
+ls $fIP_savePath
+echo "__________________2.0.2__________________" && sleep 5
+echo "Using : echo : with a : less than sign : now to read the contence of : local_addr.txt : file saved under : $fIP_savePath : and echo it to the command line which should match : $IP_local"
+echo < "$fIP_savePath/saved/local_addr.txt"
+echo "That was fun. Lets make a new directory using the : \$fIP_savePath : variable for shairing these tipes of files and another directory for recieving them" && sleep 5
+mkdir -p $fIP_savePath/sending
+mkdir -p $fIP_savePath/reciving
+echo "Now lets move the : local_addr.txt : and re-name it with the : mv : command and the two date/time variables we set at the beguining : local_\$IP_local_date\$todays_Date_time_\$todays_Time : which will look like : local_$IP_local_date$todays_Date_time_$todays_Time : when the variables are processed" && sleep 3
+mv $fIP_savePath/saved/local_addr.txt $fIP_savePath/sending/local_$IP_local_date$todays_Date_time_$todays_Time
+echo "Now we should send this file to the machien with : ssh : but it has been re-named with date and time variables and if we use those varieables in a file path to the file we run the risk that the time or date has changed. So we will use the : find : command to search for a partial file name within the : sending : directory and heck lets put that find command into a varable so its output can be used for the : ssh : command too come latter." && sleep 2
+findIn_savedPath_local=`find $fIP_savePath/sending -type f -iname 'local_*' -print0 | xargs -0`
+echo "so in the example : ssh ~/.ssh/id_rsa.pub $USER@$IP_inet_addr : we will use cat and a pipe to read the contence of the file under the : sending : directory and : \$fIP_savePath/sending/\$findIn_savedPath : which looks like : $fIP_savePath/sending/$findIn_savedPath : when the variables are processed for the : ~/.ssh/id_rsa.pub : portion and for the : \$USER@\$IP_inet_addr : we will use a combo of your user name variable and IP : $USER@$IP_local : which should ask you for your password and then wright out what cat read to your : $fIP_savePath/reciving : drectory and under a new name : local_addr_Recieved." && sleep 4
+cat < $fIP_savePath/sending/$findIn_savedPath_local | ssh $USER@$IP_local 'cat >> $fIP_savePath/reciving/local_addr_Recieved'
+echo "You may be wondering, why send files to the same machien, or how this might be usefull. Well if you are running Linux on top of Android like I am and this set up on both sides gives you the building blocks to send data or even commands from Android OS to Linux OS or the other way around easiely. Note though that the : scp : command is better suited to send files back and forth without the nead of a : cat : or simular command to write the file to the other device and some of the commands like : ifconfig : wont work on the Android side so we will have to learn that latter."
+echo "End__________________Part_2__________________End" && sleep 10
+{ 
+# confirm with the user 
+read -r -p "Do you wish to continue with part 3 of $fIP_nameScript? [y/N] " response 
+case "$response" in 
+	[yY][eE][sS]|[yY]) 
+# if yes, then continue with example 
+		echo "Clearing screen and starting part 3 of $fIP_nameScript in 3...2..1." && sleep 3
+		;; 
+	*) 
+#		 Otherwise exit.. 
+	echo "Good Night" 
+	exit 
+	;; 
+esac
+} 
+clear 
+echo "Start__________________Part_3__________________Start"
+echo "To recap the variables set so far in parts 1 and 2 of $fIP_nameScript"
+echo "__________________3.0.1__________________"
+echo "Your - inet addr - IP is : $IP_inet_addr"
+echo "Your - Bcast - IP is : $IP_Bcast_addr"
+echo "Your - Mask - IP is : $IP_Mask_addr"
+echo "Your - inet6 addr - IP is : $IP_inet6_addr"
+echo "Your - local IP - is : $IP_local"
+echo "Your user name is : $USER : and the path to your home directory is : $HOME"
+echo "The file path that used for saving files to will be : $fIP_savePath"
+echo "To days date is : $todays_Date"
+echo "The time is : $todays_Time"
+echo "And the find variable should still display : local_addr.txt : when actually called : $findIn_savedPath_local"
+echo "__________________"
+echo "We should have a file in : $fIP_savePath/sending : called something similar to : local_$IP_local_date$todays_Date_time_$todays_Time"
+ls $fIP_savePath/sending
+echo "We should have a file in : $fIP_savePath/reciving : called something similar to : local_$IP_local_date$todays_Date_time_$todays_Time"
+ls $fIP_savePath/reciving
+echo "But what about the other devices that maybe connected to the same network?"
+echo "Looks like : nmap : is the best tool for the job so we will install that next and after give you alternitives to"
+echo "__________________3.0.2__________________" && sleep 10
+{ 
+# confirm with the user 
+read -r -p "Do you wish to continue with part 3 of $fIP_nameScript? [y/N] " response 
+case "$response" in 
+	[yY][eE][sS]|[yY]) 
+# if yes, then continue with example 
+		echo "Clearing screen and continuing with part 3 of $fIP_nameScript in 3...2..1." && sleep 3
+		clear
+		sudo apt-get -y install nmap
+		echo "nmap is a very powerful tool and the man page and help pages should be read."
+		echo "For now though we are only interested in finding the IPs of other devices within your wifi network and : nmap -sP $IP_Bcast_addr : would work if we could get rid of the last three numbers and add one asterisk..." sleep 5
+		echo "There are plenty of ways to do this : sed : or : awk : both have options available to do this. Another option is : rev : with : cut : which gives us a repeatable way of removing a set number of charicters without knowing the contents"
+		echo "__________________3.0.3a__________________"
+		echo "So lets use : rev : to reverce the output of \$IP_Bcast_addr and then : cut -c 4 : to knock off the first three charicters and then : rev : again to output the IP without the last three numbers"
+		echo "Revercing \$IP_Bcast_addr"
+		$IP_Bcast_addr | rev
+		echo "Trimming the first three numbers off. Note to those reading along, the : -4 : option is used to remove 3 numbers/charicters, this means that where you to want to use this combo of commands for other perpioses and only wanted to remove one charicter then : -2 : would do this."
+		$IP_Bcast_addr | rev | cut -c 4-
+		echo "re-revercing"
+		$IP_Bcast_addr | rev | cut -c 4- | rev
+		echo "Lets save this operation to a variable so it can be used latter in this script"
+		trimedIP=`$IP_Bcast_addr | rev | cut -c 4- | rev`
+		echo "\$trimedIP is now : $trimedIP"
+		echo "Now to use nmap like so : nmap -sP $trimedIP*"
+		nmap -sP $trimedIP* && sleep 5
+		echo "Pritty cool right? Well hopefully you see something out there that is on the same network..."
+		echo "Next up, after discussing nmap alternitives, is saving your input to a variable so it can be used to make a connection to another device" && sleep 15 && clear
+		echo "continuing to section b of part 3"
+		;; 
+	*) 
+#		 Otherwise continue on.. 
+	echo "Continuing with section b of part 3" 
+	;; 
+esac
+} 
+echo "__________________3.0.3b__________________"
+echo "Most devices when connecting to a router or hotspot will have only the last three numbers change and the first three blocks remain the same for all devices within that network"
+echo "So lets take advanage of that and learn how to scan a range of IPs with the : ping : and some : for : in : do : done : looping"
+echo "First lets trim off the last three numbers off \$IP_Bcast_addr with : sed : and save that to a new variable"
+trimIP=`$IP_Bcast_addr | sed 's/...$//'`
+echo "\$trimIP is : $trimIP : which we will use in a moment."
+echo "Next we are going to set the min and max addresses to scan through and set those to variables for latter use."
+echo "__________________3.0.4__________________"
+echo -n "Please state the lowest number you wish to scan (min is 1) : "
+read IPmin
+echo "$IPmin : recieved"
+echo -n "Please state the highest number you wish to scan (max is 254) : "
+read IPmax
+echo "$IPmax : recived"
+customPinger=`for ip in $(seq $IPmin $IPmax) ;do (ping -c 1 -w 5 $trimIP$ip >/dev/null && echo "$trimIP$ip" &) ; done`
+echo "Now we have something we can use to limit the addresses that are to be scaned. See bellow example of a non-modifide version of the above variable \$customPinger"
+echo "found here : http://www.cyberciti.biz/faq/mapping-lan-with-linux-unix-ping-command/ : and all over the help forums you ca find this one liner"
+echo "for i in \$(seq 1 254) ;do (ping 192.168.1.\$i -c 1 -w 5 >/dev/null && echo \"192.168.1.\$i\" &) ; done"
+echo "Which we will use now that we have $trimIP"
+$customPinger
+echo "Hopefully you now see your IP along with your routers IP and now a few more IPs that we have not seen before"
+echo "But we can clean up the results a little more by using grep commands to remove your IP and access point IP" && sleep 5
+trimRoute=`route -n | grep -E 'UG' | awk '{print $2}'`
+$customPinger | grep -v '$trimRoute' | grep -v '$IP_inet_addr'
+echo "Now we have a custom pinger and a cleaned up version so lets save that to a variable too"
+fLive_IPs=`$customPinger | grep -v '$trimRoute' | grep -v '$IP_inet_addr'`
+echo "\$fLive_IPs : save to do very spicific output of ping results"
+echo "Perhaps that above command did not result in anything? Repeaning here : $fLive_IPs : ... perhaps try hitting the refresh button within a browser on the remote device to refresh it\'s connection to the access point. 10 seconds to repeat..." && sleep 15
+$fLive_IPs
+echo "Hopefully we have a result on your screen. Because you are about to be prompted for the IP address of the device you wish to connect to... Note if, you are so inclined/in the know, then this is where you may input a true remote IP..."
+echo -n "What is the IP address to remote? : "
+read user_remoteIP
+echo "\$user_remoteIP : set to : $user_remoteIP" && sleep 3
+echo "So now all we nead for a login atempt is the Linux user name you wish to login as"
+echo -n  "What is your remote Linux user name? : "
+read user_remoteUsername
+echo "\$user_remoteUsername : set to $user_remoteUsername"
+echo "\$user_remoteUsername@\$user_remoteIP : now being set to a new variable for quick re-use"
+user_remoteSSH=$user_remoteUsername@$user_remoteIP
+echo "\$user_remoteSSH : set to : $user_remoteSSH"
+echo "Next up is testing this connection with : ssh -lv : command. The : -l : is the login option for ssh and : -v : option is to be verbose about it."
+echo "Just issue an : exit : command to this remote connection to be brought back here to your local comand line."
+echo "__________________" && sleep 10
+ssh -lv $user_remoteSSH
+echo "__________________3.0.5__________________"
+echo "We have come a little closer to something useful, but what a lot of typing to get all these costom options on the fly, so lets write out a compact script with all the relovent prompts and commands and none of this extra help diologs."
+echo "Making a new directory for working example scripts to be saved to : $fIP_savePath/runableExamples"
+mkdir -p $fIP_savePath/runableExamples
+cat > $fIP_savePath/runableExamples/AssistedSSH.sh <<EOF
+#!/bin/bash
+aSSH_nameScript=AssistedSSH.sh
+IP_inet_addr=`/sbin/ifconfig | grep -E 'inet addr' | grep -v '127.0.0.1' | awk '{gsub("addr:",""); print \$2}'`
+IP_Bcast_addr=`/sbin/ifconfig | grep -E 'Bcast' | grep -v '127.0.0.1' | awk '{gsub("Bcast:",""); print \$3}'`
+IP_Mask_addr=`/sbin/ifconfig | grep -E 'Mask' | grep -v '127.0.0.1' | awk '{gsub("Mask:",""); print \$4}'`
+IP_inet6_addr=`/sbin/ifconfig | grep -E 'inet6 addr' | grep -v '127.0.0.1' | grep -v '1/128' | awk '{gsub("addr:",""); print \$2}'`
+IP_local=`/sbin/ifconfig | grep -E 'inet addr' | grep -E '127.0.0.1' | awk '{gsub("addr:",""); print \$2}'`
+trimIP=`\$IP_Bcast_addr | sed 's/...\$//'`
+ : \${USER?} \${HOME?} 
+echo -n "Please state the lowest number you wish to scan (min is 1) : "
+read IPmin
+echo -n "Please state the highest number you wish to scan (max is 254) : "
+read IPmax
+customPinger=`for ip in \$(seq \$IPmin \$IPmax) ;do (ping -c 1 -w 5 \$trimIP\$ip >/dev/null && echo "\$trimIP\$ip" &) ; done`
+fLive_IPs=`\$customPinger | grep -v '\$trimRoute' | grep -v '\$IP_inet_addr'` 
+echo "__________________"
+echo "Your - inet addr - IP is : \$IP_inet_addr"
+echo "Your - Bcast - IP is : \$IP_Bcast_addr"
+echo "Your - Mask - IP is : \$IP_Mask_addr"
+echo "Your - inet6 addr - IP is : \$IP_inet6_addr"
+echo "Your - local IP - is : \$IP_local"
+echo "The - Live IPs - are : \$fLive_IPs"
+echo "__________________"
+echo -n "What is the IP address that you wish to connect to? : "
+read user_remoteIP
+echo -n  "What is your remote Linux user name? : "
+read user_remoteUsername
+linuxSSH_login=\$user_remoteUsername@\$user_remoteIP
+{ 
+# confirm with the user 
+read -r -p "Do you wish to continue loging into \$linuxSSH_login? [y/N] " response 
+case "\$response" in 
+	[yY][eE][sS]|[yY]) 
+# if yes, then continue with example 
+		ssh -vl \$linuxSSH_login
+		echo "loged out from \$linuxSSH_login"
+		;; 
+	*) 
+#		 Otherwise exit.. 
+	echo "Good Night" 
+	exit 
+	;; 
+esac
+} 
+echo "exiting AssistedSSH.sh now..." && echo exit
+EOF
+echo "__________________3.0.6__________________"
+echo "We should now have a new script saved in : $fIP_savePath/runableExamples : named : AssistedSSH.sh : next line should print that using the : ls : command."
+ls $fIP_savePath/runableExamples
+echo "Next we will use the : chmod : to modify permissions so it can be run as an executable with the : +x : option"
+chmod +x $fIP_savePath/runableExamples/AssistedSSH.sh
+echo "Now this script can be called from the commandline with : sh $fIP_savePath/runableExamples/AssistedSSH.sh : and it will assist in loging in to your other Linux enabled devices"
+echo "There is plenty still more to explore and explore we shall in the next part on how to tell a remote device to run a task and how to transfer files between devices over the network"
+echo "End__________________Part_3__________________End"
+{ 
+# confirm with the user 
+read -r -p "Do you wish to continue with part 4 of $fIP_nameScript? [y/N] " response 
+case "$response" in 
+	[yY][eE][sS]|[yY]) 
+# if yes, then continue with example 
+		echo "Clearing screen and starting part 4 of $fIP_nameScript in 3...2..1." && sleep 3
+		;; 
+	*) 
+#		 Otherwise exit.. 
+	echo "Good Night" 
+	exit 
+	;; 
+esac
+} 
+clear 
+echo "Start__________________Part_4__________________Start"
+echo "Excelent, you have kept up so far. Now to get into some really useful commands."
+echo "Here in Part 4 we will be making use of : ssh : and : scp : commands."
+echo "ssh : will be used for sending commands to a given user and IP address"
+echo "scp : will be used for trasfering files over the network" 
+echo "We are also going to be constructing : if than : staitments a bit differently so follow along in a text editer to see what is going on..." && sleep 5
+echo "__________________4.0.1__________________"
+echo "$linuxSSH_login : already set by Part 3 of : $fIP_nameScript"
+{ 
+read -r -p "Do you wish to change it? [y/N] " response 
+case "$response" in 
+	[yY][eE][sS]|[yY]) 
+# if yes, then prompt user for new IP to scan and re-set variable tree
+		echo -n "Please input a new IP to be used : "
+		read user_remoteIP
+		echo -n  "What is your remote Linux user name? : "
+		read user_remoteUsername
+		linuxSSH_login=$user_remoteUsername@$user_remoteIP
+		echo "Login now set to : $linuxSSH_login"
+		;; 
+	*) 
+#		 Otherwise move on.. 
+	echo "Continuing with $fIP_nameScript"
+	;; 
+esac
+} 
+echo "__________________4.0.2__________________"
+echo "At some point these commands may hang : Ctrl+d : will usually exit out of something much like killing an app"
+echo "Using : $linuxSSH_login : to send a : mkdir -p : command to that device" && sleep 3
+ssh -v $linuxSSH_login "mkdir -p ARM_Mod/recieving"
+echo "Now lets transfer that handy script for finding IPs and logging in over to : $linuxSSH_login : with the : scp : command"
+echo "By default port : 22 : is used for these commands : ssh and scp : but we can set one now if you like to further modify this next variable tree."
+echo -n "What port would you like to use? : "
+read user_remotePort
+echo "For this example port : $user_remotePort : is being used."
+echo "__________________4.0.3__________________"
+mod_scpOptions=Cvp
+mod_scpsourceFile=$fIP_savePath/runableExamples/AssistedSSH.sh
+mod_scpdestinationDir=ARM_Mod/recieving
+echo "An unmodifide example of this command can be found bellow"
+echo "scp -Cvp -P 22 source_file_name username@destination_host:destination_folder"
+echo "The : -Cvp : options stand for : compress, verbose, progress"
+echo "The : -P : stands for what port to use. Note the compress option will, inteligently, only compress non-compressed files before sending."
+echo "The modifide version of the above example with the curent varibles assigned is bellow..."
+echo "scp -$mod_scpOptions -P $user_remotePort $mod_scpsourceFile $linuxSSH_login:$mod_scpdestinationDir"
+mod_scp_LtoR=`scp -$mod_scpOptions -P $user_remotePort $mod_scpsourceFile $linuxSSH_login:$mod_scpdestinationDir`
+echo "Which has been saved to a variable called : \$mod_scp_LtoR : so it can be called easier in this script"
+echo "__________________4.0.4__________________"
+echo "But we can modify that variable so it sends a different file if you so choose..."
+{ 
+read -r -p "Do you wish to change the source file and destination directory? [y/N] " response 
+case "$response" in 
+	[yY][eE][sS]|[yY]) 
+# if yes, then prompt user for new IP to scan and re-set variable tree
+		echo -n "Please input a new source file : "
+		read user_scpsourceFile
+		echo -n  "What is your remote Linux destination directory? : "
+		read user_scpdestinationDir
+		echo -n "What port would you like to use? : "
+		read user_remotePort
+		user_scp_LtoR=`scp -$mod_scpOptions -P $user_remotePort $user_scpsourceFile $linuxSSH_login:$user_scpdestinationDir`
+		mod_scp_LtoR=$user_scp_LtoR
+		echo "\$mod_scp_LtoR : set to : $mod_scp_LtoR"
+		;; 
+	*) 
+#		 Otherwise move on.. 
+	echo "Continuing with $fIP_nameScript"
+	;; 
+esac
+} 
+echo "__________________"
+echo "\$mod_scp_LtoR : is set to : $mod_scp_LtoR : and running in 3...2..1." && sleep 3
+$mod_scp_LtoR
+echo "One of the neet things we can do with the : scp : command is specify the source file on another device to yet another remote device. So lets save another script to make the transfering of files a little easier and save it to both this device and the remote we just sent to..."
+echo "... But last time we used the : cat : command with the : End-of-File : acronem in part 3."
+echo "So here in Part 4 we will see another method of writing files using : echo : piped to a combo of : sudo tee : which will use root permissions to write the file. Note if you add the : -a : option : sudo tee -a : this will append to the end of a file if it already exsists."
+echo "Your terminal window should ask you for a password in a moment, you should enter the password you use for loging into $USER and then see the script being writen also display in your terminall..."
+echo "__________________4.0.5__________________"
+echo '#!/bin/bash
+aSCP_nameScript=AssistedSCP.sh
+IP_inet_addr=`/sbin/ifconfig | grep -E \'inet addr\' | grep -v \'127.0.0.1\' | awk \'{gsub("addr:",""); print \$2}\'`
+IP_Bcast_addr=`/sbin/ifconfig | grep -E \'Bcast\' | grep -v \'127.0.0.1\' | awk \'{gsub("Bcast:",""); print \$3}\'`
+IP_Mask_addr=`/sbin/ifconfig | grep -E \'Mask\' | grep -v \'127.0.0.1\' | awk \'{gsub("Mask:",""); print \$4}\'`
+IP_inet6_addr=`/sbin/ifconfig | grep -E \'inet6 addr\' | grep -v \'127.0.0.1\' | grep -v \'1/128\' | awk \'{gsub("addr:",""); print \$2}\'`
+IP_local=`/sbin/ifconfig | grep -E \'inet addr\' | grep -E \'127.0.0.1\' | awk \'{gsub("addr:",""); print \$2}\'`
+trimIP=`\$IP_Bcast_addr | sed \'s/...\$//\'`
+ : \${USER?} \${HOME?} 
+echo -n "Please state the lowest number you wish to scan (min is 1) : "
+read IPmin
+echo -n "Please state the highest number you wish to scan (max is 254) : "
+read IPmax
+customPinger=`for ip in \$(seq \$IPmin \$IPmax) ;do (ping -c 1 -w 5 \$trimIP\$ip >/dev/null && echo "\$trimIP\$ip" &) ; done`
+fLive_IPs=`\$customPinger | grep -v \'\$trimRoute\' | grep -v \'\$IP_inet_addr\'` 
+echo "__________________"
+echo "Your - inet addr - IP is : \$IP_inet_addr"
+echo "Your - Bcast - IP is : \$IP_Bcast_addr"
+echo "Your - Mask - IP is : \$IP_Mask_addr"
+echo "Your - inet6 addr - IP is : \$IP_inet6_addr"
+echo "Your - local IP - is : \$IP_local"
+echo "The - Live IPs - are : \$fLive_IPs"
+echo "__________________"
+echo -n "What is the IP address that you wish to connect/send to? : "
+read remote_reciveIP
+echo -n  "What is your Linux user name for $user_remote_reciveIP? : "
+read remote_reciveUsername
+SSH_login_Reciving=\$remote_reciveUsername@\$remote_reciveIP
+echo -n "What port would you like to use for \$SSH_login_Reciving? : "
+read remote_recivingPort
+echo "__________________"
+echo -n "What is the IP that you are sending files from (Note if sending from local input : \$IP_inet_addr) : "
+read remote_sendIP
+echo -n "What is the Linux user name for for \$remote_sendIP? "
+read remote_sendUsername
+SSH_login_Sending=\$remote_sendUsername@\$remote_sendIP
+echo -n "What port would you like to use for \$SSH_login_Sending? : "
+read remote_sendPort
+echo "__________________"
+echo -n "Please input a source file directory and name (Without spaces please) : "
+read sourceFile
+echo -n  "What is your remote Linux destination directory? : "
+read destinationDir
+echo -n "What options would you like to use for this transfer? (Note best results are with : Cvp : for : compress, verbose, progress : if you add : r : then this operation will be recursive and copy directories to a new directory on the recieving device into a directory named : documents) : "
+read mod_scpOptions
+scp_fullCommand=`scp -\$mod_scpOptions -P \$remote_sendPort \$SSH_login_Sending:\$sourceFile -P \$remote_recivingPort \$SSH_login_Reciving:\$destinationDir`
+echo "__________________"
+echo "About to run the following command..."
+echo "\$scp_fullCommand"
+echo "__________________"
+{ 
+read -r -p "Do you wish to continue with \$aSCP_nameScript? [y/N] " response 
+case "\$response" in 
+	[yY][eE][sS]|[yY]) 
+# if yes, then continue with script 
+		echo "... Running command now..."
+		;; 
+	*) 
+#		 Otherwise exit.. 
+	echo "Good Night" 
+	exit 
+	;; 
+esac
+} 
+\$scp_fullCommand
+echo "__________________"
+echo "Exiting \$aSCP_nameScript now..."
+echo exit' | sudo tee $fIP_savePath/runableExamples/AssistedSCP.sh
+echo "__________________4.0.6__________________"
+echo "Using the sudo tee command has some extra binofits, such as writing the file as root user instead of $USER"
+echo ls -lh $fIP_savePath/runableExamples
+echo "Note the differances between the files listed here."
+echo "However when viewing in a text editer you will likely see that we had to ecape all the single quotes and variables"
+echo "Where as with the example in section 3 we only had to escape the variables and not bother with any of the other special charictars within the script"
+echo "The forward slash used in both these examples \"tell bash\" not to interprit what it is reading as something to be acted on."
+echo "Remember this for your scripting projects and avoide hours of re-writing"
+echo "__________________4.0.7__________________" && sleep 10
+echo "Granting : AssistedSCP.sh : executable permissions so it can be run with the : sh : command."
+sudo chmod +x $fIP_savePath/runableExamples/AssistedSCP.sh
+echo "Modding the : \$mod_scp_LtoR : from : $mod_scp_LtoR"
+mod2_scpsourceFile=$fIP_savePath/runableExamples/AssistedSCP.sh
+mod_scp_LtoR=`scp -$mod_scpOptions -P $user_remotePort $mod2_scpsourceFile $linuxSSH_login:$mod_scpdestinationDir`
+echo "To \$mod_scp_LtoR : $mod_scp_LtoR..."
+echo "and sending : AssistedSCP.sh : over to : $linuxSSH_login : which should prompt you for the password for that user if it has been a little wile."
+$mod_scp_LtoR
+echo "__________________4.0.8__________________"
+echo "Now we have two scripts on both your devices that will aid in connecting/logging in and trasfering files"
+echo "We've learned now to \"escape\" charicters and write files from a script,"
+echo "Furthermore we've learned how to scan/connect to a remote device on the same wifi network"
+echo "and login or send commands or trasfer files between those devices."
+echo "We've also learned how to take the output of one program and \"pipe\" it to an other program and how to save those complex operations to cutom variables."
+echo "Which seems to be popular questions on the Q and A forums, so hopefully someone new to bash, linux, networking, or writing scripts finds this script usefull."
+echo "End__________________Part_4__________________End"
+echo "Comming up in part 5 will be : learning to scan for open ports because 22 isn't always the best/used port and guessing at it is bad."
+echo "And reading user input and passing that as commands/variables/options to the new scripts we will be writing."
+echo "We'll also be covering the process of back and restore your Linux OS $USER's programs and settings to a remote device, that way we can do a restore after a re-install of OS incase anything happens latter to corupt your install"
+echo "	Note this will not be a \"bare metel\" restorable backup but a selective backup"
+echo "Then we'll cover how to set that to a schedual and only run if the old back-up is much smaller than what the new one would be."
+{ 
+# confirm with the user 
+read -r -p "Do you wish to continue with part 5 of $fIP_nameScript? [y/N] " response 
+case "$response" in 
+	[yY][eE][sS]|[yY]) 
+# if yes, then continue with example 
+		echo "Clearing screen and starting part 5 of $fIP_nameScript in 3...2..1." && sleep 3
+		;; 
+	*) 
+#		 Otherwise exit.. 
+	echo "Good Night" 
+	exit 
+	;; 
+esac
+} 
+clear 
+echo "Start__________________Part_5__________________Start"
+echo ls -lh $fIP_savePath/runableExamples
+echo "Above we have two scripts, one owned by root and another owned by &USER, one can be run with or without : sudo : and the one owned by root must be run with : sudo"
+echo "These two scripts have many built in variables to make them easy to run and maintain as stand alone scripts."
+echo "But to write scripts that run adaptivly, meaning that we run them with options in the same line as the command to use them, instead of filling out the options after the target script has been started... see bellow two lines..."
+echo "__________________"
+echo "Without options \"ls\""
+echo "With options \"ls -l\""
+echo "__________________"
+echo "... then we have : functions : to learn about and what \$1, \$2.. mean to the Linux command line"
+echo "__________________5.0.1__________________" && sleep 10
+echo "Functions are really usefull and you can find links that I found for examples and understanding in the readme file of this github project"
+echo "Bellow you will see a quick and useful example I found for how to construct functions"
+echo "__________________"
+echo '#!/bin/sh
+foo 1 
+# the above will fail because foo has not been declared yet.
+foo() {
+	echo "Parameter #1 is $1" 
+} 
+foo 2 
+# the above will work because it has been set now.' && echo echo "__________________"
+echo "The soure of this above wonderful example can be found bellow or in the readme file mentioned before"
+echo "http://stackoverflow.com/questions/6212219/passing-parameters-to-a-bash-function"
+echo "Which also recomends the following link for an advanced/in-depth explanation of of functions"
+echo "http://tldp.org/LDP/abs/html/complexfunct.html"
+echo "Be sure to check out : Example 24-4. Passing an indirect reference to a function : and : Example 36-18. Return value trickery : and : Example 36-20. Passing and returning arrays : of the above link that has also been added as is in the : examleCommands.txt : file here."
+echo "__________________5.0.2__________________"
+echo "Functions have some special rules and workaround required to make them work the way we want here,"
+echo "so lets start off with how to grab the input from the commandline at the time the script was run"
+echo "To be clear the syntax of this new script will be : sh newScript -ips 0.0.0.1 -ps 22 -sf /dir/source_file -sT 10 -ipr 0.0.0.2 -pr 22 -rd /downloads/dup_file : which is similar to the commandline programs we've already been using"
+echo "We'll also enbed checks that run sections of the set-up wizard if any/all information is missing before adtempting to send files."
+echo "And we'll add reading/writing of config files that can be set on a scedual for automating the transfering of files over your network."
+echo "	Note to readers/users of $fIP_nameScript : at the time of writing this script's draft version, I (known as S0AndS0 on github, xda-developers, and rptools), have only a ruff idea on how to acomplish this and will be learning much on the fly."
+echo "	if you're new to scripting or Linux this should help you see what sorts of projects you can accomplish without any previos knowlage, just a whole lot of time and Googling, because that's how I've done much of this and you can too!!!"
+echo "__________________" && sleep 10
+echo "So lets write a small test script that will grab user input entered after the script's name."
+echo "For example we will be sending the following command to this script : sh $fIP_savePath/testFunction_runTime_variables.sh one two three four : Note : sh : tells bash to run the following file as a sh executable, then we have the file to run : testFunction_runTime_variables : and the options/runtime variables we are passing : one two three four : which we want our script to process as internal commands"
+echo "Writing the following with the : tee : command so we can see it in the terminal too"
+echo "__________________"
+echo '#!/bin/bash
+PATH=/bin:/usr/bin:/usr/local/bin ; export PATH 
+umask 022 		# Files that the script creates will have 755 permission.
+# 				Thanks to Ian D. Allen, for this tip.
+
+# function for grabbing user input at time of running
+CMDoptions_grabber () { 
+	echo "\$#"
+	echo "\$1"
+	echo "\$2"
+	echo "\$3"
+	echo "\$4"
+	echo "\$?"
+} 
+# use the new function to display what \$1-\$4 is
+CMDoptions_grabber \$# \$1 \$2 \$3 \$4 \$?' | tee $fIP_savePath/testFunction_runTime_variables.sh
+echo "__________________" && sleep 5
+echo "Now running this new script with the above mentioned command"
+echo "sh $fIP_savePath/testFunction_runTime_variables.sh one two three four"
+sh $fIP_savePath/testFunction_runTime_variables.sh one two three four
+echo "Note we used the : tee : command this time without having to use : sudo : this is because we are writing to a folder ownded by your $USER and becuase we don't want to have to use sudo every time we want to write, read, or exicute the file being writen."
+ls -l $fIP_savePath
+echo "__________________" && sleep 5
+echo "Now to explain what is going on above."
+echo "	The : \$1-\$4 : are default variables in bash that we can use to quickly grab \"words\"/arguments out of a command, we've already used this a great deal with the : awk : commands for grabbing individual IP addresses in our : \$IP_inet_addr : and other complex variables."
+echo "	The : \$# : is yet another useful bash default variable that we can use without having to previously assigin, this one is being used to count/display how many arguments where given to the command line"
+echo "	The : \$? : is a bash default variable for displaying the \"exit status\" of the command(s) being run"
+echo "When we ran the above : sh : command we passed a total of six arguments to the commandline : first- \"sh\", second- \"testFunction_runTime_variables.sh\", third- \"one\", fourth- \"two\", fifth- \"three\", sixth- \"four\" : which the : \$# : variable counted as \"6\"
+echo "	Within the function named : CMDoptions_grabber : we assigne : echo : commands to each of the above listed variables. This causes the script to assigne all those things with \"\$\" symbles to actual values."
+echo "	We then call the function and restate those variables ouside of the function to make them display on the terminal (known as \"stdout\") which will alow us to grab them latter when we add to this script."
+echo "Now that we know how to grab a spicific number of commands sent to a script and we can grab those commands, place them in a function, and pull them back out we can do something a bit more usefull than echoing back a command." && sleep 3
+echo "	But I forgot to to show one of the other usefull defaults we can call on : \$@ : this will print all the commands : one - four : so lets cover how to modify exsisting files real quick so we can fix these errors without rewriting the whole thing..."
+echo "__________________5.0.3__________________"
+echo "Here we'll be modifying an exsisting file with a few usefull command line programs : sed, tee : and some pipes"
+echo "	so lets start with : sed : and get a line count of : testFunction_runTime_variables : by piping it to grep and only disply the line numbers."
+echo "	we'll be using : sed = \$fIP_savePath/testFunction_runTime_variables.sh : to print out every line with it's number above and before we see it, pipe it to : grep -E \"^[1-9]\" : to clean out just the line numbers and display that to the terminal. The : -E \"^[1-9]\" : part tells grep to search for the given pattern, without the : ^ : before the : [] : this would have printed the numbered variables too : \$1-\$4 : and all the lines that those are contained in."
+echo "sed = $fIP_savePath/testFunction_runTime_variables.sh | grep -E \"^[1-9]\""
+sed = $fIP_savePath/testFunction_runTime_variables.sh | grep -E "^[1-9]"
+echo "and : sed : should say we have sixteen lines in total"
+echo "__________________"
+echo "So lets : use the : sed : command a few ways to add some lines/functionality to our script and its functions"
+echo "Using sed to insert : echo \"\$@\" : just befor line 8 : echo "\$#" : with the following command"
+echo "sed '8 i\	echo \"\$@\"'\$fIP_savePath/testFunction_runTime_variables.sh"
+echo "	note above if reading in a text editer, I had to \"escape\" the dubble quotes and variables to ensure they printed corectly for you with : echo : but when running on your own you can do without many or all of the forward slashes"
+sed '8 i\	echo "\$@"'$fIP_savePath/testFunction_runTime_variables.sh
+echo "__________________"
+cat $fIP_savePath/testFunction_runTime_variables.sh
+echo "__________________"
+echo "	see? I only had to escape the tab and variable that time... Now rerunning the line count commands to show that the script increeced by one line"
+sed = $fIP_savePath/testFunction_runTime_variables.sh | grep -E "^[1-9]"
+echo "But how to add : \$@ : within the command found on line 17 (was line 16)?" && sleep 3
+echo "	sed 's@CMDoptions_grabber@&\$\@@g' \$fIP_savePath/testFunction_runTime_variables.sh"
+echo "would get us close but it would add : \$@ : to line seven and that would have undesirable effects..."
+echo "Thankfully : sed : can accept line numbers to nerow down the peramiters we're using..."
+echo "	sed -e '17s@CMDoptions_grabber@&\$@\@g' \$fIP_savePath/testFunction_runTime_variables.sh"
+echo "	Note how we had to add the number : 17 : to the command, we could also do a range of lines with something like : 1,10 : to perform this task on lines 1 - 10 \"globaly\""
+echo "	to un-set the \"global\" option used in this example and only perfor the operation on the : first : occurance then remove the : @g : option."
+echo "	Wile I'm explaining things, that : s@ : part stands for substitution and I'm using the : @ : symble to keep from having to escap file path's back slashes with forward slashes."
+echo "		Most examples on the web will use : s/ : and : /g : and escape them but the : @ : symble was found to allow for ragular : / : to be used, however : , : will still nead to be escaped"
+sed -e '17s@CMDoptions_grabber@&\$\@@g' $fIP_savePath/testFunction_runTime_variables.sh
+echo "__________________"
+cat $fIP_savePath/testFunction_runTime_variables.sh
+echo "__________________"
+
+
+
+echo "__________________"
+
+
+echo "__________________5.0.4__________________"
+
+echo "__________________"
+
+
+# find the IP of your router or hotspot
+# sudo route -n | grep -E 'UG' | awk '{ print $2}'
+# find the name of router if any
+# sudo route | grep -E 'UG' | awk '{ print $2}'
+# or if you prefer there is : netstat -r : which doesn't require sudo
+# find the IP of your router or hotspot with : netstat -r
+# netstat -rn | grep -E 'UG' | awk '{ print $2}'
+# remove one charicter from end of string
+# rev file | cut -c 2- | rev
+# install nmap because it is designed for scaning and such
+# sudo apt-get -y install nmap
+# scan an IP range for live IPs
+# nmap -sP 198.162.0.*
+
+# example scp command
+# scp source_file_name username@destination_host:destination_folder
+# example scp command : -v : is verbose ... : -p : show estemated time ... : -C : uses compression on non-compressed files ... : -P : customizes the port to be used in connnection ... : -r : When the copy process is done, at the destination server you will found a directory named “documents” with all it’s files.
+# scp -Cvp -P 22 source_file_name username@destination_host:destination_folder
+# example : login to remote with : -l : option (note you can logout with : exit )
+# ssh -l username remote-server
+# example : send : ls : command to remote and : -v : option is to be verbose about it
+# ssh -v user@remote-host "ls test"
+# example file not found
+# [ -f /tmp/foo.txt ] || echo "File not found!"
+
+# full syntax
+# scp [Options] [[User@]From_Host:]Source_File [[User@]To_Host:][Destination_File]
+# copy from local to remote
+# scp filename user@remotehost:/remote/directory/
+# copy from remote to local and re-name
+# scp user@remotehost:/usr/backup/oracle_backup.dat /target_localDir/backup/remote_oracle_backup.dat
+# copy from one remote to an other remote
+# scp source_user@source_remote_host:/usr/bin/mysql_backup.sh target_user@target_remote_host:/var/tmp/
+# find the ip of a given server
+# ip=$(ping -c 1 www.google.com | gawk -F'[()]' '/PING/{print $2}')
+# echo $ip
+# example of netstat
+# netstat -alt
+# complex netstat command example
+# netstat -tn | awk '{print $5}' | egrep -v '(localhost|\*\:\*|Address|and|servers|fff|127\.0\.0)' 
+# list ips that are connected to you
+# sudo arp -a
+# ping a range of ips
+# for i in {1..254} ;do (ping 192.168.1.$i -c 1 -w 5 >/dev/null && echo "192.168.1.$i" &) ;done
+
+echo "__________________"
+echo "end of example script"
+echo exit
+
+# commands that work on Android terminal similarly to Linux when BusyBox is installed and its path is set to an export path variable.
+# scp : for sending, recieving, or trasfering files.
+# date : for checking the time
+# ping : be sure to use the -c option to limit how many pings are going out and : $(seq 1 254) : works to scan a range of ips using ping instead of : {1..254}
+# ifconfig : may cause other devices to reconect to access point
+# route : looks identical

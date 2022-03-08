@@ -1,0 +1,93 @@
+http://updates.atomicorp.com/channels/atomic/virtual-machines/ossec-vm-2.9.3.ova
+http://updates.atomicorp.com/channels/atomic/virtual-machines/ossec-vm-2.9.3-checksum.txt
+
+https://github.com/ossec/ossec-hids/archive/3.6.0.tar.gz
+https://github.com/ossec/ossec-hids/releases/tag/3.6.0
+https://github.com/ossec/ossec-hids/releases/download/3.6.0/ossec-hids-3.6.0.tar.gz.asc
+
+
+
+http://updates.atomicorp.com/channels/atomic/virtual-machines/ossec-vm-2.9.3.README
+
+
+
+Server/Agent 		https://github.com/ossec/ossec-hids/releases
+Snapshot Packages 	https://updates.atomicorp.com/channels/ossec-3-testing
+Web UI 				https://github.com/ossec/ossec-wui/releases
+Docs 				https://github.com/ossec/ossec-docs
+
+
+
+Amazon AWS 	OSSEC HIDS Open Source Distribution from Atomicorp (Free Tier)
+https://aws.amazon.com/marketplace/pp/B07VGT5ZRY?qid=1582124575654&sr=0-1&ref_=srh_res_product_title
+
+
+
+https://updates.atomicorp.com/channels/ossec/debian/pool/main/o/ossec-hids-agent/
+
+
+https://updates.atomicorp.com/channels/ossec/debian/pool/main/o/ossec-hids-agent/ossec-hids-agent_3.6.0-14954buster_amd64.deb
+https://updates.atomicorp.com/channels/ossec/debian/pool/main/o/ossec-hids-agent/ossec-hids-agent_3.6.0-14954stretch_amd64.deb
+
+
+https://updates.atomicorp.com/channels/ossec/debian/pool/main/o/ossec-hids-server/ossec-hids-server_3.6.0-14954stretch_amd64.deb
+https://updates.atomicorp.com/channels/ossec/debian/pool/main/o/ossec-hids-server/ossec-hids-server_3.6.0-14954buster_amd64.deb
+
+https://updates.atomicorp.com/channels/ossec/debian/pool/main/o/oum/oum_0.2-17946stretch_amd64.deb
+https://updates.atomicorp.com/channels/ossec/debian/pool/main/o/oum/oum_0.2-17946buster_amd64.deb
+
+
+
+
+
+
+
+
+
+
+APT Automated Installation on Debian
+
+# Add Apt sources.lst
+                        wget -q -O - https://updates.atomicorp.com/installers/atomic | sudo bash
+
+                        # Update apt data
+                        sudo apt-get update
+
+                        # Server
+                        sudo apt-get install ossec-hids-server
+
+                        # Agent
+                        sudo apt-get install ossec-hids-agent
+
+Manual APT Installation on Debian
+
+    Add the GPG key
+
+wget -q -O - https://www.atomicorp.com/RPM-GPG-KEY.atomicorp.txt  | sudo apt-key add -
+
+    Add the repo configuration to sources.list
+
+source /etc/lsb-release
+
+                    # Ubuntu
+                    echo "deb https://updates.atomicorp.com/channels/atomic/ubuntu $DISTRIB_CODENAME main" >>  /etc/apt/sources.list.d/atomic.list
+
+                    # Debian
+                    echo "deb https://updates.atomicorp.com/channels/atomic/debian $DISTRIB_CODENAME main" >>  /etc/apt/sources.list.d/atomic.list
+
+    Install Agent or Server
+
+# Update apt data
+                    sudo apt-get update
+
+                    # Server
+                    sudo apt-get install ossec-hids-server
+
+                    # Agent
+                    sudo apt-get install ossec-hids-agent
+
+Debian
+7 (wheezy) 	https://updates.atomicorp.com/channels/ossec/debian/pool/main/o/
+8 (jessie) 	https://updates.atomicorp.com/channels/ossec/debian/pool/main/o/
+9 (stretch) 	https://updates.atomicorp.com/channels/ossec/debian/pool/main/o/
+10 (buster) 	https://updates.atomicorp.com/channels/ossec/debian/pool/main/o/
