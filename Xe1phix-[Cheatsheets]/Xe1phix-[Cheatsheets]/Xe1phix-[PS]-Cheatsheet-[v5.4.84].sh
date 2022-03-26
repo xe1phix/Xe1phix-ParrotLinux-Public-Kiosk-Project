@@ -145,10 +145,62 @@ chrome_pid=$(ps -aux | grep "[c]hrome --user-data" | awk '{ print $2 }' | head -
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
 
+##-=============================================================================-##
+##   [+] Use STrace to attach to all of the currently running apache processes
+##-=============================================================================-##
+ps auxw | grep sbin/apache | awk '{print"-p " $2}' | xargs strace
+
+pgrep -f /usr/sbin/httpd | awk '{print"-p " $1}' | xargs strace
+
+ps auxw | grep -E 'sbin/(apache|httpd)' | awk '{print"-p " $2}' | xargs strace -F
+
+
+##-===========================================================-##
+##   [+] Use STrace to attach to all apache child processes
+##-===========================================================-##
+ps h --ppid $(cat /var/run/apache2.pid) | awk '{print"-p " $1}' | xargs sudo strace
+
+
+##-=========================================-##
+##    [+] Kill all processes of $Service
+##-=========================================-##
+kill -9 $(ps aux | grep '$Service' | awk '{print $2}')
+
+
+##-===================================-##
+##     [+] Kill all Zombie processes
+##-===================================-##
+kill -9 `ps -xaw -o state -o ppid | grep Z | grep -v PID | awk '{print $2}'`
+
+
+
+## ---------------------------------------------------------------------------------------- ##
+	kill $(ps -ef | awk '/sshd/ {print $2}')				## kill sshd Processes
+## ---------------------------------------------------------------------------------------- ##
+	kill $(ps -ef | awk '/apache2/ {print $2}')				## kill Apache2 Processes
+## ---------------------------------------------------------------------------------------- ##
+	kill $(ps -ef | awk '/mysql/ {print $2}')				## kill mysql Processes
+## ---------------------------------------------------------------------------------------- ##
+
+
+##-==============================================-##
+##   [+] Display any tcp connections to apache
+##-==============================================-##
+for i in `ps aux | grep httpd | awk '{print $2}'`; do lsof -n -p $i | grep ESTABLISHED; done;
+
+
+##-==============================================================================================-##
+##   [+] Show top 50 running processes ordered by highest memory/cpu usage refreshing every 1s
+##-==============================================================================================-##
+watch -n1 "ps aux --sort=-%mem,-%cpu | head -n 50"
+
+
 ##-=================================================-##
 ##   [+] Count processes related to HTTP server
 ##-=================================================-##
 ps aux | grep http | grep -v grep | wc -l
+
+
 
 
 
