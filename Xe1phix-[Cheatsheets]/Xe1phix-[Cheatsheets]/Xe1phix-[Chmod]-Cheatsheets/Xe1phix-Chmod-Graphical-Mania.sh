@@ -15,13 +15,13 @@
 
 
 
-					 _____________
-					 |	 |	 |	 |
-	   			     | O | G | O |
-				     | w | r | t |
-			         | n | o | h |
-				     | e | u | e |	 
-			         | r | p | r |
+                     _____________
+                     |	 |	 |	 |
+                     | O | G | O |
+                     | w | r | t |
+                     | n | o | h |
+                     | e | u | e |	 
+                     | r | p | r |
 _____________________|___|___|___|_
 | chmod 0400 |______| -r-------- | 
 | chmod 0600 |______| -rw------- | 
@@ -33,12 +33,12 @@ _____________________|___|___|___|_
 | chmod 0720 |______| -rwx-w---- | 
 | chmod 0755 |______| -rwxr-xr-x |
 #####################|	 |	 |	 |
-	   			     | O | G | O |
-				     | w | r | t |
-			         | n | o | h |
-				     | e | u | e |	 
-			         | r | p | r |
-					 |___|___|___|
+                     | O | G | O |
+                     | w | r | t |
+                     | n | o | h |
+                     | e | u | e |	 
+                     | r | p | r |
+                     |___|___|___|
 
 #####################################################
 	Sample umask values and their effects
@@ -265,22 +265,22 @@ write   (w)	 2
 execute (e)	 1
 
 
-|| 							||								 ||								||
+||                          ||                               ||                             ||
 ||==========================||===============================||=============================||
-||  File Perm Attributes:	|| User (Owner) File Permissions ||	  Group File Permissions	||
+||  File Perm Attributes:   || User (Owner) File Permissions ||   Group File Permissions    ||
 ||==========================||===============================||=============================||
-|| - = regular file			||								 ||								||
-|| b = block device file	||	r = read					 ||	r = read					||
-|| c = char device file		||	w = write 					 ||	w = write				    ||	
-|| d = directory			||	x = execute 				 ||	x = execute 			    ||
-|| l = symbolic link		||	s = setUID and execute 		 ||	s = setGID and execute 	    ||
-|| s = Unix domain socket	||	S = setUID and not execute 	 ||	S = setGID and not execute 	||
-|| p = named pipe			||								 ||								||
-|| 							||								 ||								||
+|| - = regular file         ||                               ||                             ||
+|| b = block device file	||  r = read					 || r = read					||
+|| c = char device file		||  w = write 					 || w = write				    ||	
+|| d = directory			||  x = execute 				 || x = execute 			    ||
+|| l = symbolic link		||  s = setUID and execute 		 || s = setGID and execute 	    ||
+|| s = Unix domain socket	||  S = setUID and not execute 	 || S = setGID and not execute 	||
+|| p = named pipe           ||                               ||                             ||
+||                          ||                               ||                             ||
 ||==========================||===============================||=============================||
-|| 							||								 ||								||
-|| 							||								 ||								||
-|| 							||								 ||								||
+||                          ||                               ||                             ||
+||                          ||                               ||                             ||
+||                          ||                               ||                             ||
 
 
 
@@ -355,6 +355,8 @@ Sticky: 		1000  | chmod +t
 
 
 
+
+
                      ______________
                       | |  |  |  |
                       |A|  |  |  |
@@ -375,7 +377,7 @@ ______________________| |  |  |  |___________________________
 |$ chmod 0550 |______| -r-xr-x--- ||$ chmod ug=rx
 |$ chmod 0600 |______| -rw------- ||$ chmod u=rw
 |$ chmod 0620 |______| -rw--w---- ||$ chmod ug=w,u+r
-|$ chmod 0640 |______| -rw-r----- ||$ chmod ug=r,u+w				umask 0037
+|$ chmod 0640 |______| -rw-r----- ||$ chmod ug=r,u+w
 |$ chmod 0644 |______| -rw-r--r-- ||$ chmod a=r,u+w			
 |$ chmod 0655 |______| -rw-r-xr-x ||$ chmod a=r,ug+x,u+w
 |$ chmod 0660 |______| -rw-rw---- ||$ chmod ug=rw
@@ -395,7 +397,7 @@ ______________________| |  |  |  |___________________________
 |$ chmod 4755 |______| -rwSr-xr-x ||$ chmod a=r,go+x,u+w,g+S
 ======================| |  |  |  |===========================================
                       |A|  |  |  |
-				      |T|  |  |  |
+                      |T|  |  |  |
                       |T|O |G |O |	
                       |R|w |r |t |
                       |I|n |o |h |
