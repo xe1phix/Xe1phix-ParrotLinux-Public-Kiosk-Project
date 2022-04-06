@@ -206,6 +206,10 @@ ___
 ![Firejail - Firejail-UI - Capabilities](https://gitlab.com/xe1phix/ParrotSecWiki/-/raw/InfoSecTalk/Xe1phix-InfoSec-Talk-Materials/Secure-Linux-Networking-v2-%5BCornCon-2021%5D/Secure-Linux-Networking-v2-%5BScreenshots%5D/%5BFirejail%5D-Screenshots/%5BFirejail-AppArmor%5D-Screenshots/firejail-print-apparmor.png?inline=false)
 
 
+## Firejail - Firejail Menu - Custom Launchers:
+![Firejail - Firejail Menu - Custom Launchers](https://gitlab.com/xe1phix/ParrotSecWiki/-/raw/InfoSecTalk/Xe1phix-InfoSec-Talk-Materials/Secure-Linux-Networking-v2-%5BCornCon-2021%5D/Secure-Linux-Networking-v2-%5BScreenshots%5D/%5BFirejail%5D-Screenshots/%5BFirejail-Menu%5D-Screenshots/Firejail-Parrot-Menu-Cropped.png?inline=false)
+
+
 
 ## Firejail Resources:
 - [Firejail Github](https://github.com/netblue30/firejail)
