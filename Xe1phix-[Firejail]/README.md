@@ -210,6 +210,11 @@ ___
 ![Firejail - Firejail Menu - Custom Launchers](https://gitlab.com/xe1phix/ParrotSecWiki/-/raw/InfoSecTalk/Xe1phix-InfoSec-Talk-Materials/Secure-Linux-Networking-v2-%5BCornCon-2021%5D/Secure-Linux-Networking-v2-%5BScreenshots%5D/%5BFirejail%5D-Screenshots/%5BFirejail-Menu%5D-Screenshots/Firejail-Parrot-Menu-Cropped.png?inline=false)
 
 
+## Xe1phix - Firejail Resources:
+- [Xe1phix - Firejail - Comprehensive All-In-One Template](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/-/blob/master/Xe1phix-%5BFirejail%5D/Xe1phix-Firejail-%5BCustom-Template%5D/Xe1phix-%5BFirejail%5D-Comprehensive-%5BAll-In-One%5D-Hybrid-%7B%5BTemplate%5D%7D-%5Bv29.8.84%5D-(01-05-22).profile)
+- [Xe1phix - Firejail Profiles - Parrot Menu](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/-/tree/master/Xe1phix-%5BFirejail%5D/Xe1phix-Firejail-%5BProfile-Menu%5D)
+- [Xe1phix - Firejail Profiles - Firetools GUI Menu](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/-/tree/master/Xe1phix-%5BFirejail%5D/Xe1phix-%5BFiretools%5D-Menu)
+
 
 ## Firejail Resources:
 - [Firejail Github](https://github.com/netblue30/firejail)
