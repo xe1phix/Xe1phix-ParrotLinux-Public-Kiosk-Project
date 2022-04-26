@@ -31,12 +31,6 @@ darkstat -i eth0 -f "port 1194"
 darkstat --verbose -i eth0 --hexdump
 
 
-##-======================================================-##
-##   [+] Export hex dumps of received traffic to file:
-##-======================================================-##
-darkstat --verbose -i eth0 --hexdump --export $File
-
-
 ##-===========================-##
 ##   [+] Show HTTP traffic
 ##-===========================-##
@@ -65,6 +59,12 @@ darkstat --verbose --import $File
 ##   [+] export in-memory darkstat database
 ##-===============================================-##
 darkstat --verbose --export $File
+
+
+##-======================================================-##
+##   [+] Export hex dumps of received traffic to file:
+##-======================================================-##
+darkstat --verbose -i eth0 --hexdump --export $File
 
 
 ## ---------------------------------------------------------------- ##
