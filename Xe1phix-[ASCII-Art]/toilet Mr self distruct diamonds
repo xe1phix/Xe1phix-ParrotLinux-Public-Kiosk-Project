@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo -e "\n\tI am the voice inside your head\n\tAnd I control you\n\tI am the hate you try to hide\n\tAnd I control you\n\tI am the needle in your vein\n\tand I control you\n\tI am the high you can't sustain\n\tand I control you\n\tI drag you down I use you up\n\tI am the truth from which you run\n\tand I control you" | boxes -d diamonds
