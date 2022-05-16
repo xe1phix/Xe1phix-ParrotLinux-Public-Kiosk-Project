@@ -1,0 +1,579 @@
+-------------------------------------------------------------------
+How do I find all files containing specific text on Linux?
+-------------------------------------------------------------------
+
+grep -rnw '/path/to/somewhere/' -e 'pattern'
+grep --include=\*.{c,h} -rnw '/path/to/somewhere/' -e "pattern"
+grep --exclude=*.o -rnw '/path/to/somewhere/' -e "pattern"
+grep --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"
+grep -Ril "text-to-find-here" /
+grep -r "string to be searched"  /path/to/dir
+
+find . -name '*.js' -exec grep -i 'string to search for' {} \; -print
+find / -type f | xargs grep 'text-to-find-here'
+find / -type f -exec grep -l "text-to-find-here" {} \;
+find . -name "*.txt" | xargs grep -i "text_pattern"
+find / -type f -exec grep -H 'text-to-find-here' {} \;
+find . -type f -name some_file_name.xml -exec grep -H PUT_YOUR_STRING_HERE {} \;
+find / -type f -exec grep -sH 'text-to-find-here' {} \; 2>/dev/null
+
+grep -inr "Text" folder/to/be/searched/
+
+
+grep "text string to search” directory-path
+grep [option] "text string to search” directory-path
+grep -r "text string to search” directory-path
+grep -r -H "text string to search” directory-path
+egrep -R "word-1|word-2” directory-path
+egrep -w -R "word-1|word-2” directory-path
+
+---------------------------------------------------------
+How can I copy files with duplicate filenames into one directory and retain both files by having the duplicate(s) rename automatically?
+---------------------------------------------------------
+
+cp --backup=existing --suffix=.orig ~/Music/* ~/Videos
+cp -R --backup=existing --suffix=.orig ~/Music ~/Videos
+cp --backup=existing --suffix=.orig ~/Music/* ~/Videos
+
+#!/bin/bash
+cp -vn "$1" "$2"/ || cp -vn "$1" "$2"/"${1##*/}"~"$(md5sum "$1" | cut -f1 -d' ')"
+find . -name 'z*.jpg' -exec ./saveCopy {} /tmp/Extracted/ \;
+
+---------------------------------------------------------------
+How do I find all files containing specific text on Linux?
+---------------------------------------------------------------
+
+grep -rnw '/path/to/somewhere/' -e 'pattern'
+grep --include=\*.{c,h} -rnw '/path/to/somewhere/' -e "pattern"
+grep --exclude=*.o -rnw '/path/to/somewhere/' -e "pattern"
+grep --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"
+grep -Ril "text-to-find-here" /
+grep -r "string to be searched"  /path/to/dir
+
+
+find . -name '*.js' -exec grep -i 'string to search for' {} \; -print
+find / -type f -exec grep -l "text-to-find-here" {} \;
+find . -name "*.txt" | xargs grep -i "text_pattern"
+find / -type f -exec grep -H 'text-to-find-here' {} \;
+find / -type f -exec grep -H 'text-to-find-here' {} \;
+
+
+grep "text string to search” directory-path
+grep [option] "text string to search” directory-path
+grep -r "text string to search” directory-path
+grep -r -H "text string to search” directory-path
+egrep -R "word-1|word-2” directory-path
+egrep -w -R "word-1|word-2” directory-path
+
+-------------------------------------------------------
+How to copy files
+-------------------------------------------------------
+
+rsync -r source/ destination
+cp -r ~/folder1/. ~/new_folder1
+cp -avr /home/vivek/letters /usb/backup
+
+scp /path/to/file/* user@server:/path/to/files/
+scp /path/to/*/* user@server:/path/to/files/
+
+
+-------------------------------------------------------
+How to move/override files/folder - use cp instead of mv
+-------------------------------------------------------
+
+mv - does not support the update/override option, unlike rsync and cp.
+Using cp (followed by rm) is the easiest way to perform an update move operation:
+
+$ cp -avu * [destination]
+$ rm -rf *
+
+
+-------------------------------------------------------
+How can you move (or copy) all files of a certain type to a directory in Unix?
+--------------------------------------------------------
+
+find source -name "*.xxx" -exec mv -i {} -t ~/dst \;
+find source -name "*.xxx" -exec mv -i -t ~/dst {} +
+find . -name '*.xxx' -exec mv -i {} ~/new-directory \;
+find . -name '*.xxx' -exec cp -iv --parents -t /path/to/target_dir {} +
+find . -name '*.xxx' -exec sh -c 'mv -i "$@" "$0"' ~/new-directory {} +
+
+-----------------------------------------------------
+Finding multiple files recursively and renaming in linux
+------------------------------------------------------
+
+find . -iname "*dbg*" -exec rename _dbg.txt .txt '{}' \;
+
+#!/bin/bash
+for file in $(find /tmp -name '*.txt') do mv $file $(echo "$file" | sed -r 's|.txt|.cpp|g') done
+
+find -iname \*.* | rename -v "s/ /-/g"
+find /tmp -name "*.txt" -exec bash -c 'mv $0 $(echo "$0" | sed -r \"s|.txt|.cpp|g\")' '{}' \;
+
+
+---------------------------------------------
+Linux: create random directory/file hierarchy
+---------------------------------------------
+
+mkdir -p {a,b}/{e,f,g}/{h,i,j}
+
+
+----------------------------------------------
+How to count all the lines of code in a directory recursively?
+----------------------------------------------
+
+find . -name '*.php' | xargs wc -l
+find . -name '*.php' -o -name '*.inc' | xargs wc -l
+find . -name "*.php" -not -path "./tests*" | xargs wc -l
+( find ./ -name '*.php' -print0 | xargs -0 cat ) | wc -l
+find -name '*.php' | xargs cat | wc -l
+
+find . -type f -exec wc -l {} \; | awk '{ SUM += $0} END { print SUM }'
+find . -name *.py -exec wc -l {} \; | awk '{ SUM += $0} END { print SUM }'
+find . -name '*.php' -type f -exec cat -- {} + | wc -l
+
+
+find . -name '*.php' -type f | xargs wc -l # Lines in each file
+find . -name '*.php' -type f | sort | xargs wc -l # Lines in each file, sorted by file path
+find . -name '*.php' -type f | xargs wc -l | sort -nr # Lines in each file, sorted by number of lines, descending
+find . -name '*.php' -type f | xargs cat | wc -l # total lines in all files
+
+wc `find | grep .php$`
+
+
+----------------------------------------
+count lines in csv file
+----------------------------------------
+cat file.txt  | wc -l
+
+
+----------------------------------------
+recursively add file extension to all files
+----------------------------------------
+
+find . -type f -exec mv '{}' '{}'.jpg \;
+find /path -type f -not -name "*.*" -exec mv "{}" "{}".jpg \;
+find /path -type f -not -name "*.*" -print0 | xargs -0 rename 's/(.)$/$1.jpg/'
+for f in $(find . -type f); do mv $f ${f}.jpg; done
+
+
+
+-------------------------------------
+Add prefix to all files (recursive)
+-------------------------------------
+
+find . -name '*.jpg' -printf "'%p' '%h/thumb_%f'\n" | xargs -n2  echo mv
+find . -name \*.jpg -print0 | perl -MFile::Basename -0nle 'rename $_, dirname($_)."/thumb_".basename($_)'
+find . -iname \*.JPG -exec bash -c 'mv "$1" "`echo $1 | sed \"s/\(.*\)\//\1\/thumb/\"`"' -- '{}' \;
+
+for file in *.JPG; do mv $file thumb_$file; done
+for file in $(find . -name '*.JPG'); do mv $file $(dirname $file)/thumb_$(basename $file); done
+
+# test
+mkdir test test/a test/a/b test/a/b/c
+touch test/a/A.JPG test/a/b/B.JPG test/a/b/c/C.JPG
+cd test
+for file in $(find . -name '*.JPG'); do mv $file $(dirname $file)/thumb_$(basename $file); done
+find .
+
+
+rename 's/(\w{1})\.JPG$/thumb_$1\.JPG/' `find . -type f -name *.JPG`
+
+find . -iname "*.jpg"  -print | while read name; do cur_dir=$(dirname "$name"); cur_file=$(basename "$name"); mv "$name" "$cur_dir/thumb_$cur_file"; done
+
+
+------------------------------------
+How do I merge one directory into another using Bash?
+-------------------------------------
+
+rsync --recursive html/ html_new/
+rsync --av /path/to/source_folder/ /path/to/destination_folder/
+
+
+##############################################################
+#
+#   How to exclude directory or files in find . command
+#
+#   https://stackoverflow.com/questions/4210042/how-to-exclude-a-directory-in-find-command
+#   https://linuxconfig.org/how-to-explicitly-exclude-directory-from-find-command-s-search
+#   https://www.cyberciti.biz/faq/find-command-exclude-ignore-files/
+#   https://unix.stackexchange.com/questions/350085/is-it-possible-to-exclude-a-directory-from-the-find-command
+#   https://www.crybit.com/exclude-directories/
+#   https://askubuntu.com/questions/206277/find-files-in-linux-and-exclude-specific-directories
+#   https://superuser.com/questions/397307/how-to-ignore-certain-filenames-using-find
+#
+##############################################################
+
+How to exclude a directory in find . command
+find -name "*.js" -not -path "./directory/*"
+find . -type f -not -path "./dir1/*" -not -path "./dir4/*" -exec cp '{}' /tmp \;
+find . -type f ! -path '*/avoid_this_directory_please/*'
+find . -type d -name "avoid_this_directory_please" -prune -o -type f -print
+
+How do I ignore hidden .dot files while searching for files?
+find . -type f \( -iname "*.txt" ! -iname ".*" \)
+find . -type f \( -iname ".*" ! -iname ".htaccess" \)
+find . ! -path "*/test/*" -type f -name "*.js" ! -name "*-min-*" ! -name "*console*"
+find . ! -name '*.html' ! -path '*.svn*' -exec grep 'SearchString' {} /dev/null \;
+
+Understanding find command operators
+( expr )	Force precedence. True if expr is true
+expr -not expr
+! expr	True if expr is false.  In some shells, it is necessary to protect the ‘!’ from shell interpretation by quoting it.
+expr1 -and expr2	expr2 is not evaluated if expr1 is false.
+expr1 -or expr2	expr2 is not evaluated if expr1 is true.
+
+Exclude directories by using the help of “path“, “prune“, “o” and “print” switches with find command
+find ./ -path ./bit/* -prune -o -iname findme -print
+find -iname findme ! -path ./bit/*
+find -iname findme|grep -v bit
+find -iname findme ! -path ./bit/* ! -path ./cry?*
+find -iname findme | egrep -v "bit|cry"
+
+
+##############################################################
+#
+#   Rename files in Ubuntu
+#   sudo apt install rename
+#   https://askubuntu.com/questions/58546/how-to-easily-rename-files-using-command-line
+#
+##############################################################
+
+rename "s/SEARCH/REPLACE/g"  *
+
+Prefix Add:     rename 's/^/MyPrefix_/' *
+Remove:         rename 's/^CD RIP //' *         CD RIP 01 Song.mp3 to 01 Song.mp3
+Suffix Add:     rename 's/$/_MySuffix/' *       document.pdf renamed to document.pdf_MySuffix
+Change:         rename 's/\.pdf$/.doc/' *
+Check before Rename, generate preview:  -n option when you are not positive you have the correct regular
+                rename -n s/'One'/'Two'/g *     Grenerate preview
+
+Other tools
+https://launchpad.net/nautilus-renamer
+http://packages.ubuntu.com/pyrenamer
+http://packages.ubuntu.com/thunar
+
+--------------------------
+rename examples
+--------------------------
+
+For example, to rename all files matching "*.bak" to strip the extension, you might say
+rename 's/\e.bak$//' *.bak
+
+To translate uppercase names to lower, you'd use
+rename 'y/A-Z/a-z/' *
+
+
+rename 's/^video_//' *.mp4 # select all filenames started with video_ and replace video_ with nothing
+rename 's/^.*?_//' *.mp4
+rename -n 's/^video_//' video_*.mp4
+rename 's/^video_//' *.mp4
+
+rename 's/\.html$/\.php/' *.html
+rename -n 's/\.php$/\.html/' *.php
+rename -v 's/\.php$/\.html/' *.php
+rename 'y/a-z/A-Z/' *.html # to uppercase
+rename 'y/A-Z/a-z/' *.HTML # to lowercase
+
+for file in video_*.mp4; do mv -i "$file" "${file#video_}"; done # pattern to remove video_ from the start
+for file in video_*.mp4; do mv -i "$file" "${file/video_/}"; done  # pattern to remove video_ from the start
+for file in aro_tty-mIF-*_opt; do mv -i "${file}" "${file/-mIF-/-mImpFRA-}"; done # replace -mIF with -mImpFRA-
+for f in *_opt; do a="$(echo $f | sed s/-mIF-/-mImpFRA-/)" &&  mv "$f" "$a"; done
+
+
+
+#####################################################################
+#
+#	BATCH RENAME
+#	Renaming hundreds of files at once for proper sorting
+#
+#	https://stackoverflow.com/questions/3211595/renaming-files-in-a-folder-to-sequential-numbers
+#	https://askubuntu.com/questions/473236/renaming-hundreds-of-files-at-once-for-proper-sorting
+#
+#####################################################################
+
+Rename batch 1-x
+ls | cat -n | while read n f; do mv "$f" "$n.extension"; done
+
+Rename batch 0001-000x
+ls | cat -n | while read n f; do mv "$f" `printf "%04d.extension" $n`; done
+
+rename -N 0001 -X 's/.*/$N/' *.jpg
+rename -N 0001 's/.*/$N.jpg/' *.jpg
+rename -e 's/.*/$N.jpg/' *.jpg
+rename -e 's/.*/photo-$N.jpg/' *.jpg
+rename 's/\d+/sprintf("%05d",$&)/e' *.jpg
+
+num=0; for i in *; do mv "$i" "$(printf '%04d' $num).${i#*.}"; ((num++)); done
+ls -1 -c | xargs rename -n 's/.*/our $i; sprintf("%04d.jpg", $i++)/e'
+ls -1 -c | xargs rename -n 's/.*/our $i; if(!$i) { $i=123; } sprintf("%04d.jpg", $i++)/e'
+ls *.JPG| awk 'BEGIN{ a=0 }{ printf "mv %s gopro_%04d.jpg\n", $0, a++ }' | bash
+
+
+touch {1..19}.jpg
+rename 's/\d+/sprintf("%05d", $&)/e' *.jpg
+
+touch track_{9..11}.mp3 && ls
+rename 's/\d+/sprintf("%02d", $&)/e' *.mp3 && ls
+
+for f in *.jpg ; do if [[ $f =~ [0-9]+\. ]] ; then  mv $f `printf "%.5d" "${f%.*}"`.jpg  ; fi ; done
+for f in *.jpg ; do if [[ $f =~ [0-9]+\. ]] ; then echo mv $f `printf "%.5d" "${f%.*}"`.jpg  ; fi ; done
+
+
+
+
+
+
+
+
+#####################################################################
+#
+#   $RANDOM
+#
+#####################################################################
+
+echo $(($RANDOM % 100 + 1))
+echo $(( ( RANDOM % 10 )  + 1 ))
+echo $RANDOM % 10 + 1 | bc
+r=$(( $RANDOM % 10 + 40 )); echo $r # range 40 - 49
+
+echo date +%S%N|md5sum # f163a06dc98d52597edcaad926da13bb
+echo date +%S%N # 00135508410 - same length
+echo $RANDOM % 10 + 1 | bc
+echo $RANDOM | tr '[0-9]' '[a-zA-Z]'
+printf "%x"$(($RANDOM%169))
+date +%s | sha256sum | base64 | head -c 32; echo
+date +%s | sha256sum | base64 | head -c 12; echo
+date +%s | sha256sum |  head -c 12; echo # 12 length
+date | md5sum
+openssl rand -base64 32
+echo $(for((i=1;i<=13;i++)); do printf '%s' "${RANDOM:0:1}"; done)
+for i in {0..31}; do string+=$(printf "%x" $(($RANDOM%16)) ); done; echo $string
+
+
+
+date +%s+%Y | sha256sum | base64 | head -c 22; echo 	# output ZWQwMmRlMWQwOGMzZTU1Mz@
+date +%s+%Y| md5sum | base64 | cut -c -16; echo 		# output YzliMDFlNmJlZTA1@
+date +%s | sha256sum | base64 | head -c 32; echo	    # output NWQ1YzljNTNlZTJkMDFiY2EyY2U5MzE3@
+date +%s | sha256sum | base64 | head -c 12; echo	    # output ZTNiMGM0NDI5@
+date +%s | sha256sum |  head -c 12; echo 		        # output c96484b1f5bd@
+date | md5sum						                    # output 7a77de15b5ba807432d88e1ff16b66ca@
+openssl rand -base64 32					                # output e1IcJiJojNl3LDm/R3KyylS4K/6DpUpUOisYmSh4VAE=@
+
+####################
+#
+# rename
+#
+####################
+
+# https://www.howtogeek.com/howto/30184/10-ways-to-generate-a-random-password-from-the-command-line/
+# https://www.cyberciti.biz/tips/renaming-multiple-files-at-a-shell-prompt.html
+POSIX shell rename all *.bak to *.txt
+Use bash shell for loop as follows:
+for j in *.bak; do mv -- "$j" "${j%.bak}.txt"; done
+for j in *.bak; do mv -v -- "$j" "${j%.bak}.txt"; done
+
+
+$ rename -v 's/\.JPG$/\.jpg/' *.JPG # 00001111.JPG renamed as 00001111.jpg
+rename -n 's/(\d{8})\.JPG$/BeachPics_$1\.jpg/' *.JPG # 00001111.JPG renamed as BeachPics_00001111.jpg
+rename -n 's/\d{5}(\d{3})\.JPG$/BeachPics_$1\.jpg/' *.JPG # 00000123.JPG renamed as BeachPics_123.jpg
+
+$ N=1; for i in *.mp3; do echo mv $i TRACK_$N.mp3; N=$[N+1]; done
+find /home/share2/TV_Series/ -name '[NAME]-S[0-9][0-9]E[0-9][0-9][EPISODE NAME].avi -exec mv {} [NAME]-S[0-9][0-9]E[0-9][0-9].avi
+rename 's/the.simpsons.03x/TS-S03E/' *.avi
+
+######################
+#
+# bash
+#
+#######################
+
+#!/bin/sh
+
+filePrefix="$1"
+sequence=1
+
+for file in $(ls -tr *.jpg) ; do
+    renamedFile="$filePrefix$sequence.jpg"
+    echo $renamedFile
+    currentFile="$(echo $file)"
+    echo "renaming \"$currentFile\" to $renamedFile"
+    mv "$currentFile" "$renamedFile"
+    sequence=$(($sequence+1))
+done
+exit 0
+
+...
+
+#!/bin/bash
+
+if [ "$1" ]
+then
+  label="$1"
+else
+  echo missing parameter \(label\)
+  exit 1
+fi
+
+for f in *.mp3
+do
+  if [ $( echo "$f" | grep -E -c '[0-9]+\.mp3$' ) == "0" ]
+  then
+    echo $f - skipped, track number not found
+    continue
+  fi
+  i=${f%.mp3}
+  i=${i##*[^0-9]}
+  mv -v "$f" "$label"-$( printf '%02g' $i ).mp3
+done
+
+
+
+
+
+############################################################
+#
+#	Remove Files
+#
+############################################################
+
+# Remove file1 file2 file3
+rm file{1...3}
+
+# prompts you with a yes/no
+rm -i files
+
+# recursive
+rm -r OldDirectory
+
+# use wildcard
+rm *.html
+rm *html
+rm index*
+
+# delete multiple files
+rm Chapter[123].txt
+
+#
+#
+#
+
+# delete file, excluding directories
+find PATH ! -type d -exec rm '{}' \;
+find PATH ! -type d -delete # do not delete dirs
+find PATH -type f -maxdepth 1 -delete
+find PATH -type f -exec rm {} +
+find PATH -type f -delete
+find PATH ! -name '.*' ! -type d -exec rm -- {} +
+find PATH ! -name '.*' -type f -exec rm {} \;
+find PATH -maxdepth 1 -type f -name "*.xvg" -delete
+find PATH -type f -maxdepth 1 -exec rm -iv {} \; # NOT dir. NOT subdir .NOT files in subdir.
+find PATH -maxdepth 1 -type f -exec rm -rf '{}' \;
+
+find . -maxdepth 1 -type f -exec rm "{}" \;
+find . -maxdepth 1 -type f -name "a*" -exec rm "{}" \;
+
+# With GNU find:
+find /path/to/directoryToEmpty -mindepth 1 -delete
+
+# OpenBSD (and probably other BSDs)
+find /path/to/directoryToEmpty -mindepth 1 -depth -exec rm -f {} \;
+
+# To see what it deletes, in the order it will delete it:
+find /path/to/directoryToEmpty -mindepth 1 -depth -print
+
+
+
+
+
+#############################################################
+#
+# Linux search string in folders
+#
+############################################################
+
+for i in <folder1> <folder2> <folder3>; do mv $i target_folder/; done
+for i in `find . -maxdepth 2 -name <file-name> -exec grep -Hni <text-to-search-for> --color {} \; | cut -d "/" -f 2 | sort -u`; do echo $i ; done
+grep <text-to-search-for> `find . -maxdepth 3 -type f`
+find . -maxdepth 2 -type f | xargs grep <text-to-search-for>
+
+
+
+
+############################################################
+#
+#	Remove in Loop
+#
+############################################################
+
+for r in $(find /path/to/directory -type f -maxdepth 1);do rm -v $r;done
+for file in *  do  [[ -f $file ]] && rm $file  [[ $? -ne 0 ]] && echo "Error in removing file '$file'";  done
+for file in .* *; do test -f "$file" && rm "$file" done
+for f in FOLDER/**/*; do [[ -f $f ]] && rm -- "$f"; done
+
+############################################################
+#
+# 	Remove preserve symlinks to directories
+#
+############################################################
+
+#preserve symlinks to directories:
+find .  ! -type d -exec sh -c '
+for f do [ -d  "$f" ] ||
+      set "$@" "$f";  shift
+done; rm  "$@"' sh  {} +
+
+find . ! \( -type l -o -type d \)  \
+-exec  rm {} + -o -exec  sh -c '
+   for f do [ -d "$f" ] ||
+   unlink "$f";done' sh {} +
+
+
+############################################################
+#
+#	create random directory/file hierarchy
+#
+############################################################
+
+# random abcdefghij Dir
+mkdir -p {a,b}/{e,f,g}/{h,i,j}
+mkdir -p {1..9} # random 1 bis 9
+rm -rf {1..9}
+
+# print all files from dirname1 dirname2 dirname3
+ll /dirname*
+ll /dirname{1..3}/*
+watch -n 10 ls -la /dirname{1..3}/*
+
+mkdir -p 1/2/3;
+echo 'hello1' > 1/hello1.txt;
+echo 'hello2' > 1/2/hello2.txt;
+echo 'hello3' > 1/2/3/hello3.txt
+rm 1/2/*
+
+#
+#
+#
+
+# Create Dir in loop
+dir=/mnt/TV
+dummy_dir=/home/bob/Desktop/dummy
+
+find $dir -type d -printf '%P\n' | \
+    while read dir; do
+        [[ -d "$dummy_dir/$dir" ]] || mkdir -p "$dummy_dir/$dir"
+    done
+
+find $dir -type f -printf '%P\n' | \
+     while read file; do
+        [[ -f "$dummy_dir/$file" ]] || touch "$dummy_dir/$file"
+     done
+
+
+
+https://unix.stackexchange.com/questions/45950/how-to-remove-only-the-content-of-directories
+https://alvinalexander.com/unix/edu/examples/rm.shtml
+https://unix.stackexchange.com/questions/84317/how-to-delete-files-only-but-keep-the-directory-structure
+https://stackoverflow.com/questions/7714900/remove-only-files-in-directory-on-linux-not-directories
+https://stackoverflow.com/questions/7714900/remove-only-files-in-directory-on-linux-not-directories
+https://askubuntu.com/questions/665533/only-delete-files-but-not-folders-with-rm

@@ -1,0 +1,73 @@
+! Title: CHEF-KOCH's AdGuard Home (Pi-Hole) regular expressions blocking list.
+! Description: Can be used for uBo, AdGuard Home & Pi-Hole to block ads via regex.
+! For OpenWRT use: https://gist.github.com/teffalump/7227752
+! License: https://github.com/CHEF-KOCH/CKs-FilterList/blob/master/LICENSE
+! By downloading or viewing, or using this list, you are accepting these terms and the license.
+! Homepage: https://github.com/CHEF-KOCH/CKs-FilterList
+! Expires: 8 days
+! Version: 0.0.0.01
+! Last updated: 2018-27-12
+! Please report any unblocked content or problems by email or via GitHub issue ticket.
+! Email: CHEF-KOCH@protonmail.com
+! Copyright (C) 2018 - 2019 by CHEF-KOCH
+!
+!
+(.*\.|^)((think)?with)?google($|((adservices|apis|mail|static|syndication|tagmanager|tagservices|usercontent|zip|-analytics)($|\..+)))
+^.+\.(accountant|biz|bid|christmas|click|country|cricket|date|download)$
+^.+\.(faith|gdn|gq|kim|life|loan|world|xin|xyz|zip|link)$
+^.+\.(id|cash|za|red|ltd|cloud|ae|trade|name|store)$
+^.+\.(in|hosting|online|cc|sh|pl|network|la|me|bg|br|website|live)$
+^.+\.(love|luxe|realestate)$
+^.+\.(men|mom|ninja|pro|racing|realtor|science|space|stream|top|win|work)$
+^.+\.(ru|cn|ro|ml|ga|gq|cf|tk|pw|ua|ug|ve|info|site|club|host|party)$
+^(.+[-_.])??adse?rv(er?|ice)?s?[0-9]*[-.]
+^(.+[-_.])??m?ad[sxv]?[0-9]*[-_.]
+^(.+[-_.])??xn--
+^(.+\.)??(.*v10.+|.*watson.|.*vortex.|1drv|llnw|.*win.+|.ms.+|.*a.microsoft.+)\.(com|net)$
+^(.+\.)?amp\..+\.com$
+^(.+\.)?ampproject\.org$
+^/\.sharesix\.com/.*[a-zA-Z0-9]{4}/$script
+^adim(age|g)s?[0-9]*[-_.]
+^adtrack(er|ing)?[0-9]*[-.]
+^advert(s|is(ing|ements?))?[0-9]*[-_.]
+^aff(iliat(es?|ion))?[-.]
+^analytics?[-.]
+^banners?[-.]
+^beacons?[0-9]*[-.]
+^count(ers?)?[0-9]*[-.]
+^https?://([A-Za-z0-9.-]*\.)?.doubleclick(\.\w{2}\.\w{2}|\.\w{2,4})/
+^https?://([A-Za-z0-9.-]*\.)?adnxs(\.\w{2}\.\w{2}|\.\w{2,4})/
+^https?://([A-Za-z0-9.-]*\.)?ads\.yahoo\.com/
+^https?://([A-Za-z0-9.-]*\.)?advertising\.com/
+^https?://([A-Za-z0-9.-]*\.)?appnexus(\.\w{2}\.\w{2}|\.\w{2,4})/
+^https?://([A-Za-z0-9.-]*\.)?clicks\.beap/
+^https?://([A-Za-z0-9.-]*\.)?clicks\.beap\.bc\.yahoo(\.\w{2}\.\w{2}|\.\w{2 ,4})/
+^https?://([A-Za-z0-9.-]*\.)?clicks\.beap\.bc\.yahoo\.com/
+^https?://([A-Za-z0-9.-]*\.)?doubleclick(\.\w{2}\.\w{2}|\.\w{2,4})/
+^https?://([A-Za-z0-9.-]*\.)?evidon(\.\w{2}\.\w{2}|\.\w{2,4})/
+^https?://([A-Za-z0-9.-]*\.)?evidon\.com/
+^https?://([A-Za-z0-9.-]*\.)?flashtalking(\.\w{2}\.\w{2}|\.\w{2,4})/
+^https?://([A-Za-z0-9.-]*\.)?flashtalking\.com/
+^https?://([A-Za-z0-9.-]*\.)?global\.ard\.yahoo\.com/
+^https?://([A-Za-z0-9.-]*\.)?googlesyndication(\.\w{2}\.\w{2}|\.\w{2,4})/
+^https?://([A-Za-z0-9.-]*\.)?info\.facebook\.com/
+^https?://([A-Za-z0-9.-]*\.)?info\.yahoo\.com/
+^https?://([A-Za-z0-9.-]*\.)?match\.com/
+^https?://([A-Za-z0-9.-]*\.)?mathtag(\.\w{2}\.\w{2}|\.\w{2,4})/
+^https?://([A-Za-z0-9.-]*\.)?mathtag\.com/
+^https?://([A-Za-z0-9.-]*\.)?mediamath(\.\w{2}\.\w{2}|\.\w{2,4})/
+^https?://([A-Za-z0-9.-]*\.)?s\.yimg\.com/cv/ae/us/audience/
+^https?://([A-Za-z0-9.-]*\.)?scorecardresearch(\.\w{2}\.\w{2}|\.\w{2,4})/
+^https?://([A-Za-z0-9.-]*\.)?scorecardresearch\.com/
+^https?://([A-Za-z0-9.-]*\.)?secure\.footprint\.net/
+^https?://([A-Za-z0-9.-]*\.)?sitescout(\.\w{2}\.\w{2}|\.\w{2,4})/
+^https?://([A-Za-z0-9.-]*\.)?surveylink/
+^https?://([A-Za-z0-9.-]*\.)?turn(\.\w{2}\.\w{2}|\.\w{2,4})/
+^https?://([A-Za-z0-9.-]*\.)?turn\.com/
+^https?://([A-Za-z0-9.-]*\.)?w55c(\.\w{2}\.\w{2}|\.\w{2,4})/
+^https?://([A-Za-z0-9.-]*\.)?yieldmanager(\.\w{2}\.\w{2}|\.\w{2,4})/
+^pixels?[-.]
+^stat(s|istics)?[0-9]*[-.]
+^telemetry[-.]
+^track(ers?|ing)?[0-9]*[-.]
+^traff(ic)?[-.]

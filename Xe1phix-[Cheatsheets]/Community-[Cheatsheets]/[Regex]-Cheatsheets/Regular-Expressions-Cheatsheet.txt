@@ -1,0 +1,244 @@
+   Regular Expressions
+       Regular expressions are the extended kind found in egrep.  They are composed of characters as follows:
+
+       c          Matches the non-metacharacter c.
+
+       \c         Matches the literal character c.
+
+       .          Matches any character including newline.
+
+       ^          Matches the beginning of a string.
+
+       $          Matches the end of a string.
+
+       [abc...]   A character list: matches any of the characters abc....  You may include a range of characters by separating them with a dash.
+
+       [^abc...]  A negated character list: matches any character except abc....
+
+       r1|r2      Alternation: matches either r1 or r2.
+
+       r1r2       Concatenation: matches r1, and then r2.
+
+       r+         Matches one or more r's.
+
+       r*         Matches zero or more r's.
+
+       r?         Matches zero or one r's.
+
+       (r)        Grouping: matches r.
+
+       r{n}
+       r{n,}
+       r{n,m}     One  or  two  numbers inside braces denote an interval expression. 
+ 
+
+
+
+
+
+
+
+Operators
+       The operators in AWK, in order of decreasing precedence, are:
+
+       (...)       Grouping
+
+       $           Field reference.
+
+       ++ --       Increment and decrement, both prefix and postfix.
+
+       ^           Exponentiation (** may also be used, and **= for the assignment operator).
+
+       + - !       Unary plus, unary minus, and logical negation.
+
+       * / %       Multiplication, division, and modulus.
+
+       + -         Addition and subtraction.
+
+       space       String concatenation.
+
+       |   |&      Piped I/O for getline, print, and printf.
+
+       < > <= >= == !=
+                   The regular relational operators.
+
+       ~ !~        Regular expression match, negated match.  NOTE: Do not use a constant regular expression (/foo/) on the left-hand side of a ~ or !~.  Only use
+                   one on the right-hand side.  The expression /foo/ ~ exp has the same meaning as (($0 ~ /foo/) ~ exp).  This is usually not what you want.
+
+       in          Array membership.
+
+       &&          Logical AND.
+
+       ||          Logical OR.
+
+       ?:          The C conditional expression.  This has the form expr1 ? expr2 : expr3.  If expr1 is true, the value of the expression is expr2, otherwise  it
+                   is expr3.  Only one of expr2 and expr3 is evaluated.
+
+       = += -= *= /= %= ^=
+                   Assignment.  Both absolute assignment (var = value) and operator-assignment (the other forms) are supported.
+
+
+       Print and sort the login names of all users:
+
+            BEGIN     { FS = ":" }
+                 { print $1 | "sort" }
+
+       Count lines in a file:
+
+                 { nlines++ }
+            END  { print nlines }
+
+       Precede each line by its number in the file:
+
+            { print FNR, $0 }
+
+       Concatenate and line number (a variation on a theme):
+
+            { print NR, $0 }
+
+
+
+
+print ... >> file
+              Appends output to the file.
+
+       print ... | command
+              Writes on a pipe.
+
+       print ... |& command
+              Sends data to a coprocess or socket.  (See also the subsection Special File Names, below.)
+
+
+   Control Statements
+       The control statements are as follows:
+
+              if (condition) statement [ else statement ]
+              while (condition) statement
+              do statement while (condition)
+              for (expr1; expr2; expr3) statement
+              for (var in array) statement
+              break
+              continue
+              delete array[index]
+              delete array
+              exit [ expression ]
+              { statements }
+              switch (expression) {
+              case value|regex : statement
+              ...
+              [ default: statement ]
+              }
+
+
+
+Character  classes
+
+       [:alnum:]  Alphanumeric characters.
+
+       [:alpha:]  Alphabetic characters.
+
+       [:blank:]  Space or tab characters.
+
+       [:cntrl:]  Control characters.
+
+       [:digit:]  Numeric characters.
+
+       [:graph:]  Characters that are both printable and visible.  (A space is printable, but not visible, while an a is both.)
+
+       [:lower:]  Lowercase alphabetic characters.
+
+       [:print:]  Printable characters (characters that are not control characters.)
+
+       [:punct:]  Punctuation characters (characters that are not letter, digits, control characters, or space characters).
+
+       [:space:]  Space characters (such as space, tab, and formfeed, to name a few).
+
+       [:upper:]  Uppercase alphabetic characters.
+
+       [:xdigit:] Characters that are hexadecimal digits.
+
+
+
+
+
+       \y         Matches the empty string at either the beginning or the end of a word.
+
+       \B         Matches the empty string within a word.
+
+       \<         Matches the empty string at the beginning of a word.
+
+       \>         Matches the empty string at the end of a word.
+
+       \s         Matches any whitespace character.
+
+       \S         Matches any nonwhitespace character.
+
+       \w         Matches any word-constituent character (letter, digit, or underscore).
+
+       \W         Matches any character that is not word-constituent.
+
+       \`         Matches the empty string at the beginning of a buffer (string).
+
+       \'         Matches the empty string at the end of a buffer.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+echo $(echo $VAR_NAME | cut -c1)$(echo $VAR_NAME | cut -c2- | tr [A-Z] [a-z])
+
+
+echo ibm | awk ‘{ print toupper($1); }’
+
+
+# convert uppercase to lowercase using tr command
+tr '[A-Z]' '[a-z]' < $fileName
+
+
+preserve the first and translate the rest? How about:
+echo $(echo $VAR_NAME | cut -c1)$(echo $VAR_NAME | cut -c2- | tr [A-Z] [a-z])
+
+
+echo ${string^^*}
+
+
+echo $VAR_NAME | tr '[:lower:]' '[:upper:]'
+
+
+tr '[:upper:]' '[:lower:]' < input.txt > output.txt
+
+
+echo $var | dd conv=lcase 2>/dev/null
+
+cat | tr [[:upper:]] [[:lower:]]
+
+
+
+Every file in the directory starting with a capital P to lower cases
+
+for i in `ls P*`; do mv $i $(echo $i | tr [[:upper:]] [[:lower:]]); done
+
+
+echo '/doCumenTS/tesT.txt' | sed 's!/.!\U&!g'
+
+
+
+echo $Source | tr [A-Z] [a-z] | sed -e 's/^./\U&/g; s/ ./\U&/g'
+
+
+
+echo foo test | sed 's/\([a-z]\)\([a-zA-Z0-9]*\)/\u\1\2/g'
+
+echo foo test  | awk '{$1=toupper(substr($1,0,1))substr($1,2)}1'
+
+
+
