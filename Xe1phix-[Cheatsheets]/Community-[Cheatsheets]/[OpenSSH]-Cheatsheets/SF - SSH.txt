@@ -1,0 +1,315 @@
+SSH
+
+Note: We are working on updating our documentation, this page has been identified as still needing improvement. This notice will be removed once these improvements are complete.
+SSH Overview
+
+SSH is a protocol designed to allow secure communication between hosts on the Internet. All SourceForge.net project services for developers (including shell service and Git, Hg, and SVN write access) are provided using SSH. SSH is used for improved security over alternatives, such as older protocols like TELNET and FTP.
+
+SSH tool suites typically include an SSH client that can be used to access remote hosts interactively, one or more SSH-based file transfer tools, and utilities for managing the SSH keys used for authentication to remote hosts.
+
+SSH tools will support either version 1 or version 2 of the SSH protocol, or both. All SourceForge.net hosts support both the SSH1 and SSH2 protocols. We recommend using SSH2 due to the security enhancements added in SSH2, not found in SSH1. Consult the documentation provided with your SSH client to determine protocol compatibility and vendor recommendations.
+SSH Clients
+
+SourceForge.net supports two SSH clients: OpenSSH and PuTTY. OpenSSH is included with Linux, FreeBSD, Mac OS X, Fink (which runs on Mac OS X) and Cygwin (which runs on Microsoft Windows platforms). PuTTY is available for Microsoft Windows users.
+
+OpenSSH provides the following tools:
+
+    ssh: command-line and interactive tool for interactive host access, executing commands on a remote host, wrapping other protocols (like Git) with SSH.
+    scp: command-line file transfer client.
+    sftp: interactive file transfer client.
+    ssh-keygen: tool for generating SSH keys.
+    ssh-agent: tool for storing SSH key credentials for authentication without prompting the user for key passwords.
+    ssh-add: tool for adding SSH key credentials to the agent (ssh-agent).
+
+PuTTY provides the following tools:
+
+    PUTTY.EXE: GUI tool for interactive host access. Similar purpose to the 'ssh' tool from OpenSSH.
+    Plink.EXE: command-line/terminal-based tool used for executing commands on a remote host and wrapping other protocols (like Git) with SSH; may be used in scripts. Similar purpose to the 'ssh' tool from OpenSSH.
+    PSCP.EXE: command-line file transfer client; may be used in scripts. Similar purpose to the 'scp' tool from OpenSSH.
+    PSFTP.EXE: terminal-based file transfer client. Similar purpose to the 'sftp' tool from OpenSSH.
+    PUTTYgen.EXE: tool for generating SSH keys. Similar purpose to the 'ssh-keygen' tool from OpenSSH.
+    PAGEANT.EXE: tool for storing SSH key credentials for authentication. Similar purpose to 'ssh-add' and 'ssh-agent' tools from OpenSSH.
+
+PuTTY, the SSH client supported by SourceForge.net for Microsoft Windows users, does not include a GUI-based file transfer client. WinSCP, hosted on SourceForge.net, is an excellent file transfer tool, which has an easy-to-use graphical interface. WinSCP is compatible with the PuTTY tool suite.
+
+Other SSH client suites exist, but are not directly supported by SourceForge.net staff.
+Host Access Authorization
+
+All SSH-based services at SourceForge.net (including shell service and Git, Hg, and SVN write access) are provided solely to members of Open Source software development projects hosted on SourceForge.net.
+
+When a user is added as a member to a project, they are immediately granted permission to login to the project shell servers via SSH.
+
+Project administrators are able to grant developers write access to the project repositories or to the project web space. This permission is set when the developer is added to the project team and may be changed later.
+
+Project permissions impact host access in the following manner:
+
+    The project permissions set by the project administrator do not restrict users from logging-in to the project shell service.
+    Project permissions restrict the data that can be modified after logging-in.
+    Developers may only access repositories via SSH when they have been granted write access to the repository.
+    All other repositories must be accessed via anonymous pserver.
+
+If a developer is subsequently removed from a project by the project administrator, they will not lose their access to the project shell server, but they will be removed from the project group. This access persists as to permit file retrieval.
+SourceForge.net Hosts
+
+The following hostnames may be used to access SourceForge.net developer services via SSH:
+
+    shell.sourceforge.net: The project shell servers are provided to allow projects to manage their project web content. Interactive access, file transfers and remote command execution are possible.
+
+Host Keys: As a further security improvement to the process of authenticating to a host via SSH, hosts will also authenticate themselves to your client. This authentication is done via host keys. SourceForge.net maintains a listing of fingerprints for all SSH-accessible hosts.
+SourceForge.net Username
+
+All SourceForge.net hosts will be accessed using the same username as your account on the SourceForge.net site (as specified during account registration). User accounts are provided on a per-user basis to developers, not on a per-project basis; there are no user accounts for projects.
+SSH Key Authentication
+
+SSH authentication to SourceForge.net hosts is done using shared keys. Before you can access SSH-based services at SourceForge.net, you will need to generate and post SSH keys for your account. Detailed instructions are provided regarding SSH key generation. It is important that you follow the provided instructions for generating and posting your SSH key as shared key support at SourceForge.net may differ from other implementations.
+
+The following key formats are supported:
+
+SSH1 protocol, RSA key type
+SSH2 protocol, RSA key type
+SSH2 protocol, DSA key type
+SSH keys are generated using the 'ssh-keygen' tool provided by OpenSSH, and the 'PUTTYgen.EXE' tool provided by PuTTY.
+Interactive SSH Sessions
+
+Interactive SSH access allows for users to connect to a remote host and access a shell, where they may run commands. Interactive access is provided on the project shell servers.
+
+To get interactive access to SourceForge.net host, you must generate and post your SSH key and then use an SSH client to login to the host. This process varies depending on what client you are using. Graphical clients typically have fields that need such information as:
+
+port: 22
+hostname: shell.sourceforge.net
+protocol: SSH2 or SSH1 (SSH2 preferred)
+username: Your SourceForge.net username
+password: Your SourceForge.net password
+A typical connection using a non-graphical client will look similar to the following (replace 'ssh' with 'plink' if using the PuTTY suite instead of OpenSSH):
+
+All commands are executed from a command prompt on your workstation. The caps words should be replaced with the proper string, depending on where you are trying to connect.
+
+$ ssh !USERNAME@HOSTNAME
+
+An example of trying to connect to the shell server by a generic username of bob
+
+$ ssh bob@shell.sourceforge.net
+
+Not sure what to do after logging-in? Basic instructions on using the shell to interactively perform common operations on the shell server are provided.
+File Transfers
+
+SSH-based file transfer tools are used to transmit project web content to the project shell servers.
+
+The following methods are used to transfer data to these hosts:
+
+    SCP (Secure CoPy).
+    SFTP (Secure FTP).
+    Rsync over SSH.
+
+SourceForge.net supports many ways of transferring files using supported SSH clients. The tools available on most OS platforms support multiple file transfer methods. You should determine which tool is most appropriate for the file transfers you need to perform:
+
+    SCP clients ('scp' from OpenSSH, 'PSCP.EXE' from PuTTY) are command-line driven and may be used interactively or to automate file transfers within scripts.
+    SFTP clients ('sftp' from OpenSSH, 'PSFTP.EXE' from PuTTY) are terminal-based and require user interaction to perform file transfers.
+    Rsync over SSH may be used interactively or to automate file transfers within scripts. The benefit of using rsync is that file transfers may be aborted and resumed later; particularly important when transferring large files.
+    WinSCP is a graphical file transfer client for Microsoft Windows users.
+
+File Transfers: Secure CoPy (SCP)
+
+SCP is a secure version of the remote file copy command, rcp. SCP clients, typically command-line based, allow for copying of files to remote hosts interactively or as part of scripts. Basic usage of the SCP command follows:
+
+This example references the SCP client included with OpenSSH, 'scp'. PuTTY users will instead reference 'PSCP.EXE', the SCP client included in the PuTTY suite. SCP clients also support numerous command-line options which allow you to specify that you want to transfer multiple files, the amount of progress information to show, and what metadata should be preserved by the transfer; see the documentation provided with your SSH client for additional details.
+
+All commands are executed from a command prompt on your workstation. $ scp SOURCE_PATH DESTINATION_PATH
+
+SOURCE_PATH is defined as:
+
+    When transferring files to a SourceForge.net host, the SOURCE_PATH will be a filename on your local workstation.
+    When transferring files from a SourceForge.net host, the SOURCE_PATH will be the username, host, and path to the file on the remote server.
+
+DESTINATION_PATH is defined as:
+
+    When transferring files from a SourceForge.net host, this will be a path on your local workstation, such as: . (which specifies your current directory)
+    When transferring files to a SourceForge.net host, this will the username, host, and path to the file on the remote server.
+
+Examples of SOURCE_PATH or DESTINATION_PATH on remote servers:
+
+SOURCE_PATH or DESTINATION_PATH may be a specific file.
+USERNAME@shell.sourceforge.net:/home/users/U/US/USERNAME/filename.
+DESTINATION_PATH may instead be a specific directory, or your home directory (as shown in these examples).
+USERNAME@shell.sourceforge.net
+Recursive (whole directory structure) copies are possible using command-line options and specifying a directory as the SOURCE_PATH.
+
+WinSCP is a graphical SCP and SFTP client for Microsoft Windows users. WinSCP, PuTTY and OpenSSH are directly supported by SourceForge.net.
+File Transfers: Secure FTP (SFTP)
+
+SFTP (Secure FTP) works very similarly to the popular FTP file transfer protocol, except that all the traffic is transparently wrapped with SSH for added security.
+
+This example references the SFTP client included with OpenSSH, 'sftp'. PuTTY users will instead reference 'PSFTP.EXE', the SFTP client included in the PuTTY suite. See the documentation included with your SSH client for details of command-line options and additional interactive commands supported by the SFTP client.
+
+All commands are executed from a command prompt on your workstation. Transferring a file to a SourceForge.net host:
+
+$ sftp !USERNAME@HOSTNAME
+put PATH_TO_FILE_TO_SEND
+exit
+Transferring a file from a !SourceForge.net host
+$ sftp !USERNAME@HOSTNAME
+get PATH_TO_FILE_TO_RECEIVE
+exit
+
+USERNAME is defined as your SourceForge.net username, as specified during account creation.
+
+HOSTNAME is defined as the name of the SourceForge.net host you are trying to transfer files to or from. HOSTNAME will be shell.sourceforge.net.
+
+PATH_TO_FILE_TO is defined as the full or relative path to the file that will be transferred to or from the remote host. The direction that the file goes is dependent on whether you use the GET (retrieve) or PUT (send) interactive SFTP command.
+File Transfers: Rsync Over SSH
+
+Rsync is a tool that allows for remotely synchronizing, not just transferring, data between hosts. Rsync file transfers can be interrupted and resumed later; the rsync protocol tries to minimize the amount of data sent over the network based on similarities found within the file data.
+
+Rsync is available on nearly every OS platform. Rsync is included with Linux, FreeBSD, Mac OS X, Fink and Cygwin. Third parties are known to provide ports of Rsync for other platforms.
+
+When Rsync is wrapped with SSH, you get an efficient and secure method to transfer files between hosts. This method of transfer is supported on the project shell servers.
+
+A basic usage example follows:
+
+rsync -v --rsh="ssh -l USERNAME" SOURCE_PATH DESTINATION_PATH
+
+USERNAME is defined as your SourceForge.net username, as selected during the account creation process.
+
+SOURCE_PATH is defined as:
+
+    When transferring files to a SourceForge.net host, the SOURCE_PATH will be a filename on your local workstation.
+    When transferring files from a SourceForge.net host, the SOURCE_PATH will the username, host, and path to the file on the remote server.
+
+DESTINATION_PATH is defined as:
+
+    When transferring files to a SourceForge.net host, this will the username, host, and path to the file on the remote server.
+    When transferring files from a SourceForge.net host, this will be a path on your local workstation, such as: . (which specifies your current directory)
+
+Examples of SOURCE_PATH or DESTINATION_PATH on remote servers:
+
+SOURCE_PATH or DESTINATION_PATH may be a specific file.
+USERNAME@shell.sourceforge.net:/home/users/U/US/USERNAME/filename
+DESTINATION_PATH may instead be a specific directory, or your home
+directory (as shown in these examples):
+USERNAME@shell.sourceforge.net:
+Recursive (whole directory structure) copies are possible using command-line options and specifying a directory as the SOURCE_PATH.
+
+Rsync also supports a large number of command-line options. These options may be used to specify recursive (whole directory structure) transfers, and to enable preservation of ownership or file permissions. Rsync also includes a variety of options to enable regular synchronization of files between two hosts. The design of Rsync allows it to be much more efficient for synchronization of files than normal file transfer mechanisms such as SCP and SFTP.
+File Transfers: WinSCP
+
+WinSCP is an easy-to-use SCP/SFTP client for Microsoft Windows users; WinSCP features a graphical interface, whereas other SCP and SFTP clients have text-based interfaces. WinSCP is a very good option for users new to SSH, and feel more comfortable in a graphical interface.
+
+When WinSCP starts, a dialog box is opened that requests various host information. Enter the following details in to the provided dialog box:
+
+Host name: shell.sourceforge.net
+Port number: 22
+User name: USERNAME
+Password: leave this field blank
+Private key file: Click on the '...' button. Browse to the location where you stored the PuTTY private key you created previously for the host you are trying to access. Load the desired key.
+Protocol: SFTP (allow SCP fallback)
+Next, click on the 'Save...' button; enter a session name which matches the hostname you entered previously (USERNAME@shell.sourceforge.net).
+
+To initiate the connection, click on the 'Login' button. Compare the SSH host key fingerprint against the fingerprints published in our Site Documentation, if prompted; respond 'Yes' if the key matches or 'No' if the key does not match. If you encounter a non-matching key, please contact SourceForge.net staff by submitting a Support Request.
+
+After WinSCP establishes a connection to the host, the WinSCP interface will appear. The window pane on the left represents files on your local workstation. The window pane on the right represents files on the remote host (shell.sourceforge.net).
+
+You may perform a basic copy operation to transfer a file from your workstation to the remote server in a manner similar to the following example. Reverse the references to panes (remote-to-local, local-to-remote) in order to copy a file from the remote server to your local workstation.
+
+    Click on the remote server pane, and change to the desired destination directory (where files should be copied to). This works similarly to Windows Explorer, used on Microsoft Windows systems to manage files.
+    Click on the local workstation pane and change to the directory that holds the files you wish to transfer to the remote server.
+    Determine which files you wish to transfer to the remote host. Click on the filename of the file and drag it from the local workstation page to the remote server pane.
+    Review the 'Copy' dialog that comes up. Verify that the desired file and destination directory are listed. Click on the 'Copy' button to confirm this operation.
+
+Remote Command Execution
+
+SSH provides the ability to run commands on a remote host from the command-line, without establishing an interactive session to that remote host. This is useful when you need to perform a single command, or when you wish to automate the execution of commands on a remote host as part of a script.
+
+Commands may be executed non-interactively on a remote host using the 'ssh' tool from OpenSSH, or the 'PLINK.EXE' tool from PuTTY. Commands are executed in the following manner:
+
+ ssh !USERNAME@HOSTNAME "COMMAND_TO_EXECUTE"
+
+USERNAME is defined as your SourceForge.net username, as selected during the account creation process.
+
+HOSTNAME is defined as the name of the SourceForge.net host you are trying to transfer files to or from. HOSTNAME will typically be shell.sourceforge.net.
+
+COMMAND_TO_EXECUTE is defined as the command that you want to execute on the remote host.
+X11 Forwarding
+
+X11 forwarding is not supported by any SourceForge.net host. Outbound connectivity from SourceForge.net hosts is heavily restricted, preventing remote display from X11 applications. The X11 forwarding feature of SSH is not enabled or supported. Though X11 applications may be run over low-bandwidth connections, the overhead for permitting forwarding of application data, and the unreliability of running applications over the Internet outweigh the benefits of providing this feature.
+PuTTY-Specific Instructions
+
+Host sessions and SSH protocol version: The PuTTY suite allows you to create session profiles that are associated with hosts. This allows you to easily manage the SSH settings used to access various hosts. This feature is equivalent to the settings in the /etc/ssh/ssh_config file used by OpenSSH. Protocol version set in the profile should match the protocol version of the SSH keys you are using to access that host.
+
+Updates: As with any security-oriented software, it is important that you install updates provided by your software vendor. Automated updates are used by most OpenSSH-supported platforms to ensure security fixes are applied regularly. Since PuTTY is a third-party application, you should regularly check the PuTTY site for new updates to the application.
+Troubleshooting
+
+Issues with the usage of SSH should be reported to SourceForge.net Staff by submitting a Support Request.
+
+Host outages are announced on the Site Status page. Issues listed on these status pages should not be reported.
+
+Please upgrade your SSH client to the newest revision before reporting problems. SourceForge.net hosts are kept on the latest vendor-supplied SSH server releases; occassionally these upgrades will break backward compatibility. Keeping your system up-to-date is important to ensure compatibility with other hosts on the Internet and to eliminate potential security vulnerabilities.
+
+The following issues are common SSH-related problems; the provided troubleshooting instructions should be followed before reporting these types of problems to SourceForge.net staff.
+
+For all issue types, you should review the verbose output of your SSH client to see if there are any leads to help you resolve the problem. Verbose output may be enabled using command-line options. For OpenSSH users, verbose output may be enabled using the '-v' option; i.e. 'ssh -v !USERNAME@HOSTNAME'. Verbose output may also be enabled using the '-v' option to the 'PLINK.EXE' tool from PuTTY.
+Connection problems can be caused by network outages, host outages, or firewall restrictions.
+Authentication issues occur due to key issues, and improper hostname and username specifications.
+SSH host key mismatches are serious, and may be caused either by a security compromise or by misconfiguration of your SSH client.
+Troubleshooting Connection Problems
+SourceForge.net hosts use the standard TCP port of 22 for all SSH operations.
+
+Connection problems to SourceForge.net hosts cannot be diagnosed using PING or traceroute due to the design of the SourceForge.net network. SourceForge.net hosts will respond to a limited total number of PING packets each second. Our firewall will drop most PING packets without response. PING and traceroute cannot be used to test host access or network connection problems.
+
+Since some developers are behind firewalls which block access to hosts on this port, SourceForge.net provides a set of redirection hosts which may be used in some cases to work around these restrictions. These hosts cannot be used if you are behind a transparent proxy. These hosts may be used if your firewall passes traffic on ports 80 or 443.
+
+Host access may be tested in the following manner:
+
+For project shell services:
+
+telnet shell.sourceforge.net 22
+telnet shell-ssh.sourceforge.net 443
+telnet shell-ssh.sourceforge.net 80
+A successful connection will look similar to the following; any connection log that shows a mangled response or doesn't allow a connection would be considered a failure:
+
+$ telnet shell.sourceforge.net 22
+Trying 66.35.250.207...
+Connected to shell.sourceforge.net.
+Escape character is '^]'.
+SSH-1.99-OpenSSH_3.6.1p2
+Protocol mismatch. Connection closed by foreign host.
+
+If the connection fails on port 22, but succeeds for either port 443 or 80, you should use the working hostname and the port. This may require making a modification to the /etc/ssh/ssh_config file or creating a PuTTY session with the new hostname and port. For OpenSSH users, use the alternate host name and add the following lines to your /etc/ssh/ssh_config or ~/.ssh/config file (use port 80 instead of 443 if port 443 didn't work):
+
+Host shell-ssh.sourceforge.net
+Port 443
+
+If these redirection hosts do not solve your connection problem, you need to contact your network administrator or ISP for further assistance. Further, your organization may have rules against working around the firewall in this manner, so review your corporate policies prior to making such a change. The workround solutions we have offered using these redirection hosts may not be sufficient for some firewall conditions, particularly use through transparent proxies.
+Troubleshooting Authentication Issues
+
+The following steps should be followed when authentication issues are encountered:
+
+Are you a developer on a project? You can check that on the my SourceForge.net page. If no project's are listed under the My Projects heading, you are not eligible for access to any of these services.
+Verify that the correct hostname is being used. A common error is to misspell the SourceForge.net domain name or to include your project's UNIX name in the host name.
+Verify that your username is properly specified. Your username will be the same as the username used on the SourceForge.net site. Usernames are not issues for projects, only for individual developers.
+SSH protocol version must match key type. SourceForge.net hosts support both the SSH1 and SSH2 protocols. You must connect to the host using the same SSH protocol version as was used for your SSH key.
+SSH key agent must be loaded with your key. Your SSH key must be loaded in to the SSH agent if it is not otherwise being loaded (OpenSSH will automatically load keys from specific files within your home directory).
+If the provided tips to not resolve your authentication issue, please contact SourceForge.net staff by submitting a Support Request.
+Troubleshooting SSH Host Key Mismatches
+
+As a further security improvement to the process of authenticating to a host via SSH, hosts will also authenticate themselves to your client. When you first connect to a host using SSH, your SSH client will ask you whether or not you want to accept the SSH key provided by the host.
+
+At this time, you check the host key against the SSH host key listing published by SourceForge.net, to make sure they match and that you are connecting to the right host.
+
+When you accept the host key, a copy of that key is stored on-disk for comparison during future connections to that host. If the key is found not to match in the future when connecting to the host, will see a WARNING message that indicates a security issue. These issues are serious and should be handled using the instructions provided for handling host key change warnings.
+
+We have provided more information on Key Change Warnings, throughout these docs.
+Related
+
+Documentation: Files
+Documentation: Git
+Documentation: Key Change Warnings
+Documentation: Mercurial
+Documentation: Release Files for Download
+Documentation: SCP
+Documentation: SFTP
+Documentation: SSH Key Fingerprints
+Documentation: SSH Keys
+Documentation: ToC
+Documentation: rsync
+Documentation: svn
+Feature Requests: #356

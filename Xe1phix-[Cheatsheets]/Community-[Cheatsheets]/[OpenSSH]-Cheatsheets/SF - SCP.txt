@@ -1,0 +1,74 @@
+SCP
+
+Note: We are working on updating our documentation, this page has been identified as still needing improvement. This notice will be removed once these improvements are complete.
+SCP
+
+SourceForge.net provides support for managing project web and developer web content, and uploading file releases using SCP through our File management service.
+
+SCP (Secure copy) is part of the SSH protocol suite.
+Clients
+
+SCP clients include:
+
+    scp, a command-line client included in OpenSSH, available on Mac OS X, Linux, and BSD natively; and on MS Windows through Cygwin.
+    pscp, a command-line client included in PuTTY, available for MS Windows.
+    WinSCP, a graphical client available for MS Windows.
+    Examples are provided for scp:
+
+For managing file releases
+
+FRS Hostname: frs.sourceforge.net
+Path: /home/frs/project/P/PR/PROJECT_UNIX_NAME/ - Substitute your project UNIX name data for /P/PR/PROJECT_UNIX_NAME
+Username: Your SourceForge.net Username
+Password: Your SourceForge.net Password
+An example session might look like (where Username="jsmith", Project UNIX name="fooproject",Release dir is "Rel_1"):
+
+[jsmith@linux ~]$ scp FILE jsmith@frs.sourceforge.net:/home/frs/project/f/fo/fooproject/Rel_1
+Connecting to frs.sourceforge.net...
+The authenticity of host 'frs.sourceforge.net (216.34.181.57)' can't be established.
+RSA key fingerprint is 68:b3:26:02:a0:07:e4:78:d4:ec:7f:2f:6a:4d:32:c5.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'frs.sourceforge.net,216.34.181.57' (RSA) to the list of known hosts.
+jsmith@frs.sourceforge.net's password:
+FILE                                                                                       100%  241     0.2KB/s   00:01
+
+For managing Developer Web space
+
+Developer web Hostname: frs.sourceforge.net
+Path: userweb/htdocs/
+Username: Your SourceForge.net Username
+Password: Your SourceForge.net Password
+An example session might look like (where Username="jsmith"):
+
+[jsmith@linux ~]$ scp FILE jsmith@frs.sourceforge.net:userweb/htdocs
+Connecting to frs.sourceforge.net...
+The authenticity of host 'frs.sourceforge.net (216.34.181.57)' can't be established.
+RSA key fingerprint is 68:b3:26:02:a0:07:e4:78:d4:ec:7f:2f:6a:4d:32:c5.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'frs.sourceforge.net,216.34.181.57' (RSA) to the list of known hosts.
+jsmith@frs.sourceforge.net's password:
+FILE                                                                                       100%  241     0.2KB/s   00:01
+
+For managing Project Web space
+
+Project web Hostname: web.sourceforge.net
+Path: /home/project-web/PROJECT_UNIX_NAME/htdocs - Substitute your project UNIX name data for PROJECT_UNIX_NAME
+Username: Your SourceForge.net Username
+Password: Your SourceForge.net Password
+An example session might look like the following for Username "jsmith" uploading a file for his project with a UNIX name of "fooproject":
+
+[jsmith@linux ~]$ scp barfile jsmith@web.sourceforge.net:/home/project-web/fooproject/htdocs
+Connecting to web.sourceforge.net...
+The authenticity of host 'web.sourceforge.net (216.34.181.57)' can't be established.    
+RSA key fingerprint is 68:b3:26:02:a0:07:e4:78:d4:ec:7f:2f:6a:4d:32:c5.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'web.sourceforge.net,216.34.181.57' (RSA) to the list of known hosts.
+jsmith@web.sourceforge.net's password:
+barfile                                                                                       100%  241     0.2KB/s   00:01
+
+Related
+
+Documentation: Release Files for Download
+Documentation: SSH
+Documentation: ToC
+Site Support: #10647

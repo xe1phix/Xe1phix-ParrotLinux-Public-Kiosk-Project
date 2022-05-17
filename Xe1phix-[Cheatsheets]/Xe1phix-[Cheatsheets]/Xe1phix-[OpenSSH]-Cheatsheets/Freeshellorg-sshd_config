@@ -1,0 +1,93 @@
+## Freeshellorg-sshd_config
+Port 22
+Protocol 2
+AddressFamily inet
+ListenAddress 192.168.1.2
+
+# HostKey for protocol version 1
+#HostKey /etc/ssh/ssh_host_key
+# HostKeys for protocol version 2
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_dsa_key
+
+# Lifetime and size of ephemeral version 1 server key
+#KeyRegenerationInterval 1h
+#ServerKeyBits 768
+
+# Logging
+# obsoletes QuietMode and FascistLogging
+SyslogFacility AUTH
+
+LogLevel DEBUG
+
+# Authentication:
+
+LoginGraceTime 2m
+PermitRootLogin no
+StrictModes yes
+MaxAuthTries 6
+
+AllowUsers dentonj@trustedhost
+AllowGroups wheel
+
+RSAAuthentication no
+PubkeyAuthentication yes
+AuthorizedKeysFile      .ssh/authorized_keys
+
+# For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
+RhostsRSAAuthentication no
+# similar for protocol version 2
+HostbasedAuthentication no
+# Change to yes if you don't trust ~/.ssh/known_hosts for
+# RhostsRSAAuthentication and HostbasedAuthentication
+IgnoreUserKnownHosts no
+# Don't read the user's ~/.rhosts and ~/.shosts files
+IgnoreRhosts yes
+
+# To disable tunneled clear text passwords, change to no here!
+PasswordAuthentication no
+PermitEmptyPasswords no
+
+# Change to no to disable s/key passwords
+#ChallengeResponseAuthentication yes
+
+# Kerberos options
+#KerberosAuthentication no
+#KerberosOrLocalPasswd yes
+#KerberosTicketCleanup yes
+#KerberosGetAFSToken no
+
+# GSSAPI options
+#GSSAPIAuthentication no
+#GSSAPICleanupCredentials yes
+
+#UsePAM no
+
+AllowTcpForwarding yes
+GatewayPorts no
+X11Forwarding no
+X11DisplayOffset 10
+X11UseLocalhost yes
+PrintMotd yes
+PrintLastLog yes
+TCPKeepAlive no
+UseLogin no
+UsePrivilegeSeparation yes
+PermitUserEnvironment no
+Compression delayed
+ClientAliveInterval 60
+ClientAliveCountMax 10
+UseDNS yes
+PidFile /var/run/sshd.pid
+#MaxStartups 10
+
+# no default banner path
+Banner /etc/issue.net
+
+# override default of no subsystems
+#Subsystem      sftp    /usr/libexec/sftp‐server
+
+# Ciphers aes256‐cbc,aes256‐ctr
+
+# login.conf(5) is not used in Slackware
+ChallengeResponseAuthentication no
