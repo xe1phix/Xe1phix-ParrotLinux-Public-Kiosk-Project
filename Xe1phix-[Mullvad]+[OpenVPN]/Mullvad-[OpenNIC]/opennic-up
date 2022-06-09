@@ -1,0 +1,174 @@
+#!/bin/bash
+
+script="opennic-up"
+version="0.92"
+
+resolvconf="/etc/resolv.conf"
+
+# pings run in parallel
+multiping() {
+  fping --quiet --period=400 --retry=0 --count=20 "$@" 2>&1
+}
+
+# dns lookup nameserver hostname
+dnslookup() {
+  drill A $2 @$1 | awk '$1 == "'"$2"'." && $3 == "IN" && $4 == "A" {print $5}'
+}
+
+showhelp() {
+    printf -- "usage:  $script [options]\n"
+    printf -- "options:\n"
+    printf -- "   -q     quiet, show less information\n"
+    printf -- "   -v     display version\n"
+    printf -- "   -h     help\n"
+}
+
+log () {
+    if [ $quiet -eq 0 ]; then echo "$@" >&2; fi
+}
+
+logn () {
+    if [ $quiet -eq 0 ]; then echo -n "$@" >&2; fi
+}
+
+error() {
+  printf "ERROR: %s\n" "$1" >&2
+}
+
+warning() {
+  printf "WARNING: %s\n" "$1" >&2
+}
+
+# arguments handling
+quiet=0
+while getopts "hvq" opt; do
+    case "$opt" in
+    h)
+        showhelp
+        exit 0
+        ;;
+    q)  quiet=1
+        ;;
+    v)  echo "$script $version"
+        exit 0
+        ;;
+    esac
+done
+
+# check needed tools are present
+neededlist="awk sort curl fping drill"
+for needed in $neededlist; do
+	command -v "$needed" >/dev/null 2>&1 && continue
+	echo "$needed: is required but cannot be found in the environment path" >&2
+	exit 1
+done
+
+anycast="185.121.177.177"
+# wait for network up 20s*4
+log 'Checking network is up'
+fping --quiet --timeout=20000 "$anycast"
+
+# find out what the IP address of api.opennicproject.org is, fallback static IP address configured
+apihost=api.opennicproject.org
+apiip=$(dnslookup "$anycast" "$apihost")
+apiip=${apiip:-"161.97.219.82"}
+log "Using $apiip as API host"
+
+# load config
+configpathlist=(/etc ~/.config/opennic-up)
+for p in "${configpathlist[@]}"; do
+  configfile=$p/opennic-up.conf
+  if [ -r "$configfile" ]; then
+    . $configfile
+  fi
+done
+
+# record my IP in whitelist if my account login parameters have been provided
+if [ -n "$user" -a -n "$auth" ]; then 
+  logn "Updating whitelist with IP for user: $user "
+  curl --silent --connect-timeout 60 --resolve "$apihost:443:$apiip" "https://$apihost/ip/update/?user=$user&auth=$auth"
+fi
+
+# query the API, list format, ipv4 only, 200 sites, no server admin sorting, including servers with blocklist and IP whitelisting
+apiurl="https://$apihost/geoip/?list&ipv=4&res=200&adm=0&bl&wl"
+log "$apiurl"
+allhosts=$(curl --silent --connect-timeout 60 --resolve "$apihost:443:$apiip" "$apiurl")
+
+if [ -z "$allhosts" ]; then
+  error 'API not available'
+  exit 1
+fi
+
+# filter hosts with more than 90% reliability
+reliable=$(echo "$allhosts" | awk -F# '$3 + 0.0 > 90' | awk -F# '{print $1}')
+reliablecount=$(echo "$reliable" | wc -l)
+
+if [ $reliablecount -ge 2 ]; then
+  #pinging the hosts
+  logn "Pinging $reliablecount hosts to determine the top ones..."
+  pingresults=$(multiping $reliable)
+
+  # we apply the packet loss filter and also sort the servers by their average response time and keep only the IP column
+  responsive=$(echo "$pingresults" | awk -F/ '$5 + 0.0 < 10' | sort -t/ -nk8 | awk '{print $1}')
+  responsivecount=$(echo "$responsive" | wc -l)
+  log "resulting in $responsivecount responsive hosts"
+
+  maxretain=3
+  # replace Network Manager DNS with the new ones for all active connections
+  if [ $responsivecount -ge 2 ]; then
+    retain=$((maxretain > responsivecount ? responsivecount : maxretain))
+
+    # we retain the top servers for our DNS
+    log "Selected top $retain hosts:"
+    myhosts=$(echo "$responsive" | head -n $retain)
+    nameservers=""
+    for dns in $myhosts; do
+      log $(echo "$allhosts" | grep $dns)
+      nameservers=$nameservers"nameserver $dns"$'\n'
+    done
+    echo -n "$nameservers"
+ 
+    if command -v nmcli >/dev/null 2>&1; then
+      # nmcli
+      for id in $(nmcli -terse -fields UUID connection show --active); do
+        currentdnss=$(nmcli -terse -fields ipv4.dns connection show $id | cut -d: -f2- | tr "," "\n")
+        if [ "$(echo "$currentdnss" | sort)" == "$(echo "$myhosts" | sort)" ]; then
+            log 'No dns change'
+        else
+            #statements
+            for dns in $currentdnss; do
+              nmcli connection modify $id -ipv4.dns $dns
+            done
+
+            for dns in $myhosts; do
+              nmcli connection modify $id +ipv4.dns $dns
+            done
+            log "Updating $id"
+            nmcli connection up $id >/dev/null
+            log 'Successful dns update'
+        fi
+      done
+    else
+      # resolv.conf
+      currentdnss=$(grep '^nameserver ' "$resolvconf" | cut -d' ' -f2)
+      if [ "$(echo "$currentdnss" | sort)" == "$(echo "$myhosts" | sort)" ]; then
+          log 'No dns change'
+      else
+        if [ -w "$resolvconf" ]; then
+          log "Updating $resolvconf"
+          otherlines=$(grep -v '^nameserver ' "$resolvconf")
+          echo "$otherlines"$'\n'"$nameservers" > "$resolvconf"
+          log 'Successful dns update'
+        else 
+          warning "No write access to $resolvconf, no change"
+        fi
+      fi
+    fi
+  else
+    error 'not enough responsive OpenNIC servers available'
+    exit 1
+  fi
+else
+  error 'not enough OpenNIC servers available'
+  exit 1
+fi

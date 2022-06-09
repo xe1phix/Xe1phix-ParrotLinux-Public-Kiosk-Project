@@ -1,0 +1,69 @@
+# Last Modified: Fri Apr  1 15:38:32 2016
+#include <tunables/global>
+
+# ------------------------------------------------------------------
+#
+#    Copyleft (C) 2016 Jacob Appelbaum <jacob@appelbaum.net>
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+
+
+/usr/sbin/NetworkManager {
+  #include <abstractions/base>
+  #include <abstractions/tor>
+  #include <abstractions/ubuntu-konsole>
+
+  capability net_admin,
+
+  /dev/rfkill rw,
+  /etc/NetworkManager/NetworkManager.conf.subgraph r,
+  /etc/NetworkManager/VPN/ r,
+  /etc/NetworkManager/conf.d/ r,
+  /etc/NetworkManager/conf.d/oz.conf r,
+  /etc/NetworkManager/dispatcher.d/ r,
+  /etc/NetworkManager/dispatcher.d/pre-down.d/ r,
+  /etc/NetworkManager/dispatcher.d/pre-up.d/ r,
+  /etc/NetworkManager/system-connections/ r,
+  /etc/NetworkManager/system-connections/* rw,
+  /etc/dhcp/dhclient.conf r,
+  /etc/hostname r,
+  /etc/libnl-3/classid r,
+  /etc/network/interfaces r,
+  /etc/network/interfaces.d/ r,
+  /etc/udev/udev.conf r,
+  /proc/*/cmdline r,
+  /proc/*/fd/ r,
+  /proc/*/net/psched r,
+  /proc/*/stat r,
+  /run/** rw,
+  /sbin/dhclient Px,
+  /sys/bus/ r,
+  /sys/class/ r,
+  /sys/class/net/ r,
+  /sys/class/rfkill/ r,
+  /sys/devices/pci*/*/net/** r,
+  /sys/devices/pci*/*/*/ieee80211/phy0/rfkill0/* r,
+  /sys/devices/pci*/*/*/ieee80211/phy0/uevent r,
+  /sys/devices/pci*/*/*/net/*/dev_id r,
+  /sys/devices/pci*/*/*/net/*/phys_port_id r,
+  /sys/devices/pci*/*/*/net/*/uevent r,
+  /sys/devices/pci*/*/*/uevent r,
+  /sys/devices/virtual/net/lo/dev_id r,
+  /sys/devices/virtual/net/lo/phys_port_id r,
+  /sys/devices/virtual/net/lo/uevent r,
+  /sys/devices/virtual/net/oz0/dev_id r,
+  /sys/devices/virtual/net/oz0/phys_port_id r,
+  /sys/devices/virtual/net/oz0/uevent r,
+  /usr/share/gvfs/remote-volume-monitors/ r,
+  /usr/share/gvfs/remote-volume-monitors/afc.monitor r,
+  /usr/share/gvfs/remote-volume-monitors/goa.monitor r,
+  /usr/share/gvfs/remote-volume-monitors/gphoto2.monitor r,
+  /usr/share/gvfs/remote-volume-monitors/mtp.monitor r,
+  /usr/share/gvfs/remote-volume-monitors/udisks2.monitor r,
+  /var/lib/NetworkManager/* rw,
+
+}
