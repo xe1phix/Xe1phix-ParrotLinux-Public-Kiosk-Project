@@ -10,33 +10,60 @@ tshark -2 -R $Filter -r $InFile -w $OutFile
 
 
 
+##-=============================-##
+##   [+] Basic protocols dump:
+##-=============================-##
 
-##-==========================-##
-##     [+] Filtering TCP packets
-##-==========================-##
+## ------------------------------------------------------------------------------ ##
+      tshark -i any -f 'port http' -Y http -l -N nNC      ## Dump HTTP Traffic
+## ------------------------------------------------------------------------------ ##
+      tshark -i any -f 'port smtp' -Y smtp -l -N nNC      ## Dump SMTP Traffic
+## ------------------------------------------------------------------------------ ##
+      tshark -i any -f 'port imap' -Y imap -l -N nNC      ## Dump IMAP Traffic
+## ------------------------------------------------------------------------------ ##
+
+
+
+##-==============================-##
+##   [+] Filtering TCP packets
+##-==============================-##
 tshark -f "tcp"
 
 
-##-==========================-##
-##     [+] Filtering UDP packets
-##-==========================-##
+##-==============================-##
+##   [+] Filtering UDP packets
+##-==============================-##
 tshark -f "udp"
 
 
 ##-======================================-##
-##  [+] 
+##  [+]
 ##-======================================-##
 tshark -f "tcp port 80" -i eth0
 
 
+
+##-==================================================-##
+##   [+] Show all ICMPv6 traffic from a pcap file:
+##-==================================================-##
+tshark -Y "icmpv6" -r $File
+
+
+##-====================================-##
+##   [+] Only show multicast traffic:
+##-====================================-##
+tshark -r $File -Y "eth.dst[0] & 1"
+
+
+
 ##-======================================-##
-##  [+] 
+##  [+]
 ##-======================================-##
 tshark -i eth0 -T fields -e ip.src -e ip.dst -e frame.protocols -E header=y
 
 
 ##-=======================-##
-##     [+] trace http requests 
+##     [+] trace http requests
 ##-=======================-##
 tshark -i eth0 -z proto,colinfo,http.request.uri,http.request.uri -R http.request.uri
 
@@ -102,7 +129,7 @@ The slice operator
 take a slice of a field if the field is a text string or a byte array.
 
 
-filter on the vendor portion of an ethernet address (the first three bytes) 
+filter on the vendor portion of an ethernet address (the first three bytes)
 eth.src[0:3] == 00:00:83
 http.content_type[0:4] == "text"
 
@@ -118,8 +145,8 @@ frame[-4:] == 0.1.2.3
 
 
 
-The "frame" protocol can be useful, 
-encompassing all the data captured 
+The "frame" protocol can be useful,
+encompassing all the data captured
 
 frame[100-199] contains "wireshark"
 
@@ -132,11 +159,11 @@ frame[4] == 0xff
 
 
 The membership operator
-A field may be checked for matches against a set of values 
+A field may be checked for matches against a set of values
 
 
 
-find traffic on common HTTP/HTTPS ports 
+find traffic on common HTTP/HTTPS ports
 tcp.port in {80 443 8080}
 
 
@@ -144,11 +171,11 @@ more verbose:
 tcp.port == 80 or tcp.port == 443 or tcp.port == 8080
 
 
-matches HTTP packets where the HOST header contains 
+matches HTTP packets where the HOST header contains
 http.request.uri == "https://www.wireshark.org/"
 
 
-matches HTTP packets where the HOST header contains acme.org, acme.com, or acme.net. 
+matches HTTP packets where the HOST header contains acme.org, acme.com, or acme.net.
 http.host matches "acme\\.(org|com|net)"
 
 
@@ -174,16 +201,16 @@ http.request.method == "GET"
 
 
 ##-============================================-##
-##     [+] 
+##     [+]
 ##-============================================-##
 tshark -r $File.pcap -Y "http.request" -Tfields -e "ip.src" -e "http.user_agent" | uniq
- 
+
 
 ##-============================================-##
-##     [+] 
+##     [+]
 ##-============================================-##
 tshark -r $File.pcap -Y "dns" -T fields -e "ip.src" -e "dns.flags.response" -e "dns.qry.name"
- 
+
 
 ##-===============================================================-##
 ##     [+] DNS servers were used by the clients for domain name resolutions
@@ -201,13 +228,13 @@ tshark -Y "dns.flags.response == 1" -Tfields -e frame.time_delta -e dns.qry.name
 ##     [+] Monitor HTTP requests and responses:
 ##-========================================-##
 tshark -Y "http.request or http.response" -Tfields -e ip.dst -e http.request.full_uri -e http.request.method -e http.response.code -e http.response.phrase -Eseparator=/s
- 
+
 
 ##-====================================-##
-##     [+] 
+##     [+]
 ##-====================================-##
 tshark -r $File.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}'
- 
+
 
 ##-=====================================-##
 ##     [+] Monitor x509 (SSL/TLS) certificates:
@@ -216,20 +243,20 @@ tshark -Y "ssl.handshake.certificate" -Tfields -e ip.src -e x509sat.uTF8String -
 
 
 ##-====================================-##
-##     [+] 
+##     [+]
 ##-====================================-##
 tshark -r $File.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico' -e google -e 'honeynet.org'
- 
+
 
 
 ##-====================================-##
-##     [+] 
+##     [+]
 ##-====================================-##
 tshark -r $File.pcap -Y "data-text-lines contains \"<script\"" -T fields -e frame.number -e ip.src -e ip.dst
- 
+
 
 ##-====================================-##
-##     [+] 
+##     [+]
 ##-====================================-##
 tshark -r $File.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico'  | grep 10.0.3.15 | sed -e 's/\?[^cse].*/\?\.\.\./g'
 
@@ -241,7 +268,7 @@ tshark -Y ‘http’ -r $File.pcap
 
 
 ##-===========================================-##
-##     [+] Show the IP packets sent from IP address 
+##     [+] Show the IP packets sent from IP address
 ##           192.168.252.128 to IP address 52.32.74.91
 ##-===========================================-##
 tshark -r $File.pcap -Y "ip.src==192.168.252.128 && ip.dst==52.32.74.91"
@@ -272,15 +299,15 @@ tshark -r $File.pcap -Y "http.request.method==GET && http.host==$Domain" -Tfield
 
 
 ##-======================================================-##
-##     [+] What is the session ID being used by 192.168.252.128 
+##     [+] What is the session ID being used by 192.168.252.128
 ##           for Amazon India store (amazon.in)?
 ##-======================================================-##
 tshark -r $File.pcap -Y "ip contains $Domain && ip.src==192.168.252.128" -Tfields -e ip.src -e http.cookie
 
 
 ##-=========================================================-##
-##     [+] What type of OS the machine on IP address 192.168.252.128 
-##           is using (i.e. Windows/Linux/MacOS/Solaris/Unix/BSD)? 
+##     [+] What type of OS the machine on IP address 192.168.252.128
+##           is using (i.e. Windows/Linux/MacOS/Solaris/Unix/BSD)?
 ##-=========================================================-##
 tshark -r $File.pcap -Y "ip.src==192.168.252.128 && http" -Tfields -e http.user_agent
 
@@ -292,7 +319,7 @@ tshark -Y ‘ssl’ -r $File.pcap
 
 
 ##-============================================-##
-##     [+] Only print the source IP and destination IP 
+##     [+] Only print the source IP and destination IP
 ##          for all SSL handshake packets
 ##-============================================-##
 tshark -r $File.pcap -Y "ssl.handshake" -Tfields -e ip.src -e ip.dst
@@ -317,7 +344,7 @@ tshark -r $File.pcap -Y "ip contains askubuntu"
 
 
 ##-================================================-##
-##     [+] IP address of the user who interacted 
+##     [+] IP address of the user who interacted
 ##          with with Ask Ubuntu servers (askubuntu.com)
 ##-================================================-##
 tshark -r $File.pcap -Y "ip.dst==151.101.1.69 || ip.dst==151.101.193.69 || ip.dst==151.101.129.69 || ip.dst==151.101.65.69" -Tfields -e ip.src
@@ -330,7 +357,7 @@ tshark -r $File.pcap -Y "dns && dns.flags.response==0" -Tfields -e ip.dst
 
 
 ##-============================================-##
-##     [+] Name of the antivirus solution? 
+##     [+] Name of the antivirus solution?
 ##           IP addresses of the machines running this
 ##-============================================-##
 tshark -r $File.pcap -Y "ip contains avast" -Tfields -e ip.src
@@ -338,13 +365,13 @@ tshark -r $File.pcap -Y "ip contains avast" -Tfields -e ip.src
 
 
 ##-=====================================-##
-##     [+] capture mysql queries sent to server 
+##     [+] capture mysql queries sent to server
 ##-=====================================-##
 tshark -i any -T fields -R mysql.query -e mysql.query
 
 
 ##-=======================================-##
-##     [+] 
+##     [+]
 ##-=======================================-##
 tshark -i eth0 -f 'not tcp port 22'
 
@@ -352,25 +379,26 @@ tshark -i eth0 -f 'not tcp port 22'
 
 icmp[icmptype] != icmp-echo and icmp[icmptype] != icmp-echoreply
 
-tshark -T fields -e http.host -r '%s' | sort | uniq -c | sort -nr
+tshark -T fields -e http.host -r $File.pcap | sort | uniq -c | sort -nr
 
-tshark -T fields -e http.host -e http.request.uri -Y 'http.request.method == \"GET\"' -r '%s' | sort | uniq
-tshark -Y 'http contains \"User-Agent:\"' -T fields -e http.user_agent -r '%s' | sort | uniq -c | sort -nr
+tshark -T fields -e http.host -e http.request.uri -Y 'http.request.method == \"GET\"' -r $File.pcap | sort | uniq
+tshark -Y 'http contains \"User-Agent:\"' -T fields -e http.user_agent -r $File.pcap | sort | uniq -c | sort -nr
 
-tshark -r '%s' -qz io,stat,10,tcp,udp,icmp,ip,smtp,smb,arp,browser
+tshark -r $File.pcap -qz io,stat,10,tcp,udp,icmp,ip,smtp,smb,arp,browser
 
-tshark -r '%s' -qz io,phs
+tshark -r $File.pcap -qz io,phs
 
 
 TCP Conversation
-tshark -r '%s' -qz conv,tcp
+tshark -r $File.pcap -qz conv,tcp
+
 
 
 IP Conversation
-tshark -r '%s' -qz conv,ip
+tshark -r $File.pcap -qz conv,ip
 
 UDP Conversation
-tshark -r '%s' -qz conv,udp
+tshark -r $File.pcap -qz conv,udp
 
 
 (proto,src_addr,src_port,dst_addr,dst_port)
@@ -379,15 +407,15 @@ tshark -r '%s' -qz conv,udp
 
 How Many | Port Used
 
-tcpdump -nn -r '%s' -p 'tcp or udp' | awk -F' ' '{print $5}' | awk -F'.' '{print $5}' | sed 's/:/ /g'  | sort | uniq -c | sort -n
+tcpdump -nn -r $File.pcap -p 'tcp or udp' | awk -F' ' '{print $5}' | awk -F'.' '{print $5}' | sed 's/:/ /g'  | sort | uniq -c | sort -n
 
 
 ALL IP List
-tcpdump -nn -r '%s' -p 'tcp or udp'
+tcpdump -nn -r $File.pcap -p 'tcp or udp'
 
 
 Request IP List
-tcpdump -nn -r '%s' -p 'tcp or udp' | awk -F' ' '{print $3}' | awk -F'.' '{print $1\".\"$2\".\"$3\".\"$4}' | sort | uniq | sort -n
+tcpdump -nn -r $File.pcap -p 'tcp or udp' | awk -F' ' '{print $3}' | awk -F'.' '{print $1\".\"$2\".\"$3\".\"$4}' | sort | uniq | sort -n
 
 
 
@@ -398,15 +426,14 @@ tcpdump -nn -r '%s' -p 'tcp or udp' | awk -F' ' '{print $3}' | awk -F'.' '{print
 
 
 
-ngrep -q -I '%s'
-mergecap '%s' -w %s'%s' -F pcap
-ngrep -q -I '%s' | grep -i '%s' | sort | uniq -c
-
+ngrep -q -I $File.pcap
+mergecap $File.pcap -w $File.pcap -F pcap
+ngrep -q -I $File.pcap | grep -i $File.pcap | sort | uniq -c
 
 
 
 ##-=======================================-##
-##     [+] 
+##     [+]
 ##-=======================================-##
 tshark -i eth0 -f 'tcp dport != { 80, 443 }'
 tshark -i eth0 -f 'tnot cp dport 80, 443 '
@@ -419,15 +446,15 @@ tcp.port == 80 || tcp.port == 443 || tcp.port == 8080
 
 Print all connections of a source IP address in pcap
 
-tshark -r data.pcap -R "ip.src==192.168.1.2" -T fields -e "ip.dst" |sort |uniq -c
+tshark -r $File.pcap -R "ip.src==192.168.1.2" -T fields -e "ip.dst" |sort |uniq -c
 
 
 
 
-Capture all tcp and udp packets in LAN, 
+Capture all tcp and udp packets in LAN,
 except packets coming to localhost (192.168.1.2)
 
-cpdump -n -i eth0 -w data.pcap -v tcp or udp and 'not host 192.168.1.2'
+tcpdump -n -i eth0 -w $File.pcap -v tcp or udp and 'not host 192.168.1.2'
 
 
 
@@ -451,7 +478,7 @@ tshark -nr $File -q -z io,phs >> IOstatistics.txt
 ##-================================================-##
 ##     [+] IPstatistics contains overall stats to/from endpoints
 ##-================================================-##
-tshark -nr $File -q -z endpoints,ip > IPstatistics.txt 
+tshark -nr $File -q -z endpoints,ip > IPstatistics.txt
 tshark -nr $File -q -z conv,ip >> IPstatistics.txt
 
 ##-===========================================-##
@@ -467,7 +494,7 @@ tshark -nr $File -q -z http_srv,tree >> http_info.txt
 ## ------------------------------------------------------------ ##
 ##     [?] Performing hostname resolution
 ## ------------------------------------------------------------- ##
-tshark -nr $File -N Nnt -z hosts > $File.txt 
+tshark -nr $File -N Nnt -z hosts > $File.txt
 cat $File.txt | grep '# TShark' -A 100000000 > hostnamesResolved.txt
 
 
@@ -536,7 +563,7 @@ tshark -r $File.pcap -z "follow,tcp,hex,192.168.3.200:46168,192.168.3.100:5150" 
 dtruss -a -f tshark
 
 
-tshark -f 'host '${i}'' -R "http.request" -T fields -e http.host -w $File.log -S 
+tshark -f 'host '${i}'' -R "http.request" -T fields -e http.host -w $File.log -S
 
 tshark -n -r $File.log -R "http.request" -T fields -e http.host > $File.txt
 
@@ -552,15 +579,15 @@ tshark -nn -r $File.pcap -z conv,ip > ip_convs
 tshark -nn -q -r $File.pcap -Y http.request.full_uri -T fields -e http.request.full_uri -e http.referer | grep 'moonstoneafgelekte.onewide.co.uk' >>
 
 
-tshark -i en0 -f "host bucket-name.s3.amazonaws.com"  -w $File.pcap
+tshark -i eth0 -f "host bucket-name.s3.amazonaws.com"  -w $File.pcap
 
 
 
 tshark -n -r $File.pcap -Y dns.qry.name -T fields -e dns.qry.name -q | grep '-' | head -1 > mta-20150711-id
 tshark -n -r $File.pcap -Y dns.qry.name -T fields -e dns.qry.name | sort -u > mta-20150711-dns-domains
-tshark -n -r $File.pcap -z endpoints,ip -q | head -2 >> mta-20150711-id 
-tshark -n -r $File.pcap -z endpoints,ether -q >> mta-20150711-id 
-tshark -n -r $File.pcap -c1 -V | grep -i src >> mta-20150711-id 
+tshark -n -r $File.pcap -z endpoints,ip -q | head -2 >> mta-20150711-id
+tshark -n -r $File.pcap -z endpoints,ether -q >> mta-20150711-id
+tshark -n -r $File.pcap -c1 -V | grep -i src >> mta-20150711-id
 tshark -n -r $File.pcap -Y http -T fields -e http.request.full_uri -e http.referer | sort -u > mta-20150711-http
 
 
@@ -578,7 +605,7 @@ tshark -r $File.pcap -T fields -e data | tr -d '\n' | tr -d ',' > $File
 
 
 ##-================================================-##
-##     [+] 
+##     [+]
 ##-================================================-##
 tshark -i eth0 -p -n -Q -l -Y dhcpv6.msgtype==7 && dhcpv6.iaprefix.pref_addr -T fields -e ipv6.dst -e dhcpv6.iaprefix.pref_addr-e dhcpv6.iaprefix.pref_len -- ip6 and udp and dst port 546
 
@@ -586,13 +613,13 @@ tshark -i eth0 -p -n -Q -l -Y dhcpv6.msgtype==7 && dhcpv6.iaprefix.pref_addr -T 
 
 
 ##-================================================-##
-##     [+] 
+##     [+]
 ##-================================================-##
 
-END=$(tshark -r $File.pcap -T fields -e tcp.stream | sort -n | tail -1); 
+END=$(tshark -r $File.pcap -T fields -e tcp.stream | sort -n | tail -1);
 for ((i=0;i<=END;i++));
-do 
-echo $i; tshark -r $File.pcap -qz follow,tcp,ascii,$i 
+do
+echo $i; tshark -r $File.pcap -qz follow,tcp,ascii,$i
 done
 
 
@@ -605,10 +632,10 @@ done
 
 
 ##-====================================-##
-##     [+] 
+##     [+]
 ##-====================================-##
 tshark -r $File.pcap -qz http_req,tree
- 
+
 
 ##-====================================-##
 ##     [+] List conversations by percentage:
@@ -671,30 +698,31 @@ tshark -r $File.pcap -Tfields -e dns.qry.name | awk '!a[$0]++' > $File.txt && ts
 
 
 ##-================================================-##
-##     [+] SMB carving - Stats on CLI ran by smb or smb2 
+##     [+] SMB carving - Stats on CLI ran by smb or smb2
 ##-================================================-##
 tshark -nr $File.pcap -q -z smb,srt > SMBstatistics.txt
 tshark -nr $File.pcap -q -z smb2,srt >> SMBstatistics.txt
 
 
 
-smb.pcap contains all conversations categorized by tshark dissectors as NBSS, SMB, or SMB2\n'
-tshark -nr "${pcap}" -Y nbss -w smb.pcap
+smb.pcap contains all conversations categorized by tshark dissectors as NBSS, SMB, or SMB2
+tshark -nr $File -Y nbss -w $File.pcap
 
 
 #DNS packet carving
 dns.pcap contains all conversations categorized by tshark dissectors as DNS
-tshark -nr "${pcap}" -Y 'dns' -w dns.pcap
+tshark -nr $File -Y 'dns' -w $File.pcap
 
 
 #DNS A record
 ##  DNS A query/responses have been outputted to dnsARecords.txt
-tshark -nr "${pcap}" -Y 'dns.qry.type == 1' -E header=y -T fields -e frame.number -e ip.src -e ip.dst -e dns.qry.name -e dns.a  > dnsARecords.txt
+
+tshark -nr $File -Y 'dns.qry.type == 1' -E header=y -T fields -e frame.number -e ip.src -e ip.dst -e dns.qry.name -e dns.a  > dnsARecords.txt
 
 
 #AbuseIPDB variable check
 echo "Performing IP Reputation lookups via AbuseIPDB. (Note: please ensure you have ran the AbuseIPDBInitial.sh script prior to use)"
-			tshark -nr "${pcap}" -T fields -e dns.a | tr ',' '\n' | sort | uniq > dstip.txt
+			tshark -nr $File -T fields -e dns.a | tr ',' '\n' | sort | uniq > dstip.txt
 				sed -i '1d' dstip.txt
 			while read ABU
 			do
@@ -711,34 +739,94 @@ fi
 
 Capture TCP stream
 
-    Step1 - capture network trafic): 
+    Step1 - capture network trafic):
 
-tshark -i eth0 -f "port 9088" -w capture.pcap
+tshark -i eth0 -f "port 9088" -w $File.pcap
 
 
     Step2 - list captured tcp streams):
 
- tshark -r capture.pcap -T fields -e tcp.stream | sort -u
+ tshark -r $File.pcap -T fields -e tcp.stream | sort -u
 
 
-    Step3 - dump the content of one particular tcp stream): 
+    Step3 - dump the content of one particular tcp stream):
 
-tshark -nr capture.pcap -q -d tcp.port==9088,http -z follow,http,ascii,_your_stream_number
+tshark -nr $File.pcap -q -d tcp.port==9088,http -z follow,http,ascii,_your_stream_number
 
 
 
-Noice the "-d tcp.port==9088,http" option to force http decoding on this port 
+Noice the "-d tcp.port==9088,http" option to force http decoding on this port
 as in this case it is a socks5 proxy running on that port.
 
 
 
 
 
-Basic protocols dump:
+tshark -i eth0 -r $File.pcap -qz io,phs
 
-# tshark -i any -f 'port http' -Y http -l -N nNC
-# tshark -i any -f 'port smtp' -Y smtp -l -N nNC
-# tshark -i any -f 'port imap' -Y imap -l -N nNC
+
+tshark -r $File.pcap | grep 'NB.*20\>' | sed -e 's/<[^>]*>//g' | awk '{print $3,$4,$9}' | sort -u
+
+
+tshark -r $File.pcap | grep 'NB.*1e\>' | sed -e 's/<[^>]*>//g' | awk '{print $3,$4,$9}' | sort -u
+
+
+tshark -r $File.pcap arp | grep has | awk '{print $3," -> ",$9}' | tr -d '?'
+
+
+tshark -r $File.pcap -Tfields -e "eth.src" | sort | uniq
+
+
+tshark -r $File.pcap -R "browser.command==1" -Tfields -e "ip.src" -e "browser.server" | uniq
+
+
+tshark -r $File.pcap -Tfields -e "eth.src" | sort |uniq
+
+
+tshark -r $File.pcap -qz ip_hosts,tree
+
+
+tshark -r $File.pcap -R "http.request" -Tfields -e "ip.src" -e "http.user_agent" | uniq
+
+
+tshark -r $File.pcap -R "dns" -T fields -e "ip.src" -e "dns.flags.response" -e "dns.qry.name"
+
+
+tshark -r $File.pcap -R http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}'
+
+
+tshark -r $File.pcap -R http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico' -e google -e 'honeynet.org'
+
+
+tshark -r $File.pcap -qz http_req,tree
+
+
+tshark -r $File.pcap -R "data-text-lines contains \"<script\"" -T fields -e frame.number -e ip.src -e ip.dst
+
+
+tshark -r $File.pcap -R http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico'  | grep 10.0.3.15 | sed -e 's/\?[^cse].*/\?\.\.\./g'
+
+
+
+
+
+
+##-=============================-##
+##   [+] Basic protocols dump:
+##-=============================-##
+
+## ------------------------------------------------------------------------------ ##
+      tshark -i any -f 'port http' -Y http -l -N nNC      ## Dump HTTP Traffic
+## ------------------------------------------------------------------------------ ##
+      tshark -i any -f 'port smtp' -Y smtp -l -N nNC      ## Dump SMTP Traffic
+## ------------------------------------------------------------------------------ ##
+      tshark -i any -f 'port imap' -Y imap -l -N nNC      ## Dump IMAP Traffic
+## ------------------------------------------------------------------------------ ##
+
+      ## Dump  Traffic
+      ## Dump  Traffic
+      ## Dump  Traffic
+      ## Dump  Traffic
 
 where options mean:
 
@@ -748,39 +836,56 @@ where options mean:
     -l: flush stdout for each line
     -N: resolve IP to DNS names concurrently
 
-Dump protocol details, where -V means verbose output:
 
-# tshark -i any -f 'port http' -Y http -V
+##-==================================================-##
+##   [+] Show all ICMPv6 traffic from a pcap file.
+##-==================================================-##
+tshark -Y "icmpv6" -r $File
+
+
+##-====================================-##
+##   [+] Show only multicast traffic
+##-====================================-##
+tshark -r $File -Y "eth.dst[0] & 1"
+
+
+
+
+
+Dump protocol details,
+where -V means verbose output:
+
+tshark -i any -f 'port http' -Y http -V
 
 Capture packets to a file (equivalant to tcpdump):
 
-# dumpcap -i any -f 'port http' -w dump.cap
+dumpcap -i any -f 'port http' -w dump.cap
 
 Analyze already captured packets, where -2 and -R mean two-pass wireshark filter that catches protocol elements spanning multiple packets:
 
-# tshark -r dump.cap -2 -R http -V
+tshark -r dump.cap -2 -R http -V
 
 Extract a protocol flow No.10 as ASCII text:
 
-# tshark -r dump.cap -q -z follow,tcp,ascii,10
+tshark -r dump.cap -q -z follow,tcp,ascii,10
 
 Extract specific procotol fields as comma-separated lines:
 
-# tshark -r dump.cap -2 -R http -T fields -E separator=, -e tcp.stream \
+tshark -r dump.cap -2 -R http -T fields -E separator=, -e tcp.stream \
     -e http.request.method -e http.request.uri -e http.response.code -e http.response.phrase
 
 Analyze traffic on non-standard port:
 
-# tshark -i any -f 'port 4000' -d tcp.port==4000,http -Y http
+tshark -i any -f 'port 4000' -d tcp.port==4000,http -Y http
 
 
 
-ether proto 
+ether proto
 
 atalk
-    the filter checks both for the AppleTalk etype in an Ethernet frame and for a SNAP-format packet as it does for FDDI, Token Ring, and 802.11; 
+    the filter checks both for the AppleTalk etype in an Ethernet frame and for a SNAP-format packet as it does for FDDI, Token Ring, and 802.11;
 aarp
-    the filter checks for the AppleTalk ARP etype in either an Ethernet frame or an 802.2 SNAP frame with an OUI of 0x000000; 
+    the filter checks for the AppleTalk ARP etype in either an Ethernet frame or an 802.2 SNAP frame with an OUI of 0x000000;
 
 
 IPv4 broadcast or multicast packets that were not sent via Ethernet broadcast or multicast:
@@ -813,11 +918,11 @@ ether multicast
 ether[0] & 1 != 0
 
 
-IPv4 multicast packet. 
+IPv4 multicast packet.
 ip multicast
 
 
-IPv6 multicast packet. 
+IPv6 multicast packet.
 ip6 multicast
 
 ip broadcast
