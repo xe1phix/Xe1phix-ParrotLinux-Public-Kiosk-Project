@@ -108,11 +108,9 @@ snmpwalk -c public -v 1 $1 1.3.6.1.2.1.6.13.1.3 2>&1 | tee "snmpwalk_tcp_ports.t
 snmpwalk -c public -v1 $IP
 
 
-##-======================================================================-##
-##  [+] extract only system users use this value 1.3.6.1.4.1.77.1.2.25,
-##-======================================================================-##
-snmpwalk -c public -v1 $IP <MIB value>
-
+## ---------------------------------------------------------------------- ##
+##  [+] extract only system users use this value 1.3.6.1.4.1.77.1.2.25
+## ---------------------------------------------------------------------- ##
 snmpwalk public -v1 $IP 1 |grep 77.1.2.25 |cut -d” “ -f4
 
 
@@ -139,13 +137,6 @@ snmpwalk -c public -v1 $IP 1 |grep hrSWInstalledName
 ## ----------------------------------- ##
 snmpwalk -c public -v1 $IP 1 |grep tcpConnState |cut -d"." -f6 |sort -nu
 
-
-
-snmpbulkwalk -v 2 -c public IP
-
-
-
-snmpget -v 1 -c public IP version
 
 
 
