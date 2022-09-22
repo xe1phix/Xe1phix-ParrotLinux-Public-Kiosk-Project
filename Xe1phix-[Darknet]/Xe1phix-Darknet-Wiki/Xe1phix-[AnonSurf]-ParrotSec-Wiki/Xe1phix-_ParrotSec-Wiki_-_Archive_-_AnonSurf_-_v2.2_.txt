@@ -1,0 +1,480 @@
+
+
+Table of Contents:
+
+What is AnonSurf?
+What is Tor?
+Tor technical details
+What is I2P?
+I2P technical details
+The AnonSurf menu toolbar
+Starting Tor from parrot menu
+Stopping Tor from parrot menu
+Starting TorBrowser
+Starting I2P from parrot menu
+Starting Tor from parrot menu
+Changing tor identity
+Using AnonSurf through the CommandLine Interface (CLI)
+Additional CLI tricks
+Daemon Status Checks
+Check your ip on the CLI
+A couple good intro to Darknet videos:
+Additional advice for i2p users:
+References
+
+
+What is AnonSurf?
+
+Anonsurf [1] is Parrot's anonymous mode to force connections through tor and/or the i2p network. Anonsurf's usage has a graphical interface, and a 
+CommandLine Interface (CLI). 
+
+
+What is Tor?
+
+Tor [2] is a SOCKS4 [3] & SOCKS5 encryption protocol. 
+Tor tunnels all traffic running across the users network anonymously. 
+Tor conceals a user's location and network data from anyone monitoring the user locally, and remotely. 
+
+Tor has several use cases: 
+[+] used with on the browser (torbrowser & iceweasel)  
+[+] IRC [4] clients (hexchat)
+[+] Instant messanging (torchat [5], tormessanger)
+[+] Hidden servers (Creating .onion sites)
+
+Tor technical details:
+
+The Tor protocol works by: 
+[+] multiplexing [6] multiple “circuits” over a single node-to-node TLS connection. 
+[+] Tor traffic is routed through 3 nodes by default: Guard, relay, and exit. 
+
+TorRoutingDiagram.png
+
+
+
+To be able to route multiple relays, Tor has something called stream multiplexing capability: 
+[+] multiple TCP connections can be carried over a single Tor circuit. 
+[+] Each node knows only the source and destination pairing for a circuit. It does not know the whole path.
+
+TorCircuitsAndStreams.png
+
+
+Taken from Mike Perry's talk at blackhat in 2007 found here [7]
+
+Tor technical details described here [8]
+
+
+
+
+
+
+What is i2p?
+
+I2P [9] is a collection of anonymous unidirectional networking protocols that operate on the network layer. 
+I2p mainly uses a http proxy (port 4444) protocol called the i2ptunnel. 
+I2p routes traffic through .i2p TLD's called eepsites (example: inr.i2p).
+
+There are two kinds of tunnels:
+
+[+] outbound tunnels are those tunnels used to send messages away from the tunnel creator
+[+] inbound tunnels are those tunnels used to bring messages to the tunnel creator.
+
+
+
+I2P is an anonymous network layer protocol. This means it is robustly designed to scale across many platforms: 
+
+[+] Applicaton layer clients (i2pbrowser, iceweasel, etc)
+[+] IRC clients (hexchat, Xchat, etc)
+[+] P2P networks (Robert, I2phex, i2psnark, etc)
+[+] instant messanging (i2p-messanger, i2p-talk)
+[+] Email (I2P-Bote, Susimail, etc). 
+
+
+There are a couple interfaces written for additional ports to be possible:
+
+[+] SAM (Simple Anonymous Messaging) is a protocol which allows a client application written in any programming language 
+to communicate over I2P, by using a socket-based interface to the I2P router
+[+] BOB (Basic Open Bridge) is a less complex app to router protocol similar to "SAM"
+[+] I2P Webserver - A tunnel pointed to a Jetty webserver run on localhost:7658 for hosting a I2P eepsite (.i2p TLD). 
+[+] Irc2P - A IRC tunnel to the default anonymous IRC network.
+
+
+There are several other projects porting off the i2p conceptualization such as: 
+
+[+] Tahoe-LAFS [10] - A secure, decentralized, fault-tolerant, distributed data store and distributed file system. 
+[+] Imule - Uses the Kademlia algorithm and tunnels it through the I2P network. 
+[+] Syndie - A content distributing application which supports connecting to blogs, newsgroups, forums, etc.
+[+] I2PBerry - A Linux distribution which can be used as a router to encrypt and route network traffic through the I2P network
+[+] Outproxy Tor plugin
+
+
+
+
+I2P technical details:
+
+
+[+] routerInfo - a data structure to provide routers the information necessary for contacting 
+a specific router (their public keys, transport addresses, etc).
+[+] leaseSet - gives routers the information necessary for contacting a particular destination. 
+
+ElGamal/AES+SessionTags [11] is used for end-to-end encryption in several parts of I2P:
+
+[+] To encrypt router-to-router tunnel building messages.
+[+] For encryption of some netDb stores and queries sent to floodfill routers (destination-to-router or router-to-router).
+[+] ElGamal is used to encrypt IV's and Session keys in a single block.
+
+AES is used for symmetric encryption, in several cases:
+
+[+] To transport encryption (see section "Transports") after DH key exchange
+[+] AES encrypted payload using that key and IV.
+[+] encryption of some netDb stores and queries sent to floodfill routers (destination-to-router or router-to-router).
+
+
+More information on the i2p protocol here [12]
+More information on the i2p encryption mention here [13]
+
+I2P actually created its own protocol stack [13]:
+I2pProtocolStack.png
+
+
+I2P's technical details described here
+https://geti2p.net/en/docs/how/tech-intro
+
+I2P research papers found here [14]
+
+
+The AnonSurf menu toolbar:
+
+The Anonsurf mode menu option was created for an easy-to-use interface. 
+There are several options to choose from:
+[+] Anonymous Mode Start
+[+] Anonymous Mode Stop
+[+] Change Identity
+[+] Start I2P Services
+[+] Stop I2P Services
+
+
+Below is the list of options anonsurf offers:
+Anonsurf-Toobar.png
+
+
+
+
+Anonymous mode start
+
+Choosing the Anonymous Mode Start option will do several things:
+
+[+] Kill all applications that would leak your current IP Address
+[+] Cleans the application cache for a clean, untainted browser session. 
+[+] If tor daemon isnt running, it is launched.
+[+] Forces all future connections through the tor network
+[+] Stops resolvconf.service
+[+] Modifies resolv.conf to use Tor and FrozenDNS for future DNS queries
+[+] Restarts resolvconf.service
+[+] Modifies the iptables ruleset to restrict connects exclusively to the tor network.
+
+Start-Tor.png
+
+
+
+
+Starting TorBrowser [15]
+
+When you start tor browser a few things will happen:
+[1] Tor version check is performed
+[2] Tor browser signature is downloaded to verify any MITM attempts 
+[3] Tor tarball is downloaded
+[4] The tor tarball is verified by the developers signature
+[5] Either a GOOD SIGNATURE notification is presented or a SIGNATURE VERIFICATION FAILED.
+[6] Tor is then decompressed and launched. 
+
+
+
+Starting I2P from anonsurf menu
+
+To start i2ptunnel with anonsurf click the Start I2p Services within the anonsurf menu option:
+
+Start-I2p.png
+
+
+Stopping I2P from anonsurf menu
+
+To stop an i2ptunnel from the anonsurf menu 
+click on the Stop I2p Services option within the anonsurf menu option:
+
+Stop-I2p.png
+
+
+
+
+Using AnonSurf through the CommandLine Interface (CLI)
+
+To show anonsurf binary options type:
+anonsurf --help
+
+anonsurf-help.png
+
+
+To start tor daemon from the CLI Type:
+anonsurf start
+
+
+When you start Anonymous Mode on anonsurf It will present you with a notification alert 
+indicating it is Killing leaking services: 
+AnonSurfKillingLeakingServices.png
+
+
+
+
+
+Additional AnonSurf CommandLine Interface (CLI) Tricks
+
+
+
+To double check that your DNS queries will be restricted to Tor remote DNS & FrozenDNS for future DNS queries 
+Type the following:
+
+cat /etc/resolv.conf
+cat /etc/resolv.conf.head
+cat /etc/resolv.conf.bak
+
+CheckResolvConf.png
+
+
+
+
+To start i2ptunnel from the CLI Type:
+anonsurf starti2p
+AnonSurfStartI2pCLI.png 
+
+
+To stop i2ptunnel from the CLI Type:
+anonsurf stopi2p
+AnonSurfStopI2pCLI.png 
+
+
+
+
+Daemon Status Checks
+
+To find out the status of running daemons on anonsurf through the cli type:
+anonsurf status
+
+
+Checking the tor service status:
+
+You can check the status of these daemons by typing couple easy commands:
+
+systemctl status tor.service
+service --status-all | grep "tor"
+
+The same can be done with i2p:
+systemctl status i2p.service
+service --status-all | grep "i2p"
+
+/usr/bin/i2prouter console
+/usr/bin/i2prouter status
+/usr/bin/i2prouter dump
+
+
+
+
+
+
+
+
+
+Changing tor identity:
+
+AnonSurf has a built in option called "Change Identity" menu option. 
+This does 3 things: 
+[+] clears browser state
+[+] closes tabs
+[+] And obtains a fresh Tor circuit for future requests
+
+
+Through the commandline:
+AnonSurfChangeIdentity.png
+
+Through the GUI menu option:
+AnonSurfChangeIdentityGUI.png
+
+
+
+
+To Check your ip and verify your tor connection on the CLI type:
+anonsurf myip
+
+AnonSurfMyIPCLI.png
+
+
+
+A couple good intro to Darknet videos:
+
+Intro to Darknets Tor and I2P:
+https://www.youtube.com/watch?v=tjJYC2LuJl0
+
+24C3: To be or I2P:
+https://www.youtube.com/watch?v=TsfdzfGZyu0
+
+Defcon15 Mike Perry Securing the Tor Network:
+https://www.youtube.com/watch?v=e0TUNRFjkR0
+
+
+
+
+
+Additional advice for i2p users:
+
+To check if your iceweasel preferences are setup correctly 
+open up the about:preferences in a new tab:
+I2pPreferences.png
+
+
+Then the advanced tab:
+I2pBrowserNetworking.png
+
+
+Under the network tab, and then choose setttings
+A new window will open up and make sure these settings are filled in:
+I2prouter uses HTTP Proxy on 127.0.0.1:4444
+I2prouter uses HTTPS Proxy on 127.0.0.1:4445
+I2pConnectionSettings.png
+
+
+
+I2p uses eepsites to access sites with the .i2p TLD
+http://127.0.0.1:7657/home
+
+
+
+
+
+Subscribing to another users hosts.txt file involves giving them a certain amount of trust.
+Be very careful when adding new hosts files
+
+What are some good trused subscription links?
+
+http://i2p-projekt.i2p/hosts.txt
+http://i2host.i2p/cgi-bin/i2hostetag
+http://stats.i2p/cgi-bin/newhosts.txt
+http://no.i2p/export/alive-hosts.txt
+
+
+
+
+http://inr.i2p/browse/			## I2P Name Registry is a domain name registration service for I2P
+http://no.i2p/browse/			## backup of inr.i2p
+
+
+add I2P Name Registry subscription link into your routers addressbook:
+
+http://localhost:7657/susidns/addressbook.jsp?book=private&hostname=inr.i2p&destination=GGB99wXYBnX-wOxQ~Xrvo7AvngoYgifvZZL54ksZWzclcirG7AysqfkAKyv906PxfM4y2DcN2K9m4-D99yFj-1BdnUuIEqfi2yuaaVoWuOffT3h9ne~kZnq3C-wrmczD70Gxk4shvSVxMdUEFvEip8QY4K0R-FiKBsFAfWGTE3b9d-QCzP0H9VP5V-CaYjYVQuMRgMluk9gnoLRipvV7483f~rmGgYX8xwygEAQ3v9P4hrAlJrP0lWJLI1K6KQucP3THIxZ4A9Xxnl0I7EZAT8bHwzschFrcDPYM~DtQdkJTz2VphocbNLfIExTrFt88-xC69WE-fSbaMf9jucT4f5kdpfpRu0kM~am40etxPs8uXGF-L9IXCjgUkJHrWdPHeGhnx-ye2xvUTLO2jyga8iY89Ee3IpqivVUg-iAQJzX9NXC29sf0YzNj8d8mdWRNuzbLSx9CVJ3l1NPJr4k7hmCqf8lBGXNIFZQL4Wez1PPcM4gw0o73gqIxkxvVzVcpAAAA
+
+
+
+
+Addressbook Subscription technical details: 
+
+I2P supports Base32 hostnames similar to Tors .onion addresses. Base32 addresses are much shorter and easier to handle than the full 516-character Base64 Destinations or addresshelpers. Example: ukeu3k5oycgaauneqgtnvselmt4yemvoilkln7jpvamvfx7dnkdq.b32.i2p
+In Tor, the address is 16 characters (80 bits), or half of the SHA-1 hash. I2P uses 52 characters (256 bits) to represent the full SHA-256 hash. The form is {52 chars}.b32.i2p.
+Base32 is implemented in the naming service, which queries the router over I2CP to lookup the LeaseSet to get the full Destination. Base32 lookups will only be successful when the Destination is up and publishing a LeaseSet.
+
+
+Add eepsites to your subscription addressbook:
+
+When opening links for the first time, it will ask you if you would like to save the eepsite Base32 address to your subscription
+addressbook. If you trust the provider, choose:
+"save {i2peepsite}.i2p to router address book and continue to website"
+I2pAddBoteEepsite.png
+
+
+Once you have saved the base32 address to your personal subscription addressbook you wont see this prompt whenever 
+you visit the eepsite again. The SusiDNS will resolve the eepsite url through the SHA512 hash associated with that 
+eepsites .i2p.
+
+
+
+
+
+You can change your browsers User Interface (UI) to a dark theme by going to the url:
+http://127.0.0.1:7657/configui
+
+
+And choosing 
+(x) midnight
+(x) Set theme universally across all apps
+
+I2pUserInterfaceMidnight.png
+
+
+After Configuring the UI your browser should look like this:
+
+I2pUIApply.png
+
+
+## --------------------------------------------- ##
+##   [?]  To start a Irc2P (the IRC tunnel for I2P)
+## --------------------------------------------- ##
+Point your IRC client to localhost:6668 and say hi to us on #i2p
+
+
+## ------------------------------------------------------- ##
+##   [?]  Check if your version of i2p is up to date go to:
+## ------------------------------------------------------- ##
+http://127.0.0.1:7657/configupdate
+
+
+## ------------------------------------------------- ##
+##   [?]  Access i2psnark (the default torrent tunnel):
+## ------------------------------------------------- ##
+http://127.0.0.1:7657/i2psnark/
+
+
+## -------------------------------------------------- ##
+##   [?]  Add I2P Eepsites to your DNS subscriptions:
+## -------------------------------------------------- ##
+http://127.0.0.1:7657/susidns/subscriptions
+
+
+
+## ----------------------------------------------------- ##
+##   [?]  The best resource for name resolution is inr.i2p
+## ----------------------------------------------------- ##
+irc.echelon.i2p
+irc.postman.i2p
+irc.killyourtv.i2p
+irc.devfs.i2p
+irc.dg.i2p
+irc.undefined.i2p
+irc.welterde.i2p
+
+
+## ---------------------------------------- ##
+##   [?]  IMule .nodes file can be found at:
+## ---------------------------------------- ##
+http://echelon.i2p/imule/nodes.dat
+
+
+
+## ----------------------------------------- ##
+##   [?]  References:
+## ----------------------------------------- ##
+[1] https://github.com/parrotsec/anonsurf
+[2] https://en.wikipedia.org/wiki/Tor_%28anonymity_network%29
+[3] https://en.wikipedia.org/wiki/SOCKS
+[4] https://en.wikipedia.org/wiki/Internet_Relay_Chat
+[5] https://github.com/prof7bit/TorChat/wiki
+[6] https://en.wikipedia.org/wiki/Multiplexing
+[7] https://www.blackhat.com/presentations/bh-usa-07/Perry/Whitepaper/bh-usa-07-perry-WP.pdf
+[8] https://www.torproject.org/docs/documentation.html.en
+[9] https://en.wikipedia.org/wiki/I2P
+[10] https://en.wikipedia.org/wiki/Tahoe-LAFS
+[11] https://geti2p.net/en/docs/how/elgamal-aes
+[12] https://geti2p.net/spec/cryptography
+[13] https://geti2p.net/en/docs/protocol
+[14] https://geti2p.net/en/papers/
+[15] https://github.com/TheTorProject/gettorbrowser
+https://www.freehaven.net/anonbib/
+https://www.whonix.org/wiki/I2P
+http://i2p-projekt.i2p/en/faq#subscriptions
+http://www.i2p2.i2p/naming.html
