@@ -80,8 +80,8 @@ mount --read-only /dev/mapper/loop0p1 $Dir
 ##-==========================================================-##
 ##   [+] Unmount EWF image as Loop filesystem using umount:
 ##-==========================================================-##
-umount p1
-kpartx -d EWF/ewf1
+umount $Dir
+kpartx -d $Dir/ewf1
 
 ##-======================================================-##
 ##   [+] Unmount EWF Loop filesystem using fusermount:
