@@ -29,7 +29,7 @@ ewfacquirestream -t encase7 -d sha256 -c bzip2:best -e Xe1phix -m removable -t $
 ##   [+] Pipe them into ewfacquirestream
 ##-=================================================-##
 cat $File.raw.??? | ewfacquirestream
-cat $File.??? | ewfacquirestream  -c best -m fixed -t $File -S 1T 
+cat $File.??? | ewfacquirestream  -c best -m fixed -t $File -S $Size 
 
 
 ##-==============================================================-##
@@ -80,8 +80,8 @@ mount --read-only /dev/mapper/loop0p1 $Dir
 ##-==========================================================-##
 ##   [+] Unmount EWF image as Loop filesystem using umount:
 ##-==========================================================-##
-umount p1
-kpartx -d EWF/ewf1
+umount $Dir
+kpartx -d $Dir/ewf1
 
 ##-======================================================-##
 ##   [+] Unmount EWF Loop filesystem using fusermount:
