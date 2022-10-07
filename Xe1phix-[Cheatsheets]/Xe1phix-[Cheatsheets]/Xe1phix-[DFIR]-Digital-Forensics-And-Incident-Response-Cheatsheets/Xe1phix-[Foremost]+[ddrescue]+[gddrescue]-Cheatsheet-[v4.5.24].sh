@@ -10,7 +10,7 @@ foremost -t all -i /$Dir/$File -o /$Dir/
 ##-====================================================================-##
 ##   [+] Clone a partition from physical disk /dev/sda, partition 1
 ##       to physical disk /dev/sdb, partition 1 with e2image
-##-========================================================================-##
+##-====================================================================-##
 e2image -ra -p /dev/sda1 /dev/sdb1
  
  
