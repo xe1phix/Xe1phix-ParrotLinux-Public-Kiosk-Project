@@ -11,12 +11,12 @@
 	e2fsck -c /dev/sda1         ## mark all bad blocks and add them to the bad block inode to prevent 
                                 ## them from being allocated to files or directories
 ## ----------------------------------------------------------------------------------------------------- ##
-	e2fsck -p					## Automatic repair (no questions)
-	e2fsck -n					## Make no changes to the filesystem
-	e2fsck -y					## Assume "yes" to all questions
-	e2fsck -c					## Check for bad blocks and add them to the badblock list
-	e2fsck -f					## Force checking even if filesystem is marked clean
-	e2fsck -v					## Be verbose
+	e2fsck -p                   ## Automatic repair (no questions)
+	e2fsck -n                   ## Make no changes to the filesystem
+	e2fsck -y                   ## Assume "yes" to all questions
+	e2fsck -c                   ## Check for bad blocks and add them to the badblock list
+	e2fsck -f                   ## Force checking even if filesystem is marked clean
+	e2fsck -v                   ## Be verbose
 ## ----------------------------------------------------------------------------------------------------- ##
 	e2fsck -b superblock        ## Use alternative superblock
 	e2fsck -B blocksize         ## Force blocksize when looking for superblock
