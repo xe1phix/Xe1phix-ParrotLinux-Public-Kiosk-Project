@@ -18,14 +18,14 @@
 	e2fsck -f                   ## Force checking even if filesystem is marked clean
 	e2fsck -v                   ## Be verbose
 ## ----------------------------------------------------------------------------------------------------- ##
-	e2fsck -b superblock        ## Use alternative superblock
-	e2fsck -B blocksize         ## Force blocksize when looking for superblock
-	e2fsck -j external_journal  ## Set location of the external journal
-	e2fsck -l bad_blocks_file   ## Add to badblocks list
-	e2fsck -L bad_blocks_file   ## Set badblocks list
+	e2fsck -b $Superblock			## Use alternative superblock
+	e2fsck -B $BlockSize			## Force blocksize when looking for superblock
+	e2fsck -j $Dir				## Set location of the external journal
+	e2fsck -l $BadBlocksFile		## Add to badblocks list
+	e2fsck -L $BadBlocksFile		## Set badblocks list
 ## ----------------------------------------------------------------------------------------------------- ##
-	badblocks -o badblocks.rpt /dev/sda3 $TotalBlockCount
-	e2fsck -f -l badblocks.rpt /dev/sda1
+	badblocks -o $BadBlocks.rpt /dev/sda3 $TotalBlockCount
+	e2fsck -f -l $BadBlocks.rpt /dev/sda1
 ## ----------------------------------------------------------------------------------------------------- ##
 
 
