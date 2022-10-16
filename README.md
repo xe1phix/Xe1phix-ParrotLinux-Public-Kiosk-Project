@@ -30,6 +30,17 @@
 
 - [x] Hardened Kernel Runtime Parameters
 
+        - [x] Kernel Self Protection Project (KSPP)
+                - [x] pti=on                     - Kernel Page Table Isolation
+                - [x] slub_debug=ZF              - SLUB redzoning and sanity checking
+                - [x] slub_debug=P               - slub/slab allocator free poisoning
+                - [x] page_poison=1              - Enable buddy allocator free poisoning
+                - [x] iommu.strict=1             - Force IOMMU TLB invalidation
+                - [x] slab_nomerge               - Disable slab merging - (makes many heap overflow attacks more difficult)
+                - [x] init_on_alloc=1            - Wipe slab and page allocations
+                - [x] randomize_kstack_offset=on - Randomize kernel stack offset on syscall entry
+
+
         - [x] Blacklist IPv6
                 - [x] ipv6.disable=1
                 - [x] noipv6
@@ -38,13 +49,13 @@
 
         - [x] Modprobe Blacklisting
                 - [x] Bluetooth Blacklisting
-                        - [x] btsdio            - Bluetooth SDIO driver
-                        - [x] btusb             - 
-                        - [x] btintel           - Intel
-                        - [x] btrtl             - Realtek Bluetooth
-                        - [x] bt3c_cs           - 3Com Bluetooth PCMCIA
-                        - [x] btmrvl            - Bluetooth driver ver 1.0
-                        - [x] btmrvl_sdio       - BT-over-SDIO
+                        - [x] btsdio                - Bluetooth SDIO driver
+                        - [x] btusb                 - 
+                        - [x] btintel               - Intel
+                        - [x] btrtl                 - Realtek Bluetooth
+                        - [x] bt3c_cs               - 3Com Bluetooth PCMCIA
+                        - [x] btmrvl                - Bluetooth driver ver 1.0
+                        - [x] btmrvl_sdio           - BT-over-SDIO
                         - [x] btqca                 - Qualcomm Atheros family
                         - [x] btbcm                 - Broadcom
                         - [x] bluetooth_6lowpan     - Bluetooth 6LoWPAN
@@ -55,7 +66,6 @@
                 - [x] Apple Blacklisting
                         - [x] appletalk
                         - [x] thunderbolt_net
-                        - [x] 
                         - [x] hfs
                         - [x] hfsplus
                         - [x] appletouch
@@ -72,4 +82,5 @@
                         - [x] nfsv3
                         - [x] nfsv4
 
-                        
+
+- [Kernel Self Protection Project (KSPP)](https://kernsec.org/wiki/index.php/Kernel_Self_Protection_Project/Recommended_Settings#kernel_command_line_options)
