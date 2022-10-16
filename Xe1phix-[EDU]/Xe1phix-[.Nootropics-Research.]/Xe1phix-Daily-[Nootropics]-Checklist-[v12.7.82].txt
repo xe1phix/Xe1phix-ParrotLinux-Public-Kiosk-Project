@@ -6,26 +6,27 @@
 ##                    Daily nootropics regimen template.
 ## ------------------------------------------------------- ##
 
-<----------------------->
-   | Choline Bitrate |     ~-> (1 gram)
-<----------------------->
-    [+] Enhances the production of acetylcholine in neurons.
-    [+] Primary component of the neurotransmitter acetylcholine
-    [+] Cholinergic neurotransmission (as a precursor to acetylcholine synthesis).
-    [+] Prevents fat deposits in the liver
-    [+] Facilitates the movement of fats into cells. 
-    [+] Found in all living cells
-    [+] Regulates brain tissue formation and maintenance.
-    [+] Allows acetylcholine to accumulate at higher levels than that which it otherwise would.
-    [+] 
-    [+] 
-    [+] 
 
-<------------------------------------------------>
+<----------------------->
+  | Choline Bitrate |     ~-> (1 gram)
+<----------------------->
+
+## --------------------------------------------------------------------- ##
+##    [+] Enhances the production of acetylcholine in neurons.
+##    [+] Primary component of the neurotransmitter acetylcholine
+##    [+] Cholinergic neurotransmission 
+##        [?] As a precursor to acetylcholine synthesis
+##    [+] Prevents fat deposits in the liver
+##    [+] Facilitates the movement of fats into cells. 
+##    [+] Found in all living cells
+##    [+] Regulates brain tissue formation and maintenance.
+##    [+] Allows acetylcholine to accumulate at higher levels
+## --------------------------------------------------------------------- ##
+
+
+<------------------------------------------------->
    | Citicoline (Cytidine-5'-diphosphocholine) |     ~-> (1 gram)
-<------------------------------------------------>
-   | CDP-Choline
-<------------------------------------------------>
+<------------------------------------------------->
     [+] Provides neuroprotective properties against stroke and dementia
     [+] Enhances the production of acetylcholine in neurons.
     [+] Modulates acetylcholine, dopamine, and glutamate.
@@ -35,28 +36,28 @@
     [+] Improves the integrity of neuronal membranes.
     [+] Supports the synthesis and maintenance of cell membranes.
     [+] Involved in phospholipid metabolism
-## -------------------------------------------------------------------------------- ##
-    [+] Provides vital nutrients required to support 
-        the body's regeneration of Phospholipids. 
+## ----------------------------------------------------------------------------------- ##
+    [+] Provides vital nutrients required to support regeneration of Phospholipids.
+## ----------------------------------------------------------------------------------- ##
         [?] Phospholipids make up 30% of our brain tissue
         [?] Phospholipids provide essential protection for neurons
         [?] Phospholipids support neural communication 
 ## -------------------------------------------------------------------------------- ##
     [+] Provides neuroprotective properties against stroke and dementia
-    [+] 
 ## -------------------------------------------------------------------------------- ##
     [+] Clinical trials studying Citicoline have reported: 
-          [+] Improved memory in patients with dementia 
-          [+] Reduced damage to the brain after 
-              traumatic brain injury or stroke.
+          [?] Improved memory in patients with dementia 
+          [?] Reduced damage to the brain after traumatic brain injury or stroke.
 ## -------------------------------------------------------------------------------- ##
-    [?] A precursor for the synthesis of important phospholipids. 
-    [?] These phospholipids are essential to cell membranes. 
+    [+] A precursor for the synthesis of important phospholipids. 
+        [?] These phospholipids are essential to cell membranes. 
 ## -------------------------------------------------------------------------------- ##
-    [+] Clinical trials observing the effects of citicoline 
-        explain Citicolines neuroprotective nature:
-    [+] The following list was observed during clinical trials:
-## -------------------------------------------------------------------------------- ##
+
+
+
+## --------------------------------------------------------------------------------------- ##
+    [+] Citicoline Clinical trials observing the neuroprotective effects of citicoline:
+## --------------------------------------------------------------------------------------- ##
         ~>  Preservation of cardiolipin & sphingomyelin
             (an exclusive inner mitochondrial membrane component) 
         ~>  Preservation of the arachidonic acid, 
@@ -66,10 +67,10 @@
         ~>  Stimulation of glutathione reductase activity
         ~>  Attenuating lipid peroxidation
         ~>  Restoring Na(+)/K(+)-ATPase activity. 
-## -------------------------------------------------------------------------------- ##
+## --------------------------------------------------------------------------------------- ##
     [?] These observed effects of citicoline could be explained by:
-    [+] The attenuation of phospholipase A(2) activation
-## -------------------------------------------------------------------------------- ##
+        [+] The attenuation of phospholipase A(2) activation
+## --------------------------------------------------------------------------------------- ##
 
 
 
@@ -79,7 +80,9 @@
     [+] Enhances the production of acetylcholine in neurons.
     [?] Major components of cell membranes
     [?] Phosphatidylserine > phosphatidylcholine
-        [?] Phosphatidylcholine has a weak bioavailability)
+        [?] Phosphatidylcholine has a weak bioavailability
+
+
 
 <----------------------------------------------------->
    | Alpha-GPC [L-Alpha glycerylphosphorylcholine] |     ~->  (250-500mg)
