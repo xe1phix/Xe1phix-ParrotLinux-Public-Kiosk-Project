@@ -7,26 +7,27 @@
 ## ------------------------------------------------------- ##
 
 
-<----------------------->
-  | Choline Bitrate |     ~-> (1 gram)
-<----------------------->
 
-## --------------------------------------------------------------------- ##
-##    [+] Enhances the production of acetylcholine in neurons.
-##    [+] Primary component of the neurotransmitter acetylcholine
-##    [+] Cholinergic neurotransmission 
-##        [?] As a precursor to acetylcholine synthesis
-##    [+] Prevents fat deposits in the liver
-##    [+] Facilitates the movement of fats into cells. 
-##    [+] Found in all living cells
-##    [+] Regulates brain tissue formation and maintenance.
-##    [+] Allows acetylcholine to accumulate at higher levels
-## --------------------------------------------------------------------- ##
+<------------------------------------------------------------------>
+                        | Choline Bitrate |         ~-> (1 gram)
+<------------------------------------------------------------------>
+    [+] Enhances the production of acetylcholine in neurons.
+    [+] Primary component of the neurotransmitter acetylcholine
+    [+] Cholinergic neurotransmission 
+        [?] As a precursor to acetylcholine synthesis
+    [+] Prevents fat deposits in the liver
+    [+] Facilitates the movement of fats into cells. 
+    [+] Found in all living cells
+    [+] Regulates brain tissue formation and maintenance.
+    [+] Allows acetylcholine to accumulate at higher levels
+## ------------------------------------------------------------------ ##
 
 
-<------------------------------------------------->
-   | Citicoline (Cytidine-5'-diphosphocholine) |     ~-> (1 gram)
-<------------------------------------------------->
+
+
+<------------------------------------------------------------------------------>
+            | Citicoline (Cytidine-5'-diphosphocholine) |       ~-> (1 gram)
+<------------------------------------------------------------------------------>
     [+] Provides neuroprotective properties against stroke and dementia
     [+] Enhances the production of acetylcholine in neurons.
     [+] Modulates acetylcholine, dopamine, and glutamate.
