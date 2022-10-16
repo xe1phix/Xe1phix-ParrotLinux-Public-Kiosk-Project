@@ -8,9 +8,9 @@
 
 
 
-<------------------------------------------------------------------>
-                        | Choline Bitrate |         ~-> (1 gram)
-<------------------------------------------------------------------>
+<------------------------------------->
+   | Choline Bitrate |  ~-> (1 gram)
+<------------------------------------->
     [+] Enhances the production of acetylcholine in neurons.
     [+] Primary component of the neurotransmitter acetylcholine
     [+] Cholinergic neurotransmission 
@@ -23,11 +23,9 @@
 ## ------------------------------------------------------------------ ##
 
 
-
-
-<------------------------------------------------------------------------------>
-            | Citicoline (Cytidine-5'-diphosphocholine) |       ~-> (1 gram)
-<------------------------------------------------------------------------------>
+<------------------------------------------------------------------>
+   | Citicoline (Cytidine-5'-diphosphocholine) |    ~-> (1 gram)
+<------------------------------------------------------------------>
     [+] Provides neuroprotective properties against stroke and dementia
     [+] Enhances the production of acetylcholine in neurons.
     [+] Modulates acetylcholine, dopamine, and glutamate.
@@ -75,13 +73,16 @@
 
 
 
-<-------------------------->
+<----------------------------------------->
    | Phosphatidylserine |     ~-> ( mg)
-<-------------------------->
+<----------------------------------------->
+
+## ------------------------------------------------------------- ##
     [+] Enhances the production of acetylcholine in neurons.
     [?] Major components of cell membranes
     [?] Phosphatidylserine > phosphatidylcholine
         [?] Phosphatidylcholine has a weak bioavailability
+## ------------------------------------------------------------- ##
 
 
 
