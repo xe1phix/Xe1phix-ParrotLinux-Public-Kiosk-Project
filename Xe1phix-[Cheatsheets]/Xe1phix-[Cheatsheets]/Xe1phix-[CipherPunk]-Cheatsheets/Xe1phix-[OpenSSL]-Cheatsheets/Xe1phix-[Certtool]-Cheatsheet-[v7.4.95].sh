@@ -44,7 +44,6 @@ certtool --generate-certificate --load-request $Request.pem --outfile $Cert.pem 
 certtool --generate-certificate --load-privkey $Key.pem --outfile $Cert.pem --load-ca-certificate $CACert.pem --load-ca-privkey $CAKey.pem
 
 
-
 ##-==========================================-##
 ##    [+] Generate A Certificate Request:
 ##-==========================================-##
@@ -52,7 +51,6 @@ certtool --generate-certificate --load-privkey $Key.pem --outfile $Cert.pem --lo
 ##    [?]  When the private key is stored in a smart card 
 ## ----------------------------------------------------------- ##
 certtool --generate-request --load-privkey "pkcs11:..." --load-pubkey "pkcs11:..."
-
 
 
 ##-=======================================-##
@@ -66,14 +64,12 @@ certtool --load-ca-certificate $CA.pem --load-certificate $Cert.pem --load-privk
 certtool --load-ca-certificate $CACert.pem --load-certificate $Cert.pem --load-privkey $Key.pem --to-p12 --outder --outfile $Key.p12
 
 
-
 ##-=============================================================-##
 ##    [+] Generate Diffie-Hellman Key Exchange Parameters:
 ##-=============================================================-##
 certtool --generate-dh-params --outfile $DH.pem --sec-param medium
 certtool --generate-privkey > $Key.pem
 certtool --generate-proxy --load-ca-privkey $Key.pem --load-privkey $ProxyKey.pem --load-certificate $Cert.pem --outfile $ProxyCert.pem
-
 
 
 ##-================================-##
