@@ -79,7 +79,6 @@ certtool --verify --infile $Cert.pem
 certtool --verify --verify-hostname $HostName --infile $Cert.pem
 
 
-
 ##-=============================================================-##
 ##    [+] Certificate Revocation List (CRL) Generation
 ##-=============================================================-##
@@ -95,9 +94,9 @@ certtool --generate-crl --load-ca-privkey $x509CAKey.pem --load-ca-certificate $
 
 
 
-##-=============================================================-##
+##-======================================================-##
 ##    [+] Verify A Certificate Revocation List (CRL):
-##-=============================================-##
+##-======================================================-##
 certtool --verify-crl --load-ca-certificate $x509CACert.pem < $CRL.pem
 
 
