@@ -92,13 +92,11 @@ certtool --verify --verify-hostname $HostName --infile $Cert.pem
 ## ------------------------------------------------------------- ##
 certtool --generate-crl --load-ca-privkey $x509CAKey.pem --load-ca-certificate $x509CA.pem
 
-
 ## ------------------------------------------------------------- ##
 ##    [?] Create a CRL that contains revoked certificates
-##    [?] Place the certificates in a file 
-##    [?] Then use --load-certificate as follows:
 ## ------------------------------------------------------------- ##
 certtool --generate-crl --load-ca-privkey $x509CAKey.pem --load-ca-certificate $x509CA.pem --load-certificate $RevokedCerts.pem
+
 
 
 ##-=============================================================-##
