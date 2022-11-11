@@ -1,4 +1,10 @@
+#!/bin/sh
 
+
+echo "##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-##"
+echo "    [+] Generate A GnuPG Key (4096):"
+echo "##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-##"
+gpg --enable-large-rsa --full-gen-key
 
 
 echo "##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-##"
@@ -20,11 +26,11 @@ gpg --import qubes-secpack/keys/*/*
 gpg --verbose --keyid-format 0xlong --import $GPGKeyFile
 
 
-
 echo "##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-##"
 echo "    [+] Verify The Recipients Signature File Against The Base File:"
 echo "##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-##"
 gpg --verify --keyid-format 0xlong $file.txt.gpg $file.txt
+
 
 echo "##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-##"
 echo "    [+] Verify The Integrity of SHA Hashsums:"
@@ -58,44 +64,34 @@ gpg --output $file.txt --decrypt $file.txt.gpg
 
 
 
-
-
-
 gpg --output doc.sig --sign doc
 gpg --output doc.sig --clearsign doc
 gpg --output doc.sig --detach-sig doc
 
 
+##-============================================-##
+##    [+] Create A Self-Signed Certificate:
+##-============================================-##
+openssl req -new -x509 -days 365 -key $File.key -out $File.crt
 
 
+##-=======================================================-##
+##    [+] Signs The Log Output Containing The MD5 Hash
+##-=======================================================-##
+gpg --clearsign $File.log
+gpgsm -a -r $Recipient -o $File.log.pem --sign $File.log
 
 
-##-==============================================================-##
-##   [+]   [+] create a self-signed (CA) certificate, use the following command:
-openssl req -new -x509 -days 365 -key ca.key -out ca.crt
+##-==========================================================-##
+##    [+] Verify The GPG Signature of A Signed Disk Image:
+##-==========================================================-##
+gpg < $File.log.asc
 
 
-##-==============================================================-##
-##   [+]   [+] signs the log output containing the MD5 hash
-gpg --clearsign hash.log
-gpgsm -a -r holmes@digitalforensics.ch -o hash.log.pem --sign hash.log
-
-
-##-==============================================================-##
-##   [+]   [+] verify the gpg signature of the person who signed the acquired disk image:
-gpg < hash.log.asc
-
-##-==============================================================-##
-##   [+]   [+] Validate the signature from a PEM file
-gpgsm --verify image.log.pem
-
-
-
-
-
-
-gpg --enable-large-rsa --full-gen-key
-
+##-=================================================-##
+##    [+] Validate The Signature From A PEM File
+##-=================================================-##
+gpgsm --verify $File.log.pem
 
 
 gpg --recv-key 0x
