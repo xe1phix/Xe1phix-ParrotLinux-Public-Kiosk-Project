@@ -1,0 +1,1173 @@
+
+                               #############################
+############################## # Day 1: Linux Fundamentals # ##############################
+                               #############################
+
+
+
+
+
+
+
+
+#####################################################
+# 2021 Intro to Linux & Comptia Linux+ Exam Prep    # 
+# By Joe McCray                                     #
+#####################################################
+
+- Here is a good set of slides for getting started with Linux:
+http://www.slideshare.net/olafusimichael/linux-training-24086319
+
+
+- Here is a good tutorial that you should complete before doing the labs below:
+http://linuxsurvival.com/linux-tutorial-introduction/
+
+
+site:	https://app.shellngn.com/
+user:	joseph.mccray@gmail.com
+pass:	P@ssw0rd123!@#123
+ 
+ 
+NOTE: Ask me for the correct password
+
+
+########################
+# Basic Linux Commands #
+########################
+
+---------------------------Type This-----------------------------------
+cd ~
+
+pwd
+
+whereis pwd
+
+which pwd
+
+sudo find / -name pwd
+
+/bin/pwd
+
+cd ~/students/
+
+mkdir yourname					<---- replace 'yourname' with your first name in lowercase with no spaces or special characters please
+
+cd yourname						<---- replace 'yourname' with your first name in lowercase with no spaces or special characters please
+
+touch one two three
+
+ls -l t							(without pressing the Enter key, press the Tab key twice. What happens?)
+
+h								(and again without pressing the Enter key, press the Tab key twice. What happens?)
+
+Press the 'Up arrow key'		(What happens?)
+
+Press 'Ctrl-A'					(What happens?)
+
+ls
+
+clear							(What happens?)
+
+echo one > one
+
+cat one							(What happens?)
+
+man cat							(What happens?)
+	q
+
+cat two
+
+cat one > two
+
+cat two
+
+cat one two > three
+
+cat three
+
+echo four >> three
+
+cat three 						(What happens?)
+
+wc -l three
+
+man wc
+	q
+
+info wc
+	q
+
+cat three | grep four
+
+cat three | grep one
+
+man grep
+	q
+
+
+man ps
+	q
+
+ps
+
+ps aux
+
+ps aux | less
+
+Press the 'Up arrow key'		(What happens?)
+
+Press the 'Down arrow key'		(What happens?)
+	q
+
+top
+    q
+-----------------------------------------------------------------------
+
+
+#########
+# Files #
+#########
+---------------------------Type This-----------------------------------
+cd ~
+
+pwd
+
+cd ~/students/yourname/
+
+pwd
+
+ls
+
+mkdir LinuxBasics
+
+cd LinuxBasics
+
+pwd
+
+ls
+
+mkdir files
+
+touch one two three
+
+cp one files/
+
+ls files/
+
+cd files/
+
+cp ../two .
+
+ls
+
+cp ../three .
+
+ls
+
+tar cvf files.tar *
+
+ls
+
+gzip files.tar
+
+ls
+
+rm -rf one two three
+
+ls
+
+tar -zxvf files.tar.gz
+
+rm -rf files.tar.gz
+
+zip data *
+
+unzip -l data.zip
+
+mkdir /tmp/yourname/
+
+unzip data.zip -d /tmp/yourname/
+-----------------------------------------------------------------------
+
+
+
+############
+# VIM Demo #
+############
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/LinuxBasics
+
+mkdir vimlesson
+
+cd vimlesson
+
+vi lesson1.sh
+
+i								(press "i" to get into INSERT mode and then paste in the lines below)
+
+#!/bin/bash
+
+echo "This is my first time using vi to create a shell script"
+echo " "
+echo " "
+echo " "
+sleep 5
+echo "Ok, now let's clear the screen"
+sleep 3
+clear
+
+
+---------------don't put this line in your script----------------------------
+
+ESC			(press the ESC key to get you out of INSERT mode)
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+/echo		(typing "/echo" immediately after SHIFT: will search the file for the word echo).
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+4		(typing "4" immediately after SHIFT: will take you to line number 4).
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+4		(typing "4" immediately after SHIFT: will take you to line number 4).
+
+dd		(typing "dd" will delete the line that you are on)
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+4		(typing "4" immediately after SHIFT: will take you to line number 4).
+
+dd		(typing "dd" will delete the line that you are on)
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+syntax on		(typing "syntax on" immediately after SHIFT: will turn on syntax highlighting
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set tabstop=5	(typing "set tabstop=5" immediately after SHIFT: will set your tabs to 5 spaces
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+vi .vimrc
+i			(press "i" to get into INSERT mode and then paste in the lines below)
+
+
+set number
+syntax on
+set tabstop=5
+
+ESC			(press the ESC key to get you out of INSERT mode)
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+echo $MYVIMRC	(typing "echo $MYVIMRC" immediately after SHIFT: will display the path to your new .vimrc file
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+-----------------------------------------------------------------------
+
+
+
+
+Linux for OCO/DCO
+
+
+Level 1: I can't spell Linux
+----------------------------
+Not even a Linux user
+	- Browse the file system
+	- Run commands
+	- Install/Uninstall simple software (apt/yum)
+
+- Auditor (Linux user)
+
+- How (linuxsurvival.com <-- do this 4-5 times)
+
+
+
+Level 2: I'm not an Admin
+-------------------------
+Not an admin
+	- Server Administration
+	- Highly configured systems
+	- Basic scripting (haproxy vs nginx in front of apache)
+
+- Penetration Tester/Red Teamer
+
+- How (howtoforge.com and https://bitnami.com/stacks and osboxes.org)
+	- Build 2 perfect servers a month for 3-4 months
+
+
+
+
+Level 3: I don't build customized versions of Linux
+---------------------------------------------------
+No a tinkerer
+	- Build/run custom Linux distros on any kind of hardware
+	- Home automation for example
+	- Custom programming
+
+- Exploit developers
+
+- How (linuxfromscratch.org)
+	- Build 2 versions of LFS
+
+
+
+
+
+
+
+
+
+################
+# Hashing Demo #
+################
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/
+
+mkdir LinuxBasics
+
+cd ~/students/yourname/LinuxBasics
+ 
+mkdir hashdemo
+ 
+cd hashdemo
+ 
+echo test > test.txt
+ 
+cat test.txt
+ 
+md5sum test.txt
+ 
+echo hello >> test.txt
+ 
+cat test.txt
+ 
+md5sum test.txt
+ 
+echo test2 > test2.txt
+ 
+cat test2.txt
+ 
+sha256sum test2.txt
+ 
+echo hello >> test2.txt
+ 
+cat test2.txt
+ 
+sha256sum test2.txt
+ 
+cd ..
+-----------------------------------------------------------------------
+ 
+ 
+ 
+#################################
+# Symmetric Key Encryption Demo #
+#################################
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/LinuxBasics
+ 
+mkdir gpgdemo
+ 
+cd gpgdemo
+ 
+echo test > test.txt
+ 
+cat test.txt
+ 
+gpg -c test.txt
+	password
+	password
+ 
+ls | grep test
+ 
+cat test.txt
+ 
+cat test.txt.gpg
+ 
+rm -rf test.txt
+ 
+ls | grep test
+ 
+gpg -o output.txt test.txt.gpg
+	P@$$w0rD!@#$P@$$w0rD!@#$
+ 
+cat output.txt
+-----------------------------------------------------------------------
+ 
+ 
+ 
+#########################################################################################################################
+# Asymmetric Key Encryption Demo 											                                            #
+#															                                                            #
+# Configure random number generator 											                                        #
+# https://www.howtoforge.com/helping-the-random-number-generator-to-gain-enough-entropy-with-rng-tools-debian-lenny	    #
+#########################################################################################################################
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/LinuxBasics/gpgdemo
+ 
+echo hello > file1.txt
+ 
+echo goodbye > file2.txt
+ 
+echo green > file3.txt
+ 
+echo blue > file4.txt
+ 
+tar czf files.tar.gz *.txt
+ 
+gpg --gen-key
+	1
+	1024
+	0
+	y
+	John Doe
+	john@doe.com
+	--blank comment--
+	O
+		P@$$w0rD!@#$P@$$w0rD!@#$
+		P@$$w0rD!@#$P@$$w0rD!@#$	
+ 
+ 
+ 
+gpg --armor --output file-enc-pubkey.txt --export 'John Doe'
+ 
+cat file-enc-pubkey.txt
+ 
+gpg --armor --output file-enc-privkey.asc --export-secret-keys 'John Doe'
+ 
+cat file-enc-privkey.asc
+ 
+gpg --encrypt --recipient 'John Doe' files.tar.gz
+ 
+rm -rf files.tar.gz *.txt
+ 
+ls
+ 
+tar -zxvf files.tar.gz.gpg
+ 
+gpg --output output.tar.gz --decrypt files.tar.gz.gpg
+	P@$$w0rD!@#$P@$$w0rD!@#$
+ 
+tar -zxvf output.tar.gz
+ 
+ls
+-----------------------------------------------------------------------
+ 
+ 
+ 
+##############################################
+# Log Analysis with Linux command-line tools #
+##############################################
+- The following command line executables are found in the Mac as well as most Linux Distributions.
+ 
+cat –  prints the content of a file in the terminal window
+grep – searches and filters based on patterns
+awk –  can sort each row into fields and display only what is needed
+sed –  performs find and replace functions
+sort – arranges output in an order
+uniq – compares adjacent lines and can report, filter or provide a count of duplicates
+ 
+ 
+ 
+ 
+ 
+##############
+# Cisco Logs #
+##############
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/ 
+mkdir security
+cd security
+mkdir log_analysis
+cd log_analysis
+wget http://45.63.104.73/cisco.log
+-----------------------------------------------------------------------
+ 
+ 
+AWK Basics
+----------
+- To quickly demonstrate the print feature in awk, we can instruct it to show only the 5th word of each line. Here we will print $5. Only the last 4 lines are being shown for brevity.
+---------------------------Type This----------------------------------- 
+cat cisco.log | awk '{print $5}' | tail -n 4
+----------------------------------------------------------------------- 
+ 
+ 
+ 
+- Looking at a large file would still produce a large amount of output. A more useful thing to do might be to output every entry found in “$5”, group them together, count them, then sort them from the greatest to least number of occurrences. This can be done by piping the output through “sort“, using “uniq -c” to count the like entries, then using “sort -rn” to sort it in reverse order.
+---------------------------Type This----------------------------------- 
+cat cisco.log | awk '{print $5}'| sort | uniq -c | sort -rn
+----------------------------------------------------------------------- 
+ 
+ 
+ 
+- While that’s sort of cool, it is obvious that we have some garbage in our output. Evidently we have a few lines that aren’t conforming to the output we expect to see in $5. We can insert grep to filter the file prior to feeding it to awk. This insures that we are at least looking at lines of text that contain “facility-level-mnemonic”.
+---------------------------Type This----------------------------------- 
+cat cisco.log | grep %[a-zA-Z]*-[0-9]-[a-zA-Z]* | awk '{print $5}' | sort | uniq -c | sort -rn
+----------------------------------------------------------------------- 
+ 
+ 
+ 
+ 
+- Now that the output is cleaned up a bit, it is a good time to investigate some of the entries that appear most often. One way to see all occurrences is to use grep.
+---------------------------Type This----------------------------------- 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| awk '{print $10}' | sort | uniq -c | sort -rn
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10}' | sort | uniq -c | sort -rn
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10 " changed to " $14}' | sort | uniq -c | sort -rn
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+##################
+# Day 1 Homework #
+##################
+Task Option 1: Linux Survival
+-----------------------------
+Do all of the exercises in Linux Survival (http://linuxsurvival.com/linux-tutorial-introduction/)
+Create a word document that contains the screenshots of the quizzes NOTE: You must score a perfect 100 for all 4 quizzes
+Name the word document 'YourFirstName-YourLastName-LinuxDay1-LinuxSurvival.docx' (ex: 'Joseph-McCray-LinuxDay1-LinuxSurvival.docx')
+Email the document to me at joseph.mccray-at-gmail-dot-com before the start of class tomorrow
+ 
+ 
+Task Option 2: Basic Shell Scripting
+------------------------------------
+Watch and do all of the exercises in the video https://www.youtube.com/watch?v=_n5ZegzieSQ
+Create a word document that contains the screenshots of the tasks performed in this video
+Name the word document 'YourFirstName-YourLastName-LinuxDay1-ShellScripting.docx' (ex: 'Joseph-McCray-LinuxDay1-ShellScripting.docx')
+Email the document to me at joseph.mccray-at-gmail-dot-com before the start of class tomorrow
+
+
+
+
+
+
+
+
+                               #############################
+############################## # Day 2: Attacking Networks # ##############################
+                               #############################
+
+
+
+
+
+########################
+# Scanning Methodology #
+########################
+ 
+- Ping Sweep
+What's alive?
+------------
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+ 
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sP 157.166.226.* 
+--------------------------------------------------------------------------------------------
+ 
+ 
+ 
+    -if -SP yields no results try:
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sL 157.166.226.* 
+------------------------------------------------------------------------------------------
+ 
+ 
+ 
+    -Look for hostnames:
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sL 157.166.226.* | grep cnn
+ 
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sP 157.166.226.* | findstr "cnn"
+ 
+-------------------------------------------------------------------------------------------
+ 
+ 
+ 
+- Port Scan
+What's where?
+------------
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sS 162.243.126.247
+ 
+---------------------------or on Windows type:----------------------------------------------
+c:\nmap -sS 162.243.126.247
+ 
+--------------------------------------------------------------------------------------------
+ 
+ 
+ 
+- Bannergrab/Version Query
+What versions of software are running
+-------------------------------------
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sV 45.63.104.73
+ 
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sV 45.63.104.73
+-------------------------------------------------------------------------------------------
+ 
+ 
+ 
+Let's dig into this a little bit more:
+-------------------------------------
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sV --script=http-headers 45.63.104.73 -p 80,443
+ 
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sV --script=http-headers 45.63.104.73 -p 80,443
+-------------------------------------------------------------------------------------------
+ 
+ 
+ 
+- Vulnerability Research
+Lookup the banner versions for public exploits
+----------------------------------------------
+http://exploit-db.com
+http://securityfocus.com/bid
+https://packetstormsecurity.com/files/tags/exploit/
+
+
+
+ 
+--------------------------------------------------------------------------------------------
+ 
+ 
+ 
+Network Penetration Testing Process (known vulnerabilities)
+-----------------------------------------------------------
+ 
+ 
+1. Ping Sweep:
+The purpose of this step is to identify live hosts
+ 
+    nmap -sP <ip-address/ip-range>
+ 
+ 
+2. Port Scan
+Identify running services. We use the running services to map the network topology.
+ 
+    nmap -sS <ip-address/ip-range>
+ 
+ 
+3. Bannergrab
+Identify the version of version of software running on each port
+ 
+    nmap -sV <ip-address/ip-range>
+ 
+ 
+ 
+4. Vulnerability Research
+Use the software version number to research and determine if it is out of date (vulnerable).
+ 
+    exploit-db.com/search
+ 
+ 
+ 
+ 
+-------------------------------------------------------------------------------------------- 
+ 
+ 
+ 
+ 
+Skill Level 1. Run the scanners
+-------------------------------
+    Nexpose
+    Qualys
+    Retina
+    Nessus              known vulnerabilities
+    OpenVas
+    Foundscan
+    GFI LanGuard
+    NCircle
+ 
+ 
+Skill Level 2. Manual vulnerability validation (known vulnerabilities)
+-----------------------------------------------------------------------
+ 
+    windows ->  	systeminfo
+    Linux->     	dpkg -l			(Debian/Ubuntu/Mint)
+            		rpm -qa			(RHEL/Fedora/Centos)
+ 
+    Mac OS X->		sudo find / -iname *.app
+
+
+
+
+
+
+
+#########################################
+# Offensive Cyber Operations Job Roles  #
+# Offensive Cyber Level 1               #
+#########################################
+Required Technical Skills:      Comfortable with basic Linux/Windows (MCSA/Linux+)
+                                Comfortable with basic network (Network+)
+                                Comfortable with security fundamentals (Security+)
+ 
+ 
+ 
+Job Task:                       Run network security scanners and assist with documentation of known vulnerabilities
+ 
+ 
+Tools Used:
+                                Nmap
+                                Nexpose
+                                Qualys
+                                Retina
+                                Nessus              known vulnerabilities
+                                OpenVas
+                                Foundscan
+                                GFI LanGuard
+                                NCircle
+ 
+ 
+ 
+#########################################
+# Offensive Cyber Operations Job Roles  #
+# Offensive Cyber Level 2               #
+#########################################
+Required Technical Skills:      Comfortable with basic Linux/Windows system administration
+                                Comfortable with basic network administration
+                                Comfortable with basic programming
+                                Comfortable researching IT security issues
+ 
+ 
+ 
+Job Task:                       Run network security scanners and assist with document of known vulnerabilities
+                                Perform manual vulnerability validation
+                                Analyze public exploit and develop threat analysis reports
+                                Assess simple applications for vulnerabilities
+ 
+ 
+ 
+#########################################
+# Security Operations Center Job Roles  #
+# Offensive Cyber Level 3               #
+#########################################
+ 
+Required Technical Skills:      Strong programming background (C, C++, Java, Assembly, scripting languages)
+                                Advanced system/network administration background
+                                Comfortable researching IT security issues
+ 
+ 
+ 
+ 
+ 
+Job Task:                       Perform manual vulnerability validation
+                                Analyze public exploit and develop threat analysis reports
+                                Assess complex applications for vulnerabilities
+
+
+
+
+
+--------------------------------------------------------------------------------------------
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/
+
+mkdir security
+
+cd security
+ 
+mkdir scripts
+ 
+cd scripts
+ 
+vi scan1.sh
+ 
+i								(press "i" to get into INSERT mode and then paste in the lines below)
+ 
+#!/bin/bash
+
+#############################################
+# Check to see if script is running as root #
+#############################################
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+
+echo "Let's scan a network"
+echo " "
+echo " "
+echo " "
+sleep 5
+echo "Ok, scanning CNN"
+sleep 3
+clear
+nmap -sL 157.166.226.* | grep cnn
+ 
+---------------don't put this line in your script----------------------------
+ 
+ESC			(press the ESC key to get you out of INSERT mode)
+ 
+[SHIFT+:]		(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+ 
+ 
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+chmod +x scan1.sh
+
+sudo ./scan1.sh
+------------------------------------------------------------------------------ 
+
+
+
+
+
+
+
+
+
+ 
+---------------------------Type This----------------------------------- 
+vi scan1.sh
+ 
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+ 
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+ 
+i								(press "i" to get into INSERT mode and then paste in the lines below)
+ 
+#!/bin/bash
+
+#############################################
+# Check to see if script is running as root #
+#############################################
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+
+echo "Let's scan a network"
+echo " "
+echo " "
+sleep 5
+echo "Ok, scanning CNN"
+sleep 3
+clear
+nmap -sL 157.166.226.* | grep cnn
+
+
+echo "Let's check CNN for load balancers"
+echo " "
+echo " "
+sleep 5
+echo "Ok, scanning CNN"
+sleep 3
+clear
+dig cnn.com | grep cnn
+sleep 3
+halberd cnn.com
+ 
+
+
+
+
+
+---------------don't put this line in your script----------------------------
+ 
+ESC			(press the ESC key to get you out of INSERT mode)
+ 
+[SHIFT+:]		(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+ 
+ 
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+ 
+sudo ./scan1.sh
+------------------------------------------------------------------------------
+
+
+
+
+
+
+---------------------------Type This-----------------------------------
+vi scan1.sh
+ 
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+ 
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+ 
+i								(press "i" to get into INSERT mode and then paste in the lines below)
+ 
+#!/bin/bash
+
+#############################################
+# Check to see if script is running as root #
+#############################################
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+
+# DNS list scan against CNN
+#--------------------------
+echo "Let's scan a network"
+echo " "
+echo " "
+sleep 5
+echo "Ok, scanning CNN"
+sleep 3
+clear
+nmap -sL 157.166.226.* | grep cnn
+
+
+# Quick ways to check for load balancing
+#---------------------------------------
+echo "Let's check CNN for load balancers"
+echo " "
+echo " "
+sleep 5
+echo "Ok, scanning CNN"
+sleep 3
+clear
+dig cnn.com | grep cnn
+sleep 3
+halberd cnn.com
+ 
+
+#--------------------------
+echo "Let's check for misconfigurations and security issues via NSE scripts"
+echo " "
+echo " "
+sleep 5
+echo "Ok, beat up Joe's box"
+sleep 3
+clear
+nmap -sV -O --script-args=unsafe=1 --script-args=unsafe  --script "version,vuln" -p80,443 45.63.104.73
+
+
+nmap -sV -O --script-args=unsafe=1 --script-args=unsafe  --script "auth,brute,discovery,exploit,external,fuzzer,intrusive,malware,safe,version,vuln and not(http-slowloris or http-brute or http-enum or http-form-fuzzer)" -p80,443 45.63.104.73
+
+
+---------------don't put this line in your script----------------------------
+ 
+ESC			(press the ESC key to get you out of INSERT mode)
+ 
+[SHIFT+:]		(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+ 
+ 
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+ 
+sudo ./scan1.sh
+------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+---------------------------Type This-----------------------------------
+vi scan1.sh
+ 
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+ 
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+ 
+i								(press "i" to get into INSERT mode and then paste in the lines below)
+ 
+#!/bin/bash
+
+#############################################
+# Check to see if script is running as root #
+#############################################
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+
+# DNS list scan against CNN
+#--------------------------
+echo "Let's scan a network"
+echo " "
+echo " "
+sleep 5
+echo "Ok, scanning CNN"
+sleep 3
+clear
+nmap -sL 157.166.226.* | grep cnn
+
+
+# Quick ways to check for load balancing
+#---------------------------------------
+echo "Let's check CNN for load balancers"
+echo " "
+echo " "
+sleep 5
+echo "Ok, scanning CNN"
+sleep 3
+clear
+dig cnn.com | grep cnn
+sleep 3
+halberd cnn.com
+ 
+# Quick security checks
+#----------------------
+echo "Let's check for misconfigurations and security issues via NSE scripts"
+echo " "
+echo " "
+sleep 5
+echo "Ok, beat up Joe's box"
+sleep 3
+clear
+nmap -sV -O --script-args=unsafe=1 --script-args=unsafe  --script "version,vuln" -p80,443 45.63.104.73
+
+
+
+# Quick dirb run
+#---------------
+echo "Ok, let's do a directory brute force"
+echo " "
+echo " "
+sleep 5
+echo "Ok, beat up Joe's box"
+sleep 3
+clear
+dirb http://45.63.104.73/
+
+
+---------------don't put this line in your script----------------------------
+ 
+ESC			(press the ESC key to get you out of INSERT mode)
+ 
+[SHIFT+:]		(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+ 
+ 
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+ 
+sudo ./scan1.sh
+------------------------------------------------------------------------------
+
+
+
+##################
+# Day 2 Homework #
+##################
+
+Task Option 1: Basic Shell Scripting
+------------------------------------
+Watch and do all of the exercises in the video https://www.youtube.com/watch?v=_n5ZegzieSQ
+Create a word document that contains the screenshots of the tasks performed in this video
+Name the word document 'YourFirstName-YourLastName-LinuxDay1-ShellScripting.docx' (ex: 'Joseph-McCray-LinuxDay2-ShellScripting.docx'). This video instructs you to use a tool called 'whatweb'. I prefer that you use 'dirb' instead.
+The example syntax is 'dirb http://45.63.104.73/'
+Email the document to me at joseph.mccray-at-gmail-dot-com before the start of class tomorrow
+
+
+Task Option 2: Shell Scripting for network assessments
+------------------------------------------------------
+Watch and do all of the exercises in the videos: 
+- https://www.youtube.com/watch?v=keK99avGLvQ&ab_channel=NullByte
+- https://www.youtube.com/watch?v=KNBU2MDnKgU&ab_channel=P3nt3st_guy
+Create a word document that contains the screenshots of the tasks performed in this video
+Name the word document 'YourFirstName-YourLastName-LinuxDay2-ShellScripting.docx' (ex: 'Joseph-McCray-LinuxDay2-ShellScripting.docx')
+Email the document to me at joseph.mccray-at-gmail-dot-com before the start of class tomorrow

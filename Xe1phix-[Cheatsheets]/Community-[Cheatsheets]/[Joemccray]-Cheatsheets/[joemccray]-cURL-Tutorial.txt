@@ -1,0 +1,148 @@
+
+#############################
+# 1. Download a Single File #
+#############################
+The following command will get the content of the URL and display it in the STDOUT (i.e on your terminal).
+$ curl http://strategicsec.com
+
+To store the output in a file, you an redirect it as shown below. This will also display some additional download statistics.
+$ curl http://strategicsec.com > strategicsec-com.html
+
+
+#####################################
+# 2. Save the cURL Output to a file #
+#####################################
+We can save the result of the curl command to a file by using -o/-O options.
+	•	-o (lowercase o) the result will be saved in the filename provided in the command line
+	•	-O (uppercase O) the filename in the URL will be taken and it will be used as the filename to store the result
+
+$ curl -o bye.txt http://www.opensource.apple.com/source/SpamAssassin/SpamAssassin-127.2/SpamAssassin/t/data/etc/hello.txt 
+Now the page hello.txt will be saved in the file named ‘bye.txt’. 
+You can also note that when running curl with -o option, it displays the progress meter for the download as follows.
+
+When you use curl -O (uppercase O), it will save the content in the file named ‘hello.txt’ itself in the local machine.
+
+$ curl -O http://www.opensource.apple.com/source/SpamAssassin/SpamAssassin-127.2/SpamAssassin/t/data/etc/hello.txt
+Note: When curl has to write the data to the terminal, it disables the Progress Meter, to avoid confusion in printing. We can use ‘>’|’-o’|’-O’ options to move the result to a file.
+
+##################################################
+# 3. Follow HTTP Location Headers with -L option #
+##################################################
+By default CURL doesn’t follow the HTTP Location headers. It is also termed as Redirects. When a requested web page is moved to another place, then an HTTP Location header will be sent as a Response and it will have where the actual web page is located.
+For example, when someone types google.com in the browser from India, it will be automatically redirected to ‘google.co.in’. This is done based on the HTTP Location header as shown below.
+
+$ curl --head http://www.strategicsec.com		You'll see that you only get the 301
+
+$ curl --head -L http://www.strategicsec.com		You'll see that you get the 301, and the 200 OK
+
+##########################################
+# 4. Continue/Resume a Previous Download #
+##########################################
+Using curl -C option, you can continue a download which was stopped already for some reason. This will be helpful when you download large files, and the download got interrupted.
+If we say ‘-C -‘, then curl will find from where to start resuming the download. We can also give an offset ‘-C <offset>’. The given offset bytes will be skipped from the beginning for the source file.
+Start a big download using curl, and press Ctrl-C to stop it in between the download.
+
+$ curl -O http://swreflections.blogspot.com/2015/05/appsec-gaps-between-builders-and.html
+##############             20.1%
+Note: -# is used to display a progress bar instead of a progress meter.
+Now the above download was stopped at 20.1%. Using “curl -C -“, we can continue the download from where it left off earlier. Now the download continues from 20.1%.
+
+curl -C - -O http://swreflections.blogspot.com/2015/05/appsec-gaps-between-builders-and.html
+###############            21.1%
+
+
+
+######################################
+# 5. Test for XMLRPC Pingback Vuln #
+######################################
+$ curl -D - "strategicsec.com/xmlrpc.php" -H "Content-Type: text/xml" -d '<methodCall><methodName>pingback.ping</methodName><params><param><value><string>http://dojo.com/</string></value></param></methodcall>'
+
+
+######################################
+# 6. Limit the Rate of Data Transfer #
+######################################
+You can limit the amount at which the data gets transferred using –limit-rate option. You can specify the maximum transfer rate as argument.
+$ curl --limit-rate 1000B -O http://swreflections.blogspot.com/2015/05/appsec-gaps-between-builders-and.html
+The above command is limiting the data transfer to 1000 Bytes/second. curl may use higher transfer rate for short span of time. But on an average, it will come around to 1000B/second.
+
+
+#########################################################################
+# 7. Download a file only if it is modified before/after the given time #
+#########################################################################
+We can get the files that are modified after a particular time using -z option in curl. This will work for both FTP & HTTP.
+$ curl -z 21-Dec-11 http://www.example.com/yy.html
+The above command will download the yy.html only if it is modified later than the given date and time
+$ curl -z -21-Dec-11 http://www.example.com/yy.html
+The above command will download the yy.html, if it is modified before than the given date and time.
+Please refer ‘man curl_getdate’ for the various syntax supported for the date expression
+
+#######################################
+# 8. Pass HTTP Authentication in cURL #
+#######################################
+Sometime, websites will require a username and password to view the content ( can be done with .htaccess file ). With the help of -u option, we can pass those credentials from cURL to the web server as shown below.
+$ curl -u username:password URL
+Note: By default curl uses Basic HTTP Authentication. We can specify other authentication method using –ntlm | –digest.
+
+#####################################
+# 9. Download Files from FTP server #
+#####################################
+cURL can also be used to download files from FTP servers. If the given FTP path is a directory, by default it will list the files under the specific directory.
+$ curl -u ftpuser:ftppass -O ftp://ftp_server/public_html/xss.php
+The above command will download the xss.php file from the ftp server and save it in the local directory.
+$ curl -u ftpuser:ftppass -O ftp://ftp_server/public_html/
+Here, the given URL refers to a directory. So cURL will list all the files and directories under the given URL
+If you are new to FTP/sFTP, refer ftp sftp tutorial for beginners.
+
+##################################
+# 10. List/Download using Ranges #
+##################################
+cURL supports ranges to be given in the URL. When a range is given, files matching within the range will be downloaded. It will be helpful to download packages from the FTP mirror sites.
+$ curl   ftp://ftp.uk.debian.org/debian/pool/main/[a-z]/
+The above command will list out all the packages from a-z ranges in the terminal.
+
+##################################
+# 11. Upload Files to FTP Server #
+##################################
+Curl can also be used to upload files to the FTP server with -T option.
+$ curl -u ftpuser:ftppass -T myfile.txt ftp://ftp.testserver.com
+The above command will upload the file named myfile.txt to the FTP server. You can also upload multiple files at a same time using the range operations.
+$ curl -u ftpuser:ftppass -T "{file1,file2}" ftp://ftp.testserver.com
+Optionally we can use “.” to get the input from STDIN and transfer to the remote.
+$ curl -u ftpuser:ftppass -T - ftp://ftp.testserver.com/myfile_1.txt
+The above command will get the input from the user from Standard Input and save the contents in the ftp server under the name ‘myfile_1.txt’.
+You can provide one ‘-T’ for each URL and the pair specifies what to upload where.
+
+#######################################################
+# 12. More Information using Verbose and Trace Option #
+#######################################################
+You can get to know what is happening using the -v option. -v option enable the verbose mode and it will print the details
+curl -v http://strategicsec.com
+The about command will output the following
+
+####################################################
+# 13. Get Definition of a Word using DICT Protocol #
+####################################################
+You can use cURL to get the definition for a word with the help of DICT protocol. We need to pass a Dictionary Server URL to it.
+$ curl dict://dict.org/d:bash
+The above command will list the meaning for bash as follows
+jargon "The Jargon File (version 4.4.7, 29 Dec 2003)"
+foldoc "The Free On-line Dictionary of Computing (26 July 2010)"
+easton "Easton's 1Now you can see that it uses “The Collaborative International Dictionary of English”. There are many dictionaries are available. We can list all the dictionaries using
+
+
+####################################
+# 14. Use Proxy to Download a File #
+####################################
+We can specify cURL to use proxy to do the specific operation using -x option. We need to specify the host and port of the proxy.
+$ curl -x proxysever.test.com:3128 http://strategicsec.com
+
+
+#####################################
+# 15. Send Mail using SMTP Protocol #
+#####################################
+cURL can also be used to send mail using the SMTP protocol. You should specify the from-address, to-address, and the mailserver ip-address as shown below.
+$ curl --mail-from blah@test.com --mail-rcpt foo@test.com smtp://mailserver.com
+Once the above command is entered, it will wait for the user to provide the data to mail. Once you’ve composed your message, type . (period) as the last line, which will send the email immediately.
+Subject: Testing
+This is a test mail
+.
