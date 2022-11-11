@@ -13,6 +13,18 @@ e2image -Q /dev/sda1 $Image.qcow2
 e2image -r $Image.qcow2 $Image.raw
 
 
+##-================================================-##
+##   [+] Create An 8GB Virtual Hard Drive Image:
+##-================================================-##
+qemu-img create -f qcow2 $File.qcow2 8G
+
+
+##-================================================-##
+##   [+] Run The QCow2 Image In A Virtual Macine:
+##-================================================-##
+qemu-system-x86_64 -enable-kvm -hda $File.qcow2 -m 4096
+
+
 ##-=================================================-##
 ##   [+] Mount A QCOW2 Image:
 ##-=================================================-##
