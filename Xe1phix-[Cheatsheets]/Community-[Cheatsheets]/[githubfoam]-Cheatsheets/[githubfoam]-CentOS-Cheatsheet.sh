@@ -233,13 +233,13 @@ $ sudo tail -f /var/log/cron.log
 cat /etc/anacrontab #find out cron timings for /etc/cron.{daily,weekly,monthly}/
 
 --------------------------------------------------------------------------------------------------------------------
-problem:
-AH00558: Could not reliably determine the server's fully qualified domain name error
-troubleshooting:
+## problem:
+## AH00558: Could not reliably determine the servers fully qualified domain name error
+## troubleshooting:
 apachectl configtest
 systemctl status httpd.service -l --no-pager
 journalctl -u httpd.service --since today --no-pager
-fix:
+## fix:
 $ cat /etc/httpd/conf/httpd.conf | grep "ServerName 127.0.0.1"
 ServerName 127.0.0.1 #Add a line containing ServerName 127.0.0.1 to the end of the file
 apachectl configtest
@@ -527,7 +527,7 @@ yum list installed | awk ' /unzip/   '
 yum list installed | awk ' /'unzip'/    {print $3 "--" $2}            '
 yum list installed | awk ' /'unzip'/    {print $3"**" $2 ; print $2"--" $3}            '
 yum list installed | awk ' /'zip'/    {print $3"**" $2 ; print $2"--" $3 "\n"}            '
-yum list installed | awk '    /'zip'/    { print $2"\t" $3} 
+yum list installed | awk '    /'zip'/    { print $2"\t" $3}       '
 
 # How to install and configure telnet
 rpm -qa | grep telnet
