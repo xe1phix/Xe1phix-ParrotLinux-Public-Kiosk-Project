@@ -1,0 +1,459 @@
+--------------------------------------------------------------------------------------------------------------------------
+vagrant@vg-ubuntu-01:~$ echo "Original information." > original.txt
+vagrant@vg-ubuntu-01:~$ cat original.txt
+Original information.
+
+vagrant@vg-ubuntu-01:~$ cat hashes.txt
+317465de8021be54ff317d8165a0b800504468489379963816fb2d007037807f8d4ae6b5316310ebc5e20de79f5782f903153ee93976c86586dfca46f3febb7e  original.tx
+
+
+vagrant@vg-ubuntu-01:~$ cp original.txt /tmp/duplicate.txt 
+
+#The two hash results are identical, so the file did not change during the copy process.
+vagrant@vg-ubuntu-01:~$ cat hashes.txt
+317465de8021be54ff317d8165a0b800504468489379963816fb2d007037807f8d4ae6b5316310ebc5e20de79f5782f903153ee93976c86586dfca46f3febb7e  original.txt
+Please ask your administrator.
+317465de8021be54ff317d8165a0b800504468489379963816fb2d007037807f8d4ae6b5316310ebc5e20de79f5782f903153ee93976c86586dfca46f3febb7e  /tmp/duplicate.tx
+
+#change the /tmp/duplicate.txt file contents
+vagrant@vg-ubuntu-01:~$ hostname >> /tmp/duplicate.txt
+vagrant@vg-ubuntu-01:~$ cat /tmp/duplicate.txt
+Original information.
+vg-ubuntu-01
+
+vagrant@vg-ubuntu-01:~$ cat hashes.txt
+317465de8021be54ff317d8165a0b800504468489379963816fb2d007037807f8d4ae6b5316310ebc5e20de79f5782f903153ee93976c86586dfca46f3febb7e  original.txt
+317465de8021be54ff317d8165a0b800504468489379963816fb2d007037807f8d4ae6b5316310ebc5e20de79f5782f903153ee93976c86586dfca46f3febb7e  /tmp/duplicate.txt
+7604ab08a9248c78c4903e05a8f30c792a1e5651d6b10fc6b1c0d2a331b0da48b8e61a76bfb5c3a9bb750807e33b58a0451acbec888e8ac552354fb8aba8d78a  /tmp/duplicate.txt
+
+vagrant@vg-ubuntu-01:~$ sha512sum --check hashes.txt
+original.txt: OK
+/tmp/duplicate.txt: FAILED
+/tmp/duplicate.txt: OK
+sha512sum: WARNING: 1 computed checksum did NOT match
+--------------------------------------------------------------------------------------------------------------------------
+#user connects as user root via ssh from vg-ubuntu-01 to vg-ubuntu-02,user root login via ssh is disabled
+
+sshuser@vg-ubuntu-01:~$ hostnamectl
+ Static hostname: vg-ubuntu-01
+       Icon name: computer-vm
+         Chassis: vm
+      Machine ID: b2bcae0e546445829300dae6dd84ffc7
+         Boot ID: 5a1a835c377b41ea9cfa59cdf5dc6197
+  Virtualization: oracle
+Operating System: Ubuntu 21.10
+          Kernel: Linux 5.13.0-35-generic
+    Architecture: x86-64
+ Hardware Vendor: innotek GmbH
+  Hardware Model: VirtualBox
+  
+vagrant@vg-ubuntu-02:~$ hostnamectl
+   Static hostname: vg-ubuntu-02
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: c502cbcd8e014d05ae0c12c62be7204d
+           Boot ID: d2a276bac02440d0863259b011a0f30e
+    Virtualization: oracle
+  Operating System: Ubuntu 16.04.7 LTS
+            Kernel: Linux 4.4.0-210-generic
+      Architecture: x86-64
+
+enable ssh root login
+
+#login as root and set root passwd
+vagrant@vg-ubuntu-02:~$ !58
+su - root
+Password:
+su: Authentication failure
+vagrant@vg-ubuntu-02:~$ su - root
+Password:
+root@vg-ubuntu-02:~# passwd
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+
+  
+#make a backup of config file 
+vagrant@vg-ubuntu-02:~$ sudo cp /etc/ssh/sshd_config{,.orig}
+vagrant@vg-ubuntu-02:~$ sudo ls -lai /etc/ssh/sshd_config*
+55761 -rw-r--r-- 1 root root 2568 Apr  4 13:36 /etc/ssh/sshd_config
+58828 -rw-r--r-- 1 root root 2568 Apr  6 06:31 /etc/ssh/sshd_config.orig
+
+#by default , ssh with user root is disabled, enable and restart ssh service 
+vagrant@vg-ubuntu-02:~$ sudo grep --color PasswordAuthentication /etc/ssh/sshd_config
+#PasswordAuthentication no
+PasswordAuthentication yes
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication, then enable this but set PasswordAuthentication
+vagrant@vg-ubuntu-02:~$ sudo grep --color "PermitRootLogin" /etc/ssh/sshd_config
+PermitRootLogin prohibit-password
+
+vagrant@vg-ubuntu-02:~$ sudo sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+vagrant@vg-ubuntu-02:~$ sudo grep --color "PermitRootLogin" /etc/ssh/sshd_config
+PermitRootLogin yes
+vagrant@vg-ubuntu-02:~$ sudo systemctl restart sshd
+
+#disable public key authentication, connect as user root via ssh 
+sshuser@vg-ubuntu-01:~$ ssh root@vg-ubuntu-02 -o PubkeyAuthentication=no
+root@vg-ubuntu-02's password:
+root@vg-ubuntu-02:~#
+
+
+#verify user root login via ssh on vg-centos-01 in ssh service logs 
+
+vagrant@vg-ubuntu-02:~$ sudo journalctl -t sshd -f
+-- Logs begin at Mon 2022-04-04 12:36:51 UTC. --
+Apr 06 06:23:31 vg-ubuntu-02 sshd[6142]: Accepted publickey for vagrant from 10.0.2.2 port 52237 ssh2: RSA SHA256:RhrLW96gMac+WaXN2iO8j00XcvuAiIcZ2NcsqoAl2QE
+Apr 06 06:23:31 vg-ubuntu-02 sshd[6142]: pam_unix(sshd:session): session opened for user vagrant by (uid=0)
+Apr 06 06:40:49 vg-ubuntu-02 sshd[5248]: Received signal 15; terminating.
+Apr 06 06:40:49 vg-ubuntu-02 sshd[6391]: Server listening on 0.0.0.0 port 22.
+Apr 06 06:40:49 vg-ubuntu-02 sshd[6391]: Server listening on :: port 22.
+Apr 06 06:45:34 vg-ubuntu-02 sshd[6865]: Connection closed by 10.35.8.69 port 55222 [preauth]
+Apr 06 06:47:01 vg-ubuntu-02 sshd[6871]: Connection closed by 10.35.8.69 port 55224 [preauth]
+Apr 06 06:47:50 vg-ubuntu-02 sshd[6391]: Received signal 15; terminating.
+Apr 06 06:47:50 vg-ubuntu-02 sshd[6881]: Server listening on 0.0.0.0 port 22.
+Apr 06 06:47:50 vg-ubuntu-02 sshd[6881]: Server listening on :: port 22.
+Apr 06 06:48:02 vg-ubuntu-02 sshd[6887]: Accepted password for root from 10.35.8.69 port 55226 ssh2
+Apr 06 06:48:02 vg-ubuntu-02 sshd[6887]: pam_unix(sshd:session): session opened for user root by (uid=0)
+
+
+disable root login 
+
+#by default , ssh with user root is disabled, disable and restart ssh service  
+vagrant@vg-ubuntu-02:~$ sudo grep --color PasswordAuthentication /etc/ssh/sshd_config
+#PasswordAuthentication no
+PasswordAuthentication yes
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication, then enable this but set PasswordAuthentication
+
+# the setting of "PermitRootLogin without-password".
+vagrant@vg-ubuntu-02:~$ sudo sed -i 's/PermitRootLogin yes/PermitRootLogin prohibit-password/' /etc/ssh/sshd_config
+vagrant@vg-ubuntu-02:~$ sudo grep --color "PermitRootLogin" /etc/ssh/sshd_config
+PermitRootLogin prohibit-password
+# the setting of "PermitRootLogin without-password".
+vagrant@vg-ubuntu-02:~$ sudo systemctl restart sshd
+
+
+#disable public key authentication, connect as user root via ssh 
+sshuser@vg-ubuntu-01:~$ ssh root@vg-ubuntu-02 -o PubkeyAuthentication=no
+root@vg-ubuntu-02's password:
+Permission denied, please try again.
+root@vg-ubuntu-02's password:
+
+#verify user root login via ssh is disabled on vg-ubuntu-02 in ssh service logs 
+vagrant@vg-ubuntu-02:~$ sudo journalctl -t sshd -f
+-- Logs begin at Mon 2022-04-04 12:36:51 UTC. --
+Apr 06 06:58:24 vg-ubuntu-02 sshd[6993]: Server listening on 0.0.0.0 port 22.
+Apr 06 06:58:24 vg-ubuntu-02 sshd[6993]: Server listening on :: port 22.
+Apr 06 06:59:59 vg-ubuntu-02 sshd[7000]: Connection closed by 127.0.0.1 port 49084 [preauth]
+Apr 06 07:00:01 vg-ubuntu-02 sshd[6887]: Received disconnect from 10.35.8.69 port 55226:11: disconnected by user
+Apr 06 07:00:01 vg-ubuntu-02 sshd[6887]: Disconnected from 10.35.8.69 port 55226
+Apr 06 07:00:01 vg-ubuntu-02 sshd[6887]: pam_unix(sshd:session): session closed for user root
+Apr 06 07:00:09 vg-ubuntu-02 sshd[7010]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=10.35.8.69  user=root
+Apr 06 07:00:11 vg-ubuntu-02 sshd[7010]: Failed password for root from 10.35.8.69 port 55228 ssh2
+--------------------------------------------------------------------------------------------------------------------------
+#lab user connects as user root via ssh from vg-ubuntu-01 to vg-centos-01,user root login via ssh is disabled
+
+sshuser@vg-ubuntu-01:~$ hostnamectl
+ Static hostname: vg-ubuntu-01
+       Icon name: computer-vm
+         Chassis: vm
+      Machine ID: b2bcae0e546445829300dae6dd84ffc7
+         Boot ID: 5a1a835c377b41ea9cfa59cdf5dc6197
+  Virtualization: oracle
+Operating System: Ubuntu 21.10
+          Kernel: Linux 5.13.0-35-generic
+    Architecture: x86-64
+ Hardware Vendor: innotek GmbH
+  Hardware Model: VirtualBox
+  
+[vagrant@vg-centos-01 ~]$ hostnamectl
+   Static hostname: vg-centos-01
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 7787acbc913c474482323b2a0cb55154
+           Boot ID: 36184d596eab4098bf592681a55755fe
+    Virtualization: oracle
+  Operating System: CentOS Stream 8
+       CPE OS Name: cpe:/o:centos:centos:8
+            Kernel: Linux 4.18.0-277.el8.x86_64
+      Architecture: x86-64
+  
+enable ssh root login
+
+#login as root and set root passwd
+[vagrant@vg-centos-01 ~]$ sudo su 
+[root@vg-centos-01 vagrant]# passwd
+Changing password for user root.
+New password:
+BAD PASSWORD: The password fails the dictionary check - it is based on a dictionary word
+Retype new password:
+passwd: all authentication tokens updated successfully.
+
+#make a backup of config file 
+[vagrant@vg-centos-01 ~]$ sudo cp /etc/ssh/sshd_config{,.orig}
+[vagrant@vg-centos-01 ~]$ sudo ls -lai /etc/ssh/sshd_config*
+9698450 -rw-------. 1 root root 4268 Mar 27 15:46 /etc/ssh/sshd_config
+9698451 -rw-------. 1 root root 4268 Mar 26 14:18 /etc/ssh/sshd_config.orig
+
+
+#by default , ssh with user root is disabled, enable and restart ssh service  
+[vagrant@vg-centos-01 ~]$ sudo grep --color PasswordAuthentication /etc/ssh/sshd_config
+#PasswordAuthentication yes
+PasswordAuthentication yes
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication, then enable this but set PasswordAuthentication
+[vagrant@vg-centos-01 ~]$ sudo grep --color "PermitRootLogin" /etc/ssh/sshd_config
+PermitRootLogin no
+[vagrant@vg-centos-01 ~]$ sudo sed -i 's/PermitRootLogin no/PermitRootLogin yes/' /etc/ssh/sshd_config
+[vagrant@vg-centos-01 ~]$ sudo grep --color "PermitRootLogin" /etc/ssh/sshd_config
+PermitRootLogin yes
+[vagrant@vg-centos-01 ~]$ sudo systemctl restart sshd
+
+#disable public key authentication, connect as user root via ssh 
+sshuser@vg-ubuntu-01:~$ ssh root@vg-centos-01 -o PubkeyAuthentication=no 
+root@vg-centos-01's password:
+Last login: Sat Mar 26 21:01:06 2022
+[root@vg-centos-01 ~]#
+
+#verify user root login via ssh on vg-centos-01 in ssh service logs 
+[vagrant@vg-centos-01 ~]$ sudo journalctl -t sshd -f
+-- Logs begin at Thu 2022-03-24 08:38:29 UTC. --
+Mar 27 15:42:18 vg-centos-01 sshd[60260]: Received signal 15; terminating.
+Mar 27 15:42:18 vg-centos-01 sshd[60288]: Server listening on 0.0.0.0 port 22.
+Mar 27 15:42:18 vg-centos-01 sshd[60288]: Server listening on :: port 22.
+Mar 27 15:43:24 vg-centos-01 sshd[60292]: Accepted password for root from 10.35.8.69 port 44928 ssh2
+Mar 27 15:43:24 vg-centos-01 sshd[60292]: pam_unix(sshd:session): session opened for user root by (uid=0)
+
+
+disable root login 
+
+#by default , ssh with user root is disabled, disable and restart ssh service  
+[vagrant@vg-centos-01 ~]$ sudo grep --color PasswordAuthentication /etc/ssh/sshd_config
+#PasswordAuthentication yes
+PasswordAuthentication yes
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication, then enable this but set PasswordAuthentication
+[vagrant@vg-centos-01 ~]$ sudo grep --color "PermitRootLogin" /etc/ssh/sshd_config
+PermitRootLogin yes
+[vagrant@vg-centos-01 ~]$ sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
+[vagrant@vg-centos-01 ~]$ sudo grep --color "PermitRootLogin" /etc/ssh/sshd_config
+PermitRootLogin no
+[vagrant@vg-centos-01 ~]$ sudo systemctl restart sshd
+
+#disable public key authentication, connect as user root via ssh 
+sshuser@vg-ubuntu-01:~$ ssh root@vg-centos-01 -o PubkeyAuthentication=no
+root@vg-centos-01's password:
+Permission denied, please try again.
+root@vg-centos-01's password:
+
+#verify user root login via ssh is disabled on vg-centos-01 in ssh service logs 
+[vagrant@vg-centos-01 ~]$ sudo journalctl -t sshd -f
+-- Logs begin at Thu 2022-03-24 08:38:29 UTC. --
+Mar 27 15:37:49 vg-centos-01 sshd[60260]: Server listening on 0.0.0.0 port 22.
+Mar 27 15:37:49 vg-centos-01 sshd[60260]: Server listening on :: port 22.
+Mar 27 15:39:21 vg-centos-01 sshd[60268]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=10.35.8.69  user=root
+Mar 27 15:39:23 vg-centos-01 sshd[60268]: Failed password for root from 10.35.8.69 port 44926 ssh2
+----------------------------------------------------------------------------------------------------
+#lab, two servers, ssh connection with private key, public key is not copied manually
+
+vagrant@vg-ubuntu-01:~$ sudo useradd --system --shell=/bin/bash --create-home remoteusr #create system user with bash shell and home directory 
+vagrant@vg-ubuntu-01:~$ id remoteusr # verify 
+uid=989(remoteusr) gid=989(remoteusr) groups=989(remoteusr),1014(remoteusrs)
+vagrant@vg-ubuntu-01:~$ sudo passwd remoteusr # set password for user remoteusr, type 1 password:q1w2e3r4
+
+vagrant@vg-ubuntu-01:~$ su - remoteusr # login with user account 
+remoteusr@vg-ubuntu-01:~$ ssh-keygen -t rsa -b 4096 #genereta public/private keys without passphrase for the script automation purposes
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/remoteusr/.ssh/id_rsa):
+Created directory '/home/remoteusr/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/remoteusr/.ssh/id_rsa
+Your public key has been saved in /home/remoteusr/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:1R37PbdplAwzHRECwPZGCVB27QSRwk+Z34LYNuUrv9U remoteusr@vg-ubuntu-01
+The key's randomart image is:
++---[RSA 4096]----+
+|       .==o=X..+o|
+|        .=.O =oo.|
+|        . X O++. |
+|         o O ==oo|
+|        S o . o=+|
+|           . .. *|
+|            o  =E|
+|             .o  |
+|             ..  |
++----[SHA256]-----+
+
+remoteusr@vg-ubuntu-01:~$ ls -lai .ssh # check private and public keys 
+remoteusr@vg-ubuntu-01:~$ chmod 400 .ssh/id_rsa # secure private key 
+remoteusr@vg-ubuntu-01:~$ exit
+
+#remote server
+vagrant@vg-ubuntu-02:~$ sudo useradd --system --shell=/bin/bash --create-home remoteusr #create system user with bash shell and home directory 
+vagrant@vg-ubuntu-02:~$ id remoteusr # verify 
+uid=989(remoteusr) gid=989(remoteusr) groups=989(remoteusr),1014(remoteusrs)
+vagrant@vg-ubuntu-02:~$ sudo passwd remoteusr # set password for user remoteusr, type 2 password:r4e3w2q1 (!!! PASSWORD IS NOT IDENTICAL)
+[vagrant@vg-ubuntu-02 ~]$ su - remoteusr
+[remoteusr@vg-ubuntu-02 ~]$
+remoteusr@vg-ubuntu-02:~$ exit
+[vagrant@vg-ubuntu-02 ~]$ sudo systemctl status sshd # verify ssh service is running
+[vagrant@vg-ubuntu-02 ~]$ sudo cp /etc/ssh/sshd_config{,.orig} #back up cfg file 
+[vagrant@vg-ubuntu-02 ~]$ sudo ls -lai /etc/ssh/sshd_config*
+9698450 -rw-------. 1 root root 4268 Mar 25 18:47 /etc/ssh/sshd_config
+9698451 -rw-------. 1 root root 4268 Mar 26 14:18 /etc/ssh/sshd_config.orig
+
+#remote server
+
+#temporarily let login with password via ssh  
+#let ssh-copy-id run from vagrant@vg-ubuntu-01 to copy private key on vg-ubuntu-02 
+vagrant@vg-ubuntu-02:~$ sudo grep --color PasswordAuthentication /etc/ssh/sshd_config
+[vagrant@vg-ubuntu-02 ~]$ sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+[vagrant@vg-ubuntu-02 ~]$ sudo grep --color PasswordAuthentication /etc/ssh/sshd_config
+[vagrant@vg-ubuntu-02 ~]$ sudo systemctl restart sshd
+[vagrant@vg-ubuntu-02 ~]$ sudo systemctl status sshd
+
+#copy public key to remote server (remoteusr user on the remote server must exist), 
+#change temporarily /etc/ssh/sshd_config on vg-ubuntu-02 to copy public key 
+#user remoteusr logs in, password needed 
+#remoteusr home directory is used to store public key 
+#ssh-copy-id is a script that uses ssh(1) to log into a remote machine (presumably using a login password, so password authentication should be enabled
+
+#remoteusr logs in with type 2 password
+remoteusr@vg-ubuntu-01:~$ ssh-copy-id remoteusr@vg-ubuntu-02
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/remoteusr/.ssh/id_rsa.pub"
+The authenticity of host 'vg-ubuntu-02 (10.35.8.73)' can't be established.
+ECDSA key fingerprint is SHA256:EBm8NSz4sYKC51WLzbVDw1mHiMYpiwvmUDHDtPbv0v4.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+remoteusr@vg-ubuntu-02's password:
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'remoteusr@vg-ubuntu-02'"
+and check to make sure that only the key(s) you wanted were added.
+
+
+
+
+remoteusr@vg-ubuntu-01:~$ ssh remoteusr@vg-ubuntu-02
+Last login: Sat Mar 26 14:42:13 2022 from 10.35.8.69
+[remoteusr@vg-ubuntu-02 ~]$exit 
+
+
+#remote server
+
+#enable passwordless login via ssh , revert previous configuration
+vagrant@vg-ubuntu-02:~$ sudo grep --color PasswordAuthentication /etc/ssh/sshd_config
+[vagrant@vg-ubuntu-02 ~]$ sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
+[vagrant@vg-ubuntu-02 ~]$ sudo grep --color PasswordAuthentication /etc/ssh/sshd_config
+#PasswordAuthentication no
+PasswordAuthentication no
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication, then enable this but set PasswordAuthentication
+[vagrant@vg-ubuntu-02 ~]$ sudo systemctl restart sshd
+[vagrant@vg-ubuntu-02 ~]$ sudo systemctl status sshd
+
+
+remoteusr@vg-ubuntu-01:~$ ssh remoteusr@vg-ubuntu-02
+Last login: Sat Mar 26 14:42:13 2022 from 10.35.8.69
+[remoteusr@vg-ubuntu-02 ~]$exit
+
+
+#copied public key on remote vg-ubuntu-02
+vagrant@vg-ubuntu-02:~$ sudo cat /home/remoteusr/.ssh/authorized_keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDhnAR38f4K+CgoDqCSgraR+XcRoh9UGxGUV5IAeRfPvLCVZUVCNNUjp35g1jmDCJogGEG8uuHEGwb6yZ1UK/09sPVDxhmSiBM9DT6xhwceY59NJCiTTO1C/b3SEvPbjCmBf1DkcgMDurs+Ea5+U5Nj/jXiRIgtlvS972IyoJuDFVK14dHvSKG+yhuZRGLrciT32OljWVtuZqmpGla0zfMwNFP3GraBruHrqr1R0Jk2UGqsGoPvV+a5fv+NSTNVEiYRmrFn3jJGOuRQF56hRHYZLRSRjKS8/GGSFdDL2Jg0aYf98xbWq1TiRVs3YNKaqmmpkcbksfOV5E0nNKxHYO3q7KMjRCuLcoFY1WK0XpxvaEbYu6WUr2psCC9+0x3utlFtUMpnGu/qmn20VigjGxBmKVwKdcF23jq1MJrJg0e0HQhzRQDdDQsQJWvLsMr6DornXy3OBu0x6Ocdm58LC5yzR27q13ehWtak0CNV1AFHhvLX50pG8Ogxa53rPAn2NTzDdHfvP2Ls9rYGJc5Kq8ToheNqQHBohpLEcK0MTNlcFtVvHybzTq+n9idkxEF9c+EbYYOUuQrrPEp9uT+F2VA8tky+VHHexzcsW/cxJGAOQp4z96+bFtTEf3OnibVcgOMrQyR/CU6UkiAzWxSpYj1K5V4pKJgIh96YO/n/fDwCwQ== remoteusr@vg-ubuntu-01
+
+#public key on local vg-ubuntu-01
+remoteusr@vg-ubuntu-01:~$ cat .ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDhnAR38f4K+CgoDqCSgraR+XcRoh9UGxGUV5IAeRfPvLCVZUVCNNUjp35g1jmDCJogGEG8uuHEGwb6yZ1UK/09sPVDxhmSiBM9DT6xhwceY59NJCiTTO1C/b3SEvPbjCmBf1DkcgMDurs+Ea5+U5Nj/jXiRIgtlvS972IyoJuDFVK14dHvSKG+yhuZRGLrciT32OljWVtuZqmpGla0zfMwNFP3GraBruHrqr1R0Jk2UGqsGoPvV+a5fv+NSTNVEiYRmrFn3jJGOuRQF56hRHYZLRSRjKS8/GGSFdDL2Jg0aYf98xbWq1TiRVs3YNKaqmmpkcbksfOV5E0nNKxHYO3q7KMjRCuLcoFY1WK0XpxvaEbYu6WUr2psCC9+0x3utlFtUMpnGu/qmn20VigjGxBmKVwKdcF23jq1MJrJg0e0HQhzRQDdDQsQJWvLsMr6DornXy3OBu0x6Ocdm58LC5yzR27q13ehWtak0CNV1AFHhvLX50pG8Ogxa53rPAn2NTzDdHfvP2Ls9rYGJc5Kq8ToheNqQHBohpLEcK0MTNlcFtVvHybzTq+n9idkxEF9c+EbYYOUuQrrPEp9uT+F2VA8tky+VHHexzcsW/cxJGAOQp4z96+bFtTEf3OnibVcgOMrQyR/CU6UkiAzWxSpYj1K5V4pKJgIh96YO/n/fDwCwQ== remoteusr@vg-ubuntu-01
+
+  
+#remote server
+
+#user remoteusr can't log in by typing a password,
+
+vagrant@vg-ubuntu-02:~$ sudo passwd --status remoteusr
+remoteusr P 06/22/2022 -1 -1 -1 -1
+vagrant@vg-ubuntu-02:~$ sudo usermod -L remoteusr #lock user remoteusr
+vagrant@vg-ubuntu-02:~$ sudo passwd --status remoteusr
+remoteusr L 06/22/2022 -1 -1 -1 -1
+vagrant@vg-ubuntu-01:~$ su - remoteusr # verify remoteusr can not log in with password
+Password:
+su: Authentication failure
+
+
+#user remoteusr can still log using other authentication mechanisms (SSH keys)
+remoteusr@vg-ubuntu-01:~$ ssh remoteusr@vg-ubuntu-02
+remoteusr@vg-ubuntu-02:~$ exit
+logout
+Connection to vg-ubuntu-02 closed.
+remoteusr@vg-ubuntu-01:~$
+
+#user remoteusr can still log using other authentication mechanisms (SSH keys) and rsync files
+remoteusr@vg-ubuntu-01:~$ rsync -avz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --progress /home/remoteusr/a.txt vg-ubuntu-02:/tmp
+
+-----------------------------------------------------------------------------------------
+#lab, two server, rsync file transfer over SSH keys, public key is copied manually
+
+vagrant@vg-ubuntu-01:~$ sudo useradd --system --shell=/bin/bash --create-home filerunner #create system user with bash shell and home directory 
+vagrant@vg-ubuntu-01:~$ id filerunner # verify 
+uid=989(filerunner) gid=989(filerunner) groups=989(filerunner),1014(filerunners)
+vagrant@vg-ubuntu-01:~$ sudo passwd filerunner # set password for user filerunner, type 1 password:q1w2e3r4
+
+vagrant@vg-ubuntu-01:~$ su - filerunner # login with user account 
+filerunner@vg-ubuntu-01:~$ ssh-keygen -f ~/.ssh/id_rsa -q -P ""  #generate public SSH keys without password
+
+
+filerunner@vg-ubuntu-01:~$ ls -lai .ssh # check private and public keys 
+filerunner@vg-ubuntu-01:~$ chmod 400 .ssh/id_rsa # secure private key 
+filerunner@vg-ubuntu-01:~$ exit
+
+#remote server
+
+vagrant@vg-ubuntu-02:~$ sudo useradd --system --shell=/bin/bash --create-home filerunner #create system user with bash shell and home directory 
+vagrant@vg-ubuntu-02:~$ id filerunner # verify 
+uid=989(filerunner) gid=989(filerunner) groups=989(filerunner),1014(filerunners)
+vagrant@vg-ubuntu-02:~$ sudo passwd filerunner # set password for user filerunner, type 2 password:r4e3w2q1 (!!! PASSWORD IS NOT IDENTICAL)
+[vagrant@vg-ubuntu-02 ~]$ su - filerunner
+[filerunner@vg-ubuntu-02 ~]$
+filerunner@vg-ubuntu-02:~$ exit
+[vagrant@vg-ubuntu-02 ~]$ sudo systemctl status sshd # verify ssh service is running
+
+filerunner@vg-ubuntu-02:~$ mkdir ~/.ssh && chmod 0700 ~/.ssh && touch ~/.ssh/authorized_keys && chmod 0644 ~/.ssh/authorized_keys
+
+#copy&paste id.rsa.pub file on vg-ubuntu-01 into ~/.ssh/authorized_keys on vg-ubuntu-02
+#essentially copy public key onto remote server in order to connect via private key 
+
+
+filerunner@vg-ubuntu-01:~$ cat .ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDYl2gFT8ikjF9adIbk6j/7O9YoY1+3A1KCpZbrOLGPhJLAWPzgspnT1NFulcKRx7vK3uAyn1PLwMTRiedVYro353FRoveRRCLA9QWkp2+DwEasG8IQOrxDry1x0SOdTJ8002wCK/an9cJ6OZOtfY5I6nEySFQXomUBOwXvdlYR41dlk5Nx7fWVpoJUldVmgcFq3EIBw/AOi3lhZ+YM30049PCBxp/WMdsSVdkdxmM2Te82OwoaW/0hDu1DWttiLvjyRFzBwp87eEXiyTgdGONXkgb7489JJKbd4hQG3gm3f/rptD/0b81HazO/6L3CP7s25RVFz9lYdodDji7GpwH3 filerunner@vg-ubuntu-01
+
+filerunner@vg-ubuntu-02:~$ vi ~/.ssh/authorized_keys
+filerunner@vg-ubuntu-02:~$ cat .ssh/authorized_keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDYl2gFT8ikjF9adIbk6j/7O9YoY1+3A1KCpZbrOLGPhJLAWPzgspnT1NFulcKRx7vK3uAyn1PLwMTRiedVYro353FRoveRRCLA9QWkp2+DwEasG8IQOrxDry1x0SOdTJ8002wCK/an9cJ6OZOtfY5I6nEySFQXomUBOwXvdlYR41dlk5Nx7fWVpoJUldVmgcFq3EIBw/AOi3lhZ+YM30049PCBxp/WMdsSVdkdxmM2Te82OwoaW/0hDu1DWttiLvjyRFzBwp87eEXiyTgdGONXkgb7489JJKbd4hQG3gm3f/rptD/0b81HazO/6L3CP7s25RVFz9lYdodDji7GpwH3 filerunner@vg-ubuntu-01
+
+
+filerunner@vg-ubuntu-01:~$ ssh filerunner@vg-ubuntu-02
+Last login: Sat Mar 26 14:42:13 2022 from 10.35.8.69
+[filerunner@vg-ubuntu-02 ~]$exit 
+
+
+
+
+filerunner@vg-ubuntu-01:~$ touch a.txt
+filerunner@vg-ubuntu-01:~$ rsync -avz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --progress /home/filerunner/a.txt vg-ubuntu-02:/tmp
+Warning: Permanently added 'vg-ubuntu-02,10.35.8.68' (ECDSA) to the list of known hosts.
+sending incremental file list
+a.txt
+              0 100%    0.00kB/s    0:00:00 (xfr#1, to-chk=0/1)
+
+sent 108 bytes  received 35 bytes  95.33 bytes/sec
+total size is 0  speedup is 0.00
+
+#remote server 
+
+vagrant@vg-ubuntu-02:~$ ls -lai /tmp/a.txt
+2692 -rw-rw-r-- 1 filerunner filerunner 0 Jun 22 08:24 /tmp/a.txt
