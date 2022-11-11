@@ -1,6 +1,11 @@
 # ParrotLinux-Public-Kiosk-Project Changelog
 
 
+## 45.3.5-27 (11/10/2022)
+
+- Added [Xe1phix-QCow2-Cheatsheet-v2.5.85.sh](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/-/blob/master/Xe1phix-%5BCheatsheets%5D/Xe1phix-%5BCheatsheets%5D/Xe1phix-%5BVirtualization%5D-Cheatsheets/Xe1phix-%5BQCow2%5D-Cheatsheet-%5Bv2.5.85%5D.sh)
+
+
 ## 2.3.2-3 (10/27/2019)
 
 - Updated [Xe1phix-PDF-MetaData-v4.5.sh](https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/blob/master/Xe1phix-Linux-Forensics/Xe1phix-PDF-Forensics/Xe1phix-PDF-MetaData-v4.5.sh)
