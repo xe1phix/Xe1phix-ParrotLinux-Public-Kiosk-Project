@@ -1,0 +1,2519 @@
+                               #############################
+############################## # Day 1: Linux Fundamentals # ##############################
+                               #############################
+
+
+
+
+
+
+
+
+#####################################################
+# 2020 Intro to Linux & Comptia Linux+ Exam Prep    # 
+# By Joe McCray                                     #
+#####################################################
+
+- Here is a good set of slides for getting started with Linux:
+http://www.slideshare.net/olafusimichael/linux-training-24086319
+
+
+- Here is a good tutorial that you should complete before doing the labs below:
+http://linuxsurvival.com/linux-tutorial-introduction/
+
+
+- I prefer to use Putty to SSH into my Linux host.
+- You can download Putty from here:
+- http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+
+Here is the information to put into putty
+
+Host Name:          149.28.201.171
+protocol:           ssh
+port:               22
+username:           linuxtraining
+password:           linux!training123!
+
+
+########################
+# Basic Linux Commands #
+########################
+
+---------------------------Type This-----------------------------------
+cd ~
+
+pwd
+
+whereis pwd
+
+which pwd
+
+sudo find / -name pwd
+
+/bin/pwd
+
+cd ~/students/
+
+mkdir yourname					<---- replace 'yourname' with your first name in lowercase with no spaces or special characters please
+
+cd yourname						<---- replace 'yourname' with your first name in lowercase with no spaces or special characters please
+
+touch one two three
+
+ls -l t							(without pressing the Enter key, press the Tab key twice. What happens?)
+
+h								(and again without pressing the Enter key, press the Tab key twice. What happens?)
+
+Press the 'Up arrow key'		(What happens?)
+
+Press 'Ctrl-A'					(What happens?)
+
+ls
+
+clear							(What happens?)
+
+echo one > one
+
+cat one							(What happens?)
+
+man cat							(What happens?)
+	q
+
+cat two
+
+cat one > two
+
+cat two
+
+cat one two > three
+
+cat three
+
+echo four >> three
+
+cat three 						(What happens?)
+
+wc -l three
+
+man wc
+	q
+
+info wc
+	q
+
+cat three | grep four
+
+cat three | grep one
+
+man grep
+	q
+
+
+man ps
+	q
+
+ps
+
+ps aux
+
+ps aux | less
+
+Press the 'Up arrow key'		(What happens?)
+
+Press the 'Down arrow key'		(What happens?)
+	q
+
+top
+    q
+-----------------------------------------------------------------------
+
+
+#########
+# Files #
+#########
+---------------------------Type This-----------------------------------
+cd ~
+
+pwd
+
+cd ~/students/yourname/
+
+pwd
+
+ls
+
+mkdir LinuxBasics
+
+cd LinuxBasics
+
+pwd
+
+ls
+
+mkdir files
+
+touch one two three
+
+cp one files/
+
+ls files/
+
+cd files/
+
+cp ../two .
+
+ls
+
+cp ../three .
+
+ls
+
+tar cvf files.tar *
+
+ls
+
+gzip files.tar
+
+ls
+
+rm -rf one two three
+
+ls
+
+tar -zxvf files.tar.gz
+
+rm -rf files.tar.gz
+
+zip data *
+
+unzip -l data.zip
+
+mkdir /tmp/yourname/
+
+unzip data.zip -d /tmp/yourname/
+-----------------------------------------------------------------------
+
+
+
+############
+# VIM Demo #
+############
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/LinuxBasics
+
+mkdir vimlesson
+
+cd vimlesson
+
+vi lesson1.sh
+
+i								(press "i" to get into INSERT mode and then paste in the lines below)
+
+#!/bin/bash
+
+echo "This is my first time using vi to create a shell script"
+echo " "
+echo " "
+echo " "
+sleep 5
+echo "Ok, now let's clear the screen"
+sleep 3
+clear
+
+
+---------------don't put this line in your script----------------------------
+
+ESC			(press the ESC key to get you out of INSERT mode)
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+/echo		(typing "/echo" immediately after SHIFT: will search the file for the word echo).
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+4		(typing "4" immediately after SHIFT: will take you to line number 4).
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+4		(typing "4" immediately after SHIFT: will take you to line number 4).
+
+dd		(typing "dd" will delete the line that you are on)
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+4		(typing "4" immediately after SHIFT: will take you to line number 4).
+
+dd		(typing "dd" will delete the line that you are on)
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+syntax on		(typing "syntax on" immediately after SHIFT: will turn on syntax highlighting
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set tabstop=5	(typing "set tabstop=5" immediately after SHIFT: will set your tabs to 5 spaces
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+vi .vimrc
+i			(press "i" to get into INSERT mode and then paste in the lines below)
+
+
+set number
+syntax on
+set tabstop=5
+
+ESC			(press the ESC key to get you out of INSERT mode)
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+echo $MYVIMRC	(typing "echo $MYVIMRC" immediately after SHIFT: will display the path to your new .vimrc file
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+-----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+###############
+# Permissions #
+###############
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/LinuxBasics
+
+ls -l one
+-----------------------------------------------------------------------
+We can determine a lot from examining the results of this command. The file "one" is owned by user "me". 
+Now "me" has the right to read and write this file. 
+The file is owned by the group "me". Members of the group "me" can also read and write this file. 
+Everybody else can read this file
+
+
+---------------------------Type This-----------------------------------
+ls -l /bin/bash
+-----------------------------------------------------------------------
+
+Here we can see:
+
+The file "/bin/bash" is owned by user "root". The superuser has the right to read, write, and execute this file. 
+The file is owned by the group "root". Members of the group "root" can also read and execute this file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Everybody else can read and execute this file
+
+
+The next command you need to know is "chmod"
+rwx rwx rwx = 111 111 111
+rw- rw- rw- = 110 110 110
+rwx --- --- = 111 000 000
+
+and so on...
+
+rwx = 111 in binary = 7
+rw- = 110 in binary = 6
+r-x = 101 in binary = 5
+r-- = 100 in binary = 4
+
+
+---------------------------Type This-----------------------------------
+ls -l one
+
+chmod 600 one
+
+ls -l one
+
+sudo useradd yourname
+	aegisweaponssystem
+
+
+sudo passwd yourname
+
+     P@$$w0rd321
+     P@$$w0rd321
+
+sudo chown testuser one
+	aegisweaponssystem
+
+ls -l one
+
+sudo chgrp testuser one
+	aegisweaponssystem
+
+ls -l one
+
+id
+
+su testuser
+     P@$$w0rd321
+-----------------------------------------------------------------------
+
+Here is a table of numbers that covers all the common settings. The ones beginning with "7" are used with programs (since they enable execution) and the rest are for other kinds of files.
+
+Value	Meaning
+777 (rwxrwxrwx) 	No restrictions on permissions. Anybody may do anything. Generally not a desirable setting.
+
+755 (rwxr-xr-x) 	The file's owner may read, write, and execute the file. All others may read and execute the file. This setting is common for programs that are used by all users.
+
+700 (rwx------) 	The file's owner may read, write, and execute the file. Nobody else has any rights. This setting is useful for programs that only the owner may use and must be kept private from others.
+
+666 (rw-rw-rw-) 	All users may read and write the file.
+
+644 (rw-r--r--) 	The owner may read and write a file, while all others may only read the file. A common setting for data files that everybody may read, but only the owner may change.
+
+600 (rw-------) 	The owner may read and write a file. All others have no rights. A common setting for data files that the owner wants to keep private.
+
+
+
+Directory permissions
+---------------------
+The chmod command can also be used to control the access permissions for directories. In most ways, the permissions scheme for directories works the same way as they do with files. However, the execution permission is used in a different way. It provides control for access to file listing and other things. Here are some useful settings for directories:
+
+Value	Meaning
+777 (rwxrwxrwx) 	No restrictions on permissions. 
+Anybody may list files, create new files in the directory and delete files in the directory. 
+Generally not a good setting.
+
+
+
+755 (rwxr-xr-x) 	The directory owner has full access. 
+All others may list the directory, but cannot create files nor delete them. 
+This setting is common for directories that you wish to share with other users.
+
+
+
+700 (rwx------) 	The directory owner has full access. Nobody else has any rights. This setting is useful for directories that only the owner may use and must be kept private from others.
+
+######################
+# Process Management #
+######################
+---------------------------Type This-----------------------------------
+top
+	q
+
+htop
+	q
+
+ps
+
+ps aux
+
+ps -A
+
+ps -A | less
+
+ps axjf
+
+pstree
+
+pstree -A
+
+pgrep bash
+
+pgrep init
+
+ps aux | grep apache
+-----------------------------------------------------------------------
+
+
+
+You can list all of the signals that are possible to send with kill by typing:
+---------------------------Type This-----------------------------------
+kill -l
+
+sudo kill -HUP pid_of_apache
+
+The pkill command works in almost exactly the same way as kill, but it operates on a process name instead:
+
+pkill -9 ping
+The above command is the equivalent of:
+
+kill -9 `pgrep ping`
+-----------------------------------------------------------------------
+
+
+
+
+################
+# Hashing Demo #
+################
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/LinuxBasics
+
+mkdir hashdemo
+
+cd hashdemo
+
+echo test > test.txt
+
+cat test.txt
+
+md5sum test.txt
+
+echo hello >> test.txt
+
+cat test.txt
+
+md5sum test.txt
+
+echo test2 > test2.txt
+
+cat test2.txt
+
+sha256sum test2.txt
+
+echo hello >> test2.txt
+
+cat test2.txt
+
+sha256sum test2.txt
+
+cd ..
+-----------------------------------------------------------------------
+
+
+
+#################################
+# Symmetric Key Encryption Demo #
+#################################
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/LinuxBasics
+
+mkdir gpgdemo
+
+cd gpgdemo
+
+echo test > test.txt
+
+cat test.txt
+
+gpg -c test.txt
+	password
+	password
+
+ls | grep test
+
+cat test.txt
+
+cat test.txt.gpg
+
+rm -rf test.txt
+
+ls | grep test
+
+gpg -o output.txt test.txt.gpg
+	P@$$w0rD!@#$P@$$w0rD!@#$
+
+cat output.txt
+-----------------------------------------------------------------------
+
+
+
+#########################################################################################################################
+# Asymmetric Key Encryption Demo 											                                            #
+#															                                                            #
+# Configure random number generator 											                                        #
+# https://www.howtoforge.com/helping-the-random-number-generator-to-gain-enough-entropy-with-rng-tools-debian-lenny	    #
+#########################################################################################################################
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/LinuxBasics/gpgdemo
+
+echo hello > file1.txt
+
+echo goodbye > file2.txt
+
+echo green > file3.txt
+
+echo blue > file4.txt
+
+tar czf files.tar.gz *.txt
+
+gpg --gen-key
+	1
+	1024
+	0
+	y
+	John Doe
+	john@doe.com
+	--blank comment--
+	O
+		P@$$w0rD!@#$P@$$w0rD!@#$
+		P@$$w0rD!@#$P@$$w0rD!@#$	
+
+
+
+gpg --armor --output file-enc-pubkey.txt --export 'John Doe'
+
+cat file-enc-pubkey.txt
+
+gpg --armor --output file-enc-privkey.asc --export-secret-keys 'John Doe'
+
+cat file-enc-privkey.asc
+
+gpg --encrypt --recipient 'John Doe' files.tar.gz
+
+rm -rf files.tar.gz *.txt
+
+ls
+
+tar -zxvf files.tar.gz.gpg
+
+gpg --output output.tar.gz --decrypt files.tar.gz.gpg
+	P@$$w0rD!@#$P@$$w0rD!@#$
+
+tar -zxvf output.tar.gz
+
+ls
+-----------------------------------------------------------------------
+
+
+
+##############################################
+# Log Analysis with Linux command-line tools #
+##############################################
+- The following command line executables are found in the Mac as well as most Linux Distributions.
+ 
+cat –  prints the content of a file in the terminal window
+grep – searches and filters based on patterns
+awk –  can sort each row into fields and display only what is needed
+sed –  performs find and replace functions
+sort – arranges output in an order
+uniq – compares adjacent lines and can report, filter or provide a count of duplicates
+ 
+ 
+ 
+ 
+ 
+##############
+# Cisco Logs #
+##############
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/ 
+mkdir security
+cd security
+mkdir log_analysis
+cd log_analysis
+wget http://45.63.104.73/cisco.log
+-----------------------------------------------------------------------
+
+
+AWK Basics
+----------
+- To quickly demonstrate the print feature in awk, we can instruct it to show only the 5th word of each line. Here we will print $5. Only the last 4 lines are being shown for brevity.
+---------------------------Type This----------------------------------- 
+cat cisco.log | awk '{print $5}' | tail -n 4
+----------------------------------------------------------------------- 
+ 
+ 
+ 
+- Looking at a large file would still produce a large amount of output. A more useful thing to do might be to output every entry found in “$5”, group them together, count them, then sort them from the greatest to least number of occurrences. This can be done by piping the output through “sort“, using “uniq -c” to count the like entries, then using “sort -rn” to sort it in reverse order.
+---------------------------Type This----------------------------------- 
+cat cisco.log | awk '{print $5}'| sort | uniq -c | sort -rn
+----------------------------------------------------------------------- 
+ 
+ 
+ 
+- While that’s sort of cool, it is obvious that we have some garbage in our output. Evidently we have a few lines that aren’t conforming to the output we expect to see in $5. We can insert grep to filter the file prior to feeding it to awk. This insures that we are at least looking at lines of text that contain “facility-level-mnemonic”.
+---------------------------Type This----------------------------------- 
+cat cisco.log | grep %[a-zA-Z]*-[0-9]-[a-zA-Z]* | awk '{print $5}' | sort | uniq -c | sort -rn
+----------------------------------------------------------------------- 
+ 
+ 
+ 
+ 
+- Now that the output is cleaned up a bit, it is a good time to investigate some of the entries that appear most often. One way to see all occurrences is to use grep.
+---------------------------Type This----------------------------------- 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| awk '{print $10}' | sort | uniq -c | sort -rn
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10}' | sort | uniq -c | sort -rn
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10 " changed to " $14}' | sort | uniq -c | sort -rn
+-----------------------------------------------------------------------
+
+
+
+
+
+##################
+# Day 1 Homework #
+##################
+Task Option 1: Linux Survival
+-----------------------------
+Do all of the exercises in Linux Survival (http://linuxsurvival.com/linux-tutorial-introduction/)
+Create a word document that contains the screenshots of the quizzes NOTE: You must score a perfect 100 for all 4 quizzes
+Name the word document 'YourFirstName-YourLastName-LinuxDay1-LinuxSurvival.docx' (ex: 'Joseph-McCray-LinuxDay1-LinuxSurvival.docx')
+Email the document to me at joe-at-secureninja-dot-com before the start of class tomorrow
+
+
+Task Option 2: Basic Shell Scripting
+------------------------------------
+Watch and do all of the exercises in the video https://www.youtube.com/watch?v=_n5ZegzieSQ
+Create a word document that contains the screenshots of the tasks performed in this video
+Name the word document 'YourFirstName-YourLastName-LinuxDay1-ShellScripting.docx' (ex: 'Joseph-McCray-LinuxDay1-ShellScripting.docx')
+Email the document to me at joe-at-secureninja-dot-com before the start of class tomorrow
+
+
+
+
+
+
+
+
+
+
+
+
+
+                               ###########################
+############################## # Day 2: Malware Analysis # ##############################
+                               ###########################
+
+
+
+################
+# The Scenario #
+################
+You've come across a file that has been flagged by one of your security products (AV Quarantine, HIPS, Spam Filter, Web Proxy, or digital forensics scripts). The fastest thing you can do is perform static analysis. 
+
+
+
+####################
+# Malware Analysis #
+####################
+
+
+
+- After logging please open a terminal window and type the following commands:
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/security/
+mkdir malware_analysis
+cd malware_analysis
+-----------------------------------------------------------------------
+ 
+- This is actual Malware (remember to run it in a VM - the password to extract it is 'infected':
+ 
+---------------------------Type This-----------------------------------
+wget https://infosecaddicts-files.s3.amazonaws.com/malware-password-is-infected.zip --no-check-certificate
+wget https://infosecaddicts-files.s3.amazonaws.com/analyse_malware.py --no-check-certificate
+wget https://infosecaddicts-files.s3.amazonaws.com/wannacry.zip --no-check-certificate
+ 
+unzip malware-password-is-infected.zip
+    infected
+ 
+file malware.exe
+ 
+mv malware.exe malware.pdf
+ 
+file malware.pdf
+ 
+mv malware.pdf malware.exe
+ 
+hexdump -n 2 -C malware.exe
+-----------------------------------------------------------------------
+ 
+ 
+***What is '4d 5a' or 'MZ'***
+Reference:
+http://www.garykessler.net/library/file_sigs.html
+ 
+
+
+
+
+
+
+
+---------------------------Type This-----------------------------------
+objdump -x malware.exe
+ 
+strings malware.exe
+ 
+strings --all malware.exe | head -n 6
+ 
+strings malware.exe | grep -i dll
+ 
+strings malware.exe | grep -i library
+ 
+strings malware.exe | grep -i reg
+ 
+strings malware.exe | grep -i hkey
+ 
+strings malware.exe | grep -i hku
+-----------------------------------------------------------------------
+                            - We didn't see anything like HKLM, HKCU or other registry type stuff
+ 
+ 
+---------------------------Type This-----------------------------------
+strings malware.exe | grep -i irc
+ 
+strings malware.exe | grep -i join         
+ 
+strings malware.exe | grep -i admin
+ 
+strings malware.exe | grep -i list
+-----------------------------------------------------------------------
+ 
+                            - List of IRC commands: https://en.wikipedia.org/wiki/List_of_Internet_Relay_Chat_commands
+ 
+---------------------------Type This-----------------------------------
+vi analyse_malware.py
+ 
+python analyse_malware.py malware.exe
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+- After logging please open a terminal window and type the following commands:
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/security/malware_analysis
+ 
+unzip wannacry.zip
+     infected
+ 
+file wannacry.exe
+ 
+mv wannacry.exe malware.pdf
+ 
+file malware.pdf
+ 
+mv malware.pdf wannacry.exe
+ 
+hexdump -n 2 -C wannacry.exe
+-----------------------------------------------------------------------
+ 
+ 
+ 
+***What is '4d 5a' or 'MZ'***
+Reference:
+http://www.garykessler.net/library/file_sigs.html
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+objdump -x wannacry.exe
+ 
+strings wannacry.exe
+ 
+strings --all wannacry.exe | head -n 6
+ 
+strings wannacry.exe | grep -i dll
+ 
+strings wannacry.exe | grep -i library
+ 
+strings wannacry.exe | grep -i reg
+ 
+strings wannacry.exe | grep -i key
+ 
+strings wannacry.exe | grep -i rsa
+ 
+strings wannacry.exe | grep -i open
+ 
+strings wannacry.exe | grep -i get
+ 
+strings wannacry.exe | grep -i mutex
+ 
+strings wannacry.exe | grep -i irc
+ 
+strings wannacry.exe | grep -i join        
+ 
+strings wannacry.exe | grep -i admin
+ 
+strings wannacry.exe | grep -i list
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+Hmmmmm.......what's the latest thing in the news - oh yeah "WannaCry"
+ 
+Quick Google search for "wannacry ransomeware analysis"
+ 
+ 
+Reference
+https://securingtomorrow.mcafee.com/executive-perspectives/analysis-wannacry-ransomware-outbreak/
+ 
+- Yara Rule -
+ 
+ 
+Strings:
+$s1 = “Ooops, your files have been encrypted!” wide ascii nocase
+$s2 = “Wanna Decryptor” wide ascii nocase
+$s3 = “.wcry” wide ascii nocase
+$s4 = “WANNACRY” wide ascii nocase
+$s5 = “WANACRY!” wide ascii nocase
+$s7 = “icacls . /grant Everyone:F /T /C /Q” wide ascii nocase
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Ok, let's look for the individual strings in our file
+ 
+ 
+---------------------------Type This-----------------------------------
+strings wannacry.exe | grep -i ooops
+ 
+strings wannacry.exe | grep -i wanna
+ 
+strings wannacry.exe | grep -i wcry
+ 
+strings wannacry.exe | grep -i wannacry
+ 
+strings wannacry.exe | grep -i wanacry          **** Matches $s5, hmmm.....
+ -----------------------------------------------------------------------
+ 
+
+
+
+
+################################
+# Good references for WannaCry #
+################################
+ 
+References:
+ 
+https://gist.github.com/rain-1/989428fa5504f378b993ee6efbc0b168
+https://securingtomorrow.mcafee.com/executive-perspectives/analysis-wannacry-ransomware-outbreak/
+https://joesecurity.org/reports/report-db349b97c37d22f5ea1d1841e3c89eb4.html
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+####################################
+# Tired of GREP - let's try Python #
+####################################
+Decided to make my own script for this kind of stuff in the future. I
+ 
+Reference1:
+https://infosecaddicts-files.s3.amazonaws.com/analyse_malware.py
+ 
+This is a really good script for the basics of static analysis
+ 
+Reference:
+https://joesecurity.org/reports/report-db349b97c37d22f5ea1d1841e3c89eb4.html
+ 
+ 
+This is really good for showing some good signatures to add to the Python script
+ 
+ 
+Here is my own script using the signatures (started this yesterday, but still needs work):
+https://pastebin.com/guxzCBmP
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+wget https://pastebin.com/raw/guxzCBmP
+ 
+ 
+mv guxzCBmP am.py
+ 
+ 
+vi am.py
+ 
+python am.py wannacry.exe
+-----------------------------------------------------------------------
+
+
+
+
+
+
+
+##############
+# Yara Ninja #
+##############
+Hmmmmm.......what's the latest thing in the news - oh yeah "WannaCry"
+ 
+Quick Google search for "wannacry ransomeware analysis"
+ 
+ 
+Reference
+https://www.mcafee.com/blogs/other-blogs/executive-perspectives/analysis-wannacry-ransomware-outbreak/
+ 
+ 
+ 
+- Yara Rule -
+ 
+ 
+Strings:
+$s1 = “Ooops, your files have been encrypted!” wide ascii nocase
+$s2 = “Wanna Decryptor” wide ascii nocase
+$s3 = “.wcry” wide ascii nocase
+$s4 = “WANNACRY” wide ascii nocase
+$s5 = “WANACRY!” wide ascii nocase
+$s7 = “icacls . /grant Everyone:F /T /C /Q” wide ascii nocase
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Ok, let's look for the individual strings
+ 
+---------------------------Type This-----------------------------------
+ 
+ 
+strings wannacry.exe | grep -i ooops
+ 
+strings wannacry.exe | grep -i wanna
+ 
+strings wannacry.exe | grep -i wcry
+ 
+strings wannacry.exe | grep -i wannacry
+ 
+strings wannacry.exe | grep -i wanacry          **** Matches $s5, hmmm.....
+ 
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+Let's see if we can get yara working.
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/security/malware_analysis
+
+mkdir quick_yara
+
+cd quick_yara
+wget http://45.63.104.73/wannacry.zip
+ 
+unzip wannacry.zip
+     **** password is infected ***
+----------------------------------------------------------------------- 
+ 
+
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+nano wannacry_1.yar
+ 
+---------------------------Paste This-----------------------------------
+rule wannacry_1 : ransom
+{
+   meta:
+       author = "Joshua Cannell"
+       description = "WannaCry Ransomware strings"
+       weight = 100
+       date = "2017-05-12"
+ 
+   strings:
+       $s1 = "Ooops, your files have been encrypted!" wide ascii nocase
+       $s2 = "Wanna Decryptor" wide ascii nocase
+       $s3 = ".wcry" wide ascii nocase
+       $s4 = "WANNACRY" wide ascii nocase
+       $s5 = "WANACRY!" wide ascii nocase
+       $s7 = "icacls . /grant Everyone:F /T /C /Q" wide ascii nocase
+ 
+   condition:
+       any of them
+}
+ 
+----------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+yara wannacry_1.yar wannacry.exe
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+nano wannacry_2.yar
+ 
+---------------------------Paste This-----------------------------------
+rule wannacry_2{
+   meta:
+       author = "Harold Ogden"
+       description = "WannaCry Ransomware Strings"
+       date = "2017-05-12"
+       weight = 100
+ 
+   strings:
+       $string1 = "msg/m_bulgarian.wnry"
+       $string2 = "msg/m_chinese (simplified).wnry"
+       $string3 = "msg/m_chinese (traditional).wnry"
+       $string4 = "msg/m_croatian.wnry"
+       $string5 = "msg/m_czech.wnry"
+       $string6 = "msg/m_danish.wnry"
+       $string7 = "msg/m_dutch.wnry"
+       $string8 = "msg/m_english.wnry"
+       $string9 = "msg/m_filipino.wnry"
+       $string10 = "msg/m_finnish.wnry"
+       $string11 = "msg/m_french.wnry"
+       $string12 = "msg/m_german.wnry"
+       $string13 = "msg/m_greek.wnry"
+       $string14 = "msg/m_indonesian.wnry"
+       $string15 = "msg/m_italian.wnry"
+       $string16 = "msg/m_japanese.wnry"
+       $string17 = "msg/m_korean.wnry"
+       $string18 = "msg/m_latvian.wnry"
+       $string19 = "msg/m_norwegian.wnry"
+       $string20 = "msg/m_polish.wnry"
+       $string21 = "msg/m_portuguese.wnry"
+       $string22 = "msg/m_romanian.wnry"
+       $string23 = "msg/m_russian.wnry"
+       $string24 = "msg/m_slovak.wnry"
+       $string25 = "msg/m_spanish.wnry"
+       $string26 = "msg/m_swedish.wnry"
+       $string27 = "msg/m_turkish.wnry"
+       $string28 = "msg/m_vietnamese.wnry"
+ 
+ 
+   condition:
+       any of ($string*)
+}
+----------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+yara wannacry_2.yar wannacry.exe
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/security/malware_analysis/quick_yara
+
+git clone https://github.com/Yara-Rules/rules.git 
+
+cd rules/
+
+./index_gen.sh
+ 
+ls
+ 
+cd malware/
+ 
+ls | grep -i ransom
+ 
+ls | grep -i rat
+ 
+ls | grep -i toolkit
+ 
+ls | grep -i apt
+ 
+cd ..
+ 
+cd capabilities/
+ 
+ls
+ 
+cat capabilities.yar
+ 
+cd ..
+ 
+cd cve_rules/
+ 
+ls
+ 
+cd ..
+ 
+./index_gen.sh
+ 
+cd ..
+ 
+yara -w rules/index.yar wannacry.exe
+ 
+ 
+----------------------------------------------------------------------
+
+
+References:
+https://www.slideshare.net/JohnLaycock1/yet-another-yara-allocution-yaya
+https://www.slideshare.net/KasperskyLabGlobal/upping-the-apt-hunting-game-learn-the-best-yara-practices-from-kaspersky
+
+
+
+
+
+
+
+#####################################################
+# Analyzing Macro Embedded Malware                  #
+#####################################################
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/security/malware_analysis
+
+mkdir macro_docs
+
+cd macro_docs
+
+wget https://infosecaddicts-files.s3.amazonaws.com/064016.zip
+ 
+wget http://didierstevens.com/files/software/oledump_V0_0_22.zip
+ 
+unzip oledump_V0_0_22.zip
+ 
+unzip 064016.zip
+     infected
+ 
+python oledump.py 064016.doc
+ 
+python oledump.py 064016.doc -s A4 -v
+ -----------------------------------------------------------------------
+ 
+ 
+ 
+- From this we can see this Word doc contains an embedded file called editdata.mso which contains seven data streams.
+- Three of the data streams are flagged as macros: A3:’VBA/Module1′, A4:’VBA/Module2′, A5:’VBA/ThisDocument’.
+ 
+---------------------------Type This-----------------------------------
+python oledump.py 064016.doc -s A5 -v
+-----------------------------------------------------------------------
+ 
+- As far as I can tell, VBA/Module2 does absolutely nothing. These are nonsensical functions designed to confuse heuristic scanners.
+ 
+---------------------------Type This-----------------------------------
+python oledump.py 064016.doc -s A3 -v
+ 
+- Look for "GVhkjbjv" and you should see:
+ 
+636D64202F4B20706F7765727368656C6C2E657865202D457865637574696F6E506F6C69637920627970617373202D6E6F70726F66696C6520284E65772D4F626A6563742053797374656D2E4E65742E576562436C69656E74292E446F776E6C6F616446696C652827687474703A2F2F36322E37362E34312E31352F6173616C742F617373612E657865272C272554454D50255C4A494F696F646668696F49482E63616227293B20657870616E64202554454D50255C4A494F696F646668696F49482E636162202554454D50255C4A494F696F646668696F49482E6578653B207374617274202554454D50255C4A494F696F646668696F49482E6578653B
+ 
+- Take that long blob that starts with 636D and finishes with 653B and paste it in:
+http://www.rapidtables.com/convert/number/hex-to-ascii.htm
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+#########################################
+# Security Operations Center Job Roles  #
+# Intrusion Analysis Level 1            #
+#########################################
+Required Technical Skills:      Comfortable with basic Linux/Windows (MCSA/Linux+)
+                                Comfortable with basic network (Network+)
+                                Comfortable with security fundamentals (Security+)
+       
+ 
+ 
+ 
+ 
+Job Task:                       Process security events, follow incident response triage playbook
+ 
+#########################################
+# Security Operations Center Job Roles  #
+# Intrusion Analysis Level 2            #
+#########################################
+ 
+Required Technical Skills:      Comfortable with basic Linux/Windows system administration
+                                Comfortable with basic network administration
+                                Comfortable with basic programming
+                                Comfortable researching IT security issues
+       
+ 
+ 
+ 
+ 
+Job Task:                       Perform detailed malware analysis, assist with development of the incident response triage playbook
+ 
+Sample Playbook:                https://infosecaddicts-files.s3.amazonaws.com/IR-Program-and-Playbooks.zip
+ 
+ 
+ 
+#########################################
+# Security Operations Center Job Roles  #
+# Intrusion Analysis Level 3            #
+#########################################
+ 
+Required Technical Skills:      Strong statistical analysis background
+                                Strong programming background (C, C++, Java, Assembly, scripting languages)
+                                Advanced system/network administration background
+                                Comfortable researching IT security issues
+       
+ 
+ 
+ 
+ 
+Job Task:                       Perform detailed malware analysis
+                                Perform detailed statistical analysis
+                                Assist with development of the incident response triage playbook
+
+
+
+
+#################################################
+# Good references for learning Malware Analysis #
+#################################################
+ 
+References:
+https://www.slideshare.net/SamBowne/cnit-126-ch-0-malware-analysis-primer-1-basic-static-techniques
+https://www.slideshare.net/grecsl/malware-analysis-101-n00b-to-ninja-in-60-minutes-at-bsideslv-on-august-5-2014
+https://www.slideshare.net/Bletchley131/intro-to-static-analysis
+
+
+
+##################
+# Day 2 Homework #
+##################
+
+Task Option 1: Basic Shell Scripting
+------------------------------------
+Watch and do all of the exercises in the video https://www.youtube.com/watch?v=GtovwKDemnI
+Create a word document that contains the screenshots of the tasks performed in this video
+Name the word document 'YourFirstName-YourLastName-LinuxDay2-ShellScripting.docx' (ex: 'Joseph-McCray-LinuxDay2-ShellScripting.docx')
+Email the document to me at joe-at-secureninja-dot-com before the start of class tomorrow
+
+
+Task Option 2: Advanced Shell Scripting
+---------------------------------------
+Watch and do all of the exercises in the video https://www.youtube.com/watch?v=aNQCl_ByM20&t=4045s
+Create a word document that contains the screenshots of the tasks performed in this video
+Name the word document 'YourFirstName-YourLastName-LinuxDay2-AdvancedShellScripting.docx' (ex: 'Joseph-McCray-LinuxDay2-AdvancedShellScripting.docx')
+Email the document to me at joe-at-secureninja-dot-com before the start of class tomorrow
+
+
+
+
+
+
+
+
+
+
+
+
+
+                               #####################################
+############################## # Day 3: Threat Hunting on the wire # ##############################
+                               #####################################
+
+
+
+
+- After logging please open a terminal window and type the following commands:
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/security/
+mkdir pcap_analysis
+cd pcap_analysis
+-----------------------------------------------------------------------
+
+
+ 
+ 
+##################################################################
+# Analyzing a PCAP Prads                                         #
+# Note: run as regular user                                      #
+##################################################################
+ 
+---------------------------Type this as a regular user----------------------------------
+cd ~/students/yourname/security/pcap_analysis/
+ 
+mkdir prads
+ 
+cd prads
+ 
+wget http://45.63.104.73/suspicious-time.pcap
+ 
+prads -r suspicious-time.pcap -l prads-asset.log
+ 
+cat prads-asset.log | less
+ 
+cat prads-asset.log | grep SYN | grep -iE 'windows|linux'
+ 
+cat prads-asset.log | grep CLIENT | grep -iE 'safari|firefox|opera|chrome'
+ 
+cat prads-asset.log | grep SERVER | grep -iE 'apache|linux|ubuntu|nginx|iis'
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+##################################
+# PCAP Analysis with ChaosReader #
+# Note: run as regular user      #
+##################################
+---------------------------Type this as a regular user----------------------------------
+cd ~/students/yourname/security/pcap_analysis/
+ 
+mkdir chaos_reader/
+ 
+cd chaos_reader/
+ 
+wget http://45.63.104.73/suspicious-time.pcap
+ 
+wget http://45.63.104.73/chaosreader.pl
+ 
+perl chaosreader.pl suspicious-time.pcap
+ 
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)"
+ 
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)" | awk '{print $4, $5, $6}' | sort | uniq -c | sort -nr
+ 
+ 
+for i in session_00[0-9]*.http.html; do srcip=`cat "$i" | grep 'http:\ ' | awk '{print $2}' |  cut -d ':' -f1`; dstip=`cat "$i" | grep 'http:\ ' | awk '{print $4}' |  cut -d ':' -f1`; host=`cat "$i" | grep 'Host:\ ' | sort -u | sed -e 's/Host:\ //g'`; echo "$srcip --> $dstip = $host";  done | sort -u
+ 
+ 
+ 
+for i in session_00[0-9]*.http.html; do srcip=`cat "$i" | grep 'http:\ ' | awk '{print $2}' |  cut -d ':' -f1`; dstip=`cat "$i" | grep 'http:\ ' | awk '{print $4}' |  cut -d ':' -f1`; host=`cat "$i" | grep 'Host:\ ' | sort -u | sed -e 's/Host:\ //g'`; echo "$srcip --> $dstip = $host";  done | sort -u | awk '{print $5}' > url.lst
+ 
+ 
+wget https://raw.githubusercontent.com/Open-Sec/forensics-scripts/master/check-urls-virustotal.py
+ 
+ 
+python check-urls-virustotal.py url.lst
+ 
+ 
+ 
+------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#############################
+# PCAP Analysis with tshark #
+# Note: run as regular user #
+#############################
+---------------------------Type this as a regular user---------------------------------
+cd ~/students/yourname/security/pcap_analysis/
+ 
+mkdir tshark
+ 
+cd tshark/
+ 
+wget http://45.63.104.73/suspicious-time.pcap
+ 
+tshark -i ens3 -r suspicious-time.pcap -qz io,phs
+ 
+tshark -r suspicious-time.pcap -qz ip_hosts,tree
+ 
+tshark -r suspicious-time.pcap -Y "http.request" -Tfields -e "ip.src" -e "http.user_agent" | uniq
+ 
+tshark -r suspicious-time.pcap -Y "dns" -T fields -e "ip.src" -e "dns.flags.response" -e "dns.qry.name"
+ 
+ 
+tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}'
+ 
+whois rapidshare.com.eyu32.ru
+ 
+whois sploitme.com.cn
+ 
+tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico' -e google -e 'honeynet.org'
+ 
+tshark -r suspicious-time.pcap -qz http_req,tree
+ 
+tshark -r suspicious-time.pcap -Y "data-text-lines contains \"<script\"" -T fields -e frame.number -e ip.src -e ip.dst
+ 
+tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico'  | grep 10.0.3.15 | sed -e 's/\?[^cse].*/\?\.\.\./g'
+------------------------------------------------------------------------
+ 
+ 
+
+
+
+###############################
+# Extracting files from PCAPs #
+# Note: run as regular user   #
+###############################
+---------------------------Type this as a regular user---------------------------------
+cd ~/students/yourname/security/pcap_analysis/
+ 
+mkdir extract_files
+ 
+cd extract_files
+ 
+wget http://45.63.104.73/suspicious-time.pcap
+ 
+foremost -v -i suspicious-time.pcap
+ 
+cd output
+ 
+ls
+ 
+cat audit.txt
+ 
+cd exe
+ 
+wget https://raw.githubusercontent.com/GREEKYnikhilsharma/Xen0ph0n-VirusTotal_API_Tool-Python3/master/vtlite.py
+---------------------------------------------------------------------------------------
+
+ 
+******* NOTE: You will need to put your virustotal API key in vtlite.py *******
+* Create an account in virustotal > login > click on your profile > API key > copy API key > in terminal do nano vtlite.py > 
+* Paste the API key in where it says > profit
+********************************************************************************
+
+---------------------------Type this as a regular user--------------------------------- 
+for f in *.exe; do python3 vtlite.py -s $f; sleep 20; done
+---------------------------------------------------------------------------------------
+
+
+###############################
+# PCAP Analysis with Suricata #
+# Note: run as root           #
+###############################
+--------------------------Type this as root--------------------------------
+cd ~/students/yourname/security/pcap_analysis/
+ 
+mkdir suricata
+ 
+cd suricata/
+ 
+wget http://45.63.104.73/suspicious-time.pcap
+ 
+mkdir suri
+ 
+sudo suricata -c /etc/suricata/suricata.yaml -r suspicious-time.pcap -l suri/
+ 
+cd suri/
+ 
+cat stats.log | less
+ 
+cat eve.json |grep -E "e\":\"http"|jq ".timestamp,.http"|csplit - /..T..:/ {*}
+ 
+cat xx01
+ 
+cat xx02
+ 
+cat xx03
+ 
+cat xx04
+ 
+cat xx05
+ 
+cat xx06
+------------------------------------------------------------------------
+ 
+ 
+#############################
+# PCAP Analysis with Yara   #
+# Note: run as regular user #
+#############################
+-------------------------Type this as a regular user----------------------------------
+cd ~/students/yourname/security/pcap_analysis/
+ 
+git clone https://github.com/kevthehermit/YaraPcap.git
+cd YaraPcap/
+wget http://45.63.104.73/suspicious-time.pcap
+wget https://github.com/Yara-Rules/rules/archive/master.zip
+unzip master.zip
+cd rules-master/
+ls
+cat index.yar
+clear
+./index_gen.sh
+cd ..
+mkdir matching_files/
+python yaraPcap.py rules-master/index.yar suspicious-time.pcap -s matching_files/
+whereis tcpflow
+vi yaraPcap.py        **** fix line 35 with correct path to tcpflow (/usr/bin/tcpflow)****
+python yaraPcap.py rules-master/index.yar suspicious-time.pcap -s matching_files/
+cd matching_files/
+ls
+cat report.txt
+------------------------------------------------------------------------
+
+
+
+
+#################################################################################
+# Now that you know packet analysis here are the next set of files to play with #
+#################################################################################
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/APT41/APT41_StoreSyncSvc.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/Agent_Tesla/agenttesla_09July2019.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/CVE-2019-9978/CVE-2019-9978_attempt_05May2019.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/Powershell/Powershell_script_19Dec2019.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/sharik_smoke/sharik_smoke.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/Microsoft/CVE-2019-0703.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/Microsoft/CVE-2019-0801.pcap
+ 
+
+
+References:
+https://www.slideshare.net/j0b1n/tcpdump-hunter
+https://www.slideshare.net/AviNetworks/reconsider-tcpdump-for-modern-troubleshooting
+
+
+##################
+# Day 3 Homework #
+##################
+
+Task Option 1: Shell Scripting
+------------------------------------
+Watch and do all of the exercises in the video https://www.youtube.com/watch?v=hwrnmQumtPw
+Create a word document that contains the screenshots of the tasks performed in this video
+Name the word document 'YourFirstName-YourLastName-LinuxDay3-ShellScripting.docx' (ex: 'Joseph-McCray-LinuxDay3-ShellScripting.docx')
+Email the document to me at joe-at-secureninja-dot-com before the start of class tomorrow
+
+
+Task Option 2: Python3
+---------------------------------------
+Watch and do all of the exercises in the first 7 videos from https://www.youtube.com/playlist?list=PLypxmOPCOkHVzhKRcWzEkQXCnmHezGVeB
+Create a word document that contains the screenshots of the tasks performed in these videos
+Name the word document 'YourFirstName-YourLastName-LinuxDay3-AdvancedShellScripting.docx' (ex: 'Joseph-McCray-LinuxDay3-AdvancedShellScripting.docx')
+Email the document to me at joe-at-secureninja-dot-com before the start of class tomorrow
+
+
+
+
+
+
+
+
+
+
+
+
+                               ################################################################
+############################## # Day 4: Programming Fundamentals & Offensive Cyber Operations # ##############################
+                               ################################################################
+
+------------------------------- Programming fundamentals -------------------------------
+
+
+Joe rule #1 single quote, single quote, left arrow
+--------------------------------------------------
+'' <-- as soon as you type '', then hit your left arrow key to put you inside of the '' 
+"" <-- as soon as you type "", then hit your left arrow key to put you inside of the ""
+something()	<-- as soon as you type (), then hit your left arrow key to put you inside of the ()
+something[] <-- as soon as you type [], then hit your left arrow key to put you inside of the []
+something{} <-- as soon as you type {}, then hit your left arrow key to put you inside of the {}
+
+-- Now kick it up a notch
+[]	<-- as soon as you type [], then hit your left arrow key to put you inside of the []
+[()] <-- as soon as you type (), then hit your left arrow key to put you inside of the ()
+[({})] <-- as soon as you type {}, then hit your left arrow key to put you inside of the {}
+[({"''"})] <-- as soon as you type "", then hit your left arrow key to put you inside of the "" 
+[({"''"})] <-- as soon as you type '', then hit your left arrow key to put you inside of the '' 		
+
+
+
+Joe rule #2 "Code can only do 3 things"
+--------------------------------------
+
+Process		- 	read, write, math
+
+Decision	- 	if/then
+
+Loop		- 	for
+
+
+
+
+Joe rule #3 "Never more than 5-10"
+---------------------------------
+
+-----5 lines of code----
+line 1 blah blah blah
+line 2 blah blah blah
+line 3 blah blah blah
+line 4 blah blah blah
+line 5 blah blah blah
+
+
+	sales_tax	= 	price		* 	tax_rate
+
+
+	0.80		=	10		*	0.08
+
+-----5-10 lines of code---- = function
+	price = 10
+	
+	def st():
+		sales_tax = price * 0.08
+		print(sales_tax)
+
+
+st(10) <---- how to run a function
+
+-----5-10 functions ---- = class   "tax class"
+st()
+lt()
+pt()
+it()
+dt()
+
+
+
+tax.st()
+tax.lt()
+
+-----5-10 functions ---- = class   "expense class"
+gas()
+elec()
+water()
+food()
+beer()
+
+expense.gas()
+
+
+-----5-10 classes ---- = module   "finance module"
+
+import finance
+
+
+------------------------------- Summary of fundamentals ------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Let's look at a simple for loop
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/
+mkdir programming_fundamentals 
+cd programming_fundamentals
+cp ~/wannacry.exe .
+nano forloop_malware_analysis.sh
+ 
+---------------------------Paste This-----------------------------------
+#!/bin/bash
+
+ransomeware=('CryptImportKey' 'CryptDecrypt' 'CryptDestroyKey' 'CryptReleaseContext' 'EntryPo    int' 'CryptAcquireContextA' 'lstrcpyW' 'lstrlenW' 'lstrcatW' 'CloseHandle' 'lstrcmpiA' 'RegOp    enKeyExA' 'lstrlenA' 'RegSetValueExA' 'RegCloseKey' 'RegQueryValueExA' 'GetLastError' 'GetEnv    ironmentVariableA' 'ShellExecuteA' 'Sleep' 'CryptGenKey' 'CryptExportKey' 'CryptEncrypt' 'KiU    serExceptionDispatcher' 'RtlZeroMemory' 'MultiByteToWideChar' 'lstrcatA' 'RegCreateKeyA' 'SHC    hangeNotify' 'SetErrorMode' 'CryptGenKey' 'CryptImportKey');
+
+# This is just a test to read all of the values in the array
+
+#echo ${ransomeware[@]}
+
+# This is a quick for loop to run strings and grep for everything in the array
+# Reference: http://www.masteringunixshell.net/qa3/bash-how-to-echo-array.html
+
+for ELEMENT in ${ransomeware[@]}
+do
+#echo string: $ELEMENT
+strings wannacry.exe | grep -i $ELEMENT
+done
+--------------------------------------------------
+
+
+
+
+
+
+
+
+Ok, now let's run it
+---------------------------Type This-----------------------------------
+chmod +x forloop_malware_analysis.sh
+./forloop_malware_analysis.sh
+------------------------------------------------------------------------
+
+
+
+
+
+
+Let's look at a simple menu
+---------------------------Type This-----------------------------------
+ 
+nano simple_menu.sh
+ 
+---------------------------Paste This-----------------------------------
+#!/bin/bash
+# simple menu to do various functions
+# Reference: http://www.seafriends.org.nz/linux/menus.htm
+
+
+while [ answer != "0" ] 
+do
+clear
+echo "Select from the following functions"
+echo "  0    exit"
+echo "  1    Network Asset Inventory"
+echo "  2    IP to IP communication and URL lookup"
+echo "  3    Extract files"
+echo "  4    exit"
+
+
+read -p " ?" answer
+    case $answer in
+       0) break ;;
+       1) echo "Network Asset Inventory"
+       prads -r suspicious-time.pcap -l prads-asset.log
+	   cat prads-asset.log | grep SYN | grep -iE 'windows|linux'
+	   cat prads-asset.log | grep CLIENT | grep -iE 'safari|firefox|opera|chrome'
+	   cat prads-asset.log | grep SERVER | grep -iE 'apache|linux|ubuntu|nginx|iis'
+       ;;
+       2) echo "IP to IP communication and URL lookup"
+       tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico'  | grep 10.0.3.15 | sed -e 's/\?[^cse].*/\?\.\.\./g'
+       ;;
+       3) echo "Extract files"
+       foremost -v -i suspicious-time.pcap
+	   cat output/audit.txt
+       ;;
+       4) break ;;
+       *) break ;;
+   esac 
+   echo "press RETURN for menu"
+   read key
+done
+exit 0
+--------------------------------------------------
+
+
+
+
+
+
+
+
+Ok, now let's run it
+---------------------------Type This-----------------------------------
+chmod +x simple_menu.sh
+./simple_menu.sh
+------------------------------------------------------------------------
+
+
+
+
+
+
+Let's look at a simple function
+---------------------------Type This-----------------------------------
+ 
+nano hello_world.sh
+ 
+---------------------------Paste This-----------------------------------
+#!/bin/bash
+# Reference: https://linuxize.com/post/bash-functions/
+
+hello_world () {
+   echo 'hello, world'
+}
+
+hello_world
+--------------------------------------------------
+
+
+
+
+
+
+Ok, now let's run it
+---------------------------Type This-----------------------------------
+chmod +x hello_world.sh
+./hello_world.sh
+------------------------------------------------------------------------
+
+
+
+
+Let's ask the user a question
+---------------------------Type This-----------------------------------
+ 
+nano prompt_for_user_input.sh
+ 
+---------------------------Paste This-----------------------------------
+#!/bin/bash
+# Reference: https://tecadmin.net/prompt-user-input-in-linux-shell-script/
+
+read -p "Enter Your Name: "  username
+echo "Welcome $username!"
+------------------------------------------------------------------------
+
+
+
+
+
+
+Ok, now let's run it
+---------------------------Type This-----------------------------------
+chmod +x prompt_for_user_input.sh
+./prompt_for_user_input.sh
+------------------------------------------------------------------------
+
+
+
+
+
+
+Let's make the function do something useful
+---------------------------Type This-----------------------------------
+ 
+nano ip_2_url_lookup.sh
+ 
+---------------------------Paste This-----------------------------------
+#!/bin/bash
+# Reference: https://linuxize.com/post/bash-functions/
+
+do_stuff () {
+   tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico'  | grep 10.0.3.15 | sed -e 's/\?[^cse].*/\?\.\.\./g'
+}
+
+do_stuff
+------------------------------------------------------------------------
+
+
+
+
+
+
+Ok, now let's run it
+---------------------------Type This-----------------------------------
+chmod +x ip_2_url_lookup.sh
+./ip_2_url_lookup.sh
+------------------------------------------------------------------------
+
+
+
+
+Let's grab some PCAP files
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/programming_fundamentals 
+mkdir pcaps
+cd pcaps
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/APT41/APT41_StoreSyncSvc.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/Agent_Tesla/agenttesla_09July2019.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/CVE-2019-9978/CVE-2019-9978_attempt_05May2019.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/Powershell/Powershell_script_19Dec2019.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/sharik_smoke/sharik_smoke.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/Microsoft/CVE-2019-0703.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/Microsoft/CVE-2019-0801.pcap
+------------------------------------------------------------------------
+
+
+Let's read file names into an array
+---------------------------Type This-----------------------------------
+ 
+nano parse_pcap_file_names.sh
+ 
+---------------------------Paste This-----------------------------------
+#!/bin/bash
+# Reference: https://delightlylinux.wordpress.com/2017/04/08/put-filenames-in-bash-array/
+
+#!/bin/bash
+
+declare -a arrPCAPs
+for file in *.pcap
+do
+    arrPCAPs=("${PCAPs[@]}" "$file")
+    echo ${arrPCAPs[@]}
+done
+------------------------------------------------------------------------
+
+
+
+
+
+
+Ok, now let's run it
+---------------------------Type This-----------------------------------
+chmod +x parse_pcap_file_names.sh
+./parse_pcap_file_names.sh
+------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##################
+# Day 4 Homework #
+##################
+
+Task Option 1: Shell Scripting
+------------------------------------
+Watch and do all of the exercises in the video https://www.youtube.com/watch?v=hwrnmQumtPw
+Create a word document that contains the screenshots of the tasks performed in this video
+Name the word document 'YourFirstName-YourLastName-LinuxDay4-ShellScripting.docx' (ex: 'Joseph-McCray-LinuxDay3-ShellScripting.docx')
+Email the document to me at joe-at-secureninja-dot-com before the start of class tomorrow
+
+
+Task Option 2: Python3
+---------------------------------------
+Watch and do all of the exercises in the first 7 videos from https://www.youtube.com/playlist?list=PLypxmOPCOkHVzhKRcWzEkQXCnmHezGVeB
+Create a word document that contains the screenshots of the tasks performed in these videos
+Name the word document 'YourFirstName-YourLastName-LinuxDay4-Python3.docx' (ex: 'Joseph-McCray-LinuxDay3-Python3.docx.docx')
+Email the document to me at joe-at-secureninja-dot-com before the start of class tomorrow
+
+
+
+
+                               ####################
+############################## # Day 5: Challenge # ##############################
+                               ####################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###################
+# Memory Analysis #
+###################
+---------------------------Type This-----------------------------------
+cd  ~/Desktop/
+ 
+sudo apt-get install -y foremost tcpxtract
+ 
+wget https://infosecaddicts-files.s3.amazonaws.com/hn_forensics.vmem
+ 
+git clone https://github.com/volatilityfoundation/volatility.git
+ 
+cd volatility
+sudo pip install distorm3
+sudo python setup.py install
+python vol.py -h
+python vol.py pslist -f ~/Desktop/hn_forensics.vmem
+python vol.py connscan -f ~/Desktop/hn_forensics.vmem
+mkdir dump/
+mkdir -p output/pdf/
+python vol.py -f ~/Desktop/hn_forensics.vmem memdmp -p 888 -D dump/
+python vol.py -f ~/Desktop/hn_forensics.vmem memdmp -p 1752 -D dump/
+                ***Takes a few min***
+strings 1752.dmp | grep "^http://" | sort | uniq
+strings 1752.dmp | grep "Ahttps://" | uniq -u
+cd ..
+foremost -i ~/Desktop/volatility/dump/1752.dmp -t pdf -o output/pdf/
+cd ~/Desktop/volatility/output/pdf/
+cat audit.txt
+cd pdf
+ls
+grep -i javascript *.pdf
+ 
+ 
+ 
+cd ~/Desktop/volatility/output/pdf/
+wget http://didierstevens.com/files/software/pdf-parser_V0_6_4.zip
+unzip pdf-parser_V0_6_4.zip
+python pdf-parser.py -s javascript --raw pdf/00601560.pdf
+python pdf-parser.py --object 11 00600328.pdf
+python pdf-parser.py --object 1054 --raw --filter 00601560.pdf > malicious.js
+ 
+cat malicious.js
+ -----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+*****Sorry - no time to cover javascript de-obfuscation today*****
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+cd ~/Desktop/volatility
+mkdir files2/
+python vol.py -f ~/Desktop/hn_forensics.vmem dumpfiles -D files2/
+python vol.py hivescan -f ~/Desktop/hn_forensics.vmem                                  
+python vol.py printkey -o 0xe1526748 -f ~/Desktop/hn_forensics.vmem Microsoft "Windows NT" CurrentVersion Winlogon 
+-----------------------------------------------------------------------
+ 
+ 
+                            ######################
+----------- ############### # Intro to Reversing # ############### -----------
+                            ######################
+Lab walk-through documents are in the zip file along with the executables that need to be reversed:
+https://infosecaddicts-files.s3.amazonaws.com/Lena151.zip
+
+
+
+
+
+##############################
+# Linux For InfoSec Homework #
+##############################
+In order to receive your certificate of attendance you must complete the all of the quizzes on the http://linuxsurvival.com/linux-tutorial-introduction/ website.
+
+
+Submit the results via email in an MS Word document with (naming convention example: YourFirstName-YourLastName-Linux-For-InfoSec-Homework.docx)
+
+
+
+
+##############################
+# Linux For InfoSe Challenge #
+##############################
+
+In order to receive your certificate of proficiency you must complete all of the tasks covered in the Linux For InfoSec pastebin (http://pastebin.com/eduSfPy3).
+
+Submit the results via email in an MS Word document with (naming convention example: YourFirstName-YourLastName-Linux-For-InfoSec-Challenge.docx)
+
+
+
+
+IMPORTANT NOTE:
+Your homework/challenge must be submitted via email to both (joe-at-strategicsec-.-com and ivana-at-strategicsec-.-com) by midnight EST.
+
+
+#########################################################################
+# What kind of Linux am I on and how can I find out? 			        #
+# Great reference: 							                            #
+# https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/ 	#
+#########################################################################
+- What’s the distribution type? What version?
+-------------------------------------------
+cat /etc/issue
+cat /etc/*-release
+cat /etc/lsb-release      		# Debian based
+cat /etc/redhat-release   		# Redhat based
+
+
+
+- What’s the kernel version? Is it 64-bit?
+-------------------------------------------
+cat /proc/version
+uname -a
+uname -mrs
+rpm -q kernel
+dmesg | grep Linux
+ls /boot | grep vmlinuz-
+
+
+
+- What can be learnt from the environmental variables?
+----------------------------------------------------
+cat /etc/profile
+cat /etc/bashrc
+cat ~/.bash_profile
+cat ~/.bashrc
+cat ~/.bash_logout
+env
+set
+
+
+- What services are running? Which service has which user privilege?
+------------------------------------------------------------------
+ps aux
+ps -ef
+top
+cat /etc/services
+
+
+- Which service(s) are been running by root? Of these services, which are vulnerable - it’s worth a double check!
+---------------------------------------------------------------------------------------------------------------
+ps aux | grep root
+ps -ef | grep root
+
+
+
+- What applications are installed? What version are they? Are they currently running?
+------------------------------------------------------------------------------------
+ls -alh /usr/bin/
+ls -alh /sbin/
+dpkg -l
+rpm -qa
+ls -alh /var/cache/apt/archivesO
+ls -alh /var/cache/yum/
+
+
+- Any of the service(s) settings misconfigured? Are any (vulnerable) plugins attached?
+------------------------------------------------------------------------------------
+cat /etc/syslog.conf
+cat /etc/chttp.conf
+cat /etc/lighttpd.conf
+cat /etc/cups/cupsd.conf
+cat /etc/inetd.conf
+cat /etc/apache2/apache2.conf
+cat /etc/my.conf
+cat /etc/httpd/conf/httpd.conf
+cat /opt/lampp/etc/httpd.conf
+ls -aRl /etc/ | awk '$1 ~ /^.*r.*/'
+
+
+
+- What jobs are scheduled?
+------------------------
+crontab -l
+ls -alh /var/spool/cron
+ls -al /etc/ | grep cron
+ls -al /etc/cron*
+cat /etc/cron*
+cat /etc/at.allow
+cat /etc/at.deny
+cat /etc/cron.allow
+cat /etc/cron.deny
+cat /etc/crontab
+cat /etc/anacrontab
+cat /var/spool/cron/crontabs/root
+
+
+- Any plain text usernames and/or passwords?
+------------------------------------------
+grep -i user [filename]
+grep -i pass [filename]
+grep -C 5 "password" [filename]
+find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password"   		# Search for Joomla passwords
+
+
+- What NIC(s) does the system have? Is it connected to another network?
+---------------------------------------------------------------------
+/sbin/ifconfig -a
+cat /etc/network/interfaces
+cat /etc/sysconfig/network
+
+
+- What are the network configuration settings? What can you find out about this network? DHCP server? DNS server? Gateway?
+------------------------------------------------------------------------------------------------------------------------
+cat /etc/resolv.conf
+cat /etc/sysconfig/network
+cat /etc/networks
+iptables -L
+hostname
+dnsdomainname
+
+- What other users & hosts are communicating with the system?
+-----------------------------------------------------------
+lsof -i
+lsof -i :80
+grep 80 /etc/services
+netstat -antup
+netstat -antpx
+netstat -tulpn
+chkconfig --list
+chkconfig --list | grep 3:on
+last
+w
+
+
+
+- Whats cached? IP and/or MAC addresses
+-------------------------------------
+arp -e
+route
+/sbin/route -nee
+
+
+- Who are you? Who is logged in? Who has been logged in? Who else is there? Who can do what?
+------------------------------------------------------------------------------------------
+id
+who
+w
+last
+cat /etc/passwd | cut -d: -f1    # List of users
+grep -v -E "^#" /etc/passwd | awk -F: '$3 == 0 { print $1}'   # List of super users
+awk -F: '($3 == "0") {print}' /etc/passwd   # List of super users
+cat /etc/sudoers
+sudo -l
+
+
+
+- What sensitive files can be found?
+----------------------------------
+cat /etc/passwd
+cat /etc/group
+cat /etc/shadow
+ls -alh /var/mail/
+
+
+
+- Anything “interesting” in the home directorie(s)? If it’s possible to access
+----------------------------------------------------------------------------
+ls -ahlR /root/
+ls -ahlR /home/
+
+
+- Are there any passwords in; scripts, databases, configuration files or log files? Default paths and locations for passwords
+---------------------------------------------------------------------------------------------------------------------------
+cat /var/apache2/config.inc
+cat /var/lib/mysql/mysql/user.MYD
+cat /root/anaconda-ks.cfg
+
+
+- What has the user being doing? Is there any password in plain text? What have they been edting?
+-----------------------------------------------------------------------------------------------
+cat ~/.bash_history
+cat ~/.nano_history
+cat ~/.atftp_history
+cat ~/.mysql_history
+cat ~/.php_history
+
+
+
+- What user information can be found?
+-----------------------------------
+cat ~/.bashrc
+cat ~/.profile
+cat /var/mail/root
+cat /var/spool/mail/root
+
+
+- Can private-key information be found?
+-------------------------------------
+cat ~/.ssh/authorized_keys
+cat ~/.ssh/identity.pub
+cat ~/.ssh/identity
+cat ~/.ssh/id_rsa.pub
+cat ~/.ssh/id_rsa
+cat ~/.ssh/id_dsa.pub
+cat ~/.ssh/id_dsa
+cat /etc/ssh/ssh_config
+cat /etc/ssh/sshd_config
+cat /etc/ssh/ssh_host_dsa_key.pub
+cat /etc/ssh/ssh_host_dsa_key
+cat /etc/ssh/ssh_host_rsa_key.pub
+cat /etc/ssh/ssh_host_rsa_key
+cat /etc/ssh/ssh_host_key.pub
+cat /etc/ssh/ssh_host_key
+
+
+- Any settings/files (hidden) on website? Any settings file with database information?
+------------------------------------------------------------------------------------
+ls -alhR /var/www/
+ls -alhR /srv/www/htdocs/
+ls -alhR /usr/local/www/apache22/data/
+ls -alhR /opt/lampp/htdocs/
+ls -alhR /var/www/html/
+
+
+- Is there anything in the log file(s) (Could help with “Local File Includes”!)
+-----------------------------------------------------------------------------
+cat /etc/httpd/logs/access_log
+cat /etc/httpd/logs/access.log
+cat /etc/httpd/logs/error_log
+cat /etc/httpd/logs/error.log
+cat /var/log/apache2/access_log
+cat /var/log/apache2/access.log
+cat /var/log/apache2/error_log
+cat /var/log/apache2/error.log
+cat /var/log/apache/access_log
+cat /var/log/apache/access.log
+cat /var/log/auth.log
+cat /var/log/chttp.log
+cat /var/log/cups/error_log
+cat /var/log/dpkg.log
+cat /var/log/faillog
+cat /var/log/httpd/access_log
+cat /var/log/httpd/access.log
+cat /var/log/httpd/error_log
+cat /var/log/httpd/error.log
+cat /var/log/lastlog
+cat /var/log/lighttpd/access.log
+cat /var/log/lighttpd/error.log
+cat /var/log/lighttpd/lighttpd.access.log
+cat /var/log/lighttpd/lighttpd.error.log
+cat /var/log/messages
+cat /var/log/secure
+cat /var/log/syslog
+cat /var/log/wtmp
+cat /var/log/xferlog
+cat /var/log/yum.log
+cat /var/run/utmp
+cat /var/webmin/miniserv.log
+cat /var/www/logs/access_log
+cat /var/www/logs/access.log
+ls -alh /var/lib/dhcp3/
+ls -alh /var/log/postgresql/
+ls -alh /var/log/proftpd/
+ls -alh /var/log/samba/
+
+- Note: auth.log, boot, btmp, daemon.log, debug, dmesg, kern.log, mail.info, mail.log, mail.warn, messages, syslog, udev, wtmp
+
+
+
+
+
+########################################################################################################################################
+
+
+
+
+
+####################################
+# Day 2: Building a Perfect Server #
+####################################
+-------------------------------------------
+Task 1: Log in to your respective Linux server
+PMRF1 (Hugo/Ross)
+45.76.61.100
+pmrf	aegisashore
+
+PMRF2 (steve/jeff)
+155.138.213.248
+pmrf	aegisashore
+
+
+PMRF3 (elaine)
+155.138.198.202
+pmrf	aegisashore
+
+
+
+Task 2: Build the Perfect Server
+https://www.howtoforge.com/tutorial/perfect-server-centos-7-apache-mysql-php-pureftpd-postfix-dovecot-and-ispconfig/ 
+
+Important notes:
+Steps to skip 
+skip all of step 1
+skip all of step 2
+skip all of step 3
+skip all of step 5
+
+Important notes:
+step 11 amavisd may not work. If it doesn't work just keep moving forward
+---------------------------------------------

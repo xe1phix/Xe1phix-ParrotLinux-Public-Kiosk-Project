@@ -1,0 +1,318 @@
+##########
+# VMWare #
+##########
+- For this workshop you'll need the latest version of VMWare Workstation (Windows), Fusion (Mac), or Player.
+
+- http://www.vmware.com/ap/products/player.html
+
+
+- Although you can get the VM to run in VirtualBox, I will not be supporting this configuration for this class.
+
+
+
+#########################
+# Class Virtual Machine #
+#########################
+ 
+ 
+Here is the VMWare virtual machine for the class:
+ 
+https://s3.amazonaws.com/infosecaddictsvirtualmachines/InfoSecAddictsVM.zip
+user:      infosecaddicts
+pass:      infosecaddicts
+
+
+
+###################################
+# Setting up your virtual machine #
+# Note: run as root user          #
+###################################
+
+
+Here is where we will setup all of the required dependencies for the tools we plan to install
+---------------------------Type This-----------------------------------
+apt update
+apt-get install -y libpcre3-dbg libpcre3-dev autoconf automake libtool libpcap-dev libnet1-dev libyaml-dev libjansson4 libcap-ng-dev libmagic-dev libjansson-dev zlib1g-dev libnetfilter-queue-dev libnetfilter-queue1 libnfnetlink-dev cmake make gcc g++ flex bison libpcap-dev libssl-dev unzip python-dev swig zlib1g-dev sendmail sendmail-bin prads tcpflow python-scapy python-yara tshark whois jq
+-----------------------------------------------------------------------
+
+
+
+
+Now we install Suricata
+---------------------------Type This-----------------------------------
+wget https://www.openinfosecfoundation.org/download/suricata-4.0.5.tar.gz
+
+tar -zxvf suricata-4.0.5.tar.gz
+
+cd suricata-4.0.5
+
+./configure --enable-nfqueue --prefix=/usr --sysconfdir=/etc --localstatedir=/var
+
+make 
+
+make install
+
+make install-conf
+
+cd rules
+
+cp *.rules /etc/suricata/rules/
+
+cd /etc/suricata/
+
+wget https://rules.emergingthreats.net/open/suricata-4.0/emerging.rules.tar.gz
+
+tar -zxvf emerging.rules.tar.gz
+-----------------------------------------------------------------------
+
+
+
+
+
+##################################################################
+# Analyzing a PCAP Prads                                         # 
+# Note: run as regular user                                      #
+##################################################################
+
+---------------------------Type This-----------------------------------
+cd ~
+ 
+mkdir pcap_analysis/
+
+cd ~/pcap_analysis/
+
+mkdir prads
+
+cd ~/pcap_analysis/prads
+
+wget https://s3.amazonaws.com/infosecaddictsfiles/suspicious-time.pcap
+
+prads -r suspicious-time.pcap -l prads-asset.log
+
+cat prads-asset.log | less
+
+cat prads-asset.log | grep SYN | grep -iE 'windows|linux'
+
+cat prads-asset.log | grep CLIENT | grep -iE 'safari|firefox|opera|chrome'
+
+cat prads-asset.log | grep SERVER | grep -iE 'apache|linux|ubuntu|nginx|iis'
+-----------------------------------------------------------------------
+
+
+
+
+##################################
+# PCAP Analysis with ChaosReader #
+# Note: run as regular user      #
+##################################
+---------------------------Type This-----------------------------------
+cd ~
+
+mkdir -p pcap_analysis/chaos_reader/
+
+cd ~/pcap_analysis/chaos_reader/
+ 
+wget https://s3.amazonaws.com/infosecaddictsfiles/suspicious-time.pcap
+ 
+wget https://s3.amazonaws.com/infosecaddictsfiles/chaosreader.pl
+ 
+perl chaosreader.pl suspicious-time.pcap
+ 
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)"
+ 
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)" | awk '{print $4, $5, $6}' | sort | uniq -c | sort -nr
+ 
+ 
+for i in session_00[0-9]*.http.html; do srcip=`cat "$i" | grep 'http:\ ' | awk '{print $2}' |  cut -d ':' -f1`; dstip=`cat "$i" | grep 'http:\ ' | awk '{print $4}' |  cut -d ':' -f1`; host=`cat "$i" | grep 'Host:\ ' | sort -u | sed -e 's/Host:\ //g'`; echo "$srcip --> $dstip = $host";  done | sort -u
+
+python -m SimpleHTTPServer    
+          ****** Open a web browser and browse the the IP address of your Linux machine port 8000 for the web page *****
+
+------------------------------------------------------------------------
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+#############################
+# PCAP Analysis with tshark #
+# Note: run as regular user #
+#############################
+---------------------------Type This-----------------------------------
+cd ~/pcap_analysis/
+
+mkdir tshark
+
+cd ~/pcap_analysis/tshark
+
+wget https://s3.amazonaws.com/infosecaddictsfiles/suspicious-time.pcap
+
+tshark -i ens3 -r suspicious-time.pcap -qz io,phs
+ 
+tshark -r suspicious-time.pcap -qz ip_hosts,tree
+ 
+tshark -r suspicious-time.pcap -Y "http.request" -Tfields -e "ip.src" -e "http.user_agent" | uniq
+ 
+tshark -r suspicious-time.pcap -Y "dns" -T fields -e "ip.src" -e "dns.flags.response" -e "dns.qry.name"
+ 
+ 
+tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}'
+
+whois rapidshare.com.eyu32.ru
+ 
+whois sploitme.com.cn
+ 
+tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico' -e google -e 'honeynet.org'
+ 
+tshark -r suspicious-time.pcap -qz http_req,tree
+ 
+tshark -r suspicious-time.pcap -Y "data-text-lines contains \"<script\"" -T fields -e frame.number -e ip.src -e ip.dst
+ 
+tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico'  | grep 10.0.3.15 | sed -e 's/\?[^cse].*/\?\.\.\./g'
+------------------------------------------------------------------------ 
+ 
+ 
+
+
+
+ 
+
+###############################
+# PCAP Analysis with Suricata #
+# Note: run as root           #
+###############################
+---------------------------Type This-----------------------------------
+cd /home/joe/pcap_analysis/
+
+mkdir suricata
+ 
+cd suricata/
+ 
+wget https://s3.amazonaws.com/infosecaddictsfiles/suspicious-time.pcap
+ 
+mkdir suri
+
+suricata -c /etc/suricata/suricata.yaml -r suspicious-time.pcap -l suri/ 
+
+cd suri/
+
+cat stats.log | less
+
+cat eve.json |grep -E "e\":\"http"|jq ".timestamp,.http"|csplit - /..T..:/ {*}
+
+cat xx01
+
+cat xx02
+
+cat xx03
+
+cat xx04
+
+cat xx05
+
+cat xx06
+------------------------------------------------------------------------ 
+ 
+
+#############################
+# PCAP Analysis with Yara   #
+# Note: run as regular user #
+#############################
+---------------------------Type This-----------------------------------
+cd ~/pcap_analysis/
+
+git clone https://github.com/kevthehermit/YaraPcap.git
+cd YaraPcap/
+wget https://s3.amazonaws.com/infosecaddictsfiles/suspicious-time.pcap
+wget https://github.com/Yara-Rules/rules/archive/master.zip
+unzip master.zip
+cd rules-master/
+ls
+cat index.yar
+clear
+./index_gen.sh
+cd ..
+mkdir matching_files/
+python yaraPcap.py rules-master/index.yar suspicious-time.pcap -s matching_files/
+whereis tcpflow
+vi yaraPcap.py        **** fix line 35 with correct path to tcpflow ****:q!
+python yaraPcap.py rules-master/index.yar suspicious-time.pcap -s matching_files/
+cd matching_files/
+ls
+cat report.txt
+------------------------------------------------------------------------
+
+
+
+#######################################################################################################
+# Analyzing C&C with Bro IDS and RITA                                                                 #
+# Run the following commands as root                                                                  #
+# References:                                                                                         #
+# https://www.vultr.com/docs/installing-bro-ids-on-ubuntu-16-04                                                          #
+# https://www.blackhillsinfosec.com/how-to-hunt-command-and-control-channels-using-bro-ids-and-rita/  #
+#######################################################################################################
+ 
+sh -c "echo 'deb http://download.opensuse.org/repositories/network:/bro/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/bro.list"
+wget -nv http://download.opensuse.org/repositories/network:bro/xUbuntu_16.04/Release.key -O Release.key
+apt-key add - < Release.key
+apt-get update
+apt-get install -y cmake make gcc g++ flex bison libpcap-dev libssl-dev python-dev swig zlib1g-dev sendmail sendmail-bin
+
+
+
+mkdir -p /root/Bro-IDS/
+cd /root/Bro-IDS/
+wget https://www.bro.org/downloads/bro-2.5.2.tar.gz
+tar -xvzf bro-2.5.2.tar.gz
+cd bro-2.5.2
+./configure --prefix=/root/Bro-IDS
+make
+make install
+export PATH=/root/Bro-IDS/bin:$PATH
+
+
+
+vi /root/Bro-IDS/etc/node.cfg
+/root/Bro-IDS/bin/broctl
+install
+exit
+/root/Bro-IDS/bin/broctl deploy
+
+
+
+
+mkdir b_analysis/
+cd b_analysis/
+bro -C -r suspicious-time.pcap local "Site::local_nets += { 10.0.0.0/8 }"
+ls -S dns.log
+cat conn.log | bro-cut uid id.orig_h id.resp_h duration | sort -nr -k4 | head -n 5
+
+
+
+
+
+
+
+
+git clone https://github.com/ocmdev/rita.git
+
+cd rita/
+
+chmod +x install.sh
+
+./install.sh
+
+source ~/.bashrc
+
+systemctl start mongod
+
+rita import -i /root/btest/ -d suspicious-time
+
+rita analyze
+
+cd suspicious-time
+
+python -m SimpleHTTPServer

@@ -1,0 +1,484 @@
+##############################
+# Intro to Routing/Switching #
+##############################
+Reference:
+http://www.brianlinkletter.com/imunes-on-linux/
+
+
+sudo apt-get install -y openvswitch-switch xterm wireshark ImageMagick tcl tcllib tk user-mode-linux
+
+wget -qO- https://get.docker.com/ | sh
+
+sudo usermod -aG docker strategicsec
+
+sudo service docker start
+
+sudo docker run -v /usr/local/bin:/target jpetazzo/nsenter
+
+sudo git clone https://github.com/imunes/imunes.git
+
+cd imunes
+
+sudo make install
+
+sudo imunes -p
+
+sudo imunes
+
+
+
+Now build the following topologies referenced here:
+http://www.technig.com/packet-tracer-ccna-practical-labs/
+
+
+
+#################
+# Intro to IPv6 #
+#################
+Reference:
+https://www.linux.com/learn/ipv6-crash-course-linux
+https://www.digitalocean.com/community/tutorials/how-to-configure-tools-to-use-ipv6-on-a-linux-vps
+http://www.tomicki.net/ipv6.router.php
+
+####################
+# Intro to TCPDump #
+####################
+http://www.binarytides.com/tcpdump-tutorial-sniffing-analysing-packets/
+
+sudo apt-get install tcpdump
+
+
+
+Basic sniffing
+
+sudo tcpdump -n
+
+
+Now lets increase the display resolution of this packet, or get more details about it. The verbose switch comes in handy
+sudo tcpdump -v -n
+
+
+
+Getting the ethernet header (link layer headers)
+
+In the above examples details of the ethernet header are not printed. Use the -e option to print the ethernet header details as well.
+sudo tcpdump -vv -n -e
+
+
+Sniffing a particular interface
+
+In order to sniff a particular network interface we must specify it with the -i switch. First lets get the list of available interfaces using the -D switch.
+sudo tcpdump -D
+
+
+Filtering packets using expressions
+Selecting protocols
+
+$ sudo tcpdump -n tcp
+
+
+Particular host or port
+
+Expressions can be used to specify source ip, destination ip, and port numbers. The next example picks up all those packets with source address 192.168.1.101
+
+$ sudo tcpdump -n 'src 192.168.1.101'
+
+
+Next example picks up dns request packets, either those packets which originate from local machine and go to port 53 of some other machine.
+
+$ sudo tcpdump -n 'udp and dst port 53'
+
+
+To display the FTP packets coming from 192.168.1.100 to 192.168.1.2
+
+$ sudo tcpdump 'src 192.168.1.100 and dst 192.168.1.2 and port ftp'
+
+
+Search the network traffic using grep
+
+Grep can be used along with tcpdump to search the network traffic. Here is a very simple example
+
+$ sudo tcpdump -n -A | grep -e 'POST'
+
+
+So what is the idea behind searching packets. Well one good thing can be to sniff passwords.
+Here is quick example to sniff passwords using egrep
+
+
+tcpdump port http or port ftp or port smtp or port imap or port pop3 -l -A | egrep -i 'pass=|pwd=|log=|login=|user=|username=|pw=|passw=|passwd=|password=|pass:|user:|username:|password:|login:|pass |user ' --color=auto --line-buffered -B20
+
+
+####################
+# Advanced TCPDump #
+####################
+https://danielmiessler.com/study/tcpdump/
+
+-i any : Listen on all interfaces just to see if you’re seeing any traffic.
+-i eth0 : Listen on the eth0 interface.
+-D : Show the list of available interfaces
+-n : Don’t resolve hostnames.
+-nn : Don’t resolve hostnames or port names.
+-q : Be less verbose (more quiet) with your output.
+-X : Show the packet’s contents in both hex and ASCII.
+-XX : Same as -X, but also shows the ethernet header.
+-v, -vv, -vvv : Increase the amount of packet information you get back.
+-c : Only get x number of packets and then stop.
+icmp : Only get ICMP packets.
+-s : Define the snaplength (size) of the capture in bytes. Use -s0 to get everything, unless you are intentionally capturing less.
+-S : Print absolute sequence numbers.
+-e : Get the ethernet header as well.
+-q : Show less protocol information.
+-E : Decrypt IPSEC traffic by providing an encryption key.
+
+
+
+Basic communication // see the basics without many options
+# tcpdump -nS
+
+Basic communication (very verbose) // see a good amount of traffic, with verbosity and no name help
+# tcpdump -nnvvS
+
+A deeper look at the traffic // adds -X for payload but doesn’t grab any more of the packet
+# tcpdump -nnvvXS
+
+Heavy packet viewing // the final “s” increases the snaplength, grabbing the whole packet
+# tcpdump -nnvvXSs 1514
+
+Here’s a capture of exactly two (-c2) ICMP packets (a ping and pong) using some of the options described above. Notice how much we see about each packet.
+
+hermes root # tcpdump -nnvXSs 0 -c2 icmp
+
+
+host // look for traffic based on IP address (also works with hostname if you’re not using -n) 
+# tcpdump host 1.2.3.4
+
+
+src, dst // find traffic from only a source or destination (eliminates one side of a host conversation) 
+# tcpdump src 2.3.4.5 
+# tcpdump dst 3.4.5.6
+
+
+net // capture an entire network using CIDR notation 
+# tcpdump net 1.2.3.0/24
+
+
+proto // works for tcp, udp, and icmp. Note that you don’t have to type proto 
+# tcpdump icmp
+
+
+port // see only traffic to or from a certain port 
+# tcpdump port 3389
+
+src, dst port // filter based on the source or destination port 
+# tcpdump src port 1025 # tcpdump dst port 389
+
+src/dst, port, protocol // combine all three 
+# tcpdump src port 1025 and tcp 
+# tcpdump udp and src port 53
+
+
+You also have the option to filter by a range of ports instead of declaring them individually, and to only see packets that are above or below a certain size.
+
+Port Ranges // see traffic to any port in a range 
+tcpdump portrange 21-23
+
+Packet Size Filter // only see packets below or above a certain size (in bytes) 
+tcpdump less 32 
+tcpdump greater 128
+[ You can use the symbols for less than, greater than, and less than or equal / greater than or equal signs as well. ]
+
+// filtering for size using symbols 
+tcpdump > 32 
+tcpdump <= 128
+
+
+The traffic captured in this way is stored in tcpdump format, which is pretty much universal in the network analysis space. This means it can be read in by all sorts of tools, including Wireshark, Snort, etc.
+
+Capture all Port 80 Traffic to a File
+
+# tcpdump -s 1514 port 80 -w capture_file
+
+Then, at some point in the future, you can then read the traffic back in like so:
+
+Read Captured Traffic back into tcpdump
+
+# tcpdump -r capture_file
+
+Getting Creative
+
+Expressions are nice, but the real magic of tcpdump comes from the ability to combine them in creative ways in order to isolate exactly what you’re looking for. There are three ways to do combinations, and if you’ve studied computers at all they’ll be pretty familar to you:
+
+AND 
+and or &&
+OR 
+or or ||
+EXCEPT 
+not or !
+More Examples
+
+# TCP traffic from 10.5.2.3 destined for port 3389
+
+tcpdump -nnvvS src 10.5.2.3 and dst port 3389
+
+# Traffic originating from the 192.168 network headed for the 10 or 172.16 networks
+
+tcpdump -nvX src net 192.168.0.0/16 and dst net 10.0.0.0/8 or 172.16.0.0/16
+
+# Non-ICMP traffic destined for 192.168.0.2 from the 172.16 network
+
+tcpdump -nvvXSs 1514 dst 192.168.0.2 and src net and not icmp
+
+# Traffic originating from Mars or Pluto that isn’t to the SSH port
+
+tcpdump -vv src mars and not dst port 22
+
+As you can see, you can build queries to find just about anything you need. The key is to first figure out precisely what you’re looking for and then to build the syntax to isolate that specific type of traffic.
+
+Grouping
+
+Also keep in mind that when you’re building complex queries you might have to group your options using single quotes. Single quotes are used in order to tell tcpdump to ignore certain special characters — in this case the “( )” brackets. This same technique can be used to group using other expressions such as host, port, net, etc. Take a look at the command below:
+
+# Traffic that’s from 10.0.2.4 AND destined for ports 3389 or 22 (incorrect)
+
+tcpdump src 10.0.2.4 and (dst port 3389 or 22)
+
+If you tried to run this otherwise very useful command, you’d get an error because of the parenthesis. You can either fix this by escaping the parenthesis (putting a \ before each one), or by putting the entire command within single quotes:
+
+# Traffic that’s from 10.0.2.4 AND destined for ports 3389 or 22 (correct)
+
+tcpdump ‘src 10.0.2.4 and (dst port 3389 or 22)’
+
+Advanced
+
+You can also filter based on specific portions of a packet, as well as combine multiple conditions into groups. The former is useful when looking for only SYNs or RSTs, for example, and the latter for even more advanced traffic isolation.
+
+[ Hint: An anagram for the TCP flags: Unskilled Attackers Pester Real Security Folk ]
+
+Show me all URGENT (URG) packets…
+
+# tcpdump ‘tcp[13] & 32!=0‘
+
+Show me all ACKNOWLEDGE (ACK) packets…
+
+# tcpdump ‘tcp[13] & 16!=0‘
+
+Show me all PUSH (PSH) packets…
+
+# tcpdump ‘tcp[13] & 8!=0‘
+
+Show me all RESET (RST) packets…
+
+# tcpdump ‘tcp[13] & 4!=0‘
+
+Show me all SYNCHRONIZE (SYN) packets…
+
+# tcpdump ‘tcp[13] & 2!=0‘
+
+Show me all FINISH (FIN) packets…
+
+# tcpdump ‘tcp[13] & 1!=0‘
+
+Show me all SYNCHRONIZE/ACKNOWLEDGE (SYNACK) packets…
+
+# tcpdump ‘tcp[13]=18‘
+
+[ Note: Only the PSH, RST, SYN, and FIN flags are displayed in tcpdump‘s flag field output. URGs and ACKs are displayed, but they are shown elsewhere in the output rather than in the flags field ]
+
+Keep in mind the reasons these filters work. The filters above find these various packets because tcp[13] looks at offset 13 in the TCP header, the number represents the location within the byte, and the !=0 means that the flag in question is set to 1, i.e. it’s on.
+
+As with most powerful tools, however, there are multiple ways to do things. The example below shows another way to capture packets with specific TCP flags set.
+
+Capture TCP Flags Using the tcpflags Option…
+
+# tcpdump ‘tcp[tcpflags] & & tcp-syn != 0‘
+
+Specialized Traffic
+
+Finally, there are a few quick recipes you’ll want to remember for catching specific and specialized traffic, such as IPv6 and malformed/likely-malicious packets.
+
+IPv6 traffic
+
+# tcpdump ip6
+
+Packets with both the RST and SYN flags set (why?)
+
+# tcpdump ‘tcp[13] = 6’
+
+Traffic with the ‘Evil Bit’ Set
+
+# tcpdump ‘ip[6] & 128 != 0‘
+
+
+#########
+# NGrep #
+#########
+http://www.binarytides.com/search-network-traffic-ngrep-tutorial/
+
+Install ngrep on Ubuntu
+$ sudo apt-get install ngrep
+
+
+Search network traffic for string "User-Agent: "
+$ sudo ngrep -d eth0 "User-Agent: " tcp and port 80
+
+In the above command :
+a) tcp and port 80 - is the bpf filter (Berkeley Packet Filter) , that sniffs only TCP packet with port number 80
+b) The d option specifies the interface to sniff. eth0 in this case.
+c) "User-Agent: " is the string to search for. All packets that have that string are displayed.
+
+2. Search network packets for GET or POST requests :
+
+$ sudo ngrep -l -q -d eth0 "^GET |^POST " tcp and port 80
+
+The l option makes the output buffered and the q option is for quiet ( Be quiet; don't output any information other than packet headers and their payloads (if relevant) ).
+
+3. ngrep without any options would simply capture all packets.
+
+$ sudo ngrep
+
+https://dl.packetstormsecurity.net/papers/general/ngreptut.txt
+
+$ sudo ngrep -d eth0 -n 3
+
+$ sudo ngrep -d any port 25
+This will let you monitor all activity crossing source or destination port 25
+(SMTP). 
+
+$ sudo ngrep -wi -d wlan0 'user|pass' port 6667
+
+$ sudo ngrep -wi -d any 'user|pass' port 21
+
+
+###############
+# NTop Basics #
+###############
+Reference:
+https://www.maketecheasier.com/install-configure-ntop/
+
+
+
+#################
+# PCAP Analysis #
+#################
+cd /home/malware/Desktop/Browser\ Forensics
+ 
+ls | grep pcap
+ 
+perl chaosreader.pl suspicious-time.pcap
+ 
+firefox index.html
+ 
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)"
+ 
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)" | awk '{print $4, $5, $6}' | sort | uniq -c | sort -nr
+ 
+sudo tshark -i eth0 -r suspicious-time.pcap -qz io,phs
+     malware  
+ 
+ 
+for i in session_00[0-9]*.www.html; do srcip=`cat "$i" | grep 'www:\ ' | awk '{print $2}' |  cut -d ':' -f1`; dstip=`cat "$i" | grep 'www:\ ' | awk '{print $4}' |  cut -d ':' -f1`; host=`cat "$i" | grep 'Host:\ ' | sort -u | sed -e 's/Host:\ //g'`; echo "$srcip --> $dstip = $host";  done | sort -u
+ 
+ 
+ 
+ 
+ 
+#############################
+# PCAP Analysis with tshark #
+#############################
+tshark -r suspicious-time.pcap | grep 'NB.*20\>' | sed -e 's/<[^>]*>//g' | awk '{print $3,$4,$9}' | sort -u
+ 
+ 
+tshark -r suspicious-time.pcap | grep 'NB.*1e\>' | sed -e 's/<[^>]*>//g' | awk '{print $3,$4,$9}' | sort -u
+ 
+ 
+tshark -r suspicious-time.pcap arp | grep has | awk '{print $3," -> ",$9}' | tr -d '?'
+ 
+ 
+tshark -r suspicious-time.pcap -Tfields -e "eth.src" | sort | uniq
+ 
+ 
+tshark -r suspicious-time.pcap -R "browser.command==1" -Tfields -e "ip.src" -e "browser.server" | uniq
+ 
+tshark -r suspicious-time.pcap -Tfields -e "eth.src" | sort |uniq
+ 
+tshark -r suspicious-time.pcap -qz ip_hosts,tree
+ 
+tshark -r suspicious-time.pcap -R "http.request" -Tfields -e "ip.src" -e "http.user_agent" | uniq
+ 
+tshark -r suspicious-time.pcap -R "dns" -T fields -e "ip.src" -e "dns.flags.response" -e "dns.qry.name"
+ 
+ 
+whois rapidshare.com.eyu32.ru
+ 
+whois sploitme.com.cn
+ 
+ 
+tshark -r suspicious-time.pcap -R http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}'
+ 
+tshark -r suspicious-time.pcap -R http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico' -e google -e 'honeynet.org'
+ 
+tshark -r suspicious-time.pcap -qz http_req,tree
+ 
+tshark -r suspicious-time.pcap -R "data-text-lines contains \"<script\"" -T fields -e frame.number -e ip.src -e ip.dst
+ 
+tshark -r suspicious-time.pcap -R http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico'  | grep 10.0.3.15 | sed -e 's/\?[^cse].*/\?\.\.\./g'
+ 
+ 
+ 
+######################################
+# PCAP Analysis with forensicPCAP.py #
+######################################
+cd ~/Desktop
+wget https://raw.githubusercontent.com/madpowah/ForensicPCAP/master/forensicPCAP.py
+ 
+sudo easy_install cmd2
+     malware
+ 
+python forensicPCAP.py Browser\ Forensics/suspicious-time.pcap
+ 
+ForPCAP >>> help
+ 
+ 
+Prints stats about PCAP
+ForPCAP >>> stat
+ 
+ 
+Prints all DNS requests from the PCAP file. The id before the DNS is the packet's id which can be use with the "show" command.
+ForPCAP >>> dns
+ 
+ForPCAP >>> show
+ 
+ 
+Prints all destination ports from the PCAP file. The id before the DNS is the packet's id which can be use with the "show" command.
+ForPCAP >>> dstports
+ 
+ForPCAP >>> show
+ 
+ 
+Prints the number of ip source and store them.
+ForPCAP >>> ipsrc
+ 
+ForPCAP >>> show
+ 
+ 
+Prints the number of web's requests and store them
+ForPCAP >>> web
+ 
+ForPCAP >>> show
+ 
+Prints the number of mail's requests and store them
+ForPCAP >>> mail
+ 
+ForPCAP >>> show
+
+
+###############
+# Snort Build #
+###############
+http://computer-outlines.over-blog.com/article-nids-snort-barnyard2-apache2-base-with-ubuntu-14-04-lts-123532107.html
+
+
+###################
+# Surricata Build #
+###################
+https://gist.github.com/cleesmith/3ae872eb46d1ea102667

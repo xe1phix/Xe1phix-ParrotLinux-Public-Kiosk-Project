@@ -1,0 +1,1685 @@
+#####################################
+# InfoSecAddicts Intro to Linux     # 
+# By Joe McCray                     #
+#####################################
+
+
+
+##########
+# VMWare #
+##########
+- For this workshop you'll need the latest version of VMWare Workstation (Windows), Fusion (Mac), or Player.
+
+- http://www.vmware.com/ap/products/player.html
+
+
+- Although you can get the VM to run in VirtualBox, I will not be supporting this configuration for this class.
+
+
+##########################
+# Download the attack VM #
+##########################
+https://s3.amazonaws.com/infosecaddictsvirtualmachines/InfoSecAddictsVM.zip
+user:      infosecaddicts
+pass:      infosecaddicts
+
+- Here is a good set of slides for getting started with Linux:
+http://www.slideshare.net/olafusimichael/linux-training-24086319
+
+
+
+
+- Log in to your Ubuntu host with the following credentials:
+	user:      infosecaddicts
+	pass:      infosecaddicts
+
+
+
+- I prefer to use Putty to SSH into my Ubuntu host on pentests and I'll be teaching this class in the same manner that I do pentests.
+- You can download Putty from here:
+- http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+
+
+- For the purpose of this workshop 192.168.230.128 is my Ubuntu IP address so anytime you see that IP you'll know that's my Ubuntu host
+
+
+
+########################
+# Basic Linux Commands #
+########################
+cd ~
+
+pwd
+
+whereis pwd
+
+which pwd
+
+sudo find / -name pwd
+
+/bin/pwd
+
+mkdir LinuxBasics
+
+cd LinuxBasics
+
+touch one two three
+
+ls -l t		(without pressing the Enter key, press the Tab key twice. What happens?)
+
+h		(and again without pressing the Enter key, press the Tab key twice. What happens?)
+
+Press the 'Up arrow key'	(What happens?)
+
+Press 'Ctrl-A'			(What happens?)
+
+ls
+
+clear				(What happens?)
+
+echo one > one
+
+cat one				(What happens?)
+
+man cat				(What happens?)
+	q
+
+cat two
+
+cat one > two
+
+cat two
+
+cat one two > three
+
+cat three
+
+echo four >> three
+
+cat three 			(What happens?)
+
+wc -l three
+
+man wc
+	q
+
+cat three | grep four
+
+cat three | grep one
+
+man grep
+	q
+
+
+man ps
+	q
+
+ps
+
+ps aux
+
+ps aux | less
+
+Press the 'Up arrow key'	(What happens?)
+
+Press the 'Down arrow key'	(What happens?)
+	q
+
+top
+
+
+
+#########
+# Files #
+#########
+cd ~
+
+pwd
+
+ls
+
+cd LinuxBasics
+
+pwd
+
+cd ~
+
+pwd
+
+cd LinuxBasics
+
+ls
+
+mkdir files
+
+cp one files/
+
+ls files/
+
+cd files/
+
+cp ../two .
+
+ls
+
+cp ../three .
+
+ls
+
+tar cvf files.tar *
+
+ls
+
+gzip files.tar
+
+ls
+
+rm -rf one two three
+
+ls
+
+tar -zxvf files.tar.gz
+
+rm -rf files.tar.gz
+
+sudo apt install -y zip unzip
+
+zip data *
+
+unzip -l data.zip
+
+unzip data.zip -d /tmp
+
+unzip -l data.zip
+
+
+
+############
+# VIM Demo #
+############
+cd ~
+sudo apt install -y vim
+     infosecaddicts
+
+cd LinuxBasics
+
+mkdir vimlesson
+
+cd vimlesson
+
+vi lesson1.sh
+
+i			(press "i" to get into INSERT mode and then paste in the lines below)
+
+#!/bin/bash
+
+echo "This is my first time using vi to create a shell script"
+echo " "
+echo " "
+echo " "
+sleep 5
+echo "Ok, now let's clear the screen"
+sleep 3
+
+
+---------------don't put this line in your script----------------------------
+
+ESC			(press the ESC key to get you out of INSERT mode)
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+/echo		(typing "/echo" immediately after SHIFT: will search the file for the word echo).
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+4		(typing "4" immediately after SHIFT: will take you to line number 4).
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+4		(typing "4" immediately after SHIFT: will take you to line number 4).
+
+dd		(typing "dd" will delete the line that you are on)
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set number 	(typing "set number" immediately after SHIFT: will add line numbers to vim).
+
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+4		(typing "4" immediately after SHIFT: will take you to line number 4).
+
+dd		(typing "dd" will delete the line that you are on)
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+syntax on		(typing "syntax on" immediately after SHIFT: will turn on syntax highlighting
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+set tabstop=5	(typing "set tabstop=5" immediately after SHIFT: will set your tabs to 5 spaces
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+vi .vimrc
+i			(press "i" to get into INSERT mode and then paste in the lines below)
+
+
+set number
+syntax on
+set tabstop=5
+
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+
+
+
+
+vi lesson1.sh
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+echo $MYVIMRC	(typing "echo $MYVIMRC" immediately after SHIFT: will display the path to your new .vimrc file
+
+[SHIFT+:]	(press SHIFT and the : keys at the same time and you should see a : in the bottom left corner of the screen.
+
+wq			(typing "wq" immediately after SHIFT: will save (w for write, and q for quit meaning exit vim).
+
+
+###############
+# Permissions #
+###############
+cd ~ 
+
+pwd
+
+ls
+
+cd LinuxBasics
+
+ls -l one
+
+We can determine a lot from examining the results of this command. The file "one" is owned by user "me". 
+Now "me" has the right to read and write this file. 
+The file is owned by the group "me". Members of the group "me" can also read and write this file. 
+Everybody else can read this file
+
+
+
+ls -l /bin/bash
+
+
+Here we can see:
+
+The file "/bin/bash" is owned by user "root". The superuser has the right to read, write, and execute this file. 
+The file is owned by the group "root". Members of the group "root" can also read and execute this file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Everybody else can read and execute this file
+
+
+The next command you need to know is "chmod"
+rwx rwx rwx = 111 111 111
+rw- rw- rw- = 110 110 110
+rwx --- --- = 111 000 000
+
+and so on...
+
+rwx = 111 in binary = 7
+rw- = 110 in binary = 6
+r-x = 101 in binary = 5
+r-- = 100 in binary = 4
+
+ls -l one
+
+chmod 600 one
+
+ls -l one
+
+sudo useradd testuser
+     infosecaddicts
+
+sudo passwd testuser
+
+testuser
+testuser
+
+sudo chown testuser one
+     infosecaddicts
+
+ls -l one
+
+sudo chgrp testuser one
+     infosecaddicts
+
+ls -l one
+
+id
+
+su testuser
+testuser
+
+
+Here is a table of numbers that covers all the common settings. The ones beginning with "7" are used with programs (since they enable execution) and the rest are for other kinds of files.
+
+Value	Meaning
+777 (rwxrwxrwx) No restrictions on permissions. Anybody may do anything. Generally not a desirable setting.
+
+755 (rwxr-xr-x) The file's owner may read, write, and execute the file. All others may read and execute the file. This setting is common for programs that are used by all users.
+
+700 (rwx------) The file's owner may read, write, and execute the file. Nobody else has any rights. This setting is useful for programs that only the owner may use and must be kept private from others.
+
+666 (rw-rw-rw-) All users may read and write the file.
+
+644 (rw-r--r--) The owner may read and write a file, while all others may only read the file. A common setting for data files that everybody may read, but only the owner may change.
+
+600 (rw-------) The owner may read and write a file. All others have no rights. A common setting for data files that the owner wants to keep private.
+
+
+
+Directory permissions
+---------------------
+The chmod command can also be used to control the access permissions for directories. In most ways, the permissions scheme for directories works the same way as they do with files. However, the execution permission is used in a different way. It provides control for access to file listing and other things. Here are some useful settings for directories:
+
+Value	Meaning
+777 (rwxrwxrwx) No restrictions on permissions. 
+Anybody may list files, create new files in the directory and delete files in the directory. 
+Generally not a good setting.
+
+
+
+755 (rwxr-xr-x) The directory owner has full access. 
+All others may list the directory, but cannot create files nor delete them. 
+This setting is common for directories that you wish to share with other users.
+
+
+
+700 (rwx------) The directory owner has full access. Nobody else has any rights. This setting is useful for directories that only the owner may use and must be kept private from others.
+
+######################
+# Process Management #
+######################
+top
+
+sudo apt install -y htop
+     infosecaddicts
+
+htop
+
+ps
+
+ps aux
+
+ps -A
+
+ps -A | less
+
+ps axjf
+
+pstree
+
+pgrep bash
+
+pgrep init
+
+ps aux | grep apache
+
+You can list all of the signals that are possible to send with kill by typing:
+
+kill -l
+
+sudo kill -HUP pid_of_apache
+
+The pkill command works in almost exactly the same way as kill, but it operates on a process name instead:
+
+pkill -9 ping
+The above command is the equivalent of:
+
+kill -9 `pgrep ping`
+
+
+
+
+
+####################
+# MD5 Hashing Demo #
+####################
+cd ~/LinuxBasics
+mkdir hashdemo
+cd hashdemo
+echo test > test.txt
+cat test.txt
+md5sum test.txt
+echo hello >> test.txt
+cat test.txt
+md5sum test.txt
+cd ..
+
+
+
+
+#################################
+# Symmetric Key Encryption Demo #
+#################################
+cd ~/LinuxBasics
+mkdir gpgdemo
+cd gpgdemo
+echo test > test.txt
+cat test.txt
+gpg -c test.txt
+	password
+	password
+ls | grep test
+cat test.txt
+cat test.txt.gpg
+rm -rf test.txt
+ls | grep test
+gpg -o output.txt test.txt.gpg
+cat output.txt
+
+
+#########################################################################################################################
+# Asymmetric Key Encryption Demo 											                                            #
+#															                                                            #
+# Configure random number generator 											                                        #
+# https://www.howtoforge.com/helping-the-random-number-generator-to-gain-enough-entropy-with-rng-tools-debian-lenny	    #
+#########################################################################################################################
+
+sudo apt install -y rng-tools
+     infosecaddicts
+
+/etc/init.d/rng-tools start
+
+sudo rngd -r /dev/urandom
+     infosecaddicts
+
+
+echo hello > file1.txt
+echo goodbye > file2.txt
+echo green > file3.txt
+echo blue > file4.txt
+
+tar czf files.tar.gz *.txt
+
+gpg --gen-key
+	1
+	1024
+	0
+	y
+	John Doe
+	john@doe.com
+	--blank comment--
+	O
+		password
+		password	
+
+
+
+gpg --armor --output file-enc-pubkey.txt --export 'John Doe'
+
+cat file-enc-pubkey.txt
+
+gpg --armor --output file-enc-privkey.asc --export-secret-keys 'John Doe'
+
+cat file-enc-privkey.asc
+
+gpg --encrypt --recipient 'John Doe' files.tar.gz
+
+rm -rf files.tar.gz *.txt
+
+ls
+
+tar -zxvf files.tar.gz.gpg
+
+gpg --output output.tar.gz --decrypt files.tar.gz.gpg
+	password
+
+tar -zxvf output.tar.gz
+
+ls
+
+
+
+
+
+############################
+# Encryption using OpenSSL #
+############################
+openssl genrsa -out private_key.pem 1024
+openssl rsa -in private_key.pem -out public_key.pem -outform PEM -pubout
+
+
+echo hello > encrypt.txt
+openssl rsautl -encrypt -inkey public_key.pem -pubin -in encrypt.txt -out encrypt.dat
+
+cat encrypt.dat
+
+rm -rf encrypt.txt
+
+ls
+
+openssl rsautl -decrypt -inkey private_key.pem -in encrypt.dat -out decrypt.txt
+
+cat decrypt.txt
+
+
+
+###############################
+# Secure File/Folder Deletion #
+###############################
+sudo apt install -y secure-delete wipe
+
+wget https://www.sans.org/security-resources/tcpip.pdf
+
+file tcpip.pdf
+
+sudo srm tcpip.pdf
+
+wget https://www.sans.org/security-resources/tcpip.pdf
+
+shred tcpip.pdf
+
+wget https://www.sans.org/security-resources/tcpip.pdf
+
+wipe tcpip.pdf
+
+
+
+
+
+#################
+# IPTables Demo #
+#################
+cd ~
+
+- Delete Existing Rules
+---------------------
+sudo /sbin/iptables -F
+     infosecaddicts
+
+	(or)
+
+sudo /sbin/iptables --flush
+     infosecaddicts
+
+
+
+- Set Default Chain Policies
+--------------------------
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT DROP
+
+
+
+- Delete Existing Rules
+---------------------
+sudo /sbin/iptables -F
+     infosecaddicts
+
+	(or)
+
+sudo /sbin/iptables --flush
+     infosecaddicts
+
+
+
+
+sudo /bin/bash
+
+
+
+- Block a Specific ip-address
+-----------------------------
+BLOCK_THIS_IP="1.2.3.4"
+iptables -A INPUT -s "$BLOCK_THIS_IP" -j DROP
+
+
+iptables -A INPUT -i eth0 -s "$BLOCK_THIS_IP" -j DROP
+iptables -A INPUT -i eth0 -p tcp -s "$BLOCK_THIS_IP" -j DROP
+
+
+- Allow ALL Incoming SSH
+------------------------
+iptables -A INPUT -i eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT
+
+
+- Allow Incoming SSH only from a Sepcific Network
+-------------------------------------------------
+iptables -A INPUT -i eth0 -p tcp -s 192.168.100.0/24 --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT
+
+
+- Allow Incoming HTTP and HTTPS
+-------------------------------
+iptables -A INPUT -i eth0 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp --sport 80 -m state --state ESTABLISHED -j ACCEPT
+
+
+iptables -A INPUT -i eth0 -p tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp --sport 443 -m state --state ESTABLISHED -j ACCEPT
+
+
+
+- Combine Multiple Rules Together using MultiPorts
+--------------------------------------------------
+iptables -A INPUT -i eth0 -p tcp -m multiport --dports 22,80,443 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp -m multiport --sports 22,80,443 -m state --state ESTABLISHED -j ACCEPT                                                                                                                                                                                 
+
+
+- Allow Outgoing SSH
+--------------------
+iptables -A OUTPUT -o eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A INPUT -i eth0 -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT
+
+
+- Allow Outgoing SSH only to a Specific Network
+-----------------------------------------------
+The following rules allow outgoing ssh connection only to a specific network. i.e You an ssh only to 192.168.100.0/24 network from the inside.
+
+iptables -A OUTPUT -o eth0 -p tcp -d 192.168.100.0/24 --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A INPUT -i eth0 -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT
+
+
+
+- Allow Outgoing HTTPS
+----------------------
+The following rules allow outgoing secure web traffic. This is helpful when you want to allow internet traffic for your users. On servers, these rules are also helpful when you want to use wget to download some files from outside.
+
+iptables -A OUTPUT -o eth0 -p tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A INPUT -i eth0 -p tcp --sport 443 -m state --state ESTABLISHED -j ACCEPT
+
+
+
+
+Load Balance Incoming Web Traffic
+---------------------------------
+You can also load balance your incoming web traffic using iptables firewall rules.
+
+This uses the iptables nth extension. The following example load balances the HTTPS traffic to three different ip-address. For every 3th packet, it is load balanced to the appropriate server (using the counter 0).
+
+iptables -A PREROUTING -i eth0 -p tcp --dport 443 -m state --state NEW -m nth --counter 0 --every 3 --packet 0 -j DNAT --to-destination 192.168.1.101:443
+iptables -A PREROUTING -i eth0 -p tcp --dport 443 -m state --state NEW -m nth --counter 0 --every 3 --packet 1 -j DNAT --to-destination 192.168.1.102:443
+iptables -A PREROUTING -i eth0 -p tcp --dport 443 -m state --state NEW -m nth --counter 0 --every 3 --packet 2 -j DNAT --to-destination 192.168.1.103:443
+
+
+
+Allow Ping from Outside to Inside
+---------------------------------
+The following rules allow outside users to be able to ping your servers.
+
+iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+
+
+
+Allow Ping from Inside to Outside
+---------------------------------
+The following rules allow you to ping from inside to any of the outside servers.
+
+iptables -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT
+iptables -A INPUT -p icmp --icmp-type echo-reply -j ACCEPT
+
+
+
+Allow Loopback Access
+---------------------
+You should allow full loopback access on your servers. i.e access using 127.0.0.1
+
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
+
+
+
+Allow Internal Network to External network
+------------------------------------------
+On the firewall server where one ethernet card is connected to the external, and another ethernet card connected to the internal servers, use the following rules to allow internal network talk to external network.
+
+In this example, eth1 is connected to external network (internet), and eth0 is connected to internal network (For example: 192.168.1.x).
+
+iptables -A FORWARD -i eth0 -o eth1 -j ACCEPT
+
+
+
+Allow outbound DNS
+------------------
+The following rules allow outgoing DNS connections.
+
+iptables -A OUTPUT -p udp -o eth0 --dport 53 -j ACCEPT
+iptables -A INPUT -p udp -i eth0 --sport 53 -j ACCEPT
+
+
+
+Allow Rsync From a Specific Network
+-----------------------------------
+The following rules allows rsync only from a specific network.
+
+iptables -A INPUT -i eth0 -p tcp -s 192.168.101.0/24 --dport 873 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp --sport 873 -m state --state ESTABLISHED -j ACCEPT
+
+
+
+Allow MySQL connection only from a specific network
+---------------------------------------------------
+If you are running MySQL, typically you don’t want to allow direct connection from outside. In most cases, you might have web server running on the same server where the MySQL database runs.
+
+However DBA and developers might need to login directly to the MySQL from their laptop and desktop using MySQL client. In those case, you might want to allow your internal network to talk to the MySQL directly as shown below.
+
+iptables -A INPUT -i eth0 -p tcp -s 192.168.100.0/24 --dport 3306 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp --sport 3306 -m state --state ESTABLISHED -j ACCEPT
+
+
+
+Allow Sendmail or Postfix Traffic
+---------------------------------
+The following rules allow mail traffic. It may be sendmail or postfix.
+
+iptables -A INPUT -i eth0 -p tcp --dport 25 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp --sport 25 -m state --state ESTABLISHED -j ACCEPT
+
+
+Allow IMAP and IMAPS
+--------------------
+The following rules allow IMAP/IMAP2 traffic.
+
+iptables -A INPUT -i eth0 -p tcp --dport 143 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp --sport 143 -m state --state ESTABLISHED -j ACCEPT
+
+
+The following rules allow IMAPS traffic.
+
+iptables -A INPUT -i eth0 -p tcp --dport 993 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp --sport 993 -m state --state ESTABLISHED -j ACCEPT
+
+
+
+
+Allow POP3 and POP3S
+--------------------
+The following rules allow POP3 access.
+
+iptables -A INPUT -i eth0 -p tcp --dport 110 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp --sport 110 -m state --state ESTABLISHED -j ACCEPT
+The following rules allow POP3S access.
+
+iptables -A INPUT -i eth0 -p tcp --dport 995 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp --sport 995 -m state --state ESTABLISHED -j ACCEPT
+
+
+
+Port Forwarding
+---------------
+The following example routes all traffic that comes to the port 442 to 22. This means that the incoming ssh connection can come from both port 22 and 422.
+
+iptables -t nat -A PREROUTING -p tcp -d 192.168.102.37 --dport 422 -j DNAT --to 192.168.102.37:22
+
+If you do the above, you also need to explicitly allow incoming connection on the port 422.
+
+iptables -A INPUT -i eth0 -p tcp --dport 422 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp --sport 422 -m state --state ESTABLISHED -j ACCEPT
+
+
+Log Dropped Packets
+-------------------
+You might also want to log all the dropped packets. These rules should be at the bottom.
+
+First, create a new chain called LOGGING.
+
+iptables -N LOGGING
+Next, make sure all the remaining incoming connections jump to the LOGGING chain as shown below.
+
+iptables -A INPUT -j LOGGING
+Next, log these packets by specifying a custom “log-prefix”.
+
+iptables -A LOGGING -m limit --limit 2/min -j LOG --log-prefix "IPTables Packet Dropped: " --log-level 7
+Finally, drop these packets.
+
+iptables -A LOGGING -j DROP
+
+
+
+#########################
+# Ubuntu Perfect Server #
+#########################
+
+Reference:
+https://www.howtoforge.com/tutorial/ubuntu-perfect-server-with-apache-php-myqsl-pureftpd-bind-postfix-doveot-and-ispconfig/
+
+
+deb http://de.archive.ubuntu.com/ubuntu/ yakkety main restricted
+deb http://de.archive.ubuntu.com/ubuntu/ yakkety-updates main restricted
+deb http://de.archive.ubuntu.com/ubuntu/ yakkety universe
+deb http://de.archive.ubuntu.com/ubuntu/ yakkety-updates universe
+deb http://de.archive.ubuntu.com/ubuntu/ yakkety-updates multiverse
+
+
+Then run
+apt-get update
+
+to update the apt package database and
+apt-get upgrade
+
+to install the latest updates (if there are any). If you see that a new kernel gets installed as part of the updates, you should reboot the system afterwards:
+reboot
+
+Change the Default Shell
+/bin/sh is a symlink to /bin/dash, however we need /bin/bash, not /bin/dash. Therefore, we do this:
+dpkg-reconfigure dash
+
+Use dash as the default system shell (/bin/sh)? <-- No
+
+Disable AppArmor
+----------------                                                      
+AppArmor is a security extension (similar to SELinux) that should provide extended security. In my opinion, you don't need it to configure a secure system, and it usually causes more problems than advantages (think of it after you have done a week of trouble-shooting because some service wasn't working as expected, and then you find out that everything was ok, only AppArmor was causing the problem). Therefore, I disable it (this is a must if you want to install ISPConfig later on).
+We can disable it like this:
+
+service apparmor stop
+update-rc.d -f apparmor remove 
+apt-get remove apparmor apparmor-utils
+
+
+apt-get -y install ntp ntpdate
+
+Install Postfix, Dovecot, MariaDB, rkhunter and binutils
+--------------------------------------------------------
+For installing postfix, we need to ensure that sendmail is not installed and running. To stop and remove sendmail run this command:
+
+service sendmail stop; update-rc.d -f sendmail remove
+
+
+
+
+#######################
+# Hardening Ubuntu 16 #
+#######################
+
+This guide is intended as a relatively easy step by step guide to:
+
+Harden the security on an Ubuntu 16.04 LTS server by installing and configuring the following:
+
+Install and configure Firewall - ufw
+Secure shared memory - fstab 
+SSH - Key based login, disable root login and change port 
+Apache SSL - Disable SSL v3 support
+Protect su by limiting access only to admin group 
+Harden network with sysctl settings 
+Disable Open DNS Recursion and Remove Version Info  - Bind9 DNS 
+Prevent IP Spoofing
+Harden PHP for security 
+Restrict Apache Information Leakage
+Install and configure Apache application firewall - ModSecurity
+Protect from DDOS (Denial of Service) attacks with ModEvasive
+Scan logs and ban suspicious hosts - DenyHosts and Fail2Ban
+Intrusion Detection - PSAD
+Check for RootKits - RKHunter and CHKRootKit
+Scan open Ports - Nmap
+Analyse system LOG files - LogWatch
+Apparmor -  Application Armor
+Audit your system security - Tiger and Tripwire
+Requirements:
+
+Ubuntu 16.04 LTS or later server with a standard LAMP stack installed.
+1. Firewall - UFW
+
+A good place to start is to install a Firewall. 
+UFW - Uncomplicated Firewall is a basic firewall that works very well and easy to configure with its Firewall configuration tool - gufw, or use  Shorewall, fwbuilder, or Firestarter.
+Use Firestarter GUI to configure your firewall or refer to the Ubuntu Server Guide,  UFW manual pages or the Ubuntu UFW community documentation.
+Install UFW and enable, open a terminal window and enter :
+sudo apt-get install ufw
+Allow SSH and Http services.
+sudo ufw allow ssh
+sudo ufw allow http
+Enable the firewall.
+sudo ufw enable
+Check the status of the firewall.
+sudo ufw status verbose
+2. Secure shared memory.
+
+Shared memory can be used in an attack against a running service. Modify /etc/fstab to make it more secure.
+Open a Terminal Window and enter the following :
+sudo vi /etc/fstab
+Add the following line and save. You will need to reboot for this setting to take effect :
+Note : This only is works in Ubuntu 12.10 or later - For earlier Ubuntu versions replace /run/shm with /dev/shm 
+Save and Reboot when done
+tmpfs     /run/shm     tmpfs     defaults,noexec,nosuid     0     0
+3. SSH Hardening - key based login, disable root login and change port.
+
+The best way to secure SSH is to use public/private key based login. See SSH/OpenSSH/Keys
+If you have to use password authentication, the easiest way to secure SSH is to disable root login and change the SSH port to something different than the standard port 22. 
+Before disabling the root login create a new SSH user and make sure the user belongs to the admin group (see step 4. below regarding the admin group).
+if you change the SSH port keep the port number below 1024 as these are priviledged ports that can only be opened by root or processes running as root. 
+If you change the SSH port also open the new port you have chosen on the firewall and close port 22.
+Open a Terminal Window and enter :
+sudo vi /etc/ssh/sshd_config
+Change or add the following and save.
+Port <ENTER YOUR PORT>
+Protocol 2
+PermitRootLogin no
+DebianBanner no
+Restart SSH server, open a Terminal Window and enter :
+sudo service ssh restart
+4. Apache SSL Hardening - disable SSL v2/v3 support.
+
+The SSL v2/v3 protocol has been proven to be insecure. 
+We will disable Apache support for the protocol and force the use of the newer protocols. 
+Open a Terminal Window and enter :
+sudo vi /etc/apache2/mods-available/ssl.conf
+Change this line from :
+SSLProtocol all -SSLv3
+To the following and save.
+SSLProtocol all -SSLv2 -SSLv3
+Restart the Apache server, open a Terminal Window and enter :
+sudo service apache2 restart
+5. Protect su by limiting access only to admin group.
+
+To limit the use of su by admin users only we need to create an admin group, then add users and limit the use of su to the admin group.
+Add a admin group to the system and add your own admin username to the group by replacing <YOUR ADMIN USERNAME> below with your admin username.
+Open a terminal window and enter:
+sudo groupadd admin
+sudo usermod -a -G admin <YOUR ADMIN USERNAME>
+sudo dpkg-statoverride --update --add root admin 4750 /bin/su
+6. Harden network with sysctl settings.
+
+The /etc/sysctl.conf file contain all the sysctl settings.
+Prevent source routing of incoming packets and log malformed IP's enter the following in a terminal window:
+sudo vi /etc/sysctl.conf
+Edit the /etc/sysctl.conf file and un-comment or add the following lines :
+# IP Spoofing protection
+net.ipv4.conf.all.rp_filter = 1
+net.ipv4.conf.default.rp_filter = 1
+
+# Ignore ICMP broadcast requests
+net.ipv4.icmp_echo_ignore_broadcasts = 1
+
+# Disable source packet routing
+net.ipv4.conf.all.accept_source_route = 0
+net.ipv6.conf.all.accept_source_route = 0 
+net.ipv4.conf.default.accept_source_route = 0
+net.ipv6.conf.default.accept_source_route = 0
+
+# Ignore send redirects
+net.ipv4.conf.all.send_redirects = 0
+net.ipv4.conf.default.send_redirects = 0
+
+# Block SYN attacks
+net.ipv4.tcp_syncookies = 1
+net.ipv4.tcp_max_syn_backlog = 2048
+net.ipv4.tcp_synack_retries = 2
+net.ipv4.tcp_syn_retries = 5
+
+# Log Martians
+net.ipv4.conf.all.log_martians = 1
+net.ipv4.icmp_ignore_bogus_error_responses = 1
+
+# Ignore ICMP redirects
+net.ipv4.conf.all.accept_redirects = 0
+net.ipv6.conf.all.accept_redirects = 0
+net.ipv4.conf.default.accept_redirects = 0 
+net.ipv6.conf.default.accept_redirects = 0
+
+# Ignore Directed pings
+net.ipv4.icmp_echo_ignore_all = 1
+To reload sysctl with the latest changes, enter:
+sudo sysctl -p
+7. Disable Open DNS Recursion and Remove Version Info  - BIND DNS Server.
+
+Open a Terminal and enter the following :
+sudo vi /etc/bind/named.conf.options
+Add the following to the Options section :
+recursion no;
+version "Not Disclosed";
+Restart BIND DNS server. Open a Terminal and enter the following :
+sudo service bind9 restart
+8. Prevent IP Spoofing.
+
+Open a Terminal and enter the following :
+sudo vi /etc/host.conf
+Add or edit the following lines :
+order bind,hosts
+nospoof on
+9. Harden PHP for security.
+
+Edit the php.ini file :
+sudo vi /etc/php5/apache2/php.ini
+Add or edit the following lines an save :
+disable_functions = exec,system,shell_exec,passthru
+register_globals = Off
+expose_php = Off
+display_errors = Off
+track_errors = Off
+html_errors = Off
+magic_quotes_gpc = Off
+mail.add_x_header = Off
+session.name = NEWSESSID
+Restart Apache server. Open a Terminal and enter the following :
+sudo service apache2 restart
+10. Restrict Apache Information Leakage.
+
+Edit the Apache2 configuration security file :
+sudo vi /etc/apache2/conf-available/security.conf
+Add or edit the following lines and save :
+ServerTokens Prod
+ServerSignature Off
+TraceEnable Off
+Header unset ETag
+Header always unset X-Powered-By
+FileETag None
+Restart Apache server. Open a Terminal and enter the following :
+sudo service apache2 restart
+11. Web Application Firewall - ModSecurity.
+
+See : How to install apache2 mod_security and mod_evasive on Ubuntu 12.04 LTS server
+12. Protect from DDOS (Denial of Service) attacks - ModEvasive
+
+See : How to install apache2 mod_security and mod_evasive on Ubuntu 12.04 LTS server
+13. Scan logs and ban suspicious hosts - DenyHosts and Fail2Ban.
+
+DenyHosts is a python program that automatically blocks SSH attacks by adding entries to /etc/hosts.deny. DenyHosts will also inform Linux administrators about offending hosts, attacked users and suspicious logins.
+Open a Terminal and enter the following :
+sudo apt-get install denyhosts
+After installation edit the configuration file /etc/denyhosts.conf  and change the email, and other settings as required.
+To edit the admin email settings open a terminal window and enter:
+sudo vi /etc/denyhosts.conf
+Change the following values as required on your server :
+ADMIN_EMAIL = root@localhost
+SMTP_HOST = localhost
+SMTP_PORT = 25
+#SMTP_USERNAME=foo
+#SMTP_PASSWORD=bar
+SMTP_FROM = DenyHosts nobody@localhost
+#SYSLOG_REPORT=YES 
+Fail2ban is more advanced than DenyHosts as it extends the log monitoring to other services including SSH, Apache, Courier, FTP, and more.
+Fail2ban scans log files and bans IPs that show the malicious signs -- too many password failures, seeking for exploits, etc.
+Generally Fail2Ban then used to update firewall rules to reject the IP addresses for a specified amount of time, although any arbitrary other action could also be configured.
+Out of the box Fail2Ban comes with filters for various services (apache, courier, ftp, ssh, etc).
+Open a Terminal and enter the following :
+sudo apt-get install fail2ban
+After installation edit the configuration file /etc/fail2ban/jail.local  and create the filter rules as required.
+To edit the settings open a terminal window and enter:
+sudo vi /etc/fail2ban/jail.conf
+Activate all the services you would like fail2ban to monitor by changing enabled = false to enabled = true
+For example if you would like to enable the SSH monitoring and banning jail, find the line below and change enabled from false to true. Thats it.
+[sshd]
+
+enabled  = true
+port     = ssh
+filter   = sshd
+logpath  = /var/log/auth.log
+maxretry = 3
+If you have selected a non-standard SSH port in step 3 then you need to change the port setting in fail2ban from ssh which by default is port 22, to your new port number, for example if you have chosen 1234 then port = 1234
+[sshd]
+
+enabled  = true
+port     = <ENTER YOUR SSH PORT NUMBER HERE>
+filter   = sshd
+logpath  = /var/log/auth.log
+maxretry = 3
+If you would like to receive emails from Fail2Ban if hosts are banned change the following line to your email address.
+destemail = root@localhost
+and change the following line from :
+action = %(action_)s
+to:
+action = %(action_mwl)s
+You can also create rule filters for the various services that you would like fail2ban to monitor that is not supplied by default.
+sudo vi /etc/fail2ban/jail.local
+Good instructions on how to configure fail2ban and create the various filters can be found on HowtoForge - click here for an example
+When done with the configuration of Fail2Ban restart the service with :
+sudo service fail2ban restart
+You can also check the status with.
+sudo fail2ban-client status
+14. Intrusion Detection - PSAD.
+
+Cipherdyne PSAD is a collection of three lightweight system daemons that run on Linux machines and analyze iptables log messages to detect port scans and other suspicious traffic.
+To install the latest version from the source files follow these instruction : How to install PSAD Intrusion Detection on Ubuntu 12.04 LTS server
+OR install the older version from the Ubuntu software repositories, open a Terminal and enter the following :
+sudo apt-get install psad
+Then for basic configuration see How to install PSAD Intrusion Detection on Ubuntu 12.04 LTS server and follow from step 2:
+15. Check for rootkits - RKHunter and CHKRootKit.
+
+Both RKHunter and CHKRootkit basically do the same thing - check your system for rootkits. No harm in using both.
+Open a Terminal and enter the following :
+sudo apt-get install rkhunter chkrootkit
+To run chkrootkit open a terminal window and enter :
+sudo chkrootkit
+To update and run RKHunter. Open a Terminal and enter the following :
+sudo rkhunter --update
+sudo rkhunter --propupd
+sudo rkhunter --check
+16. Scan open ports - Nmap.
+
+Nmap ("Network Mapper") is a free and open source utility for network discovery and security auditing.
+Open a Terminal and enter the following :
+sudo apt-get install nmap
+Scan your system for open ports with :
+nmap -v -sT localhost
+SYN scanning with the following :
+sudo nmap -v -sS localhost
+17. Analyse system LOG files - LogWatch.
+
+Logwatch is a customizable log analysis system. Logwatch parses through your system's logs and creates a report analyzing areas that you specify. Logwatch is easy to use and will work right out of the package on most systems.
+Open a Terminal and enter the following :
+sudo apt-get install logwatch libdate-manip-perl
+To view logwatch output use less :
+sudo logwatch | less
+To email a logwatch report for the past 7 days to an email address, enter the following and replace mail@domain.com with the required email. :
+sudo logwatch --mailto mail@domain.com --output mail --format html --range 'between -7 days and today' 
+18. Apparmor - Application Armor.
+
+More information can be found here. Ubuntu Server Guide - Apparmor
+It is installed by default since Ubuntu 7.04. 
+Open a Terminal and enter the following :
+sudo apt-get install apparmor apparmor-profiles
+Check to see if things are running :
+sudo apparmor_status
+19. Audit your system security - Tiger and Tripwire.
+
+Tiger is a security tool that can be use both as a security audit and intrusion detection system.
+Tripwire is a host-based intrusion detection system (HIDS) that checks file and folder integrity. 
+Open a Terminal and enter the following :
+sudo apt-get install tiger tripwire
+To setup Tripwire good installation guides can be found on Digital Ocean here and on Unixmen here
+To run tiger enter :
+sudo tiger
+All Tiger output can be found in the /var/log/tiger
+To view the tiger security reports, open a Terminal and enter the following :
+sudo less /var/log/tiger/security.report.*
+
+##############################################
+# Log Analysis with Linux command-line tools #
+##############################################
+- The following command line executables are found in the Mac as well as most Linux Distributions.
+ 
+cat –  prints the content of a file in the terminal window
+grep – searches and filters based on patterns
+awk –  can sort each row into fields and display only what is needed
+sed –  performs find and replace functions
+sort – arranges output in an order
+uniq – compares adjacent lines and can report, filter or provide a count of duplicates
+ 
+ 
+ 
+###############
+# Apache Logs #
+###############
+ 
+Reference:
+http://www.the-art-of-web.com/system/logs/
+ 
+wget https://s3.amazonaws.com/SecureNinja/Python/access_log
+ 
+ 
+- You want to list all user agents ordered by the number of times they appear (descending order):
+ 
+awk -F\" '{print $6}' access_log | sort | uniq -c | sort -fr
+ 
+ 
+ 
+- Using the default separator which is any white-space (spaces or tabs) we get the following:
+ 
+awk '{print $1}' access_log         # ip address (%h)
+awk '{print $2}' access_log         # RFC 1413 identity (%l)
+awk '{print $3}' access_log         # userid (%u)
+awk '{print $4,5}' access_log       # date/time (%t)
+awk '{print $9}' access_log         # status code (%>s)
+awk '{print $10}' access_log        # size (%b)
+ 
+- You might notice that we've missed out some items. To get to them we need to set the delimiter to the " character which changes the way the lines are 'exploded' and allows the following:
+ 
+awk -F\" '{print $2}' access_log    # request line (%r)
+awk -F\" '{print $4}' access_log    # referer
+awk -F\" '{print $6}' access_log    # user agent
+ 
+ 
+awk -F\" '{print $6}' access_log \
+  | sed 's/(\([^;]\+; [^;]\+\)[^)]*)/(\1)/' \
+  | sort | uniq -c | sort -fr
+ 
+ 
+- The next step is to start filtering the output so you can narrow down on a certain page or referer. Would you like to know which pages Google has been requesting from your site?
+ 
+awk -F\" '($6 ~ /Googlebot/){print $2}' access_log | awk '{print $2}'
+Or who's been looking at your guestbook?
+ 
+awk -F\" '($2 ~ /guestbook\.html/){print $6}' access_log
+ 
+ 
+Reference:
+https://blog.nexcess.net/2011/01/21/one-liners-for-apache-log-files/
+ 
+# top 20 URLs from the last 5000 hits
+tail -5000 ./access_log | awk '{print $7}' | sort | uniq -c | sort -rn | head -20
+tail -5000 ./access_log | awk '{freq[$7]++} END {for (x in freq) {print freq[x], x}}' | sort -rn | head -20
+ 
+# top 20 URLS excluding POST data from the last 5000 hits
+tail -5000 ./access_log | awk -F"[ ?]" '{print $7}' | sort | uniq -c | sort -rn | head -20
+tail -5000 ./access_log | awk -F"[ ?]" '{freq[$7]++} END {for (x in freq) {print freq[x], x}}' | sort -rn | head -20
+ 
+# top 20 IPs from the last 5000 hits
+tail -5000 ./access_log | awk '{print $1}' | sort | uniq -c | sort -rn | head -20
+tail -5000 ./access_log | awk '{freq[$1]++} END {for (x in freq) {print freq[x], x}}' | sort -rn | head -20
+ 
+# top 20 URLs requested from a certain ip from the last 5000 hits
+IP=1.2.3.4; tail -5000 ./access_log | grep $IP | awk '{print $7}' | sort | uniq -c | sort -rn | head -20
+IP=1.2.3.4; tail -5000 ./access_log | awk -v ip=$IP ' $1 ~ ip {freq[$7]++} END {for (x in freq) {print freq[x], x}}' | sort -rn | head -20
+ 
+# top 20 URLS requested from a certain ip excluding, excluding POST data, from the last 5000 hits
+IP=1.2.3.4; tail -5000 ./access_log | fgrep $IP | awk -F "[ ?]" '{print $7}' | sort | uniq -c | sort -rn | head -20
+IP=1.2.3.4; tail -5000 ./access_log | awk -F"[ ?]" -v ip=$IP ' $1 ~ ip {freq[$7]++} END {for (x in freq) {print freq[x], x}}' | sort -rn | head -20
+ 
+# top 20 referrers from the last 5000 hits
+tail -5000 ./access_log | awk '{print $11}' | tr -d '"' | sort | uniq -c | sort -rn | head -20
+tail -5000 ./access_log | awk '{freq[$11]++} END {for (x in freq) {print freq[x], x}}' | tr -d '"' | sort -rn | head -20
+ 
+# top 20 user agents from the last 5000 hits
+tail -5000 ./access_log | cut -d\  -f12- | sort | uniq -c | sort -rn | head -20
+ 
+# sum of data (in MB) transferred in the last 5000 hits
+tail -5000 ./access_log | awk '{sum+=$10} END {print sum/1048576}'
+ 
+ 
+##############
+# Cisco Logs #
+##############
+ 
+wget https://s3.amazonaws.com/StrategicSec-Files/LogAnalysis/cisco.log
+ 
+ 
+AWK Basics
+----------
+- To quickly demonstrate the print feature in awk, we can instruct it to show only the 5th word of each line. Here we will print $5. Only the last 4 lines are being shown for brevity.
+ 
+cat cisco.log | awk '{print $5}' | tail -n 4
+ 
+ 
+ 
+ 
+- Looking at a large file would still produce a large amount of output. A more useful thing to do might be to output every entry found in “$5”, group them together, count them, then sort them from the greatest to least number of occurrences. This can be done by piping the output through “sort“, using “uniq -c” to count the like entries, then using “sort -rn” to sort it in reverse order.
+ 
+cat cisco.log | awk '{print $5}'| sort | uniq -c | sort -rn
+ 
+ 
+ 
+ 
+- While that’s sort of cool, it is obvious that we have some garbage in our output. Evidently we have a few lines that aren’t conforming to the output we expect to see in $5. We can insert grep to filter the file prior to feeding it to awk. This insures that we are at least looking at lines of text that contain “facility-level-mnemonic”.
+ 
+cat cisco.log | grep %[a-zA-Z]*-[0-9]-[a-zA-Z]* | awk '{print $5}' | sort | uniq -c | sort -rn
+ 
+ 
+ 
+ 
+ 
+- Now that the output is cleaned up a bit, it is a good time to investigate some of the entries that appear most often. One way to see all occurrences is to use grep.
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| awk '{print $10}' | sort | uniq -c | sort -rn
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10}' | sort | uniq -c | sort -rn
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10 " changed to " $14}' | sort | uniq -c | sort -rn
+
+
+
+
+
+
+
+
+
+##############################
+# Linux For InfoSec Homework #
+##############################
+In order to receive your certificate of attendance you must complete the all of the quizzes on the http://linuxsurvival.com/linux-tutorial-introduction/ website.
+
+
+Submit the results via email in an MS Word document with (naming convention example: YourFirstName-YourLastName-Linux-For-InfoSec-Homework.docx)
+
+
+
+
+##############################
+# Linux For InfoSe Challenge #
+##############################
+
+In order to receive your certificate of proficiency you must complete all of the tasks covered in the Linux For InfoSec pastebin (http://pastebin.com/b5SxBRf6).
+
+Submit the results via email in an MS Word document with (naming convention example: YourFirstName-YourLastName-Linux-For-InfoSec-Challenge.docx)
+
+
+
+
+IMPORTANT NOTE:
+Your homework/challenge must be submitted via email to both (joe-at-strategicsec-.-com and kasheia-at-strategicsec-.-com) by Sunday October 16th at midnight EST.
+
+
+#########################################################################
+# What kind of Linux am I on and how can I find out? 			        #
+# Great reference: 							                            #
+# https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/ 	#
+#########################################################################
+- What’s the distribution type? What version?
+-------------------------------------------
+cat /etc/issue
+cat /etc/*-release
+cat /etc/lsb-release      		# Debian based
+cat /etc/redhat-release   		# Redhat based
+
+
+
+- What’s the kernel version? Is it 64-bit?
+-------------------------------------------
+cat /proc/version
+uname -a
+uname -mrs
+rpm -q kernel
+dmesg | grep Linux
+ls /boot | grep vmlinuz-
+
+
+
+- What can be learnt from the environmental variables?
+----------------------------------------------------
+cat /etc/profile
+cat /etc/bashrc
+cat ~/.bash_profile
+cat ~/.bashrc
+cat ~/.bash_logout
+env
+set
+
+
+- What services are running? Which service has which user privilege?
+------------------------------------------------------------------
+ps aux
+ps -ef
+top
+cat /etc/services
+
+
+- Which service(s) are been running by root? Of these services, which are vulnerable - it’s worth a double check!
+---------------------------------------------------------------------------------------------------------------
+ps aux | grep root
+ps -ef | grep root
+
+
+
+- What applications are installed? What version are they? Are they currently running?
+------------------------------------------------------------------------------------
+ls -alh /usr/bin/
+ls -alh /sbin/
+dpkg -l
+rpm -qa
+ls -alh /var/cache/apt/archivesO
+ls -alh /var/cache/yum/
+
+
+- Any of the service(s) settings misconfigured? Are any (vulnerable) plugins attached?
+------------------------------------------------------------------------------------
+cat /etc/syslog.conf
+cat /etc/chttp.conf
+cat /etc/lighttpd.conf
+cat /etc/cups/cupsd.conf
+cat /etc/inetd.conf
+cat /etc/apache2/apache2.conf
+cat /etc/my.conf
+cat /etc/httpd/conf/httpd.conf
+cat /opt/lampp/etc/httpd.conf
+ls -aRl /etc/ | awk '$1 ~ /^.*r.*/
+
+
+
+- What jobs are scheduled?
+------------------------
+crontab -l
+ls -alh /var/spool/cron
+ls -al /etc/ | grep cron
+ls -al /etc/cron*
+cat /etc/cron*
+cat /etc/at.allow
+cat /etc/at.deny
+cat /etc/cron.allow
+cat /etc/cron.deny
+cat /etc/crontab
+cat /etc/anacrontab
+cat /var/spool/cron/crontabs/root
+
+
+- Any plain text usernames and/or passwords?
+------------------------------------------
+grep -i user [filename]
+grep -i pass [filename]
+grep -C 5 "password" [filename]
+find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password"   		# Search for Joomla passwords
+
+
+- What NIC(s) does the system have? Is it connected to another network?
+---------------------------------------------------------------------
+/sbin/ifconfig -a
+cat /etc/network/interfaces
+cat /etc/sysconfig/network
+
+
+- What are the network configuration settings? What can you find out about this network? DHCP server? DNS server? Gateway?
+------------------------------------------------------------------------------------------------------------------------
+cat /etc/resolv.conf
+cat /etc/sysconfig/network
+cat /etc/networks
+iptables -L
+hostname
+dnsdomainname
+
+- What other users & hosts are communicating with the system?
+-----------------------------------------------------------
+lsof -i
+lsof -i :80
+grep 80 /etc/services
+netstat -antup
+netstat -antpx
+netstat -tulpn
+chkconfig --list
+chkconfig --list | grep 3:on
+last
+w
+
+
+
+- Whats cached? IP and/or MAC addresses
+-------------------------------------
+arp -e
+route
+/sbin/route -nee
+
+
+- Who are you? Who is logged in? Who has been logged in? Who else is there? Who can do what?
+------------------------------------------------------------------------------------------
+id
+who
+w
+last
+cat /etc/passwd | cut -d:    # List of users
+grep -v -E "^#" /etc/passwd | awk -F: '$3 == 0 { print $1}'   # List of super users
+awk -F: '($3 == "0") {print}' /etc/passwd   # List of super users
+cat /etc/sudoers
+sudo -l
+
+
+
+- What sensitive files can be found?
+----------------------------------
+cat /etc/passwd
+cat /etc/group
+cat /etc/shadow
+ls -alh /var/mail/
+
+
+
+- Anything “interesting” in the home directorie(s)? If it’s possible to access
+----------------------------------------------------------------------------
+ls -ahlR /root/
+ls -ahlR /home/
+
+
+- Are there any passwords in; scripts, databases, configuration files or log files? Default paths and locations for passwords
+---------------------------------------------------------------------------------------------------------------------------
+cat /var/apache2/config.inc
+cat /var/lib/mysql/mysql/user.MYD
+cat /root/anaconda-ks.cfg
+
+
+- What has the user being doing? Is there any password in plain text? What have they been edting?
+-----------------------------------------------------------------------------------------------
+cat ~/.bash_history
+cat ~/.nano_history
+cat ~/.atftp_history
+cat ~/.mysql_history
+cat ~/.php_history
+
+
+
+- What user information can be found?
+-----------------------------------
+cat ~/.bashrc
+cat ~/.profile
+cat /var/mail/root
+cat /var/spool/mail/root
+
+
+- Can private-key information be found?
+-------------------------------------
+cat ~/.ssh/authorized_keys
+cat ~/.ssh/identity.pub
+cat ~/.ssh/identity
+cat ~/.ssh/id_rsa.pub
+cat ~/.ssh/id_rsa
+cat ~/.ssh/id_dsa.pub
+cat ~/.ssh/id_dsa
+cat /etc/ssh/ssh_config
+cat /etc/ssh/sshd_config
+cat /etc/ssh/ssh_host_dsa_key.pub
+cat /etc/ssh/ssh_host_dsa_key
+cat /etc/ssh/ssh_host_rsa_key.pub
+cat /etc/ssh/ssh_host_rsa_key
+cat /etc/ssh/ssh_host_key.pub
+cat /etc/ssh/ssh_host_key
+
+
+- Any settings/files (hidden) on website? Any settings file with database information?
+------------------------------------------------------------------------------------
+ls -alhR /var/www/
+ls -alhR /srv/www/htdocs/
+ls -alhR /usr/local/www/apache22/data/
+ls -alhR /opt/lampp/htdocs/
+ls -alhR /var/www/html/
+
+
+- Is there anything in the log file(s) (Could help with “Local File Includes”!)
+-----------------------------------------------------------------------------
+cat /etc/httpd/logs/access_log
+cat /etc/httpd/logs/access.log
+cat /etc/httpd/logs/error_log
+cat /etc/httpd/logs/error.log
+cat /var/log/apache2/access_log
+cat /var/log/apache2/access.log
+cat /var/log/apache2/error_log
+cat /var/log/apache2/error.log
+cat /var/log/apache/access_log
+cat /var/log/apache/access.log
+cat /var/log/auth.log
+cat /var/log/chttp.log
+cat /var/log/cups/error_log
+cat /var/log/dpkg.log
+cat /var/log/faillog
+cat /var/log/httpd/access_log
+cat /var/log/httpd/access.log
+cat /var/log/httpd/error_log
+cat /var/log/httpd/error.log
+cat /var/log/lastlog
+cat /var/log/lighttpd/access.log
+cat /var/log/lighttpd/error.log
+cat /var/log/lighttpd/lighttpd.access.log
+cat /var/log/lighttpd/lighttpd.error.log
+cat /var/log/messages
+cat /var/log/secure
+cat /var/log/syslog
+cat /var/log/wtmp
+cat /var/log/xferlog
+cat /var/log/yum.log
+cat /var/run/utmp
+cat /var/webmin/miniserv.log
+cat /var/www/logs/access_log
+cat /var/www/logs/access.log
+ls -alh /var/lib/dhcp3/
+ls -alh /var/log/postgresql/
+ls -alh /var/log/proftpd/
+ls -alh /var/log/samba/
+
+- Note: auth.log, boot, btmp, daemon.log, debug, dmesg, kern.log, mail.info, mail.log, mail.warn, messages, syslog, udev, wtmp

