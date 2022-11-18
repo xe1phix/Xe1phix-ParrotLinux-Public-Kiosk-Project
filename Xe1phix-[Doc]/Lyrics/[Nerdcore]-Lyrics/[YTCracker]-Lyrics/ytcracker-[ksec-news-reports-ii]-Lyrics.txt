@@ -1,0 +1,39 @@
+
+ytcracker - ksec news reports ii
+
+good evening everyone, 
+and welcome again to channel 23 KSEC news, 
+i'm skip turner.
+
+a local hacker, 
+fed up with the current state of the internet, 
+has released a multi-platform application 
+to create a sizable encrypted mesh network 
+using all types of electronic devices. 
+upon running the application, 
+mobile phones, tablets, routers, laptops, televisions, 
+and even some household smart appliances 
+like toasters and refrigerators 
+are turned into peer-to-peer nodes 
+for the network, wirelessly broadcasting and receiving data 
+from any other connected gadgets within range.
+
+the developer, known only as "neals"
+began distributing the application along with its 
+source code to san secuestro locals yesterday. 
+according to the available network statistics,
+the app has been installed on at least 
+a quarter million devices already.
+
+government officials have commented that this type of privacy application violates federal law 
+by subverting the current ban on unlicensed encrypted traffic.
+
+"this application is clearly designed to make our job of protecting the people of this great nation 
+ more difficult, possibly subjecting our precious children to everything from anonymous cyberbullying 
+ to heinous acts of terrorism. 
+ circumvention of these laws is itself an act of terrorism, 
+ and we will prosecute whoever is responsible for designing and distributing this application 
+ to the fullest extent of the law."
+
+anyone with information regarding this case is advised 
+to contact the local Federal Bureau of Telecommunications field office.

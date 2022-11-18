@@ -1,0 +1,97 @@
+
+
+Lyrics - Ohm-I
+Lyrics - yung innanet (@queed-inc)
+Instrumental - DopeBoyzMusic
+
+[yung innanet]
+Bitch watch me pivot loadin up the babydraco
+Racks turn to heaters these cycles turn to monero
+Sift through these diffs when they patchin all they shit code
+Windows get broke they fix em but then i reload
+Connections bounce untraceable accounts
+Active directory domain names i can't pronounce
+Im in ya house enumeratin routes
+Despite the dirty traffic BGP will still announce
+Server closet hot my heart is so cold
+I'mma show you what the fuck i mean when i say pwned
+Ain't grippin chrome got firefox and nitron
+Evaluate my headers and get turned into a drone
+Ring ring ring ring on the SIP phone
+It ain't worth resistin you don't got the fuckin ohms
+Thinkin I am history but my presence has grown
+It may be yo domain but your network is my home
+
+[Ohm-I]
+I ain't scanning networks for practice
+Checking ya ports I am scanning for access
+Enumeratin' services better apply your patches
+I'll search sploits. exploitDB knows what the hack is
+Yo, you need fortify heavily
+I see your database services and version 1 SMB
+You know what this nerd gon' do payloads I'mma turn on you
+This quad 4 make you sad forever that's ETERNALBLUE
+Dumpin' hashes when I'm loading up that mimikatz
+Creds to my boy John see how many he can crack
+I smash and I grab on that lateral path
+Ain't movin' blunts when I say that I'm passin the hash
+Not a script kiddie they ain't the level I'm on
+I'm a snake charmer watch me dance around some Python
+And generate shellcode for services I find on ya network
+Pop a shell I get right on
+
+[Hook]
+Your network security level way down
+Nothing can stop us we'll find my way round
+Taking over ya DC nothing is safe now
+This might be your network but it's our domain now
+Your network security level way down
+Nothing can stop us we'll find my way round
+Taking over ya DC nothing is safe now
+This might be your network but it's our domain now
+
+[yung innanet]
+DNS fully qualified but ya admin's not
+ASP.NET you deserve to rot
+Yes I'mma grow this net till until the routes drop
+Tell the ATF this an arm-brace this is not a stock
+Babydraco make them opps go
+Pippity pop pop pop now they die slow
+Got the siggy on me if i need to touch some MIPSel
+Memory small but yo credentials gon a big sell
+Fuck electron my crodies some cloodhounds
+Free atmos illkid from the dog pound
+Find us in yo server and find us in ya damn clouds
+When the cops come we vanish and we don't make a sound
+Lookin like I talk a lot but I ain't never say shit
+I don't fucking trust the cops so i could never ever be a snitch
+Givin to the poor the resources we takin from the rich
+Catch me creepin round layer 2 on your corporate switch
+
+[Ohm-I]
+No anti-virus products guess you never heard of those
+I'm on that Willy Wonka got the golden ticket, Kerberos
+You actively blind I'm tappin' ya lines, homey
+All ya unsecure traffic is mine, homey
+Why ya boss browsing porno in the work day
+No good he 'bout a catch a virus in the worst way
+He's staring at a lot of chicks but all that I'm gettin' out of it
+That site he's peepin' is mining Monero with some Javascript
+And I bet he won't like that
+I'm just tryna get paid to be a white hat
+Open my report and I'mma write that and
+Show the impact of an attacker and put ‘em on the right track
+I'll advise you invest
+In a HIDS or a NIDS or a fly IPS
+Better firewall ya ports and deny that egress
+Or I'll deliver a payload right to ya chest
+
+[Hook]
+Your network security level way down
+Nothing can stop us we'll find my way round
+Taking over ya DC nothing is safe now
+This might be your network but it's our domain now
+Your network security level way down
+Nothing can stop us we'll find my way round
+Taking over ya DC nothing is safe now
+This might be your network but it's our domain now
