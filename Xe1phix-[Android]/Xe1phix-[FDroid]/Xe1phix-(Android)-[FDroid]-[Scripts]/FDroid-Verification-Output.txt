@@ -1,0 +1,3170 @@
+┌─[xe1phix@parrot]─[/run/media/public/2TB/Xe1phixGitLab/GnuPG/Xe1phixGnuPG-Projects/LinuxProjects-GPG-Verification+Hashsums/FDroid]
+└──╼ $ls
+ Building-An-FDroid-APK-Signing-Server.sh   f-droid.org-signing-key.gpg        Trusting-FDroid-V2.7.sh
+ Building-Signing_Server                    FDroidRepos.sh                     Trusting-FDroid-V3.7.sh
+ create_ota.sh                              FDroidSignatures.txt               Trusting-FDroid-V3.8.sh
+ crl.pem                                    FDroid-Signature.txt               Trusting-FDroid-V3.9.sh
+ Doc                                       'Guardian Project'                  TrustingGuardianProject.sh
+ download-fdroid-qr.png                     Initial_FDroid_Audit_by_pd0x.pdf   TrustingI2P.sh
+ FDroid.apk.asc                            'Key Transition.txt'                VerifyFDroidRepo.sh
+ FDroid.asc                                 public.asc                         VerifyFDroidRepo-v1.3.sh
+ fdroid-config.py                           TrustingFDroid.sh                  VerifyFDroidRepo-v1.4.sh
+┌─[xe1phix@parrot]─[/run/media/public/2TB/Xe1phixGitLab/GnuPG/Xe1phixGnuPG-Projects/LinuxProjects-GPG-Verification+Hashsums/FDroid]
+└──╼ $clear
+┌─[xe1phix@parrot]─[/run/media/public/2TB/Xe1phixGitLab/GnuPG/Xe1phixGnuPG-Projects/LinuxProjects-GPG-Verification+Hashsums/FDroid]
+└──╼ $ls
+ Building-An-FDroid-APK-Signing-Server.sh   f-droid.org-signing-key.gpg        Trusting-FDroid-V2.7.sh
+ Building-Signing_Server                    FDroidRepos.sh                     Trusting-FDroid-V3.7.sh
+ create_ota.sh                              FDroidSignatures.txt               Trusting-FDroid-V3.8.sh
+ crl.pem                                    FDroid-Signature.txt               Trusting-FDroid-V3.9.sh
+ Doc                                       'Guardian Project'                  TrustingGuardianProject.sh
+ download-fdroid-qr.png                     Initial_FDroid_Audit_by_pd0x.pdf   TrustingI2P.sh
+ FDroid.apk.asc                            'Key Transition.txt'                VerifyFDroidRepo.sh
+ FDroid.asc                                 public.asc                         VerifyFDroidRepo-v1.3.sh
+ fdroid-config.py                           TrustingFDroid.sh                  VerifyFDroidRepo-v1.4.sh
+┌─[xe1phix@parrot]─[/run/media/public/2TB/Xe1phixGitLab/GnuPG/Xe1phixGnuPG-Projects/LinuxProjects-GPG-Verification+Hashsums/FDroid]
+└──╼ $gpg --verbose --keyid-format 0xlong --import FDroid.asc
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP PUBLIC KEY BLOCK
+# off=0 ctb=99 tag=6 hlen=3 plen=525
+:public key packet:
+	version 4, algo 1, created 1398432791, expires 0
+	pkey[0]: [4096 bits]
+	pkey[1]: [17 bits]
+	keyid: 41E7044E1DBA2E89
+# off=528 ctb=b4 tag=13 hlen=2 plen=27
+:user ID packet: "F-Droid <admin@f-droid.org>"
+# off=557 ctb=88 tag=2 hlen=2 plen=70
+:signature packet: algo 17, keyid B197FA8E901C35DF
+	version 4, created 1398586995, md5len 0, sigclass 0x10
+	digest algo 2, begin of digest 84 c7
+	hashed subpkt 2 len 4 (sig created 2014-04-27)
+	subpkt 16 len 8 (issuer key ID B197FA8E901C35DF)
+	data: [156 bits]
+	data: [160 bits]
+# off=629 ctb=88 tag=2 hlen=2 plen=161
+:signature packet: algo 19, keyid 1A5BB7E931C9ECAF
+	version 4, created 1479229014, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest dd f3
+	hashed subpkt 2 len 4 (sig created 2016-11-15)
+	subpkt 16 len 8 (issuer key ID 1A5BB7E931C9ECAF)
+	data: [519 bits]
+	data: [521 bits]
+# off=792 ctb=89 tag=2 hlen=3 plen=284
+:signature packet: algo 1, keyid 16EA46A1E881CAA9
+	version 4, created 1420459407, md5len 0, sigclass 0x10
+	digest algo 2, begin of digest dd fe
+	hashed subpkt 2 len 4 (sig created 2015-01-05)
+	subpkt 16 len 8 (issuer key ID 16EA46A1E881CAA9)
+	data: [2048 bits]
+# off=1079 ctb=89 tag=2 hlen=3 plen=284
+:signature packet: algo 1, keyid 903392AB64B84403
+	version 4, created 1484505753, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest 03 b1
+	hashed subpkt 2 len 4 (sig created 2017-01-15)
+	subpkt 16 len 8 (issuer key ID 903392AB64B84403)
+	data: [2046 bits]
+# off=1366 ctb=89 tag=2 hlen=3 plen=284
+:signature packet: algo 1, keyid 1E74977A3058D870
+	version 4, created 1486830947, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest dc ce
+	hashed subpkt 2 len 4 (sig created 2017-02-11)
+	subpkt 16 len 8 (issuer key ID 1E74977A3058D870)
+	data: [2046 bits]
+# off=1653 ctb=89 tag=2 hlen=3 plen=284
+:signature packet: algo 1, keyid 221E1B771C90E373
+	version 4, created 1486902035, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest 85 7d
+	hashed subpkt 2 len 4 (sig created 2017-02-12)
+	subpkt 16 len 8 (issuer key ID 221E1B771C90E373)
+	data: [2048 bits]
+# off=1940 ctb=89 tag=2 hlen=3 plen=284
+:signature packet: algo 1, keyid 0C62C1EA2EB6184A
+	version 4, created 1487094332, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest 31 34
+	hashed subpkt 2 len 4 (sig created 2017-02-14)
+	subpkt 16 len 8 (issuer key ID 0C62C1EA2EB6184A)
+	data: [2048 bits]
+# off=2227 ctb=89 tag=2 hlen=3 plen=284
+:signature packet: algo 1, keyid 8B77991123F9C959
+	version 4, created 1515244458, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest 38 d8
+	hashed subpkt 2 len 4 (sig created 2018-01-06)
+	subpkt 16 len 8 (issuer key ID 8B77991123F9C959)
+	data: [2048 bits]
+# off=2514 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 1081113C5CEFB0D0
+	version 4, created 1464469933, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest 6f 06
+	hashed subpkt 2 len 4 (sig created 2016-05-28)
+	subpkt 16 len 8 (issuer key ID 1081113C5CEFB0D0)
+	data: [3070 bits]
+# off=2929 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 677BA1F0B570A146
+	version 4, created 1502064654, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest 3e 38
+	hashed subpkt 2 len 4 (sig created 2017-08-07)
+	subpkt 16 len 8 (issuer key ID 677BA1F0B570A146)
+	data: [3070 bits]
+# off=3344 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 60EEC2B420AD3325
+	version 4, created 1511897653, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest 92 8d
+	hashed subpkt 2 len 4 (sig created 2017-11-28)
+	subpkt 16 len 8 (issuer key ID 60EEC2B420AD3325)
+	data: [3071 bits]
+# off=3759 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7519089CF25CD583
+	version 4, created 1514913254, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest bf 84
+	hashed subpkt 2 len 4 (sig created 2018-01-02)
+	subpkt 16 len 8 (issuer key ID 7519089CF25CD583)
+	data: [3070 bits]
+# off=4174 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 22817E06B70B2644
+	version 4, created 1519024656, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest 03 e0
+	hashed subpkt 2 len 4 (sig created 2018-02-19)
+	subpkt 16 len 8 (issuer key ID 22817E06B70B2644)
+	data: [3071 bits]
+# off=4589 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 45E92E62D25E5399
+	version 4, created 1527626131, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest 6f ab
+	hashed subpkt 2 len 4 (sig created 2018-05-29)
+	subpkt 16 len 8 (issuer key ID 45E92E62D25E5399)
+	data: [3070 bits]
+# off=5004 ctb=89 tag=2 hlen=3 plen=540
+:signature packet: algo 1, keyid DA9F4A3A07F6EC0C
+	version 4, created 1405583749, md5len 0, sigclass 0x10
+	digest algo 8, begin of digest 06 b6
+	hashed subpkt 2 len 4 (sig created 2014-07-17)
+	subpkt 16 len 8 (issuer key ID DA9F4A3A07F6EC0C)
+	data: [4095 bits]
+# off=5547 ctb=89 tag=2 hlen=3 plen=540
+:signature packet: algo 1, keyid ABD73833A586D0E6
+	version 4, created 1422528673, md5len 0, sigclass 0x10
+	digest algo 8, begin of digest 9e c4
+	hashed subpkt 2 len 4 (sig created 2015-01-29)
+	subpkt 16 len 8 (issuer key ID ABD73833A586D0E6)
+	data: [4095 bits]
+# off=6090 ctb=89 tag=2 hlen=3 plen=540
+:signature packet: algo 1, keyid 271BE00DA7BDBDC2
+	version 4, created 1431255321, md5len 0, sigclass 0x10
+	digest algo 8, begin of digest bd 7f
+	hashed subpkt 2 len 4 (sig created 2015-05-10)
+	subpkt 16 len 8 (issuer key ID 271BE00DA7BDBDC2)
+	data: [4096 bits]
+# off=6633 ctb=89 tag=2 hlen=3 plen=540
+:signature packet: algo 1, keyid 04363E8364286B07
+	version 4, created 1450377645, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest 99 c3
+	hashed subpkt 2 len 4 (sig created 2015-12-17)
+	subpkt 16 len 8 (issuer key ID 04363E8364286B07)
+	data: [4095 bits]
+# off=7176 ctb=89 tag=2 hlen=3 plen=540
+:signature packet: algo 1, keyid 7B56F5256CD435FD
+	version 4, created 1454668064, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest 6d 39
+	hashed subpkt 2 len 4 (sig created 2016-02-05)
+	subpkt 16 len 8 (issuer key ID 7B56F5256CD435FD)
+	data: [4094 bits]
+# off=7719 ctb=89 tag=2 hlen=3 plen=540
+:signature packet: algo 1, keyid 5D27B9E975DEC413
+	version 4, created 1459257357, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest c9 31
+	hashed subpkt 2 len 4 (sig created 2016-03-29)
+	subpkt 16 len 8 (issuer key ID 5D27B9E975DEC413)
+	data: [4092 bits]
+# off=8262 ctb=89 tag=2 hlen=3 plen=540
+:signature packet: algo 1, keyid 42D981C086B83B20
+	version 4, created 1467994809, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest a4 38
+	hashed subpkt 2 len 4 (sig created 2016-07-08)
+	subpkt 16 len 8 (issuer key ID 42D981C086B83B20)
+	data: [4096 bits]
+# off=8805 ctb=89 tag=2 hlen=3 plen=540
+:signature packet: algo 1, keyid B3B0421F403D18F4
+	version 4, created 1487772488, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest cd 91
+	hashed subpkt 2 len 4 (sig created 2017-02-22)
+	subpkt 16 len 8 (issuer key ID B3B0421F403D18F4)
+	data: [4096 bits]
+# off=9348 ctb=89 tag=2 hlen=3 plen=540
+:signature packet: algo 1, keyid 67784C8E348384E1
+	version 4, created 1487775323, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest 27 d5
+	hashed subpkt 2 len 4 (sig created 2017-02-22)
+	subpkt 16 len 8 (issuer key ID 67784C8E348384E1)
+	data: [4096 bits]
+# off=9891 ctb=89 tag=2 hlen=3 plen=540
+:signature packet: algo 1, keyid 04F5D837712A33CE
+	version 4, created 1489662446, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest 50 2d
+	hashed subpkt 2 len 4 (sig created 2017-03-16)
+	subpkt 16 len 8 (issuer key ID 04F5D837712A33CE)
+	data: [4096 bits]
+# off=10434 ctb=89 tag=2 hlen=3 plen=540
+:signature packet: algo 1, keyid 3CA826CB0F4CF288
+	version 4, created 1491015369, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest a4 12
+	hashed subpkt 2 len 4 (sig created 2017-04-01)
+	subpkt 16 len 8 (issuer key ID 3CA826CB0F4CF288)
+	data: [4095 bits]
+# off=10977 ctb=89 tag=2 hlen=3 plen=540
+:signature packet: algo 1, keyid 62AB6C2DA9366B4C
+	version 4, created 1505083807, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest ae fa
+	hashed subpkt 2 len 4 (sig created 2017-09-10)
+	subpkt 16 len 8 (issuer key ID 62AB6C2DA9366B4C)
+	data: [4094 bits]
+# off=11520 ctb=89 tag=2 hlen=3 plen=540
+:signature packet: algo 1, keyid 2A56E769CB1618C6
+	version 4, created 1519904927, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest c5 e7
+	hashed subpkt 2 len 4 (sig created 2018-03-01)
+	subpkt 16 len 8 (issuer key ID 2A56E769CB1618C6)
+	data: [4094 bits]
+# off=12063 ctb=89 tag=2 hlen=3 plen=563
+:signature packet: algo 1, keyid 7B1FB876CCCE6209
+	version 4, created 1510887099, md5len 0, sigclass 0x10
+	digest algo 8, begin of digest c4 7e
+	hashed subpkt 33 len 21 (issuer fpr v4 DA1C0632C73A64146CBEC2877B1FB876CCCE6209)
+	hashed subpkt 2 len 4 (sig created 2017-11-17)
+	subpkt 16 len 8 (issuer key ID 7B1FB876CCCE6209)
+	data: [4095 bits]
+# off=12629 ctb=89 tag=2 hlen=3 plen=568
+:signature packet: algo 1, keyid 41E7044E1DBA2E89
+	version 4, created 1398432791, md5len 0, sigclass 0x13
+	digest algo 2, begin of digest 30 a5
+	hashed subpkt 2 len 4 (sig created 2014-04-25)
+	hashed subpkt 27 len 1 (key flags: 01)
+	hashed subpkt 11 len 5 (pref-sym-algos: 9 8 7 3 2)
+	hashed subpkt 21 len 5 (pref-hash-algos: 8 2 9 10 11)
+	hashed subpkt 22 len 3 (pref-zip-algos: 2 3 1)
+	hashed subpkt 30 len 1 (features: 01)
+	hashed subpkt 23 len 1 (keyserver preferences: 80)
+	subpkt 16 len 8 (issuer key ID 41E7044E1DBA2E89)
+	data: [4096 bits]
+# off=13200 ctb=b9 tag=14 hlen=3 plen=397
+:public sub key packet:
+	version 4, algo 1, created 1398432994, expires 0
+	pkey[0]: [3072 bits]
+	pkey[1]: [17 bits]
+	keyid: 7A029E54DD5DCE7A
+# off=13600 ctb=88 tag=2 hlen=2 plen=94
+:signature packet: algo 22, keyid D3A6FA2D7ECC6DF6
+	version 4, created 1524254132, md5len 0, sigclass 0x10
+	digest algo 10, begin of digest de e6
+	hashed subpkt 2 len 4 (sig created 2018-04-20)
+	subpkt 16 len 8 (issuer key ID D3A6FA2D7ECC6DF6)
+	data: [253 bits]
+	data: [255 bits]
+# off=13696 ctb=89 tag=2 hlen=3 plen=964
+:signature packet: algo 1, keyid 41E7044E1DBA2E89
+	version 4, created 1398432994, md5len 0, sigclass 0x18
+	digest algo 2, begin of digest 27 49
+	hashed subpkt 2 len 4 (sig created 2014-04-25)
+	hashed subpkt 27 len 1 (key flags: 02)
+	hashed subpkt 9 len 4 (key expires after 5y0d0h0m)
+	subpkt 16 len 8 (issuer key ID 41E7044E1DBA2E89)
+	subpkt 32 len 412 (signature: v4, class 0x19, algo 1, digest algo 2)
+	data: [4096 bits]
+# off=14663 ctb=b9 tag=14 hlen=3 plen=397
+:public sub key packet:
+	version 4, algo 1, created 1398433073, expires 0
+	pkey[0]: [3072 bits]
+	pkey[1]: [17 bits]
+	keyid: 5DCCB667F9BF9046
+# off=15063 ctb=89 tag=2 hlen=3 plen=549
+:signature packet: algo 1, keyid 41E7044E1DBA2E89
+	version 4, created 1398433073, md5len 0, sigclass 0x18
+	digest algo 2, begin of digest b3 d0
+	hashed subpkt 2 len 4 (sig created 2014-04-25)
+	hashed subpkt 27 len 1 (key flags: 0C)
+	hashed subpkt 9 len 4 (key expires after 5y0d0h0m)
+	subpkt 16 len 8 (issuer key ID 41E7044E1DBA2E89)
+	data: [4092 bits]
+gpg: pub  rsa4096/0x41E7044E1DBA2E89 2014-04-25  F-Droid <admin@f-droid.org>
+gpg: key 0x41E7044E1DBA2E89: 29 signatures not checked due to missing keys
+gpg: writing to '/home/xe1phix/.gnupg/pubring.kbx'
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: key 0x41E7044E1DBA2E89: public key "F-Droid <admin@f-droid.org>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+gpg: 2 keys processed (3 validity counts cleared)
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+gpg: next trustdb check due at 2019-02-23
+┌─[xe1phix@parrot]─[/run/media/public/2TB/Xe1phixGitLab/GnuPG/Xe1phixGnuPG-Projects/LinuxProjects-GPG-Verification+Hashsums/FDroid]
+└──╼ $gpg --fingerprint --with-subkey-fingerprint 0x37D2C98789D8311948394E3E41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 760286DD6EC3F80D: accepted as trusted key
+pub   rsa4096 2014-04-25 [C]
+      37D2 C987 89D8 3119 4839  4E3E 41E7 044E 1DBA 2E89
+uid           [ unknown] F-Droid <admin@f-droid.org>
+sub   rsa3072 2014-04-25 [S] [expires: 2019-04-24]
+      802A 9799 0161 1234 6E1F  EFF4 7A02 9E54 DD5D CE7A
+sub   rsa3072 2014-04-25 [E] [expires: 2019-04-24]
+      2622 41A6 D092 3980 0242  8AE6 5DCC B667 F9BF 9046
+
+┌─[xe1phix@parrot]─[/run/media/public/2TB/Xe1phixGitLab/GnuPG/Xe1phixGnuPG-Projects/LinuxProjects-GPG-Verification+Hashsums/FDroid]
+└──╼ $gpg --keyid-format 0xlong --verbose --lsign 0x37D2C98789D8311948394E3E41E7044E1DBA2E89
+gpg: using character set 'utf-8'
+
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+pub  rsa4096/0x41E7044E1DBA2E89
+     created: 2014-04-25  expires: never       usage: C   
+     trust: unknown       validity: unknown
+sub  rsa3072/0x7A029E54DD5DCE7A
+     created: 2014-04-25  expires: 2019-04-24  usage: S   
+sub  rsa3072/0x5DCCB667F9BF9046
+     created: 2014-04-25  expires: 2019-04-24  usage: E   
+[ unknown] (1). F-Droid <admin@f-droid.org>
+
+gpg: using "0x6EC3F80D" as default secret key for signing
+
+pub  rsa4096/0x41E7044E1DBA2E89
+     created: 2014-04-25  expires: never       usage: C   
+     trust: unknown       validity: unknown
+ Primary key fingerprint: 37D2 C987 89D8 3119 4839  4E3E 41E7 044E 1DBA 2E89
+
+     F-Droid <admin@f-droid.org>
+
+Are you sure that you want to sign this key with your
+key "Xe1phix ("From Nothing To Being There is No Logic Bridge.") <Xe1phix@mail.i2p>" (0x760286DD6EC3F80D)
+
+The signature will be marked as non-exportable.
+
+Really sign? (y/N) y
+gpg: RSA/SHA512 signature from: "0x760286DD6EC3F80D Xe1phix ("From Nothing To Being There is No Logic Bridge.") <Xe1phix@mail.i2p>"
+
+┌─[xe1phix@parrot]─[/run/media/public/2TB/OS/Android/packages]
+└──╼ $./FDroid-verify.sh 
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1.4.14 (GNU/Linux)
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1399928067, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 4f 8e
+	hashed subpkt 2 len 4 (sig created 2014-05-12)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'at.tomtasche.reader_24.apk'
+gpg: Signature made Mon 12 May 2014 03:54:27 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: checking the trustdb
+gpg: 2 keys processed (2 validity counts cleared)
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   1  signed:   1  trust: 0-, 0q, 0n, 0m, 0f, 1u
+gpg: depth: 1  valid:   1  signed:   0  trust: 1-, 0q, 0n, 0m, 0f, 0u
+gpg: next trustdb check due at 2019-02-23
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1475683901, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 39 b8
+	hashed subpkt 2 len 4 (sig created 2016-10-05)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3066 bits]
+gpg: assuming signed data in 'be.uhasselt.privacypolice_13.apk'
+gpg: Signature made Wed 05 Oct 2016 11:11:41 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1529505926, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 17 6f
+	hashed subpkt 2 len 4 (sig created 2018-06-20)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'click.dummer.textthing_202.apk'
+gpg: Signature made Wed 20 Jun 2018 09:45:26 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1494445257, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 0f 24
+	hashed subpkt 2 len 4 (sig created 2017-05-10)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'com.adonai.manman_171.apk'
+gpg: Signature made Wed 10 May 2017 02:40:57 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1451409028, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 2d f2
+	hashed subpkt 2 len 4 (sig created 2015-12-29)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'com.aidinhut.simpletextcrypt_10.apk'
+gpg: Signature made Tue 29 Dec 2015 11:10:28 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1495317880, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 2d a6
+	hashed subpkt 2 len 4 (sig created 2017-05-20)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3067 bits]
+gpg: assuming signed data in 'com.alaskalinuxuser.justnotes_9.apk'
+gpg: Signature made Sat 20 May 2017 05:04:40 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1.4.14 (GNU/Linux)
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1404161892, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 99 8b
+	hashed subpkt 2 len 4 (sig created 2014-06-30)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3069 bits]
+gpg: assuming signed data in 'com.axelby.podax_18.apk'
+gpg: Signature made Mon 30 Jun 2014 03:58:12 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1474634078, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 19 29
+	hashed subpkt 2 len 4 (sig created 2016-09-23)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'com.bleyl.recurrence_24.apk'
+gpg: Signature made Fri 23 Sep 2016 07:34:38 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1508340887, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 06 b0
+	hashed subpkt 2 len 4 (sig created 2017-10-18)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3068 bits]
+gpg: assuming signed data in 'com.catchingnow.tinyclipboardmanager_57.apk'
+gpg: Signature made Wed 18 Oct 2017 10:34:47 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1529736776, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest b4 9e
+	hashed subpkt 2 len 4 (sig created 2018-06-23)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3069 bits]
+gpg: assuming signed data in 'com.commit451.gitlab_2060100.apk'
+gpg: Signature made Sat 23 Jun 2018 01:52:56 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: no valid OpenPGP data found.
+gpg: the signature could not be verified.
+Please remember that the signature file (.sig or .asc)
+should be the first file given on the command line.
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1526469461, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 08 75
+	hashed subpkt 2 len 4 (sig created 2018-05-16)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'com.enjoyingfoss.om_1.apk'
+gpg: Signature made Wed 16 May 2018 06:17:41 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1473351150, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 83 82
+	hashed subpkt 2 len 4 (sig created 2016-09-08)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'com.eolwral.osmonitor_90.apk'
+gpg: Signature made Thu 08 Sep 2016 11:12:30 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1516525235, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest da 70
+	hashed subpkt 2 len 4 (sig created 2018-01-21)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'com.fsck.k9_23630.apk'
+gpg: Signature made Sun 21 Jan 2018 03:00:35 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1514148285, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest d9 29
+	hashed subpkt 2 len 4 (sig created 2017-12-24)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.ghostsq.commander_335.apk'
+gpg: Signature made Sun 24 Dec 2017 02:44:45 PM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1528103571, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 23 5b
+	hashed subpkt 2 len 4 (sig created 2018-06-04)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3069 bits]
+gpg: assuming signed data in 'com.github.axet.audiorecorder_271.apk'
+gpg: Signature made Mon 04 Jun 2018 04:12:51 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1530034358, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest d6 34
+	hashed subpkt 2 len 4 (sig created 2018-06-26)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3069 bits]
+gpg: assuming signed data in 'com.github.axet.hourlyreminder_352.apk'
+gpg: Signature made Tue 26 Jun 2018 12:32:38 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1528652787, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 5b 1c
+	hashed subpkt 2 len 4 (sig created 2018-06-10)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.github.axet.maps_1035.apk'
+gpg: Signature made Sun 10 Jun 2018 12:46:27 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1458637301, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 9d 06
+	hashed subpkt 2 len 4 (sig created 2016-03-22)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.github.timnew.smartremotecontrol_1.apk'
+gpg: Signature made Tue 22 Mar 2016 04:01:41 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1.4.12 (GNU/Linux)
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1446455527, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 5f b7
+	hashed subpkt 2 len 4 (sig created 2015-11-02)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3069 bits]
+gpg: assuming signed data in 'com.github.xloem.qrstream_9.apk'
+gpg: Signature made Mon 02 Nov 2015 03:12:07 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1528794988, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest a0 ce
+	hashed subpkt 2 len 4 (sig created 2018-06-12)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'com.github.yeriomin.yalpstore_42.apk'
+gpg: Signature made Tue 12 Jun 2018 04:16:28 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1525680297, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 78 7c
+	hashed subpkt 2 len 4 (sig created 2018-05-07)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.gtp.showapicturetoyourfriend_1.apk'
+gpg: Signature made Mon 07 May 2018 03:04:57 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1507918543, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 28 58
+	hashed subpkt 2 len 4 (sig created 2017-10-13)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3068 bits]
+gpg: assuming signed data in 'com.hobbyone.HashDroid_20.apk'
+gpg: Signature made Fri 13 Oct 2017 01:15:43 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1497614127, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest c7 ff
+	hashed subpkt 2 len 4 (sig created 2017-06-16)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.jtmcn.archwiki.viewer_12.apk'
+gpg: Signature made Fri 16 Jun 2017 06:55:27 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1477929437, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 4d b0
+	hashed subpkt 2 len 4 (sig created 2016-10-31)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'com.majeur.applicationsinfo_7.apk'
+gpg: Signature made Mon 31 Oct 2016 10:57:17 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1476435140, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 85 1c
+	hashed subpkt 2 len 4 (sig created 2016-10-14)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'com.mantz_it.rfanalyzer_1303.apk'
+gpg: Signature made Fri 14 Oct 2016 03:52:20 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=411
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1466509495, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 92 d0
+	hashed subpkt 2 len 4 (sig created 2016-06-21)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3064 bits]
+gpg: assuming signed data in 'com.markuspage.android.certtools_6.apk'
+gpg: Signature made Tue 21 Jun 2016 06:44:55 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1528404305, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 70 1d
+	hashed subpkt 2 len 4 (sig created 2018-06-07)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'com.menny.android.anysoftkeyboard_4519.apk'
+gpg: Signature made Thu 07 Jun 2018 03:45:05 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1484149855, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 23 b9
+	hashed subpkt 2 len 4 (sig created 2017-01-11)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.movim.movim_8.apk'
+gpg: Signature made Wed 11 Jan 2017 09:50:55 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1509709327, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 76 b5
+	hashed subpkt 2 len 4 (sig created 2017-11-03)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.mrbimc.selinux_20171031.apk'
+gpg: Signature made Fri 03 Nov 2017 06:42:07 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1528404307, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest b4 27
+	hashed subpkt 2 len 4 (sig created 2018-06-07)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.nononsenseapps.feeder_34.apk'
+gpg: Signature made Thu 07 Jun 2018 03:45:07 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1475057848, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 86 d9
+	hashed subpkt 2 len 4 (sig created 2016-09-28)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'com.nutomic.ensichat_17.apk'
+gpg: Signature made Wed 28 Sep 2016 05:17:28 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1529261371, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 62 f3
+	hashed subpkt 2 len 4 (sig created 2018-06-17)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3067 bits]
+gpg: assuming signed data in 'com.orgzly_107.apk'
+gpg: Signature made Sun 17 Jun 2018 01:49:31 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1509709328, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest e0 40
+	hashed subpkt 2 len 4 (sig created 2017-11-03)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'com.pavelsikun.runinbackgroundpermissionsetter_8.apk'
+gpg: Signature made Fri 03 Nov 2017 06:42:08 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1480835628, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest ec a3
+	hashed subpkt 2 len 4 (sig created 2016-12-04)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.phikal.regex_5.apk'
+gpg: Signature made Sun 04 Dec 2016 01:13:48 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1523356202, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest fc 38
+	hashed subpkt 2 len 4 (sig created 2018-04-10)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'com.quaap.bookymcbookface_32.apk'
+gpg: Signature made Tue 10 Apr 2018 05:30:02 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1504730481, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest d3 3f
+	hashed subpkt 2 len 4 (sig created 2017-09-06)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3069 bits]
+gpg: assuming signed data in 'com.redirectapps.tvkill_21.apk'
+gpg: Signature made Wed 06 Sep 2017 03:41:21 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1448526506, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 4f 5d
+	hashed subpkt 2 len 4 (sig created 2015-11-26)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.rubenroy.minimaltodo_3.apk'
+gpg: Signature made Thu 26 Nov 2015 02:28:26 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1482873059, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 91 a3
+	hashed subpkt 2 len 4 (sig created 2016-12-27)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'com.secuso.privacyFriendlyCodeScanner_9.apk'
+gpg: Signature made Tue 27 Dec 2016 03:10:59 PM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1491628972, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 4f 21
+	hashed subpkt 2 len 4 (sig created 2017-04-08)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'com.shapps.mintubeapp_3.apk'
+gpg: Signature made Sat 08 Apr 2017 12:22:52 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1527056918, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 3e c1
+	hashed subpkt 2 len 4 (sig created 2018-05-23)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.simplemobiletools.applauncher_13.apk'
+gpg: Signature made Wed 23 May 2018 01:28:38 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1527310717, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 37 2f
+	hashed subpkt 2 len 4 (sig created 2018-05-26)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.stoutner.privacybrowser.standard_33.apk'
+gpg: Signature made Fri 25 May 2018 11:58:37 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1521786225, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 39 c8
+	hashed subpkt 2 len 4 (sig created 2018-03-23)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3068 bits]
+gpg: assuming signed data in 'com.tananaev.logcat_10.apk'
+gpg: Signature made Fri 23 Mar 2018 01:23:45 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1530034359, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 20 17
+	hashed subpkt 2 len 4 (sig created 2018-06-26)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'com.termux_63.apk'
+gpg: Signature made Tue 26 Jun 2018 12:32:39 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1529931065, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 0f 87
+	hashed subpkt 2 len 4 (sig created 2018-06-25)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.termux.api_25.apk'
+gpg: Signature made Mon 25 Jun 2018 07:51:05 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1512370169, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 72 e7
+	hashed subpkt 2 len 4 (sig created 2017-12-04)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.termux.boot_5.apk'
+gpg: Signature made Mon 04 Dec 2017 12:49:29 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1512370170, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest da 97
+	hashed subpkt 2 len 4 (sig created 2017-12-04)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'com.termux.styling_21.apk'
+gpg: Signature made Mon 04 Dec 2017 12:49:30 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1512370171, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 65 fc
+	hashed subpkt 2 len 4 (sig created 2017-12-04)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'com.termux.tasker_3.apk'
+gpg: Signature made Mon 04 Dec 2017 12:49:31 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1512370172, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 29 a6
+	hashed subpkt 2 len 4 (sig created 2017-12-04)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'com.termux.widget_9.apk'
+gpg: Signature made Mon 04 Dec 2017 12:49:32 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1512370172, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest ba 91
+	hashed subpkt 2 len 4 (sig created 2017-12-04)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.termux.window_11.apk'
+gpg: Signature made Mon 04 Dec 2017 12:49:32 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1506857775, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest f7 28
+	hashed subpkt 2 len 4 (sig created 2017-10-01)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'com.tomer.screenshotsharer_6.apk'
+gpg: Signature made Sun 01 Oct 2017 06:36:15 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1524808001, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 5f d3
+	hashed subpkt 2 len 4 (sig created 2018-04-27)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'com.tortel.syslog_28.apk'
+gpg: Signature made Fri 27 Apr 2018 12:46:41 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1522537624, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 00 6d
+	hashed subpkt 2 len 4 (sig created 2018-03-31)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'com.vonglasow.michael.satstat_3030.apk'
+gpg: Signature made Sat 31 Mar 2018 06:07:04 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1528878012, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 14 e8
+	hashed subpkt 2 len 4 (sig created 2018-06-13)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.wireguard.android_424.apk'
+gpg: Signature made Wed 13 Jun 2018 03:20:12 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1494880809, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest c2 3c
+	hashed subpkt 2 len 4 (sig created 2017-05-15)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'com.xabber.androiddev_348.apk'
+gpg: Signature made Mon 15 May 2017 03:40:09 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1482873060, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest f8 05
+	hashed subpkt 2 len 4 (sig created 2016-12-27)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.yassirh.digitalocean_31.apk'
+gpg: Signature made Tue 27 Dec 2016 03:11:00 PM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1.4.12 (GNU/Linux)
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1447838533, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 3a ee
+	hashed subpkt 2 len 4 (sig created 2015-11-18)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'com.yubico.yubiclip_5.apk'
+gpg: Signature made Wed 18 Nov 2015 03:22:13 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1516525241, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest c9 50
+	hashed subpkt 2 len 4 (sig created 2018-01-21)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'com.yubico.yubioath_20001.apk'
+gpg: Signature made Sun 21 Jan 2018 03:00:41 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1525583615, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 5b ba
+	hashed subpkt 2 len 4 (sig created 2018-05-06)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'cx.ring_117.apk'
+gpg: Signature made Sun 06 May 2018 12:13:35 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1458637303, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 79 d3
+	hashed subpkt 2 len 4 (sig created 2016-03-22)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'cz.eutopia.snooperstopper_4.apk'
+gpg: Signature made Tue 22 Mar 2016 04:01:43 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1464379075, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest d2 f4
+	hashed subpkt 2 len 4 (sig created 2016-05-27)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'de.badaix.snapcast_6.apk'
+gpg: Signature made Fri 27 May 2016 02:57:55 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1526279530, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 99 df
+	hashed subpkt 2 len 4 (sig created 2018-05-14)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'de.baumann.browser_77.apk'
+gpg: Signature made Mon 14 May 2018 01:32:10 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1518762290, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 88 ff
+	hashed subpkt 2 len 4 (sig created 2018-02-16)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'de.k3b.android.intentintercept_301.apk'
+gpg: Signature made Fri 16 Feb 2018 12:24:50 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1458637304, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 73 45
+	hashed subpkt 2 len 4 (sig created 2016-03-22)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'de.meonwax.soundboard_4.apk'
+gpg: Signature made Tue 22 Mar 2016 04:01:44 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1523167895, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 73 21
+	hashed subpkt 2 len 4 (sig created 2018-04-08)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3069 bits]
+gpg: assuming signed data in 'de.robv.android.xposed.installer_43.apk'
+gpg: Signature made Sun 08 Apr 2018 01:11:35 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1508611752, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 30 28
+	hashed subpkt 2 len 4 (sig created 2017-10-21)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'de.srlabs.snoopsnitch_17.apk'
+gpg: Signature made Sat 21 Oct 2017 01:49:12 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1527489392, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 96 70
+	hashed subpkt 2 len 4 (sig created 2018-05-28)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3068 bits]
+gpg: assuming signed data in 'de.t_dankworth.secscanqr_9.apk'
+gpg: Signature made Mon 28 May 2018 01:36:32 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1527916659, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest b5 3e
+	hashed subpkt 2 len 4 (sig created 2018-06-02)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'dk.meznik.jan.encrypttext_1.apk'
+gpg: Signature made Sat 02 Jun 2018 12:17:39 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1456590021, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 30 10
+	hashed subpkt 2 len 4 (sig created 2016-02-27)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'douzifly.list_21.apk'
+gpg: Signature made Sat 27 Feb 2016 10:20:21 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1529134014, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 84 ae
+	hashed subpkt 2 len 4 (sig created 2018-06-16)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'eu.siacs.conversations_274.apk'
+gpg: Signature made Sat 16 Jun 2018 02:26:54 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1479058854, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 77 cd
+	hashed subpkt 2 len 4 (sig created 2016-11-13)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3069 bits]
+gpg: assuming signed data in 'eu.siacs.conversations.voicerecorder_3.apk'
+gpg: Signature made Sun 13 Nov 2016 11:40:54 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1512370191, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 01 d4
+	hashed subpkt 2 len 4 (sig created 2017-12-04)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'FDroid.apk'
+gpg: Signature made Mon 04 Dec 2017 12:49:51 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1.4.14 (GNU/Linux)
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1399930458, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 1d d6
+	hashed subpkt 2 len 4 (sig created 2014-05-12)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3066 bits]
+gpg: assuming signed data in 'fr.keuse.rightsalert_3.apk'
+gpg: Signature made Mon 12 May 2014 04:34:18 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1529931066, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 8e 72
+	hashed subpkt 2 len 4 (sig created 2018-06-25)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'fr.neamar.kiss_135.apk'
+gpg: Signature made Mon 25 Jun 2018 07:51:06 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1463230196, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 08 ab
+	hashed subpkt 2 len 4 (sig created 2016-05-14)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'fr.simon.marquis.preferencesmanager_183.apk'
+gpg: Signature made Sat 14 May 2016 07:49:56 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1460902361, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest df 13
+	hashed subpkt 2 len 4 (sig created 2016-04-17)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3068 bits]
+gpg: assuming signed data in 'fr.simon.marquis.secretcodes_201.apk'
+gpg: Signature made Sun 17 Apr 2016 09:12:41 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1528182720, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 66 cd
+	hashed subpkt 2 len 4 (sig created 2018-06-05)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'im.vector.alpha_81000.apk'
+gpg: Signature made Tue 05 Jun 2018 02:12:00 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1527916662, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 4b 7b
+	hashed subpkt 2 len 4 (sig created 2018-06-02)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3066 bits]
+gpg: assuming signed data in 'in.arjsna.permissionchecker_5.apk'
+gpg: Signature made Sat 02 Jun 2018 12:17:42 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1.4.12 (GNU/Linux)
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1447081753, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest ef 7e
+	hashed subpkt 2 len 4 (sig created 2015-11-09)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3068 bits]
+gpg: assuming signed data in 'indrora.atomic_21.apk'
+gpg: Signature made Mon 09 Nov 2015 09:09:13 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1491282772, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest ab f3
+	hashed subpkt 2 len 4 (sig created 2017-04-04)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'info.aario.snotepad_2.apk'
+gpg: Signature made Tue 04 Apr 2017 12:12:52 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1.4.14 (GNU/Linux)
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1399930588, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 05 a0
+	hashed subpkt 2 len 4 (sig created 2014-05-12)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'info.guardianproject.cacert_4.apk'
+gpg: Signature made Mon 12 May 2014 04:36:28 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1422812974, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 79 6a
+	hashed subpkt 2 len 4 (sig created 2015-02-01)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'info.guardianproject.checkey_101.apk'
+gpg: Signature made Sun 01 Feb 2015 11:49:34 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1487457898, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 53 58
+	hashed subpkt 2 len 4 (sig created 2017-02-18)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'info.guardianproject.pixelknot_101.apk'
+gpg: Signature made Sat 18 Feb 2017 04:44:58 PM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1512668213, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest e1 15
+	hashed subpkt 2 len 4 (sig created 2017-12-07)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3069 bits]
+gpg: assuming signed data in 'info.guardianproject.ripple_83.apk'
+gpg: Signature made Thu 07 Dec 2017 11:36:53 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1514148303, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest f5 05
+	hashed subpkt 2 len 4 (sig created 2017-12-24)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3069 bits]
+gpg: assuming signed data in 'io.mrarm.irc_5.apk'
+gpg: Signature made Sun 24 Dec 2017 02:45:03 PM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1525008644, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest b7 9c
+	hashed subpkt 2 len 4 (sig created 2018-04-29)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3067 bits]
+gpg: assuming signed data in 'it.feio.android.omninotes.foss_245.apk'
+gpg: Signature made Sun 29 Apr 2018 08:30:44 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1500408137, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 90 80
+	hashed subpkt 2 len 4 (sig created 2017-07-18)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'jackpal.androidterm_72.apk'
+gpg: Signature made Tue 18 Jul 2017 03:02:17 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1455293328, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 20 02
+	hashed subpkt 2 len 4 (sig created 2016-02-12)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'jonas.tool.saveForOffline_21.apk'
+gpg: Signature made Fri 12 Feb 2016 10:08:48 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1504730483, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 8c 4b
+	hashed subpkt 2 len 4 (sig created 2017-09-06)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'jp.redmine.redmineclient_56.apk'
+gpg: Signature made Wed 06 Sep 2017 03:41:23 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1496121153, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 73 b0
+	hashed subpkt 2 len 4 (sig created 2017-05-30)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'krasilnikov.alexey.cryptopass_4.apk'
+gpg: Signature made Tue 30 May 2017 12:12:33 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=411
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1460541037, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 1f 03
+	hashed subpkt 2 len 4 (sig created 2016-04-13)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3063 bits]
+gpg: assuming signed data in 'kvj.taskw_3.apk'
+gpg: Signature made Wed 13 Apr 2016 04:50:37 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1505245972, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 3b 08
+	hashed subpkt 2 len 4 (sig created 2017-09-12)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'marto.rtl_tcp_andro_20.apk'
+gpg: Signature made Tue 12 Sep 2017 02:52:52 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1519112222, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 43 56
+	hashed subpkt 2 len 4 (sig created 2018-02-20)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'moe.minori.pgpclipper_5.apk'
+gpg: Signature made Tue 20 Feb 2018 01:37:02 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1450953701, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest dc 65
+	hashed subpkt 2 len 4 (sig created 2015-12-24)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'net.bierbaumer.otp_authenticator_3.apk'
+gpg: Signature made Thu 24 Dec 2015 04:41:41 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1459111639, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest c1 8a
+	hashed subpkt 2 len 4 (sig created 2016-03-27)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'net.fred.feedex_58.apk'
+gpg: Signature made Sun 27 Mar 2016 03:47:19 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1530167151, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 81 77
+	hashed subpkt 2 len 4 (sig created 2018-06-28)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3068 bits]
+gpg: assuming signed data in 'net.i2p.android.router_4745241.apk'
+gpg: Signature made Thu 28 Jun 2018 01:25:51 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1450864117, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 0f b0
+	hashed subpkt 2 len 4 (sig created 2015-12-23)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'net.iexos.musicalarm_2.apk'
+gpg: Signature made Wed 23 Dec 2015 03:48:37 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1466414011, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest f1 ef
+	hashed subpkt 2 len 4 (sig created 2016-06-20)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'net.majorkernelpanic.spydroid_1000.apk'
+gpg: Signature made Mon 20 Jun 2016 04:13:31 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1512370188, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 54 2e
+	hashed subpkt 2 len 4 (sig created 2017-12-04)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3069 bits]
+gpg: assuming signed data in 'net.opendasharchive.openarchive.release_17.apk'
+gpg: Signature made Mon 04 Dec 2017 12:49:48 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1527233487, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 2c 20
+	hashed subpkt 2 len 4 (sig created 2018-05-25)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'net.sourceforge.dibdib.android.dib2qm_1850.apk'
+gpg: Signature made Fri 25 May 2018 02:31:27 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1524808006, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest f8 c1
+	hashed subpkt 2 len 4 (sig created 2018-04-27)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'net.sourceforge.opencamera_62.apk'
+gpg: Signature made Fri 27 Apr 2018 12:46:46 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1.4.14 (GNU/Linux)
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1399931445, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest df c7
+	hashed subpkt 2 len 4 (sig created 2014-05-12)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'net.tedstein.AndroSS_17.apk'
+gpg: Signature made Mon 12 May 2014 04:50:45 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1529736779, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 6c 9f
+	hashed subpkt 2 len 4 (sig created 2018-06-23)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3066 bits]
+gpg: assuming signed data in 'nl.mpcjanssen.simpletask_3092.apk'
+gpg: Signature made Sat 23 Jun 2018 01:52:59 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1522745037, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest c3 77
+	hashed subpkt 2 len 4 (sig created 2018-04-03)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'ohi.andre.consolelauncher_172.apk'
+gpg: Signature made Tue 03 Apr 2018 03:43:57 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1453156335, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 70 74
+	hashed subpkt 2 len 4 (sig created 2016-01-18)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3069 bits]
+gpg: assuming signed data in 'org.anothermonitor_8.apk'
+gpg: Signature made Mon 18 Jan 2016 04:32:15 PM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1528794999, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest e3 7d
+	hashed subpkt 2 len 4 (sig created 2018-06-12)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3069 bits]
+gpg: assuming signed data in 'org.billthefarmer.diary_130.apk'
+gpg: Signature made Tue 12 Jun 2018 04:16:39 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1520105455, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 40 4e
+	hashed subpkt 2 len 4 (sig created 2018-03-03)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'org.billthefarmer.editor_120.apk'
+gpg: Signature made Sat 03 Mar 2018 01:30:55 PM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1482787330, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 6b ae
+	hashed subpkt 2 len 4 (sig created 2016-12-26)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.bitbatzen.wlanscanner_1.apk'
+gpg: Signature made Mon 26 Dec 2016 03:22:10 PM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1526469477, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 2e 65
+	hashed subpkt 2 len 4 (sig created 2018-05-16)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'org.blokada.alarm_304100500.apk'
+gpg: Signature made Wed 16 May 2018 06:17:57 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1519302783, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest d5 ef
+	hashed subpkt 2 len 4 (sig created 2018-02-22)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.bottiger.podcast_424.apk'
+gpg: Signature made Thu 22 Feb 2018 06:33:03 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1474286772, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 8b 28
+	hashed subpkt 2 len 4 (sig created 2016-09-19)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.cipherdyne.fwknop2_32.apk'
+gpg: Signature made Mon 19 Sep 2016 07:06:12 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1489742949, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 5d be
+	hashed subpkt 2 len 4 (sig created 2017-03-17)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'org.connectbot_19200.apk'
+gpg: Signature made Fri 17 Mar 2017 04:29:09 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1464244837, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 96 ac
+	hashed subpkt 2 len 4 (sig created 2016-05-26)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'org.cry.otp_21.apk'
+gpg: Signature made Thu 26 May 2016 01:40:37 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1453156335, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest ad 84
+	hashed subpkt 2 len 4 (sig created 2016-01-18)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.csploit.android_6.apk'
+gpg: Signature made Mon 18 Jan 2016 04:32:15 PM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1473351160, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest a7 ba
+	hashed subpkt 2 len 4 (sig created 2016-09-08)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'org.disrupted.rumble_16.apk'
+gpg: Signature made Thu 08 Sep 2016 11:12:40 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1519816179, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 64 7b
+	hashed subpkt 2 len 4 (sig created 2018-02-28)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.dolphinemu.dolphinemu_14523.apk'
+gpg: Signature made Wed 28 Feb 2018 05:09:39 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1482787330, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 98 6a
+	hashed subpkt 2 len 4 (sig created 2016-12-26)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3066 bits]
+gpg: assuming signed data in 'org.dyndns.sven_ola.debian_kit_6.apk'
+gpg: Signature made Mon 26 Dec 2016 03:22:10 PM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1519112225, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 2f 0b
+	hashed subpkt 2 len 4 (sig created 2018-02-20)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'org.emunix.unipatcher_150000.apk'
+gpg: Signature made Tue 20 Feb 2018 01:37:05 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1470322082, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 81 4d
+	hashed subpkt 2 len 4 (sig created 2016-08-04)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.ethack.orwall_40.apk'
+gpg: Signature made Thu 04 Aug 2016 09:48:02 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1523693428, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest e4 7d
+	hashed subpkt 2 len 4 (sig created 2018-04-14)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'org.eu.exodus_privacy.exodusprivacy_4.apk'
+gpg: Signature made Sat 14 Apr 2018 03:10:28 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1530167152, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 40 9b
+	hashed subpkt 2 len 4 (sig created 2018-06-28)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'org.fdroid.fdroid_1003002.apk'
+gpg: Signature made Thu 28 Jun 2018 01:25:52 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1525296988, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 41 6a
+	hashed subpkt 2 len 4 (sig created 2018-05-02)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3067 bits]
+gpg: assuming signed data in 'org.fdroid.fdroid.privileged_2080.apk'
+gpg: Signature made Wed 02 May 2018 04:36:28 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1453816879, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest c0 f9
+	hashed subpkt 2 len 4 (sig created 2016-01-26)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.fedorahosted.freeotp_17.apk'
+gpg: Signature made Tue 26 Jan 2016 08:01:19 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1525064392, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest ae 4e
+	hashed subpkt 2 len 4 (sig created 2018-04-30)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'org.floens.chan_30001.apk'
+gpg: Signature made Sun 29 Apr 2018 11:59:52 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1521786238, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest b0 d0
+	hashed subpkt 2 len 4 (sig created 2018-03-23)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.freedombox.freedombox_3.apk'
+gpg: Signature made Fri 23 Mar 2018 01:23:58 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1500837599, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest ae b1
+	hashed subpkt 2 len 4 (sig created 2017-07-23)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.freshrss.easyrss_608.apk'
+gpg: Signature made Sun 23 Jul 2017 02:19:59 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1520105460, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest ce 97
+	hashed subpkt 2 len 4 (sig created 2018-03-03)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'org.gnu.icecat_520610.apk'
+gpg: Signature made Sat 03 Mar 2018 01:31:00 PM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1511883084, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 30 be
+	hashed subpkt 2 len 4 (sig created 2017-11-28)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3069 bits]
+gpg: assuming signed data in 'org.jak_linux.dns66_20.apk'
+gpg: Signature made Tue 28 Nov 2017 09:31:24 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1495317895, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest b3 05
+	hashed subpkt 2 len 4 (sig created 2017-05-20)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.lf_net.pgpunlocker_2017051001.apk'
+gpg: Signature made Sat 20 May 2017 05:04:55 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1523356210, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest ae 0b
+	hashed subpkt 2 len 4 (sig created 2018-04-10)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'org.liberty.android.freeotpplus_1.apk'
+gpg: Signature made Tue 10 Apr 2018 05:30:10 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1518762306, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest d2 59
+	hashed subpkt 2 len 4 (sig created 2018-02-16)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'org.linphone_3320.apk'
+gpg: Signature made Fri 16 Feb 2018 12:25:06 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1517216594, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 13 48
+	hashed subpkt 2 len 4 (sig created 2018-01-29)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'org.lumicall.android_190.apk'
+gpg: Signature made Mon 29 Jan 2018 03:03:14 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1528532285, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 8b 5a
+	hashed subpkt 2 len 4 (sig created 2018-06-09)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.mozilla.fennec_fdroid_600210.apk'
+gpg: Signature made Sat 09 Jun 2018 03:18:05 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1524342137, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 99 58
+	hashed subpkt 2 len 4 (sig created 2018-04-21)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'org.mozilla.klar_19.apk'
+gpg: Signature made Sat 21 Apr 2018 03:22:17 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1461054021, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest f2 79
+	hashed subpkt 2 len 4 (sig created 2016-04-19)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'org.nick.cryptfs.passwdmanager_1260.apk'
+gpg: Signature made Tue 19 Apr 2016 03:20:21 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1530034359, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest a9 bc
+	hashed subpkt 2 len 4 (sig created 2018-06-26)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.pacien.tincapp_17.apk'
+gpg: Signature made Tue 26 Jun 2018 12:32:39 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1481841047, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 2a 8e
+	hashed subpkt 2 len 4 (sig created 2016-12-15)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'org.pocketworkstation.pckeyboard_1039003.apk'
+gpg: Signature made Thu 15 Dec 2016 04:30:47 PM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1463604680, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 21 2b
+	hashed subpkt 2 len 4 (sig created 2016-05-18)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'org.poirsouille.tinc_gui_15.apk'
+gpg: Signature made Wed 18 May 2016 03:51:20 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1.4.12 (GNU/Linux)
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1447592238, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 12 de
+	hashed subpkt 2 len 4 (sig created 2015-11-15)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.ppsspp.ppsspp_11103.apk'
+gpg: Signature made Sun 15 Nov 2015 06:57:18 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1482508295, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 4d bc
+	hashed subpkt 2 len 4 (sig created 2016-12-23)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.secuso.privacyfriendlyruler_3.apk'
+gpg: Signature made Fri 23 Dec 2016 09:51:35 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1522928078, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest e3 ca
+	hashed subpkt 2 len 4 (sig created 2018-04-05)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'org.secuso.privacyfriendlytodolist_4.apk'
+gpg: Signature made Thu 05 Apr 2018 06:34:38 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1528404314, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest d5 c5
+	hashed subpkt 2 len 4 (sig created 2018-06-07)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'org.shadowice.flocke.andotp_19.apk'
+gpg: Signature made Thu 07 Jun 2018 03:45:14 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1522045123, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest b2 50
+	hashed subpkt 2 len 4 (sig created 2018-03-26)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.smssecure.smssecure_208.apk'
+gpg: Signature made Mon 26 Mar 2018 01:18:43 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1528182724, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 0f 67
+	hashed subpkt 2 len 4 (sig created 2018-06-05)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'org.sufficientlysecure.termbot_19204.apk'
+gpg: Signature made Tue 05 Jun 2018 02:12:04 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1518365336, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 39 ac
+	hashed subpkt 2 len 4 (sig created 2018-02-11)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'org.sufficientlysecure.viewer_2817.apk'
+gpg: Signature made Sun 11 Feb 2018 10:08:56 AM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1529570437, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 15 b6
+	hashed subpkt 2 len 4 (sig created 2018-06-21)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.telegram.messenger_11585.apk'
+gpg: Signature made Thu 21 Jun 2018 03:40:37 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1522928079, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest e0 89
+	hashed subpkt 2 len 4 (sig created 2018-04-05)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'org.tuxpaint_120.apk'
+gpg: Signature made Thu 05 Apr 2018 06:34:39 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1473781702, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 10 7b
+	hashed subpkt 2 len 4 (sig created 2016-09-13)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.whitequark.sipcaller_1.apk'
+gpg: Signature made Tue 13 Sep 2016 10:48:22 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1.4.14 (GNU/Linux)
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1399932612, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 21 2b
+	hashed subpkt 2 len 4 (sig created 2014-05-12)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'org.woltage.irssiconnectbot_393.apk'
+gpg: Signature made Mon 12 May 2014 05:10:12 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1528795003, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest bb f8
+	hashed subpkt 2 len 4 (sig created 2018-06-12)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'org.xbmc.kore_21.apk'
+gpg: Signature made Tue 12 Jun 2018 04:16:43 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1507707479, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 84 94
+	hashed subpkt 2 len 4 (sig created 2017-10-11)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3068 bits]
+gpg: assuming signed data in 'org.xposeddownloader_12.apk'
+gpg: Signature made Wed 11 Oct 2017 02:37:59 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1503470553, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 31 83
+	hashed subpkt 2 len 4 (sig created 2017-08-23)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3070 bits]
+gpg: assuming signed data in 'org.yaaic_13.apk'
+gpg: Signature made Wed 23 Aug 2017 01:42:33 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: can't open 'packages-asc.txt': No such file or directory
+gpg: verify signatures failed: No such file or directory
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1524563764, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest cd b6
+	hashed subpkt 2 len 4 (sig created 2018-04-24)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'ru.meefik.busybox_36.apk'
+gpg: Signature made Tue 24 Apr 2018 04:56:04 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1529505946, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest d9 67
+	hashed subpkt 2 len 4 (sig created 2018-06-20)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'security.pEp_2.apk'
+gpg: Signature made Wed 20 Jun 2018 09:45:46 AM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1515995383, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest fc 5e
+	hashed subpkt 2 len 4 (sig created 2018-01-15)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3066 bits]
+gpg: assuming signed data in 'sh.ftp.rocketninelabs.meditationassistant.opensource_147.apk'
+gpg: Signature made Sun 14 Jan 2018 11:49:43 PM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1494880819, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 03 0e
+	hashed subpkt 2 len 4 (sig created 2017-05-15)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3072 bits]
+gpg: assuming signed data in 'uk.co.bitethebullet.android.token_6.apk'
+gpg: Signature made Mon 15 May 2017 03:40:19 PM CDT
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+gpg: using character set 'utf-8'
+gpg: armor: BEGIN PGP SIGNATURE
+gpg: armor header: Version: GnuPG v1
+# off=0 ctb=89 tag=2 hlen=3 plen=412
+:signature packet: algo 1, keyid 7A029E54DD5DCE7A
+	version 4, created 1514148310, md5len 0, sigclass 0x00
+	digest algo 2, begin of digest 0a 1f
+	hashed subpkt 2 len 4 (sig created 2017-12-24)
+	subpkt 16 len 8 (issuer key ID 7A029E54DD5DCE7A)
+	data: [3071 bits]
+gpg: assuming signed data in 'x1125io.initdlight_2.apk'
+gpg: Signature made Sun 24 Dec 2017 02:45:10 PM CST
+gpg:                using RSA key 0x7A029E54DD5DCE7A
+gpg: using subkey 0x7A029E54DD5DCE7A instead of primary key 0x41E7044E1DBA2E89
+gpg: using pgp trust model
+gpg: key 0x760286DD6EC3F80D: accepted as trusted key
+gpg: Good signature from "F-Droid <admin@f-droid.org>" [full]
+gpg: binary signature, digest algorithm SHA1, key algorithm rsa3072
+┌─[xe1phix@parrot]─[/run/media/public/2TB/OS/Android/packages]
+└──╼ $
+

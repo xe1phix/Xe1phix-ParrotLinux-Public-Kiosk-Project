@@ -1,0 +1,18 @@
+* OutlawCountry – An alleged CIA project that allowed it to hack and remotely spy on computers running the Linux operating systems.
+* ELSA – Alleged CIA malware that tracks geo-location of targeted computers and laptops running the Microsoft Windows operating system.
+* Brutal Kangaroo – A tool suite for Microsoft's Windows used by the spying agency to target closed networks or air-gapped computers within an organisation or enterprise without requiring any direct access.
+* Cherry Blossom – An agency's framework used for monitoring the Internet activity of the targeted systems by exploiting vulnerabilities in Wi-Fi devices.
+* Pandemic – A CIA's project that allowed the agency to turn Windows file servers into covert attack machines that can silently infect other computers of interest inside a targeted network.
+* Athena – An agency's spyware framework that has been developed to take full control of the infected Windows machines remotely, and works for every version of Microsoft's Windows operating systems, from XP to Windows 10.
+* AfterMidnight and Assassin – Two CIA malware frameworks for the Windows platform that has been designed to monitor activities on the infected remote host computer and execute malicious actions.
+* Archimedes – Man-in-the-middle attack tool allegedly developed by the CIA to target computers inside a Local Area Network (LAN).
+* Scribbles – Software reportedly designed to embed 'web beacons' into confidential documents, allowing the agency to track insiders and whistleblowers.
+* Grasshopper – Framework that allowed the CIA hackers to easily create their custom malware for breaking into Microsoft's Windows OS and bypassing antivirus protection.
+* Marble – Source code of a secret anti-forensic framework used by the agency to hide the actual source of its malware.
+* Dark Matter – Hacking exploits the spying agency designed to target iOS and Mac systems.
+* Weeping Angel – Spying tool used by the CIA hackers to infiltrate smart TVs, transforming them into covert microphones.
+* Year Zero – Alleged CIA hacking exploits for popular software and hardware.
+
+
+Via:
+https://wikileaks.org/vault7/#Highrise
