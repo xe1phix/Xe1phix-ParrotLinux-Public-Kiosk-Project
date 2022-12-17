@@ -1,0 +1,90 @@
+
+
+echo "                  ----------------------------------					"
+echo "                  [+] SQUASHFS FILESYSTEM DESIGN [+]					"
+echo "                  ----------------------------------
+
+echo "##-===============================================================-##"
+echo "   [+] A squashfs filesystem consists of a maximum of 9 parts: 		"
+echo "				packed together on a byte alignment:					"
+echo "##-===============================================================-##"
+
+
+echo "                            ---------------
+echo "                           |  superblock 	 |
+echo "                           |---------------|
+echo "                           |  compression  |
+echo "                           |    options    |
+echo "                           |---------------|
+echo "                           |  datablocks   |
+echo "                           |  & fragments  |
+echo "                           |---------------|
+echo "                           |  inode table	 |
+echo "                           |---------------|
+echo "                           |   directory	 |
+echo "                           |     table     |
+echo "                           |---------------|
+echo "                           |   fragment	 |
+echo "                           |    table      |
+echo "                           |---------------|
+echo "                           |    export     |
+echo "                           |    table      |
+echo "                           |---------------|
+echo "                           |    uid/gid	 |
+echo "                           |  lookup table |
+echo "                           |---------------|
+echo "                           |     xattr     |
+echo "                           |     table	 |
+echo "                            ---------------
+
+
+
+
+											
+							/\		  /\ _______________	   
+							|| ====== ||  || 		 || 
+##    ______________________||________||__||_________||______
+##  _|======================||Squashfs||==|| Cramfs  ||==== |____
+## |========================||--------||==||---------||======== |
+## |________________________||________||__||_________||_________|
+Max filesystem size:	     ||  2^64||	  || 256 MiB ||
+Max file size:			     || 2 TiB||	  ||  16 MiB ||
+Max block size:			     || 1 MiB||	  ||   4 KiB ||
+Metadata compression:	     || yes	 ||	    || no ||
+Directory indexes:		     || yes	 ||	    || no ||
+Sparse file support:		 || yes	 ||	    || no ||
+Tail-end packing (fragments):|| yes	 ||	    || no ||
+Exportable (NFS etc.):		 || yes	 ||	    || no ||
+Hard link support:			 || yes	 ||	    || no ||
+"." and ".." in readdir:	 || yes	 ||	    || no ||
+Real inode numbers:			 || yes	 ||	    || no ||
+32-bit uids/gids:			 || yes	 ||	    || no ||
+File creation time:			 || yes	 ||	    || no ||
+Xattr support:				 || yes	 ||	    || no ||
+ACL support:				 ||  no  ||	    || no ||
+
+
+
+echo "##~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~##"
+echo "   [?] Squashfs compresses the following:		 "
+echo "##~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~##"	
+echo "   >> data			"
+echo "   >> inodes 			"
+echo "   >> directories		"
+
+
+echo "##~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~##"
+echo "   [?] inode and directory data are also highly packed into byte boundaries."
+echo "##~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~##"
+
+echo "##-============================================================-##"
+echo "    [?] Each compressed inode is on average 8 bytes in length 	"
+echo "##-============================================================-##"
+echo "     (the exact length varies on file type, 					"
+echo "     (i.e. regular file, directory, symbolic link, 			"
+echo "     (and block/char device inodes have different sizes).		"
+echo "## ------------------------------------------------------------ ##"
+
+
+
+

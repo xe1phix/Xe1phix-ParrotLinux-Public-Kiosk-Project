@@ -1,0 +1,370 @@
+
+##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-##
+	   	 Internal 				   File System
+##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-##
+   	  Kernel objects			   Directories
+## ============================================= ##
+	 Object attributes 			 Regular files
+## ============================================= ##
+   Object relationships			Symbolic links
+## ============================================= ##
+
+
+
+The directory "/etc/udev.d" holds all the rules to be applied when adding or removing a device.
+
+
+
+The hald process is the daemon that maintains a database of 
+the devices connected to the system In real time.
+
+
+
+To get hardware debug info, use the kernel parameter udev.log‐priority=debug
+
+udevd
+/etc/udev/udev.conf
+
+udev_log="debug"
+
+
+This option can also be compiled into your initramfs by adding the config file to your FILES array
+
+
+
+/etc/mkinitcpio.conf
+
+FILES="... /etc/udev/udev.conf"
+
+
+then rebuilding the initramfs with:
+
+mkinitcpio ‐p linux
+
+
+
+
+udevadm --name=sda
+
+
+udevadm info -q path -n "${dev}"
+
+udevprop ${devpath} DEVTYPE
+
+
+
+
+echo "##-================================================-##"
+echo "   [+] Show all kernel uevents and udev messages		"
+echo "##-================================================-##"
+udevadm monitor
+
+
+echo "##-================================================================================-##"
+echo "   [+] Print all attributes of device /dev/sda within the udev rules key format		"
+echo "##-================================================================================-##"
+udevadm info --attribute-walk --name=/dev/sda
+
+
+
+
+## force udev to re load all rule s
+udevadm control --reload
+
+
+## force udev to re-apply all rules to already existing devices
+udevadm trigger
+
+echo "##-========================================================================-##"
+echo "   [+] Print the size attribute of disk sda within the 512-byte blocks. 		"
+echo "       This information is retrieved from sysfs								"
+echo "##-========================================================================-##"
+cat /sys/block/sda/size
+
+
+
+
+
+
+
+echo "##-========================================================================-##"
+echo "   [+] Simulate a udev event run by the device and print debug output		"
+echo "##-========================================================================-##"
+udevadm test /dev/sdb
+
+
+
+
+
+
+
+
+echo "##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-##"
+echo "   [+] udevadm Info - Queries the udev database for device information		"
+echo "##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-##"
+echo
+echo "## -------------------------------------------------------------------------------- ##"
+echo "   [?] It can also query the properties of a device from its sysfs representation		"
+echo "## -------------------------------------------------------------------------------- ##"
+
+
+Query parameter - Valid TYPEs are: 
+
+udevadm Info --query=name
+udevadm Info --query=symlink
+udevadm Info --query=path
+udevadm Info --query=property
+udevadm Info --query=all
+
+
+--path=
+
+
+echo "##-=========================================================-##"
+echo "   [?] If you dont know the device name you can:				 "
+echo "## --------------------------------------------------------- ##"
+echo "   [+] list all attributes of a specific system path:			 "
+echo "##-=========================================================-##"
+
+udevadm info ‐a ‐p /sys/class/backlight/acpi_video0
+
+
+udevadm info ‐q path ‐n /dev/sdb
+
+or
+
+find /sys/devices/ ‐name sdb
+
+
+
+get a list of all of the attributes of a device
+
+udevadm info -a -n
+
+
+
+udevadm info -a -n /dev/sd
+
+
+
+udevadm info /dev/sdb | grep ID_SERIAL
+
+
+
+udevadm info -a -p $(udevadm info -q path -n /dev/video2)
+
+
+
+udevadm info /sys/class/net/* | grep ID_NET_NAME
+
+
+
+--devpath=/class/block/sda
+udevadm /sys/class/block/sda
+
+--name=
+
+udevadm --name=sda
+
+
+echo "##-====================================================================================-##"
+echo "   [+] Attribute Walk - Print all sysfs properties of the specified device that can be 	"
+echo "                        Used within the udev rules to match the specified device.			"
+echo "##-====================================================================================-##"
+
+echo "## -------------------------------------------------------------------------------------- ##"
+echo "   [?] It prints all devices along the chain,  
+echo "       Up to the Root of sysfs that can be used In udev rules.
+echo "## -------------------------------------------------------------------------------------- ##"
+
+
+udevadm Info --attribute-walk		## 
+
+
+
+##-================================================================================-##
+##----------------------------------------------------------------------------------##
+	udevadm Info --export                 ## Export key/value pairs
+##----------------------------------------------------------------------------------##
+	udevadm Info --export-prefix          ## Export the key name with a prefix
+##----------------------------------------------------------------------------------##
+	udevadm Info --export-db              ## Export the content of the udev database
+##----------------------------------------------------------------------------------##
+	udevadm Info --cleanup-db             ## Clean up the udev database
+##----------------------------------------------------------------------------------##
+##-================================================================================-##
+
+
+
+
+
+
+udevadm info /sys/class/net/eth0
+
+udevadm info /sys/class/net/wlan0
+
+
+
+
+udevadm info --export-db > udev.txt
+
+
+echo "##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-##"
+echo "   [+] udevadm monitor - Listens to the kernel uevents and events sent out by a udev rule 	 "
+echo "                         And then prints the devpath of the event to the console.				 "
+echo "##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-##"
+
+udevadm monitor --help
+
+udevadm monitor --kernel
+udevadm monitor --udev
+udevadm monitor --property
+
+
+udevadm monitor --subsystem-match=
+udevadm monitor --tag-match=
+
+
+
+
+--parent-match=
+--name-match=
+--sysname-match=
+--subsystem-match=
+
+
+
+udevadm monitor --environment --udev
+ACTION=unbind
+ACTION=remove
+DEVTYPE=disk
+DEVTYPE=partition
+DEVTYPE=usb_interface
+
+ID_VENDOR=Kingston
+ID_MODEL=DataTraveler_3.0
+SUBSYSTEM=block
+SUBSYSTEM=scsi_device
+SUBSYSTEM=scsi
+SUBSYSTEM=scsi_host
+SUBSYSTEM=usb
+
+
+
+
+
+echo "##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-##"
+udevadm Trigger - Request device events from the kernel. 
+				  Primarily used to replay events at system coldplug time
+
+
+udevadm trigger 
+udevadm trigger --verbose
+udevadm trigger --type=	devices
+udevadm trigger --type=subsystems
+
+
+udevadm trigger --action=change
+
+
+
+echo "##-========================================================================-##"
+echo "   [+] Trigger events for devices which belong to a matching subsystem.		"
+echo "##-========================================================================-##"
+udevadm trigger --subsystem-match=
+
+
+echo "##-============================================================================-##"
+echo "   [+] Do not trigger events for devices which belong to a matching subsystem:	"
+echo "##-============================================================================-##"
+udevadm trigger --subsystem-nomatch=
+
+
+echo "##-=================================================================-##"
+echo "   [+] Trigger events for devices with a matching sysfs attribute.	 "
+echo "##-=================================================================-##"
+udevadm trigger --attr-match=
+
+udevadm trigger --attr-nomatch=
+
+
+
+
+echo "##-=================================================================-##"
+echo "   [+] Trigger events for devices with a matching property value.		 "
+echo "##-=================================================================-##"
+udevadm trigger --property-match=
+
+
+
+
+
+
+
+
+echo "##-====================================================================================-##"
+echo "   [+] udevadm Control - Modify the internal state of the running udev daemon
+
+
+--log-priority=emerg, alert, crit, err, warning, notice, info, and debug
+
+
+
+
+echo "##-========================================================================-##"
+echo "   [+] Signal systemd-udevd to reload the rules files and other databases 	"
+echo "                    (like the kernel module index)							"
+echo "##-========================================================================-##"
+echo 
+echo "##----------------------------------------------------------------------------------##"
+echo "   [?] Reloading rules and databases does not apply any changes to already  			"
+echo "       Existing devices. The new configuration will only be applied to new events.	"
+echo "##----------------------------------------------------------------------------------##"
+
+
+udevadm control --reload
+
+
+
+
+echo "##-============================================-##"
+echo "   [+] Set a global property for all events:		"
+echo "##-============================================-##"
+udevadm control --property=
+
+
+
+
+
+manually force udev to trigger your rules
+
+udevadm trigger
+
+
+
+
+
+udevadm monitor ‐‐environment ‐‐udev
+
+
+
+
+
+echo "##-====================================-##"
+echo "   [+] Testing rules before loading		"
+echo "##-====================================-##"
+udevadm test $(udevadm info ‐q path ‐n [device name]) 2>&1
+
+or
+
+echo "##-=================================================================================-##"
+echo "   [+] Directly provide the path to the device you want to test the udev rule for:	 "
+echo "##-=================================================================================-##"
+udevadm test /sys/class/backlight/acpi_video0/
+
+
+
+
+
+
+
