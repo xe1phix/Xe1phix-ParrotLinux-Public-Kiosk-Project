@@ -1,0 +1,275 @@
+#!/usr/bin/bash
+
+# configuration matches the wg-quick specifications
+
+# manual invocation:
+# $ sudo wg-netns vpn-1
+# via systemd:
+# $ sudo systemctl start wg-netns@vpn-1.service
+
+# examples:
+# show tunnel statistics
+# $ sudo ip netns exec vpn wg
+
+# create launch function
+# $ vpn() { sudo -E ip netns exec vpn setpriv --reuid $(id -u) --regid $(id -g) --clear-groups --reset-env "$@"; }
+
+# launch firefox in namespace
+# $ vpn firefox
+
+# use firejail instead
+# $ firejail --quiet --noprofile --netns=vpn firefox
+
+# or netns
+# $ sudo nsenter --net=/run/netns/vpn-de setpriv --reuid $(id -u) --regid $(id -g) --clear-groups --reset-env firefox
+
+set -e -o pipefail
+shopt -s extglob
+shopt -s nullglob
+export LC_ALL=C
+
+SELF="$(readlink -f "${BASH_SOURCE[0]}")"
+export PATH="${SELF%/*}:$PATH"
+
+WG_CONFIG=""
+INTERFACE=""
+ADDRESSES=( )
+MTU=""
+DNS=( )
+TABLE=""
+PRE_UP=( )
+POST_UP=( )
+PRE_DOWN=( )
+POST_DOWN=( )
+SAVE_CONFIG=0
+CONFIG_FILE=""
+PROGRAM="${0##*/}"
+ARGS=( "$@" )
+
+MARK=""
+MTU=1408
+NAMESPACE=vpn
+
+die() {
+	printf "%s\n" "$PROGRAM: $*" >&2
+	exit 1
+}
+
+auto_su() {
+	[[ $UID == 0 ]] || exec sudo -p "$PROGRAM must be run as root. Please enter the password for %u to continue: " -- "$BASH" -- "$SELF" "${ARGS[@]}"
+}
+
+parse_options() {
+	local interface_section=0 line key value stripped v
+	CONFIG_FILE="$1"
+	[[ $CONFIG_FILE =~ ^[a-zA-Z0-9_=+.-]{1,15}$ ]] && CONFIG_FILE="/etc/wireguard/$CONFIG_FILE.conf"
+	[[ -e $CONFIG_FILE ]] || die "\`$CONFIG_FILE' does not exist"
+	[[ $CONFIG_FILE =~ (^|/)([a-zA-Z0-9_=+.-]{1,15})\.conf$ ]] || die "The config file must be a valid interface name, followed by .conf"
+	CONFIG_FILE="$(readlink -f "$CONFIG_FILE")"
+	((($(stat -c '0%#a' "$CONFIG_FILE") & $(stat -c '0%#a' "${CONFIG_FILE%/*}") & 0007) == 0)) || printf "Warning: %s is world accessible\n" "$CONFIG_FILE" >&2
+	INTERFACE="${BASH_REMATCH[2]}"
+	shopt -s nocasematch
+	while read -r line || [[ -n $line ]]; do
+			stripped="${line%%\#*}"
+			key="${stripped%%=*}"; key="${key##*([[:space:]])}"; key="${key%%*([[:space:]])}"
+			value="${stripped#*=}"; value="${value##*([[:space:]])}"; value="${value%%*([[:space:]])}"
+			[[ $key == "["* ]] && interface_section=0
+			[[ $key == "[Interface]" ]] && interface_section=1
+			if [[ $interface_section -eq 1 ]]; then
+					case "$key" in
+					Address) ADDRESSES+=( ${value//,/ } ); continue ;;
+					MTU) MTU="$value"; continue ;;
+					DNS) for v in ${value//,/ }; do
+							[[ $v =~ (^[0-9.]+$)|(^.*:.*$) ]] && DNS+=( $v ) || DNS_SEARCH+=( $v )
+					done; continue ;;
+					Table) TABLE="$value"; continue ;;
+					Namespace) NAMESPACE=$value; continue ;;
+					PreUp) PRE_UP+=( "$value" ); continue ;;
+					PreDown) PRE_DOWN+=( "$value" ); continue ;;
+					PostUp) POST_UP+=( "$value" ); continue ;;
+					PostDown) POST_DOWN+=( "$value" ); continue ;;
+					SaveConfig) read_bool SAVE_CONFIG "$value"; continue ;;
+					esac
+			fi
+			WG_CONFIG+="$line"$'\n'
+	done < "$CONFIG_FILE"
+	shopt -u nocasematch
+}
+
+read_bool() {
+	case "$2" in
+	true) printf -v "$1" 1 ;;
+	false) printf -v "$1" 0 ;;
+	*) die "\`$2' is neither true nor false"
+	esac
+}
+
+cmd() {
+	printf "[#] %s\n" "$*" >&2
+	"$@"
+}
+
+cmd_add_ns () {
+	if ! ip netns | grep "$NAMESPACE"; then
+		cmd ip netns add "$NAMESPACE";
+		cmd ip -n "$NAMESPACE" link set dev lo up
+	fi
+}
+
+cmd_del_ns () {
+	cmd ip netns del "$NAMESPACE"
+}
+
+option_ns () {
+	printf -- "-netns %s" "$NAMESPACE"
+}
+
+exec_ns () {
+	printf "ip netns exec %s\n" "$NAMESPACE"
+}
+
+add_addr() {
+	local proto=-4
+	[[ $1 == *:* ]] && proto=-6
+	cmd $(exec_ns) ip $proto address add "$1" dev "$INTERFACE"
+}
+
+is_up() {
+	cmd ip $(option_ns) -4 -o -br link show $INTERFACE &>/dev/null
+}
+
+get_fwmark() {
+	local fwmark
+	fwmark="$(cmd $(exec_ns) wg show $INTERFACE fwmark)" || return 1
+	[[ -n $fwmark && $fwmark != off ]] || return 1
+	printf -v "$1" "%d" "$fwmark"
+	return 0
+}
+
+add_dns() {
+	if [[ ! -f "/etc/netns/${NAMESPACE}/resolv.conf" ]]; then
+		local ns=/run/wg-netns/${NAMESPACE}
+		cmd mkdir -p "$ns"
+		if [[ -w $ns ]]; then
+			cmd touch "${ns}/resolv.conf"
+
+			(( ${#DNS[@]} > 0 )) && cmd printf 'nameserver %s\n' "${DNS[@]}" | \
+				tee >(awk '{print "[#] echo \47"$0"\47 >> '"${ns}"'/resolv.conf"}' >&2) \
+					> "${ns}/resolv.conf"
+
+			anti_leak() {
+				cmd cp /etc/nsswitch.conf "${ns}/nsswitch.conf"
+				#cmd sed -i 's/\(hosts\: .*\) resolve \(\[.*\]\)\?\(.*\)$/\1\3/ g' "${ns}/nsswitch.conf"
+				cmd sed -i 's/ resolve \(\[\!UNAVAIL=return\]\)\?//g; /^[[:blank:]]*#/d' "${ns}/nsswitch.conf"
+			}
+			anti_leak
+			cmd mkdir -p /etc/netns
+			cmd ln -sf "${ns}" "/etc/netns/${NAMESPACE}"
+		fi
+	fi
+}
+
+del_dns() {
+	if [[ -L /etc/netns/${NAMESPACE} ]]; then
+		{
+			cmd unlink "/etc/netns/${NAMESPACE}"
+			cmd rm -f "/run/wg-netns/${NAMESPACE}/"{resolv,nsswitch}.conf; \
+			cmd rmdir /etc/netns "/run/wg-netns/${NAMESPACE}" /run/wg-netns
+		} || true
+	fi
+}
+
+tunnel_exec() {
+	sudo -E $(exec_ns) setpriv --reuid $(id -u) --regid $(id -g) --clear-groups --reset-env "$@"
+}
+
+teardown() {
+	{
+		del_dns
+		# seems necessary if an error is encountered before moving the interface to the namespace
+		cmd ip link delete dev $INTERFACE
+		cmd ip $(option_ns) link delete dev $INTERFACE
+		cmd $(exec_ns) nft delete table inet wgfilter
+		cmd_del_ns
+	} || true
+}	
+
+_term() {
+	trap - EXIT
+	printf "\nCaught signal! - Cleaning up.\n" >&2
+	teardown
+}
+
+setup() {
+	if is_up; then
+		printf "Found existing interface, tearing down %s.\n" $INTERFACE >&2
+		teardown
+	fi
+	teardown 2>/dev/null
+
+	cmd ip link add $INTERFACE type wireguard
+	cmd_add_ns
+	cmd ip link set $INTERFACE netns "$NAMESPACE"
+	cmd $(exec_ns) wg setconf $INTERFACE <(printf "%s\n" "$WG_CONFIG")
+
+	local table
+	if ! get_fwmark table; then
+		table=51820
+		while [[ -n $(cmd ip $(option_ns) -4 route show table $table 2>/dev/null) \
+			|| -n $(cmd ip $(option_ns) -6 route show table $table 2>/dev/null) ]]; do
+			((table++))
+		done
+		cmd $(exec_ns) wg set "$INTERFACE" fwmark $table
+	fi
+
+	cmd $(exec_ns) ip link set group $table $INTERFACE
+
+	firewall() {
+		cmd $(exec_ns) nft -f - <<-EOT
+		table inet wgfilter {
+			chain output {
+				type filter hook output priority filter; policy accept;
+				oifgroup != $table meta mark != $table fib daddr type != local counter drop
+			}
+			chain input {
+				type filter hook input priority filter; policy drop;
+				iif "lo" accept
+				iifgroup $table ct state established counter accept
+			}
+			chain forward { type filter hook forward priority filter; policy drop; }
+		}
+		EOT
+	}
+
+	for i in "${ADDRESSES[@]}"; do
+		add_addr "$i"
+	done
+
+	cmd $(exec_ns) ip link set up dev $INTERFACE
+	cmd $(exec_ns) ip link set mtu $MTU up dev $INTERFACE
+	cmd $(exec_ns) ip route add default dev $INTERFACE
+	cmd $(exec_ns) ip -6 route add default dev $INTERFACE
+
+	cmd $(exec_ns) sysctl -q net.ipv4.conf.all.src_valid_mark=1 \
+		net.ipv4.conf.all.rp_filter=2 \
+		net.ipv4.conf.$INTERFACE.rp_filter=2 \
+		net.ipv4.ip_forward=0 \
+		net.ipv4.ping_group_range="0 2147483647"
+
+	add_dns
+	firewall
+
+	printf "INTERFACE: %s - NAMESPACE: %s - MTU: %u - MARK: %u\n" \
+		$INTERFACE "$NAMESPACE" $MTU $table >&2
+}
+
+trap _term EXIT
+
+auto_su
+(($# < 1)) && set -- wg0
+parse_options "$1"
+
+setup
+
+sleep infinity &
+wait

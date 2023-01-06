@@ -1,0 +1,16 @@
+##-=============================================-##
+##   [+] /etc/systemd/network/99-wg0.network
+##-=============================================-##
+##
+## ---------------------------------------------------- ##
+##   [?] To route additional subnets add them as
+##   [+] [Route] sections in the .network file.
+## ---------------------------------------------------- ##
+
+[Route]
+Destination=192.168.35.0/24
+Scope=link
+
+[Route]
+Destination=fd7b:d0bd:7a6e::/64
+Scope=link
