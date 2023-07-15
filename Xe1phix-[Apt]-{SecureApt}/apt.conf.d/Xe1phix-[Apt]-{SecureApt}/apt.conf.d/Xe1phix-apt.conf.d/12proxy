@@ -1,0 +1,2 @@
+Acquire::socks::proxy "socks5://10.8.0.1:1080";
+## Acquire::socks::proxy "socks5://10.64.0.1:1080";
