@@ -1,0 +1,839 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Menu
+  PUBLIC '-//freedesktop//DTD Menu 1.0//EN'
+  'http://standards.freedesktop.org/menu-spec/menu-1.0.dtd'>
+<Menu>
+	<Name>Applications</Name>
+	<MergeFile type="parent">/etc/xdg/menus/mate-applications.menu</MergeFile>
+	<Menu>
+		<Name>System</Name>
+		<Exclude>
+			<Filename>bleachbit.desktop</Filename>
+		</Exclude>
+		<AppDir>/home/xe1phix/.local/share/applications</AppDir>
+		<Exclude>
+			<Filename>dvdisaster.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>ophcrack.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>mate-power-statistics.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>reportbug.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>xvkbd.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>etherape.desktop</Filename>
+		</Exclude>
+		<Include>
+			<Filename>Virtualbricks.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Disks-1.desktop</Filename>
+		</Include>
+		<Exclude>
+			<Filename>mc.desktop</Filename>
+		</Exclude>
+		<Include>
+			<Filename>zulucrypt-gui.desktop</Filename>
+		</Include>
+		<Exclude>
+			<Filename>caja-browser.desktop</Filename>
+		</Exclude>
+		<Include>
+			<Filename>mozo-made-11.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>mozo-made-12.desktop</Filename>
+		</Include>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>aqemu.desktop</Filename>
+			<Filename>Virtualbricks.desktop</Filename>
+			<Filename>virt-manager.desktop</Filename>
+			<Filename>gparted.desktop</Filename>
+			<Filename>zulumount-gui.desktop</Filename>
+			<Filename>zulucrypt-gui.desktop</Filename>
+			<Filename>Disks-1.desktop</Filename>
+			<Filename>lshw-gtk.desktop</Filename>
+			<Filename>gsmartcontrol.desktop</Filename>
+			<Filename>mate-disk-usage-analyzer.desktop</Filename>
+			<Filename>mate-system-monitor.desktop</Filename>
+			<Filename>guymager.desktop</Filename>
+			<Filename>bleachbit-root.desktop</Filename>
+			<Filename>caja-browser.desktop</Filename>
+			<Filename>caja-computer.desktop</Filename>
+			<Filename>ca.desrt.dconf-editor.desktop</Filename>
+			<Filename>gdebi.desktop</Filename>
+			<Filename>caja-home.desktop</Filename>
+			<Filename>htop.desktop</Filename>
+			<Filename>mate-system-log.desktop</Filename>
+			<Filename>org.gnome.Logs.desktop</Filename>
+			<Filename>lynis.desktop</Filename>
+			<Filename>mat.desktop</Filename>
+			<Filename>lxterminal.desktop</Filename>
+			<Filename>mate-terminal.desktop</Filename>
+			<Filename>debian-uxterm.desktop</Filename>
+			<Filename>debian-xterm.desktop</Filename>
+			<Filename>gksu.desktop</Filename>
+			<Filename>mate-network-scheme.desktop</Filename>
+			<Filename>mate-panel.desktop</Filename>
+			<Filename>mate-power-statistics.desktop</Filename>
+			<Filename>spacefm.desktop</Filename>
+			<Filename>pcmanfm.desktop</Filename>
+			<Filename>xvkbd.desktop</Filename>
+			<Filename>firetools.desktop</Filename>
+			<Filename>mozo-made-11.desktop</Filename>
+			<Filename>mozo-made-12.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Multimedia</Name>
+		<Include>
+			<Filename>dvdisaster-1.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>gnash.desktop</Filename>
+		</Include>
+		<AppDir>/home/xe1phix/.local/share/applications</AppDir>
+		<Exclude>
+			<Filename>easytag.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>exfalso.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>audacious.desktop</Filename>
+		</Exclude>
+		<Include>
+			<Filename>mozo-made-5.desktop</Filename>
+		</Include>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>audacious.desktop</Filename>
+			<Filename>audacious-qt.desktop</Filename>
+			<Filename>audacity.desktop</Filename>
+			<Filename>brasero.desktop</Filename>
+			<Filename>easytag.desktop</Filename>
+			<Filename>exfalso.desktop</Filename>
+			<Filename>gnash.desktop</Filename>
+			<Filename>mediainfo-gui.desktop</Filename>
+			<Filename>mpv.desktop</Filename>
+			<Filename>openshot.desktop</Filename>
+			<Filename>mate-volume-control.desktop</Filename>
+			<Filename>org.gnome.Totem.desktop</Filename>
+			<Filename>vlc.desktop</Filename>
+			<Filename>vokoscreen.desktop</Filename>
+			<Filename>dvdisaster-1.desktop</Filename>
+			<Filename>mozo-made-5.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Internet</Name>
+		<Include>
+			<Filename>etherape.desktop</Filename>
+		</Include>
+		<AppDir>/home/xe1phix/.local/share/applications</AppDir>
+		<Include>
+			<Filename>ettercap.desktop</Filename>
+		</Include>
+		<Exclude>
+			<Filename>firefox.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>firefox-profile.desktop</Filename>
+		</Exclude>
+		<Include>
+			<Filename>iceweasel.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>wireshark.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>zenmap-root.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Firewall Configuration.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>kismet.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>links2.desktop</Filename>
+		</Include>
+		<Exclude>
+			<Filename>onioncircuits.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>onionshare.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>ricochet-im.desktop</Filename>
+		</Exclude>
+		<Include>
+			<Filename>hydra-gtk.desktop</Filename>
+		</Include>
+		<Exclude>
+			<Filename>torbrowser.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>torbrowser-settings.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>electrum.desktop</Filename>
+		</Exclude>
+		<Include>
+			<Filename>creepy.desktop</Filename>
+		</Include>
+		<Exclude>
+			<Filename>torchat.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>gnunet-setup.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>gnunet-fs-gtk.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>gpxviewer.desktop</Filename>
+		</Exclude>
+		<Include>
+			<Filename>mozo-made-11.desktop</Filename>
+		</Include>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>iceweasel.desktop</Filename>
+			<Filename>firefox-esr.desktop</Filename>
+			<Filename>claws-mail.desktop</Filename>
+			<Filename>io.github.Hexchat.desktop</Filename>
+			<Filename>creepy.desktop</Filename>
+			<Filename>electrum.desktop</Filename>
+			<Filename>ettercap.desktop</Filename>
+			<Filename>fwbuilder.desktop</Filename>
+			<Filename>icedtea-netx-javaws.desktop</Filename>
+			<Filename>king-phisher.desktop</Filename>
+			<Filename>kismet.desktop</Filename>
+			<Filename>net.sourceforge.liferea.desktop</Filename>
+			<Filename>links2.desktop</Filename>
+			<Filename>mutt.desktop</Filename>
+			<Filename>onioncircuits.desktop</Filename>
+			<Filename>onionshare.desktop</Filename>
+			<Filename>qbittorrent.desktop</Filename>
+			<Filename>vinagre.desktop</Filename>
+			<Filename>remote-viewer.desktop</Filename>
+			<Filename>ricochet-im.desktop</Filename>
+			<Filename>thunderbird.desktop</Filename>
+			<Filename>torbrowser.desktop</Filename>
+			<Filename>torbrowser-settings.desktop</Filename>
+			<Filename>transmission-gtk.desktop</Filename>
+			<Filename>wireshark.desktop</Filename>
+			<Filename>hydra-gtk.desktop</Filename>
+			<Filename>zenmap.desktop</Filename>
+			<Filename>zenmap-root.desktop</Filename>
+			<Filename>Firewall Configuration.desktop</Filename>
+			<Filename>gnunet-fs-gtk.desktop</Filename>
+			<Filename>gnunet-setup.desktop</Filename>
+			<Filename>gpxviewer.desktop</Filename>
+			<Filename>torchat.desktop</Filename>
+			<Filename>ssvnc.desktop</Filename>
+			<Filename>wifi-radar.desktop</Filename>
+			<Filename>mozo-made-11.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Anon Surf</Name>
+		<Include>
+			<Filename>MAT.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Onion Circuits.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>OnionShare.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Ricochet IM.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Tor Browser.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Tor Browser Launcher Settings.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Claws Mail.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>gpa-1.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Passwords and Keys-1.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>TorChat.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>GNUnet Secured P2P.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>GNUnet Setup.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Thunderbird.desktop</Filename>
+		</Include>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>anon-surf-start.desktop</Filename>
+			<Filename>anon-surf-stop.desktop</Filename>
+			<Filename>anon-change-identity.desktop</Filename>
+			<Filename>anon-check-ip.desktop</Filename>
+			<Filename>anon-check-mac.desktop</Filename>
+			<Filename>Onion Circuits.desktop</Filename>
+			<Filename>OnionShare.desktop</Filename>
+			<Filename>Ricochet IM.desktop</Filename>
+			<Filename>TorChat.desktop</Filename>
+			<Filename>Tor Browser.desktop</Filename>
+			<Filename>Tor Browser Launcher Settings.desktop</Filename>
+			<Filename>Claws Mail.desktop</Filename>
+			<Filename>Thunderbird.desktop</Filename>
+			<Filename>Passwords and Keys-1.desktop</Filename>
+			<Filename>gpa-1.desktop</Filename>
+			<Filename>MAT.desktop</Filename>
+			<Filename>GNUnet Secured P2P.desktop</Filename>
+			<Filename>GNUnet Setup.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Development</Name>
+		<Include>
+			<Filename>Midnight Commander.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>dconf Editor.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Midnight Commander editor.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Atom.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>mozo-made.desktop</Filename>
+		</Include>
+		<Exclude>
+			<Filename>sqlitebrowser.desktop</Filename>
+		</Exclude>
+		<AppDir>/home/xe1phix/.local/share/applications</AppDir>
+		<Exclude>
+			<Filename>Vim.desktop</Filename>
+		</Exclude>
+		<Include>
+			<Filename>XRCed.desktop</Filename>
+		</Include>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>Atom.desktop</Filename>
+			<Filename>org.gnome.Devhelp.desktop</Filename>
+			<Filename>edb.desktop</Filename>
+			<Filename>geany.desktop</Filename>
+			<Filename>gnuradio-grc.desktop</Filename>
+			<Filename>PyCrust.desktop</Filename>
+			<Filename>python2.7.desktop</Filename>
+			<Filename>python3.5.desktop</Filename>
+			<Filename>python3.6.desktop</Filename>
+			<Filename>sqlitebrowser.desktop</Filename>
+			<Filename>org.gnome.Sysprof2.desktop</Filename>
+			<Filename>XRCed.desktop</Filename>
+			<Filename>zeal.desktop</Filename>
+			<Filename>dconf Editor.desktop</Filename>
+			<Filename>Midnight Commander.desktop</Filename>
+			<Filename>Midnight Commander editor.desktop</Filename>
+			<Filename>Vim.desktop</Filename>
+			<Filename>mozo-made.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Accessories</Name>
+		<Exclude>
+			<Filename>atom.desktop</Filename>
+		</Exclude>
+		<AppDir>/home/xe1phix/.local/share/applications</AppDir>
+		<Exclude>
+			<Filename>compton.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>vim.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>sirikali.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>gpdftext.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>gpa.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>mate-font-viewer.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>mate-search-tool.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>redshift-gtk.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>spacefm-find.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>debian-reference-common.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>mcedit.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>mate-calc.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>org.keepassxc.KeePassXC.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>gtkhash.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>zim.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>nemo.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>tracker-needle.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>stoken-gui.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>stoken-gui-small.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>yubikey-personalization-gui.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>neoman.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>yubioath.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>xca.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>virtualbricks.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>mozo-made-7.desktop</Filename>
+		</Exclude>
+		<Include>
+			<Filename>mozo-made-13.desktop</Filename>
+		</Include>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>mate-about.desktop</Filename>
+			<Filename>org.gnome.FileRoller.desktop</Filename>
+			<Filename>engrampa.desktop</Filename>
+			<Filename>xarchiver.desktop</Filename>
+			<Filename>compton.desktop</Filename>
+			<Filename>debian-reference-common.desktop</Filename>
+			<Filename>org.gnome.DiskUtility.desktop</Filename>
+			<Filename>nemo.desktop</Filename>
+			<Filename>gpa.desktop</Filename>
+			<Filename>gpdftext.desktop</Filename>
+			<Filename>gscriptor.desktop</Filename>
+			<Filename>gtkhash.desktop</Filename>
+			<Filename>org.keepassxc.KeePassXC.desktop</Filename>
+			<Filename>mate-calc.desktop</Filename>
+			<Filename>seahorse.desktop</Filename>
+			<Filename>pluma.desktop</Filename>
+			<Filename>redshift-gtk.desktop</Filename>
+			<Filename>sirikali.desktop</Filename>
+			<Filename>spacefm-find.desktop</Filename>
+			<Filename>mate-screenshot.desktop</Filename>
+			<Filename>virtualbricks.desktop</Filename>
+			<Filename>zim.desktop</Filename>
+			<Filename>stoken-gui.desktop</Filename>
+			<Filename>stoken-gui-small.desktop</Filename>
+			<Filename>xca.desktop</Filename>
+			<Filename>yubioath.desktop</Filename>
+			<Filename>neoman.desktop</Filename>
+			<Filename>yubikey-personalization-gui.desktop</Filename>
+			<Filename>mozo-made-7.desktop</Filename>
+			<Filename>firejail-ui.desktop</Filename>
+			<Filename>mozo-made-13.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Education</Name>
+		<Include>
+			<Filename>Debian Reference.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Devhelp.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>MATE Calculator.desktop</Filename>
+		</Include>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>gpsprune.desktop</Filename>
+			<Filename>Debian Reference.desktop</Filename>
+			<Filename>Devhelp.desktop</Filename>
+			<Filename>MATE Calculator.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+		<Exclude>
+			<Filename>gpsprune.desktop</Filename>
+		</Exclude>
+		<AppDir>/home/xe1phix/.local/share/applications</AppDir>
+	</Menu>
+	<Menu>
+		<Name>Office</Name>
+		<Include>
+			<Filename>Zim Desktop Wiki.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>gPDFText ebook editor.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Zim Desktop Wiki-1.desktop</Filename>
+		</Include>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>atril.desktop</Filename>
+			<Filename>evince.desktop</Filename>
+			<Filename>gPDFText ebook editor.desktop</Filename>
+			<Filename>keepnote.desktop</Filename>
+			<Filename>mate-dictionary.desktop</Filename>
+			<Filename>mutt.desktop</Filename>
+			<Filename>pdfchain.desktop</Filename>
+			<Filename>planner.desktop</Filename>
+			<Filename>evince-previewer.desktop</Filename>
+			<Filename>vym.desktop</Filename>
+			<Filename>Zim Desktop Wiki.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Graphics</Name>
+		<Exclude>
+			<Filename>mate-color-select.desktop</Filename>
+		</Exclude>
+		<AppDir>/home/xe1phix/.local/share/applications</AppDir>
+		<Include>
+			<Filename>GpsPrune-1.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>GPX Viewer.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>mozo-made-8.desktop</Filename>
+		</Include>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>evince.desktop</Filename>
+			<Filename>eom.desktop</Filename>
+			<Filename>gpscorrelate.desktop</Filename>
+			<Filename>eog.desktop</Filename>
+			<Filename>mate-color-select.desktop</Filename>
+			<Filename>evince-previewer.desktop</Filename>
+			<Filename>stegosuite.desktop</Filename>
+			<Filename>xpdf.desktop</Filename>
+			<Filename>GpsPrune-1.desktop</Filename>
+			<Filename>GPX Viewer.desktop</Filename>
+			<Filename>mozo-made-8.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Cryptography</Name>
+		<Include>
+			<Filename>Electrum Bitcoin Wallet.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>GtkHash.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>KeePassXC.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Passwords and Keys.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>YubiKey Personalization Tool.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>mozo-made-1.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Software Token.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Software Token (small).desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Yubico Authenticator.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>YubiKey NEO Manager.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>XCA.desktop</Filename>
+		</Include>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>parrot-gpa.desktop</Filename>
+			<Filename>parrot-sirikali.desktop</Filename>
+			<Filename>parrot-zulucrypt.desktop</Filename>
+			<Filename>parrot-zulumount.desktop</Filename>
+			<Filename>KeePassXC.desktop</Filename>
+			<Filename>Software Token.desktop</Filename>
+			<Filename>Software Token (small).desktop</Filename>
+			<Filename>Yubico Authenticator.desktop</Filename>
+			<Filename>YubiKey NEO Manager.desktop</Filename>
+			<Filename>YubiKey Personalization Tool.desktop</Filename>
+			<Filename>Electrum Bitcoin Wallet.desktop</Filename>
+			<Filename>Passwords and Keys.desktop</Filename>
+			<Filename>XCA.desktop</Filename>
+			<Filename>mozo-made-1.desktop</Filename>
+			<Filename>GtkHash.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Universal Access</Name>
+		<Exclude>
+			<Filename>onboard.desktop</Filename>
+		</Exclude>
+		<AppDir>/home/xe1phix/.local/share/applications</AppDir>
+	</Menu>
+	<Menu>
+		<Name>Parrot</Name>
+		<Menu>
+			<Name>Forensic Tools</Name>
+			<Menu>
+				<Name>Forensic Hashing Tools</Name>
+				<Include>
+					<Filename>ssdeep.desktop</Filename>
+				</Include>
+				<Include>
+					<Filename>hashdeep.desktop</Filename>
+				</Include>
+				<Include>
+					<Filename>GtkHash-1.desktop</Filename>
+				</Include>
+				<Layout>
+					<Merge type="menus"/>
+					<Filename>ssdeep.desktop</Filename>
+					<Filename>hashdeep.desktop</Filename>
+					<Filename>GtkHash-1.desktop</Filename>
+					<Merge type="files"/>
+				</Layout>
+			</Menu>
+			<Menu>
+				<Name>PDF Forensics Tools</Name>
+				<Include>
+					<Filename>gPDFText ebook editor-1.desktop</Filename>
+				</Include>
+				<Include>
+					<Filename>PDF Chain.desktop</Filename>
+				</Include>
+				<Include>
+					<Filename>mozo-made-3.desktop</Filename>
+				</Include>
+				<Include>
+					<Filename>mozo-made-4.desktop</Filename>
+				</Include>
+				<Include>
+					<Filename>mozo-made-9.desktop</Filename>
+				</Include>
+				<Layout>
+					<Merge type="menus"/>
+					<Filename>parrot-pdfid.desktop</Filename>
+					<Filename>parrot-pdf-parser.desktop</Filename>
+					<Filename>parrot-peepdf.desktop</Filename>
+					<Filename>gPDFText ebook editor-1.desktop</Filename>
+					<Filename>mozo-made-3.desktop</Filename>
+					<Filename>mozo-made-4.desktop</Filename>
+					<Filename>mozo-made-9.desktop</Filename>
+					<Merge type="files"/>
+				</Layout>
+			</Menu>
+			<Include>
+				<Filename>Stegosuite.desktop</Filename>
+			</Include>
+			<Include>
+				<Filename>GPSCorrelate.desktop</Filename>
+			</Include>
+			<Include>
+				<Filename>GpsPrune.desktop</Filename>
+			</Include>
+			<Include>
+				<Filename>MAT-1.desktop</Filename>
+			</Include>
+			<Menu>
+				<Name>Forensics Analysis Suites</Name>
+				<Layout>
+					<Merge type="menus"/>
+					<Filename>parrot-mmls.desktop</Filename>
+					<Filename>parrot-fls.desktop</Filename>
+					<Filename>parrot-mactime-sleuthkit.desktop</Filename>
+					<Filename>parrot-blkcalc.desktop</Filename>
+					<Filename>parrot-srch_strings.desktop</Filename>
+					<Filename>parrot-blkcat.desktop</Filename>
+					<Filename>parrot-blkls.desktop</Filename>
+					<Filename>parrot-blkstat.desktop</Filename>
+					<Filename>parrot-ffind.desktop</Filename>
+					<Filename>parrot-fsstat.desktop</Filename>
+					<Filename>parrot-hfind.desktop</Filename>
+					<Filename>parrot-icat-sleuthkit.desktop</Filename>
+					<Filename>parrot-ifind.desktop</Filename>
+					<Filename>parrot-ils-sleuthkit.desktop</Filename>
+					<Filename>parrot-img_cat.desktop</Filename>
+					<Filename>parrot-img_stat.desktop</Filename>
+					<Filename>parrot-istat.desktop</Filename>
+					<Filename>parrot-jcat.desktop</Filename>
+					<Filename>parrot-jls.desktop</Filename>
+					<Filename>parrot-mmcat.desktop</Filename>
+					<Filename>parrot-mmstat.desktop</Filename>
+					<Filename>parrot-sigfind.desktop</Filename>
+					<Filename>parrot-sorter.desktop</Filename>
+					<Filename>parrot-tsk_comparedir.desktop</Filename>
+					<Filename>parrot-tsk_gettimes.desktop</Filename>
+					<Filename>parrot-tsk_loaddb.desktop</Filename>
+					<Filename>parrot-tsk_recover.desktop</Filename>
+					<Merge type="files"/>
+				</Layout>
+			</Menu>
+			<Menu>
+				<Name>Forensic Carving Tools</Name>
+				<Include>
+					<Filename>mozo-made-2.desktop</Filename>
+				</Include>
+				<Include>
+					<Filename>mozo-made-10.desktop</Filename>
+				</Include>
+				<Layout>
+					<Merge type="menus"/>
+					<Filename>parrot-magicrescue.desktop</Filename>
+					<Filename>parrot-pasco.desktop</Filename>
+					<Filename>parrot-pev.desktop</Filename>
+					<Filename>parrot-rifiuti.desktop</Filename>
+					<Filename>parrot-rifiuti2.desktop</Filename>
+					<Filename>parrot-safecopy.desktop</Filename>
+					<Filename>parrot-scalpel.desktop</Filename>
+					<Filename>parrot-scrounge-ntfs.desktop</Filename>
+					<Filename>mozo-made-2.desktop</Filename>
+					<Filename>mozo-made-10.desktop</Filename>
+					<Merge type="files"/>
+				</Layout>
+			</Menu>
+			<Include>
+				<Filename>GPX Viewer-1.desktop</Filename>
+			</Include>
+			<Include>
+				<Filename>swfdump.desktop</Filename>
+			</Include>
+			<Include>
+				<Filename>mozo-made-6.desktop</Filename>
+			</Include>
+			<Layout>
+				<Merge type="menus"/>
+				<Menuname>Digital Forensics</Menuname>
+				<Menuname>Forensic Carving Tools</Menuname>
+				<Menuname>Forensic Hashing Tools</Menuname>
+				<Menuname>Forensic Imaging Tools</Menuname>
+				<Menuname>PDF Forensics Tools</Menuname>
+				<Menuname>Forensics Analysis Suites</Menuname>
+				<Filename>parrot-autopsy.desktop</Filename>
+				<Filename>parrot-binwalk.desktop</Filename>
+				<Filename>parrot-bulk-extractor.desktop</Filename>
+				<Filename>parrot-chkrootkit.desktop</Filename>
+				<Filename>parrot-foremost.desktop</Filename>
+				<Filename>parrot-galleta.desktop</Filename>
+				<Filename>parrot-hashdeep.desktop</Filename>
+				<Filename>parrot-rkhunter.desktop</Filename>
+				<Filename>parrot-ssdeep.desktop</Filename>
+				<Filename>parrot-volafox.desktop</Filename>
+				<Filename>parrot-volatility.desktop</Filename>
+				<Filename>parrot-xplico.desktop</Filename>
+				<Filename>parrot-yara.desktop</Filename>
+				<Filename>Stegosuite.desktop</Filename>
+				<Filename>GPSCorrelate.desktop</Filename>
+				<Filename>GpsPrune.desktop</Filename>
+				<Filename>MAT-1.desktop</Filename>
+				<Filename>GPX Viewer-1.desktop</Filename>
+				<Filename>swfdump.desktop</Filename>
+				<Filename>mozo-made-6.desktop</Filename>
+				<Merge type="files"/>
+			</Layout>
+		</Menu>
+	</Menu>
+	<Menu>
+		<Name>Other</Name>
+		<Include>
+			<Filename>gnome-disk-image-mounter.desktop</Filename>
+		</Include>
+		<AppDir>/home/xe1phix/.local/share/applications</AppDir>
+		<Include>
+			<Filename>gnome-disk-image-writer.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>spectool_gtk.desktop</Filename>
+		</Include>
+		<Exclude>
+			<Filename>Virtualbricks-1.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>AQEMU.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>dconf Editor-1.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>Disks.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>GDebi Package Installer.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>GParted.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>GSmartControl.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>GSmartControl-1.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>Power Statistics.desktop</Filename>
+		</Exclude>
+		<Exclude>
+			<Filename>Redshift.desktop</Filename>
+		</Exclude>
+		<Include>
+			<Filename>gcr-viewer.desktop</Filename>
+		</Include>
+		<Exclude>
+			<Filename>Vim.desktop</Filename>
+		</Exclude>
+	</Menu>
+</Menu>

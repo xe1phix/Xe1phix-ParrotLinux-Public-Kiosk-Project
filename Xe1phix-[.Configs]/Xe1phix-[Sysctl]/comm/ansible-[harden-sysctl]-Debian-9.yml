@@ -1,0 +1,68 @@
+---
+
+harden_sysctl_distribution:
+    - { n: 'net.ipv4.tcp_syncookies', v: 1 }
+    - { n: 'net.ipv4.tcp_timestamps', v: 0 }
+## https://lwn.net/Articles/420403/
+    - { n: 'kernel.kptr_restrict', v: 1 }
+    - { n: 'kernel.core_uses_pid', v: 1 }
+## 2 - (suidsafe) - any binary which normally not be dumped is dumped readable by root only
+    - { n: 'fs.suid_dumpable', v: 2 }
+## https://www.kernel.org/doc/Documentation/sysrq.txt
+    - { n: 'kernel.sysrq', v: 0 }
+## general, but especially for containers
+    - { n: 'kernel.dmesg_restrict', v: 1 }
+    - { n: 'kernel.randomize_va_space', v: 2 }
+    - { n: 'fs.protected_symlinks', v: 1 }
+    - { n: 'fs.protected_hardlinks', v: 1 }
+    - { n: 'vm.mmap_min_addr', v: 65536 }
+    - { n: 'kernel.pid_max', v: 65536 }
+## restrict access to perf subsystem
+    - { n: 'kernel.perf_event_paranoid', v: 2 }
+    - { n: 'kernel.perf_event_max_sample_rate', v: 1 }
+    - { n: 'kernel.perf_cpu_time_max_percent', v: 1 }
+## https://kernsec.org/wiki/index.php/Kernel_Self_Protection_Project/Recommended_Settings
+    - { n: 'kernel.kexec_load_disabled', v: 1 }
+    - { n: 'user.max_user_namespaces', v: "{{ harden_sysctl_max_user_namespaces | default('0') }}" }
+    - { n: 'kernel.unprivileged_bpf_disabled', v: 1 }
+    - { n: 'net.core.bpf_jit_harden', v: 2 }
+
+harden_sysctl_network_settings:
+    - { n: 'net.ipv4.conf.all.accept_redirects', v: 0 }
+    - { n: 'net.ipv4.conf.all.secure_redirects', v: 0 }
+    - { n: 'net.ipv4.conf.all.accept_source_route', v: 0 }
+    - { n: 'net.ipv4.conf.all.bootp_relay', v: 0 }
+    - { n: 'net.ipv4.conf.all.log_martians', v: 1 }
+    - { n: 'net.ipv4.conf.all.proxy_arp', v: 0 }
+    - { n: 'net.ipv4.conf.all.rp_filter', v: 1 }
+    - { n: 'net.ipv4.conf.all.send_redirects', v: 0 }
+    - { n: 'net.ipv4.conf.default.accept_redirects', v: 0 }
+    - { n: 'net.ipv4.conf.default.secure_redirects', v: 0 }
+    - { n: 'net.ipv4.conf.default.accept_source_route', v: 0 }
+    - { n: 'net.ipv4.conf.default.log_martians', v: 1 }
+    - { n: 'net.ipv4.icmp_echo_ignore_broadcasts', v: 1 }
+    - { n: 'net.ipv4.icmp_ignore_bogus_error_responses', v: 1 }
+#    - { n: 'net.ipv6.conf.all.send_redirects', v: 0 }
+#    - { n: 'net.ipv6.conf.all.accept_redirects', v: 0 }
+#    - { n: 'net.ipv6.conf.all.accept_source_route', v: 0 }
+#    - { n: 'net.ipv6.conf.default.accept_redirects', v: 0 }
+#    - { n: 'net.ipv6.conf.default.accept_source_route', v: 0 }
+    - { n: 'net.ipv4.icmp_ratelimit', v: 100 }
+    - { n: 'net.ipv4.icmp_ratemask', v: 88089 }
+## https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt
+    - { n: 'net.ipv4.conf.all.arp_ignore', v: 1 }
+    - { n: 'net.ipv4.conf.all.arp_announce', v: 2 }
+## RFC 1337 - TIME-WAIT Assassination Hazards in TCP
+#    - { n: 'net.ipv4.tcp_rfc1337', v: 1 }
+    - { n: 'net.ipv4.ip_local_port_range', v: '32768 65535' }
+
+harden_sysctl_distribution_remove:
+
+## get in lxc: "error: permission denied on key 'kernel.shmmax'"
+harden_sysctl_distribution_remove_containers:
+#    - kernel.sysrq
+#    - kernel.core_uses_pid
+#    - kernel.msgmnb
+#    - kernel.msgmax
+#    - kernel.shmmax
+#    - kernel.shmall

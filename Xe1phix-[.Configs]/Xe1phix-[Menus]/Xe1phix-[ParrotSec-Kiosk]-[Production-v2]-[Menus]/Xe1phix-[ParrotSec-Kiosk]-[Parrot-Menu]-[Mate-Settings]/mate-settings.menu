@@ -1,0 +1,142 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Menu
+  PUBLIC '-//freedesktop//DTD Menu 1.0//EN'
+  'http://standards.freedesktop.org/menu-spec/menu-1.0.dtd'>
+<Menu>
+	<Name>Desktop</Name>
+	<MergeFile type="parent">/etc/xdg/menus/mate-settings.menu</MergeFile>
+	<Menu>
+		<Name>Preferences</Name>
+		<Menu>
+			<Name>Look and Feel</Name>
+			<Include>
+				<Filename>Application Finder.desktop</Filename>
+			</Include>
+			<Include>
+				<Filename>MATE Font Viewer.desktop</Filename>
+			</Include>
+			<Include>
+				<Filename>MATE Search Tool.desktop</Filename>
+			</Include>
+			<Include>
+				<Filename>Redshift.desktop</Filename>
+			</Include>
+			<Include>
+				<Filename>SpaceFM File Search.desktop</Filename>
+			</Include>
+			<Include>
+				<Filename>Panel.desktop</Filename>
+			</Include>
+			<Layout>
+				<Merge type="menus"/>
+				<Filename>mate-appearance-properties.desktop</Filename>
+				<Filename>cact.desktop</Filename>
+				<Filename>mozo.desktop</Filename>
+				<Filename>mate-tweak.desktop</Filename>
+				<Filename>mate-notification-properties.desktop</Filename>
+				<Filename>mate-screensaver-preferences.desktop</Filename>
+				<Filename>mate-window-properties.desktop</Filename>
+				<Filename>Application Finder.desktop</Filename>
+				<Filename>MATE Font Viewer.desktop</Filename>
+				<Filename>MATE Search Tool.desktop</Filename>
+				<Filename>Redshift.desktop</Filename>
+				<Filename>SpaceFM File Search.desktop</Filename>
+				<Filename>Panel.desktop</Filename>
+				<Merge type="files"/>
+			</Layout>
+		</Menu>
+		<Menu>
+			<Name>Hardware</Name>
+			<Include>
+				<Filename>GSmartControl-1.desktop</Filename>
+			</Include>
+			<Include>
+				<Filename>Power Statistics.desktop</Filename>
+			</Include>
+			<Layout>
+				<Merge type="menus"/>
+				<Filename>mate-display-properties.desktop</Filename>
+				<Filename>mate-keyboard.desktop</Filename>
+				<Filename>mate-keybinding.desktop</Filename>
+				<Filename>mate-settings-mouse.desktop</Filename>
+				<Filename>mate-power-preferences.desktop</Filename>
+				<Filename>mate-volume-control.desktop</Filename>
+				<Filename>GSmartControl-1.desktop</Filename>
+				<Filename>Power Statistics.desktop</Filename>
+				<Merge type="files"/>
+			</Layout>
+		</Menu>
+		<Menu>
+			<Name>Internet and Network</Name>
+			<Include>
+				<Filename>Network.desktop</Filename>
+			</Include>
+			<Layout>
+				<Merge type="menus"/>
+				<Filename>gufw.desktop</Filename>
+				<Filename>nm-connection-editor.desktop</Filename>
+				<Filename>mate-network-properties.desktop</Filename>
+				<Filename>Network.desktop</Filename>
+				<Merge type="files"/>
+			</Layout>
+		</Menu>
+	</Menu>
+	<Menu>
+		<Name>Administration</Name>
+		<Include>
+			<Filename>Virtualbricks-1.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Disks.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>GDebi Package Installer.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>GParted.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>dconf Editor-1.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Virtual Machine Manager.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Virtualbricks-2.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>AQEMU.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>GSmartControl.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Firejail Tools.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>Remote Viewer.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>zuluMount.desktop</Filename>
+		</Include>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>Disks.desktop</Filename>
+			<Filename>GParted.desktop</Filename>
+			<Filename>zuluMount.desktop</Filename>
+			<Filename>GSmartControl.desktop</Filename>
+			<Filename>Firejail Tools.desktop</Filename>
+			<Filename>Virtual Machine Manager.desktop</Filename>
+			<Filename>Remote Viewer.desktop</Filename>
+			<Filename>Virtualbricks-2.desktop</Filename>
+			<Filename>AQEMU.desktop</Filename>
+			<Filename>firewall-config.desktop</Filename>
+			<Filename>dconf Editor-1.desktop</Filename>
+			<Filename>time.desktop</Filename>
+			<Filename>users.desktop</Filename>
+			<Filename>GDebi Package Installer.desktop</Filename>
+			<Filename>synaptic.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+</Menu>
