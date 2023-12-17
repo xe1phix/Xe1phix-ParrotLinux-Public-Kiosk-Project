@@ -1,0 +1,256 @@
+### Cracking Groups (scene group and scene groups do not have official sites)
+- [Team Shwz](https://anonym.to/?https://team-shwz.blogspot.com/)
+- [Team FFF](https://anonym.to/?http://seregonwow.free.fr/FFF/) - Username: _Z0rp3opLe_ + Pass: _OnlY_4_Z0Rb04rD.CoM_
+- [Team mPt](https://anonym.to/?http://www.mpt34m.net/index.html)
+- [Team tsrh](https://anonym.to/?http://tsrh.freeserials.com/)
+- [Team REPT](https://anonym.to/?http://team-rept.com/)
+- [Team LNDL](https://anonym.to/?http://lndl.0777.ir/)
+- [Team MPT](https://anonym.to/?http://mpt34m.net/)
+- [Team REIS](https://anonym.to/?http://team-reis.com/forum/)
+- [3DM](https://anonym.to/?http://bbs.3dmgame.com/)
+- Automation - LSD, Was Not Was, The Lost Boys and Bad Brew Crew.
+- C000005 - Short for 0XC000005.
+- CODEX
+- CONSPIR4CY also known as CPY
+- DEViANCE
+- D-Bug
+- DrinkOrDie
+- Echelon
+- EViLiSO
+- FAiRLiGHT also known as FLT
+- Future Brain Inc.
+- Hoodlum
+- The Dream Team
+- The Humble Guys
+- HATRED
+- HYBRID
+- International Network of Crackers
+- Kalisto
+- maVen
+- Myth
+- PARADOX
+- Phrozen Crew
+- Pirates With Attitudes also known as PWA
+- Project X
+- PROPHET
+- Rabid Neurosis
+- Radium
+- Razor 1911 also knwon as RZR and RazorDOX
+- RELOADED
+- REVOLT
+- Risciso
+- SKIDROW
+- SKiDROW360
+- Steam Underground
+- STEAMPUNKS
+- Superior Art Creations
+- Tristar and Red Sector Incorporated aso known as TRSI
+- United Software Association (USA)
+- VACE
+- ViTALiTY also known as VTY
+- STEAMPUNKS
+- VOKSI
+- FCKDRM
+- PLAZA
+- GOG
+- CODEPUNKS
+- RGMechanics
+- REVOLT
+- PROPHET
+- ElAmigos
+- ALI213
+- FITGIRL
+- BALDMAN
+- BlackBox
+- HOODLUM
+- X.X.RIDDICK.X.x
+- P2P
+- TYNYISO
+- SIMPLEX
+- HI2U
+- POSTMORTEM
+- DOGE
+- ENGIMA
+- ORiGiN
+- GameWorks
+- BAT
+- THETA
+- Team Extreme
+- WaLMaRT
+- RITUEL
+- LOOTBOX
+- DevlanceCANT
+- ShadowEagle
+- RFT
+- 8088
+- NEXUS
+- T0X1C
+- Steam006
+- Machine4578
+- OXBRIDGE
+- SC
+- RAiN
+- CALiSO
+- GNSDOX
+- MAXAGENT
+- RECHARGED
+- TDU
+- SKitties
+- Ali123
+- Rustorka
+- OPIUM
+- GAYLESS
+- FiRE
+- STFU
+- PROViSiON
+- 0x0008
+- BACKLASH
+- Gratis
+- NoGrP
+- 4NOX
+- ZHONGGUO
+- STONED
+- ASxDOX
+- TE
+- FiM
+- SKL
+- ToMikaa
+- KnightsTable
+- EBF
+- GOW
+- SteamLESS
+- NAPALM
+- TeFLoN
+- DVN
+- GimpsRus
+- KaosKrew
+- AERiS
+- TURD
+- CFB
+- JFKPC
+- OUTCAST
+- NonP2P
+- RDR
+- LiFE
+- WLX
+- DJiNN
+- GREENPEACE
+- EViLSO
+- ONEHiTWONDER
+- EFNETiSO
+- TDD
+- KLAUS
+- ABSENTiA
+- I_KNOW
+- Souldrinker
+- ReWorx
+- IND
+- ReUnion
+- D_PLUT_PAK_CRACK
+- ISLE
+- OWNAGE
+- RiPeR
+- PEACECORPS
+- ZZGiSO
+- ZEKE
+- T2S
+- CRIME
+- TiP
+- RAiDiSO
+- RETARDS
+- KORTAL
+- RHI
+- LiBERTY
+- VLiSO
+- LVA
+- ICLONE
+- AVENGED
+- TNWC
+- Revan
+- ONLY
+- CLONECD
+- X
+- DELight
+- Darbujan
+- NGW
+- DM
+- PDM
+- RG
+- INLAWS
+- TBTB
+- CLS
+- PCS
+- LM
+- UKT
+- PK
+- MONEY
+- TokZic
+- SAFTPRESSE
+- OUTLAWS
+- PROCYON
+- UTOPiA
+- NSA
+- ROUGH
+- CORE
+- FLTDOX
+- FiGHTCLUB
+- MYTH
+- BITE
+- DaRkSiDe
+- DNS
+- GENESIS
+- Doom_3_Resurrection_of_Evil
+- DETONATiON
+- HATRED
+- DRUNK
+- ITWINS
+- POD
+- CLASS
+- VACE
+- TSC
+- ADDICTION
+- DEFA
+- TVD
+- AF
+- Wasdie
+- KaOs
+- RVTFiX
+- OGN
+- 4
+- SG
+- DPS
+- DVX
+- PLEX
+- 0x0815
+- 1C
+- RG.GameWorks
+- FULL.SC
+- ISOLATION
+- R55
+- Bamboocha
+- GAME
+- ILOVETiTS
+- CHEATERS
+- RGILITA
+- REFLEX
+- TWK
+- ExAuST
+- OWI
+- FTS
+- Sam2k8
+- RPG
+- CRi
+- MDeth
+- SYNAPSE
+- CLOCK
+- DTSISO
+- OVERDUE
+- TURKDM
+- HLM
+- PARADiGM
+- DIE
+- IRRM
+- DOD
+- Kingdai
+- SPLATTER
+- EXCRETE
