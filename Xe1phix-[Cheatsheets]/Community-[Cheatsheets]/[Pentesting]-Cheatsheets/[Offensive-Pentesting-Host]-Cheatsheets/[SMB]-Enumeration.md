@@ -1,0 +1,170 @@
+# SMB (Server Message Block): Port Number -- 139,445
+
+SMB SMB (Server Message Block) is one of the most important port and this protocol is designed to share files. In SMB, authentication is required to access resources or files. Basically SMB runs on default port number 139 or 445. Strong password should be used by the admin on their important resources so that it cannot be easily guessable. 
+SMB has been used primarily to connect Windows computers, although most other systems -- such as Linux and macOS -- also include client components for connecting to SMB resources.
+
+### SMB Versions
+```
+    CIFS: The old version of SMB, which was included in Microsoft Windows NT 4.0 in 1996.
+    SMB 1.0 / SMB1: The version used in Windows 2000, Windows XP, Windows Server 2003 and Windows Server 2003 R2.
+    SMB 2.0 / SMB2: This version used in Windows Vista and Windows Server 2008.
+    SMB 2.1 / SMB2.1: This version used in Windows 7 and Windows Server 2008 R2.
+    SMB 3.0 / SMB3: This version used in Windows 8 and Windows Server 2012.
+    SMB 3.02 / SMB3: This version used in Windows 8.1 and Windows Server 2012 R2.
+    SMB 3.1: This version used in Windows Server 2016 and Windows 10.
+```
+### Enumeration Tools:
+
+SMB enumeration provide important information about our target.
+
+#### Nmap
+
+```
+# ls /usr/share/nmap/scripts/ | grep smb
+
+		smb2-capabilities.nse
+		smb2-security-mode.nse
+		smb2-time.nse
+		smb2-vuln-uptime.nse
+		smb-brute.nse
+		smb-double-pulsar-backdoor.nse
+		smb-enum-domains.nse
+		smb-enum-groups.nse
+		smb-enum-processes.nse
+		smb-enum-services.nse
+		smb-enum-sessions.nse
+		smb-enum-shares.nse
+		smb-enum-users.nse
+		smb-flood.nse
+		smb-ls.nse
+		smb-mbenum.nse
+		smb-os-discovery.nse
+		smb-print-text.nse
+		smb-protocols.nse
+		smb-psexec.nse
+		smb-security-mode.nse
+		smb-server-stats.nse
+		smb-system-info.nse
+		smb-vuln-conficker.nse
+		smb-vuln-cve2009-3103.nse
+		smb-vuln-cve-2017-7494.nse
+		smb-vuln-ms06-025.nse
+		smb-vuln-ms07-029.nse
+		smb-vuln-ms08-067.nse
+		smb-vuln-ms10-054.nse
+		smb-vuln-ms10-061.nse
+		smb-vuln-ms17-010.nse
+		smb-vuln-regsvc-dos.nse
+```
+
+#### Command to find open SMB shares through nmap
+```
+ nmap -v --script smb-enum-shares --script-args smbuser=admin,smbpass=admin -p445 192.168.1.0/24
+```
+
+### Hostname
+ Tools to enumerate hostname
+ 
+```
+   # nmblookup -A ip
+   # nbtstat -A ip
+   # nbtscan ip
+```
+#### SMB Users
+```
+nmap -sU -sS --script=smb-enum-users -p U:137,T:139 192.168.1.0/24
+```
+
+### Enum4linux
+Enumerates Hostname, SMB shares Usernames, passwords.
+```
+# enum4linux -S 10.10.0.50
+```
+
+Flag `-P` tell us whether we have access or not to a particular share.
+```
+# enum4linux -P 10.10.0.50
+```
+
+Flag `-o` to check the versions.
+```
+# enum4linux -o 10.10.0.50
+```
+
+We can quickly get all the SMB information we need in one scan — use the `-a` flag to run all simple enumeration.
+```
+# enum4linux -a 10.10.0.50
+```
+
+### SMB client:
+An SMB client is the device that accesses resources on an SMB server. For example, within a corporate network, the user PCs that access a shared drive are SMB clients.
+
+We can get a list of shares using `-L` flag without knowing username and password
+```
+# smbclient -L //server
+```
+Manual configuration
+```
+# smbclient -L //server -U user
+```
+### SMB Share:
+An SMB share, also known as an SMB file share, is simply a shared resource on an SMB server. Often, an SMB share is a directory, but it can be any shared resource. For example, network printers are often shared using SMB.
+```
+# smbclient //server/share -U user
+```
+
+
+### SMBMap
+This tools help in finding samba share drives across an entire domain.
+
+```
+# smbmap -h
+
+		usage: smbmap [-h] (-H HOST | --host-file FILE) [-u USERNAME] [-p PASSWORD]
+		Main arguments:
+		-H HOST IP of host
+		-u USERNAME Username, if omitted null session assumed
+		-p PASSWORD Password or NTLM hash
+		-s SHARE Specify a share (default C$), ex 'C$'
+		-d DOMAIN Domain name (default WORKGROUP)
+		-P PORT SMB port (default 445)
+		-v Return the OS version of the remote host
+		--admin Just report if the user is an admin
+```
+
+```
+Examples:
+
+# smbmap -H 192.168.0.1
+# smbget -R smb://192.168.0.1/bla
+# smbmap -u jsmith -p password1 -d workgroup -H 192.168.0.1
+# smbmap -u 'apadmin' -p 'asdf1234!' -d ACME -h 10.1.3.30 -x 'net group "Domain Admins" /domain' 
+```
+
+#### Download files
+```
+# smbmap -R Foldername -H //server/ -A filename -q
+```
+#### Mount a shared folder
+```
+# mount -t cifs //server/share /mnt/share
+```
+### Metasploit
+
+```
+Example :
+#use auxiliary/scanner/smb/pipe_auditor
+#show options
+#set RHOSTS ip
+#set THREADS 11
+#run
+```
+### rpcclient 
+  Check Null Sessions
+```
+# rpcclient -U “ ” -N ip
+     -U “ “ - null session
+     -N - no password
+```
+
+
