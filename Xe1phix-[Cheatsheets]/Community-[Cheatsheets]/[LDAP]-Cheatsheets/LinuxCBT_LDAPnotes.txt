@@ -1,0 +1,734 @@
+DOC UPDATED: 2018-05-23 - done video 8,9
+DOC UPDATED: 2018-05-21 - done video 6,7*
+98***********************DOC UPDATED: 2018-05-20 - done video 4,5
+DOC UPDATED: 2018-05-19 - done video 3
+DOC UPDATED: 2018-05-16 - done video 1,2
+
+===================== VIDEO 2 =====================
+
+Current Release of OpenLDAP is 2.4x
+
+OpensLDAP facilitates the Virtualization trend, whereby the ability to spawn numerous instances os OSes is the norm. It saves time in referencing common data-sets:
+ - users, gropus
+ - machines
+ - application data
+ - other key-value pairs (associated attributes)
+ 
+OpenLDAP 2.4 allows dynamic and single configuration os "slapd" via "slapd-config" sans necessity of restart. (in constrast of 2.3 version, which used "slapd.conf").
+
+Entries are referenced using "Distinguished Names (DNs)" concatenations of entries attributes, and it allows LDAP server and clients to fully qualify objects, as a single attibute difference relates to different objects:
+  ex1: uid=linuxcbt01,ou=training,o=LinuxCBT,dc=linuxcbt,dc=internal 
+  ex2: uid=linuxcbt02,ou=training,o=LinuxCBT,dc=linuxcbt,dc=internal
+
+===================== VIDEO 3 =====================
+
+Topology:
+       LinuxCBT                  Myne
+NODE1. linuxcbtopenldap1 .200    ldap01 192.168.1.101
+NODE2. linuxcbtopenldap2 .201    ldap02 192.168.1.102    
+       Both Ubuntu 12.04 LTS     Both Ubuntu 14.10
+
+Run it on both nodes:
+
+apt-get update
+apt-get install slapd ldap-utils
+	Administrator password: qwe123
+dpkg-reconfigure -plow slapd
+	Omit OpenLDAP server configuration? No
+	DNS Domain Name: frozza.com
+	Organizaion name: Frozza
+	Administrator password: qwe123
+
+	DB backend: HDB
+	Remove when slapd is purged: No
+	Move old DB: Yes
+	Allow v2 protocol: No
+
+ps -ef | grep slapd
+	slapdopenldap  3320     1  0 22:29 ?        00:00:00 /usr/sbin/slapd -h ldap:/// ldapi:/// -g openldap -u openldap -F /etc/ldap/slapd.d
+
+ldapi - UDS (Unix Domain Socket) - simple Auth (withou SASL) presumes local access.
+
+/etc/default/slapd
+/etc/ldap/
+          ldap.con f -> basic server config
+          sasl2/     -> SASL2 authentication support
+          schema/    -> default schemas
+          slapd.d/   -> new/modified items/ldifs data - do not edit manually, use instead: slapd-config, ldapadd, ldapmodify, ldapdelete,ldapsearch, etc ('dpkg -L ldap-utils' to get a list of all client commands and other files)
+/var/lib/ldap -> DB directory. Contains DITs, ex:
+		- cn=config (default) - root of configuration of LDAP instance server wide.
+		- dc=frozza, dc=com
+/var/run/slapd/
+               slapd.pid -> current pid
+               slapd -> arguments used during invocation
+               ldapi -> UDS
+
+netstat -ntl -> shows tcp 389
+
+===================== VIDEO 4 =====================
+
+'slapd-config' configuration is stored in LDAP with distinct DIT and root of 'cn=config', which has server wide configuration attributes.
+
+/etc/ldap/slapd.d/cn=config/
+    cn=module{0}.ldif		-> calls all supported modules ; i.e. HDB back-end.
+    cn=schema/			-> list of default schema to include
+    cn=schema.ldif		-> describes inclusion of various schema files
+    olcBackend={0}hdb.ldif	-> Describes back-ends (HDB) and supported and implemented databases.
+    olcDatabase={0}config.ldif	-> {N}, where N represents the order of importance.
+    olcDatabase={-1}frontend.ldif
+    olcDatabase={1}hdb.ldif
+
+Dump (all) Default Configuration:
+	ldapsearch -Y EXTERNAL -H ldapi:/// -b "cn=config"
+
+EX 1: As exercise, modify the loglevel from 0 (default) to '-1' (which is very verbose).
+
+ vi EnableLogging.ldif
+	dn: cn=config
+	changetype: modify
+	replace: olcLogLevel
+	olcLogLevel: -1
+
+Apply ldif to modify logging definitions:
+	ldapmodify -Y EXTERNAL -H ldapi:/// -f EnableLogging.ldif
+	ldapsearch -Y EXTERNAL -H ldapi:/// -b "cn=config" |grep -i log
+
+This is real time conf modfication and don't require reload of slapd!
+>>> If it ever needs to be restart though: 'invoke-rc.d slapd restart'
+
+===================== VIDEO 5 =====================
+
+Tasks:
+1) Create basic top-level entries in: dc=frozza,dc=com
+	> people	(OU)
+	> engineering	(OU)
+	> sales		(OU)
+	> marketing	(OU)
+	> IT		(OU)
+	> development   (OU)
+
+vi AddOUs.ldif
+	dn: ou=people,dc=frozza,dc=com
+	ou: people
+	objectclass: organizationalUnit
+
+	dn: ou=engineering,dc=frozza,dc=com
+	ou: engineering
+	objectclass: organizationalUnit	
+
+ldapadd -D 'cn=admin,dc=frozza,dc=com' -x -c -W -f AddOUs.ldif
+	-x	Use simple authentication instead of SASL.
+	-c	Errors are reported, but ldapmodify will continue with modifications. The default is to exit after an error. It will also skip already existent entries.
+	-W	Prompt for simple authentication. Used instead of specifying the password on the command line (-w).
+	-f 'file'	Read the entry modification information from file instead of from standard input.
+
+ldapsearch -D "cn=admin,dc=frozza,dc=com" -x -W -b "dc=frozza,dc=com"
+	-b 'searchbase' Use 'searchbase' as the starting point for the search instead of the default.
+
+vi AddOUs.ldif
+	dn: ou=people,dc=frozza,dc=com
+	ou: people
+	objectclass: organizationalUnit
+
+	dn: ou=engineering,dc=frozza,dc=com
+	ou: engineering
+	objectclass: organizationalUnit
+
+	dn: ou=sales,dc=frozza,dc=com
+	ou: sales
+	objectclass: organizationalUnit
+
+	dn: ou=marketing,dc=frozza,dc=com
+	ou: marketing
+	objectclass: organizationalUnit
+
+	dn: ou=IT,dc=frozza,dc=com
+	ou: IT
+	objectclass: organizationalUnit
+
+	dn: ou=development,dc=frozza,dc=com
+	ou: development
+	objectclass: organizationalUnit
+
+ldapadd -D 'cn=admin,dc=frozza,dc=com' -x -c -W -f AddOUs.ldif
+
+SEARCHING FOR OBJECTS:
+1) ldapsearch -D "cn=admin,dc=frozza,dc=com" -x -W -b "dc=frozza,dc=com"  [classic LDAP bind DN searsh]
+2) ldapsearch -Y EXTERNAL -H ldapi:// -b "dc=frozza,dc=com" [searches using UDS sans SASL or simple auth - presumes local readonly (minimun) access to Unix Domain Socket (UDS)]
+
+Curent Structure:
+frozza.com 				(top level LDAP domain)
+	|				(DIT dc=frozza,dc=com)
+	---> Frozza 			(Organization)
+		|
+		---> people		(OU)
+		   > engineering	(OU)
+		   > sales		(OU)
+		   > marketing		(OU)
+		   > IT			(OU)
+		   > development	(OU)
+			|
+TODO NEXT:		---> users	(real world objects)
+			   > groups
+			   > machines
+			
+FILTERING RESULTS
+ldapsearch -D "cn=admin,dc=frozza,dc=com" -x -W -b "dc=frozza,dc=com" "(ObjectClass=organizationalUnit)"
+NOTE: The fileter criteria can accept any LDAP key and wildcards.
+
+ADD USERS
+
+vi Add_Users.ldif
+	dn: cn=test,ou=IT,dc=frozza,dc=com
+	cn: test
+	sn: User
+	mail: test@frozza.com
+	labeledURI: http://www.frozza.com
+	roomNumber: 244 5th Avenue
+	departmentNumber: IT
+	telephoneNumber: 888-555-5556
+	objectclass: inetOrgPerson
+	objectclass: posixAccount
+        objectclass: shadowAccount
+	title: Linux CBT test user
+	displayName: Test User
+	uid: test
+	uidNumber: 10001
+	gidNumber: 10001
+	homeDirectory: /home/test
+        loginShell: /bin/bash
+
+	dn: cn=test2,ou=IT,dc=frozza,dc=com	#POSIX defined user	
+	cn: test2
+	sn: User
+	mail: test2@frozza.com
+	labeledURI: http://www.frozza.com
+	roomNumber: 244 5th Avenue
+	departmentNumber: IT
+	telephoneNumber: 888-555-5556
+	objectclass: inetOrgPerson
+	objectclass: posixAccount
+        objectclass: shadowAccount
+	title: Linux CBT test user 2
+	gecos: Test User 2
+	uid: test2
+	uidNumber: 10000
+	gidNumber: 10000
+	homeDirectory: /home/test2
+        loginShell: /bin/bash
+
+
+ldapadd -D 'cn=admin,dc=frozza,dc=com' -x -c -W -f Add_User.ldif
+
+ldapsearch -D "cn=admin,dc=frozza,dc=com" -x -W -b "dc=frozza,dc=com" "objectclass=inetorgperson"
+ldapsearch -D "cn=admin,dc=frozza,dc=com" -x -W -b "dc=frozza,dc=com" "cn=test*" [find all matches for 'test'; test, test2, etc]
+
+CHANGE USERS PASSWORD
+ldappasswd -D "cn=admin,dc=frozza,dc=com" -x -W -S "cn=test,ou=IT,dc=frozza,dc=com"
+ldapsearch -D "cn=admin,dc=frozza,dc=com" -x -W -b "dc=frozza,dc=com" "sn=user"
+
+...repeat the above commands for user 'test2'
+
+MODIFY USERS DETAILS
+vi Modify_Users.ldif
+	dn: cn=test0,ou=IT,dc=frozza,dc=com
+	changetype: modify
+	replace: mail
+	mail: linux.cbt@frozza.com
+	-
+	delete: telephoneNumber
+	-
+	add: title
+	title: LinuxCBT User 1
+
+	dn: cn=test,ou=IT,dc=frozza,dc=com
+	changetype: modify
+	replace: mail
+	mail: test.cbt@frozza.com
+	-
+	delete: telephoneNumber
+	-
+	add: title
+	title: LinuxCBT User 2
+
+NOTE: "-" separates one action from another and a 'new/blank line' separates DN records.
+  
+ldapmodify -D "cn=admin,dc=frozza,dc=com" -x -W -f Modify_Users.ldif
+
+DELETE USERS"
+ldapdelete -D "cn=admin,dc=frozza,dc=com" -x -W "cn=test,ou=IT,dc=frozza,dc=com"
+ldapsearch -D "cn=admin,dc=frozza,dc=com" -x -W -b "dc=frozza,dc=com" "sn=user" 
+
+===================== VIDEO 6 =====================
+
+### LDAP AUTH ###
+
+- Centralized accounts
+- Centralized configuration data for applications like MySQL, PostFix, Apache, etc.
+
+Typical Stack:
+  1. AUTH client (LDAP client)
+  2. PAM Hook
+    a. AUTH against LDAP directory
+    b. Auto creation of $HOME
+  3. NSS Hook
+
+(nscd - caches lookups of passwords, groups, hosts, etc.)
+
+########### UBUNTU CLIENT CONFIGURATON #############
+
+apt-get install ldap-auth-client nscd
+
+	LDAP server Uniform Resource Identifier: ldap://192.168.1.101 (IP of ldap server*)
+	Distinguished name of the search base: dc=frozza,dc=com
+	LDAP version to use: 3
+	Make local root Database admin: Yes
+	Does the LDAP database require login? No
+	LDAP account for root: cn=admin,dc=frozza,dc=com
+	LDAP root account password: qwe123
+
+NOTE*: LDAP server Uniform Resource Identifier: ldapi:/// 		for local client.	
+						ldap:/// or ldaps:/// 	for remote clients.
+
+NOTE: If needed; dpkg-reconfigure ldap-auth-config
+NOTE: UDS ldapi:// don't requires AUTH to view entries in LDAP. 
+
+CONFIGURE DEPENDENT LDAP CLIENT COMPONENT
+
+1 /etc/nsswitch.conf - modify to include a search of LDAP for desired DBs; passwd, group, hosts
+
+vi /etc/nsswitch.conf
+	passwd:         ldap compat
+	group:          ldap compat
+	shadow:         ldap compat
+	[...]
+
+2 Configure PAM to auto-create $HOME upon login: /etc/pam.d/common-session (pam_mkhoedir.so skel=/etc/skel umask=0022) - If needed, install pam_mkhoedir module on system.
+
+vi /etc/pam.d/common-session
+	session required pam_mkhomedir.so skel=/etc/skel umask=0022
+	[...]
+
+3 (if necessary) remove 'use_authok' option from ldap line on /etc/pam.d/common-password (its a workaround bug with inability to change users passwords)
+
+vi /etc/pam.d/common-password	 
+  #password  [success=1 user_unknown=ignore default=die]  pam_ldap.so use_authtok try_first_pass
+  password   [success=1 user_unknown=ignore default=die]  pam_ldap.so try_first_pass
+
+run command: 	
+    invoke-rc.d nscd restart
+    ps -ef | grep nscd
+
+Confirm current LDAP client access:
+    getent passwd | grep test2 ('id test2' works the same)
+    ldapsearch -D "cn=admin,dc=frozza,dc=com" -x -W -b "dc=frozza,dc=com" -h 192.168.1.101
+    ssh test@localhost (should create a home and prompt a bash shell automatically)
+
+########### END - UBUNTU CLIENT CONFIGURATON ############# 
+
+===================== VIDEO 7 =====================
+
+No relevant info to be added here.
+
+===================== VIDEO 8 =====================
+
+RedHat LDAP AUTH uses 'sssd' (a security framework) to cache and interact with directory services: i.e. LDAP, NIS, ADS, etc.
+
+Typical Stack:
+  1. AUTH client (LDAP client)
+  2. PAM Hook
+    a. AUTH against LDAP directory
+    b. Auto creation of $HOME
+  3. NSS Hook via sssd
+
+########### CENTOS CLIENT CONFIGURATON #############
+
+'yum install openldap openldap-clients nss-pam-ldapd' (which intalls 'sssd')
+
+cat /etc/nsswitch.conf
+	passwd:     files sss
+	shadow:     files sss
+	group:      files sss
+
+cat /etc/openldap/ldap.conf
+    BASE dc=frozza,dc=com
+    URI ldap://192.168.1.101 #ldap://192.168.1.10X (in case to use replication)
+
+TOOLS TO CONFIGURE AUTH:
+
+1) authconfig/authconfig-tui
+2) system-config-authentication (for RHEL6)/ authconfig-gtk (for RHEL7) - GUI to manage AUTH config to various remote directories: LDAP, ADS, Kerberos support, etc. It requires X, so export X on a ssh session: a) yum groups install 'X Window System' b) ssh -X root@<centos_IP> 'authconfig-gtk':
+
+    User Account Database:              LDAP
+    LDAP Search Base DN:                dc=frozza,de=com
+    LDAP Server:                        ldap://192.168.1.101
+    Use TLS:                            uncheck (no)
+    Authentication Method:              Kerberos password
+    Realm:                              EXAMPLE.COM
+    KDCs:                               kerberos.example.com
+    Admin Servers:                      kerberos.example.com
+    Use DNS to resolve hosts to realms: uncheck (no)
+    Use DNS to locate KDCs for realms:  uncheck (no)
+
+    Enable local access control:        uncheck (no)
+    Password Hashing Algorithm:         MD5
+    Create home on the first login:     check (yes)
+    
+Eventually (on RHEL6 nost probably), an update to PAM config to auto-create $HOME is necessary:
+vi /etc/pam.d/su (and also on /etc/pam.d/sshd possibly)
+	session required pam_mkhomedir.so skel=/etc/skel umask=0022
+
+Confirm current LDAP client access:
+    getent passwd | grep test01 ('id test01' works the same)
+    ldapsearch -D "cn=admin,dc=frozza,dc=com" -x -W -b "dc=frozza,dc=com" -h 192.168.1.101
+    ssh test01@localhost (should create a home and prompt a bash shell automatically)
+
+########### END - CENTOS CLIENT CONFIGURATON #############
+
+===================== VIDEO 9 =====================
+
+LDAP Account Manager (for Enterprise LDAP Administration):
+1) Web GUI to assist with LDAP DIT Management
+2) Schema Browser - effective way to study LDAP schemas
+
+(Install on Centos: yum install epel-release && yum install phpldapadmin)
+Install on Ubuntu: apt-get install ldap-account-manager
+    a. http://192.168.1.101/lam (default password is 'lam')
+    b. Go to 'Lam Configuration' and then, 'Edit Server Profiles':
+
+      General settings:
+        Server address:      ldap://localhost:389  
+        Activate TLS:        no
+        Tree suffix:         dc=frozza,dc=com
+        Login method:        Fixed list
+        List of valid users: cn=admin,dc=frozza,dc=com
+        NOTE: 'New password' refers to Lam' interface access and not the LDAP base password.
+
+      Account types
+        * Adjust all suffixes eith correct 'ou' and 'dc'.
+
+===================== VIDEO 10 ====================
+
+NOTE: use 'slappasswd' to generate password strings for user accounts.
+
+NOTE: By default, pam_mkhomefir will make $USER as owner of their $HOME. This may not be desirable for some applications, like SFTP, that requires you to tweak pam_mkhomedir accordingly to fkag permissions like 'root:root' for example.
+
+NOTE: Default LDAP implementation permits All users (including anonymous) access to 'read' contents of default DIT - dc=frozza,dc=com:
+ldapsearch -D "uid=test01,ou=IT,dc=frozza,dc=com" -x -W -b "dc=frozza,dc=com" -h 192.168.1.101
+
+===================== VIDEO 11 ====================
+
+Replication LDAP DATA across servers.
+
+NOTE: slurpd is depricaded in LDAP 2.4x
+
+                         updates
+ldap01.frozza.com <-------------------- ldap02.frozza.com
+192.168.1.101     -------------------->	192.168.1.102
+(master rw)		    ^ 		(master rw)
+		            |
+		            | queries
+                            |
+		       LDAP Clients
+
+
+Setup of Both Master Servers (ldap01 & ldap02):
+
+#To begin, let’s create a user who will have a read access to all LDAP objects, to avoid using LDAP root
+#(ldapadm) account for replication due to security reason.
+#
+# vi rpuser.ldif
+#    dn: uid=rpuser,dc=frozza,dc=com
+#    objectClass: simpleSecurityObject
+#    objectclass: account
+#    uid: rpuser
+#    description: Replication User
+#    userPassword: asd123
+#
+# ldapadd -D 'cn=admin,dc=frozza,dc=com' -x -c -W -f rpuser.ldif
+
+Enable syncprov module on the master server.
+
+# vi syncprov_mod.ldif
+    dn: cn=module,cn=config
+    objectClass: olcModuleList
+    cn: module
+    olcModulePath: /usr/lib/ldap
+    olcModuleLoad: syncprov.la
+
+Now send the configuration to the LDAP master server.
+
+(as root)# ldapadd -Y EXTERNAL -H ldapi:/// -f syncprov_mod.ldif
+
+# vi syncprov.ldif
+dn: olcOverlay=syncprov,olcDatabase={1}hdb,cn=config
+objectClass: olcOverlayConfig
+objectClass: olcSyncProvConfig
+olcOverlay: syncprov
+olcSpSessionLog: 100
+
+(as root)# ldapadd -Y EXTERNAL -H ldapi:/// -f syncprov.ldif
+
+# cat master01.ldif 
+dn: cn=config
+changetype: modify
+replace: olcServerID
+olcServerID: 101
+
+dn: olcDatabase={1}hdb,cn=config
+changetype: modify
+add: olcSyncRepl
+olcSyncRepl: rid=001
+  provider=ldap://192.168.1.102:389/
+  bindmethod=simple
+  binddn="cn=admin,dc=frozza,dc=com"
+  credentials=qwe123
+  searchbase="dc=frozza,dc=com"
+  scope=sub
+  schemachecking=on
+  type=refreshAndPersist
+  retry="30 5 300 3"
+  interval=00:00:05:00
+-
+add: olcMirrorMode
+olcMirrorMode: TRUE
+
+dn: olcOverlay=syncprov,olcDatabase={1}hdb,cn=config
+changetype: add
+objectClass: olcOverlayConfig
+objectClass: olcSyncProvConfig
+olcOverlay: syncprov
+
+# ldapmodify -Y EXTERNAL -H ldapi:/// -f master01.ldif
+
+Apply this LDIF to the second master, but, the parameters "olcServerID", "rid=" and "provider=" have unique values on each server and should be changed for master02 server.
+
+
+Test the LDAP replication:
+
+Let’s create a user in LDAP called “ldaprptest“, to do that, create a .ldif file on the master LDAP server.
+
+[root@master01 ~]# vi ldaprptest.ldif
+dn: ou=people,dc=frozza,dc=com
+ou: people
+objectclass: organizationalUnit
+
+dn: uid=ldaprptest,ou=People,dc=frozza,dc=com
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: ldaprptest
+uid: ldaprptest
+uidNumber: 9988
+gidNumber: 100
+homeDirectory: /home/ldaprptest
+loginShell: /bin/bash
+gecos: LDAP Replication Test User
+userPassword: {crypt}x
+shadowLastChange: 17058
+shadowMin: 0
+shadowMax: 99999
+shadowWarning: 7
+
+[root@master01 ~]# ldapadd -x -W -D "cn=admin,dc=frozza,dc=com" -f ldaprptest.ldif
+
+Now, on the other server, search for “ldaprptest” on the slave server.
+
+[root@master02 ~]# ldapsearch -x cn=ldaprptest -b dc=frozza,dc=com
+
+You should be able to see user "ldaprptest" on master02 hdb.
+
+Repeat the tests on the other direction; create a user on master02 and then, check if it was replicated to master01.
+
+=====
+REF1: https://www.server-world.info/en/note?os=Ubuntu_14.04&p=ldap&f=6
+REF2: https://www.itzgeek.com/how-tos/linux/centos-how-tos/configure-openldap-multi-master-replication-linux.html
+
+===================== VIDEO 12 ====================
+
+Client replication configuration
+
+1) Configure LDAP RHEL7 client to bind with slave server, too:
+
+authconfig --enableldap --enableldapauth --ldapserver=ldap01.frozza.com,ldap02.frozza.com --ldapbasedn="dc=frozza,dc=com" --enablemkhomedir --update
+
+2) Configure LDAP Ubuntu client to bind with slave server, too:
+
+dpkg-reconfigure ldap-auth-config
+
+	LDAP server Uniform Resource Identifier: ldap://192.168.1.101 ldap://192.168.1.102
+	Distinguished name of the search base: dc=frozza,dc=com
+	LDAP version to use: 3
+	Make local root Database admin: Yes
+	Does the LDAP database require login? No
+	LDAP account for root: cn=admin,dc=frozza,dc=com
+	LDAP root account password: qwe123
+
+Or, eventualy, you can just edit /etc/ldap.conf and add both servers reference:
+# vi /etc/ldap.conf
+[...]
+uri ldap://192.168.1.101 ldap://192.168.1.102
+[...]
+
+===================== VIDEO 13 ====================
+
+Nothing relevant
+
+===================== VIDEO 14 ====================
+
+LDAP over TLS for Secure Communications
+
+- LDAP makes secure communications over standard LDAP port; TCP 389.
+- Traditionally, LDAP functioned over 2 ports: TCP:389 (clear text) & TCP:636 (secure via -H ldaps:///), but, currently, the ldaps:/// on port 636 is considered depricated in favor of LDAP over TLS via TCP:389 (the default port).
+
+To connect with default config (currently plain text):
+
+ldapsearch -D "cn=admin,dc=frozza,dc=com" -x -W -H ldap://102.168.1.101 -b "dc=frozza,dc=com"
+
+To connect forcing (with option -ZZ) TLS (should fail for now):
+(single Z will try TLS and fall back to clear text if not available)
+
+ldapsearch -D "cn=admin,dc=frozza,dc=com" -x -W -H ldap://102.168.1.101 -ZZ -b "dc=frozza,dc=com"
+
+
+Install TLS support on both servers; ldap01 and ldap02:
+
+sudo apt-get update
+sudo apt-get install gnutls-bin ssl-cert
+
+sudo sh -c "certtool --generate-privkey > /etc/ssl/private/cakey.pem" (private, sef-signed CA server)
+
+sudo cp /usr/share/doc/gnutls-bin/examples/certtool.cfg /etc/ssl/ca.info
+(change at least, "cn = ", "ca" and "cert_signing_key" - this file will be used as template for the creation of the self signed certificates)
+
+sudo certtool --generate-self-signed --load-privkey /etc/ssl/private/cakey.pem --template /etc/ssl/ca.info --outfile /etc/ssl/certs/cacert.pem
+
+NOTE: '/etc/ssl/private/cakey.pem' && '/etc/ssl/certs/cacert.pem' - form the keypair (private and public parts respectively) for the self-signed CA server.
+
+Generate private key for 'slapd' instance:
+
+sudo certtool --generate-privkey --bits 2048 --outfile /etc/ssl/private/ldap01_slapd_key.pem
+
+Create the template to be used on creation of the puplic key. Make sure this options are present in the info file:
+	organization = Example Company
+	cn = ldap01.frozza.com
+	tls_www_server
+	encryption_key
+	signing_key
+	expiration_days = 3650
+
+sudo cp /etc/ssl/ca.info /etc/ssl/ldap01.info
+
+Generate Cert (public key):
+
+sudo certtool --generate-certificate --load-privkey /etc/ssl/private/ldap01_slapd_key.pem --load-ca-certificate /etc/ssl/certs/cacert.pem --load-ca-privkey /etc/ssl/private/cakey.pem --template /etc/ssl/ldap01.info --outfile /etc/ssl/certs/ldap01_slapd_cert.pem
+
++++ https://help.ubuntu.com/lts/serverguide/openldap-server.html.en#openldap-tls
++++ Check: https://www.server-world.info/en/note?os=Ubuntu_16.04&p=openldap&f=4 
++++ https://linoxide.com/linux-how-to/setup-openldap-server-authenticate-client-workstation/
+
+++ server-world ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1) https://www.server-world.info/en/note?os=Ubuntu_16.04&p=ssl
+
+Create your server's self signed SSL Certificates. If you use your server as a business, it had better buy and use a Formal Certificate from Verisign and so on.
+
+# cd /etc/ssl/private
+# openssl genrsa -aes128 -out server.key 2048
+    Enter pass phrase: frozza
+
+# openssl rsa -in server.key -out server.key 
+    Enter pass phrase: frozza
+
+# openssl req -new -days 3650 -key server.key -out server.csr
+    Country Name (2 letter code) [AU]:BR
+    State or Province Name (full name) [Some-State]:Parana
+    Locality Name (eg, city) []:Curitiba
+    Organization Name (eg, company) [Internet Widgits Pty Ltd]:Frozza
+    Organizational Unit Name (eg, section) []:IT
+    Common Name (e.g. server FQDN or YOUR name) []:frozza.com
+    Email Address []:root@frozza.com
+
+# openssl x509 -in server.csr -out server.crt -req -signkey server.key -days 3650 
+# chmod 400 server.* 
+
+2) https://www.server-world.info/en/note?os=Ubuntu_16.04&p=openldap&f=4
+
+Configure LDAP over TLS to make connection be secure.
+
+# cp server.key server.crt /etc/ssl/certs/ca-certificates.crt /etc/ldap/sasl2/
+# chown openldap. /etc/ldap/sasl2/server.key /etc/ldap/sasl2/server.crt /etc/ldap/sasl2/ca-certificates.crt 
+
+# cd
+
+# vi mod_ssl.ldif
+dn: cn=config
+changetype: modify
+add: olcTLSCACertificateFile
+olcTLSCACertificateFile: /etc/ldap/sasl2/ca-certificates.crt     (=cacert.pem no jeito linuxcbt)
+-
+replace: olcTLSCertificateFile
+olcTLSCertificateFile: /etc/ldap/sasl2/server.crt		 (=linuxcbtopenldap1_slapd_cert.pem)
+-
+replace: olcTLSCertificateKeyFile
+olcTLSCertificateKeyFile: /etc/ldap/sasl2/server.key 		 (=linuxcbtopenldap1_slapd_key.pem)
+
+# ldapmodify -Y EXTERNAL -H ldapi:/// -f mod_ssl.ldif
+
+Verify: # ldapsearch -Y EXTERNAL -H ldapi:// -b 'cn=config' | grep -i tls
+
+# vi /etc/default/slapd     (at line 24 add the following:)
+SLAPD_SERVICES="ldap:/// ldapi:/// ldaps:///"
+
+# service slapd restart
+
+Configure LDAP Client:
+
+# echo "TLS_REQCERT allow" >> /etc/ldap/ldap.conf
+# vi /etc/ldap.conf (at line 261, uncomment the following)
+ssl start_tls
+
+++ server-world ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+===================== VIDEO 15 ====================
+
+TLS Client Configuration
+
+1) Update ldap.conf - populate with reference to TLS file
+   /etc/ldap/ldap.conf - populate with reference to TLS certificate file 'TLS_CACERT /etc/ssl/certs/ca-certificates.crt' is the key reference to CA that signed OpenLDAP TLS cert.
+   Note: Default Linux bundle containing numerous certs, except internal, self-signed certs.
+   Note: One tatic is to append OpenLDAP TLS cert to generic /etc/ssl/certs/ca-certificates.crt.
+   Note: Other tatic is to create a new, OpenLDAP-specific bundle ile: i.e. /etc/ssl/certs/cacert.pem.
+   Note: TLS clients auto-cicle through available certs in bundle files (so you can always con-join them)
+
+   Because we have two servers, ldap01 and ldap02, it's possible to "cat" both '/etc/ssl/certs/cacert.pem' from each server into one to be use on both:
+   
+   ldap01# ssh ldap02 'cat /etc/ssl/certs/cacert.pem' >> /etc/ssl/certs/cacert.pem
+   ldap01# rsync /etc/ssl/certs/cacert.pem ldap02:/etc/ssl/certs/
+
+   now, change /etc/ldap/ldap.conf: 'TLS_CACERT /etc/ssl/certs/cacert.pem (on both nodes)
+
+   Note: Ensure that '/etc/hosts' or DNS are updated accordingly to fulfill extra check of '-ZZ'.
+
+How do we force TLS (not accepting clear text)?
+
+1) Method 1 - Applied per database (to both nodes):
+
+sudo ldapmodify -Y EXTERNAL -H ldapi://
+dn: olcDatabase={1}hdb,cn=config
+changetype: modify
+add: olcSecurity
+olcSecurity: tls=1
+
+IMPORTANT: It breakes replication. It must be uopdated to support TLS: https://help.ubuntu.com/lts/serverguide/openldap-server.html#openldap-tls
+
+
+
+
+
+
+
+
+
+
+
