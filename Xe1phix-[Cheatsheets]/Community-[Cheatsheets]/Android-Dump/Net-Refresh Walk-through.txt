@@ -1,0 +1,446 @@
+################################
+# Quick Subnet Reference Chart #
+################################ 
+https://www.aelius.com/njh/subnet_sheet.html
+
+
+
+
+Note: The lab exercises only appear to work in Internet Explorer, or Edge in Internet Explorer compatibility mode.
+
+
+#########################
+# Introduction to VLANs #
+#########################
+https://www.net-refresh.com/switching1.html
+
+
+1. Configure Host_Red1 to be an access port in VLAN 10
+2. Configure Host_Red2 to be an access port in VLAN 10
+3. Configure Host_Blue1 to be an access port in VLAN 20
+4. Configure Host_Blue2 to be an access port in VLAN 20
+
+
+-----Type these commands on switch 1----
+enable
+configure terminal
+    vlan 10
+      name Red_Vlan
+    interface f0/1
+      switchport mode access
+      switchport access vlan 10
+    interface f0/2
+      switchport mode access
+      switchport access vlan 10
+    interface f0/3
+      switchport mode access
+      switchport access vlan 20
+    interface f0/4
+      switchport mode access
+      switchport access vlan 20
+----------------------------------------
+
+Testing the configuration
+
+In order to test your configuration, try setting static IP addresses on the host PCs, and check which PCs can communicate. Set the host IP addresses to 192.168.0.1, 192.168.0.2, 192.168.0.3, and 192.168.0.4 respectively, with a subnet mask of 255.255.255.0. Note that having two VLANs using a single subnet is not something you will do in a real network, and is only done here to demonstrate the VLANs are separated.
+
+If you have configured the switch correctly you will find that the although the Red hosts can ping each other, they are unable to ping the Blue hosts.
+
+
+
+References used for this lab:
+* VLANs: https://www.net-refresh.com/articles/vlans1.html
+
+
+
+
+#######################
+# InterVlan Routing 1 #
+#######################
+https://www.net-refresh.com/switching2.html
+
+1. Assign 'Host_Red1' to vlan 10, and force to an access port.
+2. Assign 'Host_Red2' to vlan 10, and force to an access port.
+3. Assign 'Host_Blue1' to vlan 20, and force to an access port.
+4. Assign 'Host_Blue2' to vlan 20, and force to an access port.
+5. Assign Switch1 f0/10 to vlan 10, and force to an access port.
+6. Assign Switch1 f0/11 to vlan 20, and force to an access port.
+7. Set the IP address of Router1's f0/0 interface to the last usable address in the 10.0.0.0/24 subnet, and ensure the port is up.
+8. Set the IP address of Router1'a f0/1 interface to the last usable address in the 10.1.0.0/24 subnet, and ensure the port is up.
+9. On Switch1, create VLAN interface 10, and assign it the IP address 10.0.0.2/24.
+
+
+
+
+-----Type these commands on switch 1----
+enable
+configure terminal
+    vlan 10
+      name Red_Vlan
+    interface f0/1
+      switchport mode access
+      switchport access vlan 10
+    interface f0/2
+      switchport mode access
+      switchport access vlan 10
+    interface f0/10
+      switchport mode access
+      switchport access vlan 10
+    interface f0/3
+      switchport mode access
+      switchport access vlan 20
+    interface f0/4
+      switchport mode access
+      switchport access vlan 20
+    interface f0/11
+      switchport mode access
+      switchport access vlan 20
+    interface vlan 10
+      ip address 10.0.0.2 255.255.255.0
+
+----------------------------------------
+
+
+-----Type these commands on router 1----
+enable
+configure terminal
+   interface f0/0
+     ip address 10.0.0.254 255.255.255.0
+     no shutdown
+   interface f0/1
+     ip address 10.1.0.254 255.255.255.0
+     no shutdown
+     exit
+----------------------------------------
+
+
+Hopefully you completed that without too much difficulty! Each VLAN now has a port connected to the Router, so it should now be possible for a Red host to ping a Blue host. Go ahead and configure the host PCs with suitable IP addresses in their subnet. You will need to set the default gateway as well. Remember the default-gateway is the address that packets will be sent to if the host has no better route.
+
+
+
+References used for this lab:
+* VLANs: https://www.net-refresh.com/articles/vlans1.html
+* how to assign static IP on a switch: https://learningnetwork.cisco.com/thread/14861
+
+
+
+########################################################
+# Intervlan Routing using trunking (Router on a stick) #
+########################################################
+https://www.net-refresh.com/switching3.html
+
+1. Assign 'Host_Red1' to vlan 10, and force to an access port
+2. Assign 'Host_Red2' to vlan 10, and force to an access port
+3. Assign 'Host_Blue1' to vlan 20, and force to an access port
+4. Assign 'Host_Blue2' to vlan 20, and force to an access port
+5. Configure Switch1's f0/10 interface so it operates as a dot1q trunk
+6. Configure a sub-interface on Router1, f0/0.10. This sub-interface should receive frames with the dot1q tag 10. 
+	Assign this the last usable IP address in the 10.0.0.32/27 subnet
+7. Configure a sub-interface on Router1, f0/0.20. This sub-interface should receive frames with the dot1q tag 20. 
+	Assign this the last usable IP address in the 20.0.0.128/26 subnet
+8. On Switch1, create vlan interface 10, assign it the first usable IP address in the 10.0.0.32/27 subnet
+9. Configure the correct default gateway on Switch1
+
+
+
+-----Type these commands on switch 1----
+enable
+configure terminal
+    vlan 10
+      name Red_Vlan
+    interface f0/1
+      switchport mode access
+      switchport access vlan 10
+    interface f0/2
+      switchport mode access
+      switchport access vlan 10
+    interface f0/3
+      switchport mode access
+      switchport access vlan 20
+    interface f0/4
+      switchport mode access
+      switchport access vlan 20
+    interface f0/10
+      switchport mode trunk
+      switchport trunk encapsulation dot1q
+    interface f0/11
+      switchport mode access
+      switchport access vlan 20
+    interface vlan 10
+      ip address 10.0.0.33 255.255.255.224
+      ip default-gateway 10.0.0.62
+
+----------------------------------------
+
+
+-----Type these commands on router 1----
+enable
+configure terminal
+   interface f0/0
+     no shutdown
+   interface f0/0.10
+     encapsulation dot1q 10
+     ip address 10.0.0.62 255.255.255.224
+     no shutdown
+   interface f0/0.20
+     encapsulation dot1q 20
+     ip address 20.0.0.190 255.255.255.192
+     no shutdown
+     exit
+----------------------------------------
+
+
+
+References used for this lab:
+* VLANs: https://www.net-refresh.com/articles/vlans1.html
+* how to assign static IP on a switch: https://learningnetwork.cisco.com/thread/14861
+* Trunk port: https://networklessons.com/switching/how-to-configure-trunk-on-cisco-catalyst-switch
+* Subinterface: https://learningnetwork.cisco.com/thread/14587
+* last useable IP: https://www.aelius.com/njh/subnet_sheet.html
+* default gateway on a switch: https://learningnetwork.cisco.com/thread/22283
+
+
+
+##############################################
+# Interswitch trunks with Inter-Vlan routing #
+##############################################
+https://www.net-refresh.com/switching4.html
+
+
+1. Configure Switch1's f0/10 interface so it operates as a trunk 
+2. Configure Switch1's f0/11 interface so it dynamically negotiates and operates as a dot1q trunk 
+3. Configure Switch2's f0/11 interface so it dynamically negotiates and operates as a dot1q trunk 
+4. Assign 'Host_Red1' to vlan 10, and force to an access port 
+5. Assign 'Host_Red2' to vlan 10, and force to an access port 
+6. Assign 'Host_Blue1' to vlan 20, and force to an access port 
+7. Assign 'Host_Blue2' to vlan 20, and force to an access port 
+8. Create a sub-interface on Router1, f0/0.10. This sub-interface should receive frames with dot1q tag 10. Assign this the last usable IP address in the 172.16.0.0/22 subnet 
+9. Create a sub-interface on Router1, f0/0.20. This sub-interface should receive frames with dot1q tag 20. Assign this the last usable IP address in the 172.16.4.0/26 subnet. 
+10. On Switch1, create vlan interface 10, and assign it the first usable address in the 172.16.0.0/22 subnet 
+11. Configure the correct default gateway on Switch1
+
+
+-----Type these commands on switch 1----
+enable
+configure terminal
+    interface f0/10
+      switchport mode trunk
+      switchport trunk encapsulation dot1q
+    vlan 10
+      name Red_Vlan
+    interface f0/1
+      switchport mode access
+      switchport access vlan 10
+    interface f0/2
+      switchport mode access
+      switchport access vlan 10
+    vlan 20
+      name Blue_Vlan
+    interface f0/3
+      switchport mode access
+      switchport access vlan 20
+    interface f0/4
+      switchport mode access
+      switchport access vlan 20
+    interface vlan 10
+      ip address 172.16.0.1 255.255.252.0
+----------------------------------------
+
+
+-----Type these commands on switch 2----
+enable
+configure terminal
+    interface f0/11
+      switchport mode trunk
+      switchport trunk encapsulation dot1q
+----------------------------------------
+
+
+-----Type these commands on router 1----
+enable
+configure terminal
+   interface f0/0
+     no shutdown
+   interface f0/0.10
+     encapsulation dot1q 10
+     ip address 172.16.3.254 255.255.252.0
+     no shutdown
+   interface f0/0.20
+     encapsulation dot1q 20
+     ip address 172.16.4.62 255.255.255.192
+     no shutdown
+     exit
+----------------------------------------
+
+
+
+References used for this lab:
+* VLANs: https://www.net-refresh.com/articles/vlans1.html
+* how to assign static IP on a switch: https://learningnetwork.cisco.com/thread/14861
+* Trunk port: https://networklessons.com/switching/how-to-configure-trunk-on-cisco-catalyst-switch
+* Subinterface: https://learningnetwork.cisco.com/thread/14587
+* last useable IP: https://www.aelius.com/njh/subnet_sheet.html
+* default gateway on a switch: https://learningnetwork.cisco.com/thread/22283
+
+
+
+
+#############################################
+# Configuring Static Routes between Routers #
+#############################################
+https://www.net-refresh.com/routing1.html
+
+
+
+
+
+
+
+##################################################
+# Configuring the EIGRP dynamic routing protocol #
+##################################################
+https://www.net-refresh.com/routing3.html
+
+1. On Router1 configure the following interfaces with IP addresses: 
+? f0/0 with IP address 10.0.0.1/24
+? s0/0 with IP address 1.0.0.1/30
+? s0/1 with IP address 2.0.0.1/30
+
+-----Type these commands on router 1----
+enable
+configure terminal
+   interface f0/0
+     ip address 10.0.0.1 255.255.255.0
+     no shutdown
+   interface s0/0
+     ip address 1.0.0.1 255.255.255.252
+     no shutdown
+   interface s0/1
+     ip address 2.0.0.1 255.255.255.252
+     no shutdown
+----------------------------------------
+
+
+2. On Router2 configure the following interfaces with IP addresses: 
+? f0/0 with IP address 20.0.0.1/24
+? f0/1 with IP address 4.0.0.1/30
+? s0/0 with IP address 1.0.0.2/30
+? s0/1 with IP address 3.0.0.1/30
+
+-----Type these commands on router 2----
+enable
+configure terminal
+   interface f0/0
+     ip address 20.0.0.1 255.255.255.0
+     no shutdown
+   interface f0/1
+     ip address 4.0.0.1 255.255.255.252
+     no shutdown
+   interface s0/0
+     ip address 1.0.0.2 255.255.255.252
+     no shutdown
+   interface s0/1
+     ip address 3.0.0.1 255.255.255.252
+     no shutdown
+----------------------------------------
+
+3. On Router3 configure the following interfaces with IP addresses: 
+? f0/0 with IP address 30.0.0.1/24 
+? s0/0 with IP address 3.0.0.2/30 
+? s0/1 with IP address 2.0.0.2/30 
+
+
+-----Type these commands on router 3----
+enable
+configure terminal
+   interface f0/0
+     ip address 30.0.0.1 255.255.255.0
+     no shutdown
+   interface s0/0
+     ip address 3.0.0.2 255.255.255.252
+     no shutdown
+   interface s0/1
+     ip address 2.0.0.2 255.255.255.252
+     no shutdown
+----------------------------------------
+
+4. On Router4 configure the following interfaces with IP addresses: 
+? f0/0 with IP address 40.0.0.1/24 
+? f0/1 with IP address 4.0.0.2/30 
+
+
+-----Type these commands on router 4----
+enable
+configure terminal
+   interface f0/0
+     ip address 40.0.0.1 255.255.255.0
+     no shutdown
+   interface f0/1
+     ip address 4.0.0.2 255.255.255.252
+     no shutdown
+----------------------------------------
+
+5. On Router1 configure EIGRP to achieve the following requirements: 
+? Autonomous system 10
+? Auto route summarization disabled
+? All attached networks should be advertised
+? No EIGRP routing updates should be sent towards Host1
+
+-----Type these commands on router 1----
+enable
+configure terminal
+   router eigrp 10
+     network no auto-summary
+     network 1.0.0.0 0.0.0.3
+     network 2.0.0.0 0.0.0.3
+     exit
+----------------------------------------
+
+
+6. On Router2 configure EIGRP to achieve the following requirements: 
+ ?Autonomous system 10
+? Auto route summarization disabled
+? All attached networks should be advertised
+? No EIGRP routing updates should be sent towards Host2
+
+-----Type these commands on router 2----
+enable
+configure terminal
+   router eigrp 10
+     network no auto-summary
+     network 4.0.0.0 0.0.0.3
+     network 1.0.0.0 0.0.0.3
+     network 3.0.0.0 0.0.0.3
+     exit
+----------------------------------------
+
+7. On Router3 configure EIGRP to achieve the following requirements: 
+?Autonomous system 10
+? Auto route summarization disabled
+? All attached networks should be advertised
+? No EIGRP routing updates should be sent towards Host3
+
+-----Type these commands on router 1----
+enable
+configure terminal
+   router eigrp 10
+     network no auto-summary
+     network 3.0.0.0 0.0.0.3
+     network 2.0.0.0 0.0.0.3
+     exit
+----------------------------------------
+
+8. On Router4 configure EIGRP to achieve the following requirements: 
+?Autonomous system 10
+? Auto route summarization disabled
+? All attached networks should be advertised
+? No EIGRP routing updates should be sent towards Host4
+
+-----Type these commands on router 1----
+enable
+configure terminal
+   router eigrp 10
+     network no auto-summary
+     network 4.0.0.0 0.0.0.3
+     exit
+----------------------------------------

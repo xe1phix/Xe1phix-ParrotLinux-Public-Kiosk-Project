@@ -1,0 +1,49 @@
+We have recently rebuilt all of our chats on the Telegram chat network.
+This is a list of all of our PUBLIC chats. 
+
+We welcome any who wish to get involved in the Anon Resistance Movement [for more info check out AnonResistance.com] We do ask for any new members wishing to get involved with our group to begin in the #AnonResistance #NewBloods [Link: https://t.me/ARM_NewBloods] and get acquainted with our group before join all of our group chats ( a little manners goes a long way ) Remember we are activist with a passion to work, we do not have time for drama and infighting. If you cannot leave the drama at the door then please do not even bother to join. That being said we do look forward to an influx of new members, our group which started out very small, has grown into a pretty decent global collective with sects in many countries all over the world. As the resistance grows so must our network. Opening up these networks is the first stages of making the transition from group of sects of activist to a unified resistance collective.
+
+Telegram is a messaging app with a focus on speed and security, it’s super-fast, simple and free. You can use Telegram on all your devices at the same time — your messages sync seamlessly across any number of your phones, tablets or computers.
+
+Telegram is OpenSource and Encrypted
+
+Q: So how do you encrypt data?
+We support two layers of secure encryption. Server-client encryption is used in Cloud Chats (private and group chats), Secret Chats use an additional layer of client-client encryption. All data, regardless of type, is encrypted in the same way — be it text, media or files.
+
+Our encryption is based on 256-bit symmetric AES encryption, 2048-bit RSA encryption, and Diffie–Hellman secure key exchange. You can find more info in the Advanced FAQ.
+
+You can download telegram here for your desktop devices https://telegram.org/apps 
+or visit the app/playstore 
+
+Also recommended for android users Supergram, a more organized version of telegram.
+
+
+
+Anon Resistance Public Group Chats
+https://t.me/Anon_Resistance					#AnonResistance Main Group Chat					
+https://t.me/ARM_Ops							#AnonResistance Operations #ARMOps				
+https://t.me/ARM_NewBloods						#AnonResistance #NewBloods					
+https://t.me/ARM_HempSect						#AnonResistance #HempSector					
+https://t.me/ARM_MemeTeme						#AnonResistance #MemeTeme					
+https://t.me/joinchat/AAAAAD8vH_DEzU5VvH-MbQ	ARM Web-Dev Group						
+https://t.me/joinchat/AAAAAEHEfiznFCAVFSgZ2w	ARM Tutorials							
+https://t.me/OpExposeCPS_MemeTeme				#OpExposeCPS #MemeTeme						
+							
+Operation Chats
+https://t.me/Op_NewBlood						#OpNewBlood							
+https://t.me/Op_Safewinter						#OpSafeWinter #OpHelpingHands International Chat		
+https://t.me/Op_Flint							#OpFlint #ProjectFlint						
+https://t.me/Op_Right2Rest						#OpRight2Rest							
+https://t.me/Op_BlackSnake						#OpBlackSnake #OpNoDAPL #NoDAPL					
+https://t.me/Op_Monsanto						#OpMonsanto #HellNoGMO #MarchAgainstMonsanto			
+https://t.me/Op_WhiteRose						#OpWhiteRose							
+https://t.me/Project_Mayhem						#ProjectMayhem 2017						
+https://t.me/Op_HoodsOff						#OpHoodsOff #OpKKK						
+https://t.me/Op_PigRoast						#OpRigRoast							
+https://t.me/Op_AmericanSpring					#OpAmericanSpring						
+https://t.me/Op_FreePalestine					#OpFreePalestine #FreePalestine #OpSaveGaza			
+https://t.me/Op_1srael							#OpIsrael							
+
+
+News Feeds
+https://t.me/ProjectMayhem17			#ProjectMayhem 2017 News-Feed

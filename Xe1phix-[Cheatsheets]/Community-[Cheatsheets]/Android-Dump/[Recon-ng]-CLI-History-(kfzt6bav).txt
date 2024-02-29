@@ -1,0 +1,1798 @@
+recon-ng                  (39/39)
+[*] Version check disabled.
+
+    _/_/_/    _/_/_/_/    _/_/_/    _/_/_/    _/      _/            _/      _/    _/_/_/
+   _/    _/  _/        _/        _/      _/  _/_/    _/            _/_/    _/  _/       
+  _/_/_/    _/_/_/    _/        _/      _/  _/  _/  _/  _/_/_/_/  _/  _/  _/  _/  _/_/_/
+ _/    _/  _/        _/        _/      _/  _/    _/_/            _/    _/_/  _/      _/ 
+_/    _/  _/_/_/_/    _/_/_/    _/_/_/    _/      _/            _/      _/    _/_/_/    
+
+
+                                          /\
+                                         / \\ /\
+    Sponsored by...               /\  /\/  \\V  \/\
+                                 / \\/ // \\\\\ \\ \/\
+                                // // BLACK HILLS \/ \\
+                               www.blackhillsinfosec.com
+
+                  ____   ____   ____   ____ _____ _  ____   ____  ____
+                 |____] | ___/ |____| |       |   | |____  |____ |
+                 |      |   \_ |    | |____   |   |  ____| |____ |____
+                                   www.practisec.com
+
+                      [recon-ng v5.0.0, Tim Tomes (@lanmaster53)]                       
+
+[77] Recon modules
+[8]  Reporting modules
+[3]  Import modules
+[3]  Disabled modules
+[2]  Exploitation modules
+[2]  Discovery modules
+
+[recon-ng][default] > workspaces add test.pl
+Manages workspaces
+
+Usage: workspaces <create|delete|list|select> [...]
+
+[recon-ng][default] > add companies
+[!] Invalid command: add companies.
+[recon-ng][default] > test
+[!] Invalid command: test.
+[recon-ng][default] > none
+[!] Invalid command: none.
+[recon-ng][default] > add domains
+[!] Invalid command: add domains.
+[recon-ng][default] > test.pl
+[!] Invalid command: test.pl.
+[recon-ng][default] > use import/list
+[!] Invalid command: use import/list.
+[recon-ng][default] > set FILENAME /tmp/tmp-emails
+[!] Invalid command: set FILENAME /tmp/tmp-emails.
+[recon-ng][default] > set TABLE contacts
+[!] Invalid command: set TABLE contacts.
+[recon-ng][default] > set COLUMN email
+[!] Invalid command: set COLUMN email.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use import/csv_file
+[!] Invalid command: use import/csv_file.
+[recon-ng][default] > set FILENAME /tmp/names.csv
+[!] Invalid command: set FILENAME /tmp/names.csv.
+[recon-ng][default] > set COLUMN_SEPARATOR #
+[!] Invalid command: set COLUMN_SEPARATOR #.
+[recon-ng][default] > set TABLE contacts
+[!] Invalid command: set TABLE contacts.
+[recon-ng][default] > set CSV_FIRST_NAME first_name
+[!] Invalid command: set CSV_FIRST_NAME first_name.
+[recon-ng][default] > set CSV_LAST_NAME last_name
+[!] Invalid command: set CSV_LAST_NAME last_name.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/domains-companies/pen
+[!] Invalid command: use recon/domains-companies/pen.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/domains-contacts/pen
+[!] Invalid command: use recon/domains-contacts/pen.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/domains-contacts/whois_pocs
+[!] Invalid command: use recon/domains-contacts/whois_pocs.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/domains-hosts/bing_domain_api
+[!] Invalid command: use recon/domains-hosts/bing_domain_api.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/domains-hosts/bing_domain_web
+[!] Invalid command: use recon/domains-hosts/bing_domain_web.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/domains-hosts/builtwith
+[!] Invalid command: use recon/domains-hosts/builtwith.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/domains-hosts/certificate_transparency
+[!] Invalid command: use recon/domains-hosts/certificate_transparency.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/domains-hosts/findsubdomains
+[!] Invalid command: use recon/domains-hosts/findsubdomains.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/domains-hosts/hackertarget
+[!] Invalid command: use recon/domains-hosts/hackertarget.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/domains-hosts/netcraft
+[!] Invalid command: use recon/domains-hosts/netcraft.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/domains-hosts/shodan_hostname
+[!] Invalid command: use recon/domains-hosts/shodan_hostname.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/domains-hosts/ssl_san
+[!] Invalid command: use recon/domains-hosts/ssl_san.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/domains-hosts/threatcrowd
+[!] Invalid command: use recon/domains-hosts/threatcrowd.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/domains-hosts/threatminer
+[!] Invalid command: use recon/domains-hosts/threatminer.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/companies-contacts/bing_linkedin_cache
+[!] Invalid command: use recon/companies-contacts/bing_linkedin_cache.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/companies-contacts/pen
+[!] Invalid command: use recon/companies-contacts/pen.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/companies-domains/pen
+[!] Invalid command: use recon/companies-domains/pen.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/companies-multi/github_miner
+[!] Invalid command: use recon/companies-multi/github_miner.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/companies-multi/whois_miner
+[!] Invalid command: use recon/companies-multi/whois_miner.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/contacts-credentials/hibp_breach
+[!] Invalid command: use recon/contacts-credentials/hibp_breach.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/contacts-credentials/hibp_paste
+[!] Invalid command: use recon/contacts-credentials/hibp_paste.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/hosts-hosts/bing_ip
+[!] Invalid command: use recon/hosts-hosts/bing_ip.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/hosts-hosts/ssltools
+[!] Invalid command: use recon/hosts-hosts/ssltools.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/hosts-ports/shodan_ip
+[!] Invalid command: use recon/hosts-ports/shodan_ip.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/netblocks-companies/whois_orgs
+[!] Invalid command: use recon/netblocks-companies/whois_orgs.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/netblocks-hosts/shodan_net
+[!] Invalid command: use recon/netblocks-hosts/shodan_net.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/netblocks-hosts/virustotal
+[!] Invalid command: use recon/netblocks-hosts/virustotal.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/netblocks-ports/census_2012
+[!] Invalid command: use recon/netblocks-ports/census_2012.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/netblocks-ports/censysio
+[!] Invalid command: use recon/netblocks-ports/censysio.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/ports-hosts/migrate_ports
+[!] Invalid command: use recon/ports-hosts/migrate_ports.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/profiles-profiles/twitter_mentioned
+[!] Invalid command: use recon/profiles-profiles/twitter_mentioned.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > use recon/profiles-profiles/twitter_mentions
+[!] Invalid command: use recon/profiles-profiles/twitter_mentions.
+[recon-ng][default] > run
+[!] Invalid command: run.
+[recon-ng][default] > # Thanks Brett Fitzpatrick @_brettfitz for this query.
+[!] Invalid command: # Thanks Brett Fitzpatrick @_brettfitz for this query.
+[recon-ng][default] > query DELETE FROM contacts WHERE rowid NOT IN (SELECT min(rowid) FROM contacts GROUP BY first_name, last_name, email)
+[!] Invalid command: query DELETE FROM contacts WHERE rowid NOT IN (SELECT min(rowid) FROM contacts GROUP BY first_name, last_name, email).
+[recon-ng][default] > 
+[recon-ng][default] > # Thanks Robleh Esa @RoblehEsa for these two queries.
+[!] Invalid command: # Thanks Robleh Esa @RoblehEsa for these two queries.
+[recon-ng][default] > query UPDATE hosts SET ip_address = "" WHERE ip_address IS NULL
+[!] Invalid command: query UPDATE hosts SET ip_address = "" WHERE ip_address IS NULL.
+[recon-ng][default] > query DELETE FROM hosts WHERE rowid NOT IN (SELECT * FROM (SELECT max.rowid FROM hosts max LEFT JOIN hosts bigger ON max.host = bigger.host AND LENGTH(max.ip_address) < LENGTH(bigger.ip_address) WHERE bigger.ip_address IS NULL) AS keepers)
+[!] Invalid command: query DELETE FROM hosts WHERE rowid NOT IN (SELECT * FROM (SELECT max.rowid FROM hosts max LEFT JOIN hosts bigger ON max.host = bigger.host AND LENGTH(max.ip_address) < LENGTH(bigger.ip_address) WHERE bigger.ip_address IS NULL) AS keepers).
+[recon-ng][default] > 
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name IS NULL AND email IS NULL
+[!] Invalid command: query DELETE FROM contacts WHERE first_name IS NULL AND email IS NULL.
+[recon-ng][default] > query DELETE FROM contacts WHERE last_name IS NULL AND email IS NULL
+[!] Invalid command: query DELETE FROM contacts WHERE last_name IS NULL AND email IS NULL.
+[recon-ng][default] > 
+[recon-ng][default] > query DELETE FROM contacts WHERE LENGTH(first_name) <2 AND email IS NULL
+[!] Invalid command: query DELETE FROM contacts WHERE LENGTH(first_name) <2 AND email IS NULL.
+[recon-ng][default] > query DELETE FROM contacts WHERE LENGTH(last_name) <2 AND email IS NULL
+[!] Invalid command: query DELETE FROM contacts WHERE LENGTH(last_name) <2 AND email IS NULL.
+[recon-ng][default] > 
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%(%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%(%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '_'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '_'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '–%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '–%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%=%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%=%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%+%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%+%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%[%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%[%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%...%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%...%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%®%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%®%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%academic%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%academic%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%acquisition%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%acquisition%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%advance%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%advance%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%aetna%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%aetna%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%airline%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%airline%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%america%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%america%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%analysis%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%analysis%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%anp-bc%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%anp-bc%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%answer%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%answer%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%application%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%application%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%apply%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%apply%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%approved%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%approved%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%architect%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%architect%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%australia%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%australia%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%automat%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%automat%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%austria%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%austria%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%backward%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%backward%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%barricade%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%barricade%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%basket%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%basket%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%benefit%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%benefit%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%board%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%board%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%broken%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%broken%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%business%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%business%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%captain%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%captain%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%career%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%career%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%catch%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%catch%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%cfp%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%cfp%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%challenge%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%challenge%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%checklist%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%checklist%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%collective%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%collective%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%companies%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%companies%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%company%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%company%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%comprehensive%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%comprehensive%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%connect%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%connect%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%consultant%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%consultant%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%contact%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%contact%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%continuous%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%continuous%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%contract%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%contract%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%convert%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%convert%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%corporate%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%corporate%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%cpdc%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%cpdc%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%create%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%create%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%customer%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%customer%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%cyber%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%cyber%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%decision%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%decision%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%deduct%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%deduct%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%department%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%department%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%design%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%design%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%develop%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%develop%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%difference%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%difference%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%digital%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%digital%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%director%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%director%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%dismiss%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%dismiss%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%distribut%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%distribut%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%district%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%district%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%economic%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%economic%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%emirate%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%emirate%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%employ%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%employ%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%enable%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%enable%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%energy%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%energy%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%engagement%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%engagement%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%engineer%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%engineer%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%equipment%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%equipment%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%evolution%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%evolution%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%executive%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%executive%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%excellent%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%excellent%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%expose%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%expose%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%factory%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%factory%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%favorite%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%favorite%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%feeling%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%feeling%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%female%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%female%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%finance%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%finance%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%format%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%format%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%forward%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%forward%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%future%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%future%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%global%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%global%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%gmail%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%gmail%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%goto%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%goto%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%group%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%group%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%guide%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%guide%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%hacker%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%hacker%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%health%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%health%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%helpdesk%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%helpdesk%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%healthcare%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%healthcare%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%hospital%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%hospital%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%hostmaster%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%hostmaster%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%idatasec%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%idatasec%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%impact%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%impact%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%important%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%important%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%inclusive%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%inclusive%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%intern%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%intern%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%interview%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%interview%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%kpmg%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%kpmg%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%leadership%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%leadership%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%legal%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%legal%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%leverage%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%leverage%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%linked%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%linked%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%limit%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%limit%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%listen%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%listen%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%loyal%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%loyal%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%ltd%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%ltd%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%maintenance%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%maintenance%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%manage%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%manage%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%market%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%market%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%master%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%master%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%md%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%md%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%medical%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%medical%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%medicine%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%medicine%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%member%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%member%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%mending%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%mending%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%meeting%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%meeting%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%military%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%military%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%network%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%network%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%officer%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%officer%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%online%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%online%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%opportunity%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%opportunity%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%overall%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%overall%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%parkway%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%parkway%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%partner%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%partner%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%parts%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%parts%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%pattern%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%pattern%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%people%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%people%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%phr%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%phr%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%position%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%position%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%positive%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%positive%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%power%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%power%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%premium%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%premium%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%process%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%process%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%product%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%product%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%professional%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%professional%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%project%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%project%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%promise%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%promise%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%protocol%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%protocol%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%prpc%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%prpc%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%question%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%question%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%radio%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%radio%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%ransomware%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%ransomware%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%realty%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%realty%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%recruiter%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%recruiter%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%reform%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%reform%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%relationship%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%relationship%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%research%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%research%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%robot%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%robot%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%secretariat%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%secretariat%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%security%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%security%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%semiconductor%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%semiconductor%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%senior%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%senior%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%service%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%service%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%should%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%should%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%singhealth%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%singhealth%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%singapore%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%singapore%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%skill%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%skill%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%society%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%society%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%social%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%social%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%solution%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%solution%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%speak%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%speak%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%sport%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%sport%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%sponsor%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%sponsor%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%staff%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%staff%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%standard%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%standard%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%support%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%support%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%system%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%system%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%takeda%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%takeda%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%talent%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%talent%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%teamwork%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%teamwork%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%technolog%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%technolog%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%therapeutic%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%therapeutic%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%three%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%three%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%today%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%today%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%trainer%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%trainer%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%training%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%training%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%transform%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%transform%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%transport%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%transport%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%trusted%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%trusted%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%ultimate%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%ultimate%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%underwriting%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%underwriting%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%understand%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%understand%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%usa%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%usa%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%value%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%value%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%walking%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%walking%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%week%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%week%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%which%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%which%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%without%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%without%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%workplace%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%workplace%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%year%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%year%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%your%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%your%'.
+[recon-ng][default] > 
+[recon-ng][default] > query DELETE FROM contacts WHERE title LIKE '%intern%'
+[!] Invalid command: query DELETE FROM contacts WHERE title LIKE '%intern%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE title LIKE '%lecturer%'
+[!] Invalid command: query DELETE FROM contacts WHERE title LIKE '%lecturer%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE title LIKE '%retired%'
+[!] Invalid command: query DELETE FROM contacts WHERE title LIKE '%retired%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE title LIKE '%student%'
+[!] Invalid command: query DELETE FROM contacts WHERE title LIKE '%student%'.
+[recon-ng][default] > query DELETE FROM contacts WHERE title LIKE '%undergraduate%'
+[!] Invalid command: query DELETE FROM contacts WHERE title LIKE '%undergraduate%'.
+[recon-ng][default] > 
+[recon-ng][default] > query DELETE FROM hosts WHERE host NOT LIKE '%.test.pl%'
+[!] Invalid command: query DELETE FROM hosts WHERE host NOT LIKE '%.test.pl%'.
+[recon-ng][default] > query DELETE FROM hosts WHERE host LIKE '%www%'
+[!] Invalid command: query DELETE FROM hosts WHERE host LIKE '%www%'.
+[recon-ng][default] > 
+[recon-ng][default] > query DELETE FROM ports WHERE host IS NULL
+[!] Invalid command: query DELETE FROM ports WHERE host IS NULL.
+[recon-ng][default] > query DELETE FROM ports WHERE host NOT LIKE '%.test.pl%'
+[!] Invalid command: query DELETE FROM ports WHERE host NOT LIKE '%.test.pl%'.
+[recon-ng][default] > 
+[recon-ng][default] > query DELETE FROM profiles WHERE LENGTH(username) < 4
+[!] Invalid command: query DELETE FROM profiles WHERE LENGTH(username) < 4.
+[recon-ng][default] > query DELETE FROM profiles WHERE rowid NOT IN (SELECT min(rowid) FROM profiles GROUP BY username)
+[!] Invalid command: query DELETE FROM profiles WHERE rowid NOT IN (SELECT min(rowid) FROM profiles GROUP BY username).
+[recon-ng][default] > query DELETE FROM profiles WHERE username LIKE '%=%'
+[!] Invalid command: query DELETE FROM profiles WHERE username LIKE '%=%'.
+[recon-ng][default] > query DELETE FROM profiles WHERE username LIKE '%+%'
+[!] Invalid command: query DELETE FROM profiles WHERE username LIKE '%+%'.
+[recon-ng][default] > query DELETE FROM profiles WHERE username LIKE '%...%'
+[!] Invalid command: query DELETE FROM profiles WHERE username LIKE '%...%'.
+[recon-ng][default] > query DELETE FROM profiles WHERE username LIKE '%”%'
+[!] Invalid command: query DELETE FROM profiles WHERE username LIKE '%”%'.
+[recon-ng][default] > query DELETE FROM profiles WHERE username LIKE '%李贤杰%'
+[!] Invalid command: query DELETE FROM profiles WHERE username LIKE '%李贤杰%'.
+[recon-ng][default] > query DELETE FROM profiles WHERE username LIKE '%许海燕%'
+[!] Invalid command: query DELETE FROM profiles WHERE username LIKE '%许海燕%'.
+[recon-ng][default] > query DELETE FROM profiles WHERE username LIKE '%许慧华%'
+[!] Invalid command: query DELETE FROM profiles WHERE username LIKE '%许慧华%'.
+[recon-ng][default] > query DELETE FROM profiles WHERE username LIKE '%潘展明%'
+[!] Invalid command: query DELETE FROM profiles WHERE username LIKE '%潘展明%'.
+[recon-ng][default] > 
+[recon-ng][default] > query UPDATE contacts SET email = LOWER(email)
+[!] Invalid command: query UPDATE contacts SET email = LOWER(email).
+[recon-ng][default] > query UPDATE credentials SET username = LOWER(username)
+[!] Invalid command: query UPDATE credentials SET username = LOWER(username).
+[recon-ng][default] > query UPDATE hosts SET host = LOWER(host)
+[!] Invalid command: query UPDATE hosts SET host = LOWER(host).
+[recon-ng][default] > query UPDATE ports SET host = LOWER(host)
+[!] Invalid command: query UPDATE ports SET host = LOWER(host).
+[recon-ng][default] > query UPDATE profiles SET username = LOWER(username)
+[!] Invalid command: query UPDATE profiles SET username = LOWER(username).
+[recon-ng][default] > 
+[recon-ng][default] > query UPDATE contacts SET first_name = REPLACE(first_name,'JR','Jr')
+[!] Invalid command: query UPDATE contacts SET first_name = REPLACE(first_name,'JR','Jr').
+[recon-ng][default] > query UPDATE contacts SET first_name = REPLACE(first_name,'XI','Xi')
+[!] Invalid command: query UPDATE contacts SET first_name = REPLACE(first_name,'XI','Xi').
+[recon-ng][default] > 
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'DAntonio',"D'Antonio")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'DAntonio',"D'Antonio").
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mca','McA')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mca','McA').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcb','McB')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcb','McB').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcc','McC')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcc','McC').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcd','McD')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcd','McD').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mce','McE')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mce','McE').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcf','McF')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcf','McF').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcg','McG')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcg','McG').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mch','McH')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mch','McH').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mci','McI')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mci','McI').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcij','McJ')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcij','McJ').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mck','McK')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mck','McK').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcl','McL')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcl','McL').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcm','McM')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcm','McM').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcn','McN')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcn','McN').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcp','McP')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcp','McP').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcq','McQ')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcq','McQ').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcs','McS')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcs','McS').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcv','McV')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcv','McV').
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'OBanion',"O'Banion")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'OBanion',"O'Banion").
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'OBrien',"O'Brien")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'OBrien',"O'Brien").
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'OConnell',"O'Connell")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'OConnell',"O'Connell").
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'ODay',"O'Day")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'ODay',"O'Day").
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'ODoherty',"O'Doherty")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'ODoherty',"O'Doherty").
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'ODonnell',"O'Donnell")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'ODonnell',"O'Donnell").
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'OKeefe',"O'Keefe")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'OKeefe',"O'Keefe").
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'OFlanagan',"O'Flanagan")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'OFlanagan',"O'Flanagan").
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'OKeefe',"O'Keefe")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'OKeefe',"O'Keefe").
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'OLinn',"O'Linn")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'OLinn',"O'Linn").
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'OShea',"O'Shea")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'OShea',"O'Shea").
+[recon-ng][default] > 
+[recon-ng][default] > query UPDATE contacts SET last_name = REPLACE(last_name,'XU','Xu')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'XU','Xu').
+[recon-ng][default] > 
+[recon-ng][default] > query UPDATE contacts SET title = '' WHERE title LIKE '%...%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%...%'.
+[recon-ng][default] > query UPDATE contacts SET title = '' WHERE title LIKE '%experience%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%experience%'.
+[recon-ng][default] > query UPDATE contacts SET title = '' WHERE title LIKE '%first name%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%first name%'.
+[recon-ng][default] > query UPDATE contacts SET title = '' WHERE title LIKE '%fortune%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%fortune%'.
+[recon-ng][default] > query UPDATE contacts SET title = '' WHERE title LIKE '%includes%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%includes%'.
+[recon-ng][default] > query UPDATE contacts SET title = '' WHERE title LIKE '%learn%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%learn%'.
+[recon-ng][default] > query UPDATE contacts SET title = '' WHERE title LIKE '%linkedin%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%linkedin%'.
+[recon-ng][default] > query UPDATE contacts SET title = '' WHERE title LIKE '%people also%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%people also%'.
+[recon-ng][default] > query UPDATE contacts SET title = '' WHERE title LIKE '%profile%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%profile%'.
+[recon-ng][default] > query UPDATE contacts SET title = '' WHERE title LIKE '%undetermined%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%undetermined%'.
+[recon-ng][default] > query UPDATE contacts SET title = '' WHERE title LIKE '%whois%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%whois%'.
+[recon-ng][default] > query UPDATE contacts SET title = '' WHERE title LIKE '%working%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%working%'.
+[recon-ng][default] > 
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'analyst-','Analyst,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'analyst-','Analyst,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'analyst -','Analyst,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'analyst -','Analyst,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'analyst','Analyst,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'analyst','Analyst,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Analyst-','Analyst,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Analyst-','Analyst,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Analyst -','Analyst,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Analyst -','Analyst,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Analyst:','Analyst,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Analyst:','Analyst,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'associate-','Associate,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'associate-','Associate,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'associate -','Associate,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'associate -','Associate,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'associate','Associate,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'associate','Associate,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Associate-','Associate,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Associate-','Associate,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Associate -','Associate,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Associate -','Associate,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'avp','Associate VP')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'avp','Associate VP').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Chief Executive Officer','CEO')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Chief Executive Officer','CEO').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Chief Financial Officer','CEO')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Chief Financial Officer','CEO').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Chief Information Security Officer','CISO')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Chief Information Security Officer','CISO').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Chief Operating Officer','COO')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Chief Operating Officer','COO').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'CFO of','CFO,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'CFO of','CFO,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Consultant:','Consultant,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Consultant:','Consultant,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'director-','Director,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'director-','Director,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'director -','Director,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'director -','Director,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'director','Director,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'director','Director,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Director-','Director,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Director-','Director,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Director -','Director,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Director -','Director,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Director/','Director, ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Director/','Director, ').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Director for','Director,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Director for','Director,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Director of','Director,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Director of','Director,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Director Of','Director,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Director Of','Director,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Director ','Director, ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Director ','Director, ').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'executive','Executive')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'executive','Executive').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'finance manager','Financial Manager')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'finance manager','Financial Manager').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'head-','Head,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'head-','Head,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'head -','Head,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'head -','Head,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'head','Head,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'head','Head,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Head-','Head,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Head-','Head,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Head -','Head,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Head -','Head,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'lead-','Lead,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'lead-','Lead,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'lead -','Lead,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'lead -','Lead,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'lead','Lead,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'lead','Lead,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Lead-','Lead,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Lead-','Lead,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Lead -','Lead,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Lead -','Lead,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'manager-','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'manager-','Manager,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'manager -','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'manager -','Manager,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'manager','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'manager','Manager,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Manager-','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Manager-','Manager,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Manager -','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Manager -','Manager,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Manager of','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Manager of','Manager,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Manager Of','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Manager Of','Manager,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Manager ','Manager, ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Manager ','Manager, ').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Mgr','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Mgr','Manager,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'mgr','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'mgr','Manager,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Officer -','Officer,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Officer -','Officer,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Proj ','Project,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Proj ','Project,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Snr ','Senior ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Snr ','Senior ').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'sr ','Senior ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'sr ','Senior ').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'sr.','Senior')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'sr.','Senior').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Sr ','Senior ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Sr ','Senior ').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Sr.','Senior')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Sr.','Senior').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'SR ','Senior ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'SR ','Senior ').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'SR.','Senior')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'SR.','Senior').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'supervisor-','Supervisor,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'supervisor-','Supervisor,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'supervisor -','Supervisor,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'supervisor -','Supervisor,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'supervisor','Supervisor,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'supervisor','Supervisor,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Supervisor-','Supervisor,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Supervisor-','Supervisor,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Supervisor -','Supervisor,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Supervisor -','Supervisor,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Supervisor of','Supervisor,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Supervisor of','Supervisor,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Supervisor Of','Supervisor,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Supervisor Of','Supervisor,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Supervisor ','Supervisor, ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Supervisor ','Supervisor, ').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'vice president','VP')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'vice president','VP').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'vice-president','VP')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'vice-president','VP').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Vice President','VP')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Vice President','VP').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'Vice-President','VP')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Vice-President','VP').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'vp','VP,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'vp','VP,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'VP -','VP,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'VP -','VP,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'VP Of','VP,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'VP Of','VP,').
+[recon-ng][default] > query UPDATE contacts SET title = REPLACE(title,'VP ','VP, ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'VP ','VP, ').
+[recon-ng][default] > 
+[recon-ng][default] > spool start /tmp/emails
+[*] Spooling output to '/tmp/emails'.
+[recon-ng][default] > query SELECT DISTINCT email FROM contacts WHERE email LIKE "%@test.pl" ORDER BY email ASC
+[!] Invalid command: query SELECT DISTINCT email FROM contacts WHERE email LIKE "%@test.pl" ORDER BY email ASC.
+[recon-ng][default] > query SELECT DISTINCT username FROM credentials WHERE username LIKE "%@test.pl" ORDER BY username ASC
+[!] Invalid command: query SELECT DISTINCT username FROM credentials WHERE username LIKE "%@test.pl" ORDER BY username ASC.
+[recon-ng][default] > spool stop
+[*] Spooling stopped. Output saved to '/tmp/emails'.
+[recon-ng][default] > 
+[recon-ng][default] > spool start /tmp/names
+[*] Spooling output to '/tmp/names'.
+[recon-ng][default] > query SELECT last_name,first_name,title FROM contacts WHERE last_name IS NOT NULL ORDER BY last_name,first_name ASC
+[!] Invalid command: query SELECT last_name,first_name,title FROM contacts WHERE last_name IS NOT NULL ORDER BY last_name,first_name ASC.
+[recon-ng][default] > spool stop
+[*] Spooling stopped. Output saved to '/tmp/names'.
+[recon-ng][default] > 
+[recon-ng][default] > spool start /tmp/networks
+[*] Spooling output to '/tmp/networks'.
+[recon-ng][default] > query SELECT DISTINCT netblock FROM netblocks WHERE netblock IS NOT NULL ORDER BY netblock ASC
+[!] Invalid command: query SELECT DISTINCT netblock FROM netblocks WHERE netblock IS NOT NULL ORDER BY netblock ASC.
+[recon-ng][default] > spool stop
+[*] Spooling stopped. Output saved to '/tmp/networks'.
+[recon-ng][default] > 
+[recon-ng][default] > spool start /tmp/subdomains
+[*] Spooling output to '/tmp/subdomains'.
+[recon-ng][default] > query SELECT DISTINCT host,ip_address FROM hosts ORDER BY host ASC
+[!] Invalid command: query SELECT DISTINCT host,ip_address FROM hosts ORDER BY host ASC.
+[recon-ng][default] > query SELECT DISTINCT host,ip_address FROM ports ORDER BY host ASC
+[!] Invalid command: query SELECT DISTINCT host,ip_address FROM ports ORDER BY host ASC.
+[recon-ng][default] > spool stop
+[*] Spooling stopped. Output saved to '/tmp/subdomains'.
+[recon-ng][default] > 
+[recon-ng][default] > spool start /tmp/usernames
+[*] Spooling output to '/tmp/usernames'.
+[recon-ng][default] > query SELECT username FROM profiles ORDER BY username ASC
+[!] Invalid command: query SELECT username FROM profiles ORDER BY username ASC.
+[recon-ng][default] > spool stop
+[*] Spooling stopped. Output saved to '/tmp/usernames'.
+[recon-ng][default] > 
+[recon-ng][default] > exit
+[!] 'bing_api' key not set. bing_linkedin_contacts module will likely fail at runtime. See 'keys add'.
+[!] 'ipinfodb_api' key not set. ipinfodb module will likely fail at runtime. See 'keys add'.
+[!] 'ipstack_api' key not set. ipstack module will likely fail at runtime. See 'keys add'.
+[!] 'bing_api' key not set. bing_ip module will likely fail at runtime. See 'keys add'.
+[!] 'twitter_api' key not set. twitter_mentioned module will likely fail at runtime. See 'keys add'.
+[!] 'twitter_secret' key not set. twitter_mentioned module will likely fail at runtime. See 'keys add'.
+[!] 'namechk_api' key not set. namechk module will likely fail at runtime. See 'keys add'.
+[!] 'twitter_api' key not set. twitter_mentions module will likely fail at runtime. See 'keys add'.
+[!] 'twitter_secret' key not set. twitter_mentions module will likely fail at runtime. See 'keys add'.
+[!] 'binaryedge_api' key not set. binaryedge module will likely fail at runtime. See 'keys add'.
+[!] 'bing_api' key not set. bing_domain_api module will likely fail at runtime. See 'keys add'.
+[!] 'binaryedge_api' key not set. binaryedge module will likely fail at runtime. See 'keys add'.
+[!] 'builtwith_api' key not set. builtwith module will likely fail at runtime. See 'keys add'.
+[!] Module 'recon/domains-contacts/metacrawler' disabled. Dependency required: ''PyPDF3''.
+[!] 'hashes_api' key not set. hashes_org module will likely fail at runtime. See 'keys add'.
+[!] 'flickr_api' key not set. flickr module will likely fail at runtime. See 'keys add'.
+[!] 'twitter_api' key not set. twitter module will likely fail at runtime. See 'keys add'.
+[!] 'twitter_secret' key not set. twitter module will likely fail at runtime. See 'keys add'.
+[!] 'bing_api' key not set. bing_linkedin_cache module will likely fail at runtime. See 'keys add'.
+[!] 'pwnedlist_api' key not set. domain_ispwned module will likely fail at runtime. See 'keys add'.
+[!] 'pwnedlist_secret' key not set. domain_ispwned module will likely fail at runtime. See 'keys add'.
+[!] Module 'recon/domains-credentials/pwnedlist/domain_creds' disabled. Dependency required: ''pyaes''.
+[!] 'pwnedlist_api' key not set. leaks_dump module will likely fail at runtime. See 'keys add'.
+[!] 'pwnedlist_secret' key not set. leaks_dump module will likely fail at runtime. See 'keys add'.
+[!] Module 'recon/domains-credentials/pwnedlist/account_creds' disabled. Dependency required: ''pyaes''.
+[!] 'pwnedlist_api' key not set. api_usage module will likely fail at runtime. See 'keys add'.
+[!] 'pwnedlist_secret' key not set. api_usage module will likely fail at runtime. See 'keys add'.
+[!] 'fullcontact_api' key not set. fullcontact module will likely fail at runtime. See 'keys add'.
+[*] Version check disabled.
+
+    _/_/_/    _/_/_/_/    _/_/_/    _/_/_/    _/      _/            _/      _/    _/_/_/
+   _/    _/  _/        _/        _/      _/  _/_/    _/            _/_/    _/  _/       
+  _/_/_/    _/_/_/    _/        _/      _/  _/  _/  _/  _/_/_/_/  _/  _/  _/  _/  _/_/_/
+ _/    _/  _/        _/        _/      _/  _/    _/_/            _/    _/_/  _/      _/ 
+_/    _/  _/_/_/_/    _/_/_/    _/_/_/    _/      _/            _/      _/    _/_/_/    
+
+
+                                          /\
+                                         / \\ /\
+    Sponsored by...               /\  /\/  \\V  \/\
+                                 / \\/ // \\\\\ \\ \/\
+                                // // BLACK HILLS \/ \\
+                               www.blackhillsinfosec.com
+
+                  ____   ____   ____   ____ _____ _  ____   ____  ____
+                 |____] | ___/ |____| |       |   | |____  |____ |
+                 |      |   \_ |    | |____   |   |  ____| |____ |____
+                                   www.practisec.com
+
+                      [recon-ng v5.0.0, Tim Tomes (@lanmaster53)]                       
+
+[77] Recon modules
+[8]  Reporting modules
+[3]  Import modules
+[3]  Disabled modules
+[2]  Exploitation modules
+[2]  Discovery modules
+
+[recon-ng][default] > workspaces select test.pl
+[!] 'bing_api' key not set. bing_linkedin_contacts module will likely fail at runtime. See 'keys add'.
+[!] 'ipinfodb_api' key not set. ipinfodb module will likely fail at runtime. See 'keys add'.
+[!] 'ipstack_api' key not set. ipstack module will likely fail at runtime. See 'keys add'.
+[!] 'bing_api' key not set. bing_ip module will likely fail at runtime. See 'keys add'.
+[!] 'twitter_api' key not set. twitter_mentioned module will likely fail at runtime. See 'keys add'.
+[!] 'twitter_secret' key not set. twitter_mentioned module will likely fail at runtime. See 'keys add'.
+[!] 'namechk_api' key not set. namechk module will likely fail at runtime. See 'keys add'.
+[!] 'twitter_api' key not set. twitter_mentions module will likely fail at runtime. See 'keys add'.
+[!] 'twitter_secret' key not set. twitter_mentions module will likely fail at runtime. See 'keys add'.
+[!] 'binaryedge_api' key not set. binaryedge module will likely fail at runtime. See 'keys add'.
+[!] 'bing_api' key not set. bing_domain_api module will likely fail at runtime. See 'keys add'.
+[!] 'binaryedge_api' key not set. binaryedge module will likely fail at runtime. See 'keys add'.
+[!] 'builtwith_api' key not set. builtwith module will likely fail at runtime. See 'keys add'.
+[!] Module 'recon/domains-contacts/metacrawler' disabled. Dependency required: ''PyPDF3''.
+[!] 'hashes_api' key not set. hashes_org module will likely fail at runtime. See 'keys add'.
+[!] 'flickr_api' key not set. flickr module will likely fail at runtime. See 'keys add'.
+[!] 'twitter_api' key not set. twitter module will likely fail at runtime. See 'keys add'.
+[!] 'twitter_secret' key not set. twitter module will likely fail at runtime. See 'keys add'.
+[!] 'bing_api' key not set. bing_linkedin_cache module will likely fail at runtime. See 'keys add'.
+[!] 'pwnedlist_api' key not set. domain_ispwned module will likely fail at runtime. See 'keys add'.
+[!] 'pwnedlist_secret' key not set. domain_ispwned module will likely fail at runtime. See 'keys add'.
+[!] Module 'recon/domains-credentials/pwnedlist/domain_creds' disabled. Dependency required: ''pyaes''.
+[!] 'pwnedlist_api' key not set. leaks_dump module will likely fail at runtime. See 'keys add'.
+[!] 'pwnedlist_secret' key not set. leaks_dump module will likely fail at runtime. See 'keys add'.
+[!] Module 'recon/domains-credentials/pwnedlist/account_creds' disabled. Dependency required: ''pyaes''.
+[!] 'pwnedlist_api' key not set. api_usage module will likely fail at runtime. See 'keys add'.
+[!] 'pwnedlist_secret' key not set. api_usage module will likely fail at runtime. See 'keys add'.
+[!] 'fullcontact_api' key not set. fullcontact module will likely fail at runtime. See 'keys add'.
+[recon-ng][test.pl] > use import/csv_file
+[!] Invalid command: use import/csv_file.
+[recon-ng][test.pl] > set FILENAME /tmp/names.csv
+[!] Invalid command: set FILENAME /tmp/names.csv.
+[recon-ng][test.pl] > set COLUMN_SEPARATOR #
+[!] Invalid command: set COLUMN_SEPARATOR #.
+[recon-ng][test.pl] > set TABLE contacts
+[!] Invalid command: set TABLE contacts.
+[recon-ng][test.pl] > set CSV_FIRST_NAME first_name
+[!] Invalid command: set CSV_FIRST_NAME first_name.
+[recon-ng][test.pl] > set CSV_LAST_NAME last_name
+[!] Invalid command: set CSV_LAST_NAME last_name.
+[recon-ng][test.pl] > run
+[!] Invalid command: run.
+[recon-ng][test.pl] > # Thanks Brett Fitzpatrick @_brettfitz for this query.
+[!] Invalid command: # Thanks Brett Fitzpatrick @_brettfitz for this query.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE rowid NOT IN (SELECT min(rowid) FROM contacts GROUP BY first_name, last_name, email)
+[!] Invalid command: query DELETE FROM contacts WHERE rowid NOT IN (SELECT min(rowid) FROM contacts GROUP BY first_name, last_name, email).
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > # Thanks Robleh Esa @RoblehEsa for these two queries.
+[!] Invalid command: # Thanks Robleh Esa @RoblehEsa for these two queries.
+[recon-ng][test.pl] > query UPDATE hosts SET ip_address = "" WHERE ip_address IS NULL
+[!] Invalid command: query UPDATE hosts SET ip_address = "" WHERE ip_address IS NULL.
+[recon-ng][test.pl] > query DELETE FROM hosts WHERE rowid NOT IN (SELECT * FROM (SELECT max.rowid FROM hosts max LEFT JOIN hosts bigger ON max.host = bigger.host AND LENGTH(max.ip_address) < LENGTH(bigger.ip_address) WHERE bigger.ip_address IS NULL) AS keepers)
+[!] Invalid command: query DELETE FROM hosts WHERE rowid NOT IN (SELECT * FROM (SELECT max.rowid FROM hosts max LEFT JOIN hosts bigger ON max.host = bigger.host AND LENGTH(max.ip_address) < LENGTH(bigger.ip_address) WHERE bigger.ip_address IS NULL) AS keepers).
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name IS NULL AND email IS NULL
+[!] Invalid command: query DELETE FROM contacts WHERE first_name IS NULL AND email IS NULL.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE last_name IS NULL AND email IS NULL
+[!] Invalid command: query DELETE FROM contacts WHERE last_name IS NULL AND email IS NULL.
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE LENGTH(first_name) <2 AND email IS NULL
+[!] Invalid command: query DELETE FROM contacts WHERE LENGTH(first_name) <2 AND email IS NULL.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE LENGTH(last_name) <2 AND email IS NULL
+[!] Invalid command: query DELETE FROM contacts WHERE LENGTH(last_name) <2 AND email IS NULL.
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%(%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%(%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '_'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '_'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '–%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '–%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%=%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%=%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%+%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%+%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%[%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%[%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%...%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%...%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%®%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%®%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%academic%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%academic%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%acquisition%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%acquisition%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%advance%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%advance%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%aetna%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%aetna%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%airline%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%airline%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%america%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%america%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%analysis%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%analysis%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%anp-bc%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%anp-bc%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%answer%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%answer%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%application%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%application%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%apply%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%apply%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%approved%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%approved%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%architect%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%architect%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%australia%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%australia%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%automat%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%automat%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%austria%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%austria%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%backward%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%backward%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%barricade%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%barricade%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%basket%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%basket%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%benefit%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%benefit%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%board%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%board%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%broken%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%broken%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%business%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%business%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%captain%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%captain%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%career%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%career%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%catch%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%catch%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%cfp%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%cfp%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%challenge%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%challenge%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%checklist%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%checklist%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%collective%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%collective%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%companies%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%companies%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%company%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%company%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%comprehensive%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%comprehensive%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%connect%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%connect%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%consultant%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%consultant%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%contact%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%contact%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%continuous%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%continuous%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%contract%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%contract%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%convert%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%convert%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%corporate%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%corporate%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%cpdc%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%cpdc%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%create%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%create%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%customer%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%customer%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%cyber%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%cyber%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%decision%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%decision%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%deduct%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%deduct%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%department%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%department%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%design%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%design%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%develop%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%develop%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%difference%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%difference%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%digital%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%digital%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%director%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%director%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%dismiss%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%dismiss%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%distribut%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%distribut%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%district%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%district%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%economic%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%economic%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%emirate%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%emirate%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%employ%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%employ%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%enable%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%enable%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%energy%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%energy%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%engagement%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%engagement%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%engineer%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%engineer%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%equipment%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%equipment%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%evolution%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%evolution%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%executive%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%executive%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%excellent%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%excellent%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%expose%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%expose%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%factory%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%factory%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%favorite%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%favorite%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%feeling%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%feeling%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%female%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%female%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%finance%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%finance%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%format%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%format%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%forward%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%forward%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%future%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%future%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%global%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%global%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%gmail%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%gmail%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%goto%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%goto%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%group%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%group%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%guide%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%guide%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%hacker%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%hacker%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%health%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%health%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%helpdesk%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%helpdesk%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%healthcare%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%healthcare%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%hospital%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%hospital%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%hostmaster%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%hostmaster%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%idatasec%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%idatasec%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%impact%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%impact%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%important%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%important%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%inclusive%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%inclusive%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%intern%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%intern%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%interview%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%interview%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%kpmg%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%kpmg%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%leadership%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%leadership%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%legal%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%legal%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%leverage%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%leverage%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%linked%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%linked%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%limit%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%limit%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%listen%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%listen%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%loyal%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%loyal%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%ltd%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%ltd%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%maintenance%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%maintenance%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%manage%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%manage%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%market%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%market%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%master%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%master%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%md%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%md%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%medical%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%medical%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%medicine%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%medicine%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%member%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%member%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%mending%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%mending%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%meeting%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%meeting%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%military%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%military%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%network%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%network%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%officer%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%officer%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%online%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%online%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%opportunity%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%opportunity%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%overall%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%overall%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%parkway%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%parkway%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%partner%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%partner%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%parts%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%parts%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%pattern%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%pattern%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%people%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%people%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%phr%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%phr%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%position%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%position%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%positive%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%positive%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%power%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%power%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%premium%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%premium%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%process%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%process%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%product%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%product%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%professional%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%professional%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%project%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%project%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%promise%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%promise%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%protocol%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%protocol%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%prpc%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%prpc%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%question%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%question%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%radio%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%radio%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%ransomware%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%ransomware%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%realty%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%realty%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%recruiter%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%recruiter%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%reform%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%reform%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%relationship%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%relationship%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%research%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%research%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%robot%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%robot%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%secretariat%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%secretariat%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%security%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%security%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%semiconductor%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%semiconductor%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%senior%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%senior%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%service%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%service%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%should%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%should%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%singhealth%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%singhealth%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%singapore%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%singapore%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%skill%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%skill%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%society%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%society%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%social%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%social%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%solution%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%solution%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%speak%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%speak%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%sport%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%sport%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%sponsor%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%sponsor%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%staff%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%staff%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%standard%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%standard%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%support%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%support%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%system%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%system%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%takeda%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%takeda%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%talent%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%talent%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%teamwork%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%teamwork%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%technolog%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%technolog%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%therapeutic%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%therapeutic%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%three%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%three%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%today%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%today%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%trainer%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%trainer%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%training%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%training%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%transform%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%transform%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%transport%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%transport%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%trusted%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%trusted%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%ultimate%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%ultimate%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%underwriting%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%underwriting%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%understand%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%understand%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%usa%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%usa%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%value%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%value%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%walking%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%walking%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%week%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%week%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%which%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%which%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%without%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%without%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%workplace%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%workplace%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%year%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%year%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE first_name OR last_name LIKE '%your%'
+[!] Invalid command: query DELETE FROM contacts WHERE first_name OR last_name LIKE '%your%'.
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE title LIKE '%intern%'
+[!] Invalid command: query DELETE FROM contacts WHERE title LIKE '%intern%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE title LIKE '%lecturer%'
+[!] Invalid command: query DELETE FROM contacts WHERE title LIKE '%lecturer%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE title LIKE '%retired%'
+[!] Invalid command: query DELETE FROM contacts WHERE title LIKE '%retired%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE title LIKE '%student%'
+[!] Invalid command: query DELETE FROM contacts WHERE title LIKE '%student%'.
+[recon-ng][test.pl] > query DELETE FROM contacts WHERE title LIKE '%undergraduate%'
+[!] Invalid command: query DELETE FROM contacts WHERE title LIKE '%undergraduate%'.
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > query DELETE FROM hosts WHERE host NOT LIKE '%.test.pl%'
+[!] Invalid command: query DELETE FROM hosts WHERE host NOT LIKE '%.test.pl%'.
+[recon-ng][test.pl] > query DELETE FROM hosts WHERE host LIKE '%www%'
+[!] Invalid command: query DELETE FROM hosts WHERE host LIKE '%www%'.
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > query DELETE FROM ports WHERE host IS NULL
+[!] Invalid command: query DELETE FROM ports WHERE host IS NULL.
+[recon-ng][test.pl] > query DELETE FROM ports WHERE host NOT LIKE '%.test.pl%'
+[!] Invalid command: query DELETE FROM ports WHERE host NOT LIKE '%.test.pl%'.
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > query DELETE FROM profiles WHERE LENGTH(username) < 4
+[!] Invalid command: query DELETE FROM profiles WHERE LENGTH(username) < 4.
+[recon-ng][test.pl] > query DELETE FROM profiles WHERE rowid NOT IN (SELECT min(rowid) FROM profiles GROUP BY username)
+[!] Invalid command: query DELETE FROM profiles WHERE rowid NOT IN (SELECT min(rowid) FROM profiles GROUP BY username).
+[recon-ng][test.pl] > query DELETE FROM profiles WHERE username LIKE '%=%'
+[!] Invalid command: query DELETE FROM profiles WHERE username LIKE '%=%'.
+[recon-ng][test.pl] > query DELETE FROM profiles WHERE username LIKE '%+%'
+[!] Invalid command: query DELETE FROM profiles WHERE username LIKE '%+%'.
+[recon-ng][test.pl] > query DELETE FROM profiles WHERE username LIKE '%...%'
+[!] Invalid command: query DELETE FROM profiles WHERE username LIKE '%...%'.
+[recon-ng][test.pl] > query DELETE FROM profiles WHERE username LIKE '%”%'
+[!] Invalid command: query DELETE FROM profiles WHERE username LIKE '%”%'.
+[recon-ng][test.pl] > query DELETE FROM profiles WHERE username LIKE '%李贤杰%'
+[!] Invalid command: query DELETE FROM profiles WHERE username LIKE '%李贤杰%'.
+[recon-ng][test.pl] > query DELETE FROM profiles WHERE username LIKE '%许海燕%'
+[!] Invalid command: query DELETE FROM profiles WHERE username LIKE '%许海燕%'.
+[recon-ng][test.pl] > query DELETE FROM profiles WHERE username LIKE '%许慧华%'
+[!] Invalid command: query DELETE FROM profiles WHERE username LIKE '%许慧华%'.
+[recon-ng][test.pl] > query DELETE FROM profiles WHERE username LIKE '%潘展明%'
+[!] Invalid command: query DELETE FROM profiles WHERE username LIKE '%潘展明%'.
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > query UPDATE contacts SET email = LOWER(email)
+[!] Invalid command: query UPDATE contacts SET email = LOWER(email).
+[recon-ng][test.pl] > query UPDATE credentials SET username = LOWER(username)
+[!] Invalid command: query UPDATE credentials SET username = LOWER(username).
+[recon-ng][test.pl] > query UPDATE hosts SET host = LOWER(host)
+[!] Invalid command: query UPDATE hosts SET host = LOWER(host).
+[recon-ng][test.pl] > query UPDATE ports SET host = LOWER(host)
+[!] Invalid command: query UPDATE ports SET host = LOWER(host).
+[recon-ng][test.pl] > query UPDATE profiles SET username = LOWER(username)
+[!] Invalid command: query UPDATE profiles SET username = LOWER(username).
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > query UPDATE contacts SET first_name = REPLACE(first_name,'JR','Jr')
+[!] Invalid command: query UPDATE contacts SET first_name = REPLACE(first_name,'JR','Jr').
+[recon-ng][test.pl] > query UPDATE contacts SET first_name = REPLACE(first_name,'XI','Xi')
+[!] Invalid command: query UPDATE contacts SET first_name = REPLACE(first_name,'XI','Xi').
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'DAntonio',"D'Antonio")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'DAntonio',"D'Antonio").
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mca','McA')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mca','McA').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcb','McB')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcb','McB').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcc','McC')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcc','McC').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcd','McD')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcd','McD').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mce','McE')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mce','McE').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcf','McF')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcf','McF').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcg','McG')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcg','McG').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mch','McH')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mch','McH').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mci','McI')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mci','McI').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcij','McJ')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcij','McJ').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mck','McK')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mck','McK').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcl','McL')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcl','McL').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcm','McM')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcm','McM').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcn','McN')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcn','McN').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcp','McP')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcp','McP').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcq','McQ')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcq','McQ').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcs','McS')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcs','McS').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'Mcv','McV')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'Mcv','McV').
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'OBanion',"O'Banion")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'OBanion',"O'Banion").
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'OBrien',"O'Brien")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'OBrien',"O'Brien").
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'OConnell',"O'Connell")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'OConnell',"O'Connell").
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'ODay',"O'Day")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'ODay',"O'Day").
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'ODoherty',"O'Doherty")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'ODoherty',"O'Doherty").
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'ODonnell',"O'Donnell")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'ODonnell',"O'Donnell").
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'OKeefe',"O'Keefe")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'OKeefe',"O'Keefe").
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'OFlanagan',"O'Flanagan")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'OFlanagan',"O'Flanagan").
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'OKeefe',"O'Keefe")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'OKeefe',"O'Keefe").
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'OLinn',"O'Linn")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'OLinn',"O'Linn").
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'OShea',"O'Shea")
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'OShea',"O'Shea").
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > query UPDATE contacts SET last_name = REPLACE(last_name,'XU','Xu')
+[!] Invalid command: query UPDATE contacts SET last_name = REPLACE(last_name,'XU','Xu').
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > query UPDATE contacts SET title = '' WHERE title LIKE '%...%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%...%'.
+[recon-ng][test.pl] > query UPDATE contacts SET title = '' WHERE title LIKE '%experience%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%experience%'.
+[recon-ng][test.pl] > query UPDATE contacts SET title = '' WHERE title LIKE '%first name%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%first name%'.
+[recon-ng][test.pl] > query UPDATE contacts SET title = '' WHERE title LIKE '%fortune%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%fortune%'.
+[recon-ng][test.pl] > query UPDATE contacts SET title = '' WHERE title LIKE '%includes%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%includes%'.
+[recon-ng][test.pl] > query UPDATE contacts SET title = '' WHERE title LIKE '%learn%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%learn%'.
+[recon-ng][test.pl] > query UPDATE contacts SET title = '' WHERE title LIKE '%linkedin%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%linkedin%'.
+[recon-ng][test.pl] > query UPDATE contacts SET title = '' WHERE title LIKE '%people also%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%people also%'.
+[recon-ng][test.pl] > query UPDATE contacts SET title = '' WHERE title LIKE '%profile%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%profile%'.
+[recon-ng][test.pl] > query UPDATE contacts SET title = '' WHERE title LIKE '%undetermined%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%undetermined%'.
+[recon-ng][test.pl] > query UPDATE contacts SET title = '' WHERE title LIKE '%whois%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%whois%'.
+[recon-ng][test.pl] > query UPDATE contacts SET title = '' WHERE title LIKE '%working%'
+[!] Invalid command: query UPDATE contacts SET title = '' WHERE title LIKE '%working%'.
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'analyst-','Analyst,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'analyst-','Analyst,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'analyst -','Analyst,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'analyst -','Analyst,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'analyst','Analyst,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'analyst','Analyst,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Analyst-','Analyst,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Analyst-','Analyst,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Analyst -','Analyst,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Analyst -','Analyst,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Analyst:','Analyst,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Analyst:','Analyst,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'associate-','Associate,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'associate-','Associate,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'associate -','Associate,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'associate -','Associate,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'associate','Associate,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'associate','Associate,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Associate-','Associate,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Associate-','Associate,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Associate -','Associate,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Associate -','Associate,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'avp','Associate VP')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'avp','Associate VP').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Chief Executive Officer','CEO')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Chief Executive Officer','CEO').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Chief Financial Officer','CEO')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Chief Financial Officer','CEO').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Chief Information Security Officer','CISO')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Chief Information Security Officer','CISO').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Chief Operating Officer','COO')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Chief Operating Officer','COO').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'CFO of','CFO,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'CFO of','CFO,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Consultant:','Consultant,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Consultant:','Consultant,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'director-','Director,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'director-','Director,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'director -','Director,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'director -','Director,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'director','Director,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'director','Director,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Director-','Director,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Director-','Director,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Director -','Director,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Director -','Director,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Director/','Director, ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Director/','Director, ').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Director for','Director,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Director for','Director,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Director of','Director,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Director of','Director,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Director Of','Director,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Director Of','Director,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Director ','Director, ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Director ','Director, ').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'executive','Executive')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'executive','Executive').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'finance manager','Financial Manager')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'finance manager','Financial Manager').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'head-','Head,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'head-','Head,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'head -','Head,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'head -','Head,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'head','Head,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'head','Head,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Head-','Head,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Head-','Head,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Head -','Head,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Head -','Head,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'lead-','Lead,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'lead-','Lead,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'lead -','Lead,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'lead -','Lead,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'lead','Lead,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'lead','Lead,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Lead-','Lead,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Lead-','Lead,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Lead -','Lead,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Lead -','Lead,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'manager-','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'manager-','Manager,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'manager -','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'manager -','Manager,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'manager','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'manager','Manager,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Manager-','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Manager-','Manager,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Manager -','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Manager -','Manager,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Manager of','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Manager of','Manager,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Manager Of','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Manager Of','Manager,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Manager ','Manager, ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Manager ','Manager, ').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Mgr','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Mgr','Manager,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'mgr','Manager,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'mgr','Manager,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Officer -','Officer,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Officer -','Officer,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Proj ','Project,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Proj ','Project,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Snr ','Senior ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Snr ','Senior ').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'sr ','Senior ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'sr ','Senior ').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'sr.','Senior')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'sr.','Senior').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Sr ','Senior ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Sr ','Senior ').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Sr.','Senior')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Sr.','Senior').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'SR ','Senior ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'SR ','Senior ').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'SR.','Senior')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'SR.','Senior').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'supervisor-','Supervisor,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'supervisor-','Supervisor,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'supervisor -','Supervisor,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'supervisor -','Supervisor,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'supervisor','Supervisor,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'supervisor','Supervisor,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Supervisor-','Supervisor,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Supervisor-','Supervisor,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Supervisor -','Supervisor,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Supervisor -','Supervisor,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Supervisor of','Supervisor,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Supervisor of','Supervisor,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Supervisor Of','Supervisor,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Supervisor Of','Supervisor,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Supervisor ','Supervisor, ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Supervisor ','Supervisor, ').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'vice president','VP')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'vice president','VP').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'vice-president','VP')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'vice-president','VP').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Vice President','VP')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Vice President','VP').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'Vice-President','VP')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'Vice-President','VP').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'vp','VP,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'vp','VP,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'VP -','VP,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'VP -','VP,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'VP Of','VP,')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'VP Of','VP,').
+[recon-ng][test.pl] > query UPDATE contacts SET title = REPLACE(title,'VP ','VP, ')
+[!] Invalid command: query UPDATE contacts SET title = REPLACE(title,'VP ','VP, ').
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > spool start /tmp/emails
+[*] Spooling output to '/tmp/emails'.
+[recon-ng][test.pl] > query SELECT DISTINCT email FROM contacts WHERE email LIKE "%@test.pl" ORDER BY email ASC
+[!] Invalid command: query SELECT DISTINCT email FROM contacts WHERE email LIKE "%@test.pl" ORDER BY email ASC.
+[recon-ng][test.pl] > query SELECT DISTINCT username FROM credentials WHERE username LIKE "%@test.pl" ORDER BY username ASC
+[!] Invalid command: query SELECT DISTINCT username FROM credentials WHERE username LIKE "%@test.pl" ORDER BY username ASC.
+[recon-ng][test.pl] > spool stop
+[*] Spooling stopped. Output saved to '/tmp/emails'.
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > spool start /tmp/names
+[*] Spooling output to '/tmp/names'.
+[recon-ng][test.pl] > query SELECT last_name,first_name,title FROM contacts WHERE last_name IS NOT NULL ORDER BY last_name,first_name ASC
+[!] Invalid command: query SELECT last_name,first_name,title FROM contacts WHERE last_name IS NOT NULL ORDER BY last_name,first_name ASC.
+[recon-ng][test.pl] > spool stop
+[*] Spooling stopped. Output saved to '/tmp/names'.
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > spool start /tmp/networks
+[*] Spooling output to '/tmp/networks'.
+[recon-ng][test.pl] > query SELECT DISTINCT netblock FROM netblocks WHERE netblock IS NOT NULL ORDER BY netblock ASC
+[!] Invalid command: query SELECT DISTINCT netblock FROM netblocks WHERE netblock IS NOT NULL ORDER BY netblock ASC.
+[recon-ng][test.pl] > spool stop
+[*] Spooling stopped. Output saved to '/tmp/networks'.
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > spool start /tmp/subdomains
+[*] Spooling output to '/tmp/subdomains'.
+[recon-ng][test.pl] > query SELECT DISTINCT host,ip_address FROM hosts ORDER BY host ASC
+[!] Invalid command: query SELECT DISTINCT host,ip_address FROM hosts ORDER BY host ASC.
+[recon-ng][test.pl] > query SELECT DISTINCT host,ip_address FROM ports ORDER BY host ASC
+[!] Invalid command: query SELECT DISTINCT host,ip_address FROM ports ORDER BY host ASC.
+[recon-ng][test.pl] > spool stop
+[*] Spooling stopped. Output saved to '/tmp/subdomains'.
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > spool start /tmp/usernames
+[*] Spooling output to '/tmp/usernames'.
+[recon-ng][test.pl] > query SELECT username FROM profiles ORDER BY username ASC
+[!] Invalid command: query SELECT username FROM profiles ORDER BY username ASC.
+[recon-ng][test.pl] > spool stop
+[*] Spooling stopped. Output saved to '/tmp/usernames'.
+[recon-ng][test.pl] > 
+[recon-ng][test.pl] > exit
+cat: networks-tmp: No such file or directory

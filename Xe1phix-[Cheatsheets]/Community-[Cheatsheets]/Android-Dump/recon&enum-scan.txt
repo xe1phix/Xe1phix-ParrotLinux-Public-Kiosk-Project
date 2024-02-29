@@ -1,0 +1,351 @@
+#!/bin/bash
+if [ $# == 0 ] ; then
+    echo -e "\n\e[00;31m##########################################\e[00m"
+    echo -e "\e[00;31m#\e[00m" "\e[00;33mPenetration Testing Enumeration Script\e[00m" "\e[00;31m#\e[00m"
+    echo -e "\e[00;33m# www.malrawr.com\e[00m"
+    echo -e "\e[00;33m# $v\e[00m\n"
+    echo -e "\e[00;33m# Example: ./penenum.sh <IP ADDRESS>"
+    echo -e "\e[00;33m# Additionally, this script needs the following tools:"
+    echo -e "\e[00;33m#"
+    echo -e "\e[00;33m#     tee"
+    echo -e "\e[00;33m#     nmap"
+    echo -e "\e[00;33m#     nikto"
+    echo -e "\e[00;33m#     enum4linux"
+    echo -e "\e[00;33m#     nmblookup"
+    echo -e "\e[00;31m##########################################\e[00m"
+
+    exit 1;
+fi
+
+commands=(
+    "tee"
+    "nmap"
+    "nikto"
+    "enum4linux"
+    "nmblookup"
+)
+
+echo "Checking if approriate tools are installed."
+for command in "${commands[@]}"
+do
+    echo "Checking $command..."
+    command -v "$command" >/dev/null 2>&1 || { echo >&2 "Uh, $command is not installed!. Aborting script."; exit 1; }
+    echo "Okay good, $command is installed!"
+done
+
+echo "Creating a directory:"
+echo "Checking if /tmp exists..."
+mkdir /tmp
+echo "Setting up a directory inside /tmp for results..."
+mkdir /tmp/results
+echo "Creating a directory for the IP"
+mkdir /tmp/results/$1
+
+echo "Running NMAP to find OPEN Ports and Services"
+nmap -Pn -sS -T 4 "$1" -p- -oG /tmp/results/$1/$1-nmap-oG.txt | tee /tmp/results/$1/$1-nmap-full.txt &> /dev/null
+echo "Nmap results exports."
+echo "Preparing output for parsing:"
+cat /tmp/results/$1/$1-nmap-oG.txt | grep "Ports" | cut -d ":" -f3 | tr "," "\n" | cut -d " " -f2 | tee /tmp/results/$1/$1-parsed-results.txt &> /dev/null
+
+echo "Now attempting to retrieve information:"
+cat /tmp/results/$1/$1-parsed-results.txt | cut -d " " -f2 | cut -d "/" -f1 | tee /tmp/results/$1/$1-ports.txt &> /dev/null
+cat /tmp/results/$1/$1-parsed-results.txt ﻿| cut -d " " -f2 | cut -d "/" -f5 | tee /tmp/results/$1/$1-services.txt &> /dev/null
+
+while read port <&3 && read service <&4; do
+    echo "Checking $port which is running $service:"
+    if [ "$service" == "ftp" ]; then
+                echo "Now running ftp scans."
+    fi
+
+    if [ "$service" == "ssh" ]; then
+                echo "Now running ssh scans."
+    fi
+
+    if [ "$service" == "telnet" ]; then
+        echo "Now running telnet scans."
+    fi
+
+    if [ "$service" == "smtp" ]; then
+                echo "Now running smtp scans."
+    fi
+
+    if [ "$service" == "domain" ]; then
+                echo "Now running domain scans."
+        NAME=`nmblookup -A "$1" | grep "<00>" | grep -v "<GROUP>" | cut -d " " -f1` &> /dev/null
+    fi
+
+    if [ "$service" == "http" ] || [ "$service" == "ssl/http" ] || [ "$service" == "https" ]; then
+                echo "Now running http scans."
+        {
+            nohup nikto -h "$1":"$port" | tee /tmp/results/$1/$1-nikto-$port.txt &
+            nohup dirb http://"$1"/ | tee /tmp/results/$1/$1-dirb-$port.txt &
+        } &> /dev/null
+    fi
+
+    if [ "$service" == "microsoft-ds" ]; then
+                echo "Now running smb scans."
+        nohup enum4linux -a "$1" | tee /tmp/results/$1/$1-enum4linux.txt &> /dev/null &
+    fi
+done 3</tmp/results/$1/$1-ports.txt 4</tmp/results/$1/$1-services.txt
+
+echo "Waiting for commands to finish"
+wait
+echo "Okay, everything is now finished!"
+
+echo "Here is a little information about the target."
+echo "Host name:"
+echo "$NAME"
+Version 2
+
+#!/bin/bash
+
+###############################################################################################################
+## [Title]: penenum.sh -- penetration testing enumeration script    
+## [Author]: www.malrawr.com
+##--------------------------------------------------------
+## [Details]:                                               
+## This script is meant to be executed against a single IP for the purpose of gathering network information on
+## discovered services.     
+##                                                      
+## This bash script is modeled after Mike's and Jivoi's python scripts. It executes further actions 
+## automatically and for some actions (password attacks) it only recommends the correct line syntax, so that    
+## the user can decide on the appropriate action to take.       
+###############################################################################################################
+
+############################################################################################################### 
+## [To Do]:
+## This script is in a functional state to be used, however it is not yet complete. I plan 
+## [Needed Features]:
+## * Fix message formatting
+##   * Add better warning colors
+## * Complete the dictionary for HTTP & HTTPS
+##   * Change the the if statement to include anything from the dictionary list
+## * Add service enumeration suggestions for services it's not able to enumerate
+##   * For example, if VNC service is found it tells the user what it is and advises on course of action
+##   * This can be expanded also with grep, say for instance if a service is called httpaproxy, it's http
+##     but the script will overlook that. A grep command inside the if statement can be used to check for 
+##     that and then if it really is http it gets added to the enumeration suggestion part of the script
+## * Improve on command and path checking
+##   * Change so that if a tool is not installed the user gets prompted to continue or not.
+##      * However, NMAP must be installed without exception. So modify to suit this
+##   * Do the same above but this time check to see if password and user lists exist. Especially rockyou.txt
+## [Future Features]:
+## * Give the script an option to use automatic enumeration or just just show the suggestions. For now it does
+##   both.
+###############################################################################################################
+
+if [ $# == 0 ] ; then
+
+    echo "##########################################################"
+    echo "## Penetration Testing Enumeration Script                 "
+    echo "## www.malrawr.com                                        "
+    echo "## [Usage]: ./penenum.sh <TARGET IP>                      "
+    echo "##########################################################"
+
+    exit 1;
+fi
+
+# Script Paths
+IP="$1"
+SCRIPTPATH=`dirname $(realpath $0)`
+OUTPUT="$SCRIPTPATH/results-penenum/$IP"
+
+# Script Colors
+RED='\033[1;31m'
+BLUE='\033[1;34m'
+GREEN='\033[1;32m'
+YELLOW='\033[49;93m'
+NC='\033[0m' # No Color
+
+#Dictionary for HTTP and HTTPS
+webHTTP=(
+    "http"
+    "www"
+    "http-alt"
+    "http-alt-alt"
+    "www-http"
+    "www-dev"
+)
+
+webHTTPS=(
+    "https"
+    "ssl/http"
+)
+
+TOOLS=(
+    "tee"
+    "nmap"
+    "nikto"
+    "enum4linux"
+    "nmblookup"
+    "hydra"
+    "medusa"
+    "smtp-user-enum"
+    "onesixtyone"
+    "snmpwalk"
+    "gobuster"
+)
+
+echo "[*] Running a check to see if tools are installed"
+for TOOL in "${TOOLS[@]}"
+do
+    command -v "$TOOL" > /dev/null 2>&1 || { echo >&2 "  [x] Uh, $TOOL is not installed!. Aborting script."; exit 1; }
+done
+
+echo "[*] Creating output directory, $OUTPUT"
+mkdir -p $OUTPUT
+
+echo "[*] Running NMAP on $IP to find OPEN Ports and Services"
+echo "  [>] Executing aggressive TCP scan"
+echo "  [=] nmap -v -Pn -A -sC -sS -T 4  $IP -p- -oG $OUTPUT/greplist_$IP.nmap -oN $OUTPUT/tcp_full_$IP.nmap &> /dev/null"
+nmap -v -Pn -A -sC -sS -T 4  $IP -p- -oG $OUTPUT/greplist_$IP.nmap -oN $OUTPUT/tcp_full_$IP.nmap &> /dev/null
+echo "  [>] Running aggressive UDP scan as background process"
+echo "  [=] nmap -v -Pn -A -sC -sU -T 4 $IP --top-ports 200 -oN $OUTPUT/udp_top200_$IP.nmap"
+{
+    nohup nmap -v -Pn -A -sC -sU -T 4 $IP --top-ports 200 -oN $OUTPUT/udp_top200_$IP.nmap &
+} &> /dev/null
+
+echo "  [=] Parsing output from $OUTPUT/greplist_$IP.nmap, saving to $OUTPUT/parsed_$IP.list"
+cat $OUTPUT/greplist_$IP.nmap | grep "Ports:" | sed 's/Ignored.*//' | cut -d " " -f4- | tr "," "\n" | tr -d " " | tee $OUTPUT/parsed_$IP.list &> /dev/null
+echo "  [=] Creating list of PORTS from $OUTPUT/parsed_$IP.list, saving to $OUTPUT/ports_$IP.list"
+cat $OUTPUT/parsed_$IP.list | cut -d "/" -f1 | tee $OUTPUT/ports_$IP.list &> /dev/null
+echo "  [=] Creating list of SERVICES from $OUTPUT/parsed_$IP.list, saving to $OUTPUT/services_$IP.list"
+cat $OUTPUT/parsed_$IP.list | cut -d "/" -f5 | tee $OUTPUT/services_$IP.list &> /dev/null
+
+while read PORT <&3 && read SERVICE <&4; do
+
+    if [ "$SERVICE" == "" ] || [ "$SERVICE" == "unknown" ]; then
+        echo -e "${YELLOW}"
+        echo -e "[x]${NC} Found an unknown service on $IP:$PORT"
+        echo "  [>] Try using CURL or AMAP to see what it might be"
+        echo "  [=] curl $IP:$PORT"
+        echo "  [=] amap -d $IP $PORT"
+
+    elif [ "$SERVICE" == "ftp" ] || [ "$SERVICE" == "tftp" ]; then
+        echo "[*] Found FTP service on $IP:$PORT"
+        echo "  [>] Now performing enumeration with NMAP and HYDRA"
+        echo "  [=] nmap -n -Pn -sV $IP -p $PORT --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221 -oN $OUTPUT/ftp_$IP-$PORT.nmap"
+        echo "  [=] hydra -L /usr/share/metasploit-framework/data/wordlists/unix_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt -f -o $OUTPUT/ftphydra_$IP-$PORT -u $IP -s $PORT ftp"
+        {
+            nohup nmap -n -Pn -sV $IP -p $PORT --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221 -oN $OUTPUT/ftp_$IP-$PORT.nmap &
+            nohup hydra -L /usr/share/metasploit-framework/data/wordlists/unix_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt -f -o $OUTPUT/ftphydra_$IP-$PORT -u $IP -s $PORT ftp &
+        } &> /dev/null
+
+    #Make output files for SSH MEDUSA AND HYDRA
+    elif [ "$SERVICE" == "ssh" ]; then
+        echo "[*] Found SSH service on $IP:$PORT"
+        echo "   [>] Now performing enumeration with MEDUSA and HYDRA"
+        echo "   [=] medusa -u root -P /usr/share/wordlists/rockyou.txt -e ns -h $IP - $PORT -M ssh -f"
+        echo "   [=] medusa -U /usr/share/metasploit-framework/data/wordlists/unix_users.txt -P/usr/share/metasploit-framework/data/wordlists/unix_passwords.txt -e ns -h $IP - $PORT -M ssh -f"
+        echo "   [=] hydra -f -V -t 1 -l root -P /usr/share/wordlists/rockyou.txt -s $PORT $IP ssh"
+
+    elif [ "$SERVICE" == "smtp" ]; then
+        echo "[*] Found SMTP service on $IP:$PORT"
+        echo "   [>] Now performing enumeration with NMAP and SMTP-USER-ENUM"
+        echo "   [=] nmap -n -Pn -sV $IP -p $PORT --script=smtp* -oN $OUTPUT/smtp_$IP-$PORT.nmap"
+        echo "   [=] smtp-user-enum -M VRFY -U /usr/share/metasploit-framework/data/wordlists/unix_users.txt -t $IP -p $PORT | tee $OUTPUT/smtp_enum_$IP-$PORT"
+        {
+            nohup nmap -n -Pn -sV $IP -p $PORT --script=smtp* -oN $OUTPUT/smtp_$IP-$PORT.nmap &
+            nohup smtp-user-enum -M VRFY -U /usr/share/metasploit-framework/data/wordlists/unix_users.txt -t $IP -p $PORT | tee $OUTPUT/smtp_enum_$IP-$PORT &
+        } &> /dev/null
+
+    elif [ "$SERVICE" == "snmp" ]; then
+        echo "[*] Found SNMP service on $IP:$PORT"
+        echo "   [>] Now performing enumeration with NMAP, ONESIXTYONE, and SNMPWALK"
+        echo "   [=] nmap -n -Pn -sV $IP -p $IP --script=snmp-netstat,snmp-processes -oN $OUTPUT/$IP:$PORT_snmp.nmap"
+        echo "   [=] onesixtyone -c public $IP | tee $OUTPUT/161_$IP-$PORT"
+        echo "   [=] snmpwalk -c public -v1 $IP | tee $OUTPUT/snmpwalk_$IP-$PORT"
+        echo "   [=] snmpwalk -c public -v1 $IP 1.3.6.1.4.1.77.1.2.25 | tee $OUTPUT/snmp_users_$IP-$PORT"
+        echo "   [=] snmpwalk -c public -v1 $IP 1.3.6.1.2.1.6.13.1.3 | tee $OUTPUT/snmp_ports_$IP-$PORT"
+        echo "   [=] snmpwalk -c public -v1 $IP 1.3.6.1.2.1.25.4.2.1.2 | tee $OUTPUT/snmp_process_$IP-$PORT"
+        echo "   [=] snmpwalk -c public -v1 $IP 1.3.6.1.2.1.25.6.3.1.2 | tee $OUTPUT/snmp_software_$IP-$PORT"
+        {
+            nohup nmap -n -Pn -sV $IP -p $IP --script=snmp-netstat,snmp-processes -oN $OUTPUT/$IP:$PORT_snmp.nmap &
+            nohup onesixtyone -c public $IP | tee $OUTPUT/161_$IP-$PORT &
+            nohup snmpwalk -c public -v1 $IP | tee $OUTPUT/snmpwalk_$IP-$PORT &
+            nohup snmpwalk -c public -v1 $IP 1.3.6.1.4.1.77.1.2.25 | tee $OUTPUT/snmp_users_$IP-$PORT &
+            nohup snmpwalk -c public -v1 $IP 1.3.6.1.2.1.6.13.1.3 | tee $OUTPUT/snmp_ports_$IP-$PORT &
+            nohup snmpwalk -c public -v1 $IP 1.3.6.1.2.1.25.4.2.1.2 | tee $OUTPUT/snmp_process_$IP-$PORT &
+            nohup snmpwalk -c public -v1 $IP 1.3.6.1.2.1.25.6.3.1.2 | tee $OUTPUT/snmp_software_$IP-$PORT &
+        } &> /dev/null/
+
+    elif [ "$SERVICE" == "http" ]; then
+        echo "[*] Found HTTP service on $IP:$PORT"
+        echo "  [>] Now performing enumeration with NMAP, NIKTO, and GOBUSTER"
+        echo "  [=] nmap -n -Pn -sV $IP -p $PORT --script=http-enum,http-userdir-enum,http-apache-negotiation,http-backup-finder,http-config-backup,http-default-accounts,http-methods,http-method-tamper,http-passwd,http-robots.txt,http-iis-webdav-vuln,http-vuln-cve2009-3960,http-vuln-cve2010-0738,http-vuln-cve2011-3368,http-vuln-cve2012-1823,http-vuln-cve2013-0156,http-waf-detect,http-waf-fingerprint,ssl-enum-ciphers,ssl-known-key -oN $OUTPUT/http_$IP-$PORT.nmap"
+        echo "  [=] nikto -h $IP -p $PORT | tee $OUTPUT/nikto_$IP-$PORT"
+        echo "  [=] gobuster -u http://$IP:$PORT/ -w /usr/share/seclists/Discovery/Web_Content/Top1000-RobotsDisallowed.txt | tee $OUTPUT/gobuster_top1000_$IP-$PORT"
+        echo "  [=] gobuster -u http://$IP:$PORT/ -w /usr/share/seclists/Discovery/Web_Content/common.txt | tee $OUTPUT/gobuster_common_$IP-$PORT"
+        {
+            nohup nmap -n -Pn -sV $IP -p $PORT --script=http-enum,http-userdir-enum,http-apache-negotiation,http-backup-finder,http-config-backup,http-default-accounts,http-methods,http-method-tamper,http-passwd,http-robots.txt,http-iis-webdav-vuln,http-vuln-cve2009-3960,http-vuln-cve2010-0738,http-vuln-cve2011-3368,http-vuln-cve2012-1823,http-vuln-cve2013-0156,http-waf-detect,http-waf-fingerprint,ssl-enum-ciphers,ssl-known-key -oN $OUTPUT/http_$IP-$PORT.nmap &
+            nohup nikto -h $IP -p $PORT | tee $OUTPUT/nikto_$IP-$PORT &
+            nohup gobuster -u http://$IP:$PORT/ -w /usr/share/seclists/Discovery/Web_Content/Top1000-RobotsDisallowed.txt | tee $OUTPUT/gobuster_top1000_$IP-$PORT &
+            nohup gobuster -u http://$IP:$PORT/ -w /usr/share/seclists/Discovery/Web_Content/common.txt | tee $OUTPUT/gobuster_common_$IP-$PORT &
+        } &> /dev/null      
+
+    elif [ "$SERVICE" == "ssl/http" ] || [ "$SERVICE" == "https" ] || [ "$SERVICE" == "ssl|http" ]; then
+        echo "[*] Found HTTPS service on $IP:$PORT"
+        echo "  [>] Now performing enumeration with NMAP, NIKTO, and GOBUSTER"
+        echo "  [=] nmap -n -Pn -sV $IP -p $PORT --script=ssl-heartbleed,http-enum,http-userdir-enum,http-apache-negotiation,http-backup-finder,http-config-backup,http-default-accounts,http-methods,http-method-tamper,http-passwd,http-robots.txt,http-iis-webdav-vuln,http-vuln-cve2009-3960,http-vuln-cve2010-0738,http-vuln-cve2011-3368,http-vuln-cve2012-1823,http-vuln-cve2013-0156,http-waf-detect,http-waf-fingerprint,ssl-enum-ciphers,ssl-known-key -oN $OUTPUT/https_$IP-$PORT.nmap"
+        echo "  [=] nikto -h $IP -p $PORT | tee $OUTPUT/nikto_$IP-$PORT"
+        echo "  [=] gobuster -u https://$IP:$PORT/ -w /usr/share/seclists/Discovery/Web_Content/Top1000-RobotsDisallowed.txt | tee $OUTPUT/gobuster_top1000_$IP-$PORT"
+        echo "  [=] gobuster -u https://$IP:$PORT/ -w /usr/share/seclists/Discovery/Web_Content/common.txt | tee $OUTPUT/gobuster_common_$IP-$PORT"
+        {
+            nohup nmap -n -Pn -sV $IP -p $PORT --script=ssl-heartbleed,http-enum,http-userdir-enum,http-apache-negotiation,http-backup-finder,http-config-backup,http-default-accounts,http-methods,http-method-tamper,http-passwd,http-robots.txt,http-iis-webdav-vuln,http-vuln-cve2009-3960,http-vuln-cve2010-0738,http-vuln-cve2011-3368,http-vuln-cve2012-1823,http-vuln-cve2013-0156,http-waf-detect,http-waf-fingerprint,ssl-enum-ciphers,ssl-known-key -oN $OUTPUT/https_$IP-$PORT.nmap &
+            nikto -h $IP -p $PORT | tee $OUTPUT/nikto_$IP-$PORT
+            gobuster -u https://$IP:$PORT/ -w /usr/share/seclists/Discovery/Web_Content/Top1000-RobotsDisallowed.txt | tee $OUTPUT/gobuster_top1000_$IP-$PORT &
+            gobuster -u https://$IP:$PORT/ -w /usr/share/seclists/Discovery/Web_Content/common.txt | tee $OUTPUT/gobuster_common_$IP-$PORT &
+        } &> /dev/null
+
+    elif [ "$SERVICE" == "microsoft-ds" ] || [ "$SERVICE" == "netbios-ssn" ]; then
+        echo "[*] Found SMB service on $IP:$PORT"
+        echo "   [>] Now performing enumeration with NMAP, ENUM4LINUX, and SMBCLIENT"
+        echo "   [=] nmap -n -Pn -sV $IP -pT:139,$PORT,U:137 --script=nbstat,smb-enum-domains,smb-enum-groups,smb-enum-processes,smb-enum-sessions,smb-ls,smb-mbenum,smb-os-discovery,smb-print-text,smb-security-mode,smb-server-stats,smb-system-info,smb-vuln-conficker,smb-vuln-ms06-025,smb-vuln-ms07-029,smb-vuln-ms08-067,smb-vuln-ms10-054,smb-vuln-ms10-061 -oN $OUTPUT/smb_$IP-$PORT.nmap"
+        echo "   [=] enum4linux $IP | tee $OUTPUT/enum4linux_$IP-$PORT"
+        echo "   [=] smbclient -L\\ -N -I $IP | tee $OUTPUT/smbclient_$IP-$PORT"
+        {
+            nohup nmap -n -Pn -sV $IP -pT:139,$PORT,U:137 --script=nbstat,smb-enum-domains,smb-enum-groups,smb-enum-processes,smb-enum-sessions,smb-ls,smb-mbenum,smb-os-discovery,smb-print-text,smb-security-mode,smb-server-stats,smb-system-info,smb-vuln-conficker,smb-vuln-ms06-025,smb-vuln-ms07-029,smb-vuln-ms08-067,smb-vuln-ms10-054,smb-vuln-ms10-061 -oN $OUTPUT/smb_$IP-$PORT.nmap &
+            nohup enum4linux $IP | tee $OUTPUT/enum4linux_$IP-$PORT &
+            nohup smbclient -L\\ -N -I $IP | tee $OUTPUT/smbclient_$IP-$PORT &  
+        } &> /dev/null
+
+    elif [ "$SERVICE" == "msdrdp" ] || [ "$SERVICE" == "ms-wbt-server" ]; then
+        echo "[*] Found RDP service on $IP:$PORT"
+        echo "   [>] Consider using a password attack on the target"
+        echo "   [=] ncrack -vv --user Administrator -P /usr/share/wordlists/rockyou.txt rdp://$IP\n"
+
+    elif [ "$SERVICE" == "mysql" ]; then
+        echo "[*] Found MYSQL service on $IP:$PORT"
+        echo "   [>] Now performing enumeration with NMAP"
+        echo "   [=] nmap -n -Pn -sV $IP -p $PORT --script=mysql-audit,mysql-brute,mysql-databases,mysql-dump-hashes,mysql-empty-password,mysql-enum,mysql-info,mysql-query,mysql-users,mysql-variables,mysql-vuln-cve2012-2122 -oN $OUTPUT/mysql_$IP-$PORT.nmap"
+        {
+            nohup nmap -n -Pn -sV $IP -p $PORT --script=mysql-audit,mysql-brute,mysql-databases,mysql-dump-hashes,mysql-empty-password,mysql-enum,mysql-info,mysql-query,mysql-users,mysql-variables,mysql-vuln-cve2012-2122 -oN $OUTPUT/mysql_$IP-$PORT.nmap &
+        } &> /dev/null  
+
+    elif [ "$SERVICE" == "ms-sql" ]; then
+        echo "[*] Found MSSQL service on $IP:$PORT"
+        echo "   [>] Now performing enumeration with NMAP"
+        echo "   [=] nmap -n -Pn -sV $IP -p $PORT --script=ms-sql-info,ms-sql-config,ms-sql-dump-hashes --script-args=mssql.instance-port=$PORT,smsql.username-sa,mssql.password-sa -oN $OUTPUT/mssql_$IP-$PORT.nmap"
+        echo "   [=] nmap -n -Pn $IP -p $PORT --script ms-sql-xp-cmdshell --script-args mssql.username=sa,mssql.password=password,mssql.instance-port=$PORT,ms-sql-xp-cmdshell.cmd='ipconfig' -oN $OUTPUT/mssql_cmdshell_$IP-$PORT.nmap"
+        {
+            nohup nmap -n -Pn -sV $IP -p $PORT --script=ms-sql-info,ms-sql-config,ms-sql-dump-hashes --script-args=mssql.instance-port=$PORT,smsql.username-sa,mssql.password-sa -oN $OUTPUT/mssql_$IP-$PORT.nmap &
+            nohup nmap -n -Pn $IP -p $PORT --script ms-sql-xp-cmdshell --script-args mssql.username=sa,mssql.password=password,mssql.instance-port=$PORT,ms-sql-xp-cmdshell.cmd='ipconfig' -oN $OUTPUT/mssql_cmdshell_$IP-$PORT.nmap &
+        } &> /dev/null      
+    else
+        echo -e "${RED}"
+        echo -e "[x]${NC} Found $SERVICE service on $IP:$PORT"
+        echo "   [>] Could not enumerate, look into it further"
+    fi
+
+done 3<$OUTPUT/ports_$IP.list 4<$OUTPUT/services_$IP.list
+
+echo "[*] Waiting for everything to finish"
+wait
+echo "  [>] Okay, everything is now finished!"
+echo "  [=] Files can be found at $OUTPUT"
+echo "  [=] The following files were created:"
+
+# Goes to output folder, finds all the files, for each path found, reverse it to cut the end, then reverse back. Realpath is used on each individual item
+echo -e "${BLUE}"
+echo "$(realpath $(find $OUTPUT -type f | rev | cut -d "/" -f1 | rev))"
+echo -e "${NC}"

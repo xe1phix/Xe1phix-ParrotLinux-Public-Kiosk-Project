@@ -1,0 +1,20 @@
+Title: How To Create A Persistent, LUKS Encrypted USB With A LUKS Killswitch Using Parrot Linux
+
+
+In this presentation, I will cover:
+ > Securely wipe files/device partitions (6 different methods).
+ > Format the USB device with Parrot Linux hybrid ISO.
+ > Create an Ext3 filesystem on the persistent partition.
+ > Create LUKS encrypted container on the persistent partition.
+ > Create a mount point, and mount the new LUKS encrypted partition.
+ > Dump the header information of a LUKS device.
+ > Add a nuke slot to the LUKS header.
+ > Create a binary backup of the LUKS header and keyslot area.
+ > Encrypt the LUKS header with OpenSSL for secure storage.
+ > Decrypt the LUKS header with OpenSSL for secure storage.
+ > Erase all LUKS key slots on persistant partition.
+ > Restore LUKS header from binary backup file.
+
+
+Thank you for considering my presentation
+You can contact me at markrobertcurry@protonmail.com
