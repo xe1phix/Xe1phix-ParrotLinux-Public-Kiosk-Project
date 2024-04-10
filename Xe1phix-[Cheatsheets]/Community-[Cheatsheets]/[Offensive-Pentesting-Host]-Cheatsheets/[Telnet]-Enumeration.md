@@ -1,0 +1,72 @@
+# Telnet Enum - 23
+	
+Telnet is a protocol used on the Internet or local area networks to provide a bidirectional interactive text-oriented communication facility using a virtual terminal connection
+
+## Telnet Version Detection
+
+```
+nmap -v –p 23 –sV <IP>
+```
+## Scripts Scanning
+
+```
+ls -lh /usr/share/nmap/scripts/ | grep telnet
+```
+telnet-brute.nse
+
+telnet-encryption.nse
+
+telnet-ntlm-info.nse
+
+
+## Metasploit
+
+### Telnet Banner Grabbing 
+
+An attacker always perform enumeration for finding important information such as software version which known as Banner Grabbing and then identify it state of vulnerability against any exploit. Open the terminal in your kali Linux and Load metasploit framework; now type following command to scan for TELNET version.
+
+```
+use auxiliary/scanner/telnet/telnet_version
+```
+```
+set rhosts <IP>
+```
+```
+set rport 23
+```
+```
+set threads 5
+```
+```
+exploit
+```
+
+## Brute forcing Telnet
+```
+use auxiliary/scanner/telnet/telnet_login
+```
+```
+set rhosts <IP>
+```
+```
+set user_file /root/Desktop/user.txt
+```
+```
+set pass_file /root/Desktop/pass.txt
+```
+```
+set stop_on_success true
+```
+```
+exploit
+```
+
+## Brute Force Attack Using Hydra
+
+```
+hydra -l root -P /usr/share/seclists/Passwords/Default-Credentials/telnet-betterdefaultpasslist.txt <IP> telnet
+```
+## Reference 
+[hacking.reviews](https://www.hacking.reviews/2017/09/penetration-testing-on-telnet-port-23.html?m=0)
+
+
