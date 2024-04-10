@@ -1,0 +1,42 @@
+How to properly set up DNS SPF records?
+SPF record lookup and validation for: mydomain.tld
+
+SPF records are primarily published in DNS as TXT records.
+
+The TXT records found for your domain are:
+
+
+SPF records should also be published in DNS as type SPF records.
+Type SPF records found for the domain are:
+
+
+Checking to see if there is a valid SPF record. 
+
+Found v=spf1 record for mydomain.tld: 
+v=spf1 include:amazonses.com ?all 
+
+evaluating...
+Results - record processed without error.
+
+The result of the test (this should be the default result of your record) was, none . The explanation returned was,
+	
+SPF  mydomain.tld   v=spf1 include:amazonses.com ?all   with automatic TTL
+TXT  mydomain.tld   spf2.0/pra include:amazonses.com ?all   with automatic TTL
+	
+"v=spf1 include:amazonses.com ~all"
+"spf2.0/pra include:amazonses.com ~all"
+	
+SPF record lookup and validation for: [...]
+
+SPF records are primarily published in DNS as TXT records.
+
+The TXT records found for your domain are:
+spf2.0/pra include:amazonses.com ~all 
+v=spf1 include:amazonses.com ~all 
+
+[...]
+
+Checking to see if there is a valid SPF record. 
+
+Found v=spf1 record for services.marescom.net: 
+v=spf1 include:amazonses.com ~all

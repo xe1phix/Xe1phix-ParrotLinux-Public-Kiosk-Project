@@ -1,0 +1,60 @@
+################################
+# Windows EVENT IDs To Monitor #
+################################
+1. NEW PROCESS STARTING: Event Code 4688 will capture when a process or executable starts.
+ 
+2. USER LOGON SUCCESS: Event Code 4624 will capture when a user successfully logons to the system.
+ 
+3. SHARE ACCESSED: Event Code 5140 will capture when a user connects to a file share.
+ 
+4. NEW SERVICE INSTALLED: Event Code 7045 will capture when a new service is installed.
+ 
+5. NETWORK CONNECTION MADE: Event Code 5156 will capture when a network connection is made from the source
+to the destination including the ports used and the process used to initiate the connection. Requires the use of the
+Windows Firewall
+ 
+6. FILE AUDITING: Event Code 4663 will capture when a new file is added, modified or deleted.
+ 
+7. REGISTRY AUDITING: Event Code 4657 will capture when a new registry item is added, modified or deleted
+ 
+8. WINDOWS POWERSHELL COMMAND LINE EXECUTION: Event Code 500 will capture when PowerShell is executed
+logging the command line used.
+ 
+9. WINDOWS FIREWALL CHANGES: Event Code 2004 will capture when new firewall rules are added.
+ 
+10. SCHEDULE TASKS ADDED: Event Code 106 will capture when a new scheduled task is added.
+
+
+
+###############################
+# Sysmon EVENT IDs To Monitor #
+###############################
+
+EventCode			Event Description
+-------------------------------------------------
+1				Process Create
+2				File Create Time
+3				Network Connect
+4				Sysmon Start
+5				Process Terminate
+6				Driver Load
+7				Image Load
+8				Create Remote Thread
+9				Raw Access Read
+10				Process Access
+11				File Created
+12				Registry object added or deleted
+13				Registry value set
+14				Registry object renamed
+15				File stream created
+16				Sysmon Configuration Changed
+17				Pipe Created
+18				Pipe Connected
+19				WmiEventFilter activity detected
+20				WmiEventConsumer activity detected
+21				WmiEventConsumerToFilter activity detected
+22				DNS Query
+23				File deleted
+24				Clipboard
+255				Error
+4688				Process Create

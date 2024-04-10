@@ -1,0 +1,254 @@
+------------------------------------------------------------------
+Step 1: Download Putty from here:
+http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+
+
+
+
+IP Address:         	144.202.37.49
+Protocol:               ssh
+Port:                   22
+username:               np
+password:               n3ts1m123
+
+
+
+
+##############################################
+# Log Analysis with Linux command-line tools #
+##############################################
+The following command line executables are found in the Mac as well as most Linux Distributions.
+ 
+cat –  prints the content of a file in the terminal window
+grep – searches and filters based on patterns
+awk –  can sort each row into fields and display only what is needed
+sed –  performs find and replace functions
+sort – arranges output in an order
+uniq – compares adjacent lines and can report, filter or provide a count of duplicates
+ 
+ 
+##############
+# Cisco Logs #
+##############
+ 
+-----------------------------Type this-----------------------------------------
+wget http://45.63.104.73/cisco.log
+-------------------------------------------------------------------------------
+ 
+AWK Basics
+----------
+To quickly demonstrate the print feature in awk, we can instruct it to show only the 5th word of each line. Here we will print $5. Only the last 4 lines are being shown for brevity.
+ 
+-----------------------------Type this-----------------------------------------
+cat cisco.log | awk '{print $5}' | tail -n 4
+-------------------------------------------------------------------------------
+ 
+ 
+ 
+Looking at a large file would still produce a large amount of output. A more useful thing to do might be to output every entry found in “$5”, group them together, count them, then sort them from the greatest to least number of occurrences. This can be done by piping the output through “sort“, using “uniq -c” to count the like entries, then using “sort -rn” to sort it in reverse order.
+ 
+-----------------------------Type this-----------------------------------------
+cat cisco.log | awk '{print $5}'| sort | uniq -c | sort -rn
+-------------------------------------------------------------------------------
+ 
+ 
+ 
+While that’s sort of cool, it is obvious that we have some garbage in our output. Evidently we have a few lines that aren’t conforming to the output we expect to see in $5. We can insert grep to filter the file prior to feeding it to awk. This insures that we are at least looking at lines of text that contain “facility-level-mnemonic”.
+ 
+-----------------------------Type this-----------------------------------------
+cat cisco.log | grep %[a-zA-Z]*-[0-9]-[a-zA-Z]* | awk '{print $5}' | sort | uniq -c | sort -rn
+-------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+Now that the output is cleaned up a bit, it is a good time to investigate some of the entries that appear most often. One way to see all occurrences is to use grep.
+ 
+-----------------------------Type this-----------------------------------------
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| awk '{print $10}' | sort | uniq -c | sort -rn
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10}' | sort | uniq -c | sort -rn
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10 " changed to " $14}' | sort | uniq -c | sort -rn
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+################
+# The Scenario #
+################
+You've come across a file that has been flagged by one of your security products (AV Quarantine, HIPS, Spam Filter, Web Proxy, or digital forensics scripts).
+ 
+ 
+The fastest thing you can do is perform static analysis.
+ 
+ 
+ 
+###################
+# Static Analysis #
+###################
+ 
+- After logging please open a terminal window and type the following commands:
+ 
+ 
+---------------------------Type This-----------------------------------
+
+ 
+wget http://45.63.104.73/wannacry.zip
+ 
+unzip wannacry.zip
+     infected
+ 
+file wannacry.exe
+ 
+mv wannacry.exe malware.pdf
+ 
+file malware.pdf
+ 
+mv malware.pdf wannacry.exe
+ 
+hexdump -n 2 -C wannacry.exe
+ 
+----------------------------------------------------------------------
+ 
+
+
+In a browser...go to: http://www.garykessler.net/library/file_sigs.html
+ 
+***What is '4d 5a' or 'MZ'***
+
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+objdump -x wannacry.exe
+ 
+strings wannacry.exe
+ 
+strings wannacry.exe | grep -i dll
+ 
+strings wannacry.exe | grep -i library
+ 
+strings wannacry.exe | grep -i reg
+ 
+strings wannacry.exe | grep -i key
+ 
+strings wannacry.exe | grep -i rsa
+ 
+strings wannacry.exe | grep -i open
+ 
+strings wannacry.exe | grep -i get
+ 
+strings wannacry.exe | grep -i mutex
+ 
+strings wannacry.exe | grep -i irc
+ 
+strings wannacry.exe | grep -i join        
+ 
+strings wannacry.exe | grep -i admin
+ 
+strings wannacry.exe | grep -i list
+----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+
+
+Hmmmmm.......what's the latest thing in the news - oh yeah "WannaCry"
+ 
+Quick Google search for "wannacry ransomeware analysis"
+ 
+ 
+Reference
+https://securingtomorrow.mcafee.com/executive-perspectives/analysis-wannacry-ransomware-outbreak/
+ 
+- Yara Rule -
+ 
+ 
+Strings:
+$s1 = “Ooops, your files have been encrypted!” wide ascii nocase
+$s2 = “Wanna Decryptor” wide ascii nocase
+$s3 = “.wcry” wide ascii nocase
+$s4 = “WANNACRY” wide ascii nocase
+$s5 = “WANACRY!” wide ascii nocase
+$s7 = “icacls . /grant Everyone:F /T /C /Q” wide ascii nocase
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Ok, let's look for the individual strings
+ 
+ 
+---------------------------Type This-----------------------------------
+strings wannacry.exe | grep -i ooops
+ 
+strings wannacry.exe | grep -i wanna
+ 
+strings wannacry.exe | grep -i wcry
+ 
+strings wannacry.exe | grep -i wannacry
+ 
+strings wannacry.exe | grep -i wanacry          **** Matches $s5, hmmm.....
+----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+
+
+
+ 
+ 
+ 
+
+####################################
+# Tired of GREP - let's try Python #
+####################################
+Decided to make my own script for this kind of stuff in the future. I
+ 
+Reference1:
+http://45.63.104.73/analyse_malware.py
+ 
+This is a really good script for the basics of static analysis
+ 
+Reference:
+https://joesecurity.org/reports/report-db349b97c37d22f5ea1d1841e3c89eb4.html
+ 
+ 
+This is really good for showing some good signatures to add to the Python script
+ 
+ 
+Here is my own script using the signatures (started this yesterday, but still needs work):
+https://pastebin.com/guxzCBmP
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+wget https://pastebin.com/raw/guxzCBmP
+ 
+ 
+mv guxzCBmP am.py
+ 
+ 
+cat am.py | less
+ 
+python2.7 am.py wannacry.exe
+----------------------------------------------------------------------

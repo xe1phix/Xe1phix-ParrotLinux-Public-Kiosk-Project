@@ -1,0 +1,28 @@
+Received-SPF: pass (google.com: domain of pau@example.com designates x.y.z.w as permitted sender) client-ip=x.y.z.w;
+
+I'm also running OpenDKIM after SPF through Postfix milters. I know the SPF comes first by looking at the mail.log file
+
+Apr  3 11:57:01 we postfix/smtpd[19698]: Anonymous TLS connection established from mail-yh0-x24a.google.com[2607:f8b0:4002:c01::24a]: TLSv1 with cipher ECDHE-RSA-RC4-SHA (128/128 bits)
+Apr  3 11:57:02 we policyd-spf[19701]: spfcheck: pyspf result: "['None', '', 'helo']"
+Apr  3 11:57:02 we policyd-spf[19701]: None; identity=helo; client-ip=2607:f8b0:4002:c01::24a; helo=mail-yh0-x24a.google.com; envelope-from=noreply-dmarc-support@google.com; receiver=admin@ofertamus.es
+Apr  3 11:57:02 we policyd-spf[19701]: spfcheck: pyspf result: "['Pass', 'sender SPF authorized', 'mailfrom']"
+Apr  3 11:57:02 we policyd-spf[19701]: Pass; identity=mailfrom; client-ip=2607:f8b0:4002:c01::24a; helo=mail-yh0-x24a.google.com; envelope-from=noreply-dmarc-support@google.com; receiver=admin@ofertamus.es
+Apr  3 11:57:02 we postfix/smtpd[19698]: 52CCC47849: client=mail-yh0-x24a.google.com[2607:f8b0:4002:c01::24a]
+Apr  3 11:57:02 we postfix/cleanup[19702]: 52CCC47849: message-id=<9522510066565303466@google.com>
+Apr  3 11:57:02 we opendkim[14696]: 52CCC47849: no signing table match for 'noreply-dmarc-support@google.com'
+Apr  3 11:57:02 we opendkim[14696]: 52CCC47849: DKIM verification successful
+Apr  3 11:57:02 we opendkim[14696]: 52CCC47849: s=20120113 d=google.com SSL
+Apr  3 11:57:02 we opendmarc[14239]: 52CCC47849 ignoring Authentication-Results at 0 from we.example.es
+
+This is my SPF config file:
+
+debugLevel = 2
+defaultSeedOnly = 1
+HELO_reject = False
+HELO_pass_restriction = OK
+Mail_From_reject = False
+Mail_From_pass_restriction = OK
+PermError_reject = False
+TempError_Defer = False
+Header_Type = AR
+Authserv_Id = we.example.es

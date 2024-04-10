@@ -1,0 +1,119 @@
+FOOTPRINTING TOOLS
+
+People Search Tools
+• 411 www.411.com
+• AnyWho www.anywho.com
+• Intelius www.intelius.com
+• PeekYou www.peekyou.com
+• People Search
+Now www.peoplesearchnow.com
+• Veromi www.veromi.net
+• ZabaSearch www.zabasearch.com
+• ZoomInfo http://zoominfo.com
+Competitive Intelligence
+• Euromonitor www.euromonitor.com
+• Experian www.experian.com
+• MarketWatch www.marketwatch.com
+• The Search Monitor www.thesearchmonitor.com
+• SEC Info www.secinfo.com
+• Wall Street Transcript www.twst.com
+
+Tracking Online Reputation
+• Alexa www.alexa.com
+• BrandsEye www.brandseye.com
+• Rankur https://rankur.com
+• ReputationDefender www.reputation.com
+• Social Mention www.socialmention.com
+
+Website Research/Web Updates Tools
+• Archive www.archive.org
+• ChangeDetection www.changedetection.com
+• Check4Change http://addons.mozilla.com
+• InfoMinder www.infominder.com
+• iWebTool www.iwebtool.com
+• Netcraft http://news.netcraft.com
+• Websnitcher http://websnitcher.com
+
+DNS and Whois Tools
+• Active Whois www.johnru.com
+• ARIN http://whois.arin.net/ui/
+• Better Whois www.betterwhois.com
+• DNS-Digger http://dnsdigger.com
+• DNSstuff www.dnsstuff.com
+• Domain Dossier http://centralops.net
+• DomainTools www.domaintools.com
+• Mobile DNS Sniffer www.dnssniffer.com
+• Network Solutions www.networksolutions.com
+• Nslookup
+• SmartWhois www.tamos.com/download/main/
+• SpyFu www.spyfu.com
+• UltraTools Mobile www.ultratools.com
+
+Geo-Location Tools
+• Bing Maps bing.com/maps
+• GeoIP2 www.maxmind.com
+• GeoIP Lookup www.ultratools.com
+• Google Maps maps.google.com
+• IPLocation iplocation.net
+• IP Location Finder tools.keycdn.com
+• WikiMapia www.wikimapia.org
+• Yahoo! Maps https://maps.yahoo.com/b/
+
+Traceroute Tools and Links
+• Path Analyzer Pro www.pathanalyzer.com
+• PingPlotter https://www.pingplotter.com
+• Visual IP Trace www.visualiptrace.com
+• VisualRoute Trace www.visualware.com
+
+Website Mirroring Tools and Sites
+• BlackWidow http://softbytelabs.com
+• Hooeey
+Webprint www.hooeeywebprint.com.s3-
+website-us-east-1.amazonaws.com/
+• HTTrack www.httrack.com
+• NCollector Studio www.calluna-software.com
+• Reamweaver http://reamweaver.com
+• Teleport
+Pro www.tenmax.com/teleport/pro/home.htm
+• Wget www.gnu.org
+Operating System Help
+• Censys https://censys.io
+• Netcraft http://netcraft.com
+• Shodan www.shodan.io
+
+Metadata Extraction
+• Buzzstream tools.buzzstream.com
+• ExifTool http://owl.phy.queensu.ca/~phil/exift
+ool/
+• ExtractMeta www.extractmetadata.com
+• FOCA www.elevenpaths.com
+
+E-mail Tracking
+• ContactMonkey https://contactmonkey.com
+• DidTheyReadIt www.didtheyreadit.com
+• eMailTrackerPro www.emailtrackerpro.com
+• GetNotify www.getnotify.com
+• PoliteMail www.politemail.com
+• ReadNotify www.readnotify.com
+• Zendio www.zendio.com
+
+Google Hacking
+• Google Hack
+Honeypot http://ghh.sourceforge.net
+• Google Hacking
+Database www.hackersforcharity.org/ghdb/
+• Google Hacking Master
+List http://it.toolbox.com/blogs/managing-
+infosec/google-hacking-master-list-28302
+
+• Google
+Hacks http://code.google.com/p/googlehacks/
+• Gooscan www.darknet.org.uk
+• Metagoofil www.edge-security.com
+
+====================
+pastebin.com/0PT1C
+====================
+Credit:
+0PT1C 
+Matt Walker

@@ -1,0 +1,300 @@
+site:*/nms/login intitle:"UNMS"
+inurl:"/phpmyadmin/user_password.php" -inurl:git
+inurl:/wp-admin/includes/plugin-install.php
+inurl:"/SecureAuth.aspx"
+site:ftp.* index of /ftp/backup
+inurl:wp-content intext:backup-db
+inurl:/_vti_txt*
+intitle:"XENON :: Login"
+"Scanned by Camscanner" filetype:pdf
+inurl:/scgi-bin*
+site:*/recover-pass
+site:smtp.*.*/login
+site:dev.*.*/signin
+site:app.*.*/ intext:login
+inurl:show_port_res_settings
+inurl: /upload.php intitle:index of
+site:exchange.*.*/owa/
+site:remote.*.* intitle:"User Authentication"
+inurl:/awcuser*
+intitle:login enterprise
+site:*/password_reset/
+site:*:8000/login#forgot intitle:"login"
+site:auth.*.*/signin
+site:*/forgot-password
+inurl:admin/data* intext:index of
+inurl:/database* ext:sql intext:index of -site:github.com
+inurl: /config.txt ext:txt intext:
+site:*/resetpassword.php
+inurl:"/hp_login.html"
+inurl:/iisstart.htm intitle:"IIS7"
+site:monitor.*.*/login intitle:"Login"
+site:management.*.*/login/
+site:moodle.*.*/login
+site:*/SendPassword
+site:intranet.*.*/login/
+inurl:/admin/ intitle:index.of
+inurl:admin/changepassword*
+site:*/updatepassword.php
+inurl:/phpmyadmin/changelog.php -github -gitlab
+site:*/validar_usuario.php
+intitle:"Login to Webmin" intext:"You must enter a username and password to login to the server"
+site:ftp://ftp.*.*/login -inurl:https://
+intext:"@gmail.com" intext:"password" inurl:/files/ ext:txt
+site:*/securelogin.asp
+site:*/authlogin/ intitle:login
+site:*/exchange-login/ intitle:"Login"
+site:*/m-login.html
+site:*/Security/Login
+site:*/admincp/ intitle:"Admin Cp"
+site:*/user/password/
+site:*/robots.txt intext:User-agent:
+intitle:"index of" "ftp.passwd"
+inurl:/index.php/admin/ intitle:"login"
+site:*/phpMyAdmin/robots.txt
+inurl:zabbix/zabbix.php
+intitle:"OpenNMS web console" inurl:opennms/index.jsp
+intitle:index.of.?.login
+inurl:/identify/ intitle:"Forgotten Password"
+site:*/wordpress/wordpress.bak/
+intitle:"index of" /config.ini
+intitle:"index of" "htpasswd.txt"
+inurl:/wp/wp-admin/
+site:*.*.*/authentication/Logon
+site:*/log/access_log
+intitle:"index of" "debian.cnf"
+site:secure.*.* intitle:"log in"
+site:sts.*.*/adfs/ls/?SAMLRequest= intitle:"sign in"
+site:*/web-hosting/cplogin
+inurl:"/?action=login" intitle:"Log In"
+intitle:index.of.?.database
+index of /cache
+inurl:/EasyPAY/view
+inurl:webArch/mainFrame filetype:cgi intext:"Web Image Monitor"
+site:*/account-sign-in
+site:*/login/ForgotPassword
+site:admin.*.*/forgot?username=
+site:*/wp-login?redirect_to= intitle:"login"
+intitle:index.of.?.config.ini
+ext:sql intext:"-- phpMyAdmin SQL Dump" -site:github.*
+intitle:"index of" /content/admin/
+intitle:"index of" /content/uploads/ -inurl:/wp-content/uploads/
+site:*/Password.aspx
+site:*/forgetpassword.php
+intitle:"VideoEdge Admin Interface"
+intitle:dotCMS inurl:dotAdmin
+intitle:synology intext:"Choose login account:"
+site:*/index.php/login intitle:"login"
+intitle:index.of.?.mysql
+intitle:"Login page" intext:"about SurgeMail"
+site:*/cgi/user.cgi
+site:*/wp-includes/ inurl:/wp-includes/
+site:*/wp-contents/ inurl:/wp-contents/
+site:*/Webmail/
+intitle:"Local Run Manager" intext:"Local Run Manager Version:"
+"pass" "usuario" filetype:sql
+site:docs.google.com inurl:forms | viewanalytics intext:see previous responses
+site:identity.*.*/login
+intitle:please login inurl:remote/login intext:FortiToken
+inurl:"/Serviceability?adapter=device.statistics.configuration"
+site:mail.*.*/auth
+site:member.*.*/auth/login
+ext:sql intext:contrasena
+site:*/phpinfo.php intitle:"phpinfo()"
+site:*/pages/login.php intitle:"Login"
+intitle:"index of" /php4/
+intitle:"index of" mysqli.ini
+intitle:"index of" ssh2.ini
+intitle:Host Report inurl:ganglia
+site:*/en/login/
+site:vpn.*.*/ intitle:"login"
+site:/*:8081/nexus/#welcome -inurl:"/nexus/content/"
+intitle:index.of.?.bak
+inurl:*admin_login.php
+intitle:Grafana - Home inurl:/orgid
+inurl:/manage/login.html
+site:*:8888/login.aspx
+site:/*:81 -site:/*:8080 intitle:"::: Login :::"
+intitle:apache couchdb - futon: overview inurl:/_utils
+inurl:"/login.php?do=login"
+site:*/src/login.php
+site:*/forum/login/
+site:*/logon/logonpoint/tmindex.html
+site:*/logon/ intitle:"Sign In"
+site:*/sign_in.aspx
+inurl:/oaam_server/login.do
+intitle:"Sales Central - Logon"
+site:/auth.*.*/login
+inurl:/admin.login.php
+site:*/admin/login.html
+inurl:admin. intitle:"admin login"
+intitle:"Calendarix Admin Login"
+inurl:/admin/cal_login.php
+inurl:/Login/Admin intitle:"Admin Login"
+site:*/admin-login intitle:"Admin Login"
+site:signin.*.* intitle:"login"
+site:sso.*.* intitle:"Login"
+site:admin.*.* intitle:"Admin Login"
+site:login.*.* intitle:"Admin Login"
+site:*/adminLogin/login/
+intitle:index.of./.db
+inurl:/admin/ intext:"login"
+inurl:/admin/admin.php intitle:"login"
+site:member.*.* intitle:"login"
+inurl:/users/sign_in
+inurl:/member/login
+inurl:/account/logon intitle:"Log On"
+inurl:/account/signin intitle:"signin"
+inurl:/wp-admin/admin.php intitle:"Log In"
+ext:sql intext:clave
+intitle:index.of./.sql
+site:*/quicklogin.php
+site:*/auth/login.aspx
+site:*/cgi-bin/login.html
+"viostor system"
+intitle:"Index of" login.php
+intitle:"Index of" wp-config.php
+site:*/account/login
+site:*/forum/ucp.php?mode=login
+inurl:memberlist.php?mode=viewprofile
+site:*/sign-in
+intitle:"EdgeOS" intext:"Please login"
+inurl:user_login.php
+intitle:"Web Management Login"
+site:*/users/login_form
+site:*/access/unauthenticated
+intitle:prometheus time series collection and processing server inurl:/alerts
+inurl:ftp://ftp
+inurl:ftp://ftp robots.txt
+site:account.*.*/login
+site:*/index.jsp intitle:"login"
+site:*/login/auth
+inurl:/sites/default/private
+inurl:adminpanel/index.php
+site:portal.*.com/signin/
+site:admin.*.com/signin/
+site:login.*.com/signin/
+site:conf.*.com/signin/
+site:social.*.com/signin/
+intitle:"index of" sql inurl:./db/
+inurl:"WebPortal?bankid"
+inurl:robots.txt site:gov + intext:password
+intitle:Administration - Installation - MantisBT
+inurl:login_user.asp
+intitle:sign in inurl:/signin
+intitle:"sign in" inurl:login.aspx
+site:*/user/login
+site:accounts.*.com/signin/
+intitle:"index of" drupal
+intitle:"index of" admin
+inurl:login.cgi
+site:*/joomla/administrator
+inurl:/login/index.jsp -site:hertz.*
+intitle:"Index of" inurl:wp-json/oembed
+intitle:"Index of" phpmyadmin
+intitle:"Index of" wp-admin
+intitle:index.of.?.sql
+inurl: /filemanager/dialog.php
+s3 site:amazonaws.com filetype:log
+inurl:cgi/login.pl
+inurl:zoom.us/j and intext:scheduled for
+site:*/auth intitle:login
+inurl: admin/login.aspx
+"Index of" inurl:webalizer
+"Index of" inurl:phpmyadmin
+"Index of" inurl:htdocs inurl:xampp
+s3 site:amazonaws.com intext:dhcp filetype:txt inurl:apollo
+inurl:/index.aspx/login
+site:amazonaws.com inurl:login.php
+intitle:"IIS Windows Server" -inurl:"IIS Windows Server"
+intitle:"Apache2 Ubuntu Default Page: It works"
+inurl:/filedown.php?file=
+intitle:"Index of" wp-config
+intitle:"Index of" wp-content
+intitle:"Index of" pass.txt
+inurl:/site/login.php
+inurl:/client/login.php
+inurl:/guest/login.php
+inurl:/administrator/login.php
+inurl:/system/login.php
+inurl:/student/login.php
+inurl:/teacher/login.php
+inurl:/employee/login.php
+inurl:/admin/login.php
+inurl:wp/wp-login.php
+filetype:xls "nomina"
+inurl:/server-status + "Server MPM:"
+intitle:"Index of" portal
+site:*/login/login.php
+intitle:"Index of" public
+site:*.com intitle:"Thank You For Your Order" intext:Click Here to Download
+intext:"aspx" filetype:txt login & password
+intitle:"Index of" phpinfo.php
+inurl:Dashboard.jspa intext:"Atlassian Jira Project Management Software"
+inurl:simple/view/login.html
+inurl:/secure/ContactAdministrators!default.jspa intext:"Request Details" -intext:"Your Jira administrator has not yet configured this contact form"
+"Index of" inurl:config inurl:production
+inurl:/en-US/account/login?return_to=
+inurl:/phpmyadmin/index.php?db=
+intext:Grafana New version available! -grafana.com -grafana.org inurl:/login
+inurl:app/kibana intext:Loading Kibana
+site:https://docs.google.com/spreadsheets edit
+site:https://docs.google.com/spreadsheets responses
+site:https://docs.google.com/forms responses
+site:https://docs.google.com/forms viewanalytics
+inurl:/_cat/indices/
+inurl:8443 AND -intitle:8443 AND -intext:8443 prohibited|restricted|unauthorized
+intext:" Welcome to DSL-2730B Web Management"
+MAIL_HOST filetype:env
+inurl:"paypal.log" ext:log
+inurl:phpinfo.php intext:build 2600
+Index of / *.ovpn
+Inurl : /list/hdd1
+intitle:"index of" unattend.xml
+site:https://docs.google.com/document/d/ password
+inurl:/admin/index.php?module=config
+"To Parent Directory" AND "dir>" AND "web.config"
+inurl:/admin/index.php
+site:https://docs.google.com/spreadsheets/d/ password
+DB_USERNAME filetype:env
+inurl:OrganizationChart.cc
+intext:"evetsites" "Login"
+intext:"Brought to you by eVetSites"
+inurl:"/vpn/tmindex.html" vpn
+intext:"Powered by GetSimple" -site:get-simple.info
+inurl:"/fuel/login"
+intitle:"index of" intext:"Includes wordpress"
+intitle:"netscaler gateway" intext:password "please log on"
+inurl:users.json + "username"
+intitle:"index of" intext:"Includes
+inurl:old "index of" "wp-config.php"
+inurl:9000 AND intext:"Continuous Code Quality"
+s3 site:amazonaws.com filetype:sql
+intext:"wordpress" filetype:xls login & password
+"Web Analytics powered by Open Web Analytics - v: 1.6.2"
+intitle:"Outlook Web Access" | "Outlook Web app" -office.com -youtube.com -microsoft.com
+intext:"Sign in with your organizational account" login -github.com
+"/FTPSVC2" intitle:"index of"
+intitle:"index of" "W3SVC1"
+inurl:"CookieAuth.dll?GetLogon?" intext:log on
+-youtube.com login | password | username intitle:"assessment"
+s3 site:amazonaws.com filetype:xls login
+s3 site:amazonaws.com filetype:xls password
+intext:backup.sql intitle:index.of
+intext:user.sql intitle:index.of
+inurl:jsmol.php
+intitle:"Pi-hole Admin Console"
+filetype:inc php -site:github.com -site:sourceforge.net
+filetype:php "Notice: Undefined variable: data in" -forum
+intitle:"WAMPSERVER homepage" "Server Configuration" "Apache Version"
+intitle:"report" ("qualys" | "acunetix" | "nessus" | "netsparker" | "nmap") filetype:pdf
+filetype:git -github.com inurl:"/.git"
+intitle:"iLO Login" intext:"Integrated Lights-Out 3"
+filetype:svn -gitlab -github inurl:"/.svn"
+"please sign in" "sign in" "gophish" +"login"
+intitle:"LaserJet" "Device status" "Supplies summary"
+inurl:github.com intext:.ftpconfig -issues
+inurl:bc.googleusercontent.com intitle:index of
+intitle:"admin console" inurl:login site:"*.edu"|site:"*.gov"|site:"*.net" -site:*.com -help -guide -documentation -release -notes -configure -support -price -cant
+inurl:/login.rsp
+site:global.gotomeeting.com inurl:recording

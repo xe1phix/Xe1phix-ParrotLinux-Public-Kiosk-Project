@@ -1,0 +1,42 @@
+Function Get-OTXIndicator {
+    [CmdletBinding()]
+    param (
+        [ValidateSet("general","geo","malware","url_list","passive_dns","reputation","analysis")][string]$Section="general",
+        [validateSet("IPv4","IPv6","domain","hostname","file","cve","nids","url","correlation-rule")][string]$Indicator,
+        [string]$Key=$APIKey,
+        [Parameter(Mandatory=$true)][string]$IOC
+    )
+    BEGIN {
+        # Base URL for indicators
+        $APIBaseURI = 'https://otx.alienvault.com/api/v1/indicators'
+        $Header = @{'X-OTX-API-Key'="$Key"}
+        $SectionMap = @{
+            "hostname" = "general","geo","malware","url_list","passive_dns" 
+            "domain" = "general","geo","malware","url_list","passive_dns" 
+            "IPv4" = "general","reputation","geo","malware","url_list","passive_dns"
+            "IPv6" = "general","reputation","geo","malware","url_list","passive_dns"
+            "cve" = "general"
+            "nids" = "general"
+            "url" = "general","url_list"
+            "file" = "general","analysis"
+            "correlation-rule" = "general"
+        }
+    }
+    PROCESS {
+        if($Section -in $SectionMap[$Indicator]) {
+            $APIEndpoint = "$APIBaseURI/$Indicator/$IOC/$Section"
+            $Results = Invoke-WebRequest -Method Get -Uri $APIEndpoint -Headers $Header
+            $JSONResult = ConvertFrom-Json -InputObject $Results.Content
+        }   
+    }
+    END {
+        if($JSONResult) {
+            Write-Output $JSONResult
+        } else {
+            Write-Host "Valid sections for" -NoNewline
+            Write-Host " $Indicator " -ForegroundColor Green -NoNewline
+            Write-Host "are" -NoNewline
+            Write-Host " $($SectionMap[$Indicator] -join ",")" -ForegroundColor Green
+        }
+    }
+}

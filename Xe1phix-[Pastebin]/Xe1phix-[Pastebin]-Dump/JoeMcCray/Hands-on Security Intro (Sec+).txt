@@ -1,0 +1,91 @@
+###################################
+# Day 1: Let's start with Privacy #
+###################################
+Task 1: Install Tor and Firefox with Tor Browser
+	- https://www.torproject.org/download/
+	- https://www.mozilla.org/en-US/firefox/new/
+	- https://addons.mozilla.org/en-US/firefox/addon/open-in-tor-browser/
+
+
+
+Task 2: Check your IP
+	- Check your IP whatsmyip.com, then connect to Tor and check your IP
+	- Screenshot your IP before and after you connect to Tor
+	- Send a signed and encrypted email with the screenshots to your classmates and me.
+
+
+Task 3: Sign up for a FREE VPN service
+	- https://vpnpro.com/lp/top-free-vpn-alternatives/
+	- https://vpnoverview.com/best-vpn/free-vpn/
+
+
+Task 4: Check your IP
+	- Check your IP whatsmyip.com, then connect to your VPN and check your IP
+	- Screenshot your IP before and after you connect to you VPN
+	- Send a signed and encrypted email with the screenshots to your classmates and me.
+
+
+Watch these videos tonight:
+https://www.youtube.com/watch?v=FMScV1Mkaok
+https://www.youtube.com/watch?v=6ohvf03NiIA
+https://www.youtube.com/watch?v=6czcc1gZ7Ak
+https://www.youtube.com/watch?v=_wQTRMBAvzg
+https://www.youtube.com/watch?v=eDLXs4L_ayA
+https://www.youtube.com/watch?v=6SK6rFf0CmY
+
+
+
+###################################
+# Day 2: Let's start with Privacy #
+###################################
+
+Task 1: Signup for a password manager
+	- sign up for a trial version of Lastpass, KeePass, Keeper Security
+	- Install it on your laptop (send a screenshot to the class via encrypted email)
+	- Install it on your phone (send a screenshot to the class via encrypted email)
+
+
+Task 2: Research YubiKey
+	- Figure out what Yubikey is and if it integrates with your password manager
+	- Take screenshot of a webpage, or YouTube video and send it to the class via encrypted email
+
+
+Task 3: Watch these videos
+	Task 3a: Watch these videos
+	- https://www.youtube.com/watch?v=L21uXUljLF0
+	- https://www.youtube.com/watch?v=jLpXETg9wWM&t=84s
+	- https://www.youtube.com/watch?v=ovS0Q6QP7n0
+
+	Task 3b: Research the BoxCryptor competitors
+	- https://alternative.me/boxcryptor
+
+	Task 3c: Install a product you feel is better
+		 Screenshot and send in an encrypted email to the class
+
+
+
+
+What is Signal
+https://www.youtube.com/watch?v=3eC4Hp4MNBA&ab_channel=TheHatedOne
+
+
+
+###################################
+# Day 3: Let's start with Linux #
+###################################
+Task 1: Do all 4 modules of this Linux tutorial
+http://linuxsurvival.com/linux-tutorial-introduction/
+
+Task 2: Build a Linux server running wordpress
+https://www.youtube.com/watch?v=D1k2HpXgzo8&ab_channel=ScriptKiddie
+https://www.youtube.com/watch?v=bi7ow5NGC-U&ab_channel=LinuxAcademy
+
+
+##################################
+# Day 4: Let's secure the server #
+##################################
+Task 1: Configure Cloudflare for your new website
+https://www.youtube.com/watch?v=HWFihumQtdc&ab_channel=SERTMedia-WordpressTutorials
+https://www.youtube.com/watch?v=cBDY-CXWmI0&ab_channel=WordPressTutorials-WPLearningLab
+https://www.youtube.com/watch?v=caqf3K13l1c&ab_channel=WPJohnny-WordPressPerformanceGuides%26Reviews
+https://www.youtube.com/watch?v=VZvEkWagoc0&ab_channel=Cloudflare

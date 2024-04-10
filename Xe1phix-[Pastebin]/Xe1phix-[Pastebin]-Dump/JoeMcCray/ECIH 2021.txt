@@ -1,0 +1,137 @@
+#############
+# ECIH 2021 #
+#############
+
+
+
+
+                               #########################################
+############################## # Day 1: Incident Response Fundamentals # ##############################
+                               #########################################
+
+
+Task 1: Slides we will cover
+----------------------------
+- Here is a good set of slides for getting started with Incident Response:
+https://www.slideshare.net/BhupeshkumarNanhe/incident-response-process-129018068
+
+
+Task 2: Get a feel for the difficulty level of the questions:
+-------------------------------------------------------------
+Let's get a look at some of the questions for this exam:
+https://www.examtopics.com/exams/eccouncil/212-89/
+ 
+ 
+Task 3: Get familiar with Linux
+-------------------------------
+https://linuxsurvival.com/
+ 
+Task 4: Do some malware analysis on the lab server
+---------------------------------------------------
+site:	https://app.shellngn.com/
+user:	joseph.mccray@gmail.com
+pass:	P@ssw0rd123!@#123
+ 
+ 
+NOTE: Ask me for the correct password 
+ 
+ 
+                               ###########################
+############################## # Day 1: Malware Analysis # ##############################
+                               ###########################
+ 
+ 
+ 
+################
+# The Scenario #
+################
+You've come across a file that has been flagged by one of your security products (AV Quarantine, HIPS, Spam Filter, Web Proxy, or digital forensics scripts). The fastest thing you can do is perform static analysis.
+ 
+ 
+ 
+####################
+# Malware Analysis #
+####################
+ 
+ 
+ 
+- After logging please open a terminal window and type the following commands:
+---------------------------Type This-----------------------------------
+
+cd ~/students/
+
+mkdir yourname
+
+cd yourname
+
+mkdir malware_analysis
+
+cd malware_analysis
+-----------------------------------------------------------------------
+ 
+- This is actual Malware (remember to run it in a VM - the password to extract it is 'infected':
+ 
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/malware_analysis
+
+cp ~/static_analysis/wannacry.exe .
+ 
+file wannacry.exe
+ 
+cp wannacry.exe malware.pdf
+ 
+file malware.pdf
+ 
+cp malware.pdf malware.exe
+ 
+hexdump -n 2 -C malware.exe
+-----------------------------------------------------------------------
+ 
+ 
+***What is '4d 5a' or 'MZ'***
+Open up a web browser and go to this reference link below. See if you can figure out what '4d 5a' or 'MZ'
+
+Reference:
+http://www.garykessler.net/library/file_sigs.html
+ 
+
+
+
+---------------------------Type This-----------------------------------
+cd ~/students/yourname/malware_analysis
+
+objdump -x wannacry.exe | less
+     q
+ 
+strings wannacry.exe
+ 
+ 
+strings wannacry.exe | grep -i dll
+ 
+strings wannacry.exe | grep -i library
+ 
+strings wannacry.exe | grep -i reg
+ 
+strings wannacry.exe | grep -i hkey
+ 
+strings wannacry.exe | grep -i hku
+
+strings wannacry.exe | grep -i crypto
+---------------------------------------------------
+
+
+ 
+################################
+# Good references for WannaCry #
+################################
+ 
+References:
+ 
+https://gist.github.com/rain-1/989428fa5504f378b993ee6efbc0b168
+https://securingtomorrow.mcafee.com/executive-perspectives/analysis-wannacry-ransomware-outbreak/
+https://joesecurity.org/reports/report-db349b97c37d22f5ea1d1841e3c89eb4.html
+
+
+ 
+ 
+ 

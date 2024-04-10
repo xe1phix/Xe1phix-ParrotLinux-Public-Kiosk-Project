@@ -1,0 +1,164 @@
+#!/bin/bash
+
+# Script made during the CyberWar class for the students to play with, debug, and improve.
+# Take a look at the following websites for ideas:
+# https://github.com/commonexploits/port-scan-automation
+# https://www.commonexploits.com/penetration-testing-scripts/
+# https://github.com/averagesecurityguy/scripts
+# 
+
+
+
+#############################################
+# Check to see if script is running as root #
+#############################################
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+
+
+########################
+# Make the directories #
+########################
+mkdir -p /tmp/customerAudit/internal/scan/services/
+mkdir -p /tmp/customerAudit/internal/scan/windows/
+mkdir -p /tmp/customerAudit/internal/scan/sunrpc/
+mkdir -p /tmp/customerAudit/internal/scan/telnet/
+mkdir -p /tmp/customerAudit/internal/scan/printers/
+mkdir -p /tmp/customerAudit/internal/scan/mssql_databases/
+mkdir -p /tmp/customerAudit/internal/scan/oracle_databases/
+mkdir -p /tmp/customerAudit/internal/scan/mysql_databases/
+
+
+
+
+######################
+# Find Windows Hosts #
+######################
+echo "Scanning for windows hosts."
+propecia 172.31.6 445 >> /tmp/customerAudit/internal/scan/services/windows_hosts
+clear
+echo "Done scanning for windows hosts. FTP is next."
+
+
+##################
+# Find FTP Hosts #
+##################
+echo "Scanning for hosts running FTP."
+propecia 172.31.6 21 >> /tmp/customerAudit/internal/scan/services/ftp_hosts
+clear
+echo "Done scanning for FTP hosts. SunRPC is next."
+
+
+#####################
+# Find SunRPC Hosts #
+#####################
+echo "Scanning for hosts running SunRPC."
+propecia 172.31.6 111 >> /tmp/customerAudit/internal/scan/services/sunrpc_hosts
+clear
+echo "Done scanning for SunRPC hosts. Telnet is next."
+
+
+#####################
+# Find Telnet Hosts #
+#####################
+echo "Scanning for hosts running Telnet"
+propecia 172.31.6 23 >> /tmp/customerAudit/internal/scan/services/telnet_hosts
+clear
+echo "Done scanning for Telnet hosts. Printers are next."
+
+
+#################
+# Find Printers #
+################# 
+echo "Scanning for Printers and Print Servers"           
+propecia 172.31.6 9100 >> /tmp/customerAudit/internal/scan/services/printserver_hosts 
+clear
+echo "Done scanning for Printers. Databases are next."
+
+
+##################
+# Find Databases #
+##################
+echo "Scanning for hosts running MS SQL Server" 
+propecia 172.31.6$MSSQL_COUNTER 1433 >> /tmp/customerAudit/internal/scan/services/mssql_hosts
+clear
+
+echo "Scanning for hosts running Oracle" 
+propecia 172.31.6$ORA_COUNTER 1521 >> /tmp/customerAudit/internal/scan/services/oracle_hosts
+clear
+
+
+echo "Scanning for hosts running MySQL" 
+propecia 172.31.6$MY_COUNTER 3306 >> /tmp/customerAudit/internal/scan/services/mysql_hosts
+clear
+echo "Done doing the host discovery. Moving on to nmap'ing each host discovered. Windows hosts are first."
+
+
+###############################
+# Ok, let's do the NMAP files #
+###############################
+
+# Windows
+for x in `cat /tmp/customerAudit/internal/scan/services/windows_hosts` ; do nmap -Pn -n --open -p445 --script=msrpc-enum,smb-enum-domains,smb-enum-groups,smb-enum-processes,smb-enum-sessions,smb-enum-shares,smb-enum-users,smb-mbenum,smb-os-discovery,smb-security-mode,smb-server-stats,smb-system-info,smbv2-enabled,stuxnet-detect $x > /tmp/customerAudit/internal/scan/windows/$x ; done
+echo "Done with Windows."
+
+
+# FTP
+for x in `cat /tmp/customerAudit/internal/scan/services/ftp_hosts` ; do nmap -Pn -n --open -p21 --script=banner,ftp-anon,ftp-bounce,ftp-proftpd-backdoor,ftp-vsftpd-backdoor $x > /tmp/customerAudit/internal/scan/ftp/$x ; done
+echo "Done with FTP."
+
+
+# SUNRPC
+for x in `cat /tmp/customerAudit/internal/scan/services/sunrpc_hosts` ; do nmap -Pn -n --open -p111 --script=nfs-ls,nfs-showmount,nfs-statfs,rpcinfo $x > /tmp/customerAudit/internal/scan/sunrpc/$x ; done
+echo "Done with SunRPC."
+
+
+# Telnet
+for x in `cat /tmp/customerAudit/internal/scan/services/telnet_hosts` ; do nmap -sV -O $x > /tmp/customerAudit/internal/scan/telnet/$x ; done
+echo "Done with Telnet."
+
+
+# Printers
+for x in `cat /tmp/customerAudit/internal/scan/services/printserver_hosts` ; do nmap -sV -O $x > /tmp/customerAudit/internal/scan/printers/$x ; done
+echo "Done with printers."
+
+
+# SQL Servers
+for x in `cat /tmp/customerAudit/internal/scan/services/mssql_hosts` ; do -Pn -n --open -p1433 --script=ms-sql-dump-hashes,ms-sql-empty-password,ms-sql-info $x > /tmp/customerAudit/internal/scan/mssql_databases/$x ; done
+echo "Done with MS SQL."
+
+
+# Oracle Servers
+for x in `cat /tmp/customerAudit/internal/scan/services/oracle_hosts` ; do nmap -Pn -n --open -p1521 --script=oracle-sid-brute --script oracle-enum-users --script-args oracle-enum-users.sid=ORCL,userdb=orausers.txt $x >> /tmp/customerAudit/internal/scan/oracle_databases/$x ; done
+echo "Done with Oracle."
+
+
+# MySQL Servers
+for x in `cat /tmp/customerAudit/internal/scan/services/mysql_hosts` ; do nmap -Pn -n --open -p3306 --script=mysql-databases,mysql-empty-password,mysql-info,mysql-users,mysql-variables $x >> /tmp/customerAudit/internal/scan/mysql_databases/$x ; done
+echo "Done with MySQL."
+echo " "
+echo " "
+echo "Done, now check your results."
+
+
+
+
+###########################
+## Nmap NSE tricks to try #
+###########################
+#nmap -Pn -n --open -p22 --script=sshv1,ssh2-enum-algos 172.31.6.0/24
+ 
+#nmap -Pn -n -sU --open -p53 --script=dns-blacklist,dns-cache-snoop,dns-nsec-enum,dns-nsid,dns-random-srcport,dns-random-txid,dns-recursion,dns-service-discovery,dns-update,dns-zeustracker,dns-zone-transfer 172.31.6.0/24
+
+#nmap -Pn -n --open -p3389 --script=rdp-vuln-ms12-020,rdp-enum-encryption 172.31.6.0/24
+ 
+#nmap -Pn -n --open -p5900 --script=realvnc-auth-bypass,vnc-info 172.31.6.0/24
+ 
+#nmap -Pn -n --open -p6000-6005 --script=x11-access 172.31.6.0/24
+ 
+#nmap -Pn -n --open -p27017 --script=mongodb-databases,mongodb-info 172.31.6.0/24
+ 
+#nmap -sV -oA nse --script-args=unsafe=1 --script-args=unsafe  --script "auth,brute,discovery,exploit,external,fuzzer,intrusive,malware,safe,version,vuln and not(http-slowloris or http-brute or http-enum or http-form-fuzzer)" 172.31.6.0/24

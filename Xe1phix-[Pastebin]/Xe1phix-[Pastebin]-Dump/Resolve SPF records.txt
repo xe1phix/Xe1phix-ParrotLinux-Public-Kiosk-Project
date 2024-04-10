@@ -1,0 +1,229 @@
+Function Get-SPFRecord {
+    <#
+    .SYSNOPSIS
+    Retrieves the SPF record for a domain with the option to recursively resolve any 'include' mechanisms
+    .DESCRIPTION
+    Retrieves the SPF record for a domain with the option to recursively resolve any 'include' mechanisms
+    .EXAMPLE
+    Get-SPFRecord -Domain "example.com"
+    .EXAMPLE
+    Get-SPFRecord -Domain "example.com" -DNSServer 8.8.8.8
+    .EXAMPLE
+    Get-SPFRecord -Domain "example.com" -Recursive
+    .PARAMETER Domain
+    The domain you which to query the SPF record for
+    .PARAMETER DNSServer
+    Specify a DNS server, otherwise the computer's default will be used
+    .PARAMETER Recursive
+    Specify whether or not to recursively resolve 'include' spf mechanisms
+
+    #>
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory=$true, Position=0)][string]$Domain,
+        [string]$DNSServer,
+        [switch]$Recursive=$false
+    )
+    $command = "Resolve-DNSName -Name $Domain -Type TXT -ErrorAction Stop"
+    if($DNSServer) {
+        $command += " -Server $DNSServer"
+    }
+    try {
+        $txt_records = Invoke-Expression -Command $command -ErrorAction Stop
+    } catch {
+        Write-Output "Could not resolve domain or SPF record"
+        return $null
+    }
+    $spf_record_raw = $null
+    if($txt_records) {
+        foreach($record in $txt_records) {
+            try {
+                if($record.Strings -like "*v=spf*") {
+                    $spf_record_raw = $record.Strings
+                    break
+                }
+            } catch {}
+        }
+        $spf_entries = $spf_record_raw.Split(' ')
+        $spf_record = New-Object -TypeName psobject
+
+        # Locate and populate SPF version
+        $index = 0
+        foreach($entry in $spf_entries) {
+            if($entry.Contains("v=")) {
+                $version = $entry.Split('=')[1]
+                $spf_record | Add-Member -NotePropertyName "Version" -NotePropertyValue $version
+                break
+            }
+            $index++
+        }
+        $records = @()
+        $includes = @()
+        # Parse out records
+        foreach($entry in $spf_entries) {
+            if($entry -like "*v=spf*") {
+                continue
+            }
+            # throw out extra spacing in spf records
+            if([string]::IsNullOrWhiteSpace($entry)){
+                continue
+            }
+            elseif($entry.Contains(':')) {
+                $this_record = New-Object -TypeName psobject
+                $mechanism = $entry.Split(':')
+
+                $mechanism_definition = $mechanism[0]
+                # Check for ipv6
+                if($mechanism.Count -gt 2 -and $mechanism[0] -like "*ip6*") {
+                    $array_size = $mechanism.Length-1
+                    $mechanism_data = $mechanism[1..$array_size] -join ":"
+                } else {
+                    $mechanism_data = $mechanism[1]
+                }
+
+                $qualifier = $null
+                if($mechanism_definition.StartsWith('+')) {
+                    $qualifier = "Pass"
+                    $mechanism_definition = $mechanism_definition.Replace('+','') 
+                } elseif ($mechanism_definition.StartsWith('-')) {
+                    $qualifier = "Fail"
+                    $mechanism_definition = $mechanism_definition.Replace('-','') 
+                } elseif ($mechanism_definition.StartsWith('~')) {
+                    $qualifier = "SoftFail"
+                    $mechanism_definition = $mechanism_definition.Replace('~','') 
+                } elseif ($mechanism_definition.StartsWith('?')) {
+                    $qualifier = "Neutral"
+                    $mechanism_definition = $mechanism_definition.Replace('?','') 
+                } else {
+                    $qualifier = "Pass"
+                }
+                switch ($mechanism_definition) {
+                    "all" {
+                        $mechanism_record = "all"
+                        $mechanism_record_data = $mechanism_data
+                        break
+                    }
+                    "ip4" {
+                        $mechanism_record = "ip4"
+                        $mechanism_record_data = $mechanism_data
+                        break
+                    } 
+                    "ip6" {
+                        $mechanism_record = "ip6"
+                        $mechanism_record_data = $mechanism_data
+                        break
+                    }
+                    "mx" {
+                        $mechanism_record = "mx"
+                        $mechanism_record_data = $mechanism_data
+                        break
+                    }
+                    "a" {
+                        $mechanism_record = "a"
+                        $mechanism_record_data = $mechanism_data
+                        break
+                    }
+                    "exists" {
+                        $mechanism_record = "exists"
+                        $mechanism_record_data = $mechanism_data
+                        break
+                    }
+                    "include" {
+                        $mechanism_record = "include"
+                        $mechanism_record_data = $mechanism_data
+                        $includes += @($mechanism_data)
+                        break
+                    }
+                    
+                }
+                $this_record | Add-Member -NotePropertyName "Qualifier" -NotePropertyValue $qualifier
+                $this_record | Add-Member -NotePropertyName "Mechanism" -NotePropertyValue $mechanism_record
+                $this_record | Add-Member -NotePropertyName "MechanismData" -NotePropertyValue $mechanism_record_data
+            } else {
+                $this_record = New-Object -TypeName psobject
+                $mechanism = $entry
+                $qualifier = $null
+                if($mechanism.StartsWith('+')) {
+                    $qualifier = "Pass"
+                    $mechanism = $mechanism.Replace('+','') 
+                } elseif ($mechanism.StartsWith('-')) {
+                    $qualifier = "Fail"
+                    $mechanism = $mechanism.Replace('-','') 
+                } elseif ($mechanism.StartsWith('~')) {
+                    $qualifier = "SoftFail"
+                    $mechanism = $mechanism.Replace('~','') 
+                } elseif ($mechanism.StartsWith('?')) {
+                    $qualifier = "Neutral"
+                    $mechanism = $mechanism.Replace('?','') 
+                } else {
+                    $qualifier = "Pass"
+                }
+                if($mechanism.ToLower() -like "*redirect=*") {
+                    $mechanism_definition = $mechanism.Split('=')[0]
+                    $mechanism_data = $mechanism.Split('=')[1]
+                    $this_record | Add-Member -NotePropertyName "Qualifier" -NotePropertyValue $qualifier
+                    $this_record | Add-Member -NotePropertyName "Mechanism" -NotePropertyValue $mechanism_definition
+                    $this_record | Add-Member -NotePropertyName "MechanismData" -NotePropertyValue $mechanism_data
+
+                    $includes += @($mechanism_data)
+                }
+                elseif($mechanism.ToLower() -eq "mx") {
+                    $MXRecords = (Resolve-DnsName -Name pultemortgage.com -Type mx)
+                    $pref = $null
+                    $exchange = $null
+
+                    foreach ($mx_record in $MXRecords) {
+                        if($mx_record.Preference) {
+                            if($pref) {
+                                if($mx_record.Preference -gt $pref) {
+                                    $pref = $mx_record.Preference
+                                    $exchange = $mx_record.Exchange
+                                }
+                            } else {
+                                $pref = $mx_record.Preference
+                                $exchange = $mx_record.Exchange
+                            }
+                        }
+                    }
+                   $exhange_address = (Resolve-DnsName -Name $exchange -Type A).IPAddress 
+                   $this_record | Add-Member -NotePropertyName "Qualifier" -NotePropertyValue $qualifier
+                   $this_record | Add-Member -NotePropertyName "Mechanism" -NotePropertyValue $mechanism
+                   $this_record | Add-Member -NotePropertyName "MechanismData" -NotePropertyValue $exhange_address
+                } elseif($mechanism.ToLower() -eq "a") {
+                    $address = (Resolve-DnsName -Name $Domain -Type A).IPAddress 
+                    $this_record | Add-Member -NotePropertyName "Qualifier" -NotePropertyValue $qualifier
+                    $this_record | Add-Member -NotePropertyName "Mechanism" -NotePropertyValue $mechanism
+                    $this_record | Add-Member -NotePropertyName "MechanismData" -NotePropertyValue $address
+                } elseif($mechanism.ToLower() -like "*v=spf*") {
+                    continue
+                } elseif($mechanism.ToLower() -like "*all*") {
+                    $this_record | Add-Member -NotePropertyName "Qualifier" -NotePropertyValue $qualifier
+                    $this_record | Add-Member -NotePropertyName "Mechanism" -NotePropertyValue $mechanism
+                    $this_record | Add-Member -NotePropertyName "MechanismData" -NotePropertyValue ""
+                }                
+                else {
+                    $this_record | Add-Member -NotePropertyName "Qualifier" -NotePropertyValue $qualifier
+                    $this_record | Add-Member -NotePropertyName "Mechanism" -NotePropertyValue $mechanism
+                    $this_record | Add-Member -NotePropertyName "MechanismData" -NotePropertyValue "unable to resolve"
+                }
+            }
+            $records += @($this_record)
+        }
+        $spf_record | Add-Member -NotePropertyName "Records" -NotePropertyValue $records
+
+        Write-Output "`nDomain : $Domain"
+        Write-Output "SPF Version : $($spf_record.Version)"
+        $($spf_record.Records)
+
+        if($includes.Count -gt 0 -and $Recursive) {
+            foreach($include in $includes) {
+                if ($DNSServer) {
+                    Get-SPFRecord -Domain $include -DNSServer $DNSServer -Recursive
+                } else {
+                    Get-SPFRecord -Domain $include -Recursive
+                }
+            }        
+        }
+        
+    }
+}

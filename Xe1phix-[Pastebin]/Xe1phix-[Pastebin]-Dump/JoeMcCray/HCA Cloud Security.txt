@@ -1,0 +1,230 @@
+Login to this page:
+https://786199696183.signin.aws.amazon.com/console
+ 
+ 
+Use one of these usernames:
+---------------------------
+hca_student001
+hca_student002
+hca_student003
+hca_student004
+hca_student005
+hca_student006
+hca_student007
+hca_student008
+hca_student009
+hca_student010
+hca_student011
+hca_student012
+hca_student013
+hca_student014
+hca_student015
+hca_student016
+hca_student017
+hca_student018
+hca_student019
+hca_student020
+
+
+
+
+                 #####################################
+--------######## # Day 1: AWS Intro & Pentesting AWS # ########--------
+                 #####################################
+
+
+###################
+# Getting Started #
+###################
+https://portal.aws.amazon.com/billing/signup#/start
+	- Create an account
+	- Enter valid credit card (expect today and tomorrow to be FREE, but a valid credit card is required)
+
+
+
+-- Let's look at the FREE stuff --
+https://aws.amazon.com/free/
+
+
+
+-- Let's spin up an instance in EC2 --
+https://console.aws.amazon.com/
+
+	Task 1: Spin up a Linux instance
+	- SSH setup with putty
+	- delete the instance	
+
+	Task 2: Spin up a Windows instance
+	- delete the instance
+
+
+-- Let's build a web app --
+	https://us-west-1.console.aws.amazon.com/elasticbeanstalk/home?region=us-west-1#/gettingStarted
+
+	- Step 1: You can use this application: 
+	https://infosecaddicts-files.s3.amazonaws.com/AWS-Course/0-aws-first-nodejs-app.zip
+	- Step 2
+	- Step 3
+	- Step 4
+	- Step 5
+	- Step 6
+	**** about 6 min ****
+
+
+--- It's broke ---
+	-- says degraded --
+
+	- Click "Configuration", then "Software/modify"
+	- In the "Node command" field type: npm start, at the bottom of the screen click "Apply"
+	**** about 2 min ****
+
+	Reference:
+	https://javascript.tutorialhorizon.com/2015/08/11/what-does-npm-start-do-in-nodejs/
+
+
+
+--- Look in EC2 ---
+https://us-west-1.console.aws.amazon.com/ec2/v2/home?region=us-west-1#Instances:sort=instanceId
+
+--- Back to Beanstalk ---
+https://us-west-1.console.aws.amazon.com/elasticbeanstalk/home?region=us-west-1#/applications
+	- Step 1: Delete the app
+	- Step 2
+
+
+#################
+# AWS IAM Intro #
+#################
+
+	- Step 1: Create a group
+	- Step 2: Create a user
+	- Step 3: Enable MFA
+	- Step 4: Apply IAM password policy
+	- Step 5: Apply a policy
+	- Step 6: Apply a role
+
+
+##################################################
+# Try to install something a little more complex #
+##################################################
+Deploy Wordpress using the following tutorial:
+https://www.essycode.com/posts/wordpress-and-elastic-beanstalk/
+
+
+
+########################
+# AWS Lambda functions #
+########################
+--- Lambdas take 3 Arguments ---
+
+Event		= event data, request data, basically a trigger
+Context		= Some additional info about what's going on and what to do
+Callback	= let's lambda know we are done (error, success)
+
+
+def lambda_handler(event, context):
+	# Do something
+	print('received create event{}'.format(event))
+	return ''
+
+
+
+
+#################
+# Setup AWS CLI #
+#################
+
+
+--- AWS CLI in Windows ---
+Reference: https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html#install-msi-on-windows
+
+1. Download/install the aws cli msi file
+https://s3.amazonaws.com/aws-cli/AWSCLI64PY3.msi
+
+-------------Type this--------------------
+C:\Users\SecureNinja>where aws
+C:\Program Files\Amazon\AWSCLI\bin\aws.exe
+
+C:\Users\SecureNinja>aws --version
+aws-cli/1.16.139 Python/3.6.0 Windows/7 botocore/1.12.129
+------------------------------------------
+
+
+
+2. Install Python3 and awscli
+-------------Type this--------------------
+C:\Users\SecureNinja>python --version
+Python 3.7.3
+
+C:\Users\SecureNinja>pip3 --version
+pip 19.0.3 from c:\users\secureninja\appdata\local\programs\python\python37\lib\site-packages\pip (python 3.7)
+
+C:\Users\SecureNinja>pip3 install awscli
+------------------------------------------
+
+
+
+3. Configure awscli
+-------------Type this--------------------
+C:\Users\SecureNinja>aws configure
+AWS Access Key ID [None]: AKIAJWN4LNF7********
+AWS Secret Access Key [None]: fdbgAYf5SnmZ11YndhVQwRysljZCCyNH********
+Default region name [786199696183]: us-east-1
+Default output format [None]: json
+C:\Users\SecureNinja>aws s3 ls
+2019-04-04 07:17:15 virtualmachines05
+
+References:
+https://cloudacademy.com/blog/aws-cli-10-useful-commands/
+
+
+
+#######################
+# Pentesting From AWS #
+#######################
+Deploy Kali Linux using the following tutorial:
+https://www.alienvault.com/blogs/security-essentials/configuring-kali-linux-on-amazon-aws-cloud-for-free
+
+root@kali:/home/ec2-user# history
+sudo /bin/bash
+apt-get update
+apt-get install kali-linux-top10
+apt-get install -y xfce4 xfce4-goodies tightvncserver gnome-core kali-defaults kali-root-login desktop-base
+tightvncserver :1
+nmap localhost -p 5900-5901
+
+
+#################################
+# Building a pentest lab in AWS #
+#################################
+Here is some code to take a look at (it's old, but should give you an idea of where to start)
+https://github.com/averagesecurityguy/AWSlab
+
+Although this is designed for OpenStack instead of AWS it should give you some ideas of what to do in your lab.
+https://github.com/Sliim/pentest-lab
+
+
+
+##################
+# Pentesting AWS #
+##################
+https://www.slideshare.net/VengateshNagarajan/pentesting-cloud-environment
+https://www.slideshare.net/TeriRadichel/red-team-vs-blue-team-on-aws-rsa-2018
+https://www.slideshare.net/wojdwo/attacking-aws-the-full-cyber-kill-chain-144590283
+
+
+############################
+# Practicing Attacking AWs #
+############################
+https://github.com/RhinoSecurityLabs/cloudgoat
+
+https://medium.com/@rzepsky/playing-with-cloudgoat-part-1-hacking-aws-ec2-service-for-privilege-escalation-4c42cc83f9da
+https://medium.com/@rzepsky/playing-with-cloudgoat-part-2-fooling-cloudtrail-and-getting-persistence-access-6a1257bb3f7c
+https://medium.com/@rzepsky/playing-with-cloudgoat-part-3-using-aws-lambda-for-privilege-escalation-and-exploring-a-lightsail-4a48688335fa
+https://medium.com/@rzepsky/playing-with-cloudgoat-part-4-security-nuances-of-aws-glue-codebuild-and-s3-services-cc67fb88cc46
+https://medium.com/@rzepsky/playing-with-cloudgoat-part-5-hacking-aws-with-pacu-6abe1cf5780d
+
+
+                 ##################################
+--------######## # Day 2: Preparing for AWS exams # ########--------
+                 ##################################

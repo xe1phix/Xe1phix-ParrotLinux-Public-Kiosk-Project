@@ -1,0 +1,221 @@
+SMBv2] NTLMv2-SSP Client   : 10.10.10.125
+[SMBv2] NTLMv2-SSP Username : QUERIER\mssql-svc
+[SMBv2] NTLMv2-SSP Hash     : mssql-svc::QUERIER:	ae754b1a0fe95a89:C039575BA1E072A174F31FF02EE97D2A:0101000000000000C0653150DE09D201EC228EA337C04BF5000000000200080053004D004200330001001E00570049004E002D00500052004800340039003200520051004100460056000400140053004D00420033002E006C006F00630061006C0003003400570049004E002D00500052004800340039003200520051004100460056002E0053004D00420033002E006C006F00630061006C000500140053004D00420033002E006C006F00630061006C0007000800C0653150DE09D20106000400020000000800300030000000000000000000000000300000DB98BCBFA45B3495D0C7E864FECB6C41E252875882C6804D8CDB6E89F52EA1390A001000000000000000000000000000000000000900220063006900660073002F00310030002E00310030002E00310035002E00320030003700000000000000000000000000
+[*] Skipping previously captured hash for QUERIER\mssql-svc
+[SMBv2] NTLMv2-SSP Client   : 10.10.10.125
+[SMBv2] NTLMv2-SSP Username : \gX
+[SMBv2] NTLMv2-SSP Hash     : gX:::ee481ad063676eb2::
+[*] Skipping previously captured hash for \gX
+
+]]]
+
+
+
+.SQL> select * from sysusers
+        uid        status   name                                                                                                                                                                                                                                                                                                      sid                                                                                                                                                                                                                                                             roles   createdate   updatedate        altuid                                                                                                                                                                                                                                                          password           gid   environ                                                                                                                                                                                                                                                           hasdbaccess       islogin      isntname     isntgroup      isntuser     issqluser     isaliased     issqlrole     isapprole   
+-----------   -----------   --------------------------------------------------------------------------------------------------------------------------------   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------   ----------   ----------   -----------   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------   -----------   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------   -----------   -----------   -----------   -----------   -----------   -----------   -----------   -----------   -----------   
+          0             0   public                                                                                                                                                                                                                                               01050000000000090400000083741b006749c04ba943c02702f2a762                                                                                                                                                                                                                                                              NULL   2003-04-08 09:10:42   2009-04-13 12:59:14             1                                                                                                                                                                                                                                                              NULL             0   NULL                                                                                                                                                                                                                                                                        0             0             0             0             0             0             0             1             0   
+          1            12   dbo                                                                                                                                                                                                                                                  010500000000000515000000e5cfd9d970fd97dacb23a5d1f4010000                                                                                                                                                                                                                                                              NULL   2003-04-08 09:10:42   2019-01-29 00:09:44          NULL                                                                                                                                                                                                                                                              NULL             0   NULL                                                                                                                                                                                                                                                                        1             1             1             0             1             0             0             0             0   
+          2             0   guest                                                                                                                                                                                                                                                                                                      00                                                                                                                                                                                                                                                              NULL   2003-04-08 09:10:42   2003-04-08 09:10:42          NULL                                                                                                                                                                                                                                                              NULL             0   NULL                                                                                                                                                                                                                                                                        0             1             0             0             0             1             0             0             0   
+          3             0   INFORMATION_SCHEMA                                                                                                                                                                                                                                                                                       NULL                                                                                                                                                                                                                                                              NULL   2009-04-13 12:59:11   2009-04-13 12:59:11          NULL                                                                                                                                                                                                                                                              NULL             0   NULL                                                                                                                                                                                                                                                                        0             1             0             0             0             1             0             0             0   
+          4             0   sys                                                                                                                                                                                                                                                                                                      NULL                                                                                                                                                                                                                                                              NULL   2009-04-13 12:59:11   2009-04-13 12:59:11          NULL                                                                                                                                                                                                                                                              NULL             0   NULL                                                                                                                                                                                                                                                                        0             1             0             0             0             1             0             0             0   
+          5            12   reporting                                                                                                                                                                                                                                            010500000000000515000000e5cfd9d970fd97dacb23a5d1ea030000                                                                                                                                                                                                                                                              NULL   2019-01-29 00:10:15   2019-01-29 00:10:15          NULL                                                                                                                                                                                                                                                              NULL             0   NULL                                                                                                                                                                                                                                                                        1             1             1             0             1             0             0             0             0   
+      16384             0   db_owner                                                                                                                                                                                                                                             01050000000000090400000000000000000000000000000000400000                                                                                                                                                                                                                                                              NULL   2003-04-08 09:10:42   2009-04-13 12:59:14             1                                                                                                                                                                                                                                                              NULL         16384   NULL                                                                                                                                                                                                                                                                        0             0             0             0             0             0             0             1             0   
+      16385             0   db_accessadmin                                                                                                                                                                                                                                       01050000000000090400000000000000000000000000000001400000                                                                                                                                                                                                                                                              NULL   2003-04-08 09:10:42   2009-04-13 12:59:14             1                                                                                                                                                                                                                                                              NULL         16385   NULL                                                                                                                                                                                                                                                                        0             0             0             0             0             0             0             1             0   
+      16386             0   db_securityadmin                                                                                                                                                                                                                                     01050000000000090400000000000000000000000000000002400000                                                                                                                                                                                                                                                              NULL   2003-04-08 09:10:42   2009-04-13 12:59:14             1                                                                                                                                                                                                                                                              NULL         16386   NULL                                                                                                                                                                                                                                                                        0             0             0             0             0             0             0             1             0   
+      16387             0   db_ddladmin                                                                                                                                                                                                                                          01050000000000090400000000000000000000000000000003400000                                                                                                                                                                                                                                                              NULL   2003-04-08 09:10:42   2009-04-13 12:59:14             1                                                                                                                                                                                                                                                              NULL         16387   NULL                                                                                                                                                                                                                                                                        0             0             0             0             0             0             0             1             0   
+      16389             0   db_backupoperator                                                                                                                                                                                                                                    01050000000000090400000000000000000000000000000005400000                                                                                                                                                                                                                                                              NULL   2003-04-08 09:10:42   2009-04-13 12:59:14             1                                                                                                                                                                                                                                                              NULL         16389   NULL                                                                                                                                                                                                                                                                        0             0             0             0             0             0             0             1             0   
+      16390             0   db_datareader                                                                                                                                                                                                                                        01050000000000090400000000000000000000000000000006400000                                                                                                                                                                                                                                                              NULL   2003-04-08 09:10:42   2009-04-13 12:59:14             1                                                                                                                                                                                                                                                              NULL         16390   NULL                                                                                                                                                                                                                                                                        0             0             0             0             0             0             0             1             0   
+      16391             0   db_datawriter                                                                                                                                                                                                                                        01050000000000090400000000000000000000000000000007400000                                                                                                                                                                                                                                                              NULL   2003-04-08 09:10:42   2009-04-13 12:59:14             1                                                                                                                                                                                                                                                              NULL         16391   NULL                                                                                                                                                                                                                                                                        0             0             0             0             0             0             0             1             0   
+      16392             0   db_denydatareader                                                                                                                                                                                                                                    01050000000000090400000000000000000000000000000008400000                                                                                                                                                                                                                                                              NULL   2003-04-08 09:10:42   2009-04-13 12:59:14             1                                                                                                                                                                                                                                                              NULL         16392   NULL                                                                                                                                                                                                                                                                        0             0             0             0             0             0             0             1             0   
+      16393             0   db_denydatawriter                                                                                                                                                                                                                                    01050000000000090400000000000000000000000000000009400000                                                                                                                                                                                                                                                              NULL   2003-04-08 09:10:42   2009-04-13 12:59:14             1                                                                                                                                                                                                                                                              NULL         16393   NULL                                                                                                                                                                                                                                                                        0             0             0             0             0             0             0             1             0   
+SQL> Traceback (most recent call last):
+  File "./mssqlclient.py", line 188, in <module>
+    shell.cmdloop()
+  File "/usr/lib/python2.7/cmd.py", line 130, in cmdloop
+    line = raw_input(self.prompt)
+
+
+/mssqlclient.py -windows-auth QUERIER.local/reporting@10.10.10.125
+
+./mssqlclient.py -windows-auth QUERIER.local/reporting@10.10.10.125
+
+
+
+qq@z:~/Downloads/impacket/examples$ ./mssqlclient.py -windows-auth QUERIER.local/reporting:PcwTWTHRwryjc$c6@10.10.10.125
+
+ ./mssqlclient.py -windows-auth QUERIER.local/reporting@10.10.10.125
+
+PcwTWTHRwryjc$c6
+
+qq@z:~/Downloads/impacket/examples$ ./smbclient.py 10.10.10.125
+Impacket v0.9.19-dev - Copyright 2019 SecureAuth Corporation
+
+Type help for list of commands
+# login reporting
+Password:
+[*] USER Session Granted
+# use C$
+[-] SMB SessionError: STATUS_ACCESS_DENIED({Access Denied} A process has requested access to an object but has not been granted those access rights.)
+# shares
+ADMIN$
+C$
+IPC$
+Reports
+# use ADMIN$
+[-] SMB SessionError: STATUS_ACCESS_DENIED({Access Denied} A process has requested access to an object but has not been granted those access rights.)
+# use C$
+[-] SMB SessionError: STATUS_ACCESS_DENIED({Access Denied} A process has requested access to an object but has not been granted those access rights.)
+# use IPC$
+# ls
+-rw-rw-rw-          3  Mon Jan  1 11:55:44 1601 InitShutdown
+-rw-rw-rw-          5  Mon Jan  1 11:55:44 1601 lsass
+-rw-rw-rw-          3  Mon Jan  1 11:55:44 1601 ntsvcs
+-rw-rw-rw-          3  Mon Jan  1 11:55:44 1601 scerpc
+-rw-rw-rw-          1  Mon Jan  1 11:55:44 1601 Winsock2\CatalogChangeListener-324-0
+-rw-rw-rw-          3  Mon Jan  1 11:55:44 1601 epmapper
+-rw-rw-rw-          1  Mon Jan  1 11:55:44 1601 Winsock2\CatalogChangeListener-1c8-0
+-rw-rw-rw-          3  Mon Jan  1 11:55:44 1601 LSM_API_service
+-rw-rw-rw-          3  Mon Jan  1 11:55:44 1601 eventlog
+-rw-rw-rw-          1  Mon Jan  1 11:55:44 1601 Winsock2\CatalogChangeListener-3dc-0
+-rw-rw-rw-          3  Mon Jan  1 11:55:44 1601 atsvc
+-rw-rw-rw-          1  Mon Jan  1 11:55:44 1601 Winsock2\CatalogChangeListener-3b4-0
+-rw-rw-rw-          5  Mon Jan  1 11:55:44 1601 wkssvc
+-rw-rw-rw-          1  Mon Jan  1 11:55:44 1601 Winsock2\CatalogChangeListener-258-0
+-rw-rw-rw-          3  Mon Jan  1 11:55:44 1601 spoolss
+-rw-rw-rw-          1  Mon Jan  1 11:55:44 1601 Winsock2\CatalogChangeListener-5c0-0
+-rw-rw-rw-          3  Mon Jan  1 11:55:44 1601 winreg
+-rw-rw-rw-          3  Mon Jan  1 11:55:44 1601 trkwks
+-rw-rw-rw-          4  Mon Jan  1 11:55:44 1601 srvsvc
+-rw-rw-rw-          1  Mon Jan  1 11:55:44 1601 vgauth-service
+-rw-rw-rw-          1  Mon Jan  1 11:55:44 1601 Winsock2\CatalogChangeListener-634-0
+-rw-rw-rw-          3  Mon Jan  1 11:55:44 1601 ROUTER
+-rw-rw-rw-          3  Mon Jan  1 11:55:44 1601 W32TIME_ALT
+-rw-rw-rw-          7  Mon Jan  1 11:55:44 1601 SQLLocal\MSSQLSERVER
+-rw-rw-rw-          2  Mon Jan  1 11:55:44 1601 sql\query
+-rw-rw-rw-          1  Mon Jan  1 11:55:44 1601 Winsock2\CatalogChangeListener-250-0
+-rw-rw-rw-          1  Mon Jan  1 11:55:44 1601 PSHost.131965566707989647.3216.DefaultAppDomain.powershell
+-rw-rw-rw-          1  Mon Jan  1 11:55:44 1601 PSHost.131965567825779064.964.DefaultAppDomain.powershell
+# 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+qq@z:~/Downloads/impacket$ python ./mssqlclient.py QUERIER/reporting:PcwTWTHRwryjc$c6@10.10.10.125
+Impacket v0.9.19-dev - Copyright 2019 SecureAuth Corporation
+
+[*] Encryption required, switching to TLS
+[-] ERROR(QUERIER): Line 1: Login failed for user 'reporting'.
+qq@z:~/Downloads/impacket$ 
+
+Line 105: User does not have permission to perform this action
+
+Can get into 10.10.10.25/IPC$ with any account:
+gives error:
+NT_STATUS_INVALID_INFO_CLASS listing \*  
+
+=
+
+ERRbadpipe
+
+STATUS_INVALID_INFO_CLASS
+Invalid named pipe.
+
+
+Potential SQL account:
+Uid=reporting;
+Pwd=PcwTWTHRwryjc$c6
+Database=volume;Uid=reporting;Pwd=PcwTWTHRwryjc$c6
+
+
+
+Rem Attribute VBA_ModuleType=VBADocumentModule
+Option VBASupport 1
+
+' macro to pull data for client volume reports
+'
+' further testing required
+
+Private Sub Connect()
+
+Dim conn As ADODB.Connection
+Dim rs As ADODB.Recordset
+
+Set conn = New ADODB.Connection
+conn.ConnectionString = "Driver={SQL Server};Server=QUERIER;Trusted_Connection=no;Database=volume;Uid=reporting;Pwd=PcwTWTHRwryjc$c6"
+conn.ConnectionTimeout = 10
+conn.Open
+
+If conn.State = adStateOpen Then
+
+  ' MsgBox "connection successful"
+ 
+  'Set rs = conn.Execute("SELECT * @@version;")
+  Set rs = conn.Execute("SELECT * FROM volume;")
+  Sheets(1).Range("A1").CopyFromRecordset rs
+  rs.Close
+
+End If
+
+End Sub
+
+
+
+qq@z:/$ smbclient //10.10.10.125/Reports -I
+Enter WORKGROUP\qq's password: 
+Try "help" to get a list of possible commands.
+smb: \>
+
+
+
+
+
+qq@z:/$ smbclient -L 10.10.10.125
+Enter WORKGROUP\qq's password: 
+
+	Sharename       Type      Comment
+	---------       ----      -------
+	ADMIN$          Disk      Remote Admin
+	C$              Disk      Default share
+	IPC$            IPC       Remote IPC
+	Reports         Disk      
+Reconnecting with SMB1 for workgroup listing.
+Connection to 10.10.10.125 failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND)
+Failed to connect with SMB1 -- no workgroup available
+qq@z:/$ 
+
+
+
+Windows SMB: 139/445
+
+PORT      STATE    SERVICE        VERSION
+135/tcp   open     msrpc          Microsoft Windows RPC
+139/tcp   open     netbios-ssn    Microsoft Windows netbios-ssn
+445/tcp   open     microsoft-ds?
+593/tcp   filtered http-rpc-epmap
+1433/tcp  open     ms-sql-s       Microsoft SQL Server vNext tech preview 14.00.1000
+1521/tcp  filtered oracle
+1718/tcp  filtered h323gatedisc
+5999/tcp  filtered ncd-conf
+6779/tcp  filtered unknown
+10024/tcp filtered unknown

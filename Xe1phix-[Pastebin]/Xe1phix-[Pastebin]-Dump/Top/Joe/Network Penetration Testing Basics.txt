@@ -1,0 +1,608 @@
+Step 1: Download Nmap
+--------------------
+Windows: https://nmap.org/dist/nmap-7.70-setup.exe
+Mac OS X: https://nmap.org/dist/nmap-7.70.dmg
+
+Linux:
+--- Fedora/CentOS/RHEL:    sudo yum install -y nmap
+--- Ubuntu/Mint/Debian:	   sudo apt-get install -y nmap
+ 
+ 
+ 
+########################
+# Scanning Methodology #
+########################
+ 
+- Ping Sweep
+What's alive?
+------------
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+ 
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sP 157.166.226.*
+
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sP 157.166.226.*
+ 
+--------------------------------------------------------------------------------------------
+ 
+ 
+ 
+    -if -SP yields no results try:
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sL 157.166.226.*
+
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sL 157.166.226.*
+ 
+------------------------------------------------------------------------------------------
+ 
+ 
+ 
+    -Look for hostnames:
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sL 157.166.226.* | grep com
+
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sP 157.166.226.* | findstr "cnn"
+ 
+-------------------------------------------------------------------------------------------
+ 
+ 
+ 
+- Port Scan
+What's where?
+------------
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sS 162.243.126.247
+
+---------------------------or on Windows type:----------------------------------------------
+c:\nmap -sS 162.243.126.247
+ 
+--------------------------------------------------------------------------------------------
+ 
+ 
+ 
+- Bannergrab/Version Query
+What versions of software are running
+-------------------------------------
+Note: On windows you won't need to use the word "sudo" in front of the command below: 
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sV 162.243.126.247
+
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sV 162.243.126.247 
+-------------------------------------------------------------------------------------------
+
+
+
+Let's dig into this a little bit more:
+-------------------------------------
+Note: On windows you won't need to use the word "sudo" in front of the command below: 
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sV --script=http-headers 162.243.126.247 -p 80,443
+
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sV --script=http-headers 162.243.126.247 -p 80,443 
+------------------------------------------------------------------------------------------- 
+ 
+ 
+ 
+- Vulnerability Research
+Lookup the banner versions for public exploits
+----------------------------------------------
+http://exploit-db.com
+http://securityfocus.com/bid
+https://packetstormsecurity.com/files/tags/exploit/
+ 
+---------------------------------------------------------------------------------------------------------------------------------
+The purpose of this class is to help students learn how to address the common issues in Hacking Challenge Lab courses.
+ 
+ 
+
+
+##############################################################################################################
+# Preparing for challenge lab exams like OSCP, and also how to play in network attack style CTF competitions #
+##############################################################################################################
+
+Issue 1. Lack of a thorough attack process
+==========================================
+    - Host discovery  
+    - Service discovery
+    - Service version discovery
+    - Vulnerability research
+    - Linux (port 111)/Window (port 445) Enumeration
+    - Webserver vulnerability scan
+    - Directory brute force every webserver
+    - Analyze source code of every web app (look for IPs, usernames/passwords, explanations of how stuff works)
+    - Brute force all services
+ 
+ 
+Issue 2. Lack of automation of the process
+==========================================
+    - Research attacks scripts on the internet to enhance your methodology
+ 
+ 
+Issue 3. Failing to document all steps being performed and their output
+=======================================================================
+ 
+ 
+Issue 4. Lack of sleep during the exam
+======================================
+ 
+ 
+Issue 5. Failing to reboot target machines prior to attack
+==========================================================
+ 
+ 
+ 
+--------------------------------------------------------------------------------------------------------------
+ 
+ 
+A good strategy to use to prepare would be:
+ 
+Step 1. Ensure that you are comfortable with Linux
+--------------------------------------------------
+- LinuxSurvival.com (you should be able to comfortably pass all 4 quizzes)
+- Comptia Linux+ (You should be just a hair under a Linux system administrator in skill level, simple shell scripting, and well beyond a Linux user skill level)
+ 
+You should be very comfortable with the material covered in the videos below (Go through all of them twice if you are new to Linux):
+https://www.youtube.com/playlist?list=PLCDA423AB5CEC8FDB
+https://www.youtube.com/playlist?list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK
+https://www.youtube.com/playlist?list=PLcUid3OP_4OXOUqYTDGjq-iEwtBf-3l2E
+ 
+ 
+ 
+2. You should be comfortable with the following tools:
+------------------------------------------------------
+ 
+Nmap:
+https://www.youtube.com/playlist?list=PL6gx4Cwl9DGBsINfLVidNVaZ-7_v1NJIo
+ 
+Metasploit:
+https://www.youtube.com/playlist?list=PL6gx4Cwl9DGBmwvjJoWhM4Lg5MceSbsja
+ 
+Burp Suite:
+https://www.youtube.com/playlist?list=PLv95pq8fEyuivHeZB2jeC435tU3_1YGzV
+ 
+Sqlmap:
+https://www.youtube.com/playlist?list=PLA3E1E7A07FD60C75
+ 
+Nikto:
+https://www.youtube.com/watch?v=GH9qn_DBzCk
+ 
+Enum4Linux:
+https://www.youtube.com/watch?v=hA5raaGOQKQ
+ 
+RPCINFO/SHOWMOUNT:
+https://www.youtube.com/watch?v=FlRAA-1UXWQ
+ 
+Hydra:
+https://www.youtube.com/watch?v=rLtj8tEmGso
+ 
+ 
+ 
+3. You need to comfortable with basic exploit development
+---------------------------------------------------------
+ 
+Basic assembly:
+https://www.youtube.com/playlist?list=PLue5IPmkmZ-P1pDbF3vSQtuNquX0SZHpB
+ 
+Basic exploit development (first 5 videos in the playlist):
+https://www.youtube.com/playlist?list=PLWpmLW-3AVsjcz_VJFvofmIFVTk7T-Ukl
+ 
+ 
+4. You need to be comfortable with privilege escalation
+-------------------------------------------------------
+Linux
+https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
+ 
+Windows
+https://www.sploitspren.com/2018-01-26-Windows-Privilege-Escalation-Guide/
+http://www.fuzzysecurity.com/tutorials/16.html
+ 
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+#############################
+# Playing around in the lab #
+#############################
+
+
+
+Some tools to install:
+---------------------------Type This-----------------------------------
+wget --no-check-certificate https://dl.packetstormsecurity.net/UNIX/scanners/propecia.c
+gcc propecia.c -o propecia
+sudo cp propecia /bin
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+##############################
+# Scanning Process to follow #
+##############################
+ 
+Step 1: Host Discovery
+----------------------
+ 
+---------------------------Type This-----------------------------------
+nmap -sP 172.31.2.0/24
+ 
+nmap -sL 172.31.2.0/24
+ 
+nmap -sS --open -p 22,445 172.31.2.0/24
+ 
+propecia 172.31.2 22 > file1
+propecia 172.31.2 445 > file2
+cat file1 file2 > file3
+cat file3 | sort -t . -k 3,3n -k 4,4n | uniq > lab.txt
+cat lab.txt
+-----------------------------------------------------------------------
+ 
+ 
+Step 2: Port Scan
+-----------------
+nmap -sS <IP-ADDRESS>
+nmap -sU -p 69,161 <IP-ADDRESS>
+ 
+ 
+---------------------------Type This-----------------------------------
+sudo nmap -sS 172.31.2.0/24
+sudo nmap -sU -p 69,161 172.31.2.0/24
+-----------------------------------------------------------------------
+ 
+ 
+Step 3: Bannergrab
+------------------
+nmap -sV <IP-ADDRESS>
+nmap -sV -p- <IP-ADDRESS>
+    |
+    ----> Vulnerability Research
+ 
+---------------------------Type This-----------------------------------
+sudo nmap -sV 172.31.2.0/24
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+Step 4: Enumerate common Windows/Linux file sharing services
+Step 3 is where most people STOP, and you need to move on and look deeper
+------------------------------------------------------------
+ 
+---------------------------Type This-----------------------------------
+sudo apt install smbclient libnss-winbind winbind
+git clone https://github.com/portcullislabs/enum4linux.git
+cd enum4linux/
+perl enum4linux.pl -U 172.31.2.11
+ 
+nmap -Pn -n --open -p111 --script=nfs-ls,nfs-showmount,nfs-statfs,rpcinfo 172.31.2.86
+---------------------------------------------------------------------------------------
+ 
+ 
+ 
+Step 5: Vulnerability Scan the webservers
+-----------------------------------------
+git clone https://github.com/sullo/nikto.git Nikto2
+ 
+cd Nikto2/program
+ 
+perl nikto.pl -h <IP-ADDRESS>
+ 
+ 
+ 
+Step 6: Directory Bruteforce every webserver
+--------------------------------------------
+sudo apt install -y libcurl4-openssl-dev
+ 
+git clone https://github.com/v0re/dirb.git
+ 
+cd dirb/
+ 
+./configure
+ 
+make
+ 
+./dirb
+ 
+./dirb http://<IP-ADDRESS> wordlists/big.txt
+ 
+ 
+ 
+ 
+ 
+Step 7: Analyze source code of all webpages found
+-------------------------------------------------
+lynx -dump "http://<IP-ADDRESS>" | grep -o "http:.*" > links
+ 
+If you ever need to download an entire Web site, perhaps for off-line viewing, wget can do the job—for example:
+ 
+$ wget \
+     --recursive \
+     --no-clobber \
+     --page-requisites \
+     --html-extension \
+     --convert-links \
+     --restrict-file-names=windows \
+     --domains website.org \
+     --no-parent \
+         www.website.org/tutorials/html/
+ 
+ 
+This command downloads the Web site www.website.org/tutorials/html/.
+ 
+The options are:
+ 
+--recursive: download the entire Web site.
+ 
+--domains website.org: don't follow links outside website.org.
+ 
+--no-parent: don't follow links outside the directory tutorials/html/.
+ 
+--page-requisites: get all the elements that compose the page (images, CSS and so on).
+ 
+--html-extension: save files with the .html extension.
+ 
+--convert-links: convert links so that they work locally, off-line.
+ 
+--restrict-file-names=windows: modify filenames so that they will work in Windows as well.
+ 
+--no-clobber: don't overwrite any existing files (used in case the download is interrupted and resumed).
+ 
+ 
+ 
+Step 8: Bruteforce any services you find
+----------------------------------------
+sudo apt install -y zlib1g-dev libssl-dev libidn11-dev libcurses-ocaml-dev libpcre3-dev libpq-dev libsvn-dev libssh-dev libmysqlclient-dev libpq-dev libsvn-devcd ~/toolz
+git clone https://github.com/vanhauser-thc/thc-hydra.git
+cd thc-hydra
+./configure
+make
+hydra -L username.txt -P passlist.txt ftp://<IP-ADDRESS
+hydra -l user -P passlist.txt ftp://<IP-ADDRESS
+ 
+ 
+ 
+##########################
+# Step 1: Host Discovery #
+##########################
+ 
+Reason:
+-------
+You have to discover the reachable hosts in the network before you can attack them.
+ 
+ 
+Hosts discovery syntax:
+-----------------------
+    nmap -sP 172.31.2.0/24
+    propecia 172.31.2 22 > file1
+    propecia 172.31.2 445 > file2
+    cat file1 file2 > file3
+    cat file3 | sort -t . -k 3,3n -k 4,4n | uniq > lab.txt
+    cat lab.txt
+ 
+Issues:
+-------
+Issue we had to deal with was hosts that didn't respond to ICMP
+ 
+ 
+
+
+
+Hosts discovered:
+-----------------
+172.31.2.24
+172.31.2.47
+172.31.2.86
+172.31.2.117
+172.31.2.181
+172.31.2.217
+172.31.2.238
+172.31.2.254
+
+
+
+
+#############################
+# Step 2: Service Discovery #
+#############################
+
+sudo nmap -sS -p 22,135,80,445,8080 -iL lab.txt
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-06-17 19:46 EDT
+Nmap scan report for 172.31.2.24
+Host is up (0.42s latency).
+
+PORT     STATE  SERVICE
+22/tcp   closed ssh
+80/tcp   open   http
+135/tcp  closed msrpc
+445/tcp  open   microsoft-ds
+8080/tcp open   http-proxy
+
+Nmap scan report for 172.31.2.47
+Host is up (0.52s latency).
+
+PORT     STATE  SERVICE
+22/tcp   open   ssh
+80/tcp   open   http
+135/tcp  closed msrpc
+445/tcp  closed microsoft-ds
+8080/tcp closed http-proxy
+
+Nmap scan report for 172.31.2.86
+Host is up (0.13s latency).
+
+PORT     STATE  SERVICE
+22/tcp   open   ssh
+80/tcp   open   http
+135/tcp  closed msrpc
+445/tcp  open   microsoft-ds
+8080/tcp open   http-proxy
+
+Nmap scan report for 172.31.2.117
+Host is up (0.57s latency).
+
+PORT     STATE  SERVICE
+22/tcp   open   ssh
+80/tcp   open   http
+135/tcp  closed msrpc
+445/tcp  closed microsoft-ds
+8080/tcp closed http-proxy
+
+Nmap scan report for 172.31.2.181
+Host is up (0.69s latency).
+
+PORT     STATE  SERVICE
+22/tcp   open   ssh
+80/tcp   closed http
+135/tcp  closed msrpc
+445/tcp  closed microsoft-ds
+8080/tcp closed http-proxy
+
+Nmap scan report for 172.31.2.217
+Host is up (0.26s latency).
+
+PORT     STATE    SERVICE
+22/tcp   open     ssh
+80/tcp   open     http
+135/tcp  filtered msrpc
+445/tcp  closed   microsoft-ds
+8080/tcp closed   http-proxy
+
+Nmap scan report for 172.31.2.238
+Host is up (0.57s latency).
+
+PORT     STATE  SERVICE
+22/tcp   open   ssh
+80/tcp   open   http
+135/tcp  closed msrpc
+445/tcp  closed microsoft-ds
+8080/tcp closed http-proxy
+
+Nmap scan report for 172.31.2.254
+Host is up (0.68s latency).
+
+PORT     STATE  SERVICE
+22/tcp   open   ssh
+80/tcp   closed http
+135/tcp  closed msrpc
+445/tcp  closed microsoft-ds
+8080/tcp closed http-proxy
+
+Nmap done: 8 IP addresses (8 hosts up) scanned in 3.76 seconds
+infosecaddicts@osboxes:~/toolz$
+
+
+#####################################
+# Step 3: Service Version Discovery #
+#####################################
+infosecaddicts@osboxes:~/toolz$ sudo nmap -sV -p 22,135,80,445,8080 -iL lab.txt
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-06-17 19:47 EDT
+Nmap scan report for 172.31.2.24
+Host is up (0.26s latency).
+
+PORT     STATE  SERVICE     VERSION
+22/tcp   closed ssh
+80/tcp   open   http        Apache httpd 2.4.7 ((Ubuntu))
+135/tcp  closed msrpc
+445/tcp  open   netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+8080/tcp open   http        Apache Tomcat/Coyote JSP engine 1.1
+Service Info: Host: CANYOUPWNME
+
+Nmap scan report for 172.31.2.47
+Host is up (0.52s latency).
+
+PORT     STATE  SERVICE      VERSION
+22/tcp   open   ssh          OpenSSH 5.9p1 Debian 5ubuntu1.4 (Ubuntu Linux; protocol 2.0)
+80/tcp   open   http         Apache httpd 2.2.22 ((Ubuntu))
+135/tcp  closed msrpc
+445/tcp  closed microsoft-ds
+8080/tcp closed http-proxy
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 172.31.2.86
+Host is up (0.018s latency).
+
+PORT     STATE    SERVICE     VERSION
+22/tcp   open     ssh         OpenSSH 6.6.1p1 Ubuntu 2ubuntu2 (Ubuntu Linux; protocol 2.0)
+80/tcp   open     http        Apache httpd 2.4.7 ((Ubuntu))
+135/tcp  filtered msrpc
+445/tcp  open     netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+8080/tcp open     http        Apache Tomcat/Coyote JSP engine 1.1
+Service Info: Host: SEDNA; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 172.31.2.117
+Host is up (0.15s latency).
+
+PORT     STATE    SERVICE      VERSION
+22/tcp   open     ssh          OpenSSH 6.6.1p1 Ubuntu 2ubuntu2 (Ubuntu Linux; protocol 2.0)
+80/tcp   open     http         Apache httpd 2.4.7 ((Ubuntu))
+135/tcp  closed   msrpc
+445/tcp  filtered microsoft-ds
+8080/tcp filtered http-proxy
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 172.31.2.181
+Host is up (0.26s latency).
+
+PORT     STATE    SERVICE      VERSION
+22/tcp   open     ssh          OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+80/tcp   filtered http
+135/tcp  closed   msrpc
+445/tcp  closed   microsoft-ds
+8080/tcp filtered http-proxy
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 172.31.2.217
+Host is up (0.26s latency).
+
+PORT     STATE    SERVICE      VERSION
+22/tcp   open     ssh          OpenSSH 7.2p2 Ubuntu 4ubuntu2.1 (Ubuntu Linux; protocol 2.0)
+80/tcp   open     http         nginx
+135/tcp  closed   msrpc
+445/tcp  closed   microsoft-ds
+8080/tcp filtered http-proxy
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 172.31.2.238
+Host is up (0.15s latency).
+
+PORT     STATE    SERVICE      VERSION
+22/tcp   open     ssh          OpenSSH 6.7p1 Debian 5+deb8u3 (protocol 2.0)
+80/tcp   open     http         nginx 1.6.2
+135/tcp  closed   msrpc
+445/tcp  filtered microsoft-ds
+8080/tcp filtered http-proxy
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 172.31.2.254
+Host is up (0.36s latency).
+
+PORT     STATE    SERVICE      VERSION
+22/tcp   open     ssh          OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+80/tcp   closed   http
+135/tcp  closed   msrpc
+445/tcp  closed   microsoft-ds
+8080/tcp filtered http-proxy
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 8 IP addresses (8 hosts up) scanned in 10.69 seconds
+infosecaddicts@osboxes:~/toolz$
+
+
+
+##################################
+# Step 4: Vulnerability Research #
+##################################
+
+For each service version identified on each open port in the previous step please go to exploit-db.com/search and send me the links to the potential exploits you can use to attack these hosts.

