@@ -1,0 +1,9 @@
+docker ps -a # list all containers
+docker stop $(docker ps -aq); # stop every running container
+docker kill $(docker ps -aq); # kill every running container
+docker rm $(docker ps -aq); # remove every container
+docker rmi $(docker images -q) 
+
+docker exec --tty --interactive cnameorid /bin/bash # log into container
+netstat -nr | grep '^0\.0\.0\.0' | awk '{print $2}' # get host ip within container
+cat /etc/hostname # get container id within container

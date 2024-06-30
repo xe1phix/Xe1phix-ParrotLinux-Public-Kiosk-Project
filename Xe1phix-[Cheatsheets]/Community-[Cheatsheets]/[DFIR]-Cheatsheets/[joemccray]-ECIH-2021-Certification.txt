@@ -1,0 +1,456 @@
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Neriberto]
+thanks for share, but this script will need this tool first
+https://github.com/MalwareReverseBrasil/malwaresearch
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Alb]
+https://github.com/juliocesarfort/public-pentesting-reports
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from sh3ll g@mer]
+oalabs on Vimeo
+https://vimeo.com/oalabs
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Shmelev Jaroslav]
+https://github.com/hummelchen/notes/blob/master/whonix_kali.md
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Shmelev Jaroslav]
+https://github.com/Neo23x0/yarGen
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Mohammed Al Amin]
+And here is a huge list of tools and resources you can use it
+
+https://github.com/rshipp/awesome-malware-analysis
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from firebitsbr]
+https://github.com/advanced-threat-research/firmware-security-training
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Federico]
+https://github.com/malwares
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from BigNerd95]
+https://github.com/BigNerd95/Chimay-Red
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from MigueFrias]
+https://twitter.com/rootkovska
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Guinea]
+https://github.com/diogo-fernan/ir-rescue
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from dukeBarman]
+You can try this script
+https://github.com/notnop/your-daily-malware-samples
+or search github repos with samples or etc.
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Vikas Chauhan]
+If you are in the habit of collecting links and not reading them,
+https://github.com/rshipp/awesome-malware-analysis and
+https://libraries.io/github/0xf1sh/awesome-malware-analysis is a good starting point.
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from dukeBarman]
+In Internet you can find a lot of articles about reverse
+android apps and examples. For example
+https://github.com/ashishb/android-security-awesome
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from rodnoolyah]
+https://github.com/rshipp/awesome-malware-analysis
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Fatah]
+https://github.com/fabrimagic72/malware-samples
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Fatah]
+https://github.com/ytisf/theZoo
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from cedric]
+Found this little dude today:
+https://github.com/elfmaster/skeksi_virus
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Itay Cohen]
+Anyway, I wrote 5 articles of reversing with radare2
+
+https://github.com/ITAYC0HEN/A-journey-into-Radare2
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from Azhar Abdullah]
+found this in pastebin
+http://pastebin.com/E90i6yBB
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from Peter E]
+https://github.com/Yara-Rules/rules/
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from Itay Cohen]
+Collection of resources related to binary and RE
+https://github.com/REMath/literature_review/
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from Deleted Account]
+So is there a hoax going on with an assassination on
+Julian Assange and Edward Snowden?
+Pastebin.com/FtU2w4Wz
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from Allan M.]
+Source code for the Mirai botnet, which caused the massive DDOS
+attack last Friday:
+[joemccray]-ECIH-2021-Certification.txt
+[joemccray]-Command-Line-Log-Analysis.txt
+
+
+https://github.com/jgamblin/Mirai-Source-Code
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from Chirag Savla]
+http://pastebin.com/Gdv2Mub4
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from M]
+https://twitter.com/musalbas/status/793001139310559232
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from Deleted Account]
+Reversing the FBI malware's payload with radare2
+https://www.reddit.com/r/ReverseEngi...hellcode_with/
+http://pastebin.com/aFUP2gLB
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from r0 Crew (Darwin)]
+Various public documents, whitepapers and articles about APT campaigns
+https://github.com/kbandla/APTnotes
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from Deleted Account]
+https://github.com/wtsxDev/Malware-Analysis/blob/master/README.md
+
+xe1phix z4ro, [25.07.18 22:53]
+[Forwarded from Deleted Account]
+https://www.reddit.com/r/Malware/comments/4odecu/telegram_group_for_malware_researches/
+
+xe1phix z4ro, [25.07.18 22:53]
+[Forwarded from Deleted Account]
+Haven't used this myself, but it's supposed to be a pretty good program to automatically download malware samples - https://github.com/krmaxwell/maltrieve
+
+xe1phix z4ro, [25.07.18 22:53]
+[Forwarded from Deleted Account]
+Looks like this fork of maltrieve might be a little more updated: https://github.com/chubbymaggie/maltrieve
+
+xe1phix z4ro, [25.07.18 22:53]
+[Forwarded from Paul]
+https://github.com/meirwah/awesome-incident-response
+
+xe1phix z4ro, [25.07.18 22:53]
+[Forwarded from 0xFF 0x1F]
+https://github.com/spender-sandbox/cuckoo-modified.git
+
+xe1phix z4ro, [25.07.18 22:53]
+[Forwarded from L M]
+https://archive.org/details/malwaremuseum
+
+xe1phix z4ro, [01.08.18 22:23]
+[Forwarded from xe1phix z4ro]
+https://github.com/Drewsif/wipedicks
+
+xe1phix z4ro, [29.08.18 11:59]
+http://Twitter.com/hashtag/#BadMalwarePickupLines
+
+xe1phix z4ro, [09.11.18 16:57]
+https://archive.org/details/@Xe1phix
+
+https://youtube.com/channel/UC4rzx4VToyHJDWbAEJ5cMxQ/videos
+
+https://www.bitchute.com/channel/xe1phix/#channel-videos
+
+xe1phix z4ro, [30.01.19 14:14]
+[In reply to xe1phix z4ro]
+im running torbrowser, without tor in a firejailed browser. Limiting its protocols, seccomp-bpf syscall filtering,  sandboxing it to Downloads, Enabling AppArmor confinement, dropping all privledged Linux capabilities (Linux capabilities filter), Forced use of my trusted DNS  for the sandbox, Enable  a new IPC namespace, new network namespace and connect it to a bridge interface, Use IPTables rules (Firewall), Set the NO_NEW_PRIVS prctl, Private Cache: mount cache in a TmpFS (discarded when closed), Private /dev/: Deny access to directory. Private tmp: sandbox  /tmp directory
+
+xe1phix z4ro, [31.01.19 00:37]
+https://github.com/CHEF-KOCH/CK-s-Raspberry-Pi-3-config
+
+xe1phix z4ro, [31.01.19 00:37]
+https://github.com/rmusser01/Infosec_Reference/tree/master/Draft/Rants%26Writeups
+
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Neriberto]
+thanks for share, but this script will need this tool first https://github.com/MalwareReverseBrasil/malwaresearch
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Alb]
+https://github.com/juliocesarfort/public-pentesting-reports
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from sh3ll g@mer]
+oalabs on Vimeo
+https://vimeo.com/oalabs
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Shmelev Jaroslav]
+https://github.com/hummelchen/notes/blob/master/whonix_kali.md
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Shmelev Jaroslav]
+https://github.com/Neo23x0/yarGen
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Mohammed Al Amin]
+And here is a huge list of tools and resources you can use it
+
+https://github.com/rshipp/awesome-malware-analysis
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from firebitsbr]
+https://github.com/advanced-threat-research/firmware-security-training
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Federico]
+https://github.com/malwares
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from BigNerd95]
+https://github.com/BigNerd95/Chimay-Red
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from MigueFrias]
+https://twitter.com/rootkovska
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Guinea]
+https://github.com/diogo-fernan/ir-rescue
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from dukeBarman]
+You can try this script https://github.com/notnop/your-daily-malware-samples or search github repos with samples or etc.
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Vikas Chauhan]
+If you are in the habit of collecting links and not reading them, https://github.com/rshipp/awesome-malware-analysis and https://libraries.io/github/0xf1sh/awesome-malware-analysis is a good starting point.
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from dukeBarman]
+In Internet you can find a lot of articles about reverse android apps and examples. For example https://github.com/ashishb/android-security-awesome
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from rodnoolyah]
+https://github.com/rshipp/awesome-malware-analysis
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Fatah]
+https://github.com/fabrimagic72/malware-samples
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Fatah]
+https://github.com/ytisf/theZoo
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from cedric]
+Found this little dude today: https://github.com/elfmaster/skeksi_virus
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Itay Cohen]
+Anyway, I wrote 5 articles of reversing with radare2
+
+https://github.com/ITAYC0HEN/A-journey-into-Radare2
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from Azhar Abdullah]
+found this in pastebin http://pastebin.com/E90i6yBB
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from Peter E]
+https://github.com/Yara-Rules/rules/
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from Itay Cohen]
+Collection of resources related to binary and RE
+https://github.com/REMath/literature_review/
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from Deleted Account]
+So is there a hoax going on with an assassination on Julian Assange and Edward Snowden?
+Pastebin.com/FtU2w4Wz
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from Allan M.]
+Source code for the Mirai botnet, which caused the massive DDOS attack last Friday:
+https://github.com/jgamblin/Mirai-Source-Code
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from Chirag Savla]
+http://pastebin.com/Gdv2Mub4
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from M]
+https://twitter.com/musalbas/status/793001139310559232
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from Deleted Account]
+Reversing the FBI malware's payload with radare2
+https://www.reddit.com/r/ReverseEngi...hellcode_with/
+http://pastebin.com/aFUP2gLB
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from r0 Crew (Darwin)]
+Various public documents, whitepapers and articles about APT campaigns
+https://github.com/kbandla/APTnotes
+
+xe1phix z4ro, [25.07.18 22:47]
+[Forwarded from Deleted Account]
+https://github.com/wtsxDev/Malware-Analysis/blob/master/README.md
+
+xe1phix z4ro, [25.07.18 22:53]
+[Forwarded from Deleted Account]
+https://www.reddit.com/r/Malware/comments/4odecu/telegram_group_for_malware_researches/
+
+xe1phix z4ro, [25.07.18 22:53]
+[Forwarded from Deleted Account]
+Haven't used this myself, but it's supposed to be a pretty good program to automatically download malware samples - https://github.com/krmaxwell/maltrieve
+
+xe1phix z4ro, [25.07.18 22:53]
+[Forwarded from Deleted Account]
+Looks like this fork of maltrieve might be a little more updated: https://github.com/chubbymaggie/maltrieve
+
+xe1phix z4ro, [25.07.18 22:53]
+[Forwarded from Paul]
+https://github.com/meirwah/awesome-incident-response
+
+xe1phix z4ro, [25.07.18 22:53]
+[Forwarded from 0xFF 0x1F]
+https://github.com/spender-sandbox/cuckoo-modified.git
+
+xe1phix z4ro, [25.07.18 22:53]
+[Forwarded from L M]
+https://archive.org/details/malwaremuseum
+
+xe1phix z4ro, [01.08.18 22:23]
+[Forwarded from xe1phix z4ro]
+https://github.com/Drewsif/wipedicks
+
+xe1phix z4ro, [29.08.18 11:59]
+http://Twitter.com/hashtag/#BadMalwarePickupLines
+
+xe1phix z4ro, [09.11.18 16:57]
+https://archive.org/details/@Xe1phix
+
+https://youtube.com/channel/UC4rzx4VToyHJDWbAEJ5cMxQ/videos
+
+https://www.bitchute.com/channel/xe1phix/#channel-videos
+
+xe1phix z4ro, [30.01.19 14:14]
+[In reply to xe1phix z4ro]
+im running torbrowser, without tor in a firejailed browser. Limiting its protocols, seccomp-bpf syscall filtering,  sandboxing it to Downloads, Enabling AppArmor confinement, dropping all privledged Linux capabilities (Linux capabilities filter), Forced use of my trusted DNS  for the sandbox, Enable  a new IPC namespace, new network namespace and connect it to a bridge interface, Use IPTables rules (Firewall), Set the NO_NEW_PRIVS prctl, Private Cache: mount cache in a TmpFS (discarded when closed), Private /dev/: Deny access to directory. Private tmp: sandbox  /tmp directory
+
+xe1phix z4ro, [31.01.19 00:37]
+https://github.com/CHEF-KOCH/CK-s-Raspberry-Pi-3-config
+
+xe1phix z4ro, [31.01.19 00:37]
+https://github.com/rmusser01/Infosec_Reference/tree/master/Draft/Rants%26Writeups
+
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from S4fh1R]
+ransomware
+
+Esto es Jester ransomware como, en Mr Robot película (codificado por Darlene S1E2,3), Por favor, ten cuidado con advertencia, después de empezar no se puede recuperar los archivos (En la película, la clave pública no se comparte). IMPORTANTE NO COMPLETADO COMPLETAMENTE
+
+Ransomware Pasos:
+
+Inicial
+Listado de archivos
+Analizador de archivos
+Cifrar el origen de los archivos con la biblioteca AES
+Cambiar nombre de archivo con nombre de archivo + .locked
+Enviar a bufón C & C (Número de archivo ...)
+Pregunte a las páginas de  recompensa y configuración de bufón
+
+-- Informacion extra --
+
+Esto es Jester ransomware como, en Mr Robot película (codificado por Darlene S1E2,3), Por favor, ten cuidado con advertencia, después de empezar no se puede recuperar los archivos (En la película, la clave pública no se comparte). No utilice este malware en su computadora personal. Este proyecto es solo un guiño de la serie rob robot.
+
+OpenSource: https://github.com/graniet/fsociety-ransomware-MrRobot
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Deleted Account]
+Echa un vistazo al Tweet de @nixcraft: https://twitter.com/nixcraft/status/826469228077207552?s=09
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Allan M.]
+Bônus: https://github.com/GoSecure/malboxes
+😆
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from CS]
+https://github.com/paralax/awesome-honeypots
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Deleted Account]
+#Vault7 reveals classified manuals for CIA malware to infest Windows, Linux + more
+
+1) https://wikileaks.org/ciav7p1/cms/files/UsersGuide.pdf
+2) https://wikileaks.org/ciav7p1/cms/files/DevelopersGuide.pdf
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Allan M.]
+The CIA's "Development Tradecraft DOs and DON'Ts"
+
+https://www.schneier.com/blog/archives/2017/03/the_cias_develo.html
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Quan Yang]
+https://github.com/quanyang/reversing-workshop/blob/master/10/challenge10.md
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from xgusix]
+PEiD, RDG, or yara + https://github.com/Yara-Rules/rules/tree/master/Packers
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from 0xFF 0x1F]
+https://github.com/x0rz/EQGRP
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Deleted Account]
+untuk tools,
+https://github.com/xathrya/awesome-list/blob/master/reversing.md
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from CS]
+https://www.reddit.com/r/Malware/comments/65i8oz/learn_to_reverse_malware_on_linux/
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from canyoupwn.me]
+WannaCry|WannaDecrypt0r NSA-Cyberweapon-Powered Ransomware Worm
+https://gist.github.com/rain-1/989428fa5504f378b993ee6efbc0b168
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from CS]
+https://github.com/VedantGawade/Uzi/blob/master/Uzi.py
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Deleted Account]
+https://github.com/hackedteam/vector-exploit
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from Rusty Justice]
+https://github.com/stamparm/EternalRocks/
+
+xe1phix z4ro, [25.07.18 22:43]
+[Forwarded from 𝙾𝚜𝚑𝚒𝚋𝚘𝚔]
+https://github.com/misterch0c/shadowbroker

@@ -1,0 +1,13 @@
+Ping Sweeper
+============
+for ip in $(seq 1 254);do
+ping -c 1 172.16.3.$ip | grep "ttl" | cut -d " " -f4 | cut -d ":" -f1
+
+Subdomains from domain
+======================
+curl www.domain.com/url | grep "href=" | cut -d "/" -f3 | grep "cisco.com" -f1 | sort -u >> subdomains.txt
+
+Resolve IP from list of subdomains
+==================================
+for url in $(cat subdomains.txt);do
+host $url | grep "has address" | cut -d " " -f1,4
