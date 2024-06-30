@@ -1,0 +1,22 @@
+# useful ffmpeg cmds
+brew install ffmpeg $(brew options ffmpeg | grep -vE '\s' | grep -- '--with-' | tr '\n' ' ')
+
+# convert audio stream to mp3
+ffmpeg -i input.mkv -map 0 -c copy -c:a libmp3lame -ac 2 output.mkv
+
+# merge multiple AVIs to one
+for f in $PWD/*.avi;do echo "file '$f'" >> mylist.txt; done
+ffmpeg -f concat -i mylist.txt -c copy output.avi
+
+# 2x normal speed (timelapse)
+ffmpeg -i output.avi -r 16 -q:v 1 -filter:v "setpts=0.5*PTS" sped-upx2.avi
+# 4x normal speed
+ffmpeg -i output.avi -r 16 -q:v 1 -filter:v "setpts=0.25*PTS" sped-upx4.avi
+
+# WebM conversion
+ffmpeg -i IN -f webm -vcodec libvpx -acodec libvorbis -b:v 0 -crf 22 -s 640x360 OUT.webm
+ffmpeg -i ./INPUT.avi -f webm -vcodec libvpx -acodec libvorbis -b:v 0 -crf 22 -s 640x360 OUTPUT.webm
+
+# Master command from AVI to WebM/MP4 with speed x4
+ffmpeg -i output.avi -r 16 -q:v 1 -filter:v "setpts=0.25*PTS" -f webm -vcodec libvpx -acodec libvorbis -b:v 0 -crf 22 -s 640x360 OUTPUT.webm
+ffmpeg -i output.avi -r 16 -q:v 1 -filter:v "setpts=0.25*PTS" -profile:v baseline -vcodec libx264 -pix_fmt yuv420p -b:v 0 -crf 22 -s 640x360 OUTPUT.mp4

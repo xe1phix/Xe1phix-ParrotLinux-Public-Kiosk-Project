@@ -1,0 +1,2995 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- __ _ _ _ __| |_ (_)__ _____
+    / _` | '_/ _| ' \| |\ V / -_)
+    \__,_|_| \__|_||_|_| \_/\___| -->
+  <head>
+    <title>Full text of &quot;Towards A Less Fucked Up World&quot;</title>
+
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+        <meta name="google-site-verification" content="Q2YSouphkkgHkFNP7FgAkc4TmBs1Gmag3uGNndb53B8" />
+    <meta name="google-site-verification" content="bpjKvUvsX0lxfmjg19TLblckWkDpnptZEYsBntApxUk" />
+
+    <script>
+/* @licstart  The following is the entire license notice for the
+ * JavaScript code in this page.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in this page.
+ */
+</script>
+        <script>window.archive_setup=[]</script>
+    <meta charset="UTF-8">
+    <script src="//archive.org/includes/jquery-1.10.2.min.js?v1.10.2" type="text/javascript"></script>
+    <script src="//archive.org/includes/build/npm/jquery-ui.min.js?v1.12.1" type="text/javascript"></script>
+    <script src="//archive.org/includes/bootstrap.min.js?v3.0.0" type="text/javascript"></script>
+    <script src="//archive.org/components/npm/clipboard/dist/clipboard.js?v=11589e5b" type="text/javascript"></script>
+    <script src="//archive.org/components/npm/@babel/polyfill/dist/polyfill.min.js?v=11589e5b" type="text/javascript"></script>
+    <script src="//archive.org/includes/build/js/ie-dom-node-remove-polyfill.min.js?v=11589e5b" type="text/javascript"></script>
+    <script src="//archive.org/includes/build/js/polyfill.min.js?v=11589e5b" type="text/javascript"></script>
+                      <meta property="mediatype" content="texts">
+                      <meta property="primary_collection" content="">
+            <script src="//archive.org/includes/analytics.js?v=11589e5b" type="text/javascript"></script>
+    <script src="//archive.org/components/npm/@webcomponents/webcomponentsjs/webcomponents-bundle.js?v=11589e5b" type="text/javascript"></script>
+    <script src="//archive.org/includes/build/js/more-facets.min.js?v=11589e5b" type="text/javascript"></script>
+    <script src="//archive.org/includes/build/js/ia-topnav.min.js?v=11589e5b" type="text/javascript"></script>
+    <script src="//archive.org/includes/build/npm/react/umd/react.production.min.js?v16.7.0" type="text/javascript"></script>
+    <script src="//archive.org/includes/build/npm/react-dom/umd/react-dom.production.min.js?v16.7.0" type="text/javascript"></script>
+    <script src="//archive.org/includes/build/js/archive.min.js?v=11589e5b" type="text/javascript"></script>
+    <script src="//archive.org/includes/build/js/areact.min.js?v=11589e5b" type="text/javascript"></script>
+<link rel="canonical" href="https://archive.org/details/TowardsALessFuckedUpWorld_149">
+    <link href="//archive.org/includes/build/css/archive.min.css?v=11589e5b" rel="stylesheet" type="text/css"/>
+    <link rel="SHORTCUT ICON" href="https://archive.org/images/glogo.jpg"/>
+      </head>
+  <body class="navia ">
+    <a href="#maincontent" class="hidden-for-screen-readers">Skip to main content</a>
+
+    <!-- Wraps all page content -->
+    <div id="wrap"
+          >
+                    <div class="ia-banners">
+              <div 
+        class="ia-banner hidden new-lending-mechanism"
+        data-campaign="new-lending-mechanism">
+        <p><a href="http://blog.archive.org/2020/06/10/temporary-national-emergency-library-to-close-2-weeks-early-returning-to-traditional-controlled-digital-lending/" rel="nofollow">See what's new with book lending at the Internet Archive</a></p>
+        <form class="banner-close" action="" method="get" data-action="ia-banner-close">
+          <fieldset>
+            <button type="submit"></button>
+          </fieldset>
+        </form>
+      </div>
+          </div>
+                    
+        <div id="topnav">
+                              <ia-topnav config="eyJiYXNlSG9zdCI6ImFyY2hpdmUub3JnIiwic2NyZWVuTmFtZSI6ZmFsc2UsInVzZXJuYW1lIjoiIiwidXBsb2FkVVJMIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9jcmVhdGUiLCJldmVudENhdGVnb3J5IjoiVG9wTmF2Iiwid2F5YmFja1BhZ2VzQXJjaGl2ZWQiOiI0NzcgYmlsbGlvbiIsImlzQWRtaW4iOjAsImhpZGVTZWFyY2giOmZhbHNlfQ==" menus="eyJhdWRpbyI6eyJoZWFkaW5nIjoiSW50ZXJuZXQgQXJjaGl2ZSBBdWRpbyIsImljb25MaW5rcyI6W3siaWNvbiI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvc2VydmljZXNcL2ltZ1wvZXRyZWUiLCJ0aXRsZSI6IkxpdmUgTXVzaWMgQXJjaGl2ZSIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvZXRyZWUifSx7Imljb24iOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL3NlcnZpY2VzXC9pbWdcL2xpYnJpdm94YXVkaW8iLCJ0aXRsZSI6IkxpYnJpdm94IEZyZWUgQXVkaW8iLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL2xpYnJpdm94YXVkaW8ifV0sImZlYXR1cmVkTGlua3MiOlt7InRpdGxlIjoiQWxsIGF1ZGlvIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9hdWRpbyJ9LHsidGl0bGUiOiJUaGlzIEp1c3QgSW4iLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL3NlYXJjaC5waHA/cXVlcnk9bWVkaWF0eXBlOmF1ZGlvJnNvcnQ9LXB1YmxpY2RhdGUifSx7InRpdGxlIjoiR3JhdGVmdWwgRGVhZCIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvR3JhdGVmdWxEZWFkIn0seyJ0aXRsZSI6Ik5ldGxhYmVscyIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvbmV0bGFiZWxzIn0seyJ0aXRsZSI6Ik9sZCBUaW1lIFJhZGlvIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9vbGR0aW1lcmFkaW8ifSx7InRpdGxlIjoiNzggUlBNcyBhbmQgQ3lsaW5kZXIgUmVjb3JkaW5ncyIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvNzhycG0ifV0sImxpbmtzIjpbeyJ0aXRsZSI6IkF1ZGlvIEJvb2tzICYgUG9ldHJ5IiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9hdWRpb19ib29rc3BvZXRyeSJ9LHsidGl0bGUiOiJDb21tdW5pdHkgQXVkaW8iLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL29wZW5zb3VyY2VfYXVkaW8ifSx7InRpdGxlIjoiQ29tcHV0ZXJzLCBUZWNobm9sb2d5IGFuZCBTY2llbmNlIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9hdWRpb190ZWNoIn0seyJ0aXRsZSI6Ik11c2ljLCBBcnRzICYgQ3VsdHVyZSIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvYXVkaW9fbXVzaWMifSx7InRpdGxlIjoiTmV3cyAmIFB1YmxpYyBBZmZhaXJzIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9hdWRpb19uZXdzIn0seyJ0aXRsZSI6Ik5vbi1FbmdsaXNoIEF1ZGlvIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9hdWRpb19mb3JlaWduIn0seyJ0aXRsZSI6IlNwaXJpdHVhbGl0eSAmIFJlbGlnaW9uIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9hdWRpb19yZWxpZ2lvbiJ9LHsidGl0bGUiOiJQb2RjYXN0cyIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvcG9kY2FzdHMifV19LCJpbWFnZXMiOnsiaGVhZGluZyI6IkltYWdlcyIsImljb25MaW5rcyI6W3siaWNvbiI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvc2VydmljZXNcL2ltZ1wvbWV0cm9wb2xpdGFubXVzZXVtb2ZhcnQtZ2FsbGVyeSIsInRpdGxlIjoiTWV0cm9wb2xpdGFuIE11c2V1bSIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvbWV0cm9wb2xpdGFubXVzZXVtb2ZhcnQtZ2FsbGVyeSJ9LHsiaWNvbiI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvc2VydmljZXNcL2ltZ1wvYnJvb2tseW5tdXNldW0iLCJ0aXRsZSI6IkJyb29rbHluIE11c2V1bSIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvYnJvb2tseW5tdXNldW0ifV0sImZlYXR1cmVkTGlua3MiOlt7InRpdGxlIjoiQWxsIGltYWdlcyIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvaW1hZ2UifSx7InRpdGxlIjoiVGhpcyBKdXN0IEluIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9zZWFyY2gucGhwP3F1ZXJ5PW1lZGlhdHlwZTppbWFnZSZzb3J0PS1wdWJsaWNkYXRlIn0seyJ0aXRsZSI6IkZsaWNrciBDb21tb25zIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9mbGlja3Jjb21tb25zIn0seyJ0aXRsZSI6Ik9jY3VweSBXYWxsIFN0cmVldCBGbGlja3IiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL2ZsaWNrci1vd3MifSx7InRpdGxlIjoiQ292ZXIgQXJ0IiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9jb3ZlcmFydGFyY2hpdmUifSx7InRpdGxlIjoiVVNHUyBNYXBzIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9tYXBzX3VzZ3MifV0sImxpbmtzIjpbeyJ0aXRsZSI6Ik5BU0EgSW1hZ2VzIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9uYXNhIn0seyJ0aXRsZSI6IlNvbGFyIFN5c3RlbSBDb2xsZWN0aW9uIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9zb2xhcnN5c3RlbWNvbGxlY3Rpb24ifSx7InRpdGxlIjoiQW1lcyBSZXNlYXJjaCBDZW50ZXIiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL2FtZXNyZXNlYXJjaGNlbnRlcmltYWdlbGlicmFyeSJ9XX0sIm1vcmUiOlt7InRpdGxlIjoiQWJvdXQiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2Fib3V0XC8ifSx7InRpdGxlIjoiQmxvZyIsInVybCI6Imh0dHBzOlwvXC9ibG9nLmFyY2hpdmUub3JnXC8ifSx7InRpdGxlIjoiUHJvamVjdHMiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL3Byb2plY3RzXC8ifSx7InRpdGxlIjoiSGVscCIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvYWJvdXRcL2ZhcXMucGhwIn0seyJ0aXRsZSI6IkRvbmF0ZSIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZG9uYXRlIn0seyJ0aXRsZSI6IkNvbnRhY3QiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2Fib3V0XC9jb250YWN0LnBocCJ9LHsidGl0bGUiOiJKb2JzIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9hYm91dFwvam9icy5waHAifSx7InRpdGxlIjoiVm9sdW50ZWVyIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9hYm91dFwvdm9sdW50ZWVycG9zaXRpb25zLnBocCJ9LHsidGl0bGUiOiJQZW9wbGUiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2Fib3V0XC9iaW9zLnBocCJ9XSwic29mdHdhcmUiOnsiaGVhZGluZyI6IlNvZnR3YXJlIiwiaWNvbkxpbmtzIjpbeyJpY29uIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9zZXJ2aWNlc1wvaW1nXC9pbnRlcm5ldGFyY2FkZSIsInRpdGxlIjoiSW50ZXJuZXQgQXJjYWRlIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9pbnRlcm5ldGFyY2FkZSJ9LHsiaWNvbiI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvc2VydmljZXNcL2ltZ1wvY29uc29sZWxpdmluZ3Jvb20iLCJ0aXRsZSI6IkNvbnNvbGUgTGl2aW5nIFJvb20iLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL2NvbnNvbGVsaXZpbmdyb29tIn1dLCJmZWF0dXJlZExpbmtzIjpbeyJ0aXRsZSI6IkFsbCBzb2Z0d2FyZSIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvc29mdHdhcmUifSx7InRpdGxlIjoiVGhpcyBKdXN0IEluIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9zZWFyY2gucGhwP3F1ZXJ5PW1lZGlhdHlwZTpzb2Z0d2FyZSZzb3J0PS1wdWJsaWNkYXRlIn0seyJ0aXRsZSI6Ik9sZCBTY2hvb2wgRW11bGF0aW9uIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC90b3NlYyJ9LHsidGl0bGUiOiJNUy1ET1MgR2FtZXMiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL3NvZnR3YXJlbGlicmFyeV9tc2Rvc19nYW1lcyJ9LHsidGl0bGUiOiJIaXN0b3JpY2FsIFNvZnR3YXJlIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9oaXN0b3JpY2Fsc29mdHdhcmUifSx7InRpdGxlIjoiQ2xhc3NpYyBQQyBHYW1lcyIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvY2xhc3NpY3BjZ2FtZXMifSx7InRpdGxlIjoiU29mdHdhcmUgTGlicmFyeSIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvc29mdHdhcmVsaWJyYXJ5In1dLCJsaW5rcyI6W3sidGl0bGUiOiJLb2RpIEFyY2hpdmUgYW5kIFN1cHBvcnQgRmlsZSIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wva29kaV9hcmNoaXZlIn0seyJ0aXRsZSI6IkNvbW11bml0eSBTb2Z0d2FyZSIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvb3Blbl9zb3VyY2Vfc29mdHdhcmUifSx7InRpdGxlIjoiVmludGFnZSBTb2Z0d2FyZSIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvdmludGFnZXNvZnR3YXJlIn0seyJ0aXRsZSI6IkFQSyIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvYXBrYXJjaGl2ZSJ9LHsidGl0bGUiOiJNUy1ET1MiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL3NvZnR3YXJlbGlicmFyeV9tc2RvcyJ9LHsidGl0bGUiOiJDRC1ST00gU29mdHdhcmUiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL2NkLXJvbXMifSx7InRpdGxlIjoiQ0QtUk9NIFNvZnR3YXJlIExpYnJhcnkiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL2Nkcm9tc29mdHdhcmUifSx7InRpdGxlIjoiU29mdHdhcmUgU2l0ZXMiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL3NvZnR3YXJlc2l0ZXMifSx7InRpdGxlIjoiVHVjb3dzIFNvZnR3YXJlIExpYnJhcnkiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL3R1Y293cyJ9LHsidGl0bGUiOiJTaGFyZXdhcmUgQ0QtUk9NcyIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvY2RiYnNhcmNoaXZlIn0seyJ0aXRsZSI6IlNvZnR3YXJlIENhcHN1bGVzIENvbXBpbGF0aW9uIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9zb2Z0d2FyZWNhcHN1bGVzIn0seyJ0aXRsZSI6IkNELVJPTSBJbWFnZXMiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL2Nkcm9taW1hZ2VzIn0seyJ0aXRsZSI6IlpYIFNwZWN0cnVtIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9zb2Z0d2FyZWxpYnJhcnlfenhfc3BlY3RydW0ifSx7InRpdGxlIjoiRE9PTSBMZXZlbCBDRCIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvZG9vbS1jZHMifV19LCJ0ZXh0cyI6eyJoZWFkaW5nIjoiQm9va3MiLCJpY29uTGlua3MiOlt7InRpdGxlIjoiQm9va3MgdG8gQm9ycm93IiwiaWNvbiI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvaW1hZ2VzXC9ib29rLWxlbmQucG5nIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9pbmxpYnJhcnkifSx7InRpdGxlIjoiT3BlbiBMaWJyYXJ5IiwiaWNvbiI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvaW1hZ2VzXC93aWRnZXRPTC5wbmciLCJ1cmwiOiJodHRwczpcL1wvb3BlbmxpYnJhcnkub3JnXC8ifV0sImZlYXR1cmVkTGlua3MiOlt7InRpdGxlIjoiQWxsIEJvb2tzIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9ib29rcyJ9LHsidGl0bGUiOiJBbGwgVGV4dHMiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL3RleHRzIn0seyJ0aXRsZSI6IlRoaXMgSnVzdCBJbiIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvc2VhcmNoLnBocD9xdWVyeT1tZWRpYXR5cGU6dGV4dHMmc29ydD0tcHVibGljZGF0ZSJ9LHsidGl0bGUiOiJTbWl0aHNvbmlhbiBMaWJyYXJpZXMiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL3NtaXRoc29uaWFuIn0seyJ0aXRsZSI6IkZFRExJTksgKFVTKSIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvZmVkbGluayJ9LHsidGl0bGUiOiJHZW5lYWxvZ3kiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL2dlbmVhbG9neSJ9LHsidGl0bGUiOiJMaW5jb2xuIENvbGxlY3Rpb24iLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL2xpbmNvbG5jb2xsZWN0aW9uIn1dLCJsaW5rcyI6W3sidGl0bGUiOiJBbWVyaWNhbiBMaWJyYXJpZXMiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL2FtZXJpY2FuYSJ9LHsidGl0bGUiOiJDYW5hZGlhbiBMaWJyYXJpZXMiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL3Rvcm9udG8ifSx7InRpdGxlIjoiVW5pdmVyc2FsIExpYnJhcnkiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL3VuaXZlcnNhbGxpYnJhcnkifSx7InRpdGxlIjoiQ29tbXVuaXR5IFRleHRzIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9vcGVuc291cmNlIn0seyJ0aXRsZSI6IlByb2plY3QgR3V0ZW5iZXJnIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9ndXRlbmJlcmcifSx7InRpdGxlIjoiQmlvZGl2ZXJzaXR5IEhlcml0YWdlIExpYnJhcnkiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL2Jpb2RpdmVyc2l0eSJ9LHsidGl0bGUiOiJDaGlsZHJlbidzIExpYnJhcnkiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL2lhY2wifSx7InRpdGxlIjoiQm9va3MgYnkgTGFuZ3VhZ2UiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL2Jvb2tzYnlsYW5ndWFnZSJ9LHsidGl0bGUiOiJBZGRpdGlvbmFsIENvbGxlY3Rpb25zIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9hZGRpdGlvbmFsX2NvbGxlY3Rpb25zIn1dfSwid2ViIjp7Im1vYmlsZUFwcHNMaW5rcyI6W3sidXJsIjoiaHR0cHM6XC9cL2FwcHMuYXBwbGUuY29tXC91c1wvYXBwXC93YXliYWNrLW1hY2hpbmVcL2lkMTIwMTg4ODMxMyIsInRpdGxlIjoiV2F5YmFjayBNYWNoaW5lIChpT1MpIiwiZXh0ZXJuYWwiOnRydWV9LHsidXJsIjoiaHR0cHM6XC9cL3BsYXkuZ29vZ2xlLmNvbVwvc3RvcmVcL2FwcHNcL2RldGFpbHM/aWQ9Y29tLmFyY2hpdmUud2F5YmFja21hY2hpbmUmaGw9ZW5fVVMiLCJ0aXRsZSI6IldheWJhY2sgTWFjaGluZSAoQW5kcm9pZCkiLCJleHRlcm5hbCI6dHJ1ZX1dLCJicm93c2VyRXh0ZW5zaW9uc0xpbmtzIjpbeyJ1cmwiOiJodHRwczpcL1wvY2hyb21lLmdvb2dsZS5jb21cL3dlYnN0b3JlXC9kZXRhaWxcL3NhdmUtdG8tdGhlLXdheWJhY2stbWFjaGlcL2VlYnBpb2FhaWxiam9qbWRibWxwb21mZ2lqbmxjZW1rP2hsPWVuIiwidGl0bGUiOiJDaHJvbWUiLCJleHRlcm5hbCI6dHJ1ZX0seyJ1cmwiOiJodHRwczpcL1wvYWRkb25zLm1vemlsbGEub3JnXC9lbi1VU1wvZmlyZWZveFwvYWRkb25cL3dheWJhY2stbWFjaGluZV9uZXdcLyIsInRpdGxlIjoiRmlyZWZveCIsImV4dGVybmFsIjp0cnVlfSx7InVybCI6Imh0dHBzOlwvXC9hcHBzLmFwcGxlLmNvbVwvdXNcL2FwcFwvd2F5YmFjay1tYWNoaW5lXC9pZDE0NzI0MzI0MjI/bXQ9MTIiLCJ0aXRsZSI6IlNhZmFyaSIsImV4dGVybmFsIjp0cnVlfV0sImFyY2hpdmVJdExpbmtzIjpbeyJ1cmwiOiJodHRwczpcL1wvd3d3LmFyY2hpdmUtaXQub3JnXC9leHBsb3JlIiwidGl0bGUiOiJFeHBsb3JlIHRoZSBDb2xsZWN0aW9ucyJ9LHsidXJsIjoiaHR0cHM6XC9cL3d3dy5hcmNoaXZlLWl0Lm9yZ1wvYmxvZ1wvbGVhcm4tbW9yZVwvIiwidGl0bGUiOiJMZWFybiBNb3JlIn0seyJ1cmwiOiJodHRwczpcL1wvd3d3LmFyY2hpdmUtaXQub3JnXC9jb250YWN0LXVzIiwidGl0bGUiOiJCdWlsZCBDb2xsZWN0aW9ucyJ9XX0sInZpZGVvIjp7ImhlYWRpbmciOiJWaWRlbyIsImljb25MaW5rcyI6W3siaWNvbiI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvc2VydmljZXNcL2ltZ1wvdHYiLCJ0aXRsZSI6IlRWIE5ld3MiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL3R2In0seyJpY29uIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9zZXJ2aWNlc1wvaW1nXC85MTEiLCJ0aXRsZSI6IlVuZGVyc3RhbmRpbmcgOVwvMTEiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcLzkxMSJ9XSwiZmVhdHVyZWRMaW5rcyI6W3sidGl0bGUiOiJBbGwgdmlkZW8iLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL21vdmllcyJ9LHsidGl0bGUiOiJUaGlzIEp1c3QgSW4iLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL3NlYXJjaC5waHA/cXVlcnk9bWVkaWF0eXBlOm1vdmllcyZzb3J0PS1wdWJsaWNkYXRlIn0seyJ0aXRsZSI6IlByZWxpbmdlciBBcmNoaXZlcyIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvcHJlbGluZ2VyIn0seyJ0aXRsZSI6IkRlbW9jcmFjeSBOb3chIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9kZW1vY3JhY3lfbm93X3ZpZCJ9LHsidGl0bGUiOiJPY2N1cHkgV2FsbCBTdHJlZXQiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL29jY3VweXdhbGxzdHJlZXQifSx7InRpdGxlIjoiVFYgTlNBIENsaXAgTGlicmFyeSIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvbnNhIn1dLCJsaW5rcyI6W3sidGl0bGUiOiJBbmltYXRpb24gJiBDYXJ0b29ucyIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvYW5pbWF0aW9uYW5kY2FydG9vbnMifSx7InRpdGxlIjoiQXJ0cyAmIE11c2ljIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9hcnRzYW5kbXVzaWN2aWRlb3MifSx7InRpdGxlIjoiQ29tcHV0ZXJzICYgVGVjaG5vbG9neSIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvY29tcHV0ZXJzYW5kdGVjaHZpZGVvcyJ9LHsidGl0bGUiOiJDdWx0dXJhbCAmIEFjYWRlbWljIEZpbG1zIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9jdWx0dXJhbGFuZGFjYWRlbWljZmlsbXMifSx7InRpdGxlIjoiRXBoZW1lcmFsIEZpbG1zIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC9lcGhlbWVyYSJ9LHsidGl0bGUiOiJNb3ZpZXMiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL21vdmllc2FuZGZpbG1zIn0seyJ0aXRsZSI6Ik5ld3MgJiBQdWJsaWMgQWZmYWlycyIsInVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvZGV0YWlsc1wvbmV3c2FuZHB1YmxpY2FmZmFpcnMifSx7InRpdGxlIjoiU3Bpcml0dWFsaXR5ICYgUmVsaWdpb24iLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL3NwaXJpdHVhbGl0eWFuZHJlbGlnaW9uIn0seyJ0aXRsZSI6IlNwb3J0cyBWaWRlb3MiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL3Nwb3J0cyJ9LHsidGl0bGUiOiJUZWxldmlzaW9uIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC90ZWxldmlzaW9uIn0seyJ0aXRsZSI6IlZpZGVvZ2FtZSBWaWRlb3MiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL2dhbWV2aWRlb3MifSx7InRpdGxlIjoiVmxvZ3MiLCJ1cmwiOiJodHRwczpcL1wvYXJjaGl2ZS5vcmdcL2RldGFpbHNcL3Zsb2dzIn0seyJ0aXRsZSI6IllvdXRoIE1lZGlhIiwidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9kZXRhaWxzXC95b3V0aF9tZWRpYSJ9XX0sInVzZXIiOltdLCJzaWduZWRPdXQiOlt7InVybCI6Imh0dHBzOlwvXC9hcmNoaXZlLm9yZ1wvYWNjb3VudFwvc2lnbnVwIiwidGl0bGUiOiJTaWduIHVwIGZvciBmcmVlIiwiYW5hbHl0aWNzRXZlbnQiOiJBdmF0YXJNZW51LVNpZ251cCJ9LHsidXJsIjoiaHR0cHM6XC9cL2FyY2hpdmUub3JnXC9hY2NvdW50XC9sb2dpbiIsInRpdGxlIjoiTG9nIGluIiwiYW5hbHl0aWNzRXZlbnQiOiJBdmF0YXJNZW51LUxvZ2luIn1dfQ==">
+                                      <noscript class='static-content'>      <style scope="icon-hamburger-1">.icon-hamburger-1 svg.icon-hamburger {
+        display: block;
+      }
+
+      .icon-hamburger-1 .fill-color.icon-hamburger {
+        fill: #fff;
+      }</style><!-- Shady DOM styles for login-button --><style scope="login-button-1">.login-button-1 .dropdown-toggle.login-button {
+        display: block;
+          height: 4rem;
+          font-size: 1.6rem;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: #ccc;
+          cursor: pointer;
+      }
+
+      .login-button-1 .dropdown-toggle.login-button .fill-color.login-button {
+        fill: #999;
+      }
+
+      .login-button-1 .dropdown-toggle.login-button:active .fill-color.login-button,.login-button-1 .dropdown-toggle.login-button:focus .fill-color.login-button,.login-button-1 .dropdown-toggle.login-button:hover .fill-color.login-button {
+        fill: #fff;
+      }
+
+      .login-button-1 .active.login-button {
+        border-radius: 1rem 1rem 0 0;
+          background: #333;
+      }
+
+      .login-button-1 .active.login-button .fill-color.login-button {
+        fill: #fff;
+      }
+
+      .login-button-1 span.login-button {
+        display: none;
+          font-size: 1.4rem;
+          text-transform: uppercase;
+          color: #999;
+      }
+
+      .login-button-1 span.login-button a.login-button {
+        color: inherit;
+          text-decoration: none;
+      }
+
+      .login-button-1 a.login-button:hover,.login-button-1 a.login-button:active,.login-button-1 a.login-button:focus {
+        color: #fff;
+      }
+
+      @media (min-width: 890px) {
+      .login-button-1 .logged-out-toolbar.login-button {
+        transform: translateY(-.5rem);
+      }
+
+      .login-button-1 .active.login-button {
+        background: transparent;
+      }
+
+      .login-button-1 .dropdown-toggle.login-button {
+        display: inline-block;
+            vertical-align: middle;
+      }
+
+      .login-button-1 span.login-button {
+        display: inline;
+            vertical-align: middle;
+      }
+
+      }</style><!-- Shady DOM styles for nav-search --><style scope="nav-search-1">.nav-search-1 input.nav-search:focus {
+        outline: none;
+      }
+
+      .nav-search-1 button.nav-search {
+        background: none;
+          color: inherit;
+          border: none;
+          font: inherit;
+          cursor: pointer;
+      }
+
+      .nav-search-1 button.nav-search:focus {
+        outline: none;
+      }
+
+      .nav-search-1 .search.nav-search {
+        padding-top: 0;
+          margin-right: .5rem;
+      }
+
+      .nav-search-1 .search.nav-search svg.nav-search {
+        position: relative;
+          top: -5px;
+          right: -3px;
+          fill:;
+      }
+
+      .nav-search-1 .search-activated.nav-search {
+        display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          position: absolute;
+          top: 0;
+          right: 5rem;
+          bottom: 0;
+          left: 5rem;
+          z-index: 3;
+          padding: 0.5rem 0.2rem;
+          border-radius: 1rem 1rem 0 0;
+          background: #333;
+      }
+
+      .nav-search-1 .search-inactive.nav-search {
+        display: none;
+      }
+
+      .nav-search-1 .search-activated.nav-search .highlight.nav-search,.nav-search-1 .search-activated.nav-search .search.nav-search {
+        background: #fff;
+          border-radius: 0.5rem;
+      }
+
+      .nav-search-1 .search-activated.nav-search .highlight.nav-search {
+        display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          width: 100%;
+          margin: 0 .5rem;
+      }
+
+      .nav-search-1 .search-activated.nav-search .search.nav-search {
+        height: 100%;
+          padding: 0;
+          margin-right: 0;
+          -ms-flex-item-align: center;
+          -ms-grid-row-align: center;
+          align-self: center;
+      }
+
+      .nav-search-1 .search-activated.nav-search .search-field.nav-search {
+        width: 100%;
+          height: 100%;
+          box-sizing: border-box;
+          padding-left: 1rem;
+          border-radius: 0.5rem;
+          border: none;
+          font-size: 1.6rem;
+          text-align: center;
+      }
+
+      .nav-search-1 .search-activated.nav-search .search-field.nav-search:focus {
+        outline: none;
+      }
+
+      @keyframes fade-in-nav-search-1 {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+
+      }
+
+      .nav-search-1 .fade-in.nav-search {
+        animation: fade-in-nav-search-1 .2s forwards;
+      }
+
+      @media (min-width: 890px) {
+      .nav-search-1 .search.nav-search svg.nav-search {
+        display: inline;
+            width: 28px;
+            height: 28px;
+            vertical-align: -14px;
+      }
+
+      .nav-search-1 .search.nav-search path.nav-search {
+        fill: #333;
+      }
+
+      .nav-search-1 .search-inactive.nav-search,.nav-search-1 .search-activated.nav-search {
+        display: block;
+            position: static;
+            padding: 1.2rem .2rem;
+            background: transparent;
+      }
+
+      .nav-search-1 .search-activated.nav-search .highlight.nav-search {
+        width: 13rem;
+            height: 2.8rem;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: reverse;
+            -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+      }
+
+      .nav-search-1 .search-activated.nav-search .search-field.nav-search {
+        width: calc(100% - 28px);
+            height: 100%;
+            padding-left: 0;
+            font-size: 1.4rem;
+            text-align: left;
+      }
+
+      .nav-search-1 .search-activated.nav-search .search.nav-search svg.nav-search {
+        width: 28px;
+            height: 28px;
+      }
+
+      }</style><!-- Shady DOM styles for media-button --><style scope="media-button-1">.media-button-1 a.media-button {
+        display: inline-block;
+          text-decoration: none;
+      }
+
+      .media-button-1 .menu-item.media-button {
+        display: inline-flex;
+          width: 100%;
+          padding: 0;
+          font-size: 1.6rem;
+          text-align: left;
+          background: transparent;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+      }
+
+      .media-button-1 .menu-item.media-button:focus {
+        outline: none;
+      }
+
+      .media-button-1 .label.media-button {
+        display: inline-block;
+          padding: 0;
+          font-weight: 400;
+          color: #fff;
+          text-align: left;
+          vertical-align: middle;
+      }
+
+      .media-button-1 .menu-item.media-button > .icon.media-button {
+        display: inline-flex;
+          width: 42px;
+          height: 42px;
+          vertical-align: middle;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+      }
+
+      .media-button-1 .menu-item.selected.media-button .icon.media-button {
+        background-color: #333;
+          border-radius: 1rem 0 0 1rem;
+      }
+
+      .media-button-1 .icon.media-button .fill-color.media-button {
+        fill: #999;
+      }
+
+      .media-button-1 .icon.active.media-button .fill-color.media-button {
+        fill: #fff;
+      }
+
+      .media-button-1 .donate.media-button .fill-color.media-button {
+        fill: #f00;
+      }
+
+      @media (min-width: 890px) {
+      .media-button-1 .menu-item.media-button {
+        width: auto;
+            height: 5rem;
+            color: #999;
+      }
+
+      .media-button-1 .menu-item.media-button:hover,.media-button-1 .menu-item.media-button:active,.media-button-1 .menu-item.media-button:focus {
+        color: #fff;
+      }
+
+      .media-button-1 .menu-item.media-button:hover .fill-color.media-button,.media-button-1 .menu-item.media-button:active .fill-color.media-button,.media-button-1 .menu-item.media-button:focus .fill-color.media-button {
+        fill: #fff;
+      }
+
+      .media-button-1 .label.media-button {
+        display: none;
+      }
+
+      .media-button-1 .label.media-button,.media-button-1 .web.media-button:after {
+        padding-right: 1rem;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            color: inherit;
+      }
+
+      .media-button-1 .web.media-button:after {
+        display: none;
+            content: "web";
+      }
+
+      .media-button-1 .donate.media-button,.media-button-1 .more.media-button {
+        display: none;
+      }
+
+      .media-button-1 .menu-item.selected.media-button {
+        background: #474747;
+      }
+
+      .media-button-1 .menu-item.selected.media-button .label.media-button,.media-button-1 .menu-item.selected.web.media-button:after {
+        color: #fff;
+      }
+
+      .media-button-1 .menu-item.selected.media-button .icon.media-button {
+        background: transparent;
+      }
+
+      .media-button-1 .web.selected.media-button .fill-color.media-button {
+        fill: #ffcd27;
+      }
+
+      .media-button-1 .texts.selected.media-button .fill-color.media-button {
+        fill: #faab3c;
+      }
+
+      .media-button-1 .video.selected.media-button .fill-color.media-button {
+        fill: #f1644b;
+      }
+
+      .media-button-1 .audio.selected.media-button .fill-color.media-button {
+        fill: #00adef;
+      }
+
+      .media-button-1 .software.selected.media-button .fill-color.media-button {
+        fill: #9ecc4f;
+      }
+
+      .media-button-1 .images.selected.media-button .fill-color.media-button {
+        fill: #aa99c9;
+      }
+
+      }
+
+      @media (min-width: 1300px) {
+      .media-button-1 .label.media-button,.media-button-1 .web.media-button:after {
+        display: inline;
+      }
+
+      .media-button-1 .web.media-button .label.media-button {
+        display: none;
+      }
+
+      }</style><!-- Shady DOM styles for media-menu --><style scope="media-menu-1">.media-menu-1 {
+        outline: none;
+      }
+
+      .media-menu-1 .media-menu.media-menu {
+        position: absolute;
+          z-index: -1;
+          top: -100vh;
+          width: 100%;
+          background-color: #222;
+          margin: 0;
+          overflow: hidden;
+      }
+
+      .media-menu-1 .media-menu.tx-slide.media-menu {
+        transition-property: top;
+          transition-duration: 0.2s;
+          transition-timing-function: ease;
+      }
+
+      .media-menu-1 .media-menu.tx-slide.open.media-menu {
+        top: 100%;
+      }
+
+      .media-menu-1 .media-menu.tx-slide.closed.media-menu {
+        top: -100vh;
+      }
+
+      .media-menu-1 .media-menu.tx-slide.closed.media-menu {
+        transition-duration: 0.2s;
+      }
+
+      .media-menu-1 .menu-group.media-menu {
+        position: relative;
+          line-height: normal;
+      }
+
+      @media (min-width: 890px) {
+      .media-menu-1 .media-menu.media-menu {
+        display: inline-block;
+            position: static;
+            width: auto;
+            height: 5rem;
+      }
+
+      .media-menu-1 .media-menu.tx-slide.media-menu {
+        transition-property: none;
+      }
+
+      .media-menu-1 .media-menu.tx-slide.open.media-menu,.media-menu-1 .media-menu.tx-slide.closed.media-menu {
+        top: 0;
+      }
+
+      .media-menu-1 .menu-group.media-menu {
+        font-size: 0;
+      }
+
+      }</style><!-- Shady DOM styles for primary-nav --><style scope="primary-nav-1">.primary-nav-1 button.primary-nav:focus,.primary-nav-1 a.primary-nav:focus,.primary-nav-1 input.primary-nav:focus {
+        outline: none;
+      }
+
+      .primary-nav-1 nav.primary-nav {
+        position: relative;
+          display: -ms-grid;
+          display: grid;
+          height: 4rem;
+          grid-template-areas: "hamburger empty search user";
+          -ms-grid-columns: 4rem minmax(1rem, 100%) 4.3rem 5rem;
+          grid-template-columns: 4rem auto 4.3rem 5rem;
+          -ms-grid-rows: 100%;
+          grid-template-rows: 100%;
+          background: #222;
+          border-bottom: 1px solid #333;
+      }
+
+      .primary-nav-1 button.primary-nav {
+        background: none;
+          color: inherit;
+          border: none;
+          font: inherit;
+          cursor: pointer;
+      }
+
+      .primary-nav-1 .link-home.primary-nav {
+        position: absolute;
+          top: 50%;
+          left: 50%;
+          z-index: 2;
+          text-decoration: none;
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+      }
+
+      .primary-nav-1 media-menu.primary-nav {
+        grid-column-start: hamburger-start;
+          grid-column-end: user-end;
+      }
+
+      .primary-nav-1 .ia-logo.primary-nav {
+        display: block;
+      }
+
+      .primary-nav-1 .ia-wordmark.primary-nav {
+        display: none;
+      }
+
+      .primary-nav-1 .hamburger.primary-nav {
+        -ms-grid-row: 1;
+          -ms-grid-column: 1;
+          grid-area: hamburger;
+          padding: 0;
+      }
+
+      .primary-nav-1 .search-trigger.primary-nav {
+        -ms-grid-row: 1;
+          -ms-grid-column: 3;
+          grid-area: search;
+          position: relative;
+          padding: 0;
+          z-index: 1;
+          width: 100%;
+          text-align: right;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+      }
+
+      .primary-nav-1 .search-trigger.primary-nav .fill-color.primary-nav {
+        fill: #999;
+      }
+
+      .primary-nav-1 .search-activated.primary-nav {
+        position: relative;
+          z-index: 3;
+      }
+
+      .primary-nav-1 .upload.primary-nav {
+        display: none;
+      }
+
+      .primary-nav-1 .upload.primary-nav span.primary-nav {
+        display: none;
+      }
+
+      .primary-nav-1 .user-info.primary-nav {
+        -ms-grid-row: 1;
+          -ms-grid-column: 4;
+          grid-area: user;
+          -ms-grid-row-align: stretch;
+          align-self: stretch;
+          -ms-grid-column-align: end;
+          justify-self: end;
+      }
+
+      .primary-nav-1 .username.primary-nav {
+        display: none;
+          font-size: 1.3rem;
+          vertical-align: middle;
+          text-transform: uppercase;
+      }
+
+      .primary-nav-1 .user-menu.primary-nav {
+        height: 100%;
+          padding: .5rem 1rem;
+          color: #999;
+      }
+
+      .primary-nav-1 .user-menu.primary-nav:hover {
+        color: #fff;
+      }
+
+      .primary-nav-1 .user-menu.active.primary-nav {
+        border-radius: 1rem 1rem 0 0;
+          background: #333;
+      }
+
+      .primary-nav-1 .user-menu.primary-nav img.primary-nav {
+        display: block;
+          width: 30px;
+          height: 30px;
+      }
+
+      @media (min-width: 890px) {
+      .primary-nav-1 {
+        ;
+      }
+
+      .primary-nav-1 nav.primary-nav {
+        display: block;
+            z-index: 2;
+            height: 5rem;
+            padding-right: 1.5rem;
+      }
+
+      .primary-nav-1 .link-home.primary-nav {
+        position: static;
+            float: left;
+            margin-top: 1rem;
+            padding: 0 10px 0 13px;
+            -webkit-transform: translate(0, 0);
+            -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
+      }
+
+      .primary-nav-1 .ia-logo.primary-nav,.primary-nav-1 .ia-wordmark.primary-nav {
+        display: inline-block;
+            vertical-align: middle;
+      }
+
+      .primary-nav-1 .ia-wordmark.primary-nav {
+        margin-left: 1rem;
+      }
+
+      .primary-nav-1 .hamburger.primary-nav,.primary-nav-1 .search-trigger.primary-nav {
+        display: none;
+      }
+
+      .primary-nav-1 .user-info.primary-nav {
+        float: right;
+            padding-top: 1rem;
+      }
+
+      .primary-nav-1 .user-menu.primary-nav {
+        padding-top: 0;
+      }
+
+      .primary-nav-1 .user-menu.active.primary-nav {
+        background: transparent;
+      }
+
+      .primary-nav-1 .user-menu.primary-nav img.primary-nav {
+        display: inline-block;
+            vertical-align: middle;
+      }
+
+      .primary-nav-1 .upload.primary-nav {
+        display: block;
+            float: right;
+            margin-top: 1rem;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #999;
+      }
+
+      .primary-nav-1 .upload.primary-nav:active,.primary-nav-1 .upload.primary-nav:focus,.primary-nav-1 .upload.primary-nav:hover {
+        color: #fff;
+      }
+
+      .primary-nav-1 .upload.primary-nav svg.primary-nav {
+        width: 32px;
+            height: 32px;
+            vertical-align: middle;
+            fill: #999;
+      }
+
+      .primary-nav-1 .upload.primary-nav:hover svg.primary-nav,.primary-nav-1 .upload.primary-nav:focus svg.primary-nav,.primary-nav-1 .upload.primary-nav:active svg.primary-nav {
+        fill: #fff;
+      }
+
+      .primary-nav-1 nav-search.primary-nav {
+        float: right;
+            margin-left: 1rem;
+      }
+
+      .primary-nav-1 login-button.primary-nav {
+        display: block;
+            margin-right: 1rem;
+      }
+
+      }
+
+      @media (min-width: 990px) {
+      .primary-nav-1 .username.primary-nav {
+        display: inline-block;
+      }
+
+      .primary-nav-1 .upload.primary-nav span.primary-nav {
+        display: inline;
+      }
+
+      }</style><!-- Shady DOM styles for user-menu --><!-- Shady DOM styles for search-menu --><style scope="search-menu-1">.search-menu-1 {
+        ;
+      }
+
+      .search-menu-1 button.search-menu:focus,.search-menu-1 input.search-menu:focus {
+        outline-color: #428bca;
+          outline-width: 0.16rem;
+          outline-style: auto;
+      }
+
+      .search-menu-1 .search-menu.search-menu {
+        position: absolute;
+          top: -800px;
+          right: 0;
+          left: 0;
+          z-index: 1;
+          padding: 0 4.5rem;
+          font-size: 1.6rem;
+          background-color: #333;
+      }
+
+      .search-menu-1 .tx-slide.search-menu {
+        overflow: hidden;
+          transition-property: top;
+          transition-duration: 0.2s;
+          transition-timing-function: ease;
+      }
+
+      .search-menu-1 .initial.search-menu,.search-menu-1 .closed.search-menu {
+        top: -800px;
+      }
+
+      .search-menu-1 .closed.search-menu {
+        transition-duration: 0.2s;
+      }
+
+      .search-menu-1 .open.search-menu {
+        top: 4rem;
+      }
+
+      .search-menu-1 label.search-menu,.search-menu-1 a.search-menu {
+        padding: 1rem;
+          display: block;
+      }
+
+      .search-menu-1 .advanced-search.search-menu {
+        text-decoration: none;
+          color: #428bca;
+      }
+
+      @media (min-width: 890px) {
+      .search-menu-1 .search-menu.search-menu {
+        overflow: visible;
+            top: -400px;
+            right: 2rem;
+            left: auto;
+            z-index: 5;
+            padding: 1rem 2rem;
+            transition: opacity .2s ease-in-out;
+            font-size: 1.4rem;
+            color: #333;
+            border-radius: 2px;
+            background: #fff;
+            box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .15);
+      }
+
+      .search-menu-1 .search-menu.search-menu:after {
+        position: absolute;
+            right: 7px;
+            top: -7px;
+            width: 12px;
+            height: 7px;
+            box-sizing: border-box;
+            color: #fff;
+            content: "";
+            border-bottom: 7px solid currentColor;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+      }
+
+      .search-menu-1 .initial.search-menu,.search-menu-1 .closed.search-menu {
+        opacity: 0;
+            transition-duration: .2s;
+      }
+
+      .search-menu-1 .open.search-menu {
+        top: 5.1rem;
+            opacity: 1;
+      }
+
+      .search-menu-1 label.search-menu {
+        padding: 0;
+      }
+
+      .search-menu-1 label.search-menu + label.search-menu {
+        padding-top: 7px;
+      }
+
+      .search-menu-1 a.search-menu {
+        padding: 1rem 0 0 0;
+      }
+
+      }</style><!-- Shady DOM styles for wayback-search --><!-- Shady DOM styles for more-slider --><!-- Shady DOM styles for media-subnav --><style scope="media-subnav-1">.media-subnav-1 a.media-subnav {
+        text-decoration: none;
+          color: #fff;
+      }
+
+      .media-subnav-1 img.media-subnav {
+        display: block;
+          width: 90px;
+          height: 90px;
+          margin: 0 auto 1rem auto;
+          border-radius: 45px;
+      }
+
+      .media-subnav-1 h3.media-subnav {
+        margin-top: 0;
+          font-size: 1.8rem;
+      }
+
+      .media-subnav-1 h4.media-subnav {
+        font-size: 1.6rem;
+      }
+
+      .media-subnav-1 ul.media-subnav {
+        padding: 0;
+          margin: 0;
+          list-style: none;
+      }
+
+      .media-subnav-1 li.media-subnav + li.media-subnav {
+        padding-top: 1.5rem;
+      }
+
+      .media-subnav-1 .icon-links.media-subnav {
+        display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: space-evenly;
+          -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+          text-align: center;
+      }
+
+      .media-subnav-1 .icon-links.media-subnav a.media-subnav {
+        display: inline-block;
+          width: 120px;
+          margin-bottom: 1.5rem;
+          overflow: hidden;
+          white-space: nowrap;
+          text-align: center;
+          text-overflow: ellipsis;
+      }
+
+      .media-subnav-1 .icon-links.media-subnav a.media-subnav + a.media-subnav {
+        margin-left: 2rem;
+      }
+
+      .media-subnav-1 .featured.media-subnav h4.media-subnav {
+        display: none;
+      }
+
+      @media (min-width: 890px) {
+      .media-subnav-1 {
+        display: -ms-grid;
+            display: grid;
+            -ms-grid-columns: 40% 20% 40%;
+            grid-template-columns: 40% 20% 40%;
+      }
+
+      .media-subnav-1 .wayback-search.media-subnav {
+        -ms-grid-column: 1;
+            -ms-grid-column-span: 3;
+            grid-column: 1 / 4;
+      }
+
+      .media-subnav-1 h3.media-subnav {
+        display: none;
+      }
+
+      .media-subnav-1 h4.media-subnav {
+        margin: 0 0 1rem 0;
+            font-weight: 100;
+      }
+
+      .media-subnav-1 ul.media-subnav {
+        font-size: 1.3rem;
+      }
+
+      .media-subnav-1 li.media-subnav {
+        padding-bottom: .5rem;
+      }
+
+      .media-subnav-1 li.media-subnav + li.media-subnav {
+        padding-top: 0;
+      }
+
+      .media-subnav-1 li.media-subnav a.media-subnav {
+        display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+      }
+
+      .media-subnav-1 .icon-links.media-subnav {
+        -ms-grid-column: 1;
+      }
+
+      .media-subnav-1 .icon-links.media-subnav a.media-subnav {
+        padding-top: 3.5rem;
+            max-width: 160px;
+      }
+
+      .media-subnav-1 .links.media-subnav {
+        padding: 0 1.5rem;
+      }
+
+      .media-subnav-1 .featured.media-subnav {
+        -ms-grid-column: 2;
+      }
+
+      .media-subnav-1 .featured.media-subnav h4.media-subnav {
+        display: block;
+      }
+
+      .media-subnav-1 .top.media-subnav {
+        -ms-grid-column: 3;
+      }
+
+      .media-subnav-1 .top.media-subnav ul.media-subnav {
+        display: -ms-grid;
+            display: grid;
+            -ms-grid-columns: 50% 3rem 50%;
+            grid-template-columns: 50% 50%;
+            -ms-grid-rows: (auto)[7];
+            grid-template-rows: repeat(7, auto);
+            grid-column-gap: 3rem;
+            grid-auto-flow: column;
+      }
+
+      .media-subnav-1 .top.media-subnav ul.media-subnav > *.media-subnav:nth-child(1) {
+        -ms-grid-row: 1;
+            -ms-grid-column: 1;
+      }
+
+      .media-subnav-1 .top.media-subnav ul.media-subnav > *.media-subnav:nth-child(2) {
+        -ms-grid-row: 2;
+            -ms-grid-column: 1;
+      }
+
+      .media-subnav-1 .top.media-subnav ul.media-subnav > *.media-subnav:nth-child(3) {
+        -ms-grid-row: 3;
+            -ms-grid-column: 1;
+      }
+
+      .media-subnav-1 .top.media-subnav ul.media-subnav > *.media-subnav:nth-child(4) {
+        -ms-grid-row: 4;
+            -ms-grid-column: 1;
+      }
+
+      .media-subnav-1 .top.media-subnav ul.media-subnav > *.media-subnav:nth-child(5) {
+        -ms-grid-row: 5;
+            -ms-grid-column: 1;
+      }
+
+      .media-subnav-1 .top.media-subnav ul.media-subnav > *.media-subnav:nth-child(6) {
+        -ms-grid-row: 6;
+            -ms-grid-column: 1;
+      }
+
+      .media-subnav-1 .top.media-subnav ul.media-subnav > *.media-subnav:nth-child(7) {
+        -ms-grid-row: 7;
+            -ms-grid-column: 1;
+      }
+
+      .media-subnav-1 .top.media-subnav ul.media-subnav > *.media-subnav:nth-child(8) {
+        -ms-grid-row: 1;
+            -ms-grid-column: 3;
+      }
+
+      .media-subnav-1 .top.media-subnav ul.media-subnav > *.media-subnav:nth-child(9) {
+        -ms-grid-row: 2;
+            -ms-grid-column: 3;
+      }
+
+      .media-subnav-1 .top.media-subnav ul.media-subnav > *.media-subnav:nth-child(10) {
+        -ms-grid-row: 3;
+            -ms-grid-column: 3;
+      }
+
+      .media-subnav-1 .top.media-subnav ul.media-subnav > *.media-subnav:nth-child(11) {
+        -ms-grid-row: 4;
+            -ms-grid-column: 3;
+      }
+
+      .media-subnav-1 .top.media-subnav ul.media-subnav > *.media-subnav:nth-child(12) {
+        -ms-grid-row: 5;
+            -ms-grid-column: 3;
+      }
+
+      .media-subnav-1 .top.media-subnav ul.media-subnav > *.media-subnav:nth-child(13) {
+        -ms-grid-row: 6;
+            -ms-grid-column: 3;
+      }
+
+      .media-subnav-1 .top.media-subnav ul.media-subnav > *.media-subnav:nth-child(14) {
+        -ms-grid-row: 7;
+            -ms-grid-column: 3;
+      }
+
+      }</style><!-- Shady DOM styles for media-slider --><style scope="media-slider-1">.media-slider-1 .overflow-clip.media-slider {
+        display: none;
+          position: absolute;
+          top: 4rem;
+          right: 0;
+          left: 4rem;
+          height: 368px;
+          overflow-x: hidden;
+      }
+
+      .media-slider-1 .information-menu.media-slider {
+        position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          padding: 0;
+          height: 368px;
+          overflow-x: hidden;
+          font-size: 1.4rem;
+          background: #333;
+      }
+
+      .media-slider-1 .open.media-slider {
+        display: block;
+      }
+
+      .media-slider-1 .info-box.media-slider {
+        padding: 1rem;
+      }
+
+      @media (min-width: 890px) {
+      .media-slider-1 .overflow-clip.media-slider {
+        display: block;
+            top: 0;
+            left: 0;
+            height: auto;
+            overflow-x: visible;
+            transform: translate(0, -100%);
+            transition: transform .2s ease;
+      }
+
+      .media-slider-1 .information-menu.media-slider {
+        left: 0;
+            z-index: 1;
+            height: auto;
+            min-height: 21rem;
+            background: #474747;
+            transform: translate(0, -100%);
+            transition: transform .2s ease;
+      }
+
+      .media-slider-1 .overflow-clip.open.media-slider {
+        transform: translate(0, 8rem);
+      }
+
+      .media-slider-1 .information-menu.open.media-slider {
+        transform: translate(0, 0);
+      }
+
+      .media-slider-1 .info-box.media-slider {
+        max-width: 1000px;
+            padding: 1.5rem 0;
+            margin: 0 auto;
+      }
+
+      }</style><!-- Shady DOM styles for desktop-subnav --><style scope="desktop-subnav-1">.desktop-subnav-1 ul.desktop-subnav {
+        position: relative;
+          z-index: 3;
+          padding: .8rem 0;
+          margin: 0;
+          font-size: 1.2rem;
+          text-transform: uppercase;
+          text-align: center;
+          background: #333;
+      }
+
+      .desktop-subnav-1 li.desktop-subnav {
+        display: inline-block;
+          padding: 0 15px;
+      }
+
+      .desktop-subnav-1 a.desktop-subnav {
+        text-decoration: none;
+          color: #aaa;
+      }
+
+      .desktop-subnav-1 a.desktop-subnav:hover,.desktop-subnav-1 a.desktop-subnav:active,.desktop-subnav-1 a.desktop-subnav:focus {
+        color: #fff;
+      }
+
+      .desktop-subnav-1 .donate.desktop-subnav svg.desktop-subnav {
+        width: 16px;
+          height: 16px;
+          vertical-align: -4px;
+          fill: #f00;
+      }</style><!-- Shady DOM styles for signed-out-dropdown --><style scope="signed-out-dropdown-1">.signed-out-dropdown-1 {
+        ;
+      }
+
+      .signed-out-dropdown-1 nav.signed-out-dropdown {
+        position: absolute;
+          top: -1500px;
+          right: 0;
+          z-index: 1;
+          overflow: hidden;
+          font-size: 1.6rem;
+          background-color: #333;
+          transition-property: top;
+          transition-duration: 0.2s;
+          transition-timing-function: ease;
+      }
+
+      .signed-out-dropdown-1 .initial.signed-out-dropdown,.signed-out-dropdown-1 .closed.signed-out-dropdown {
+        top: -1500px;
+      }
+
+      .signed-out-dropdown-1 .closed.signed-out-dropdown {
+        transition-duration: 0.5s;
+      }
+
+      .signed-out-dropdown-1 .open.signed-out-dropdown {
+        top: 4rem;
+          max-width: 100vw;
+          overflow: auto;
+      }
+
+      .signed-out-dropdown-1 h3.signed-out-dropdown {
+        padding: 0.6rem 2rem;
+          margin: 0;
+          font-size: inherit;
+          overflow: hidden;
+          text-overflow: ellipsis;
+      }
+
+      .signed-out-dropdown-1 ul.signed-out-dropdown {
+        padding: 0.4rem 0 0.7rem 0;
+          margin: 0;
+          list-style: none;
+          
+          max-height: calc(100vh - 7.2rem + 1px);
+          overflow: auto;
+          box-sizing: border-box;
+      }
+
+      .signed-out-dropdown-1 .divider.signed-out-dropdown {
+        margin: .5rem 0;
+          border-bottom: 1px solid #666;
+      }
+
+      .signed-out-dropdown-1 a.signed-out-dropdown,.signed-out-dropdown-1 .info-item.signed-out-dropdown {
+        display: block;
+          color: #fff;
+          text-decoration: none;
+          padding: 1rem 2rem;
+      }
+
+      .signed-out-dropdown-1 .info-item.signed-out-dropdown {
+        font-size: .8em;
+          color: #999;
+      }
+
+      @media (min-width: 890px) {
+      .signed-out-dropdown-1 nav.signed-out-dropdown {
+        overflow: visible;
+            top: calc(100% + 7px);
+            left: auto;
+            z-index: 5;
+            transition: opacity .2s ease-in-out;
+            font-size: 1.4rem;
+            border-radius: 2px;
+            background: #fff;
+            box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .15);
+      }
+
+      .signed-out-dropdown-1 nav.signed-out-dropdown:after {
+        position: absolute;
+            right: 7px;
+            top: -7px;
+            width: 12px;
+            height: 7px;
+            box-sizing: border-box;
+            color: #fff;
+            content: "";
+            border-bottom: 7px solid currentColor;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+      }
+
+      .signed-out-dropdown-1 h3.signed-out-dropdown {
+        display: none;
+      }
+
+      .signed-out-dropdown-1 ul.signed-out-dropdown {
+        max-height: calc(100vh - 8.5rem + 1px);
+      }
+
+      .signed-out-dropdown-1 .divider.signed-out-dropdown {
+        border-bottom-color: #666;
+      }
+
+      .signed-out-dropdown-1 a.signed-out-dropdown {
+        padding: .5rem 2rem;
+            color: #333;
+            transition: background .1s ease-out, color .1s ease-out;
+      }
+
+      .signed-out-dropdown-1 .info-item.signed-out-dropdown {
+        padding: .5rem 2rem;
+            font-size: .8em;
+      }
+
+      .signed-out-dropdown-1 a.signed-out-dropdown:hover,.signed-out-dropdown-1 a.signed-out-dropdown:active,.signed-out-dropdown-1 a.signed-out-dropdown:focus {
+        color: #fff;
+            background: #428bca;
+      }
+
+      .signed-out-dropdown-1 .initial.signed-out-dropdown,.signed-out-dropdown-1 .closed.signed-out-dropdown {
+        opacity: 0;
+            transition-duration: .2s;
+      }
+
+      .signed-out-dropdown-1 .open.signed-out-dropdown {
+        top: 5.1rem;
+            opacity: 1;
+            overflow: visible;
+      }
+
+      }
+
+      @media (min-width: 890px) {
+      .signed-out-dropdown-1 .initial.signed-out-dropdown,.signed-out-dropdown-1 .closed.signed-out-dropdown,.signed-out-dropdown-1 .open.signed-out-dropdown {
+        right: 33.7rem;
+      }
+
+      .signed-out-dropdown-1 .search-hidden.initial.signed-out-dropdown,.signed-out-dropdown-1 .search-hidden.closed.signed-out-dropdown,.signed-out-dropdown-1 .search-hidden.open.signed-out-dropdown {
+        right: 18.3rem;
+      }
+
+      }
+
+      @media (min-width: 990px) {
+      .signed-out-dropdown-1 .initial.signed-out-dropdown,.signed-out-dropdown-1 .closed.signed-out-dropdown,.signed-out-dropdown-1 .open.signed-out-dropdown {
+        right: 39.7rem;
+      }
+
+      .signed-out-dropdown-1 .search-hidden.initial.signed-out-dropdown,.signed-out-dropdown-1 .search-hidden.closed.signed-out-dropdown,.signed-out-dropdown-1 .search-hidden.open.signed-out-dropdown {
+        right: 23.5rem;
+      }
+
+      }</style><!-- Shady DOM styles for ia-topnav --><style scope="ia-topnav-1">.ia-topnav-1 {
+        ;
+
+          color: #fff;
+          font-size: 2rem;
+          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      }
+
+      .ia-topnav-1 #close-layer.ia-topnav {
+        display: none;
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 0;
+      }
+
+      .ia-topnav-1 #close-layer.visible.ia-topnav {
+        display: block;
+      }
+
+      .ia-topnav-1 .topnav.ia-topnav {
+        position: relative;
+          z-index: 3;
+      }
+
+      @media (max-width: 889px) {
+      .ia-topnav-1 desktop-subnav.ia-topnav {
+        display: none;
+      }
+
+      }</style><style>body {transition: opacity ease-in 0.2s; } 
+      body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+      </style>
+          <div class="topnav style-scope ia-topnav">
+        <primary-nav class="style-scope ia-topnav x-scope primary-nav-1"><!---->
+      <nav class="style-scope primary-nav">
+        <a class="link-home style-scope primary-nav" href="https://archive.org" data-event-click-tracking="BetaTopNav|NavHome"><!---->
+  <svg class="ia-logo style-scope primary-nav" width="27" height="30" viewBox="0 0 27 30" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logoTitleID logoDescID">
+    <title id="logoTitleID" class="style-scope primary-nav">Internet Archive logo</title>
+    <desc id="logoDescID" class="style-scope primary-nav">A line drawing of the Internet Archive headquarters building façade.</desc>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" class="style-scope primary-nav">
+      <mask id="mask-2" fill="white" class="style-scope primary-nav">
+        <path d="M26.6666667,28.6046512 L26.6666667,30 L0,30 L0.000283687943,28.6046512 L26.6666667,28.6046512 Z M25.6140351,26.5116279 L25.6140351,28.255814 L1.05263158,28.255814 L1.05263158,26.5116279 L25.6140351,26.5116279 Z M3.62469203,7.6744186 L3.91746909,7.82153285 L4.0639977,10.1739544 L4.21052632,13.9963932 L4.21052632,17.6725617 L4.0639977,22.255044 L4.03962296,25.3421929 L3.62469203,25.4651163 L2.16024641,25.4651163 L1.72094074,25.3421929 L1.55031755,22.255044 L1.40350877,17.6970339 L1.40350877,14.0211467 L1.55031755,10.1739544 L1.68423854,7.80887484 L1.98962322,7.6744186 L3.62469203,7.6744186 Z M24.6774869,7.6744186 L24.9706026,7.82153285 L25.1168803,10.1739544 L25.2631579,13.9963932 L25.2631579,17.6725617 L25.1168803,22.255044 L25.0927809,25.3421929 L24.6774869,25.4651163 L23.2130291,25.4651163 L22.7736357,25.3421929 L22.602418,22.255044 L22.4561404,17.6970339 L22.4561404,14.0211467 L22.602418,10.1739544 L22.7369262,7.80887484 L23.0420916,7.6744186 L24.6774869,7.6744186 Z M9.94042303,7.6744186 L10.2332293,7.82153285 L10.3797725,10.1739544 L10.5263158,13.9963932 L10.5263158,17.6725617 L10.3797725,22.255044 L10.3556756,25.3421929 L9.94042303,25.4651163 L8.47583122,25.4651163 L8.0362015,25.3421929 L7.86556129,22.255044 L7.71929825,17.6970339 L7.71929825,14.0211467 L7.86556129,10.1739544 L8.00005604,7.80887484 L8.30491081,7.6744186 L9.94042303,7.6744186 Z M18.0105985,7.6744186 L18.3034047,7.82153285 L18.449948,10.1739544 L18.5964912,13.9963932 L18.5964912,17.6725617 L18.449948,22.255044 L18.425851,25.3421929 L18.0105985,25.4651163 L16.5460067,25.4651163 L16.1066571,25.3421929 L15.9357367,22.255044 L15.7894737,17.6970339 L15.7894737,14.0211467 L15.9357367,10.1739544 L16.0702315,7.80887484 L16.3753664,7.6744186 L18.0105985,7.6744186 Z M25.6140351,4.53488372 L25.6140351,6.97674419 L1.05263158,6.97674419 L1.05263158,4.53488372 L25.6140351,4.53488372 Z M13.0806755,0 L25.9649123,2.93331338 L25.4484139,3.8372093 L0.771925248,3.8372093 L0,3.1041615 L13.0806755,0 Z" id="path-1" class="style-scope primary-nav"></path>
+      </mask>
+      <use fill="#FFFFFF" xlink:href="#path-1" class="style-scope primary-nav"></use>
+      <g mask="url(#mask-2)" fill="#FFFFFF" class="style-scope primary-nav">
+        <path d="M0,0 L26.6666667,0 L26.6666667,30 L0,30 L0,0 Z" id="swatch" class="style-scope primary-nav"></path>
+      </g>
+    </g>
+  </svg>
+<!---->
+  <svg class="ia-wordmark style-scope primary-nav" height="14" viewBox="0 0 183 14" width="183" xmlns="http://www.w3.org/2000/svg"><g fill="#fff" fill-rule="evenodd" class="style-scope primary-nav"><g transform="translate(107.24177)" class="style-scope primary-nav"><path d="m3.46567087 2.73592273c.09358964-.31350476.26547063-.95793121.26547063-1.08718317 0-.73655285-.57818604-.75488647-1.20271694-.86488814v-.40471447h2.93682509l3.81107838 12.38893815h-1.62387035l-1.17212033-3.82897484h-3.98340931l-1.17167038 3.82897484h-.96784292zm-.7032722 5.33783106h3.4520181l-1.78045302-5.37541496z" class="style-scope primary-nav"></path><path d="m13.7607138 2.88304997c0-1.82281935-.0319465-1.82281935-1.4843858-2.09919855v-.40471447h3.8425749c1.1721204 0 4.4050127 0 4.4050127 3.2954667 0 2.09828187-1.1554722 2.79816749-2.3896856 3.03696279l2.874282 6.05650866h-1.7957513l-2.7649442-5.72512863h-.9687428v5.72512863h-1.7183599zm1.7183599 3.29500836h.8909015c1.0146377 0 2.4364804-.33092169 2.4364804-2.39299467 0-1.98873853-.9687428-2.54103858-2.2812476-2.54103858-1.0461343 0-1.0461343.33138003-1.0461343 1.6573585z" class="style-scope primary-nav"></path><path d="m31.6158204 12.2524422c-.5304913.2768376-1.3903462.6998857-2.9989182.6998857-3.389925 0-4.6083902-2.4113283-4.6083902-6.55334954 0-3.35000921.8742533-6.07530059 4.3582178-6.07530059 1.3903462 0 2.4058839.27592086 3.1240044.55230005l.0940396 3.07500503h-.4530999c-.062543-.9395976-.921948-2.743625-2.6088113-2.743625-2.296096 0-2.6713545 2.88983555-2.6713545 5.19162051 0 2.90816916.8598549 5.52254214 3.0304147 5.52254214 1.4843858 0 2.2497511-.5523 2.7338976-.9386809z" class="style-scope primary-nav"></path><path d="m36.1784975 2.80971552c0-1.45568877-.0935896-1.62114962-1.5626771-1.80448573v-.40563116l3.2805871-.42258975v5.70633665h4.2484299v-5.50420858h1.7183599v12.38893815h-1.7183599v-6.01984144h-4.2484299v6.01984144h-1.71791z" class="style-scope primary-nav"></path><path d="m46.8631973 12.3083598c1.1086774 0 1.3273532-.2759209 1.3273532-1.711901v-7.91645358c0-1.43598014-.2186758-1.71144266-1.3273532-1.71144266v-.46109033h4.3735162v.46109033c-1.093829 0-1.3273532.27546252-1.3273532 1.71144266v7.91645358c0 1.4359801.2335242 1.711901 1.3273532 1.711901v.4597153h-4.3735162z" class="style-scope primary-nav"></path><path d="m56.1269544 2.73592273c-.4998947-1.67569211-.6407291-1.67569211-1.8902409-1.95207131v-.40471447h3.0304147l3.0614614 10.08806985h.0310465l2.9840699-10.08806985h1.0146377l-3.8106284 12.38893815h-1.3588497z" class="style-scope primary-nav"></path><path d="m68.8422796 2.88304997c0-1.82281935-.0467948-1.82281935-1.4839359-2.09919855v-.40471447h7.4826722l.0467949 2.7243747h-.4378016c0-1.47264736-.6555775-1.85948657-1.6868634-1.85948657h-1.2184652c-.7806636 0-.9835912.07333445-.9835912.95747287v3.66351396h1.8902409c1.0767309 0 1.1865187-.80942895 1.2805583-1.41672984h.4369017v3.86518369h-.4369017c0-.9941401-.3437619-1.58356571-1.2805583-1.58356571h-1.8902409v4.10535405c0 1.0308073.2029276 1.0679328.9835912 1.0679328h1.7345581c.8895516 0 1.311155-.3685056 1.4051946-1.8040274h.4378015l-.0476947 2.6689156h-6.2322605z" class="style-scope primary-nav"></path></g><g transform="translate(.24177 .277385)" class="style-scope primary-nav"><path d="m1.57302598 10.3699491v-8.03470531c0-1.45706379-.25962128-1.73802639-1.57302598-1.73802639v-.46659042h5.18252665v.46659042c-1.29540668 0-1.57302597.2809626-1.57302597 1.73802639v8.03470531c0 1.4575222.27761929 1.7366514 1.57302597 1.7366514v.4675071h-5.18252665v-.4675071c1.3134047 0 1.57302598-.2791292 1.57302598-1.7366514z" class="style-scope primary-nav"></path><path d="m10.0331719 2.39116131c0-1.73756805-.25872136-1.66240024-1.85064525-1.98003007v-.41113124h3.90556795l5.830455 10.1641543h.0368959v-10.1641543h1.1662709v12.5741076h-1.7773033l-6.1076243-10.63028642h-.0373459v10.63028642h-1.166271z" class="style-scope primary-nav"></path><path d="m25.9161467.87818h-1.2774087c-1.4618883 0-1.8875412.46704876-1.9991288 1.83198615h-.5178928l.0737919-2.71016615h9.4768516l.0742417 2.76562533h-.5183426c0-1.43873018-.5925845-1.88744533-2.0175768-1.88744533h-1.2580608v11.6959276h-2.0364747z" class="style-scope primary-nav"></path><path d="m36.505907 2.54103859c0-1.84986143-.0562438-1.84986143-1.7593054-2.12990735v-.41113124h8.8658192l.0557938 2.76562533h-.5183426c0-1.49510604-.777064-1.88744533-1.9982289-1.88744533h-1.4443403c-.9255476 0-1.1662709.07516781-1.1662709.97213976v3.71805646h2.2398522c1.2769587 0 1.4060944-.82272082 1.5176821-1.43964686h.5187926v3.92430959h-.5187926c0-1.00880698-.406755-1.60648273-1.5176821-1.60648273h-2.2398522v4.16631328c0 1.0463909.2407233 1.0830581 1.1662709 1.0830581h2.0544728c1.0555832 0 1.554578-.3735473 1.6652657-1.83061113h.5192426l-.0557938 2.70879113h-7.3845831z" class="style-scope primary-nav"></path><path d="m48.7037894 2.54103859c0-1.84986143-.0368959-1.84986143-1.7575055-2.12990735v-.41113124h4.5525963c1.3885464 0 5.2194226 0 5.2194226 3.34450912 0 2.13036568-1.3687486 2.8403348-2.8315368 3.08325515l3.4056733 6.14634333h-2.1287145l-3.2756376-5.81083823h-1.1478231v5.81083823h-2.0364747zm2.0364747 3.34405077h1.0555833c1.202267 0 2.8873305-.33550509 2.8873305-2.42782853 0-2.01898899-1.147823-2.57908083-2.7028509-2.57908083-1.2400629 0-1.2400629.33596344-1.2400629 1.68256722z" class="style-scope primary-nav"></path><path d="m62.1435345 2.39116131c0-1.73756805-.2596213-1.66240024-1.8510952-1.98003007v-.41113124h3.905118l5.830005 10.1641543h.0373458v-10.1641543h1.166271v12.5741076h-1.7764035l-6.1085242-10.63028642h-.0368959v10.63028642h-1.165821z" class="style-scope primary-nav"></path><path d="m75.9895846 2.54103859c0-1.84986143-.0553439-1.84986143-1.7584055-2.12990735v-.41113124h8.8658192l.0557938 2.76562533h-.5183426c0-1.49510604-.777964-1.88744533-1.9991289-1.88744533h-1.4438902c-.9250977 0-1.1658211.07516781-1.1658211.97213976v3.71805646h2.2394023c1.2774087 0 1.4060944-.82272082 1.5176821-1.43964686h.5187926v3.92430959h-.5187926c0-1.00880698-.406755-1.60648273-1.5176821-1.60648273h-2.2394023v4.16631328c0 1.0463909.2407234 1.0830581 1.1658211 1.0830581h2.0544727c1.0555832 0 1.5550279-.3735473 1.6661657-1.83061113h.5183426l-.0557938 2.70879113h-7.385033z" class="style-scope primary-nav"></path><path d="m90.2243917.87818h-1.2765088c-1.4623382 0-1.8879911.46704876-1.9995788 1.83198615h-.5178927l.0742418-2.71016615h9.4759517l.0742418 2.76562533h-.5178928c0-1.43873018-.5921344-1.88744533-2.0180267-1.88744533h-1.2585108v11.6959276h-2.0360247z" class="style-scope primary-nav"></path></g></g></svg>
+<!----></a>
+
+      <button class="search-trigger style-scope primary-nav" data-event-click-tracking="BetaTopNav|NavSearchOpen">
+
+  <svg height="40" viewBox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="searchTitleID searchDescID" class="style-scope primary-nav">
+    <title id="searchTitleID" class="style-scope primary-nav">Search icon</title>
+    <desc id="searchDescID" class="style-scope primary-nav">An illustration of a magnifying glass.</desc>
+    <path class="fill-color style-scope primary-nav" d="m32.4526364 29.8875889-8.1719472-7.9751279c1.1046135-1.4876138 1.7652549-3.3102407 1.7652549-5.2846451 0-.101185-.0142895-.1981539-.030573-.2944743.0166158-.0976175.0309053-.196208.0309053-.2990145 0-4.9814145-4.152935-9.0343271-9.2572866-9.0343271-.0907218 0-.1781206.01394537-.2655193.02594487-.0880633-.0119995-.1747974-.02594487-.2655193-.02594487-5.1046839 0-9.25761889 4.0529126-9.25761889 9.0343271 0 .1011849.01395722.1981539.03057294.2947985-.01694804.0976176-.03090525.1958838-.03090525.2986903 0 4.9814145 4.1526027 9.0346514 9.2572866 9.0346514.0907218 0 .1777882-.0139454.2658516-.0262692.0873987.0123238.1741328.0262692.265187.0262692 1.7306942 0 3.3467399-.4747911 4.7338208-1.2852439l8.2882574 8.0886366c.3652137.3564177.843082.53414 1.3212826.53414.4782007 0 .9567336-.1780467 1.3212827-.53414.7294304-.7118622.7294304-1.8660845-.0003323-2.5782711zm-15.9526364-7.8875889c-.0832667-.0118703-.1652765-.0253024-.2513711-.0253024-2.8781993 0-5.2197212-2.3278242-5.2197212-5.1891862 0-.0974612-.013197-.1908615-.0289077-.2836371.0160249-.0940251.0292219-.1889874.0292219-.2880105 0-2.861362 2.3418361-5.1891861 5.2200354-5.1891861.0854662 0 .1677902-.0131198.2510569-.0246777.0826383.0115579.1649623.0246777.2510569.0246777 2.8781993 0 5.2197212 2.3278241 5.2197212 5.1891861 0 .0974612.0135112.1908616.0289077.2839496-.0157107.0940251-.0295361.1886749-.0295361.287698 0 2.861362-2.3415219 5.1891862-5.2197212 5.1891862-.0860946 0-.1684187.0134321-.2507427.0253024z" fill-rule="evenodd"></path>
+  </svg>
+
+      </button>
+      <nav-search class="style-scope primary-nav x-scope nav-search-1"><!----><div class="search-activated fade-in search-inactive style-scope nav-search">
+      <form id="nav-search" class="highlight style-scope nav-search" method="get" action="https://archive.org/search.php" data-event-submit-tracking="BetaTopNav|NavSearchSubmit">
+        <input type="text" name="query" class="search-field style-scope nav-search" placeholder="Search" autocomplete="off">
+        <input type="hidden" name="sin" class="style-scope nav-search" value="">
+        <button type="submit" class="search style-scope nav-search" data-event-click-tracking="BetaTopNav|NavSearchClose">
+
+  <svg height="40" viewBox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="searchTitleID searchDescID" class="style-scope nav-search">
+    <title id="searchTitleID" class="style-scope nav-search">Search icon</title>
+    <desc id="searchDescID" class="style-scope nav-search">An illustration of a magnifying glass.</desc>
+    <path class="fill-color style-scope nav-search" d="m32.4526364 29.8875889-8.1719472-7.9751279c1.1046135-1.4876138 1.7652549-3.3102407 1.7652549-5.2846451 0-.101185-.0142895-.1981539-.030573-.2944743.0166158-.0976175.0309053-.196208.0309053-.2990145 0-4.9814145-4.152935-9.0343271-9.2572866-9.0343271-.0907218 0-.1781206.01394537-.2655193.02594487-.0880633-.0119995-.1747974-.02594487-.2655193-.02594487-5.1046839 0-9.25761889 4.0529126-9.25761889 9.0343271 0 .1011849.01395722.1981539.03057294.2947985-.01694804.0976176-.03090525.1958838-.03090525.2986903 0 4.9814145 4.1526027 9.0346514 9.2572866 9.0346514.0907218 0 .1777882-.0139454.2658516-.0262692.0873987.0123238.1741328.0262692.265187.0262692 1.7306942 0 3.3467399-.4747911 4.7338208-1.2852439l8.2882574 8.0886366c.3652137.3564177.843082.53414 1.3212826.53414.4782007 0 .9567336-.1780467 1.3212827-.53414.7294304-.7118622.7294304-1.8660845-.0003323-2.5782711zm-15.9526364-7.8875889c-.0832667-.0118703-.1652765-.0253024-.2513711-.0253024-2.8781993 0-5.2197212-2.3278242-5.2197212-5.1891862 0-.0974612-.013197-.1908615-.0289077-.2836371.0160249-.0940251.0292219-.1889874.0292219-.2880105 0-2.861362 2.3418361-5.1891861 5.2200354-5.1891861.0854662 0 .1677902-.0131198.2510569-.0246777.0826383.0115579.1649623.0246777.2510569.0246777 2.8781993 0 5.2197212 2.3278241 5.2197212 5.1891861 0 .0974612.0135112.1908616.0289077.2839496-.0157107.0940251-.0295361.1886749-.0295361.287698 0 2.861362-2.3415219 5.1891862-5.2197212 5.1891862-.0860946 0-.1684187.0134321-.2507427.0253024z" fill-rule="evenodd"></path>
+  </svg>
+
+        </button>
+      </form>
+    </div><!----></nav-search>
+
+        <a class="upload style-scope primary-nav" href="https://archive.org/create/">
+
+  <svg width="40" height="41" viewBox="0 0 40 41" xmlns="http://www.w3.org/2000/svg" aria-labelledby="uploadTitleID uploadDescID" class="style-scope primary-nav">
+    <title id="uploadTitleID" class="style-scope primary-nav">Upload icon</title>
+    <desc id="uploadDescID" class="style-scope primary-nav">An illustration of a horizontal line over an up pointing arrow.</desc>
+    <path class="fill-color style-scope primary-nav" d="m20 12.8 8 10.4h-4.8v8.8h-6.4v-8.8h-4.8zm12-4.8v3.2h-24v-3.2z" fill-rule="evenodd"></path>
+  </svg>
+
+          <span class="style-scope primary-nav">Upload</span>
+        </a>
+        <div class="user-info style-scope primary-nav">
+
+      <login-button class="style-scope primary-nav x-scope login-button-1"><!---->
+      <div class="logged-out-toolbar style-scope login-button">
+        <a class="dropdown-toggle style-scope login-button" data-event-click-tracking="BetaTopNav|NavLoginIcon">
+
+  <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="userTitleID userDescID" class="style-scope login-button">
+    <title id="userTitleID" class="style-scope login-button">User icon</title>
+    <desc id="userDescID" class="style-scope login-button">An illustration of a person's head and chest.</desc>
+    <path class="fill-color style-scope login-button" d="m20.7130435 18.0434783c-3.5658385 0-6.4565218-2.9198821-6.4565218-6.5217392 0-3.60185703 2.8906833-6.5217391 6.4565218-6.5217391s6.4565217 2.91988207 6.4565217 6.5217391c0 3.6018571-2.8906832 6.5217392-6.4565217 6.5217392zm-12.9130435 16.9565217c0-7.9240855 5.7813665-14.3478261 12.9130435-14.3478261s12.9130435 6.4237406 12.9130435 14.3478261z" fill-rule="evenodd"></path>
+  </svg>
+
+        </a>
+        <span class="style-scope login-button">
+          <a class="style-scope login-button" href="https://archive.org/account/signup">Sign up</a>
+          |
+          <a class="style-scope login-button" href="https://archive.org/account/login">Log in</a>
+        </span>
+      </div>
+    <!----></login-button>
+
+        </div>
+        <media-menu class="style-scope primary-nav x-scope media-menu-1" tabindex="-1"><!---->
+      <nav class="media-menu tx-slide closed style-scope media-menu" aria-hidden="true" aria-expanded="false">
+        <div class="menu-group style-scope media-menu">
+          <!---->
+        <media-button class="style-scope media-menu x-scope media-button-1" data-mediatype="web"><!---->
+      <a class="menu-item web  style-scope media-button" href="https://archive.org/web/" data-event-click-tracking="BetaTopNav|NavMenuWeb">
+
+      <span class="icon  style-scope media-button">
+
+  <svg height="40" viewBox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="webTitleID webDescID" class="style-scope media-button">
+    <title id="webTitleID" class="style-scope media-button">Web icon</title>
+    <desc id="webDescID" class="style-scope media-button">An illustration of a computer application window</desc>
+    <path class="fill-color style-scope media-button" d="m8 28.7585405v-8.1608108-9.3577297h24v9.3577297 8.1608108zm14.2702703-15.8863783h-12.43243246v2.6114594h12.43243246zm7.7837838 14.0365946v-7.0727027-1.8497838h-20.21621626v1.8497838 7.0727027zm-3.7837838-14.0365946h-2.7027027v2.6114594h2.7027027zm4 0h-2.7027027v2.6114594h2.7027027z" fill-rule="evenodd"></path>
+  </svg>
+
+      </span>
+      <span class="label style-scope media-button"><!---->Wayback Machine<!----></span>
+
+      </a>
+    <!----></media-button>
+      <!---->
+        <media-button class="style-scope media-menu x-scope media-button-1" data-mediatype="texts"><!---->
+      <a class="menu-item texts  style-scope media-button" href="https://archive.org/details/texts" data-event-click-tracking="BetaTopNav|NavMenuTexts">
+
+      <span class="icon  style-scope media-button">
+
+  <svg height="40" viewBox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="textsTitleID textsDescID" class="style-scope media-button">
+    <title id="textsTitleID" class="style-scope media-button">Texts icon</title>
+    <desc id="textsDescID" class="style-scope media-button">An illustration of an open book.</desc>
+    <path class="fill-color style-scope media-button" d="m10.3323235 11.0007023h6.9060825c.8851083 0 1.5847122.3064258 2.0988114.9192774v14.4324451h-.6460032c-.1435563-.120323-.3528315-.2434552-.6278257-.3693964-.2749942-.1259413-.5201585-.2191097-.7354929-.2795053l-.3048241-.1081503h-5.7042647c-.3108832 0-.5621067-.0601615-.7536705-.1804846-.0717781-.0599274-.1256117-.1439663-.1615008-.2521166-.0358891-.1081502-.0598928-.2043619-.0720112-.2886348v-13.8741368zm19.1752505 0v13.603761c-.0717781.3361555-.2211606.5943584-.4481473.7746089-.0717781.0599274-.1733862.1079162-.304824.1439663-.1314379.0360501-.2451643.0601615-.3411793.0723343h-5.5965975c-.9568865.2640552-1.5068748.5164059-1.649965.757052h-.6634817v-14.4324451c.5140992-.6128516 1.2076439-.9192774 2.0806339-.9192774h6.92426zm1.3814961.6489017-.1796783 15.2976474c-.0955489 0-1.0342578.0119386-2.8161268.035816-1.7818691.0238773-3.3006293.0898911-4.5562806.1980414-1.2556514.1081503-1.9613144.2884008-2.1169891.5407514-.0955488.1924233-.5439291.273419-1.345141.2429871-.8012118-.0304319-1.3155441-.1776755-1.5429969-.4417308-.334654-.3843783-3.4558378-.5765674-9.36355164-.5765674v-15.3875385l-.96830576.3960828v16.2702977c6.4096947-.2041278 9.7760429-.0840388 10.0990445.3602669.2391051.276228.9864833.414342 2.2421347.414342.1915638 0 .4187835-.0210682.6816593-.0632047s.4810068-.0870821.6543929-.1348367c.1733862-.0477547.2719646-.0838048.2957353-.1081503.0838965-.1563732.9599161-.2675666 2.6280587-.3335805 1.6681426-.0660138 3.3213703-.0931684 4.9596831-.0814638l2.4392915.0182591v-16.2344816z"></path>
+  </svg>
+
+      </span>
+      <span class="label style-scope media-button"><!---->Books<!----></span>
+
+      </a>
+    <!----></media-button>
+      <!---->
+        <media-button class="style-scope media-menu x-scope media-button-1" data-mediatype="video"><!---->
+      <a class="menu-item video  style-scope media-button" href="https://archive.org/details/movies" data-event-click-tracking="BetaTopNav|NavMenuVideo">
+
+      <span class="icon  style-scope media-button">
+
+  <svg height="40" viewBox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="videoTitleID videoDescID" class="style-scope media-button">
+    <title id="videoTitleID" class="style-scope media-button">Video icon</title>
+    <desc id="videoDescID" class="style-scope media-button">An illustration of two cells of a film strip.</desc>
+    <path class="fill-color style-scope media-button" d="m31.0117647 12.0677966c0 .4067797-.2823529.6779661-.7058823.6779661h-1.2705883c-.4235294 0-.7058823-.2711864-.7058823-.6779661v-.6779661c0-.4067797.2823529-.6779661.7058823-.6779661h1.2705883c.4235294 0 .7058823.2711864.7058823.6779661zm0 3.2542373c0 .4067797-.2823529.6779661-.7058823.6779661h-1.2705883c-.4235294 0-.7058823-.2711864-.7058823-.6779661v-.6779661c0-.4067797.2823529-.6779661.7058823-.6779661h1.2705883c.4235294 0 .7058823.2711864.7058823.6779661zm0 3.2542373c0 .4067796-.2823529.6779661-.7058823.6779661h-1.2705883c-.4235294 0-.7058823-.2711865-.7058823-.6779661v-.6779661c0-.4067797.2823529-.6779661.7058823-.6779661h1.2705883c.4235294 0 .7058823.2711864.7058823.6779661zm0 3.3898305c0 .4067797-.2823529.6779661-.7058823.6779661h-1.2705883c-.4235294 0-.7058823-.2711864-.7058823-.6779661v-.6779661c0-.4067797.2823529-.6779661.7058823-.6779661h1.2705883c.4235294 0 .7058823.2711864.7058823.6779661zm0 3.2542373c0 .4067796-.2823529.6779661-.7058823.6779661h-1.2705883c-.4235294 0-.7058823-.2711865-.7058823-.6779661v-.6779661c0-.4067797.2823529-.6779661.7058823-.6779661h1.2705883c.4235294 0 .7058823.2711864.7058823.6779661zm0 3.2542373c0 .4067796-.2823529.6779661-.7058823.6779661h-1.2705883c-.4235294 0-.7058823-.2711865-.7058823-.6779661v-.6779661c0-.4067797.2823529-.6779661.7058823-.6779661h1.2705883c.4235294 0 .7058823.2711864.7058823.6779661zm-4.0941176-10.440678c0 .5423729-.4235295.9491525-.9882353.9491525h-11.5764706c-.5647059 0-.9882353-.4067796-.9882353-.9491525v-6.9152542c0-.5423729.4235294-.9491526.9882353-.9491526h11.5764706c.5647058 0 .9882353.4067797.9882353.9491526zm-.1411765 11.2542373c0 .5423729-.4235294.9491525-.9882353.9491525h-11.5764706c-.5647059 0-.9882353-.4067796-.9882353-.9491525v-6.9152542c0-.5423729.4235294-.9491526.9882353-.9491526h11.5764706c.5647059 0 .9882353.4067797.9882353.9491526zm-14.9647059-17.220339c0 .4067797-.2823529.6779661-.7058823.6779661h-1.27058828c-.42352941 0-.70588236-.2711864-.70588236-.6779661v-.6779661c0-.4067797.28235295-.6779661.70588236-.6779661h1.27058828c.4235294 0 .7058823.2711864.7058823.6779661zm0 3.2542373c0 .4067797-.2823529.6779661-.7058823.6779661h-1.27058828c-.42352941 0-.70588236-.2711864-.70588236-.6779661v-.6779661c0-.4067797.28235295-.6779661.70588236-.6779661h1.27058828c.4235294 0 .7058823.2711864.7058823.6779661zm0 3.2542373c0 .4067796-.2823529.6779661-.7058823.6779661h-1.27058828c-.42352941 0-.70588236-.2711865-.70588236-.6779661v-.6779661c0-.4067797.28235295-.6779661.70588236-.6779661h1.27058828c.4235294 0 .7058823.2711864.7058823.6779661zm0 3.3898305c0 .4067797-.2823529.6779661-.7058823.6779661h-1.27058828c-.42352941 0-.70588236-.2711864-.70588236-.6779661v-.6779661c0-.4067797.28235295-.6779661.70588236-.6779661h1.27058828c.4235294 0 .7058823.2711864.7058823.6779661zm0 3.2542373c0 .4067796-.2823529.6779661-.7058823.6779661h-1.27058828c-.42352941 0-.70588236-.2711865-.70588236-.6779661v-.6779661c0-.4067797.28235295-.6779661.70588236-.6779661h1.27058828c.4235294 0 .7058823.2711864.7058823.6779661zm0 3.2542373c0 .4067796-.2823529.6779661-.7058823.6779661h-1.27058828c-.42352941 0-.70588236-.2711865-.70588236-.6779661v-.6779661c0-.4067797.28235295-.6779661.70588236-.6779661h1.27058828c.4235294 0 .7058823.2711864.7058823.6779661zm20.0470588-20.4745763h-.8470588v.27118644.6779661c0 .40677966-.2823529.6779661-.7058823.6779661h-1.2705883c-.4235294 0-.7058823-.27118644-.7058823-.6779661v-.6779661-.27118644h-16.5176471v.27118644.6779661c0 .40677966-.2823529.6779661-.7058823.6779661h-1.27058828c-.42352941 0-.70588236-.27118644-.70588236-.6779661v-.6779661-.27118644h-1.12941176v24h1.12941176v-.2711864-.6779661c0-.4067797.28235295-.6779661.70588236-.6779661h1.27058828c.4235294 0 .7058823.2711864.7058823.6779661v.6779661.2711864h16.6588235v-.2711864-.6779661c0-.4067797.282353-.6779661.7058824-.6779661h1.2705882c.4235294 0 .7058824.2711864.7058824.6779661v.6779661.2711864h.8470588v-24z" fill-rule="evenodd"></path>
+  </svg>
+
+      </span>
+      <span class="label style-scope media-button"><!---->Video<!----></span>
+
+      </a>
+    <!----></media-button>
+      <!---->
+        <media-button class="style-scope media-menu x-scope media-button-1" data-mediatype="audio"><!---->
+      <a class="menu-item audio  style-scope media-button" href="https://archive.org/details/audio" data-event-click-tracking="BetaTopNav|NavMenuAudio">
+
+      <span class="icon  style-scope media-button">
+
+  <svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" aria-labelledby="audioTitleID audioDescID" class="style-scope media-button">
+    <title id="audioTitleID" class="style-scope media-button">Audio icon</title>
+    <desc id="audioDescID" class="style-scope media-button">An illustration of an audio speaker.</desc>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" class="style-scope media-button">
+      <g transform="translate(10, 8)" class="fill-color style-scope media-button">
+        <path d="M19.4264564,11.8585048 L19.4264564,20.7200433 C19.4264564,22.3657576 18.8838179,23.2519114 16.8489237,23.2519114 C12.2364969,23.125318 7.75972977,23.125318 3.14730298,23.2519114 C1.24806842,23.2519114 0.569770368,22.492351 0.569770368,20.7200433 L0.569770368,2.74377955 C0.569770368,1.09806526 1.11240881,0.211911416 3.14730298,0.211911416 C7.75972977,0.338504822 12.2364969,0.338504822 16.8489237,0.211911416 C18.7481583,0.211911416 19.4264564,0.971471855 19.4264564,2.74377955 C19.2907967,5.78202131 19.4264564,8.82026306 19.4264564,11.8585048 L19.4264564,11.8585048 Z M10.0659432,2.74377955 C8.16670861,2.74377955 6.67445288,4.13630702 6.67445288,5.90861471 C6.67445288,7.6809224 8.16670861,9.07344988 10.0659432,9.07344988 C11.9651777,9.07344988 13.4574335,7.6809224 13.4574335,5.90861471 C13.4574335,4.13630702 11.8295181,2.74377955 10.0659432,2.74377955 L10.0659432,2.74377955 Z M10.0659432,11.4787246 C7.21709133,11.4787246 5.04653754,13.6308125 5.04653754,16.1626806 C5.04653754,18.8211422 7.35275094,20.8466367 10.0659432,20.8466367 C12.914795,20.8466367 15.0853488,18.6945488 15.0853488,16.1626806 C15.0853488,13.6308125 12.7791354,11.4787246 10.0659432,11.4787246 L10.0659432,11.4787246 Z" class="style-scope media-button"></path>
+        <ellipse cx="10.2016028" cy="16.5690777" rx="1.35659611" ry="1.34075134" class="style-scope media-button"></ellipse>
+      </g>
+    </g>
+  </svg>
+
+      </span>
+      <span class="label style-scope media-button"><!---->Audio<!----></span>
+
+      </a>
+    <!----></media-button>
+      <!---->
+        <media-button class="style-scope media-menu x-scope media-button-1" data-mediatype="software"><!---->
+      <a class="menu-item software  style-scope media-button" href="https://archive.org/details/software" data-event-click-tracking="BetaTopNav|NavMenuSoftware">
+
+      <span class="icon  style-scope media-button">
+
+  <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="softwareTitleID softwareDescID" class="style-scope media-button">
+    <title id="softwareTitleID" class="style-scope media-button">Software icon</title>
+    <desc id="softwareDescID" class="style-scope media-button">An illustration of a 3.5" floppy disk.</desc>
+    <path class="fill-color style-scope media-button" d="m32 30.6900373v-21.44521088c0-.82988428-.4156786-1.24482642-1.2470357-1.24482642h-21.50592858c-.83135715 0-1.24703572.4221795-1.24703572 1.26653851v21.44521089c0 .8588337.41567857 1.2882506 1.24703572 1.2882506h21.48327168c.8458575 0 1.2687863-.4366542 1.2687863-1.3099627zm-5.9950155-20.4410268v6.114667c0 .6694561-.3428744 1.0041841-1.0286232 1.0041841h-10.1294464c-.2622159 0-.4773054-.0802141-.6452685-.2406423s-.2519447-.3642806-.2519447-.6115572v-6.1363791l.0217506-.1311772h12.0326259zm-4.9437353.8295827v5.0010178h3.0405558v-5.0010178zm-9.7134658 18.8035735v-7.753025c0-.5241057.1604108-.9025595.4812325-1.1353613.1897138-.1453504.4011782-.2180256.6343932-.2180256h14.7451099c.3208217 0 .5905898.1091636.8093044.3274907s.3280719.5023936.3280719.8521995v7.8181612l-.0217506.1094652h-16.9772676z"></path>
+  </svg>
+
+      </span>
+      <span class="label style-scope media-button"><!---->Software<!----></span>
+
+      </a>
+    <!----></media-button>
+      <!---->
+        <media-button class="style-scope media-menu x-scope media-button-1" data-mediatype="images"><!---->
+      <a class="menu-item images  style-scope media-button" href="https://archive.org/details/image" data-event-click-tracking="BetaTopNav|NavMenuImages">
+
+      <span class="icon  style-scope media-button">
+
+  <svg height="40" viewBox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="imagesTitleID imagesDescID" class="style-scope media-button">
+    <title id="imagesTitleID" class="style-scope media-button">Images icon</title>
+    <desc id="imagesDescID" class="style-scope media-button">An illustration of two photographs.</desc>
+    <path class="fill-color style-scope media-button" d="m20.8219178 15.3769871c0 1.1136708-.8767123 1.8932404-1.8630137 1.8932404s-1.9726027-.8909367-1.9726027-1.8932404c0-1.0023038.8767123-1.8932404 1.9726027-1.8932404.9863014 0 1.8630137.8909366 1.8630137 1.8932404zm-5.9178082-3.7864808h15.4520548v6.0138225l-1.9726028-3.3410125-2.6301369 6.3479237-2.1917809-2.67281-6.1369863 5.1228859h-2.5205479zm-1.7534247-1.6705063v14.9231892h18.8493151v-14.9231892zm-2.9589041 7.2388604c.2191781 0 1.9726028-.3341012 1.9726028-.3341012v-2.0046075l-4.1643836.5568354c.43835616 4.7887846.87671233 9.9116704 1.31506849 14.700455 6.02739731-.5568354 13.26027401-1.5591391 19.39726031-2.1159746-.1095891-.5568354-.1095891-2.0046075-.2191781-2.67281-.4383562.1113671-1.4246575 0-1.8630137.1113671v.8909367c-5.1506849.4454683-10.3013699 1.1136708-15.4520548 1.6705062.109589-.111367-.5479452-7.0161262-.9863014-10.8026071z" fill-rule="evenodd"></path>
+  </svg>
+
+      </span>
+      <span class="label style-scope media-button"><!---->Images<!----></span>
+
+      </a>
+    <!----></media-button>
+      <!---->
+        <media-button class="style-scope media-menu x-scope media-button-1" data-mediatype="donate"><!---->
+      <a class="menu-item donate  style-scope media-button" href="https://archive.org/donate/" data-event-click-tracking="BetaTopNav|NavMenuDonate">
+
+      <span class="icon  style-scope media-button">
+
+  <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="donateTitleID donateDescID" class="style-scope media-button">
+    <title id="donateTitleID" class="style-scope media-button">Donate icon</title>
+    <desc id="donateDescID" class="style-scope media-button">An illustration of a heart shape</desc>
+    <path class="fill-color style-scope media-button" d="m30.0120362 11.0857287c-1.2990268-1.12627221-2.8599641-1.65258786-4.682812-1.57894699-.8253588.02475323-1.7674318.3849128-2.8262192 1.08047869-1.0587873.6955659-1.89622 1.5724492-2.512298 2.63065-.591311-1.0588196-1.4194561-1.9357029-2.4844351-2.63065-1.0649791-.69494706-2.0039563-1.05510663-2.8169316-1.08047869-1.2067699-.04950647-2.318187.17203498-3.3342513.66462439-1.0160643.4925893-1.82594378 1.2002224-2.42963831 2.1228992-.60369453.9226769-.91173353 1.9629315-.92411701 3.1207641-.03715043 1.9202322.70183359 3.7665141 2.21695202 5.5388457 1.2067699 1.4035084 2.912594 3.1606786 5.1174721 5.2715107 2.2048782 2.1108321 3.7565279 3.5356901 4.6549492 4.2745742.8253588-.6646243 2.355647-2.0647292 4.5908647-4.2003145s3.9747867-3.9171994 5.218707-5.3448422c1.502735-1.7723316 2.2355273-3.6186135 2.1983769-5.5388457-.0256957-1.7608832-.6875926-3.2039968-1.9866194-4.3302689z"></path>
+  </svg>
+
+      </span>
+      <span class="label style-scope media-button"><!---->Donate<!----></span>
+
+      </a>
+    <!----></media-button>
+      <!---->
+        <media-button class="style-scope media-menu x-scope media-button-1" data-mediatype="more"><!---->
+      <a class="menu-item more  style-scope media-button" href="https://archive.org/about/" data-event-click-tracking="BetaTopNav|NavMenuMore">
+
+      <span class="icon  style-scope media-button">
+
+  <svg height="40" viewBox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="ellipsesTitleID ellipsesDescID" class="style-scope media-button">
+    <title id="ellipsesTitleID" class="style-scope media-button">Ellipses icon</title>
+    <desc id="ellipsesDescID" class="style-scope media-button">An illustration of text ellipses.</desc>
+    <path class="fill-color style-scope media-button" d="m10.5 17.5c1.3807119 0 2.5 1.1192881 2.5 2.5s-1.1192881 2.5-2.5 2.5c-1.38071187 0-2.5-1.1192881-2.5-2.5s1.11928813-2.5 2.5-2.5zm9.5 0c1.3807119 0 2.5 1.1192881 2.5 2.5s-1.1192881 2.5-2.5 2.5-2.5-1.1192881-2.5-2.5 1.1192881-2.5 2.5-2.5zm9.5 0c1.3807119 0 2.5 1.1192881 2.5 2.5s-1.1192881 2.5-2.5 2.5-2.5-1.1192881-2.5-2.5 1.1192881-2.5 2.5-2.5z" fill-rule="evenodd"></path>
+  </svg>
+
+      </span>
+      <span class="label style-scope media-button"><!---->More<!----></span>
+
+      </a>
+    <!----></media-button>
+      <!---->
+        </div>
+      </nav>
+    <!----></media-menu>
+        <button class="hamburger style-scope primary-nav" tabindex="1" data-event-click-tracking="BetaTopNav|NavHamburger">
+          <icon-hamburger class="style-scope primary-nav x-scope icon-hamburger-1"><!---->
+      <svg height="40" viewBox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="hamburgerTitleID hamburgerDescID" class="style-scope icon-hamburger">
+        <title id="hamburgerTitleID" class="style-scope icon-hamburger">Hamburger icon</title>
+        <desc id="hamburgerDescID" class="style-scope icon-hamburger">An icon used to represent a menu that can be toggled by interacting with this icon.</desc>
+        <path d="m30.5 26.5c.8284271 0 1.5.6715729 1.5 1.5s-.6715729 1.5-1.5 1.5h-21c-.82842712 0-1.5-.6715729-1.5-1.5s.67157288-1.5 1.5-1.5zm0-8c.8284271 0 1.5.6715729 1.5 1.5s-.6715729 1.5-1.5 1.5h-21c-.82842712 0-1.5-.6715729-1.5-1.5s.67157288-1.5 1.5-1.5zm0-8c.8284271 0 1.5.6715729 1.5 1.5s-.6715729 1.5-1.5 1.5h-21c-.82842712 0-1.5-.6715729-1.5-1.5s.67157288-1.5 1.5-1.5z" fill="#999" fill-rule="evenodd" class="style-scope icon-hamburger"></path>
+      </svg>
+    <!----></icon-hamburger>
+        </button>
+      </nav>
+    <!----></primary-nav>
+        <media-slider class="style-scope ia-topnav x-scope media-slider-1"><!---->
+      <div class="overflow-clip closed style-scope media-slider">
+        <div class="information-menu closed style-scope media-slider">
+          <div class="info-box style-scope media-slider">
+            <media-subnav class="style-scope media-slider x-scope media-subnav-1"><!----><!----></media-subnav>
+          </div>
+        </div>
+      </div>
+    <!----></media-slider>
+      </div>
+      <desktop-subnav class="style-scope ia-topnav x-scope desktop-subnav-1"><!---->
+      <ul class="style-scope desktop-subnav">
+        <!---->
+        <li class="style-scope desktop-subnav">
+          <a class="about style-scope desktop-subnav" href="https://archive.org/about/"><!---->About<!----><!----></a>
+        </li>
+      <!---->
+        <li class="style-scope desktop-subnav">
+          <a class="blog style-scope desktop-subnav" href="https://blog.archive.org/"><!---->Blog<!----><!----></a>
+        </li>
+      <!---->
+        <li class="style-scope desktop-subnav">
+          <a class="projects style-scope desktop-subnav" href="https://archive.org/projects/"><!---->Projects<!----><!----></a>
+        </li>
+      <!---->
+        <li class="style-scope desktop-subnav">
+          <a class="help style-scope desktop-subnav" href="https://archive.org/about/faqs.php"><!---->Help<!----><!----></a>
+        </li>
+      <!---->
+        <li class="style-scope desktop-subnav">
+          <a class="donate style-scope desktop-subnav" href="https://archive.org/donate/"><!---->Donate<!---->
+  <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-labelledby="donateTitleID donateDescID" class="style-scope desktop-subnav">
+    <title id="donateTitleID" class="style-scope desktop-subnav">Donate icon</title>
+    <desc id="donateDescID" class="style-scope desktop-subnav">An illustration of a heart shape</desc>
+    <path class="fill-color style-scope desktop-subnav" d="m30.0120362 11.0857287c-1.2990268-1.12627221-2.8599641-1.65258786-4.682812-1.57894699-.8253588.02475323-1.7674318.3849128-2.8262192 1.08047869-1.0587873.6955659-1.89622 1.5724492-2.512298 2.63065-.591311-1.0588196-1.4194561-1.9357029-2.4844351-2.63065-1.0649791-.69494706-2.0039563-1.05510663-2.8169316-1.08047869-1.2067699-.04950647-2.318187.17203498-3.3342513.66462439-1.0160643.4925893-1.82594378 1.2002224-2.42963831 2.1228992-.60369453.9226769-.91173353 1.9629315-.92411701 3.1207641-.03715043 1.9202322.70183359 3.7665141 2.21695202 5.5388457 1.2067699 1.4035084 2.912594 3.1606786 5.1174721 5.2715107 2.2048782 2.1108321 3.7565279 3.5356901 4.6549492 4.2745742.8253588-.6646243 2.355647-2.0647292 4.5908647-4.2003145s3.9747867-3.9171994 5.218707-5.3448422c1.502735-1.7723316 2.2355273-3.6186135 2.1983769-5.5388457-.0256957-1.7608832-.6875926-3.2039968-1.9866194-4.3302689z"></path>
+  </svg>
+<!----></a>
+        </li>
+      <!---->
+        <li class="style-scope desktop-subnav">
+          <a class="contact style-scope desktop-subnav" href="https://archive.org/about/contact.php"><!---->Contact<!----><!----></a>
+        </li>
+      <!---->
+        <li class="style-scope desktop-subnav">
+          <a class="jobs style-scope desktop-subnav" href="https://archive.org/about/jobs.php"><!---->Jobs<!----><!----></a>
+        </li>
+      <!---->
+        <li class="style-scope desktop-subnav">
+          <a class="volunteer style-scope desktop-subnav" href="https://archive.org/about/volunteerpositions.php"><!---->Volunteer<!----><!----></a>
+        </li>
+      <!---->
+        <li class="style-scope desktop-subnav">
+          <a class="people style-scope desktop-subnav" href="https://archive.org/about/bios.php"><!---->People<!----><!----></a>
+        </li>
+      <!---->
+      </ul>
+    <!----></desktop-subnav>
+      <search-menu class="style-scope ia-topnav x-scope search-menu-1" tabindex="-1"><!---->
+      <div class="search-menu tx-slide closed style-scope search-menu" aria-hidden="true" aria-expanded="false">
+        <!---->
+        <label class="style-scope search-menu">
+          <input form="nav-search" type="radio" name="sin" class="style-scope search-menu" value="" checked="">
+          Search Metadata
+        </label>
+      <!---->
+        <label class="style-scope search-menu">
+          <input form="nav-search" type="radio" name="sin" class="style-scope search-menu" value="TXT">
+          Search text contents
+        </label>
+      <!---->
+        <label class="style-scope search-menu">
+          <input form="nav-search" type="radio" name="sin" class="style-scope search-menu" value="TV">
+          Search TV news captions
+        </label>
+      <!----><!---->
+        <label class="style-scope search-menu">
+          <input form="nav-search" type="radio" name="sin" class="style-scope search-menu" value="WEB">
+          Search archived websites
+        </label>
+      <!---->
+        <a class="advanced-search style-scope search-menu" href="https://archive.org/advancedsearch.php" data-event-click-tracking="BetaTopNav|NavAdvancedSearch">Advanced Search</a>
+      </div>
+    <!----></search-menu>
+
+      <signed-out-dropdown class="style-scope ia-topnav x-scope signed-out-dropdown-1" tabindex="-1"><!---->
+      <nav class="initial style-scope signed-out-dropdown" aria-hidden="true" aria-expanded="false">
+        <ul class="style-scope signed-out-dropdown">
+          <!---->
+        <li class="style-scope signed-out-dropdown"><!----><a class="style-scope signed-out-dropdown" href="https://archive.org/account/signup" data-event-click-tracking="BetaTopNav|NavSignUpDropdown"><!---->Sign up for free<!----></a><!----></li>
+      <!---->
+        <li class="style-scope signed-out-dropdown"><!----><a class="style-scope signed-out-dropdown" href="https://archive.org/account/login" data-event-click-tracking="BetaTopNav|NavLogInDropdown"><!---->Log in<!----></a><!----></li>
+      <!---->
+        </ul>
+      </nav>
+    <!----></signed-out-dropdown>
+
+    </noscript>                      </ia-topnav>
+        </div>
+            <input class="js-tvsearch" type="hidden" value='{"ands":[],"minday":"06/04/2009","maxday":"10/12/2020"}'/>
+    
+        <!-- Begin page content -->
+        <main id="maincontent">
+                    <div class="container container-ia">
+
+                  <h1>
+          Full text of "<a href="/details/TowardsALessFuckedUpWorld_149">Towards A Less Fucked Up World</a>"
+        </h1>
+        <h2 class="pull-right">
+          <small><a href="/details/TowardsALessFuckedUpWorld_149">See other formats</a></small>
+        </h2>
+        <br class="clearfix" clear="right"/>
+      <pre>Touiards 
+Mess 
+
+Fucked Up 
+
+
+
+Word 
+
+
+
+
+Sobriety and 
+Anarchist 
+Struggle 
+
+
+
+2 
+
+
+
+This edition of "Towards a Less Fucked Up World: 
+Sobriety and Anarchist Struggle" by Nick Riotfag was 
+reprinted in 2014 by Sprout Distro. 
+
+We have been tabling with an older version of this zine 
+for years, but were unable to find a copy of the revised 
+edition of the zine. This edition features the revised 
+text along with an afterward that appeared in the 
+book, Sober Living for the Revolution'- Hardcore Punk, 
+Straight Edge, and Radical Politics. 
+
+While we didn't write this zine, we find great affinity 
+
+with the arguments presented within. Hopefully 
+making this revised text more widely available will 
+continue to spur more conversations about sobriety and 
+anarchist struggle. 
+
+
+
+3 
+
+
+
+Introduction 
+
+
+
+This zine is an ongoing project I've been writing in my head and on 
+paper for several years now. Since I decided to become permanently 
+sober several years ago, I've constantly struggled to find safe spaces; I 
+hoped that when I started to become a part of radical, activist, and 
+anarchist communities, that I would find folks who shared or at least 
+respected my convictions. Instead, I found a painful paradox: radical 
+scenes that were so welcoming and affirming in many ways, yet 
+incredibly inflexible and unsupportive around my desire to be in sober 
+spaces. 
+
+I have plenty of reasons for being substance free that aren't "political," 
+per se. Some are more personal or internal: I love my body and want to 
+preserve my health; I'm personally terrified of addiction; I tend towards 
+extremes, so I think that if I did drink or drug I'd overdo it; my family 
+has had alcoholics and drug abusers who have ruined lives. Others are 
+more pragmatic: as an activist I participate in actions that could put me 
+at risk for arrest, and the legal risks of drug possession just aren't 
+worthwhile; I have better things to spend money on; and so forth. 
+However, my primary reasons for choosing this lifestyle are specifically 
+connected to my political beliefs as a revolutionary, a feminist, and an 
+anarchist. I don't think that most folks with whom I work on political 
+projects realize or acknowledge that my choice to be sober isn't just a 
+personal preference or an annoying puritan dogma. This zine is my 
+attempt to articulate why I consider sobriety a crucial part of my 
+anarchism and feminism. 
+
+I've tried to put it together in a way that combines theory and analysis 
+with my personal experience. The first few sections explore the 
+connections I see between intoxication and different kinds of oppression 
+(sorry if it gets a little wordy at times); the next bit talks about how 
+intoxication fits into radical communities; then I offer two stories from 
+my life and my reflections on them before the conclusions. 
+
+I realize that sober folks have traditionally not been known for 
+presenting our views respectfully, with open ears and loving hearts. I'm 
+definitely among those who stand guilty of bludgeoning people with my 
+beliefs. Hopefully this zine will at least in part rectify that tendency by 
+explaining my views without judging or blaming non-sober folks or 
+4 
+
+
+
+seeming to set myself up as superior to others. If it fails in this, I 
+apologize in advance, and welcome folks to call me out on it. That said, 
+please know that much of my anger that manifests in a "judgmental" or 
+"preachy" tone comes from constant denial of safe space, refusal to 
+recognize the legitimacy of our feelings and opinions, alienation in most 
+social environments, and general ignoring of our concerns and desires 
+and needs. I write with love and rage, and I apologize for neither. 
+
+A Quick Note on Words 
+
+I like the term "straightedge," not because I'm especially invested in the 
+bands and the scene, but rather because I like the way it places my 
+decision not to drink or take drugs in the larger context of a positive 
+radical social critique. Of course, I've found that most folks — probably 
+many of y'all, too — have nothing but negative associations with sXe : 
+macho white dudes beating up people, crappy music, super dogmatic 
+and preachy assholes, or even anti-abortion extremists. Even though I 
+completely reject all of those things, I still think there's hope for 
+reclaiming the term as something positive. But because for most folks 
+I've asked it's often more of a stumbling block than a help, I'm going to 
+stick with "sober" or "substance-free" for the purposes of this zine. 
+
+Here are some definitions for some of the key concepts I'll be talking 
+about: 
+
+• Intoxication: an artificially altered state of mind produced through 
+drug and alcohol consumption 
+
+• Intoxication Culture: a set of institutions, behaviors, and mindsets 
+centered around consumption of drugs and alcohol 
+
+• Patriarchal Masculinity: a way of behaving and understanding 
+oneself as a man based on fucked up sexist values 
+
+• Anesthesia: artificially-induced numbness to sensations and 
+feelings 
+
+Masculinity, Rape Culture, and Intoxication 
+
+Dear readers^ please know that this section includes discussion of 
+sexual violence and other things that may be difficult or triggering to 
+some folks. Please use self-care to determine if and when it makes 
+
+
+
+5 
+
+
+
+sense to read this. Thanks! 
+
+
+
+I saw a billboard once as I was riding my bike through downtown New 
+Orleans. It was advertising some kind of fancy liquor, whiskey I think. 
+The slogan was, "It's what men do." The message was almost 
+reassuring to me; the only possible conclusion, I supposed, is that I 
+must not be a man. The mass media encourages folks socialized as men 
+to affirm our masculinity through intoxication, specifically through 
+capitalist alcohol consumption. The whiskey billboard I saw, along with 
+Budweiser ads that show "male bonding," various beer companies 
+whose commercials use men objectifying women, and countless other 
+advertisements, show alcohol as the common theme that links men as 
+they engage in the most manly of activities. How surprising is it, then, 
+that alcohol is almost always involved in some of the "manliest" 
+pursuits of all — male violence against women, including domestic 
+violence, sexual assault, and rape? 
+
+The relationship between intoxication, gender, and violence is complex. 
+A significant proportion of gendered violence — specifically sexual and 
+relationship violence against women — is committed by men while 
+intoxicated. Of course, this doesn't mean that intoxication causes 
+violence, but it would be equally foolish to ignore the correlation. In 
+heterosexual interactions, men who have learned from media and pop 
+culture to understand themselves as initiators and seducers use alcohol 
+as a tool for overcoming resistance both from the desired sexual 
+conquest and from their own conscience. At the same time, in this 
+harshly puritanical, sex-negative culture, many rely on alcohol as their 
+only means of overcoming the shame they feel about our sexual desires. 
+Generally speaking, I think that the broad dependence in this society 
+on alcohol in the process of finding partners and having sex obscures 
+our sexuality, negatively impacts communication, reduces our ability to 
+give and receive meaningful consent, lessens the probability of safe sex 
+practices, and supports rape culture. When this dependence, and all of 
+the dangers it entails, connects with patriarchal notions of sexuality, 
+including male senses of entitlement, the hunter/hunted dynamic, and 
+"no means yes" myths, the result can be disastrous. 
+
+As a man, part of my decision to live a sXe or sober lifestyle stems from 
+my recognition that patriarchy and intoxication culture go hand in 
+hand. Intoxication is used as an excuse to justify (and legally, a 
+
+6 
+
+
+
+mitigating factor in the prosecution of) a wide range of unacceptable 
+behaviors, including sexual harassment and rape. In my personal 
+experience, many people I've known — most often men — have 
+significantly altered their behavior while intoxicated in ways that 
+directly reinforce oppression (i.e. becoming more openly homophobic 
+and misogynist in speech, more sexually aggressive, etc), and expected 
+the fact that they were intoxicated to somehow alleviate their 
+responsibility for these behaviors. The idea that being intoxicated 
+somehow makes one less able to make rational and compassionate 
+decisions should be a reason to abstain from using alcohol and drugs. 
+
+In saying this, I want to make clear that I do not intend to blame 
+victims; there is absolutely no excuse for sexual or relationship 
+violence, regardless of the intoxication or not of the assaulter or the 
+survivor. I refuse to allow one's intoxication to reduce one's culpability 
+for fucked up behavior. If there's any possibility that drinking or taking 
+drugs could increase, even the slightest bit, one's capacity to be violent 
+or abusive, then I consider that more than enough reason to be 
+substance-free. If you're making the decision to get intoxicated or 
+fucked up, and you care about living your ideals in any meaningful 
+way, you need a plan for how you can be held accountable, by yourself 
+and others, for how you behave when you choose to do so, in sexual 
+situations and beyond. 
+
+I want to emphasize that this is not something that exists only in the 
+"mainstream," as if anarchist or radical communities were immune 
+from its effects. Women in our communities are speaking out about 
+sexual harassment and assault and rape at the hands of "radical" men. 
+In virtually every case of which I'm aware, alcohol played a major part 
+in these incidents. One of my dearest friends has been sexually 
+harassed on multiple occasions and sexually assaulted by intoxicated 
+anarchist men, who, while sober, expressed serious and firm anti- 
+patriarchy convictions. Yes, anarchist men, feminist men, men who say 
+they are fighting patriarchy with all their might, that means us; if we 
+take seriously the charge to be responsible, anti-sexist allies to women, 
+I strongly believe that we must look very critically at the ways we get 
+intoxicated. 1 
+
+This pattern of boundary-crossing while intoxicated doesn't always fall 
+predictably along gender lines. Sometimes women take advantage of 
+
+
+
+7 
+
+
+
+men sexually using intoxication; at times the intoxication of both or all 
+parties makes it difficult to sort out accountability; sometimes 
+participants don't neatly fit gender boxes and power dynamics play out 
+with more complexity. Alcohol-based coercion and blurry consent also 
+exist in same — sex relationships and interactions, in some especially 
+difficult to escape ways due to the particular stranglehold of 
+intoxication culture in queer communities. Although the conditioning 
+that men receive in our patriarchal rape culture contributes to higher 
+rates of men crossing boundaries without consent, all of us — men, 
+women, and others, transgender and non-transgender — have the 
+capacity to violate others. But more importantly, we also all have the 
+capacity to become allies in the struggle to undermine patriarchy and 
+construct a society based on consent. I think that because of this, all 
+people who are committed to fighting rape culture and patriarchy can 
+benefit from critically examining our patterns of intoxication, and 
+discussing ways to be held equally accountable for behavior while 
+intoxicated as well as while sober. 
+
+Oppression and Anesthesia 
+
+Maintaining privilege and continuing to oppress a group of people is 
+only possible when oppressors can see the people they oppress as less 
+than fully human. A major tactic in the dehumanizing process is the 
+oppressor's anesthesia, numbing oneself so as to be unable to 
+empathize with the people they are relegating to a sub-human status. 
+Mab Segrest wrote a moving essay about how a key strategy for 
+maintaining white privilege is the anesthesia of white people towards 
+
+
+
+1 . To clarify: I don't want my focus on calling out men who drink alcohol to examine their 
+behavior to falsely imply that sober men are generally off the hook, not likely to sexually 
+assault, and not in need of examination of our patterns of consent and sexuality. That's 
+pretty elitist, in terms of how it puts sober men (especially me) on some sort of different, 
+less guilty level, and also dangerous, in its implication that we somehow need to be less 
+vigilant about owning up to our capacity to violate folks' boundaries. All of us, regardless 
+of gender, sexuality, or substance use, have been raised in a rape culture, and in 
+particular folks socialized as men have been subjected to especially harmful messages 
+about masculinity and violent sexuality. Although alcohol, in combination with media's 
+linking of masculinity and intoxication, can be used by men as a tool to facilitate the 
+expression of this rape culture, choosing to drink or not drink does not make any of us 
+less subject to the socialization we've received, nor less in need of a critical look at 
+consent and sexuality. 
+
+
+
+8 
+
+
+
+the suffering of people of color, through distance (out of sight, out of 
+mind), rationalization, intoxication, and other methods. Likewise, 
+masculinity operates by forcing men to stay detached and impassive in 
+the face of physical or emotional pain, setting up sensitivity and 
+empathy as "female" (and therefore inferior) characteristics. 
+Constructing masculinity as unfeeling — anesthetized — makes 
+possible the incredible suffering inflicted by men upon women (and 
+other men) through violence, rape, child abuse, denial of access to birth 
+control and medical care, the patriarchal nuclear family, and so many 
+other means. In this context, it makes perfect sense that intoxication 
+would be linked with masculinity. Intoxication often reduces the ability 
+of people to empathize with others, an integral part of being an 
+oppressor. 
+
+A friend of mine pointed out that when she was in high school, most of 
+the kids that she knew who had any idea of what was happening in the 
+world were getting completely fucked up as often as they could to 
+neutralize the pain of that awareness. I can understand how activists, 
+who (theoretically) operate by refusing to ignore the suffering and 
+oppression in the world, face an incredible temptation to try and numb 
+themselves, even temporarily, to the pain they see and feel and struggle 
+against every day. However, I also strongly believe that if everyone in 
+our culture was both fully aware of the full extent of how fucked up our 
+society is — and refused to simply ignore the pain of that awareness 
+though various methods of intoxication and anesthesia, from booze to 
+television — then people simply would not stand for it. 
+
+Even providing for the (minority, I think, of) people who are simply 
+cruel and hateful, I truly believe that a population honestly facing the 
+realities of poverty, oppression, and misery rife in this culture cannot 
+do so with both clear heads and clear consciences. When heads are not 
+clear, clear consciences become less and less important. When people 
+refuse to be numb and truly live the pain of this culture, it motivates 
+action. I believe that our task as activists or people who feel a call to 
+change this culture is first and foremost to be open to that deep pain, to 
+feel it and mourn it and hate it, so that it lights fires in our chests that 
+burn for our participation in revolutionary struggle. 
+
+
+
+9 
+
+
+
+Youth Liberation and Sobriety 
+
+
+
+The most well-known icon of sXe, the Xs that some edgers draw on 
+their hands, originated out of a gesture of solidarity with youth. To this 
+day, kids at shows and other all-ages events that serve alcohol often 
+have black Xs drawn on their hands by the people taking money at the 
+door as a sign that they aren't allowed to drink. In the early 1980's, 
+when Minor Threat began bringing the substance-free message to the 
+punk scene, people who noticed kids marked with these Xs as symbols 
+for prohibition of alcohol started drawing them on their hands, 
+regardless of age, to show solidarity with youth and a commitment to 
+sobriety. Because of the prevalence of intoxication culture, shows and 
+other events often cost more for young kids, or don't allow them in at 
+all. The drinking age serves as a legal tool for enforcing segregation and 
+discrimination directed towards young folks, setting up an entire 
+system around consumption of alcohol that simultaneously devalues 
+youth and glorifies intoxication, constructing it as "mature" and 
+advanced and all of the other positive traits associated with adulthood. 
+
+As a result, among young people, the mystique of intoxication culture 
+leads to semi-secretive consumption of alcohol and other drugs, often to 
+a destructive degree. For kids around the ages of eighteen to twenty- 
+two or so, just before and after the drinking age, the ability to finally 
+partake in the highly coveted "privilege" of intoxication culture leads to 
+cults of hyper-intoxication, reinforcing the mystique even more. When 
+the destructive consequences of getting fucked up manifest 
+dramatically in young folks, as shown by the number of deaths from 
+binge drinking, clueless and patronizing adults wag their fingers and 
+bemoan "peer pressure" as the cause, when it's blatantly fucking 
+obvious that the causes lie in their own actions. 
+
+The entirely adult-constructed mystique around intoxication, 
+hypocritical and inconsistent policies promoting potentially fatal 
+intoxicants while violently suppressing less harmful ones, and the 
+oppression and devaluing of young people in general frequently lead to 
+the desire to emulate the destructive fucked up patterns of adult 
+intoxication with the vehemence of youth. Fuck "peer pressure" — I've 
+felt consistent and unrelenting pressure from every sector of adult 
+society to intoxicate myself through every possible means for as long as 
+I can remember. Do adults honestly think that a "drug education 
+10 
+
+
+
+program" in 5th grade and some condescending guest speakers in a 
+high school health class would cancel the effects of an entire social 
+system based on oppression requiring intoxication and anesthesia to 
+survive? 
+
+My decision to abstain totally from intoxication culture has a lot to do 
+with my desire for youth liberation. Maybe I don't want the privilege 
+that comes with adulthood to destroy my body legally. Maybe I don't 
+buy the argument that only adults — being naturally superior to kids, 
+according to adult chauvinist logic — are responsible enough to handle 
+getting fucked up. I think the impressive thing is being strong enough 
+to survive without getting fucked up — if becoming an adult means 
+accepting the need to numb myself into accepting the status quo, then 
+fuck it, I'm following Peter Pan and never growing up. 
+
+Intoxication and Social Life 
+
+Seriously, one of the reasons why living in a community that drinks 
+constantly bugs me is that it makes conversation SO damn boring! I 
+can hardly ever hang out in a large group without conversation turning 
+for a substantial period of time to drinking, getting fucked up, what so 
+and so did when they were fucked up, how fucked up so and so's going 
+to get, blah blah blah. Who fucking cares? Are people really so boring 
+most of the time that they don't merit conversation without corporate- 
+induced altered consciousness? Can we really not think of anything 
+more interesting to talk about than our self-destructiveness? What 
+about our dreams, our passions, our crazy ideas and schemes, our hopes 
+and fears? I hate going to parties where intoxication numbs 
+individuality into mush, so that I can have the same mindless banter 
+with 100 people but not a conversation of any substance with a single 
+person. Am I anti- social for staying home with one good friend or a book 
+when that's the alternative? 
+
+Beyond boring conversation, dependence on alcohol limits our social 
+lives in other ways. In bar culture, public interaction is limited to 
+contexts where we have to buy something in order to spend time with 
+other people. It makes us less well equipped to enjoy one another's 
+company in ordinary mindsets or without corporate intervention. We 
+bond over buying, consuming, numbing, and things rather than 
+creating, experiencing, feeling, and personalities. Instead of challenging 
+
+11 
+
+
+
+it, we accept the proposition that we need consumer capitalism to be 
+able to "loosen up," have a good time, and get past the hang-ups and 
+self-restraint that constrain our lives. 
+
+Intoxication and Corporate Culture 
+
+I know a disturbing amount of folks in radical communities who spend 
+their entire income on alcohol and tobacco. People who shoplift from the 
+local food coop because they don't want to pay for food will head down 
+the street to the chain convenience store and pour the tiny bit of money 
+that they do have into some of the most wicked fucking corporations in 
+operation today. There seems to be an incredible blind spot around 
+tobacco and booze with regards to ethical consumption; kids who'll 
+demonstrate against Wal-Mart or Exxon for their labor or 
+environmental practices will then turn around and buy cigarettes and 
+beer from stores that have devastatingly negative impacts on local 
+communities and that were produced by companies that are central to 
+everything that is awful about global capitalism. Kudos to kids who at 
+least make an effort to buy local, grow/brew their own, and such, but 
+the industry feeds off of them just as much, knowing that the more 
+dependent they are on chemical stimulation the less they'll care where 
+it comes from. 
+
+Growing tobacco is incredibly destructive to land; after three years of 
+hosting a tobacco crop, soil is so depleted that nothing can be grown 
+there for the next twenty. Tobacco (grown by indentured servants and 
+slaves) was the single reason why the first English colony in America 
+managed to survive, and with increasing numbers of white settlers 
+requiring new swaths of land every three years to sustain the colonial 
+economy, it's not a stretch to say that tobacco — motivated theft of 
+native land was one of the major catalysts for the genocidal campaign 
+against the indigenous people of this continent that continues to this 
+day. This process continues around the world, as tobacco corporations 
+constantly absorb new plots of land to feed the cravings of the millions 
+of addicted around the world. To get this land, corporations steal it 
+from public lands or indigenous tribes, "buy" it from peasants so 
+impoverished by global capitalism that they have no choice but to sell it 
+(so that they can be more easily forced into the new factories), or 
+convert land that previously grew food crops that actually nourished 
+rather than poisoned people. 
+12 
+
+
+
+In most nations in the global south, tobacco is flue-cured, a labor- 
+intensive process that requires massive deforestation; one researcher 
+estimated that tobacco cultivation and processing accounted for one of 
+every eight trees cut down in underdeveloped countries. As more and 
+more land becomes ecologically devastated from tobacco cultivation, the 
+cycle accelerates, less and less land is available for food production, and 
+more and more deadly chemicals and genetically engineered strains are 
+required to grow anything. Tobacco companies offer subsidies and 
+technical support to farmers in underdeveloped nations to switch from 
+food to tobacco, and since IMF structural adjustment programs have 
+decimated public support of agriculture, many farmers have no choice 
+but to convert, accelerating hunger within their nation and increasing 
+their dependence on the global capitalist market. Tobacco is at the 
+heart of the horrifically pathological global system of capitalist 
+agriculture that prioritizes the right of First World people to poison 
+themselves over the right Third World people to eat. 
+
+Intoxication in Oppressed Communities 
+
+Drugs and alcohol are used as colonial weapons against folks of African 
+descent in the United States. Frederick Douglass pointed out in his 
+slave narrative that on holidays, masters would encourage slaves to 
+drink to excess specifically to skew their perceptions of what freedom 
+was and to promote passivity the rest of the year. From absentee-owned 
+liquor stores in black neighborhoods to the CIA's introduction of crack 
+as a weapon against black communities, white people have profited 
+from the economic drain, physical debilitation, and social conflict and 
+violence exacerbated by alcohol and drugs in black communities. The 
+black revolutionary tradition in the US has strong tendencies towards 
+sobriety, from Malcolm X to the Black Panthers to Dead Prez, drawing 
+specific links between black oppression and intoxication culture. 
+
+"When a slave was drunk, the slaveholder had no fear 
+that he would plan an insurrection! no fear that he 
+would escape to the North. It was the sober, thinking 
+slave who was dangerous, and needed the vigilance of 
+his master to keep him a slave." — Frederick Douglass 
+
+
+
+13 
+
+
+
+The native communities that survive in North America are almost all 
+absolutely devastated by alcoholism. Alcohol abuse has severely 
+disrupted what positive community structures have survived the 
+European genocide. For the past several hundred years, alcohol was 
+used by opportunistic whites as a way to con native people into signing 
+"treaties" robbing them of their land, and as an intentional strategy of 
+sowing discord into previously unified, harmonious, and sober 
+communities. Currently, alcoholism is one of the leading causes of 
+death among native people; around reservations that have prohibited 
+alcohol, primarily white "drunk towns" have sprung up with dozens of 
+bars and ABC stores just past the reservation borders to turn 
+indigenous addiction into capitalist profit, often with fatal 
+consequences. 
+
+Queer and trans communities struggle with astronomically high rates 
+of alcoholism, due both to an attempt to escape the pressure of hiding 
+their sexuality from family, friends, and society, and due to the 
+emphasis on alcohol as a form of recreation throughout mainstream 
+queer culture. Beer companies are among the largest sponsors of 
+"Pride" celebrations and advertise extensively in queer publications; in 
+most areas of the US, the primary social spaces for queer-friendly (or 
+even queer-safe) interaction are bars whose primary function is selling 
+intoxication. One of the first specifically gay and lesbian organizations 
+in many towns is a chapter of Alcoholic Anonymous. Substance abuse 
+rates among queers are also severe, as untold numbers of ravers and 
+club queens burn out on cocaine, crystal meth, ecstasy, and other 
+substances. The epidemics of AIDS and other STDs continue, in spite of 
+the incredible efforts of educators and activists throughout the country, 
+largely because of risky sex while intoxicated. For sober queers, 
+virtually no physical or social space exists. 
+
+Intoxication and Radical Communities 
+
+The reluctance of "activist" or "anarchist" or "radical" communities to 
+acknowledge how fucked up (pun intended) intoxication culture can be 
+genuinely baffles me. Ever since I got involved in radical politics, these 
+connections have seemed obvious to me, but the fact that so few people 
+appeared to agree made me wonder whether perhaps I was the one who 
+had it all wrong. Alcohol (ab)use, tobacco smoking, and varying degrees 
+of drug use have been central institutions in the lives of the vast 
+14 
+
+
+
+majority of the radical folks with whom I've worked. Only recently have 
+I begun to make connections with other sober radicals apart from 
+scattered acquaintances, and nearly all of us relate to the feelings of 
+isolation within our communities, alienation from our peers, and 
+frustration with the lack of support we feel for sober safe spaces. 
+
+Yet the fact that we're the few, the lonely, and the sober by no means 
+indicates that we're the only ones who see or complain about the 
+problems caused by intoxication culture's infiltration into radical 
+communities. My individual conversations with many distinctly non- 
+sober folks often reveal a genuine anxiety about the negative 
+consequences of their personal and the scene's social dependence on 
+drugs and alcohol. My personal experience and the experience of 
+numerous women, people of color, and queer and trans people with 
+whom I've discussed the issue confirms to me how hypocritical people 
+can be who claim to be fighting oppression yet participate proudly in 
+intoxication culture. More and more, this issue seems like the elephant 
+in the corner that no one's willing to point out. 
+
+I think it's high time (ha ha) that our communities started meaningful 
+dialogues around issues of sobriety and intoxication — and there are 
+going to have to be non-sober allies who step up and take active roles 
+alongside the substance-free folks for it to work. We need to be 
+negotiating agreements for collective houses and spaces, social 
+gatherings, shows and events, and other spaces in our lives that respect 
+the needs of folks both sober and not, with particular emphasis on 
+respecting the requests of women and trans folks, whose needs are 
+least frequently considered in developing community standards. This is 
+not something that many of our communities are used to, but in my 
+opinion it's absolutely essential. This process has the potential to be a 
+revolutionary transformation, as we move away from a loosely 
+associated group of people who work together to an actual community 
+where we respect each others' needs and hold each other accountable. 
+
+Intoxication and "Autonomy" vs. Accountability 
+
+In the process of developing community agreements, some folks may 
+feel that they're being denied their "autonomy" their right to live their 
+own lives how they want, including the right to get fucked up if they so 
+desire. Personally, I wholeheartedly support the right of any individual 
+
+15 
+
+
+
+to fuck themselves up with chemicals as much as they want to, without 
+sanction from the state, organized religion, or self-righteous zine 
+writers. However, I only support that right so long as you contain the 
+destructiveness of your choices to yourself as someone wise once said, 
+"Your right to swing your fist ends where my nose begins." And l"d 
+argue that very few people who do choose to get fucked up honestly and 
+completely look at how their choices impact others, particularly 
+oppressed folks. 
+
+From the financial support of really fucked up corporations, to the 
+targeting of people of color and queer communities and the increased 
+rates of addiction and devastation in these communities, to the 
+relationship between intoxication and patriarchal masculinity, to the 
+fucked up behavior towards women that so often arises with 
+intoxication... it's NOT just a simple personal choice you make yourself, 
+in a bubble, to smoke or drink or take drugs. There's an incredible 
+amount of baggage that goes along with the decision to get fucked up 
+that activist communities, in my experience, rarely acknowledge. 
+
+Some anarchists see anarchy as the ability to do whatever they want 
+without having to be accountable to anyone else for their actions. I 
+personally think that that kind of attitude is just the standard 
+American "rugged individualism" bullshit repackaged as a faux-radical 
+alternative, because it doesn't challenge the fundamental alienation 
+from each other we suffer under capitalism and the state. If our society 
+replaces genuine community with consumer culture, authority, and 
+oppression, that kind of anarchism simply rejects any idea of 
+community at all. For me, anarchism is about replacing the false 
+community of the state and consumer culture with a community based 
+on mutual aid rather than competition, gift economy rather than 
+capitalism, and collective agreements based on full consent and 
+voluntary association rather than rules or laws based on state coercion 
+and violence. Instead of being accountable to authority, I want us to 
+actually be accountable to each other. A pretty important part of that is 
+being able to come together as radical communities and have 
+conversations about how alcohol and drugs impact our work, our 
+spaces, our relationships, and our unity, to figure out what sorts of 
+agreements and boundaries make sense for us. 
+
+
+
+16 
+
+
+
+As a perfect example of the kind of community-based response to 
+alcohol and drugs I'm talking about, look at the Zapatista movement in 
+southern Mexico. During the weeks I spent in Chiapas learning about 
+their struggle, I learned something that most of the kids in the 
+Subcommandante Marcos t-shirts don't mention^ all autonomous 
+Zapatista communities are 100 percent alcohol free. No alcoholic 
+beverages are sold or consumed in any of the autonomous 
+municipalities, and on the signs indicating that you are entering 
+Zapatista territory in rebellion against the Mexican government, many 
+specifically say that these are alcohol and drug free spaces. I learned 
+also that the reason for this is because it was a central demand of the 
+women involved in discussion about the new society they were building. 
+Mexican women feel most acutely the effects of alcoholism, in terms of 
+domestic and sexual abuse, and because being financially dependent on 
+men in a patriarchal society means that when husbands spend the 
+Family's money on booze, the wife has to struggle to pay for food for her 
+and her children. The director of a feminist collective in San Cristobal 
+with whom I spoke said that male alcohol abuse is one of the central 
+problems facing women in Mexico today. 
+
+Consequently, the communities agreed to the demand of the women for 
+drug and alcohol Free communities, in spite of the fact that many of the 
+men wanted to be able to drink. Some villages even split around this 
+issue. Currently, the no-alcohol agreement is enforced by the 
+community, and it is almost always respected; folks who refuse to 
+respect the prohibition are ostracized or, if they refuse to change their 
+behavior, face expulsion from the community (incidentally, it's almost 
+unheard of for it to reach that point). A traveler I met who had passed 
+through Guatemala and parts of southern Mexico on his way to 
+Chiapas mentioned that in most of the rural villages he'd passed 
+through, the majority of the men would be drunk by 10 AM, every day. 
+The Zapatista communities, he observed, had a completely different 
+vibe; people got far more done and treated each other with more 
+respect. 
+
+I mention this example for a number of reasons. For one, I think that 
+many anarchaholics who supposedly idolize the Zapatista struggle 
+could stand to learn about how those communities deal with alcohol 
+and drugs. Also, I suspect that a lot of North American anarcho folks 
+might find such a prohibition "authoritarian" or worse. This gets at the 
+
+
+
+17 
+
+
+
+heart of how I see the difference between hyper-individualist and 
+community-based anarchism. There's nothing authoritarian, in my 
+opinion, about an agreement reached collectively to abstain from 
+individual behaviors that the community collectively decides are 
+harmful to itself as a whole. The key to the Zapatista autonomous 
+project is that it's totally based on voluntary association; no community 
+or individual is forced to participate. Many villages have chosen not to 
+be an official part of the network of autonomous municipalities if they 
+don't consent to all of the agreements made by the Zapatista 
+movement, and that's fine. 
+
+Furthermore, the Zapatitsa agreements on alcohol are an example of 
+actually acknowledging and directly respecting the autonomy of 
+women. How many anarchist groups or communities in the US who 
+claim to be feminist have actually adopted the desires and needs of 
+women into their practice — or even bothered to ask? All in all, the 
+people involved in that struggle decided to place the good of their 
+community, as determined through consensus, above the unlimited 
+"freedom" of individuals to do as they please. I would challenge our 
+anarchist communities in the north to think critically about our 
+priorities and grapple with these difficult questions about individual 
+and community, autonomy and accountability. 
+
+Story #1 
+
+My primary activist community when I first moved to the town where I 
+now live operated out of a collective bookstore, an awesome space full of 
+radicals working on positive projects. Just a month or two after I'd 
+become very involved, I was invited to attend a retreat with the board 
+of directors at a beach house several hours away from where we lived. 
+I'd heard people joking about how much alcoholic fun they were going 
+to have there, which immediately made me feel unsafe. The facts that I 
+don't drive and would have no way to get away if I felt unsafe, didn't 
+know many of the people involved very well yet, and was the only 
+young person all made me very nervous about the situation, and I 
+expressed my misgivings to a friend who worked at the store. She 
+assured me that there wouldn't be much alcohol, that people wouldn't 
+be getting too drunk, and that if I felt unsafe she would be available for 
+me. With that assurance, I somewhat reluctantly came along. 
+
+
+
+18 
+
+
+
+On Saturday night, two people left to get alcohol, returning with four 
+cases of beer and several bottles of liquor. Everyone except for me was 
+an adult and everyone except for me drank pretty heavily that night, 
+including my friend who said that she would be available for me. I felt 
+very uncomfortable, but I didn't have any way to leave, any idea where 
+I was, or any alternatives for entertainment, so I just sat through it. 
+The next morning we got started with our work hours later than we'd 
+planned to because folks were hung over and wanted to sleep. When we 
+debriefed at the end of the retreat, I mentioned that one thing I would 
+have changed was to have less alcohol, but I didn't feel comfortable 
+enough to express bow seriously I felt alienated and unsafe, or ask for 
+ways to hold the group accountable next time. No one discussed it 
+further or followed up with me about my discomfort. I don't know how 
+to breach the subject without putting people on the defensive, and I feel 
+like I'm being selfish, whiny, hyper-sensitive, a "party pooper," or anti- 
+democratic by expressing how I feel about it. I don't necessarily think 
+that it would be fair to ask the group to completely ban alcohol at the 
+retreat, especially given that every single person but me of a group of 
+fifteen or so enjoys drinking, yet the only alternative seems to be the 
+default of me faking smiles and sitting uncomfortably through 
+situations that make me feel unsafe and alone. 
+
+One way to address such a situation for sober folks to feel safe and able 
+to still participate might be to ensure in advance that at least one or 
+two other people will be there who will commit to stay sober for the 
+night (whether or not they usually do). That way, the group could still 
+drink if they chose to do so, while the sober person can still have a way 
+to feel safe with someone, or leave if necessary and not feel totally 
+isolated. I would suggest finding someone you trust a lot and know will 
+be committed to an evening of sobriety, and to be sure to ask them to 
+commit in advance, so that they haven't built intoxication into their 
+expectations for the activity. Other possibilities include asking all of the 
+people involved to make it an alcohol-free occasion, particularly if it's a 
+small group or event, or simply declining to attend and making clear 
+that the presence of drugs and alcohol is the reason why you're not 
+coming. Whatever you decide, it will probably work best to calmly and 
+specifically explain your discomfort, and to take care not to judge or 
+make assumptions about other people's behavior. If people committed 
+to sobriety stop making excuses, staying home, or remaining silent 
+when they feel unsafe, hopefully we can start a dialogue about issues of 
+
+
+
+19 
+
+
+
+intoxication in activist communities that will help create social space 
+for substance-free folks. 
+
+Story #2 
+
+I attended an environmental defense action camp for a week with about 
+150 kids in the mountains. I was pretty nervous about going out there 
+with no way to get out of the situation and a big crew of rowdy booze- 
+loving primitivists, but I decided it was more important to go and to 
+learn the skills I could learn. Things went surprisingly well for most of 
+the week; halfway through there was an alcohol-light campfire sing- 
+along that was a blast. On the last night, there was a big party 
+planned, with all sorts of preparations made for multiple kegs and beer 
+runs and home brew and more. Amazingly, the organizers were really 
+concerned with ensuring that the folks who wanted to remain sober had 
+a safe space, and planned to make a clear community agreement in 
+advance with specific dry zones, etc. The full-group meeting broke off 
+for dinner before the conversation could take place, so a group of fifteen 
+or so folks interested in seeing that sober spaces were secured stayed 
+late and talked through options! even more amazingly, almost all of the 
+group were folks who were planning to drink, but wanted to be allies to 
+the sober folks. After a frustrating and long set of negotiations, a 
+separate campfire area that was to be not only alcohol free, but only for 
+folks who had not had any alcohol that night, was set up, with 
+individuals committing to gather wood and dig the pit. I was pretty 
+thrilled, having never before been in a space where people even 
+acknowledged that sober people had valid needs, let alone worked hard 
+to create a distinct safe space and make it a priority. 
+
+So I hung out that evening at the sober campfire... along with about 
+five or six others. We were a pretty low-key bunch, and I for one felt 
+distinctly glum. It was nice to have the company, but I couldn't shake 
+the feeling of being quarantined. We were only a few hundred yards 
+away from the massive drunken bonfire, with over a hundred kids 
+hollering and stomping about, though none of them could come to our 
+fire, and most of us didn't feel remotely comfortable going over to 
+theirs, even though most of our friends and crushes and lovers were 
+over there. After thirty or forty-five minutes, most of us had drifted off 
+to our tents, the screams of the revelers echoing in our ears. I sat 
+
+
+
+20 
+
+
+
+morosely by the dwindling embers for a long while, trying to figure out 
+why I felt so dejected. Isn't this what I wanted, our own separate "safe 
+space"? I felt guilty for not sufficiently appreciating what was 
+undoubtedly the most comprehensive effort to address my needs that 
+had ever been made in a radical space. Finally, as the main party in the 
+distance tailed of into isolated voices fighting and cursing or sobbing, I 
+ambled off to bed, feeling as lonely and isolated as ever. 
+
+That experience represented a mixture of positives and negatives, and 
+could point towards some constructive solutions. On the plus side, 
+organizers and participants (at least a number of them) did make a 
+substantial effort during the day to plan a sober alternative space that 
+would be safe; on the minus side, the larger group wasn't engaged in 
+that process, and most folks in fact were simply informed that if they 
+planned to drink, they weren't permitted to go in a certain area, 
+reinforcing the absolute sober/ not dichotomy which felt isolating to me. 
+On the plus side, many non-sober allies stepped up to make sure that 
+safe spaces were provided, which I think is crucially important; on the 
+minus side, the allies didn't extend their support into actually 
+participating with the sober folks and abstaining themselves, except for 
+one person, and not many of the sober Folks for whom the space was 
+being designed actually participated in its planning. On the plus side, 
+the space was created and respected; on the minus side, there were 
+hardly any folks there, and it wasn't much fun, though everyone agreed 
+they were glad it was there. The proximity to the "main" drunken 
+party, the severely disproportionate number of non-sober to sober folks, 
+the lack of actual activities beyond a space and a campfire, the feeling 
+of being quarantined, and the general lack of support among many 
+camp participants (excepting the organizers and wonderful allies) made 
+the reality of the sober space fall far short of the expectations. 
+
+To improve the situation in the future, a few things that could be 
+changed: 
+
+1. Ensure broader participation in the process of making sober-safe 
+spaces; make it a part of full-group discussion, make a caucus of the 
+folks who actually plan to stay sober a central part of the process, and 
+figure out so me mechanism for accountability to that caucus. 
+
+
+
+21 
+
+
+
+2. When circumstances permit, make the actual space far enough away 
+physically from the drunken ground zero so that it doesn't feel like 
+we're being pushed just outside the "real" fun, and we don't feel the 
+need to defend the territory as our only few square feet of safe space. 
+
+3. Plan not just spaces, but activities for sober folks — be creative and 
+flexible, whatever folks think could be interesting and outrageous. Spin 
+the bottle, treasure hunts, hide and seek, twister, bike scavenger hunts, 
+dance parties, anything! The idea is not only to make it more fun for 
+the sober folks, but to make an incentive for some of the not-always- 
+sober folks to commit to being sober for the evening so that they can 
+hang out with the fun group. This can be the best kind of substance- 
+free advocacy — showing that the sober kids can party hardy even 
+better than the drunks! 
+
+Conclusion: The Beginning? 
+
+Hopefully some of the ideas in this zine have been helpful, or 
+provocative, or maybe showed things in a different light, or gave you 
+some starting points for addressing the concerns of sober folks in your 
+community. I wouldn't expect most folks to accept or agree with 
+everything I've written, but with luck it'll open a few minds and hearts 
+and start some debates. Also, some of us are thinking towards 
+developing a sober support network to share resources, develop 
+propaganda, start conversations in our communities, identify safe 
+spaces, and support each other when we feel isolated. It's a long way 
+towards a less fucked up world, but with honesty, dialogue, and each 
+others support we can begin heading that way. Until then, 
+
+with love and rage, 
+Nick Riotfag 
+
+Rftsrmard: Towards a less Fucked 
+Up World: Five Years and Counting 
+
+In the five years since I originally released the zine Towards a Less 
+Fucked Up World: Sobriety and Anarchist Struggle, I've had hundreds 
+
+
+
+22. 
+
+
+
+of conversations with people who read the zine and felt moved by it in 
+one way or another. When I wrote and published it, I never would have 
+expected it to resonate with such a wide range of folks. But the fact that 
+it has shows me that there's a tremendous desire to confront the 
+realities of substance use and intoxication in radical communities. In 
+this short essay I'll talk a bit about how the zine came together and 
+how folks have responded to it, and frame this in the context of other 
+discussions about radical sobriety that have taken place in punk/ 
+anarchist spaces. Hopefully tracing this trajectory will provide some 
+context for the potential for radical sobriety within US anarchist 
+resistance through the lens of one zine and its reception. 
+
+How It Came Together 
+
+The ideas that eventually coalesced into Towards a Less Fucked Up 
+World began to take form when I was seventeen or eighteen and 
+became increasingly involved in broader currents of radical and 
+anarchist activity. Attending conferences, gatherings, mass 
+mobilizations, and countless shows and potlucks, I began to notice 
+patterns of drug and alcohol use that often reinforced rather than 
+challenged oppression. My personal decision to remain drug and alcohol 
+-free crystallized along with my politics; the more certain I felt about 
+circling my "A"s, the more confident I felt in my sobriety. But to my 
+surprise and frustration, my comrades in struggle rarely saw things the 
+same way. The question that always perplexed me most was this : why 
+don't radical folks ask the same kinds of critical and self-critical 
+questions about our alcohol and drug use that we ask about so many 
+other aspects of our lives and behavior? What's so different about 
+intoxication, to the degree where just mentioning it can provoke such 
+intense defensiveness, dismissal, or ridicule? 
+
+Coming to understand these reactions meant grappling with the impact 
+of sXe amongst punks, anarchists, and radicals in the US. When I was 
+growing up, I only knew a single self-identified sXe kid. He was a pretty 
+homophobic jerk while he claimed edge, then after about a year washed 
+the X's off his hands and started getting wasted with the rest of the 
+punks. So apart from my interaction with a single (thoroughly 
+unimpressive) sXer, I was never connected to or even aware of sXe as a 
+scene or movement — I never even knew there was such a thing as sXe 
+
+
+
+23 
+
+
+
+music until I was probably nineteen! I'd only heard the term used as a 
+synonym for sober. 
+
+Then as I became more involved in punk and anarchist circles, I started 
+hearing the horror stories about sXe kids who harassed or beat up 
+drinkers or drug users, played out hardcore masculinity to its idiotic 
+extreme, and displayed incredibly judgmental and obnoxious attitudes. 
+When confronted with my decision to be intentionally sober, many 
+people I met lacked any context for a conscious radical sobriety. To 
+them sobriety was solely connected to a violent, cult-like hardcore 
+identity. As I confronted the reputation that sXe had acquired amongst 
+many radicals and anarchists, little by little the defensiveness I 
+encountered became more understandable. 
+
+But as I started meeting actual sXe hardcore kids, most of whom were 
+invariably friendly and respectful, I began to doubt how true all the 
+stories were. Were defensive drinkers just creating a sXe straw man 
+onto whom they could project all of their nightmare fantasies of crazed 
+puritanical anti-drug boneheads? Was their emphasis on the myth of 
+the violently judgmental sXe kid really just a means of avoiding a 
+critical look at their own intoxication habits and how they impacted our 
+scene? While I certainly don't deny that some folks have had negative 
+experiences with individual sXe kids, they can't possibly outweigh the 
+innumerable negative experiences all of us have had with the 
+obnoxiously intoxicated. 
+
+At the same time, I wondered whether I was starting to embody some of 
+those projected qualities. When I discussed my choices with others, was 
+I conveying them in a way that came across as judgmental, preachy, or 
+confrontational? By labeling my decision to be entirely sober for 
+political as well as personal reasons with the term "sXe," was I placing 
+myself in a trajectory guaranteed to promote defensiveness? Was I 
+shutting down dialogue rather than opening it up? 
+
+Although the solidarity I discovered with other individuals who claimed 
+edge provided some sense of support, more often than not I found that 
+using the term to describe myself made it harder rather than easier to 
+connect with the people with whom I really wanted to discuss issues of 
+intoxication culture. As discussion with drinkers and drug users about 
+how to negotiate healthy and mutually respectful community norms 
+
+
+
+24 
+
+
+
+became increasingly important to me, I found myself shying away from 
+the sXe label. But I wanted to convey that my sobriety stemmed from 
+my convictions as an anarchist and a feminist, not just from an 
+individual preference, yet without the having to rely on the problematic 
+legacy of sXe to do so. 
+
+So I wrote Towards a Less Fucked Up World in an effort to pry the 
+discussion about sobriety and intoxication away from the context of sXe 
+and the mythology surrounding it. I wanted to discuss sobriety as a 
+politically motivated lifestyle choice, not simply as a personal 
+preference without collective or political dimensions, while also 
+avoiding making it into an identity or a scene or a polarizing or 
+moralistic thing. It turned out to be more difficult than I'd expected! 
+Fortunately, the responses I got to the zine showed that most people 
+who read it were able to see past the controversy around sXe to the 
+underlying issues I wanted to address. 
+
+Responses and Critiques 
+
+The most common response I've received from readers has been a 
+feeling of affirmation^ folks related that the arguments and stories in 
+the zine resonated with their own thoughts and experiences in ways 
+they'd never heard articulated before. This surprised me on two levels^ 
+first, that so many people were thinking about the same issues and 
+feeling similar frustration and alienation; and also that there were so 
+few other people talking or writing about it. Another surprise : most 
+people who've written me about my zine aren't totally sober themselves, 
+but still felt that the zine spoke to them and their experiences. 
+Certainly a number of sober/sXe folks have appreciated its ideas and 
+used it for outreach; but by far and away the majority of the folks who 
+wrote me did so not from that perspective, but from looking critically at 
+their own intoxication and the culture supporting it. In addition to folks 
+from within the young punk/anarchist/activist milieu, I've also gotten 
+mail from mainstream college kids, lonely small-town teenagers, older 
+alcoholics in recovery, and a variety of other folks. 
+
+The most vigorous and spot-on critiques I heard dealt with the section I 
+wrote about intoxication and patriarchal masculinity. The section that 
+now appears as "Masculinity, Rape Culture, and Intoxication" looked 
+
+
+
+25 
+
+
+
+very different in the initial edition; it contained language that framed 
+sexual and partner violence in simplistic and inaccurately gender- 
+specific terms, represented sex workers in a disrespectful way, and 
+didn't offer any trigger warning to brace folks for my rather abrasive 
+discussion of sensitive issues. After a variety of conversations about the 
+flaws of the original section, I began circulating an insert that 
+addressed the critiques and reworked the section with the zine as I 
+continued to distribute it. The section as it appears in this anthology 
+represents substantial revisions that came out of many difficult and 
+important conversations, to whose initiators I gratefully owe a much 
+more nuanced critique of the connections between intoxication, 
+masculinity, and violence. 
+
+Some other miscellaneous critiques : several people suggested that I 
+could have spoken in more depth about the importance of sober spaces 
+for people in recovery from addiction, and about harm reduction ideas 
+and radical recovery models. Some wanted me to elaborate more on 
+how to create sober spaces that weren't just quarantines but could 
+effectively integrate drinkers and non-drinkers into fun alcohol-free 
+environments; they also suggested avoiding the term "safe space" since 
+it implies a fear of drinking rather than an aversion, which polarizes 
+people more than necessary. Others wanted more acknowledgment of 
+home brewing and growing as alternatives to capitalist control of 
+addiction. A few countered my historical examples about sobriety in 
+radical movements by mentioning the ways that intoxication has 
+played into histories of resistance, from drunken workers riots to drug 
+use in 1960s counterculture. Some found my treatment of drinkers and 
+drug users far too judgmental and unlikely to stimulate the kind of 
+dialogue and self-reflection necessary to break out of patterns of denial, 
+blame, and judgment. All of these comments and others I appreciated 
+and thought over; some are reflected in changes in this edition, other I 
+hope to incorporate into future issues of the zine, and a few I decided to 
+leave unchanged with the recognition that the arguments and tone are 
+provocative, intentionally so, and will always provoke criticism. 
+
+Fortunately, the zine has provoked much more than criticism — its 
+inspired dialogue and action, too, as I've heard in stories from people 
+around the US and beyond. In Maine, a group of punks copied and 
+distributed the zine and then hosted a sober potluck to discuss the 
+issues it raised and how they related to the local scene. One group of 
+
+
+
+26 
+
+
+
+Canadian anarchists altered the direction of the community radical 
+library and show space they were establishing after reading the zine, 
+deciding to promote the space as an explicitly sober social alternative 
+for radicals. In North Carolina, one reader started a weekly sobriety 
+discussion group at a radical community space. Every other week, the 
+meeting was open to anyone and discussion revolved around the role of 
+intoxication in their town's radical scene and how to create alternative 
+spaces; on the alternate weeks there was a closed meeting for folks in 
+recovery from addiction who wanted to support one another from an 
+explicitly radical perspective. These and a variety of other inspiring 
+stories have convinced me that radicals long to challenge the role of 
+intoxication culture in communities of struggle. 
+
+The Future of Radical Sobriety 
+
+In the last few years I've also observed shifts in anarchist culture 
+towards breaking the stranglehold of intoxication culture in our scenes 
+— in zines, workshops, discussions, and many other formats, we've 
+spoken out about our complex experiences with drugs, alcohol, 
+addiction, and sobriety individually and collectively. 
+
+Since the release of Towards a Less Fucked Up World, a variety of zines 
+have emerged in the US addressing different aspects of intoxication, 
+sobriety, and resistance : the following are just some of the ones I've 
+read and enjoyed. Prescription for Change offers a personal account of a 
+recovering addict, insightful critiques of the AA model, and a nuanced 
+outsider's take on sXe. Distress #1-2 offers crucial harm reduction info 
+and analyses of how intoxication relates to mental health. Out from the 
+Shadows #1-2 (successor to Encuentro zine) blends a militant vegan 
+sXe and green anarchist perspective on radical sobriety with a 
+passionate love for sXe hardcore, and links struggles against 
+intoxication culture with resistance to civilization. Stash describes 
+personal stories of addiction and recovery as well as domestic and 
+sexual violence while discussing the radical community's role in 
+perpetuating or challenging these dynamics. Twinkle Pig #3.5 traces 
+one sXer's personal history of exclusion, self-redefinition, and political 
+critiques of intoxication culture. Total Destruction #1-4 focuses on 
+anarcho-communist theory, prisoner solidarity, and eco-resistance, 
+from a vegan sXe perspective. Cuddle Puddles #1S presents a vegan 
+sXe anarchist standpoint on a variety of political and lifestyles issues 
+
+27 
+
+
+
+— #1 addresses the continuing value of sXe. Ruffsketch humorously 
+chronicles the animal rights activism and cross-country travels of a 
+vegan sXe hooligan. These and many other zines document the 
+groundswell of thought and action taking place in radical scenes around 
+intoxication and sobriety. 
+
+This explosion of discussion of radical sobriety in print has continued 
+face to face at radical gatherings. My first such experience took place 
+just after the publication of Towards a Less Fucked Up World in early 
+2004, at the National Conference on Organized Resistance in 
+Washington, DC, a large yearly anti-authoritarian conference. I 
+presented with three friends a workshop titled "Beyond a Culture of 
+Oblivion" that discussed the potential of radical sobriety contributing to 
+anarchist resistance. To our surprise, the workshop was packed out the 
+door, with well over 100 people attempting to squeeze into a tightly 
+cramped classroom, demonstrating the widespread desire for dialogue 
+around intoxication in radical communities. We presented some basic 
+critiques of intoxication, framed by stories from our experience, 
+discussed the role of sobriety and sober individuals in various radical 
+movements from different times and places, and tried our best to 
+facilitate a discussion about the impact that drug and alcohol use had 
+on the different communities of struggle represented by the folks 
+present. The room included everyone from cranky sXers with "Fuck You 
+for Smoking" hoodies to intransigent drinkers and drug users who 
+defended their choices vehemently, and at times antagonism surfaced. 
+But overall, most participants seemed grateful just to have a space to 
+openly vent their frustrations with both the stranglehold of intoxication 
+culture on their scenes as well as the inadequacy of judgmental, 
+cliquish sXe scenes as viable alternatives. We distributed copies of 
+Wasted Indeed! and Towards a Less Fucked Up World, and encouraged 
+folks to continue the conversation in their scenes at home. Ultimately, 
+we were surprised by how successfully the workshop had gone and 
+encouraged by the enthusiasm for addressing the issues constructively. 
+
+Since then, workshops and discussions about intoxication and sobriety 
+have popped up with increasing frequency at radical gatherings. Folks 
+came together to discuss these issues at events ranging from the 
+Richmond Zine Fair to the Crimethlnc. Convergence, from the C.L.I.T. 
+Fest (a feminist punk festival) to the Earth First! rendezvous, and 
+numerous others. I personally helped facilitate workshops at two 
+
+
+
+28 
+
+
+
+radical queer/ trans gatherings, the Florida United Queers and 
+Trannies conference and the Sweaty Southern Radical Queer and 
+Trans Convergence in North Carolina; the latter operated as an 
+entirely sober gathering, the first queer/trans-specific conference I'd 
+ever heard of doing so, and to our surprise the organizers received 
+almost total support from the participants in respecting the drug/ 
+alcohol-free agreement. More and more gatherings create sober spaces 
+for folks who want or need them, encouraging drug- and alcohol-free 
+social events, and including discussions of substance use in broader 
+guidelines around consent and respect. This represents a subtle but 
+important shift in radical culture towards challenging the 
+entrenchment of intoxication culture and opening up space for radical 
+sobriety without imposing it top-down as a norm. 
+
+Interestingly, most of these discussions and spaces of which I've been a 
+part haven't used sXe as the primary framework for conceptualizing the 
+choice to be sober. In fact, many folks said things like "I'm not sXe, 
+but..." to describe their choices to be sober or critical of intoxication 
+culture, which indicates the negative associations many US punks and 
+anarchists still hold with sXe. I think it's premature to sound the death 
+knell of sXe, or start talking about "post-edge" radical sobriety — I 
+think this anthology makes clear that sXe still holds power and 
+relevance for a lot of people around the world. But clearly we should 
+embrace a variety of different possible ways to forge radically sober 
+identities, including sXe but not limited by it. In my opinion, whatever 
+one's relationship to the phenomenon of sXe may be, the underlying 
+critiques and positive alternative visions remain as relevant today as 
+they were during the days of Minor Threat. I hope that my zine, this 
+anthology, and all of the conversations that come from them will help 
+us find the tools we need to fight oppression and domination culture 
+tooth and nail while never failing to love and support each other along 
+the way. 
+
+
+
+29 
+
+
+
+30 
+
+
+
+31 
+
+
+
+y SPROUT 
+
+...from the occupied territory currently known as grand rapids, michigan 
+for more zines and correspondence, visit www.sproutdistro.com 
+
+
+
+</pre>        </div><!--/.container-->
+              </main>
+    </div><!--/#wrap-->
+    
+    
+    <!-- Timing ...
+     rendered on: www15.us.archive.org
+ seconds diff sec               message   stack(file:line:function)
+=========================================================
+  0.0000   0.0000         petabox start   var/cache/petabox/petabox/www/sf/download.php:1:require
+                                             |common/ia:66:require_once
+                                             |setup.php:384:log
+  0.0076   0.0076      redis_read start   var/cache/petabox/petabox/www/sf/download.php:80:main_wrap
+                                             |download.php:101:main
+                                             |download.php:322:getItem
+                                             |common/Item.inc:77:parseMetadata
+                                             |Item.inc:132:get_obj
+                                             |Metadata.inc:538:_get_obj
+                                             |Metadata.inc:568:run_pipeline
+                                             |Metadata.inc:1435:read
+                                             |Metadata/AdapterPipeline.inc:259:_read
+                                             |AdapterPipeline.inc:292:pipeline
+                                             |AdapterPipeline.inc:377:fetch
+                                             |AdapterPipeline.inc:613:fetch
+                                             |RecordServer.inc:144:execute
+                                             |RecordServer/FetchRecordOp.inc:52:log
+  0.0087   0.0011     redis_read finish   var/cache/petabox/petabox/www/sf/download.php:80:main_wrap
+                                             |download.php:101:main
+                                             |download.php:322:getItem
+                                             |common/Item.inc:77:parseMetadata
+                                             |Item.inc:132:get_obj
+                                             |Metadata.inc:538:_get_obj
+                                             |Metadata.inc:568:run_pipeline
+                                             |Metadata.inc:1435:read
+                                             |Metadata/AdapterPipeline.inc:259:_read
+                                             |AdapterPipeline.inc:292:pipeline
+                                             |AdapterPipeline.inc:377:fetch
+                                             |AdapterPipeline.inc:613:fetch
+                                             |RecordServer.inc:144:execute
+                                             |RecordServer/FetchRecordOp.inc:58:log
+  0.0148   0.0061   begin session_start   var/cache/petabox/petabox/www/sf/download.php:80:main_wrap
+                                             |download.php:101:main
+                                             |download.php:536:stream
+                                             |download.php:953:head
+                                             |common/Nav.inc:127:__construct
+                                             |Nav.inc:212:session_start
+                                             |Cookies.inc:56:log
+  0.0149   0.0001    done session_start   var/cache/petabox/petabox/www/sf/download.php:80:main_wrap
+                                             |download.php:101:main
+                                             |download.php:536:stream
+                                             |download.php:953:head
+                                             |common/Nav.inc:127:__construct
+                                             |Nav.inc:212:session_start
+                                             |Cookies.inc:62:log
+  0.2271   0.2122              bug dump   var/cache/petabox/petabox/www/sf/download.php:80:main_wrap
+                                             |download.php:101:main
+                                             |download.php:536:stream
+                                             |download.php:983:footer
+                                             |common/setup.php:153:footer
+                                             |Nav.inc:1118:dump
+                                             |Bug.inc:102:log
+    -->
+    <script type="text/javascript">
+if (window.archive_analytics) {
+  window.archive_analytics.send_pageview_on_load(window.archive_analytics);
+  window.archive_analytics.process_url_events(window.location);
+  var vs = window.archive_analytics.get_data_packets();
+  for (var i in vs) {
+    vs[i]['cache_bust']=Math.random();
+    vs[i]['server_ms']=227;
+    vs[i]['server_name']="www15.us.archive.org";
+      }
+
+  if (document.querySelectorAll('.more_search').length) {
+    window.archive_analytics.send_scroll_fetch_base_event();
+  }
+}
+</script>
+              <img src="//analytics.archive.org/0.gif?kind=track_js&track_js_case=control&cache_bust=786199910" />
+          <noscript>
+        <img src="//analytics.archive.org/0.gif?kind=track_js&track_js_case=disabled&cache_bust=1293978121" />
+      </noscript>
+          <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          if (typeof AJS === 'undefined') {
+            return;
+          }
+          AJS.createTrackingImage('in_page_executes');
+        });
+      </script>
+      </div>
+  </body>
+</html>
+    

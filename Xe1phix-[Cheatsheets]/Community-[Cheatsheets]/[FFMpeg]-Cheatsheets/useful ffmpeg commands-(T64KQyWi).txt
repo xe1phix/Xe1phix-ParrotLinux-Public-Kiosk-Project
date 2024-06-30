@@ -1,0 +1,36 @@
+# useful ffmpeg commands
+## ffmpeg movie create based on images in directory (24 is framerate)
+```
+ffmpeg -r 10 -i %d.jpg -b 15000k timelapse.mov
+
+```
+
+## ffmpeg trim avi file down to the ms
+```
+ffmpeg -i input.avi -vcodec copy -acodec copy -ss 00:00:00 -t 00:00:00.866 output.avi
+
+```
+
+## fmpeg convert to webm (make sure ffmpeg -v shows libvpx, if not brew reinstall ffmpeg --with-libvpx
+```
+ffmpeg -i carp.avi -c:v libvpx -c:a libvorbis -b:v 1M -crf 10 -quality best test.webm
+```
+
+## I guess I said fuck titling this one
+```
+for file in *.avi; do ffmpeg -i "$file" -c:v libvpx -c:a libvorbis -b:v 1M -crf 10 -quality best "${file%.avi}".webm; done
+
+```
+
+## all files in a directory, edit accordingly
+```
+for file in *.avi; do ffmpeg -i "$file" "${file%.avi}".webm; done
+
+
+```
+
+## extract frames
+
+```
+ffmpeg -i first7seconds-bn.mp4 -an -qscale 1 %06d.jpg
+```

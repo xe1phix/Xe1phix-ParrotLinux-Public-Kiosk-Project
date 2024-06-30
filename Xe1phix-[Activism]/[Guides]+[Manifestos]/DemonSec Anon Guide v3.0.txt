@@ -1,0 +1,240 @@
+Originally pasted by a pastebin guest Apr 27th, 2016: 
+ __  ___  _   _  _  _  _  __  ___ __    _   _  _  _  _  _    __  _ _  _  __  ___ 
+|  \| __|| \_/ |/ \| \| |/ _|| __/ _|  / \ | \| |/ \| \| |  / _|| | || ||  \| __|
+| o ) _| | \_/ ( o ) \\ |\_ \| _( (_  | o || \\ ( o ) \\ | ( |_n| U || || o ) _| 
+|__/|___||_| |_|\_/|_|\_||__/|___\__| |_n_||_|\_|\_/|_|\_|  \__/|___||_||__/|___|
+
+Greetings citizens of the world
+
+We are Anonymous
+
+This is a DemonSec guide to set up your anonymity online and get involved with current DDOS operations. 
+
+VPN:
+
+To start off with security and anonymity are essential. The first few things you will need to 
+do are purchase a credible VPN service which basically encrypts your data and gives you a 
+seperate IP address so you can not be traded. 
+
+Check out this link that provides the top VPN services that take your anonymity seriously. 
+https://torrentfreak.com/vpn-anonymous-review-160220/
+
+MAC Address:
+
+The second thing you will need to do is change your MAC address. This is like the personal
+registration on your car. If you are on windows 8 or above WINDOWSKEY + X and then click on
+device manager. It will then be under one of your advanced settings in network adapters. 
+Before changing your MAC address open CMD and type the command "ipconfig /all" Find your 
+MAC address and write it down on a piece of paper because sometimes when you change it your
+connection speeds can alter and slow down so its good to have the original on stand by. 
+
+Once you have purchased a VPN and changed your MAC address you are now safe to take part in any
+operation you believe contributes good to the world. Welcome to the world of Anonymous. DemonSec
+continue to educate and work hard bringing new hacktivists into the world. If you ever need 
+help setting up please do not hesitate to ask.
+
+ Our link is: https://www.facebook.com/thedemonsec/
+
+The next stage is for DDOS attacks. Our team have spent much research on different methods of 
+attacks for new members to pick up and learn. Our personal favourite is Ubuntu. This is a type
+of Linux set up to run through windows. You will need Virtual Machine or VMWare for this and the
+backbox linux download. 
+
+Virtual boxes: http://www.vmware.com/ or https://www.virtualbox.org/ (personal preference but 
+virtual box is free) 
+
+Backbox linux download: https://backbox.org/download If you type 0 in the donation box the download
+will be available. Windows Operating system prefer to use BackBox Linux 4.5.1 - i386.
+
+BELOW is a guide on how to install the system and apply tools to DDOS. 
+
+Guide to Installing BlackBox in VMware. Virtual box is similar in the way you set it up so the guide can help
+with both.
+
+Here is a Youtube Tutorial if you visual learn better: https://www.youtube.com/watch?v=P7KwdWsTzWs
+
+Here is a txt Tutorial
+
+Step 1: Load VMWare or virtual box
+
+Step 2: Create a new virtual machine (Typical (Recommended) then click next
+
+Step 3: Click installer disk image file and link it to the blackbox.iso download. Now click next ignore error message
+        (I linked it to the zip file it worked, when linked to extracted files it does not work for me)
+
+Step 4: Guest operating system click "Linux" with the version as Ubuntu now click next
+
+Step 5: Ignored name and click next (rename if you want)
+
+Step 6: Split virtual box into multiple, then click next
+
+Step 7: Now click on customize Hardware on memory up it too 2GB close it, and now click finish
+
+Step 8: Click on "Power on this virtual machine" You will see an error message just ignore it
+        and let the system load it can take a few minutes so be patient. 
+
+Step 9: Once it has loaded you should see a a mini desktop with the backbox logo. Now in the top left 
+        corner of this screen is a little blue button. Click on it and click on "vidalia." untick random
+        new password and create your own personal password. Its ok to click off this now. You will be
+        connected to the Tor network with your own custom password. 
+
+Step 10: Again that little blue button click on it and open the web browser to search for pyloris 
+         and torshammer download. Once you have downloaded the files find the downloads folder. If
+         You click the small blue button again and click file manager you should of found it. Now
+         right click on them and "extract here"
+
+Step 11: Right click extracted Pyloris and "open terminal here".... now copy this code and hit enter in 
+         the terminal "python tor_switcher.py" a new window should pop up change intervals to 10 and put
+         the password in you created previously. Now click ok you can now minimise these windows this
+         is changing your ip address every 10 seconds.
+
+Step 12 Agan in your downloads folder click in torshammer folder, now right click on the
+        "torshammer 1.0" and "open terminal here" With this terminal you are ready to
+         FIRE ZE LAZER....... Below is the command you type change it to what ever website you wish
+
+         python torshammer.py -t www.example.com
+
+         copy and paste that in and hit enter. You are live firing.... 
+ 
+         Congratulations you can open more terminals and carry on....
+
+OK when you close vmware OR virtual box suspend it do not power off
+And every time first connect Vidalia to tor   
+and then open tor switcher
+And then tors hammer
+
+There are other tools on sourceforge or github you can grab 
+also xerxes.py, slowhttptest.py, hammer.py, ufonet.py slowloris.py
+
+Commands: 
+
+./torshammer.py -t www.example.com -r 1000000 -T
+./xerxes www.example.com 80
+slowhttptest -c 10000 -H -g -o ddos -i 10 -r 400 -u http://www.example.com
+./hammer.py -t www.example.com -r 1000000 -T
+PYLORIS: ./tor_switcher.py
+./ufonet -a http://www.example.com -r 10000 -v
+SLOWLORIS: perl slowloris.pl -dns 147.237.77.216 -port 80 -timeout 2 -num 1000  -tcpto 5
+
+  _  ___ ___  ___  _  ___  _  _  _  _   __  ___  _  ___  ___  _   _  ___  _  _  ___ 
+ / \| o \ __|| o \/ \|_ _|| |/ \| \| | / _||_ _|/ \|_ _|| __|| \_/ || __|| \| ||_ _|
+( o )  _/ _| |   / o || | | ( o ) \\ | \_ \ | || o || | | _| | \_/ || _| | \\ | | | 
+ \_/|_| |___||_|\\_n_||_| |_|\_/|_|\_| |__/ |_||_n_||_| |___||_| |_||___||_|\_| |_| 
+
+Greetings Citizens of the world
+
+We are Demonsec
+
+This is OpIclarus #opicarus 30th of May Killuminati
+
+Where to start? The rothschild have a central bank all over the world including businesses in the 
+banking industry. For too long now banks have laundered the funds of the worst of our society like
+drug dealers, human trafficking and funding such organisations like ISIS through companies such as
+Genel Energy. All evidence will be found at the bottom of the operation. 
+
+Genel energy we have turned your website offline for over two weeks now. You will be the first to 
+admit your war crimes. We will not stop attacking the corruption until they come out in public 
+and state their wrong decisions in life and how they decide to fix it. Nathaniel Rothschild you have been warned.
+ After been informed of this message expect the next wave of attacks to be far greater and more frequent. 
+For all those listening to this message search on any tools "Genel or genie energy isis" the evidence is piling up every day,
+Mr Rothschild you must be getting scared the most creditable family in England is funding ISIS. 
+
+Our governments have failed us. Our very own tax funds have failed us. Society as a whole has failed us.
+
+We have stood by for too long, we have sat back and watched the banking industry get treated different
+than the rest of the world. Its time we seek justice for the 99%. It is time to rise up and protest against
+how our global elites are treated in society. If we want a fair society treatment from the top needs
+to be equal, the elite need the same treatment as societies consumers. 
+
+This is a message to all of the banks through out the world. We have been watching you for quite some
+time now and we have been collecting all the evidence to prove you get away with genocide and are
+exempt from any law that passes through any government around the world. 
+
+We are calling out all anonymous members to load up your lazers and to carefully fire them at central banks
+and other banks around the world that have got away with corruption to the point they get a nice bonus at 
+the end of the year. 
+
+We call out to the doctors, fire-fighters, business men, teachers, lords, bishops and the rest of society to 
+rise up and demand action to be taken towards our banks. We have had enough of seeing banks get bonuses and
+the poorest of society forced to attend food banks. 
+
+We hope OpIclarus will bring justice to the world financially. We hope that Opclarus will help redistribute 
+global wealth to those that work the hardest. Most importantly we hope this operation will spread education
+through out the globe on just how corrupt our legitimate services are. If we want a better world, if we want
+a society to thrive we have to target corruption from the heart. How do you expect us to deal with crime and
+corruption when it comes from our very own banks? 
+
+Opclarus has officially been Enganged. This is a call to arms.
+
+We do not forgive
+We do not forget
+We are legion 
+Expect us
+
+Pastebin Evidence:
+Rothschilds behind ISIS in Turkey and Syria (Full info): http://pastebin.com/8x5FViVs
+Genel Energy owns ISIS: http://pastebin.com/tk0N1H9X
+Department of defence connection to ISIS: http://pastebin.com/UbxSxPf2
+
+Website Evidence:
+EXPOSED ; ROTHSCHILD funding ISIS through Genel Energy and US CollegeAmerica the nation’s largest 529 college savings plan1, trusted by more than 1 million families nationwide.
+https://www.americanfunds.com/…/p…/college-america-529.html…
+ISIS is a Rothschild Corporate Army for Genel Energy
+http://investmentwatchblog.com/isis-is-a-rothschild-corpor…/
+FINANCIAL WAR REPORT (FFR): Genel Energy, Rothschild, and the creation of ISIS
+http://investmentwatchblog.com/financial-war-report-ffr-gen…
+Who Owns ISIS? The Genie is out of the bottle!
+http://www.shiftfrequency.com/genel-energy-runs-isis-oil/
+Rothschild connected with ISIS through Erdogan’s son Bilal who sells “legally” ISIS oil.
+http://freewordandfriendsworld.com/…/rothschild-connected-…/
+Rothschild, Murdoch, Cheney and the Genie of Stolen Syrian Oil
+http://www.discussionist.com/1014220159
+?#?FreeGolanHeights? - Syria (Please read and share all info you can)
+Genie Energy (Jacob Rothschild, Dick Cheney and Rupert Murdoch) are illegally stealing oil from Syria's Golan Heights. The are doing this together with Israeli companies Afek Oil and Gas and Zion Oil and Gas. John Brown found the oil in Golan Heights back in 2010. It is billions of barrels of oil and 150 billion cubic feet of gas. The biggest discovery in world history.
+http://www.theecologist.org/…/israel_to_annex_golan_heights…
+John Brown, CEO of Zion Oil and Gas thinks its their Biblical right to claim the land from Syria.
+https://www.zionoil.com/…/potential-golan-heights-oil-disc…/
+Zion Oil work with another Israeli company called Afek Oil and Gas.
+Afek also think its their biblical right to claim the Golan Heights from Syria.
+http://afekoil.co.il/en/
+Zion Oil and Afek work with another company called Genie Energy.
+Genie Energy is currently drilling illegally in the Golan Heights, it has been sold the exclusive drilling rights by Israel.
+http://www.worldoil.com/…/genie-energy-confirms-significant…
+Genie Energy have Dick Cheney, Jacob Rothschild and Rupert Murdoch on its board.
+http://genieoilgas.com/about-us/strategic-advisory-board/
+You haven't heard about this on the news because Rupert Murdoch owns shares in Genie Energy:
+http://aattp.org/uncovered-is-israel-bombing-occupied-syri…/
+According to the United Nations, Golan Heights belongs to Syria.
+http://www.securitycouncilreport.org/…/Golan%20Heights%20A%…
+Israel and Genie Energy are exploiting the war in Syria, for the oil in Golan Heights.
+https://electronicintifada.net/…/israel-exploits-syri…/14701
+They are paying ISIS to bring the Oil for them from Syria to Turkey.
+http://www.ibtimes.co.uk/russia-spots-12000-oil-smuggling-t…
+http://prepareforchange.net/2015/12/28/who-owns-isis/
+Once its in Turkey it goes to Genel Energy:
+Genel Energy is ran by Nathan Rothschild and Tony Hayward.
+http://www.genelenergy.com/…/our-senior…/board-of-directors/
+They recently merged their company Vallares and Turkish company Genel Enerji, ran by Turkish finance gangster Mehmet Karamehmet Sepil.
+Mehmet Karamehmet Sepil sold his assets to Nathan Rothschild and Tony Hayward before being sent to prison for fiscal fraud.
+http://www.bloomberg.com/…/vallares-agrees-to-merge-with-ge…
+http://www.hurriyetdailynews.com/businessman-karamehmet-sen…
+Genel Energy are paying ISIS.
+https://exposednewsalternative.wordpress.com/…/rothschild-…/
+They then sell the oil to the rest of Europe and Israel
+http://www.globes.co.il/…/article-israel-buys-most-oil-smug…
+Genel Energy Gets its money directly from US tax payers funds.
+http://investors.morningstar.com/o…/shareholders-major.html…
+CollegeAmerica 529 which are Genel's largest share holder are the US savings plan.
+https://www.americanfunds.com/…/land…/college-overview.html…
+This is why Israel is helping ISIS.
+http://foreignpolicy.com/…/exclusive-israel-is-tending-to-…/
+And America has been arming them.
+http://www.wnd.com/…/11/drudge-america-has-been-arming-isis/
+ISIS are being trained by Erik Prince ex founder of Blackwater.
+http://www.nytimes.com/…/…/15/world/middleeast/15prince.html
+http://ireport.cnn.com/docs/DOC-1151389
+They used Paris 13/10 as a pretext to go to war with Syria
+http://www.pipr.co.uk/…/francois-hollande-suggests-paris-m…/
+http://www.express.co.uk/…/Former-MI5-officer-outrage-claim…
+
+***apologies for incomplete URLs, they were that way in original paste***

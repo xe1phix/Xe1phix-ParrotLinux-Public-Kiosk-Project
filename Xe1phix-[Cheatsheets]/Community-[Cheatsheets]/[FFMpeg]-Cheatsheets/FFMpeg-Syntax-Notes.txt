@@ -1,0 +1,97 @@
+# Make EBU R128 compliant:
+
+ffmpeg -i in.wav -af loudnorm=I=-23:TP=-2 -ar 48k -acodec pcm_s24le out.wav
+
+# Non linear loudness normalization:
+
+ffmpeg -i hitme.wav -af loudnorm=I=-23:TP=-2:linear=false -ar 48k -acodec pcm_s24le out.wav
+
+# Batch mp3 to 16 bit 44.1 kHz CD Mastering:
+
+ffmpeg -i "Gloria Estefan - Dr. Beat.mp3" -af loudnorm=I=-17:TP=-.3 -ar 44.1k -acodec pcm_s16le "Gloria Estefan - Dr. Beat.wav"
+ffmpeg -i "Gloria Estefan, Miami Sound Machine - Conga (Official Video).mp3" -af loudnorm=I=-17:TP=-.3 -ar 44.1k -acodec pcm_s16le "Gloria Estefan, Miami Sound Machine - Conga (Official Video).wav"
+ffmpeg -i "Kate Ryan - Ella Elle L'a (Official Video 2008).mp3" -af loudnorm=I=-17:TP=-.3 -ar 44.1k -acodec pcm_s16le "Kate Ryan - Ella Elle L'a (Official Video 2008).wav"
+
+# Make a prores:
+
+ffmpeg -i test.mov -c:v prores -profile:v 3 output.mov
+
+ffmpeg -y -f mov -i input-file.mov -vcodec prores_ks -pix_fmt yuva444p10le -profile:v 4444 -bits_per_mb 8000 -s 1920x1080 output-file.mov
+
+# Measure loudness stats (must use last dash) and print to console output:
+
+ffmpeg -i hit.wav -af loudnorm=I=-23:TP=-1.5:LRA=7:linear=false:print_format=json -f null -
+
+# Input statistics from above to command line:
+
+ffmpeg -i hit.wav -af loudnorm=I=-23:TP=-1.5:LRA=7:measured_I=-21.22:measured_LRA=12.30:measured_TP=-1.98:measured_thresh=-31.82:offset=-0.41:linear=false:print_format=summary -ar 48k -acodec pcm_s24le out.wav
+
+# More extreme (LRA can't be smaller than 1; results in error):
+
+LRA=1 
+
+# Convert mp4 50 fps to mxf dnxhd 25 fps:
+
+ffmpeg -i “blah.mp4” -c:v dnxhd -s 1920x1080 -r 25 -b:v 115M blah.mxf
+
+# Extract hi q wav from mp4
+
+ffmpeg -i input.mp4 -vn -acodec pcm_s16le -ar 44100 -ac 2 output.wav
+ffmpeg -i "DE_BUITENDIENST_113[GRUWLIJK_ENG][TO_PT_DEEL1].mov" -vn -acodec pcm_s24le -ar 48000 -ac 2 output.wav
+
+# Dnxhd to mov:
+
+ffmpeg -i input.MXF -acodec copy -vcodec libx264 -s 1920x1080 -b:v 5000k  09-1080-pcm24.mov
+
+# 1280p to 720p:
+
+ffmpeg -i video.mp4 -s hd720 -c:v libx264 -crf 23 -c:a aac -strict -2 video_720p.mp4
+
+# MXF to h264 w/o black video:
+
+ffmpeg -i SLAAPWANDELEN_v1_V60EF6464V.mxf -map 0:0 -s hd720 -s 1920x1080 -b:v 5000k -r 25 -c:v h264_nvenc -pix_fmt  yuv420p aap.mov
+
+# Dynamic control:
+
+ffmpeg -i 12p.wav -af "dynaudnorm=f=500:p=0.71:m=25:s=12:g=15:r=1.0:b=1" -acodec pcm_s24le 12x.wav
+
+# Video capture w/ NVidia h264 encoder, Adobe Premiere compatible (q to stop):
+
+ffmpeg -video_size 1920x1057 -framerate 25 -f gdigrab -i title="Stellarium 0.18.2" -c:v h264_nvenc -qp 0 output1.mov
+
+# Convert whatever mp3 to 48 kHz stereo wav (-n skip if exists).
+
+ffmpeg -n -i "Filter2.mp3" -ar 48k -acodec pcm_s24le -ac 2 out.wav
+
+# Info about wav file:
+
+ffprobe "WhatADrag _26.wav" -show_streams
+
+# WMA rips to CD wavs:
+
+ffmpeg -n -i "01 Nummer 1.wma" -ar 44.1k -acodec pcm_s16le -ac 2 01.wav
+
+# Stripping metadata from BWF WAV:
+
+dir /B /S *.wav > a.bat
+
+ffmpeg -i "MD Are you kidding Fiore.wav" -map 0 -map_metadata 0:s:0 -c copy temp.wav
+del "MD Are you kidding Fiore.wav"
+ren temp.wav "MD Are you kidding Fiore.wav"
+
+# Burn TCR into a video file:
+
+ffmpeg.exe -i sunflower.mp4 -vf "drawtext=fontfile=C\\:/Windows/Fonts/arial.ttf:timecode='00\:20\:10\:00':rate=25:text='TCR\:':fontsize=46:fontcolor=white:x=500:y=50: box=1: boxcolor=0x00000000@1" -c:v libx264 -crf 23 -c:a aac -strict -2 video_720p.mp4
+
+# Replace audio mix in video:
+
+ffmpeg -i v.mp4 -i a.wav -c:v copy -map 0:v:0 -map 1:a:0 new.mp4
+
+# Make a client video with burned in TC from MXF + WAV:
+
+ffmpeg -i t1.mxf -i t1.wav -vf "drawtext=fontfile=C\\:/Windows/Fonts/arial.ttf:timecode='00\:00\:00\:00':rate=25:text='TCR\:':fontsize=46:fontcolor=white:x=500:y=50: box=1: boxcolor=0x00000000@1" -map 0:v:0 -map 1:a:0 -s 1920x1080 -b:v 5000k -r 25 -c:v h264_nvenc -pix_fmt yuv420p -c:a aac -strict -2 "check video.mov"
+
+# Super fast h264 encoding via GTX 1080 GPU:
+# (compared to ffmpeg -i "edit Diourgi final.mp4" -c:v h264 test.mov)
+
+ffmpeg -i "edit Diourgi final.mp4" -c:v h264_nvenc test.mov

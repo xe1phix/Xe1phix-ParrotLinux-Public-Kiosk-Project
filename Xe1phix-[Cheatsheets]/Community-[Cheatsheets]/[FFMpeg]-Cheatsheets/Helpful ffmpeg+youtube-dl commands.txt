@@ -1,0 +1,44 @@
+FFMPEG
+
+#Copy video+audio codecs into new container:
+
+ffmpeg -i LostInTranslation.mkv -vcodec copy -acodec copy LostInTranslation.mp4
+
+#Convert all the mkv files in current directory, loop
+
+for i in *mkv; do ffmpeg -i $i -vcodec copy -acodec copy $i.mp4; done
+
+#Cut video in 10 second intervals
+
+ffmpeg -i "F:\input.avi" -c:a libvorbis -f segment -segment_time 10 -c:v libvpx -b:v 3276k -vf scale=1080:-1 -reset_timestamps 1 -map 0 "F:\output%d.webm"
+
+#Concoct multiple files into 1
+
+ffmpeg -i "concat:input1.mpg|input2.mpg|input3.mpg" -c copy output.mpg
+
+#Convert all mp4 files within a folder to mkv
+
+for i in *mp4; do ffmpeg -i $i -vcodec copy -acodec copy $i.mkv; done
+
+for file in *.mp4; do ffmpeg -i "$file" -vcodec copy -acodec copy "${file%.mp4}".mkv; done
+
+#Remove 2nd audio track
+
+-strict experimental -f matroska -map_chapters -1 -map 0:0 -map 0:1 -sn -c:a:0 copy -c:v:0 copy -y
+
+#Convert to MP3 (VBR):
+
+ffmpeg -i input.webm -q:a 0 -map a output.mp3
+
+for %%a in ("*.mp4") do ffmpeg -i "%%a" -vcodec copy -acodec copy F:\Manage\Convert\%%~na.mkv"
+pause
+
+#Merge audio+video files:
+
+ffmpeg -i audio.wav -i video.mp4 -acodec copy -vcodec copy -f mkv output.mkv
+
+YOUTUBE-DL
+
+#Batch download URLs from list
+
+youtube-dl --batch-file='/path/to/list.txt'

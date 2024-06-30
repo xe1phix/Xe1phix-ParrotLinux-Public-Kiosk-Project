@@ -1,0 +1,710 @@
+If in any case this list is deprecated or become invalid, 
+go to: http://www.ffmpeg.org/ffmpeg-doc.html, 
+search for : 
+- Main options
+- Video options
+- Advanced Video options
+- Audio options
+- Advanced Audio options
+- Audio/Video grab options
+- Advanced options
+- Or any other options that's not available at the time of writing
+
+and modify this pastebin entry, then notify me of such notifications if you may :)
+
+
+Main options:
+-L                  show license
+-h                  show help
+-version            show version
+-formats            show available formats, codecs, protocols, ...
+-f fmt              force format
+-img img_fmt        force image format
+-i filename         input file name
+-y                  overwrite output files
+-t duration         set the recording time
+-fs limit_size      set the limit file size
+-ss time_off        set the start time offset
+-itsoffset time_off  set the input ts offset
+-title string       set the title
+-timestamp time     set the timestamp
+-author string      set the author
+-copyright string   set the copyright
+-comment string     set the comment
+-v verbose          control amount of logging
+-target type        specify target file type ("vcd", "svcd", "dvd", "dv", "pal-vcd", "ntsc-svcd", ...)
+-dframes number     set the number of data frames to record
+-hq                 activate high quality settings
+-scodec codec       force subtitle codec ('copy' to copy stream)
+-newsubtitle        add a new subtitle stream to the current output stream
+-slang code         set the ISO 639 language code (3 letters) of the current subtitle stream
+
+Video options:
+-b bitrate          set video bitrate (in kbit/s)
+-vframes number     set the number of video frames to record
+-r rate             set frame rate (Hz value, fraction or abbreviation)
+-s size             set frame size (WxH or abbreviation)
+-aspect aspect      set aspect ratio (4:3, 16:9 or 1.3333, 1.7777)
+-fixaspect          fix aspect ratio
+-croptop size       set top crop band size (in pixels)
+-cropbottom size    set bottom crop band size (in pixels)
+-cropleft size      set left crop band size (in pixels)
+-cropright size     set right crop band size (in pixels)
+-padtop size        set top pad band size (in pixels)
+-padbottom size     set bottom pad band size (in pixels)
+-padleft size       set left pad band size (in pixels)
+-padright size      set right pad band size (in pixels)
+-padcolor color     set color of pad bands (Hex 000000 thru FFFFFF)
+-vn                 disable video
+-bt tolerance       set video bitrate tolerance (in kbit/s)
+-maxrate bitrate    set max video bitrate tolerance (in kbit/s)
+-minrate bitrate    set min video bitrate tolerance (in kbit/s)
+-bufsize size       set ratecontrol buffer size (in kByte)
+-vcodec codec       force video codec ('copy' to copy stream)
+-sameq              use same video quality as source (implies VBR)
+-pass n             select the pass number (1 or 2)
+-passlogfile file   select two pass log file name
+-newvideo           add a new video stream to the current output stream
+
+Advanced Video options:
+-pix_fmt format     set pixel format
+-g gop_size         set the group of picture size
+-intra              use only intra frames
+-vdt n              discard threshold
+-qscale q           use fixed video quantiser scale (VBR)
+-qmin q             min video quantiser scale (VBR)
+-qmax q             max video quantiser scale (VBR)
+-lmin lambda        min video lagrange factor (VBR)
+-lmax lambda        max video lagrange factor (VBR)
+-mblmin q           min macroblock quantiser scale (VBR)
+-mblmax q           max macroblock quantiser scale (VBR)
+-qdiff q            max difference between the quantiser scale (VBR)
+-qblur blur         video quantiser scale blur (VBR)
+-qsquish squish     how to keep quantiser between qmin and qmax (0 = clip, 1 = use differentiable function)
+-qcomp compression  video quantiser scale compression (VBR)
+-rc_init_cplx complexity  initial complexity for 1-pass encoding
+-b_qfactor factor   qp factor between p and b frames
+-i_qfactor factor   qp factor between p and i frames
+-b_qoffset offset   qp offset between p and b frames
+-i_qoffset offset   qp offset between p and i frames
+-ibias bias         intra quant bias
+-pbias bias         inter quant bias
+-rc_eq equation     set rate control equation
+-rc_override override  rate control override for specific intervals
+-me method          set motion estimation method
+-dct_algo algo      set dct algo
+-idct_algo algo     set idct algo
+-me_threshold       motion estimaton threshold
+-mb_threshold       macroblock threshold
+-er n               set error resilience
+-ec bit_mask        set error concealment
+-bf frames          use 'frames' B frames
+-mbd mode           macroblock decision
+-mbcmp cmp function  macroblock compare function
+-ildctcmp cmp function  ildct compare function
+-subcmp cmp function  subpel compare function
+-cmp cmp function   fullpel compare function
+-precmp cmp function  pre motion estimation compare function
+-preme              pre motion estimation
+-lelim elim         single coefficient elimination threshold for luminance (negative values also consider DC coefficient)
+-celim elim         single coefficient elimination threshold for chrominance (negative values also consider DC coefficient)
+-lumi_mask          luminance masking
+-dark_mask          darkness masking
+-scplx_mask         spatial complexity masking
+-tcplx_mask         temporal complexity masking
+-p_mask             inter masking
+-4mv                use four motion vector by macroblock (MPEG4)
+-obmc               use overlapped block motion compensation (h263+)
+-lf                 use loop filter (h263+)
+-part               use data partitioning (MPEG4)
+-bug param          workaround not auto detected encoder bugs
+-strict strictness  how strictly to follow the standards
+-deinterlace        deinterlace pictures
+-ildct              force interlaced dct support in encoder (MPEG2/MPEG4)
+-ilme               force interlaced me support in encoder (MPEG2/MPEG4)
+-psnr               calculate PSNR of compressed frames
+-vstats             dump video coding statistics to file
+-vhook module       insert video processing module
+-aic                enable Advanced intra coding (h263+)
+-aiv                enable Alternative inter vlc (h263+)
+-umv                enable Unlimited Motion Vector (h263+)
+-ssm                enable Slice Structured mode (h263+)
+-alt                enable alternate scantable (MPEG2/MPEG4)
+-qprd               
+-cbp                
+-trell              enable trellis quantization
+-mv0                try to encode each MB with MV=<0,0> and choose the better one (has no effect if mbd=0)
+-naq                normalize adaptive quantization
+-cgop               closed gop
+-sgop               strict gop
+-noout              skip bitstream encoding
+-scan_offset        enable SVCD Scan Offset placeholder
+-qpel               enable 1/4-pel
+-intra_matrix matrix  specify intra matrix coeffs
+-inter_matrix matrix  specify inter matrix coeffs
+-top                top=1/bottom=0/auto=-1 field first
+-nr                 noise reduction
+-qns                quantization noise shaping
+-sc_threshold threshold  scene change threshold
+-me_range range     limit motion vectors range (1023 for DivX player)
+-dc precision       intra_dc_precision
+-coder              coder type
+-context            context model
+-pred               prediction method
+-vprofile           profile
+-vlevel             level
+-nssew              weight
+-subq               
+-mepc factor (1.0 = 256)  motion estimation bitrate penalty compensation
+-lowres             
+-vtag fourcc/tag    force video tag/fourcc
+-skip_threshold threshold  frame skip threshold
+-skip_factor factor  frame skip factor
+-skip_exp exponent  frame skip exponent
+-skip_cmp compare function  frame skip compare function
+-gray               encode/decode grayscale
+
+Audio options:
+-aframes number     set the number of audio frames to record
+-ab bitrate         set audio bitrate (in kbit/s)
+-ar rate            set audio sampling rate (in Hz)
+-ac channels        set number of audio channels
+-an                 disable audio
+-acodec codec       force audio codec ('copy' to copy stream)
+-vol volume         change audio volume (256=normal)
+-newaudio           add a new audio stream to the current output stream
+-alang code         set the ISO 639 language code (3 letters) of the current audio stream
+
+Advanced Audio options:
+-atag fourcc/tag    force audio tag/fourcc
+
+Subtitle options:
+-scodec codec       force subtitle codec ('copy' to copy stream)
+-newsubtitle        add a new subtitle stream to the current output stream
+-slang code         set the ISO 639 language code (3 letters) of the current subtitle stream
+
+Audio/Video grab options:
+-vd device          set video grab device
+-vc channel         set video grab channel (DV1394 only)
+-tvstd standard     set television standard (NTSC, PAL (SECAM))
+-ad device          set audio device
+-grab format        request grabbing using
+-gd device          set grab device
+
+Advanced options:
+-map file:stream[:syncfile:syncstream]  set input stream mapping
+-map_meta_data outfile:infile  set meta data information of outfile from infile
+-debug              print specific debug info
+-vismv              visualize motion vectors
+-benchmark          add timings for benchmarking
+-dump               dump each input packet
+-hex                when dumping packets, also dump the payload
+-bitexact           only use bit exact algorithms (for codec testing)
+-re                 read input at native frame rate
+-loop               loop (current only works with images)
+-loop_output        number of times to loop output in formats that support looping (0 loops forever)
+-threads count      thread count
+-vsync              video sync method
+-async              audio sync method
+-vglobal            video global header storage type
+-copyts             copy timestamps
+-shortest           finish encoding within shortest input
+-b_strategy strategy  dynamic b frame selection strategy
+-ps size            set packet size in bits
+-error rate         error rate
+-muxrate rate       set mux rate
+-packetsize size    set packet size
+-muxdelay seconds   set the maximum demux-decode delay
+-muxpreload seconds  set the initial demux-decode delay
+-muxab bitrate      set the audio bitrate in mux tag (in kbit/s)
+-muxvb bitrate      set the video bitrate in mux tag (in kbit/s)
+
+Complete Explanations as copied from: http://www.ffmpeg.org/ffmpeg-doc.html
+
+3. Options
+
+All the numerical options, if not specified otherwise, accept in input a string representing a number, which may contain one of the International System number postfixes, for example 'K', 'M', 'G'. If 'i' is appended after the postfix, powers of 2 are used instead of powers of 10. The 'B' postfix multiplies the value for 8, and can be appended after another postfix or used alone. This allows using for example 'KB', 'MiB', 'G' and 'B' as postfix.
+
+Options which do not take arguments are boolean options, and set the corresponding value to true. They can be set to false by prefixing with "no" the option name, for example using "-nofoo" in the commandline will set to false the boolean option with name "foo".
+
+3.1 Generic options
+
+These options are shared amongst the ff* tools.
+
+`-L'
+Show license.
+`-h, -?, -help, --help'
+Show help.
+`-version'
+Show version.
+`-formats'
+Show available formats. The fields preceding the format names have the following meanings:
+`D'
+Decoding available
+`E'
+Encoding available
+`-codecs'
+Show available codecs. The fields preceding the codec names have the following meanings:
+`D'
+Decoding available
+`E'
+Encoding available
+`V/A/S'
+Video/audio/subtitle codec
+`S'
+Codec supports slices
+`D'
+Codec supports direct rendering
+`T'
+Codec can handle input truncated at random locations instead of only at frame boundaries
+`-bsfs'
+Show available bitstream filters.
+`-protocols'
+Show available protocols.
+`-filters'
+Show available libavfilter filters.
+`-pix_fmts'
+Show available pixel formats.
+`-loglevel loglevel'
+Set the logging level used by the library. loglevel is a number or a string containing one of the following values:
+`quiet'
+`panic'
+`fatal'
+`error'
+`warning'
+`info'
+`verbose'
+`debug'
+By default the program logs to stderr, if coloring is supported by the terminal, colors are used to mark errors and warnings. Log coloring can be disabled setting the environment variable @env{FFMPEG_FORCE_NOCOLOR} or @env{NO_COLOR}, or can be forced setting the environment variable @env{FFMPEG_FORCE_COLOR}. The use of the environment variable @env{NO_COLOR} is deprecated and will be dropped in a following FFmpeg version.
+3.2 Main options
+
+`-f fmt'
+Force format.
+`-i filename'
+input file name
+`-y'
+Overwrite output files.
+`-t duration'
+Restrict the transcoded/captured video sequence to the duration specified in seconds. hh:mm:ss[.xxx] syntax is also supported.
+`-fs limit_size'
+Set the file size limit.
+`-ss position'
+Seek to given time position in seconds. hh:mm:ss[.xxx] syntax is also supported.
+`-itsoffset offset'
+Set the input time offset in seconds. [-]hh:mm:ss[.xxx] syntax is also supported. This option affects all the input files that follow it. The offset is added to the timestamps of the input files. Specifying a positive offset means that the corresponding streams are delayed by 'offset' seconds.
+`-timestamp time'
+Set the recording timestamp in the container. The syntax for time is:
+now|([(YYYY-MM-DD|YYYYMMDD)[T|t| ]]((HH[:MM[:SS[.m...]]])|(HH[MM[SS[.m...]]]))[Z|z])
+If the value is "now" it takes the current time. Time is local time unless 'Z' or 'z' is appended, in which case it is interpreted as UTC. If the year-month-day part is not specified it takes the current year-month-day.
+`-metadata key=value'
+Set a metadata key/value pair. For example, for setting the title in the output file:
+ffmpeg -i in.avi -metadata title="my title" out.flv
+`-v number'
+Set the logging verbosity level.
+`-target type'
+Specify target file type ("vcd", "svcd", "dvd", "dv", "dv50", "pal-vcd", "ntsc-svcd", ... ). All the format options (bitrate, codecs, buffer sizes) are then set automatically. You can just type:
+ffmpeg -i myfile.avi -target vcd /tmp/vcd.mpg
+Nevertheless you can specify additional options as long as you know they do not conflict with the standard, as in:
+ffmpeg -i myfile.avi -target vcd -bf 2 /tmp/vcd.mpg
+`-dframes number'
+Set the number of data frames to record.
+`-scodec codec'
+Force subtitle codec ('copy' to copy stream).
+`-newsubtitle'
+Add a new subtitle stream to the current output stream.
+`-slang code'
+Set the ISO 639 language code (3 letters) of the current subtitle stream.
+3.3 Video Options
+
+`-b bitrate'
+Set the video bitrate in bit/s (default = 200 kb/s).
+`-vframes number'
+Set the number of video frames to record.
+`-r fps'
+Set frame rate (Hz value, fraction or abbreviation), (default = 25).
+`-s size'
+Set frame size. The format is `wxh' (ffserver default = 160x128, ffmpeg default = same as source). The following abbreviations are recognized:
+`sqcif'
+128x96
+`qcif'
+176x144
+`cif'
+352x288
+`4cif'
+704x576
+`16cif'
+1408x1152
+`qqvga'
+160x120
+`qvga'
+320x240
+`vga'
+640x480
+`svga'
+800x600
+`xga'
+1024x768
+`uxga'
+1600x1200
+`qxga'
+2048x1536
+`sxga'
+1280x1024
+`qsxga'
+2560x2048
+`hsxga'
+5120x4096
+`wvga'
+852x480
+`wxga'
+1366x768
+`wsxga'
+1600x1024
+`wuxga'
+1920x1200
+`woxga'
+2560x1600
+`wqsxga'
+3200x2048
+`wquxga'
+3840x2400
+`whsxga'
+6400x4096
+`whuxga'
+7680x4800
+`cga'
+320x200
+`ega'
+640x350
+`hd480'
+852x480
+`hd720'
+1280x720
+`hd1080'
+1920x1080
+`-aspect aspect'
+Set aspect ratio (4:3, 16:9 or 1.3333, 1.7777).
+`-croptop size'
+`-cropbottom size'
+`-cropleft size'
+`-cropright size'
+All the crop options have been removed. Use -vf crop=width:height:x:y instead.
+`-padtop size'
+`-padbottom size'
+`-padleft size'
+`-padright size'
+`-padcolor hex_color'
+All the pad options have been removed. Use -vf pad=width:height:x:y:color instead.
+`-vn'
+Disable video recording.
+`-bt tolerance'
+Set video bitrate tolerance (in bits, default 4000k). Has a minimum value of: (target_bitrate/target_framerate). In 1-pass mode, bitrate tolerance specifies how far ratecontrol is willing to deviate from the target average bitrate value. This is not related to min/max bitrate. Lowering tolerance too much has an adverse effect on quality.
+`-maxrate bitrate'
+Set max video bitrate (in bit/s). Requires -bufsize to be set.
+`-minrate bitrate'
+Set min video bitrate (in bit/s). Most useful in setting up a CBR encode:
+ffmpeg -i myfile.avi -b 4000k -minrate 4000k -maxrate 4000k -bufsize 1835k out.m2v
+It is of little use elsewise.
+`-bufsize size'
+Set video buffer verifier buffer size (in bits).
+`-vcodec codec'
+Force video codec to codec. Use the copy special value to tell that the raw codec data must be copied as is.
+`-sameq'
+Use same video quality as source (implies VBR).
+`-pass n'
+Select the pass number (1 or 2). It is used to do two-pass video encoding. The statistics of the video are recorded in the first pass into a log file (see also the option -passlogfile), and in the second pass that log file is used to generate the video at the exact requested bitrate. On pass 1, you may just deactivate audio and set output to null, examples for Windows and Unix:
+ffmpeg -i foo.mov -vcodec libxvid -pass 1 -an -f rawvideo -y NUL
+ffmpeg -i foo.mov -vcodec libxvid -pass 1 -an -f rawvideo -y /dev/null
+`-passlogfile prefix'
+Set two-pass log file name prefix to prefix, the default file name prefix is "ffmpeg2pass". The complete file name will be `PREFIX-N.log', where N is a number specific to the output stream.
+`-newvideo'
+Add a new video stream to the current output stream.
+`-vlang code'
+Set the ISO 639 language code (3 letters) of the current video stream.
+`-vf filter_graph'
+filter_graph is a description of the filter graph to apply to the input video. Use the option "-filters" to show all the available filters (including also sources and sinks).
+3.4 Advanced Video Options
+
+`-pix_fmt format'
+Set pixel format. Use 'list' as parameter to show all the supported pixel formats.
+`-sws_flags flags'
+Set SwScaler flags.
+`-g gop_size'
+Set the group of pictures size.
+`-intra'
+Use only intra frames.
+`-vdt n'
+Discard threshold.
+`-qscale q'
+Use fixed video quantizer scale (VBR).
+`-qmin q'
+minimum video quantizer scale (VBR)
+`-qmax q'
+maximum video quantizer scale (VBR)
+`-qdiff q'
+maximum difference between the quantizer scales (VBR)
+`-qblur blur'
+video quantizer scale blur (VBR) (range 0.0 - 1.0)
+`-qcomp compression'
+video quantizer scale compression (VBR) (default 0.5). Constant of ratecontrol equation. Recommended range for default rc_eq: 0.0-1.0
+`-lmin lambda'
+minimum video lagrange factor (VBR)
+`-lmax lambda'
+max video lagrange factor (VBR)
+`-mblmin lambda'
+minimum macroblock quantizer scale (VBR)
+`-mblmax lambda'
+maximum macroblock quantizer scale (VBR) These four options (lmin, lmax, mblmin, mblmax) use 'lambda' units, but you may use the QP2LAMBDA constant to easily convert from 'q' units:
+ffmpeg -i src.ext -lmax 21*QP2LAMBDA dst.ext
+`-rc_init_cplx complexity'
+initial complexity for single pass encoding
+`-b_qfactor factor'
+qp factor between P- and B-frames
+`-i_qfactor factor'
+qp factor between P- and I-frames
+`-b_qoffset offset'
+qp offset between P- and B-frames
+`-i_qoffset offset'
+qp offset between P- and I-frames
+`-rc_eq equation'
+Set rate control equation (see section "Expression Evaluation") (default = tex^qComp). When computing the rate control equation expression, besides the standard functions defined in the section "Expression Evaluation", the following functions are available:
+bits2qp(bits)
+qp2bits(qp)
+and the following constants are available:
+iTex
+pTex
+tex
+mv
+fCode
+iCount
+mcVar
+var
+isI
+isP
+isB
+avgQP
+qComp
+avgIITex
+avgPITex
+avgPPTex
+avgBPTex
+avgTex
+`-rc_override override'
+rate control override for specific intervals
+`-me_method method'
+Set motion estimation method to method. Available methods are (from lowest to best quality):
+`zero'
+Try just the (0, 0) vector.
+`phods'
+`log'
+`x1'
+`hex'
+`umh'
+`epzs'
+(default method)
+`full'
+exhaustive search (slow and marginally better than epzs)
+`-dct_algo algo'
+Set DCT algorithm to algo. Available values are:
+`0'
+FF_DCT_AUTO (default)
+`1'
+FF_DCT_FASTINT
+`2'
+FF_DCT_INT
+`3'
+FF_DCT_MMX
+`4'
+FF_DCT_MLIB
+`5'
+FF_DCT_ALTIVEC
+`-idct_algo algo'
+Set IDCT algorithm to algo. Available values are:
+`0'
+FF_IDCT_AUTO (default)
+`1'
+FF_IDCT_INT
+`2'
+FF_IDCT_SIMPLE
+`3'
+FF_IDCT_SIMPLEMMX
+`4'
+FF_IDCT_LIBMPEG2MMX
+`5'
+FF_IDCT_PS2
+`6'
+FF_IDCT_MLIB
+`7'
+FF_IDCT_ARM
+`8'
+FF_IDCT_ALTIVEC
+`9'
+FF_IDCT_SH4
+`10'
+FF_IDCT_SIMPLEARM
+`-er n'
+Set error resilience to n.
+`1'
+FF_ER_CAREFUL (default)
+`2'
+FF_ER_COMPLIANT
+`3'
+FF_ER_AGGRESSIVE
+`4'
+FF_ER_VERY_AGGRESSIVE
+`-ec bit_mask'
+Set error concealment to bit_mask. bit_mask is a bit mask of the following values:
+`1'
+FF_EC_GUESS_MVS (default = enabled)
+`2'
+FF_EC_DEBLOCK (default = enabled)
+`-bf frames'
+Use 'frames' B-frames (supported for MPEG-1, MPEG-2 and MPEG-4).
+`-mbd mode'
+macroblock decision
+`0'
+FF_MB_DECISION_SIMPLE: Use mb_cmp (cannot change it yet in FFmpeg).
+`1'
+FF_MB_DECISION_BITS: Choose the one which needs the fewest bits.
+`2'
+FF_MB_DECISION_RD: rate distortion
+`-4mv'
+Use four motion vector by macroblock (MPEG-4 only).
+`-part'
+Use data partitioning (MPEG-4 only).
+`-bug param'
+Work around encoder bugs that are not auto-detected.
+`-strict strictness'
+How strictly to follow the standards.
+`-aic'
+Enable Advanced intra coding (h263+).
+`-umv'
+Enable Unlimited Motion Vector (h263+)
+`-deinterlace'
+Deinterlace pictures.
+`-ilme'
+Force interlacing support in encoder (MPEG-2 and MPEG-4 only). Use this option if your input file is interlaced and you want to keep the interlaced format for minimum losses. The alternative is to deinterlace the input stream with `-deinterlace', but deinterlacing introduces losses.
+`-psnr'
+Calculate PSNR of compressed frames.
+`-vstats'
+Dump video coding statistics to `vstats_HHMMSS.log'.
+`-vstats_file file'
+Dump video coding statistics to file.
+`-top n'
+top=1/bottom=0/auto=-1 field first
+`-dc precision'
+Intra_dc_precision.
+`-vtag fourcc/tag'
+Force video tag/fourcc.
+`-qphist'
+Show QP histogram.
+`-vbsf bitstream_filter'
+Bitstream filters available are "dump_extra", "remove_extra", "noise", "h264_mp4toannexb", "imxdump", "mjpegadump", "mjpeg2jpeg".
+ffmpeg -i h264.mp4 -vcodec copy -vbsf h264_mp4toannexb -an out.h264
+`-force_key_frames time[,time...]'
+Force key frames at the specified timestamps, more precisely at the first frames after each specified time. This option can be useful to ensure that a seek point is present at a chapter mark or any other designated place in the output file. The timestamps must be specified in ascending order.
+3.5 Audio Options
+
+`-aframes number'
+Set the number of audio frames to record.
+`-ar freq'
+Set the audio sampling frequency (default = 44100 Hz).
+`-ab bitrate'
+Set the audio bitrate in bit/s (default = 64k).
+`-aq q'
+Set the audio quality (codec-specific, VBR).
+`-ac channels'
+Set the number of audio channels. For input streams it is set by default to 1, for output streams it is set by default to the same number of audio channels in input. If the input file has audio streams with different channel count, the behaviour is undefined.
+`-an'
+Disable audio recording.
+`-acodec codec'
+Force audio codec to codec. Use the copy special value to specify that the raw codec data must be copied as is.
+`-newaudio'
+Add a new audio track to the output file. If you want to specify parameters, do so before -newaudio (-acodec, -ab, etc..). Mapping will be done automatically, if the number of output streams is equal to the number of input streams, else it will pick the first one that matches. You can override the mapping using -map as usual. Example:
+ffmpeg -i file.mpg -vcodec copy -acodec ac3 -ab 384k test.mpg -acodec mp2 -ab 192k -newaudio
+`-alang code'
+Set the ISO 639 language code (3 letters) of the current audio stream.
+3.6 Advanced Audio options:
+
+`-atag fourcc/tag'
+Force audio tag/fourcc.
+`-absf bitstream_filter'
+Bitstream filters available are "dump_extra", "remove_extra", "noise", "mp3comp", "mp3decomp".
+3.7 Subtitle options:
+
+`-scodec codec'
+Force subtitle codec ('copy' to copy stream).
+`-newsubtitle'
+Add a new subtitle stream to the current output stream.
+`-slang code'
+Set the ISO 639 language code (3 letters) of the current subtitle stream.
+`-sn'
+Disable subtitle recording.
+`-sbsf bitstream_filter'
+Bitstream filters available are "mov2textsub", "text2movsub".
+ffmpeg -i file.mov -an -vn -sbsf mov2textsub -scodec copy -f rawvideo sub.txt
+3.8 Audio/Video grab options
+
+`-vc channel'
+Set video grab channel (DV1394 only).
+`-tvstd standard'
+Set television standard (NTSC, PAL (SECAM)).
+`-isync'
+Synchronize read on input.
+3.9 Advanced options
+
+`-map input_stream_id[:sync_stream_id]'
+Set stream mapping from input streams to output streams. Just enumerate the input streams in the order you want them in the output. sync_stream_id if specified sets the input stream to sync against.
+`-map_meta_data outfile[,metadata]:infile[,metadata]'
+Set meta data information of outfile from infile. Note that those are file indices (zero-based), not filenames. Optional metadata parameters specify, which metadata to copy - (g)lobal (i.e. metadata that applies to the whole file), per-(s)tream, per-(c)hapter or per-(p)rogram. All metadata specifiers other than global must be followed by the stream/chapter/program number. If metadata specifier is omitted, it defaults to global. By default, global metadata is copied from the first input file to all output files, per-stream and per-chapter metadata is copied along with streams/chapters. These default mappings are disabled by creating any mapping of the relevant type. A negative file index can be used to create a dummy mapping that just disables automatic copying. For example to copy metadata from the first stream of the input file to global metadata of the output file:
+ffmpeg -i in.ogg -map_meta_data 0:0,s0 out.mp3
+`-map_chapters outfile:infile'
+Copy chapters from infile to outfile. If no chapter mapping is specified, then chapters are copied from the first input file with at least one chapter to all output files. Use a negative file index to disable any chapter copying.
+`-debug'
+Print specific debug info.
+`-benchmark'
+Show benchmarking information at the end of an encode. Shows CPU time used and maximum memory consumption. Maximum memory consumption is not supported on all systems, it will usually display as 0 if not supported.
+`-dump'
+Dump each input packet.
+`-hex'
+When dumping packets, also dump the payload.
+`-bitexact'
+Only use bit exact algorithms (for codec testing).
+`-ps size'
+Set RTP payload size in bytes.
+`-re'
+Read input at native frame rate. Mainly used to simulate a grab device.
+`-loop_input'
+Loop over the input stream. Currently it works only for image streams. This option is used for automatic FFserver testing.
+`-loop_output number_of_times'
+Repeatedly loop output for formats that support looping such as animated GIF (0 will loop the output infinitely).
+`-threads count'
+Thread count.
+`-vsync parameter'
+Video sync method. 0 Each frame is passed with its timestamp from the demuxer to the muxer 1 Frames will be duplicated and dropped to achieve exactly the requested constant framerate. 2 Frames are passed through with their timestamp or dropped so as to prevent 2 frames from having the same timestamp -1 Chooses between 1 and 2 depending on muxer capabilities. This is the default method. With -map you can select from which stream the timestamps should be taken. You can leave either video or audio unchanged and sync the remaining stream(s) to the unchanged one.
+`-async samples_per_second'
+Audio sync method. "Stretches/squeezes" the audio stream to match the timestamps, the parameter is the maximum samples per second by which the audio is changed. -async 1 is a special case where only the start of the audio stream is corrected without any later correction.
+`-copyts'
+Copy timestamps from input to output.
+`-shortest'
+Finish encoding when the shortest input stream ends.
+`-dts_delta_threshold'
+Timestamp discontinuity delta threshold.
+`-muxdelay seconds'
+Set the maximum demux-decode delay.
+`-muxpreload seconds'
+Set the initial demux-decode delay.
+`-streamid output-stream-index:new-value'
+Assign a new value to a stream's stream-id field in the next output file. All stream-id fields are reset to default for each output file. For example, to set the stream 0 PID to 33 and the stream 1 PID to 36 for an output mpegts file:
+ffmpeg -i infile -streamid 0:33 -streamid 1:36 out.ts
+3.10 Preset files
+
+A preset file contains a sequence of option=value pairs, one for each line, specifying a sequence of options which would be awkward to specify on the command line. Lines starting with the hash ('#') character are ignored and are used to provide comments. Check the `ffpresets' directory in the FFmpeg source tree for examples.
+
+Preset files are specified with the vpre, apre, spre, and fpre options. The fpre option takes the filename of the preset instead of a preset name as input and can be used for any kind of codec. For the vpre, apre, and spre options, the options specified in a preset file are applied to the currently selected codec of the same type as the preset option.
+
+The argument passed to the vpre, apre, and spre preset options identifies the preset file to use according to the following rules:
+
+First ffmpeg searches for a file named arg.ffpreset in the directories `$FFMPEG_DATADIR' (if set), and `$HOME/.ffmpeg', and in the datadir defined at configuration time (usually `PREFIX/share/ffmpeg') in that order. For example, if the argument is libx264-max, it will search for the file `libx264-max.ffpreset'.
+
+If no such file is found, then ffmpeg will search for a file named codec_name-arg.ffpreset in the above-mentioned directories, where codec_name is the name of the codec to which the preset file options will be applied. For example, if you select the video codec with -vcodec libx264 and use -vpre max, then it will search for the file `libx264-max.ffpreset'.

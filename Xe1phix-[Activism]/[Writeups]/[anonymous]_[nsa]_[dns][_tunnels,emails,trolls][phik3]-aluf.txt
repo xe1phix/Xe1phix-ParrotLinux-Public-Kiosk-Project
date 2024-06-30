@@ -1,0 +1,4298 @@
+PRETENTIOUS MINIATURE PRESS RELEASE:
+Greetings, National "Security" Agency -- and our followers whom we love so much:
+ 
+This may look like a small release, but it's actually huge. See, we hacked the NSA yet again because we just love doing that. These are DNS tunnels that are sending encrypted data to and from the PRISM databases. We have the IP's of those servers. If you crash these servers with DDoS, you literally render PRISM "broken". We are also planning to release some of that data (which we have access to) if we can decrypt it. So anyway. Hit these -- you hit PRISM. And die in the Matrix, you die in real life, etc etc.
+ 
+ 
+SLIGHTLY TECHNICAL INFORMATION THAT MEANS NOTHING TO A LOT OF PEOPLE:
+ns3-194.akamaiedge.net                   56923    IN    A        23.61.199.194                                                                                                                  
+lar7.akamaiedge.net                      64613    IN    A        222.122.64.131
+la11.akamaiedge.net                      90000    IN    A        213.254.238.131
+lac1.akamaiedge.net                      90000    IN    A        193.108.88.1
+la6.akamaiedge.net                       70352    IN    A        96.7.50.192
+ns6-194.akamaiedge.net                   90000    IN    A        95.100.168.194
+ns7-194.akamaiedge.net                   90000    IN    A        96.7.49.194
+lar2.akamaiedge.net                      84886    IN    A        2.16.40.192
+la1.akamaiedge.net                       53942    IN    A        184.26.161.192
+lar6.akamaiedge.net                      54809    IN    A        195.59.44.137
+la7.akamaiedge.net                       39448    IN    A        96.17.144.197
+ns5-194.akamaiedge.net                   35282    IN    A        184.85.248.194
+la3.akamaiedge.net                       39672    IN    A        96.7.251.131
+ 
+
+EMAILS HACK 2014 NOV
+####################
+nic@nsa.gov|01041401
+enc@nsa.gov|kddngs
+info@nsa.gov|a24nvzm
+rthosfe@nsa.gov|020305
+digreen@nsa.gov|nikitaruru
+dirnsa@nsa.gov|Sandstorm123
+nmwhee2@nsa.gov|ahmad16
+bshalks@nsa.gov|123456789
+everdich@nsa.gov|A7md3laa
+dbmuzzy@nsa.gov|08803306
+bkind@nsa.gov|6ue4ever
+bmcrumm@nsa.gov|goodman
+foiarsc@nsa.gov|abx2920
+postmaster@nsa.gov|Molu123
+
+
+PART 2
+######
+
+
+| E-mails:
+| [+] E-mail Found: kjbesel@nsa.gov
+| [+] E-mail Found: gminemier@cryptek.com
+| [+] E-mail Found: sds@moss-huskers.epoch.ncsc.mil
+| [+] E-mail Found: tech_transfer@nsa.gov
+| [+] E-mail Found: cmc@radium.ncsc.mil
+| [+] E-mail Found: jwcart2@tycho.nsa.gov
+| [+] E-mail Found: grants@nsa.gov
+| [+] E-mail Found: carl.hansen@viasat.com
+| [+] E-mail Found: nsapao@nssa.gov
+| [+] E-mail Found: nsets@nsa.gov
+| [+] E-mail Found: useum@nsa.gov
+| [+] E-mail Found: loscocco@tycho.nsa.go
+| [+] E-mail Found: foialo@nsa.gov
+| [+] E-mail Found: linux-security-module@wirex.com
+| [+] E-mail Found: ewalsh@tycho.nsa.gov
+| [+] E-mail Found: foianet@nsa.gov
+| [+] E-mail Found: csdsr@nsa.gov
+| [+] E-mail Found: selinux@tycho.nsa.gov
+| [+] E-mail Found: harry.gaul@gdc4s.com
+| [+] E-mail Found: loscocco@tycho.nsa.gov
+| [+] E-mail Found: iaevents@nsa.gov
+| [+] E-mail Found: terry.pinder@ngc.com
+| [+] E-mail Found: smart@asee.org
+| [+] E-mail Found: ps@nsa.gov
+| [+] E-mail Found: tromer@cs.tau.ac.il
+| [+] E-mail Found: dgavin@cissecure.com
+| [+] E-mail Found: ssmalley@nai.com
+| [+] E-mail Found: csfc@nsa.gov
+| [+] E-mail Found: sds@tycho.nsa.gov
+| [+] E-mail Found: tnw_email@tycho.ncsc.mil
+| [+] E-mail Found: www-ptex@ascii.co.jp
+| [+] E-mail Found: customercare@nsa.gov
+| [+] E-mail Found: nsaarc@nsaarc.net
+| [+] E-mail Found: pal@epoch.ncsc.mil
+| [+] E-mail Found: mobility@nsa.gov
+| [+] E-mail Found: scheme-comments@niap-ccevs.org
+| [+] E-mail Found: npsc@nmsu.edu
+| [+] E-mail Found: wsalamon@nai.com
+| [+] E-mail Found: cvance@nai.com
+| [+] E-mail Found: ljmcwee@nsa.gov
+| [+] E-mail Found: selinux-team@epoch.ncsc.mil
+| [+] E-mail Found: ance@nai.com
+| [+] E-mail Found: selinux-owner@tycho.nsa.gov
+| [+] E-mail Found: eeod@nsa.gov
+| [+] E-mail Found: smaley1@csc.com
+| [+] E-mail Found: alusa@dtb.com
+| [+] E-mail Found: pisa@nsa.gov
+| [+] E-mail Found: debbie.cremin@gdc4s.com
+| [+] E-mail Found: urke@advprograms.com
+| [+] E-mail Found: ist@nsa.gov
+| [+] E-mail Found: sds@tislabs.com
+| [+] E-mail Found: i@nsa.gov
+| [+] E-mail Found: alexch@csail.mit.edu
+| [+] E-mail Found: askcaeia@nsa.gov
+| [+] E-mail Found: mspgrants@nsa.gov
+| [+] E-mail Found: loscocco@tycho.n
+| [+] E-mail Found: nterns@nsa.gov
+| [+] E-mail Found: tfraser@tislabs.com
+| [+] E-mail Found: selinux-join@tycho.nsa.gov
+| [+] E-mail Found: pal@epoch.ncsc.m
+| [+] E-mail Found: jbooher@aydincs.com
+| [+] E-mail Found: cap@nsa.gov
+| [+] E-mail Found: selinux-team@tycho.nsa.gov
+| [+] E-mail Found: frank.compton@ngc.com
+| [+] E-mail Found: csfc_reg@nsa.gov
+| [+] E-mail Found: dkilpatr@nai.com
+| [+] E-mail Found: sds@epoch.ncsc.mil
+| [+] E-mail Found: y@nai.com
+| [+] E-mail Found: dialogue@ec.ncsc.mil
+| [+] E-mail Found: mepp@nsa.gov
+| [+] E-mail Found: mbgrego@tycho.nsa.gov
+| [+] E-mail Found: foiarsc@nsa.gov
+| [+] E-mail Found: teve.lusk@viasat.com
+| [+] E-mail Found: history@nsa.gov
+| [+] E-mail Found: john.bacher@gdc4s.com
+| [+] E-mail Found: bburbacher@advprograms.com
+| [+] E-mail Found: ewalsh@epoch.ncsc.mil
+| [+] E-mail Found: majordomo@tycho.nsa.gov
+| [+] E-mail Found: niarl@tycho.ncsc.mil
+| [+] E-mail Found: nsapao@nsa.gov
+| [+] E-mail Found: cryptmf@aol.com
+| [+] E-mail Found: smallbusiness@nsa.gov
+| [+] E-mail Found: doug.gardner@viasat.com
+| [+] E-mail Found: hap@nsa.gov
+| [+] E-mail Found: jwcart2@epoch.ncsc.mil
+| [+] E-mail Found: oorde@harris.com
+
+
+EMAILS 2013
+###########
+
+Emails:
+1@nsa.gov
+50B8B47F.5050206@tycho.nsa.gov
+50B8B9BF.7000802@tycho.nsa.gov
+5148951D.3000501@tycho.nsa.gov
+abelleq@nsa.gov
+admin@nsa.gov
+alamo@nsa.gov
+askcaeiae@nsa.gov
+backdoor@nsa.gov
+BAO@nsa.gov
+bill.gates@nsa.gov
+blacken@nsa.gov
+bshalks@nsa.gov
+ccammon@nsa.gov
+cgbook2@tycho.nsa.gov
+cjones7@nsa.gov
+customercare@nsa.gov
+cyberman@dmca.nsa.gov
+cyberman@nsa.gov
+davidoff@nsa.gov
+ddt@nsa.gov
+dfmuzzy@nsa.gov
+dgdegra@tycho.nsa.gov
+dirnsa@nsa.gov
+djmath2@nsa.gov
+dpquigl@tycho.nsa.gov
+ebcogde@nsa.gov
+echelon@nsa.gov
+enc@nsa.gov
+everdich@nsa.gov
+ewalsh@tycho.nsa.gov
+GateKeeper@nsa.gov
+gmw@tycho.nsa.gov
+HAIPE_PO@nsa.gov
+hap10@tycho.nsa.gov
+hlmccol@nsa.gov
+hutcheson@nsa.gov
+info@nsa.gov
+iplarse@nsa.gov
+ist@nsa.gov
+jbutcher@nsa.gov
+jdwill2@nsa.gov
+jnoble@nsa.gov
+jpbobin@nsa.gov
+jsmatot@nsa.gov
+jwalsm@nsa.gov
+KBalex2@nsa.gov
+KBalexanderLTG@nsa.gov
+kea@nsa.gov
+keysign@intsec.nsa.gov
+kjbesel@nsa.gov
+krborde@tycho.nsa.gov
+lcastr2@nsa.gov
+lfdy@nsa.gov
+list@tycho.nsa.gov
+ljmcwee@nsa.gov
+loscocco@tycho.nsa.gov
+magebha@tycho.nsa.gov
+majordomo@tycho.nsa.gov
+math@nsa.gov
+mhutcheson@nsa.gov
+Michael.Winters@nsa.gov
+mlcrame@nsa.gov
+mtc@nsa.gov
+ndo@nsa.gov
+NIASC@nsa.gov
+nic@nsa.gov
+nic@nsa.gov
+nmwhee2@nsa.gov
+noreply@nsa.gov
+nsapao@nsa.gov
+officer@nsa.gov
+op_sec@nsa.gov
+opus38@nsa.gov
+plgillm@nsa.gov
+postmaster@nsa.gov
+rem_opsec@nsa.gov
+rftygar@nsa.gov
+rpcraigg@tycho.nsa.gov
+rthosfe@nsa.gov
+sample@nsa.gov
+sds@tycho.nsa.gov
+seandroid@tycho.nsa.gov
+selinux@tycho.nsa.gov
+snac.guides@nsa.gov
+ssilver@nsa.gov
+tdlee6@nsa.gov
+team@tycho.nsa.gov
+tesmith@nsa.gov
+tomashv@crypto.nsa.gov
+trooper@nsa.gov
+tyme@dockmaster.nsa.gov
+w2kguides@nsa.gov
+wbmarti@tycho.nsa.gov
+XPGuides@nsa.gov
+xzglgg@nsa.gov
+
+
+##################
+NSA EMAILS 2015###
+##################
+
+
+
+E-mails:
+| [+] E-mail : kjbesel@nsa.gov
+| [+] E-mail : gminemier@cryptek.com
+| [+] E-mail : sds@moss-huskers.epoch.ncsc.mil
+| [+] E-mail : tech_transfer@nsa.gov
+| [+] E-mail : cmc@radium.ncsc.mil
+| [+] E-mail : jwcart2@tycho.nsa.gov
+| [+] E-mail : grants@nsa.gov
+| [+] E-mail : carl.hansen@viasat.com
+| [+] E-mail : nsapao@nssa.gov
+| [+] E-mail : nsets@nsa.gov
+| [+] E-mail : useum@nsa.gov
+| [+] E-mail : loscocco@tycho.nsa.go
+| [+] E-mail : foialo@nsa.gov
+| [+] E-mail : linux-security-module@wirex.com
+| [+] E-mail : ewalsh@tycho.nsa.gov
+| [+] E-mail : foianet@nsa.gov
+| [+] E-mail : csdsr@nsa.gov
+| [+] E-mail : selinux@tycho.nsa.gov
+| [+] E-mail : harry.gaul@gdc4s.com
+| [+] E-mail : loscocco@tycho.nsa.gov
+| [+] E-mail : iaevents@nsa.gov
+| [+] E-mail : terry.pinder@ngc.com
+| [+] E-mail : smart@asee.org
+| [+] E-mail : ps@nsa.gov
+| [+] E-mail : tromer@cs.tau.ac.il
+| [+] E-mail : dgavin@cissecure.com
+| [+] E-mail : ssmalley@nai.com
+| [+] E-mail : csfc@nsa.gov
+| [+] E-mail : sds@tycho.nsa.gov
+| [+] E-mail : tnw_email@tycho.ncsc.mil
+| [+] E-mail : www-ptex@ascii.co.jp
+| [+] E-mail : customercare@nsa.gov
+| [+] E-mail : nsaarc@nsaarc.net
+| [+] E-mail : pal@epoch.ncsc.mil
+| [+] E-mail : mobility@nsa.gov
+| [+] E-mail : scheme-comments@niap-ccevs.org
+| [+] E-mail : npsc@nmsu.edu
+| [+] E-mail : wsalamon@nai.com
+| [+] E-mail : cvance@nai.com
+| [+] E-mail : ljmcwee@nsa.gov
+| [+] E-mail : selinux-team@epoch.ncsc.mil
+| [+] E-mail : ance@nai.com
+| [+] E-mail : selinux-owner@tycho.nsa.gov
+| [+] E-mail : eeod@nsa.gov
+| [+] E-mail : smaley1@csc.com
+| [+] E-mail : alusa@dtb.com
+| [+] E-mail : pisa@nsa.gov
+| [+] E-mail : debbie.cremin@gdc4s.com
+| [+] E-mail : urke@advprograms.com
+
+
+     _                                                      
+    / \   _ __   ___  _ __  _   _ _ __ ___   ___  _   _ ___ #ALUF
+   / _ \ | '_ \ / _ \| '_ \| | | | '_ ` _ \ / _ \| | | / __|#IS
+  / ___ \| | | | (_) | | | | |_| | | | | | | (_) | |_| \__ \#THE
+ /_/   \_\_| |_|\___/|_| |_|\__, |_| |_| |_|\___/ \__,_|___/#GOD
+                            |___/       
+TROLLS
+######
+
+
+#TROLLtheNSA
+ 
+Fuck you NSA.
+ 
+So, you want to troll the NSA do you? Ok, here are some suggestions... every email you send, make sure you send the entire group of key words along with it under the messaged you just typed with a brief description of why you are doing so.
+Example:
+The list of words below are key words that the NSA targets for monitoring on their #Prism system.  I am protesting the monitoring and illegal activities that are directly bypassing the 4th Amendment to the Constitution of the United States.
+Or, you could just email your friends and family crazy emails scripted with the words enclosed.  Besides email; you can use these words on social media such as twitter or FedBook.
+ 
+***  Good luck, and happy trolling.  ***
+ 
+And the full list for your browsing pleasure:
+ 
+Waihopai, INFOSEC, Information Security, Information Warfare, IW, IS, Priavacy, Information Terrorism, Terrorism Defensive Information, Defense Information Warfare, Offensive Information, Offensive Information Warfare, National Information Infrastructure, InfoSec, Reno, Compsec, Computer Terrorism, Firewalls, Secure Internet Connections, ISS, Passwords, DefCon V, Hackers, Encryption, Espionage, USDOJ, NSA, CIA, S/Key, SSL, FBI, Secert Service, USSS, Defcon, Military, White House, Undercover, NCCS, Mayfly, PGP, PEM, RSA, Perl-RSA, MSNBC, bet, AOL, AOL TOS, CIS, CBOT, AIMSX, STARLAN, 3B2, BITNET, COSMOS, DATTA, E911, FCIC, HTCIA, IACIS, UT/RUS, JANET, JICC, ReMOB, LEETAC, UTU, VNET, BRLO, BZ, CANSLO, CBNRC, CIDA, JAVA, Active X, Compsec 97, LLC, DERA, Mavricks, Meta-hackers, ^?, Steve Case, Tools, Telex, Military Intelligence, Scully, Flame, Infowar, Bubba, Freeh, Archives, Sundevil, jack, Investigation, ISACA, NCSA, spook words, Verisign, Secure, ASIO, Lebed, ICE, NRO, Lexis-Nexis, NSCT, SCIF, FLiR, Lacrosse, Flashbangs, HRT, DIA, USCOI, CID, BOP, FINCEN, FLETC, NIJ, ACC, AFSPC, BMDO, NAVWAN, NRL, RL, NAVWCWPNS, NSWC, USAFA, AHPCRC, ARPA, LABLINK, USACIL, USCG, NRC, ~, CDC, DOE, FMS, HPCC, NTIS, SEL, USCODE, CISE, SIRC, CIM, ISN, DJC, SGC, UNCPCJ, CFC, DREO, CDA, DRA, SHAPE, SACLANT, BECCA, DCJFTF, HALO, HAHO, FKS, 868, GCHQ, DITSA, SORT, AMEMB, NSG, HIC, EDI, SAS, SBS, UDT, GOE, DOE, GEO, Masuda, Forte, AT, GIGN, Exon Shell, CQB, CONUS, CTU, RCMP, GRU, SASR, GSG-9, 22nd SAS, GEOS, EADA, BBE, STEP, Echelon, Dictionary, MD2, MD4, MDA, MYK, 747,777, 767, MI5, 737, MI6, 757, Kh-11, Shayet-13, SADMS, Spetznaz, Recce, 707, CIO, NOCS, Halcon, Duress, RAID, Psyops, grom, D-11, SERT, VIP, ARC, S.E.T. Team, MP5k, DREC, DEVGRP, DF, DSD, FDM, GRU, LRTS, SIGDEV, NACSI, PSAC, PTT, RFI, SIGDASYS, TDM. SUKLO, SUSLO, TELINT, TEXTA. ELF, LF, MF, VHF, UHF, SHF, SASP, WANK, Colonel, domestic disruption, smuggle, 15kg, nitrate, Pretoria, M-14, enigma, Bletchley Park, Clandestine, nkvd, argus, afsatcom, CQB, NVD, Counter Terrorism Security, Rapid Reaction, Corporate Security, Police, sniper, PPS, ASIS, ASLET, TSCM, Security Consulting, High Security, Security Evaluation, Electronic Surveillance, MI-17, Counterterrorism, spies, eavesdropping, debugging, interception, COCOT, rhost, rhosts, SETA, Amherst, Broadside, Capricorn, Gamma, Gorizont, Guppy, Ionosphere, Mole, Keyhole, Kilderkin, Artichoke, Badger, Cornflower, Daisy, Egret, Iris, Hollyhock, Jasmine, Juile, Vinnell, B.D.M.,Sphinx, Stephanie, Reflection, Spoke, Talent, Trump, FX, FXR, IMF, POCSAG, Covert Video, Intiso, r00t, lock picking, Beyond Hope, csystems, passwd, 2600 Magazine, Competitor, EO, Chan, Alouette,executive, Event Security, Mace, Cap-Stun, stakeout, ninja, ASIS, ISA, EOD, Oscor, Merlin, NTT, SL-1, Rolm, TIE, Tie-fighter, PBX, SLI, NTT, MSCJ, MIT, 69, RIT, Time, MSEE, Cable & Wireless, CSE, Embassy, ETA, Porno, Fax, finks, Fax encryption, white noise, pink noise, CRA, M.P.R.I., top secret, Mossberg, 50BMG, Macintosh Security, Macintosh Internet Security, Macintosh Firewalls, Unix Security, VIP Protection, SIG, sweep, Medco, TRD, TDR, sweeping, TELINT, Audiotel, Harvard, 1080H, SWS, Asset, Satellite imagery, force, Cypherpunks, Coderpunks, TRW, remailers, replay, redheads, RX-7, explicit, FLAME, Pornstars, AVN, Playboy, Anonymous, Sex, chaining, codes, Nuclear, 20, subversives, SLIP, toad, fish, data havens, unix, c, a, b, d, the, Elvis, quiche, DES, 1*, NATIA, NATOA, sneakers, counterintelligence, industrial espionage, PI, TSCI, industrial intelligence, H.N.P., Juiliett Class Submarine, Locks, loch, Ingram Mac-10, sigvoice, ssa, E.O.D., SEMTEX, penrep, racal, OTP, OSS, Blowpipe, CCS, GSA, Kilo Class, squib, primacord, RSP, Becker, Nerd, fangs, Austin, Comirex, GPMG, Speakeasy, humint, GEODSS, SORO, M5, ANC, zone, SBI, DSS, S.A.I.C., Minox, Keyhole, SAR, Rand Corporation, Wackenhutt, EO, Wackendude, mol, Hillal, GGL, CTU, botux, Virii, CCC, Blacklisted 411, Internet Underground, XS4ALL, Retinal Fetish, Fetish, Yobie, CTP, CATO, Phon-e, Chicago Posse, l0ck, spook keywords, PLA, TDYC, W3, CUD, CdC, Weekly World News, Zen, World Domination, Dead, GRU, M72750, Salsa, 7, Blowfish, Gorelick, Glock, Ft. Meade, press-release, Indigo, wire transfer, e-cash, Bubba the Love Sponge, Digicash, zip, SWAT, Ortega, PPP, crypto-anarchy, AT&T, SGI, SUN, MCI, Blacknet, Middleman, KLM, Blackbird, plutonium, Texas, jihad, SDI, Uzi, Fort Meade, supercomputer, bullion, 3, Blackmednet, Propaganda, ABC, Satellite phones, Planet-1, cryptanalysis, nuclear, FBI, Panama, fissionable, Sears Tower, NORAD, Delta Force, SEAL, virtual, Dolch, secure shell, screws, Black-Ops, Area51, SABC, basement, data-haven, black-bag, TEMPSET, Goodwin, rebels, ID, MD5, IDEA, garbage, market, beef, Stego, unclassified, utopia, orthodox, Alica, SHA, Global, gorilla, Bob, Pseudonyms, MITM, Gray Data, VLSI, mega, Leitrim, Yakima, Sugar Grove, Cowboy, Gist, 8182, Gatt, Platform, 1911, Geraldton, UKUSA, veggie, 3848, Morwenstow, Consul, Oratory, Pine Gap, Menwith, Mantis, DSD, BVD, 1984, Flintlock, cybercash, government, hate, speedbump, illuminati, president, freedom, cocaine, $, Roswell, ESN, COS, E.T., credit card, b9, fraud, assasinate, virus, anarchy, rogue, mailbomb, 888, Chelsea, 1997, Whitewater, MOD, York, plutonium, William Gates, clone, BATF, SGDN, Nike, Atlas, Delta, TWA, Kiwi, PGP 2.6.2., PGP 5.0i, PGP 5.1, siliconpimp, Lynch, 414, Face, Pixar, IRIDF, eternity server, Skytel, Yukon, Templeton, LUK, Cohiba, Soros, Standford, niche, 51, H&K, USP, ^, sardine, bank, EUB, USP, PCS, NRO, Red Cell, Glock 26, snuffle, Patel, package, ISI, INR, INS, IRS, GRU, RUOP, GSS, NSP, SRI, Ronco, Armani, BOSS, Chobetsu, FBIS, BND, SISDE, FSB, BfV, IB, froglegs, JITEM, SADF, advise, TUSA, HoHoCon, SISMI, FIS, MSW, Spyderco, UOP, SSCI, NIMA, MOIS, SVR, SIN, advisors, SAP, OAU, PFS, Aladdin, chameleon man, Hutsul, CESID, Bess, rail gun, Peering, 17, 312, NB, CBM, CTP, Sardine, SBIRS, SGDN, ADIU, DEADBEEF, IDP, IDF, Halibut, SONANGOL, Flu, &, Loin, PGP 5.53, EG&G, AIEWS, AMW, WORM, MP5K-SD, 1071, WINGS, cdi, DynCorp, UXO, Ti, THAAD, package, chosen, PRIME, SURVIAC
+                   
+ 
+
+Greetingz motherfuckers and motherfuckas PH1K3 here
+ 
+#########  ####   ####   ####   ####   ### ############
+#       #  #  #   #  #  #   #   #  #  # #  #######   #
+#  ##     # #  #   #  # #### #   #  # # #      ###   #
+#       #  #  #####  #    # #   #     #         #  #
+#  #####   #         #    # #   #  ## #   ######  #
+#  #       #  #####  # #### ### #  # #  #        #  
+####       ####     #### ######## ####  #### ######
+                    --PH1K3--
+ 
+                                             ---------->NSA SITE<----------
+nsa.gov=a23-36-84-226.deploy.static.akamaitechnologies.com-->23.36.84.226
+PORT    STATE  SERVICE
+80/tcp    open    http
+443/tcp  open    https
+                                          ---------->LOL FAGGOTS<----------
+ 
+I am sure u all know about snowden and that he said that the nsa is metahacking the internet and is spying on us all here but the nsa are script kiddies and thats why they dont know how to hide them self against the real hackers and ,kings and queens of the inet so thats why my i am releasing a little small list of sites,data,and emails that the nsa are meta hacking and spying on:
+--Note! hak5.com mubix-email ,domain hosting sites etc--
+ 
+DNSName--->firstlook.org
+EmailAddress--->dhom@deloitte.com
+Website--->sim.oshiete.goo.ne.jp
+Website--->www.dbit.in
+PhoneNumber--->+8526 010 9438 -
+URL--->http://www.reuters.com/article/2013/03/20/idUSnMKW98679a+1c0+MKW20130320
+URL--->http://www.python.org/
+Website--->www.afio.org
+EmailAddress--->portilll@mail.nih.gov
+EmailAddress--->humanresources@lmal.com.au
+BuiltWithTechnology--->Adobe Dreamweaver
+DNSName--->spl0it.wordpress.com
+URL--->http://www.nsa.gov/public_info/declass/gulf_of_tonkin/sigint_reports/rel2_nsa_hq.shtml
+Netblock--->93.113.174.0-93.113.174.255
+Domain--->wordpress.com
+URL--->http://www.nsa.gov/public_info/press_room/2014/new_director_michael_rogers.shtml
+EmailAddress--->mgoldstein@tucows.com
+URL--->http://pastie.org/pastes/2415143
+EmailAddress--->plporte@afterlife.ncsc.mil
+WebTitle--->Droid Life | An intense Android news community bringing you the latest in phones, rooting, apps, and reviews.
+EmailAddress--->hostmaster@deloitte.com
+IPv4Address--->173.194.115.96
+Website--->runescape.wikia.com
+Phrase--->"Associated Techniques"
+Netblock--->208.118.227.0-208.118.227.127
+Website--->www.acronymfinder.com
+Person--->Ron Ford
+IPv4Address--->184.168.235.223
+PhoneNumber--->+1 301 688 1929
+IPv4Address--->72.52.7.144
+Website--->95.22.61.250.ipaddress.com
+EmailAddress--->hostmaster@apnic.net
+BuiltWithTechnology--->Blogger
+URL--->http://www.mobilitytechzone.com/lte/news/2014/09/03/7998198.htm
+Website--->mechanicum.co.uk
+Image--->Image
+PhoneNumber--->+1 301 688 5159
+EmailAddress--->europe@idss-int.eu
+EmailAddress--->lee@christine.lee
+EmailAddress--->balentic@bellsouth.net
+Website--->www.indiacollegesearch.com
+URL--->http://advanceddefiance.blogspot.com/2011/07/federal-government-links-daniel-s.html
+URL--->http://www.binero.se
+Website--->note.mu
+Domain--->https://www.nsa.gov
+URL--->http://ASP.NET
+Website--->bxcxcbas.cmdbet.com
+DNSName--->www.intodns.com
+EmailAddress--->amin@cybersecurity.my
+Website--->www.room362.com
+Document--->http://www.nsa.gov/academia/_files/collected_learning/elementary/arithmetic/diving_for_decimals.pdf Title: Place Value of Decimals to Hundredths: Diving For Decimals
+URL--->http://pastebin.com/udHTzABW
+URL--->http://www.securitylab.ru/blog/personal/evteev/31246.php
+URL--->http://pastie.org/pastes/1671523
+URL--->http://www.mozilla.org/products/firefox/live-bookmarks
+Website--->www.theflowingofthedao.com
+Image--->Image
+URL--->http://www.nsa.gov/careers/opportunities_4_u/students/high_school/stem.shtml
+EmailAddress--->mark@allmarkedup.com
+EmailAddress--->hostmaster@goo.ne.jp
+Website--->oneanddone.mozilla.org
+EmailAddress--->licensing@mozilla.org
+EmailAddress--->mattyfla@gmail.com
+Website--->whale.wheelock.edu
+EmailAddress--->p.rg-www@python.org
+Website--->webinfo.reformal.ru
+Website--->rbl-check.info
+Domain--->cmail1.com
+Document--->http://aspectscripting.com/support/tb103.txt aspectscripting.com
+Website--->freeproxylists.lightymp.com
+Website--->www.sciencedirect.com
+PhoneNumber--->+1 443 479 3418
+Website--->committees.pcisecuritystandards.org
+Website--->mozillafestival.org
+Website--->www.mtcalvarytab.org
+Website--->cdn.jquerytools.org
+EmailAddress--->jfklein@shaw.ca
+Domain--->facebook.com
+EmailAddress--->sergies@gmail.com
+Document--->http://boards.law.af.mil/ARMY/BCMR/CY2008/20080009746.txt boards.law.af.mil
+URL--->http://tools.ietf.org/html/rfc2408
+Website--->home.earthlink.net
+Website--->www.eff.org
+Website--->www.whitepages.com
+Website--->www.au.af.mil
+EmailAddress--->dreilly11@gmail.com
+Website--->www.jquerybox.com
+EmailAddress--->copyright@youtube.com
+Website--->mediacomcc.com.ipaddress.com
+Website--->united-states-navy.com
+URL--->http://redmine.pfsense.org/issues/2586.atom
+Website--->maps.google.co.jp
+EmailAddress--->business@missdomain.com
+Website--->hect06.deviantart.com
+IPv4Address--->204.93.86.146
+Website--->whatmyip.co
+Website--->forms.air-watch.com
+Website--->www.gatra.org
+EmailAddress--->pem-dev-request@tis.com
+IPv4Address--->199.59.149.230
+EmailAddress--->msamyknelson@gmail.com
+Website--->www.openstack.org
+BuiltWithTechnology--->Nielsen//NetRatings
+Website--->www.ocsi.isticom.it
+Website--->archives.neohapsis.com
+Website--->hcesonepat.org
+Website--->mobile.twitter.com
+IPv4Address--->54.240.235.81
+BuiltWithTechnology--->jQuery 1.8.3
+URL--->http://mobilme.info/century-21-mobile-home/
+Phrase--->"Prolexic Prolexic Technologies"
+Website--->aftereffects.digitalmedianet.com
+Person--->Glenn Greenwald
+BuiltWithTechnology--->ASP.NET
+Website--->rss.global-katalog.com
+BuiltWithTechnology--->jQuery UI
+Website--->mycareer.deloitte.com
+EmailAddress--->noreply-daa26fef@plus.google.com
+Website--->www.inta.es
+Website--->forum.allaboutcircuits.com.cubestat.com
+Website--->www.ebay.com.au
+BuiltWithTechnology--->WordPress 4.0
+EmailAddress--->comments@chinfo.navy.mil
+URL--->http://www.relevansanalys.se/storre-domanforsaljningar-se/
+EmailAddress--->nsaarc@nsaarc.net
+IPv4Address--->74.125.227.103
+EmailAddress--->ita_webmanager@ita.doc.gov
+EmailAddress--->shannon@hak5.org
+Image--->Image
+Website--->10.0.0.10.ipaddress.com
+EmailAddress--->meredith.obiala@hkstrategies.com
+FacebookObject--->Day 2: I am thankful for:1. My...
+Location--->Cambridge, -
+Website--->www.cs.jhu.edu
+EmailAddress--->biography@athena.unige.ch
+DNSName--->twitter.com
+EmailAddress--->kjbesel@nsa.gov
+URL--->http://www.networktools.nl/asinfo/www.tamilwebnews.com
+DNSName--->tools.securitytube.net
+Website--->www.internetvikings.com
+Person--->Mikko Hypponen
+PhoneNumber--->+1 443 479 0887
+Image--->Image
+Website--->support.twitter.com
+Website--->zxeyqwr.cmdbet.com
+Website--->vmblog.com
+EmailAddress--->employees@prolexic.com
+EmailAddress--->info@elections.on.ca
+Website--->testasp.vulnweb.com
+BuiltWithTechnology--->Nivo Slider
+Website--->uk.finance.yahoo.com
+Website--->home.americanexpress.com
+Website--->www.sitesview.net
+DNSName--->ip-184-168-232-4.ip.secureserver.net
+Website--->webtarantula.com
+EmailAddress--->mterbeek@vmware.com
+URL--->http://science.dodlive.mil/2014/03/20/meet-becky-richards-the-nsas-new-civil-liberties-and-privacy-officer
+Website--->email-format.com
+URL--->http://domaincrawler.com
+Image--->Image
+DNSName--->dns-a.activeminds.net
+EmailAddress--->ndfw-itc@ccdbinfo.org
+PhoneNumber--->048 767 3171
+Website--->radennuh.org.cutestat.com
+Website--->booksreadr.net
+Website--->revision3.com
+Image--->Image
+Document--->http://appsvc-700.wichita.edu/pipermail/mailman/2001-October.txt appsvc-700.wichita.edu
+Website--->answers.usa.gov
+Website--->ipaddressnetwork.com
+IPv4Address--->74.125.227.102
+Website--->harris.com
+Website--->www.barchart.com
+Domain--->cmdbet.com
+URL--->http://www.nsa.gov/careers/opportunities_4_u/students/undergraduate/csp.shtml
+EmailAddress--->ines@gmx.info
+EmailAddress--->membership@computer.org
+EmailAddress--->ijc.media.operations@afghan.swa.army.mil
+Website--->it24.idg.se
+EmailAddress--->bj5bz2rsiq@public.gmane.org
+Website--->www.elit.net
+EmailAddress--->marisa@pittsburgca.net
+Website--->www.military-ranks.org
+URL--->http://www.reuters.com/article/2012/02/09/idUS236196+09-Feb-2012+MW20120209
+EmailAddress--->-kellex@droid-life.com
+Website--->www.bubblews.com
+EmailAddress--->cadair@css4u.org
+EmailAddress--->please_set_email@absolutely.nowhere
+Website--->www.nejm.org
+DNSName--->smtp.disc0nnected.com
+EmailAddress--->example@email.com
+EmailAddress--->tcpm@ietf.org
+Image--->Image
+Website--->www.chanatown.net
+URL--->http://devteev.blogspot.com/2013_02_01_archive.html
+EmailAddress--->ff3027df2874e77800bcb5946ceb1717624dd046ed5628bb81c29f2cd8445bc9@domaincrawler.com.whoisproxy.org
+PhoneNumber--->+1 480 505 8809
+URL--->http://www.whoismind.com/email/netops@prolexic.com.html
+Website--->beta.congress.gov
+DNSName--->www.lekkoo.com
+EmailAddress--->april.burkhart@onlineathens.com
+EmailAddress--->joe.johnson@onlineathens.com
+EmailAddress--->abanghart@deloitte.com
+URL--->https://www.fenron.net/~fenner/ietf/deps/viz/dmarc.pdf
+EmailAddress--->ben@kuehl.as
+DNSName--->dfw06s16-in-f6.1e100.net
+BuiltWithTechnology--->WordPress 3.6
+EmailAddress--->hm-changed@apnic.net
+EmailAddress--->cwitherstine@zoominternet.net
+EmailAddress--->carol.alderdice@gnb.ca
+AS--->42708
+IPv4Address--->184.168.235.222
+IPv4Address--->64.98.161.201
+Document--->http://www.shemesh.co.il/pipermail/list/2011-July.txt www.shemesh.co.il
+URL--->http://pastebin.com/cjvHCJFd
+URL--->http://imgt1.s3.amazonaws.com/
+URL--->http://pastie.org/pastes/3546482
+Website--->antifraudintl.org
+EmailAddress--->mohamedaherdane@gmail.com
+Website--->www.computerhope.com
+Website--->searchgd.blogspot.com
+EmailAddress--->mozilla@e.mozilla.org
+Website--->www.yelp.it
+EmailAddress--->ebanashka@sevastopol.in
+Website--->blog.gmane.org
+EmailAddress--->felicano@gmail.com
+Image--->Image
+Website--->www.mytravelguide.com
+Netblock--->218.213.128.0-218.213.143.255
+Person--->Jean-jacques Rousseau Rousseau
+Website--->en.wordpress.com
+Website--->wideawakeamerica.com
+NSRecord--->dns-b.activeminds.net
+DNSName--->www.100marks.in
+Document--->http://www.nsa.gov/careers/_flash/Flash_Unmatched.txt www.nsa.gov
+Document--->http://www.cnrc.navy.mil/publications/Forms/1133_62.doc &lt;b&gt;UNITED STATES NAVY&lt;/b&gt; - Navy Recruiting Command
+Website--->theharmonicalewinskies.com
+EmailAddress--->sales.enquiry@randstad.in
+MXRecord--->mail.ipaddress.com
+EmailAddress--->abertet@normanalex.com
+EmailAddress--->leagues@baseball-reference.com
+Website--->stats.wordpress.com
+Website--->marketing.bersin.com
+Phrase--->Bulletin
+Website--->ftp.icm.edu.pl
+IPv4Address--->209.191.96.198
+Phrase--->Vmware
+Person--->Sai Veerepalli
+Document--->http://www.missdomain.se/press/Pressmeddelande_domaninvestering_090205.pdf L��gkonjunktur? Var d��?
+EmailAddress--->prettymaids8@gmail.com
+BuiltWithTechnology--->BrightEdge
+Document--->http://bwrcs.eecs.berkeley.edu/Classes/icdesign/ee241_s03/Assignments/t18h_lo_epi-params-mod.txt bwrcs.eecs.berkeley.edu
+Website--->tan.nihaowang.com
+Person--->Douglas Nordwall
+EmailAddress--->demography@idss.org.ua
+URL--->http://pastebin.com/MApK03YS
+Domain--->5min.com
+Website--->imgt1.s3.amazonaws.com
+URL--->http://www.commoncriteriaportal.org/ccra/members/
+Website--->who.pho.to
+Website--->www.isopropylalcohol.info
+PhoneNumber--->+1 215 324 3412
+DNSName--->ip-184-168-232-7.ip.secureserver.net
+IPv4Address--->208.118.227.14
+EmailAddress--->msixsupport@deloitte.com
+DNSName--->workingclientsites.com
+EmailAddress--->william.goldsmith@duke.edu
+Document--->http://www.secnav.navy.mil/rda/OneSource/Documents/Strategic%20Sourcing/DON%20Furniture%20Acquisition/BPACallCreationRevised13Mar12.docx BPA Call Creation - &lt;b&gt;United States Navy&lt;/b&gt;
+NSRecord--->auth120.ns.uu.net
+Website--->www.noao.edu
+EmailAddress--->brittan@hotmail.com
+Website--->www.govcert.dk
+Website--->www.securityinnovation.com
+Website--->www.usa-anti-communist.com
+Website--->www.archive.org
+Alias--->91797431@N02
+Website--->forum.defcon.org
+DNSName--->nere.se
+IPv4Address--->98.129.229.205
+PhoneNumber--->+1 785 532 6011
+Website--->ipgeolocationdatabase.com
+Image--->Image
+PhoneNumber--->+1 410 854 5445
+URL--->http://pastebin.com/mGcuJ6sw
+EmailAddress--->jbrady@deloitte.com
+Website--->maps.googleapis.com
+FacebookObject--->Carlos Manuel Alcantara Alcant...
+DNSName--->www.krebsonsecurity.com
+EmailAddress--->bschanni@baynetworks.com
+Image--->Image
+IPv4Address--->184.168.235.233
+Domain--->securitytube.net
+URL--->http://shfg.org/shfg/category/recentpublications/page/2/
+Website--->www.prnewswire.com
+Domain--->computer.org
+EmailAddress--->heinbockel@mitre.org
+Domain--->room362.com
+Website--->headstats.com
+FacebookObject--->MINI-ADOPTION EVENT TOMORROW!S...
+EmailAddress--->careerservices@london.edu
+EmailAddress--->licensecompliance@1c21.com
+EmailAddress--->info@fdi.intnet.mu
+IPv4Address--->173.194.115.108
+Website--->www.drozianwebworks.com
+EmailAddress--->namn@minisp.se
+Document--->http://ipaddress.com/robots.txt ipaddress.com
+EmailAddress--->rcastrios@deloitte.com
+URL--->http://pastie.org/pastes/8592353
+EmailAddress--->jcourville@normanalex.com
+DNSName--->ns1.missdomain.se
+URL--->http://www.evanfleischer.com/
+EmailAddress--->deco@blog.goo.ne.jp
+EmailAddress--->daemon@athena.mit.edu
+Netblock--->173.194.115.0-173.194.115.255
+EmailAddress--->askieee@ieee.org
+Website--->dnsimple.com.ipaddress.com
+EmailAddress--->international@mtsu.edu
+URL--->https://tracker.marinsm.com/tp?act=1&cid=2094kgr24366&script=no
+Website--->mobile.yahoo.com
+FacebookObject--->IMPORTANT FOOD AND DRUG ADMINI...
+Image--->Image
+Website--->code.blogger.com
+PhoneNumber--->+44 207 608 4221
+Website--->hak5.org
+IPv4Address--->214.38.151.174
+Website--->login.mail.goo.ne.jp
+EmailAddress--->aquaculturerecherche@rennes.inra
+EmailAddress--->info@cndb.com
+EmailAddress--->admin@abirami.in
+URL--->http://pastebin.com/B7kQ4vUM
+Website--->www.m2kinc.com
+EmailAddress--->lawrence_gandhar@yahoo.com
+EmailAddress--->a.shaffe@radium.ncsc.mil
+Website--->vk.com
+Website--->www.retevo.se
+Image--->Image
+Website--->pastebin.com
+URL--->https://www.fenron.net/~fenner/ietf/deps/viz/mptcp.pdf
+Website--->i.imgur.com
+Website--->us.123rf.com
+EmailAddress--->til@twitter.com
+Domain--->droid-life.com
+EmailAddress--->support@agava.com
+Website--->design.icxo.com
+WebTitle--->Nere eller uppe Is it down or up
+DNSName--->unknown.prolexic.com
+DNSName--->secure.deloitte.com
+URL--->http://blog.gmane.org/gmane.network.lwip.general/page=10
+Website--->www.torrentsdownload.org
+Website--->www.similarweb.com
+Location--->DC, Washington
+Document--->http://cn.bing.com/dict/united%20states%20navy%20seal%20selection%20and%20training &lt;b&gt;united states navy&lt;/b&gt; seal selection and training��������������� ...
+URL--->http://www.marketwired.com/press-release/United-Data-Technologies-UDT-Lends-a-Helping-Hand-to-Benefit-Nashville-Flood-Relief-1313050.htm
+URL--->https://firstlook.org/theintercept/2014/05/02/livestream-munk-debate-surveillance-greenwald-hayden
+Website--->tinhyeuchat.com.ipaddress.com
+EmailAddress--->kpsiemsen@yahoo.com
+URL--->https://www.fenron.net/~fenner/ietf/deps/viz/drinks.pdf
+EmailAddress--->zachary.baron@gmail.com
+Person--->Thomas Gonzales
+IPv4Address--->74.125.227.105
+URL--->http://www.nsa.gov/academia/_files/collected_learning/middle_school/number-sense/One-Step_Equations.pdf
+EmailAddress--->e.berkowitz@computer.org
+Netblock--->184.168.234.0-184.168.234.255
+IPv4Address--->23.98.68.25
+EmailAddress--->dudleycouncilplus@dudley.gov.uk
+DNSName--->devteev.blogspot.com
+EmailAddress--->style1-32@2x.png
+EmailAddress--->ballardra@aol.com
+Document--->http://albany.craigslist.org/bik/4633099868.html albany.craigslist.org
+Website--->erelocation.deloitte.com
+Website--->www.webstatdata.com
+EmailAddress--->p2pe@pcisecuritystandards.org
+URL--->http://abrahamiandan.wordpress.com/
+EmailAddress--->prinquiries@crosleyradio.com
+PhoneNumber--->+1 301 854 6889
+URL--->https://www.pcisecuritystandards.org/pdfs/summary_of_changes_highlights.pdf
+EmailAddress--->story@digg.com
+EmailAddress--->marknad@binero.se
+BuiltWithTechnology--->matchMedia
+Website--->www.4-traders.com
+BuiltWithTechnology--->Suhosin
+Domain--->jomax.net
+IPv4Address--->76.74.254.123
+Document--->http://www.med.navy.mil/sites/nmcphc/Documents/health-promotion-wellness/reproductive-and-sexual-health/hiv_workplace.pptx HIV Disease - &lt;b&gt;United States Navy&lt;/b&gt;
+IPv4Address--->188.138.112.160
+PhoneNumber--->+1 650 934 9303
+NSRecord--->ns15.domaincontrol.com
+Website--->flesler-plugins.googlecode.com
+Website--->www.intovps.com
+Website--->wiki.python.org
+EmailAddress--->balenson@clark.net
+URL--->http://www.exploit-db.com/exploits/21843/
+EmailAddress--->bengt.ackzell@generic.se
+EmailAddress--->anjathisandthat@yahoo.com
+Website--->www.lenntech.com
+Website--->mytranshelp.peelregion.ca
+BuiltWithTechnology--->WordPress
+Website--->www.tumblr.com
+EmailAddress--->available@beaverbooks.ca
+URL--->http://pastebin.com/f7kWT4pW
+EmailAddress--->service@glyde.com
+EmailAddress--->example@gmail.com
+Domain--->loopia.se
+Website--->www.mcss.gov.on.ca
+Document--->http://cluster.biodiversitylibrary.org/b/bulletinofzoolo642007inte/bulletinofzoolo642007inte_djvu.txt cluster.biodiversitylibrary.org
+EmailAddress--->abuse@elvsoft.com
+DNSName--->dodgit.com
+BuiltWithTechnology--->jQuery Placeholder
+Website--->www.domaincrawler.com
+Website--->www1.youseemore.com
+EmailAddress--->david.m.jewell@lmco.com
+URL--->https://www.youtube.com/watch?v=giMecOMCrsk
+IPv4Address--->206.197.161.144
+FacebookObject--->Visit our stand at the ICT Afr...
+DNSName--->www.trackipaddresses.com
+Netblock--->93.158.127.64-93.158.127.127
+URL--->http://adbtrade.com
+EmailAddress--->marie.bates@navy.mil
+EmailAddress--->info@loopia.se
+Phrase--->"Public Sector"
+Domain--->onionshare.org
+EmailAddress--->animaltown55@gmail.com
+URL--->http://www.nsa.gov/public_info/_files/nash_letters/nash_letters1.pdf
+EmailAddress--->partner@connectdirector.com
+Image--->Image
+Website--->www.marketwatch.com
+URL--->http://www.securitytube.net/Metasploit-Megaprimer-Part-5-%28Understanding-Windows-Tokens-and-Meterpreter-Incognito%29-video.aspx
+Website--->support.spotify.com
+Website--->www.dhs.gov
+Website--->www2.deloitte.com
+Website--->katproxy.com
+URL--->http://pw1.netcom.com/~mthorn/oltissis.htm
+EmailAddress--->evan.it.sg@gmail.com
+Website--->theyumlist.blogspot.com
+EmailAddress--->teitelmanevan@gmail.com
+Image--->Image
+Website--->profile.mail.goo.ne.jp
+Image--->Image
+Website--->www.adsopx.com
+Website--->hostingcompass.com
+Website--->w.soundcloud.com
+EmailAddress--->biography@encyclopedia.com
+EmailAddress--->chakrabortytapobrata@gmail.com
+Image--->Image
+EmailAddress--->chcgo@international.gc.ca
+Website--->www.hispanicbusiness.com
+URL--->http://so.nihaowang.com/cse/search
+IPv4Address--->74.125.227.99
+EmailAddress--->support@wordpress.com
+EmailAddress--->editor-shfg-journal@shfg.org
+Website--->escert.upc.edu
+WebTitle--->Practical Pwnage
+Domain--->tycho.ncsc.mil
+Website--->www.safehelpline.org
+Website--->smp.ukm.my.ipaddress.com
+Alias--->VMwarePR
+PhoneNumber--->+1 426 301 9107
+Website--->www.brightsight.com
+Website--->twittercounter.com
+Image--->Image
+Website--->www.yelp.com.tr
+Location--->-, Canada
+EmailAddress--->pressoffice@hq.isaf.nato.int
+Website--->forums.techguy.org
+Website--->studychacha.com
+Website--->hostcabi.net
+URL--->http://www.secmaniac.com/
+EmailAddress--->nsapao@nssa.gov
+Website--->www.nist.gov
+EmailAddress--->story@thesaurus.com
+URL--->http://pastebin.com/Z8eDpPYe
+EmailAddress--->news@onlineathens.com
+URL--->http://websitedetective.net/dn/mof.gov.np
+EmailAddress--->ycwebdept@yale.edu
+EmailAddress--->pounclass@dtra.mil
+Website--->townpage.goo.ne.jp
+FacebookObject--->From 12/16/2008 -09/19/2014 I ...
+PhoneNumber--->+1 202 282 8010
+Website--->www.stockhouse.com
+PhoneNumber--->+31 015 275 5706
+Website--->marc.info
+URL--->https://www.fenron.net/~fenner/ietf/deps/viz/eman.pdf
+Website--->www.gsa.gov
+Domain--->fenron.net
+Website--->www.athenshealth.org
+URL--->http://pastebin.com/4n666m9e
+Website--->www.google.org
+WebTitle--->Official PCI Security Standards Council Site - Verify PCI Compliance, Download Data Security and Credit Card Security Standards
+Website--->www.regonline.com
+Website--->www.domaining.com
+Person--->Christian Pike
+Domain--->ggpht.com
+Document--->http://www.cse.lehigh.edu/~munoz/CSE335/classes/DesignIDSS.ppt Design for &lt;b&gt;IDSS&lt;/b&gt; - Lehigh University
+DNSName--->ns1.deloitte.com
+EmailAddress--->informant@nw3c.org
+Image--->Image
+EmailAddress--->arcos@arcos-consulting.com
+IPv4Address--->184.168.234.1
+EmailAddress--->tedd@vmware.com
+Website--->allwebsitestats.com
+Image--->Image
+EmailAddress--->international@city.ac.uk
+Image--->Image
+EmailAddress--->023net110@cqnet110.gov.cn
+Website--->www.cybersecuritydegree.me
+NSRecord--->ns1.yahoo.com
+EmailAddress--->just.me.evan@gmail.com
+Website--->jhaines6.wordpress.com.cutestat.com
+EmailAddress--->info@elementswhiteplains.com
+EmailAddress--->balentine@dbstech.com
+URL--->http://lh4.ggpht.com/gMIdKwhurK5R3VKjEcFJvb-FwKOtIS-yCautcIJmy2SmQl31IPq7IIbSVt3hPuh0S7w4WmydXrxyjoQfDA=s64
+Website--->www.fenron.net
+Phrase--->"Cloud Era"
+Person--->Clay Drye
+Website--->www.nasdaq.com
+EmailAddress--->magallo@vmware.com
+Domain--->normanalex.com
+Website--->wiki.mozilla.org
+EmailAddress--->lswenson@bemidjipioneer.com
+URL--->http://www.nsa.gov/sitemap.shtml
+Phrase--->"Industry Niap"
+URL--->http://ir.vmware.com/releasedetail.cfm?ReleaseID=859031
+Website--->baltimore.cityseekr.com
+Website--->vimeo.com
+URL--->http://tools.ietf.org/html/rfc5759
+URL--->http://blog.goo.ne.jp/nichikon1/m/201312
+IPv4Address--->96.126.110.48
+EmailAddress--->ryan.gallagher@theintercept.com
+EmailAddress--->dnstech@hknet.com
+Image--->Image
+URL--->https://www.youtube.com/VMwareNederland
+URL--->http://www.nsa.gov/academia/early_opportunities/math_edu_partnership/index.shtml
+EmailAddress--->davidsuzuki@uppercanadachildcare.com
+Website--->www.peekyou.com
+Image--->Image
+IPv4Address--->64.233.160.95
+EmailAddress--->record@l.root-servers.net
+URL--->http://www.securitytube.net/Metasploit-Megaprimer-Part-16-%28Pass-the-Hash-Attack%29-video.aspx
+EmailAddress--->archlinux@cryptocrack.de
+Website--->sic.usaypage.com
+Person--->James Bearce
+Website--->cqcounter.com
+affiliation.Flickr--->gregkyriatzis
+DNSName--->discussions.nessus.org
+Phrase--->Cno
+Website--->www.binero.dk
+EmailAddress--->emarket@vxicorp.com
+Website--->connect.facebook.net
+Website--->atlallday.com
+BuiltWithTechnology--->jQuery UI Tabs
+DNSName--->mail.bleedfirst.com
+EmailAddress--->penitential@thesaurus.com
+URL--->http://pastebin.com/MRQkAHLt
+EmailAddress--->idaiseitakii@gmail.com
+PhoneNumber--->+1 443 479 4307
+WebTitle--->Der neue digitec Shop - Bei digitec kaufen
+BuiltWithTechnology--->IIS
+EmailAddress--->djnordw@tycho.ncsc.mil
+Website--->dig.do
+Website--->www.securitylab.ru
+IPv4Address--->199.59.148.82
+Website--->www.spiegel.de
+Image--->Image
+EmailAddress--->balenson@tislabs.com
+Website--->appworld.blackberry.com
+Document--->http://www.dodig.mil/audit/reports/FY06/06-120.txt www.dodig.mil
+EmailAddress--->falk.ehrhardt@uni-jena.de
+Website--->videos.cdn.mozilla.net
+PhoneNumber--->01 480 6242505
+URL--->http://pastebin.com/BRzJUtjz
+DNSName--->benswann.com
+Domain--->lekkoo.com
+Website--->dnslookup.fr
+EmailAddress--->g.cole@athenschevy.com
+EmailAddress--->agahan@usbr.gov
+IPv4Address--->54.231.2.1
+EmailAddress--->here@www.nsa.gov
+EmailAddress--->admin@bagchi.org
+Website--->www.secondmachineage.com
+Website--->jquery.com
+EmailAddress--->abhijith.jayanthi@post.harvard.edu
+Person--->Grant Wagner
+NSRecord--->c.ns14.net
+BuiltWithTechnology--->whos.amung.us
+Website--->armysecurityagency.blogspot.com
+Website--->donnaphelan.blogspot.com
+EmailAddress--->jis@mit.edu
+Website--->gizmodo.com
+Website--->www.hykleriet.dk
+BuiltWithTechnology--->mod_ssl 2.2.16
+Website--->smartfind.bcsd.com.ipaddress.com
+Website--->import.tagdiv.com
+Person--->Core Values Brochure
+Person--->David Hom
+FacebookObject--->sometimez I feel like I keep i...
+EmailAddress--->319rcs.h-flight@ramstein.af.mil
+URL--->http://pastebin.ca/2430700
+Website--->www.domainstat.se
+Website--->blog.goo.ne.jp
+Document--->http://websupport1.citytech.cuny.edu/faculty/mseip/files/ee/docs/ET212/PPT/FETs.ppt Chapter 3 Special-Purpose Diodes - New York City College of ...
+Website--->www.apple.com
+DNSName--->mail.deloitte.com
+URL--->http://lh4.ggpht.com/CnfOvMkH8C9ZmRzLNzroabPkDW_2nDo4VidJnEqHLc7ohyaGHGvWm_LhfH2jvx-VgLJJJshWIIruv82lZA=s64
+Image--->Image
+URL--->http://websitedetective.net/dn/smotrimultiki.ru
+NSRecord--->markmonitor.com
+Website--->www.bulletin.net
+Image--->Image
+PhoneNumber--->031 20 5354444
+EmailAddress--->fde-itc@ccdbinfo.org
+IPv4Address--->173.201.216.42
+Website--->code.securitytube.net
+Website--->www.psmag.com
+Website--->www.mikekeller.name
+Website--->www.that-web.com
+URL--->http://www.whoismind.com/email/abuse@prolexic.com.html
+EmailAddress--->feedback@hak5.org
+BuiltWithTechnology--->Squid
+IPv4Address--->129.41.23.185
+PhoneNumber--->173 19 4115103
+Website--->groups.google.com
+URL--->http://www.vmworld.com/community/conference/europe/analysts
+EmailAddress--->vmworldteam@vmware.com
+Phrase--->"Prolexic Technologies"
+Website--->supportcenter.ieee.org
+FacebookObject--->We are in global depression wh...
+URL--->http://ir.vmware.com/releasedetail.cfm?ReleaseID=788556
+EmailAddress--->chempharm@gmail.com
+EmailAddress--->mplumb@deloitte.com
+IPv4Address--->184.168.235.225
+Website--->deloitte.com
+Person--->Dmitry Evteev
+Website--->129.168.1.1.ipaddress.com
+IPv4Address--->184.168.235.196
+EmailAddress--->webmaster@depedmarikina.ph
+EmailAddress--->bysj9999@163.com
+Document--->http://www.nsa.gov/academia/_files/collected_learning/elementary/arithmetic/multiplication_treasure_hunt.pdf Title: Multiplication: A Treasure Hunt to Two and Three Digit ...
+BuiltWithTechnology--->SyntaxHighlighter
+EmailAddress--->mvladyka@deloitte.com
+EmailAddress--->mpriscaro@nvidia.com
+EmailAddress--->more@developers.google.com
+FacebookObject--->-> Main Causes of the First Wo...
+Website--->184.77.178.120.ipaddress.com
+Image--->Image
+Website--->www.mitpressjournals.org
+EmailAddress--->pwcustomerservice@peelregion.ca
+EmailAddress--->aqm@jabber.ietf.org
+Image--->Image
+Domain--->lenntech.com
+EmailAddress--->dickie@empire.eclipse.ncsc.mil
+EmailAddress--->btwymon@yahoo.com
+URL--->http://www.livebinders.com/play/play/467484
+Website--->www.ncph.org
+Website--->sans20-3.qualys.com
+PhoneNumber--->+1 443 479 3809
+Website--->dodgersdigest.com
+Website--->how2hack.net
+DNSName--->ip-184-168-235-195.ip.secureserver.net
+DNSName--->www.bleedfirst.com
+Website--->mybeat.techmahindra.com.ipaddress.com
+EmailAddress--->noc@cloudflare.com
+Website--->www.prepsure.com
+Website--->bgp.he.net
+Image--->Image
+Website--->turingts.com
+Website--->solutionexchange.vmware.com
+PhoneNumber--->+656 538 6166 -
+FacebookObject--->"The greatest security threat ...
+EmailAddress--->dir@wall.jpg
+Website--->www.hanahcountryresort.com
+EmailAddress--->maria@bernasconi.ch
+Website--->edgedirector.com
+Domain--->deloitte.com
+DNSName--->mail.missdomain.se
+EmailAddress--->.fleisher@gmail.com
+DNSName--->dfw06s16-in-f0.1e100.net
+DNSName--->forum.allaboutcircuits.com
+BuiltWithTechnology--->Joomla!
+Website--->metasploit.com
+IPv4Address--->198.49.146.233
+URL--->http://practicalpwnage.com/
+Website--->www.peelregion.ca
+EmailAddress--->asferreira@normanalex.com
+IPv4Address--->204.93.78.224
+Website--->www.chinfo.navy.mil
+Domain--->shfg.org
+Website--->www.paws.gsu.edu.ipaddress.com
+BuiltWithTechnology--->Omniture SiteCatalyst
+Website--->pw1.netcom.com
+Website--->www.missdomain.se
+Domain--->missdomain.se
+EmailAddress--->hostmaster@prolexic.com
+URL--->https://discussions.nessus.org/thread/7517
+Website--->www.businesswire.com
+Website--->practicalpwnage.com
+NSRecord--->fred.ns.cloudflare.com
+Document--->http://www.reese.k12.mi.us/LinkClick.aspx?fileticket=tGz4HfA1GAo%3d&amp;tabid=36&amp;mid=679 &lt;b&gt;BULLETIN&lt;/b&gt; - Reese Public Schools
+Website--->1thevenusfactor.blogspot.com
+Website--->pr0xytofree.blogspot.com
+EmailAddress--->-ronoffringa3@gmail.com
+Website--->www.wired.com
+Image--->Image
+URL--->http://pastebin.com/1sbdmJvJ
+EmailAddress--->bbommelje@ndia.org
+URL--->http://lh4.ggpht.com/MGysOvZ0ajDY3pcofkSelrSEpqbf4i9Zwmyz_t3YhIe6uEZ1JyC5jd9dyThPvLpmF_MIciJCUj_YxcbrmM0=s64
+EmailAddress--->emily.simone@lmco.com
+EmailAddress--->bcg@massconvention.com
+BuiltWithTechnology--->Telerik Sitefinity
+Website--->plusone.google.com
+PhoneNumber--->+1 443 479 0806
+EmailAddress--->yokogames.com@dressupstyle.com
+IPv4Address--->184.168.235.189
+Website--->www.ipaddressapi.com
+EmailAddress--->info@livebinders.com
+BuiltWithTechnology--->CNZZ
+URL--->http://www.room362.com
+Domain--->practicalpwnage.com
+URL--->http://pastebin.com/rkPyZctU
+EmailAddress--->39-info@anieres.ch
+FacebookObject--->Want to LEARN making fine Terr...
+Website--->212.64.60.198.ipaddress.com
+URL--->https://www.youtube.com/watch?feature=youtu.be&v=ZHGK2F07yM4&app=desktop
+URL--->http://www.disc0nnected.com/?tag=pci
+EmailAddress--->jomagee@deloitte.com
+Website--->www.hootsuite.com
+Website--->opscenter.dtra.mil
+IPv4Address--->184.168.235.193
+Website--->www.chacha.com
+EmailAddress--->decorations@4armedforces.com
+Domain--->lists.mitre.org
+Location--->-, Romania
+PhoneNumber--->+1 866 612 4227
+URL--->http://pastebin.com/VucatTX1
+EmailAddress--->espen@domene.no
+PhoneNumber--->+31 015 275 5709
+Phrase--->Oig
+Website--->domaininforme.com
+EmailAddress--->pziots@vmware.com
+IPv4Address--->93.158.127.109
+IPv4Address--->74.125.227.98
+Website--->career4.successfactors.com
+EmailAddress--->markus@jalmerot.com
+Document--->http://www.cs.uwp.edu/Classes/Cs478/notes/IDS.ppt Computer Security: Principles and Practice, 1/e
+EmailAddress--->msfdev@metasploit.com
+EmailAddress--->shfg@cashley.org
+URL--->http://www.baseball-reference.com/teams/PIT/2013-pitching.shtml
+Website--->www.aboutus.org
+EmailAddress--->info@goo.ne.jp
+PhoneNumber--->+1 555 555 5555
+EmailAddress--->nanoandthepoor.org@protecteddomainservices.com
+PhoneNumber--->+1 301 688 4283
+URL--->http://www.droid-life.com/2014/08/07/popcorn-time-beta-app-updated-to-version-2-1-intros-vpn/
+Website--->250.2.1.5.ipaddress.com
+Website--->lh4.ggpht.com
+BuiltWithTechnology--->Chartbeat
+WebTitle--->Organize your resources in an online binder - LiveBinders
+Website--->mahlersprodigalson.blogspot.com
+URL--->https://www.youtube.com/watch?v=C4D1PaSrudw
+Website--->www.lenntech.pl
+URL--->https://www.youtube.com/vmwareitalia
+Website--->www.theleangreenbean.com
+PhoneNumber--->+1 301 688 0575
+EmailAddress--->jcunningham@saint-anne.org
+EmailAddress--->enquiries@athollarmshotel.com
+AS--->2914
+Location--->New Delhi, -
+Website--->donate.wikimedia.org
+EmailAddress--->zilchex@gmx.com
+WebTitle--->F E N R O N
+URL--->http://www.lekkoo.com/?location=Fort%20George%20G%20Meade
+EmailAddress--->sachemjo@comcast.net
+Website--->catless.ncl.ac.uk
+MXRecord--->smtp.secureserver.net
+Document--->http://clarkies.org/last_bulletin/archive/hagelmans-genius.txt clarkies.org
+EmailAddress--->kellex@droid-life.com
+EmailAddress--->support@nsa.gov
+EmailAddress--->default-568h@2x.png
+URL--->http://www.nsa.gov/public_info/press_room/2010/guide_by_cell.shtml
+URL--->http://pastebin.com/JawHgv7E
+Person--->Tad DeMaret
+BuiltWithTechnology--->Classic ASP
+Website--->finance.yahoo.com
+EmailAddress--->xxxud@cnc.net
+EmailAddress--->here@ipaddress.com
+EmailAddress--->froomkin@niemanwatchdog.org
+EmailAddress--->noc@godaddy.com
+Document--->http://amcsem.org/RLBHWS/m_contact_directions.doc DIRECTIONS - AMC SEM
+EmailAddress--->studiobookingenquiry@filmcitymumbai.com
+WebTitle--->IEEE Computer Society - Premier Organization of Computer Professionals
+Image--->Image
+IPv4Address--->184.168.235.232
+EmailAddress--->psnews-subscribe@yahoogroups.com
+Website--->blog.scraperwiki.com
+DNSName--->www.securitytube.net
+EmailAddress--->located@ting.com
+DNSName--->owa.rapid7.com
+Person--->unknown
+Website--->grokbase.com
+Domain--->theharmonicalewinskies.com
+EmailAddress--->skerrigan@vmware.com
+EmailAddress--->michael.briggs@udtonline.com
+URL--->https://how2hack.net
+EmailAddress--->ivoralex@normanalex.com
+URL--->https://www.youtube.com/vmwaretv
+EmailAddress--->hanan@5min.com
+URL--->http://www.livebinders.com/play/play?id=97612
+EmailAddress--->rico@ricostacruz.com
+Website--->marinesmagazine.dodlive.mil
+Website--->niocpblog.wordpress.com
+DNSName--->countrysidepurewater.com
+EmailAddress--->abuse@name.com
+PhoneNumber--->78634 844 5294
+IPv4Address--->136.179.0.28
+BuiltWithTechnology--->Shockwave Flash Embed
+Website--->209.237.68.234.ipaddress.com
+Website--->albert.apple.net.ipaddress.com
+EmailAddress--->ersmoot@nsa.gov
+Website--->viaf.org
+EmailAddress--->akakaamazing@gmail.com
+URL--->http://www.100marks.in/colleges/tag/don-bosco-institute-of-technology/
+Document--->http://www.usfsp.edu/gkearns/ACG6936/IS_ppt/ch07.ppt Blueprint For Security Chapter 6 - University of South ...
+DNSName--->a.ns14.net
+Domain--->dbit.in
+Website--->190.70.115.78.ipaddress.com
+URL--->http://pastebin.com/qhJyGfKL
+EmailAddress--->jdoe@projectmentor.net
+Website--->farm6.static.flickr.com
+PhoneNumber--->+1 443 479 1057
+Website--->eballot4.votenet.com
+EmailAddress--->akiyochan@webry.info
+IPv4Address--->54.235.137.23
+DNSName--->www.nsa.gov
+Website--->www.youtube.com
+Location--->Fort Meade, -
+EmailAddress--->logo-twoo-flat@2x.png
+EmailAddress--->matt@practicalpwnage.com
+Website--->forms.us-cert.gov
+EmailAddress--->psocc.sd@randolph.af.mil
+URL--->http://www.scribd.com/doc/87014663/New-1
+EmailAddress--->writer-ronoffringa3@gmail.com
+URL--->http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0026
+EmailAddress--->kontakt@headway.pl
+EmailAddress--->common_criteria@radium.ncsc.mil
+EmailAddress--->ernie@uark.edu
+URL--->http://aluigi.altervista.org/adv/termdd_1-adv.txt Luigi���s Advisory
+Location--->Fairmont, -
+PhoneNumber--->098 13 9227111
+EmailAddress--->security@esbc.sharp-eu.com
+EmailAddress--->bio@thesaurus.com
+EmailAddress--->arrow-heading-link@2x.png
+FacebookObject--->BOOM! PROOF 'SCOTLAND INDEPEND...
+EmailAddress--->trollauer@deloitte.com
+Location--->Ridgedale Drive Minnetonka, -
+Website--->help.ubuntu.com
+EmailAddress--->dhc@jabber.ietf.org
+BuiltWithTechnology--->WordPress 3.2
+EmailAddress--->kbl22x@emirates.net.ae
+EmailAddress--->melissa.bruno@mississauga.ca
+NSRecord--->whois.markmonitor.com
+URL--->http://pagead2.googlesyndication.com/pagead/show_ads.js
+Person--->Dmitry Evteev Moscow
+DNSName--->corei59.net
+DNSName--->carmensitaliancafe.com
+Website--->conspiracyparanormal.blogspot.com
+FacebookObject--->Is have to say that my lab fam...
+Website--->buildsecurityin.us-cert.gov
+Website--->nsabackups.com
+PhoneNumber--->+1 908 475 3671
+EmailAddress--->intladmission@wku.edu
+PhoneNumber--->+1 410 854 6206
+EmailAddress--->criley@normanalex.com
+Website--->tilleyart.com
+Website--->www.history.navy.mil
+Website--->www.metaheaders.net
+Phrase--->"United States Army"
+EmailAddress--->style2-64@2x.png
+DNSName--->www.cve.mitre.org
+Document--->http://www.corpgov.deloitte.com/binary/com.epicentric.contentmanagement.servlet.ContentDeliveryServlet/USEng/Documents/Audit%20Committee/Audit%20Committee%20Resource%20Guide/AICPAEngagingCounsel.doc Discussions to Expect From the Independent Auditors
+EmailAddress--->basicresearch@dtra.mil
+EmailAddress--->user@isp.com
+DNSName--->*.images-karoseriedumptruck.wordpress.com
+EmailAddress--->smb.manpower.mmsb@usmc.mil
+Domain--->googlecode.com
+Person--->Tweet Include
+DNSName--->www.huffingtonpost.com
+Image--->Image
+IPv4Address--->23.235.40.133
+Image--->Image
+Image--->Image
+Website--->online.wsj.com
+URL--->https://www.blogger.com/?tab=lj
+EmailAddress--->help@ting.com
+EmailAddress--->admin@wildfilmsindia.com
+Document--->http://boards.law.af.mil/ARMY/BCMR/CY2008/20080006507.txt boards.law.af.mil
+Document--->https://www.neco.navy.mil/upload/M00146/M0014611T9026M0014611T9026MkIV_Questions_Answers_Site_Visit_1.doc 1 - &lt;b&gt;United States Navy&lt;/b&gt;
+URL--->http://traffic.alexa.com/graph?w=260&h=190&o=f&c=1&y=q&b=f5f5f5&n=666666&r=2y&u=banglachoti.wordpress.com
+DNSName--->banglachoti.wordpress.com.cutestat.com
+Website--->prod01-cdn02.cdn.firstlook.org
+EmailAddress--->apparel@priorservice.com
+URL--->https://hostcabi.net/domain/videoslave.com
+Document--->http://www.mass.gov/eohhs/docs/dmh/directions/directions-se-new-bedford.doc New Bedford Site Office - Massachusetts
+URL--->http://www.nsa.gov/business/programs/electronic_invoicing.shtml
+EmailAddress--->info@swaminarayan.org
+Image--->Image
+PhoneNumber--->+1 443 479 0611
+Document--->http://www.wvrwa.org/shared/content/Directions%20to%20Training%20Classes.doc Directions to Training Classes - WVRWA
+Website--->111156789.com.idomainstats.com
+Website--->blogs.rsa.com
+EmailAddress--->oramcharran@evergreen.ca
+Image--->Image
+EmailAddress--->fytron@gmail.com
+Website--->gravatar.com
+Website--->jobsfuture.wordpress.com
+FacebookObject--->Just killed a spider in my roo...
+Website--->security-world.blogspot.com
+Website--->demo.missdomain.se
+EmailAddress--->nvd@nist.gov
+EmailAddress--->ryan.devereaux@theintercept.com
+EmailAddress--->benjamin@gentilkiwi.com
+EmailAddress--->checklists@nist.gov
+EmailAddress--->zzhk@2x.png
+URL--->http://getmaillist.blogspot.com/2013/05/posterallposterscom.html
+EmailAddress--->here@covermyfb.com
+EmailAddress--->ballards@whit.sprnet.org
+EmailAddress--->cve-editorial-board-list@lists.mitre.org
+DNSName--->
+URL--->http://www.university.youth4work.com/DBCE_Don-Bosco-College-of-Engineering
+Website--->nsips.nmci.navy.mil
+Website--->jamiahamdard.ac.in.ipaddress.com
+Website--->www.navy.mil
+EmailAddress--->evanbrunell@gmail.com
+Website--->www.eventbrite.com
+Website--->caspianit.co.uk
+Website--->www.youngbuzz.com
+Website--->www.huffingtonpost.com
+EmailAddress--->internationaladmissions@kennesaw.edu
+Domain--->intodns.com
+Website--->www.fcc.gov
+EmailAddress--->beth.handoll@hkstrategies.com
+BuiltWithTechnology--->nginx 0.8
+FacebookObject--->Windber is a wonderful hometow...
+Image--->Image
+EmailAddress--->gcoy@deloitte.com
+Website--->www.247baseball.com
+Website--->www.scribd.com
+EmailAddress--->is@thesaurus.com
+URL--->https://github.com/carnal0wnage/q
+Website--->www.hostgeni.com
+Website--->inpho.cogs.indiana.edu
+URL--->http://www.showsite.org/www/binarytradingsignals7.yolasite.com
+EmailAddress--->paul@hak5.org
+EmailAddress--->navpalib@opnav-emh.navy.mil
+EmailAddress--->cabezascp@inta.es
+FacebookObject--->To all my friends and family, ...
+Person--->Apnic Hostmaster
+IPv4Address--->173.194.115.103
+Image--->Image
+EmailAddress--->09shuangxin@sina.com
+EmailAddress--->ochimusya@webry.info
+WebTitle--->Welcome to iDSS!
+Location--->-, Australia
+Website--->www.freshnews.com
+EmailAddress--->alienor.gariel@openmailbox.org
+EmailAddress--->wfi@vsnl.com
+Website--->www.yelp.se
+FacebookObject--->Such News Bulletin 12 pm 20 se...
+EmailAddress--->site@www.cointernet.co
+EmailAddress--->e.xample@gmail.com
+Website--->www.relevansanalys.se
+Website--->green.tmcnet.com
+Document--->http://about.usps.com/postal-bulletin/2014/pb22386/html/dlinks/password.txt about.usps.com
+Website--->lwn.net
+EmailAddress--->fbcole1@nsa.gov
+EmailAddress--->feedback@livebinders.com
+EmailAddress--->webmaster@shfg.org
+BuiltWithTechnology--->jQuery 1.8.2
+IPv4Address--->63.245.215.20
+Location--->San FranciscoAug., -
+Website--->www.suse.com
+DNSName--->shfg.org
+URL--->http://pastie.org/pastes/5092117
+Phrase--->"United Data Technologies"
+Document--->http://www.blackhawkslacrosse.com/Portals/15/directions2011v2.doc Directions to Millstone Township Lacrosse ��� Wagner Farm Park
+EmailAddress--->jeremy.scahill@theintercept.com
+PhoneNumber--->412 885 4005
+Website--->www.getsiteinfo.net
+DNSName--->websitedetective.net
+EmailAddress--->nejmcust@mms.org
+URL--->http://www.huffingtonpost.com/dan-froomkin/obama-makes-bushism-the-n_b_5761642.html
+EmailAddress--->copyrightagent@asinnientertainmentgroup.com
+Website--->seekingalpha.com
+MXRecord--->aspmx.l.google.com
+EmailAddress--->ballest2@seas.upenn.edu
+EmailAddress--->abusecomplaints@markmonitor.com
+WebTitle--->Acunetix Web Vulnerability Scanner - Test websites
+URL--->https://cvb.idssasp.com/system/pwreminder.aspx
+IPv4Address--->216.116.229.139
+FacebookObject--->Today I received an invitation...
+BuiltWithTechnology--->YUI3
+EmailAddress--->abuse@google.com
+URL--->http://go.pastie.org/pastes/y/2013/2/page/254
+Website--->bleedfirst.com
+WebTitle--->The New England Journal of Medicine: Research & Review Articles on Disease & Clinical Practice
+DNSName--->ip-184-168-232-8.ip.secureserver.net
+Phrase--->Symantec
+URL--->http://www.imc.org/ietf-smime/archive1/msg02563.html
+PhoneNumber--->+1 301 688 7592
+EmailAddress--->licensecompliance@vmware.com
+EmailAddress--->prinquiries@shutterfly.com
+WebTitle--->å¨çé¢æ ¡åº_ä½ å¥½ç½_æè²é¨è®¤è¯ç46ä¸ªå½å®¶åæ¸¯æ¾³å°å¨é¨é¢æ ¡è¯¦ç»ä»ç»
+PhoneNumber--->+1 240 429 9954
+URL--->http://www.scribd.com/doc/71208259/Windows-Post-Exploitation
+URL--->http://www.nsa.gov/about/_files/cryptologic_heritage/publications/coldwar/venona_story.pdf The V enona S tory - National Security Agency
+EmailAddress--->trips@tripcase.com
+Website--->www.phildisciplesofmary.com
+WebTitle--->Track IP Addresses - Accurate IP Location Database Download
+BuiltWithTechnology--->OpinionLab
+EmailAddress--->tcpm@jabber.ietf.org
+Website--->www.nsa.gov
+Website--->nsasecrets.blogspot.com
+Website--->www.idph.state.ia.us
+affiliation.Flickr--->sophie.polikandriotis
+Website--->thumbs.dreamstime.com
+EmailAddress--->sgrduklhaergt@room362.com
+PhoneNumber--->+1 443 336 3011
+Website--->wwwa.nko.navy.mil
+EmailAddress--->mmusic-chairs@tools.ietf.org
+Website--->eco-servise.ru
+BuiltWithTechnology--->IIS 7
+BuiltWithTechnology--->Facebook Domain Insights
+Website--->github.com
+BuiltWithTechnology--->jQuery Form
+URL--->http://www.normanalex.com/company/team
+Person--->Kwai Chung
+Person--->Traian Mosoiu
+Website--->www.pdfspath.com
+PhoneNumber--->+1 877 572 7232
+Image--->Image
+EmailAddress--->mubix@hak5.org
+DNSName--->sbonacorsi.wordpress.com
+WebTitle--->iDSS | Internet Destination Sales System
+IPv4Address--->96.126.116.48
+EmailAddress--->afaver@deloitte.com
+PhoneNumber--->+1 866 539 5330
+Image--->Image
+URL--->http://www.ipaddressden.com/email/netops@prolexic.com.html
+EmailAddress--->articles@bnet.com
+PhoneNumber--->011 361 9344
+Website--->www.bradwallintourney.com
+Website--->www.terusafarms.blogspot.com
+IPv4Address--->76.74.254.120
+EmailAddress--->amiller@varrow.com
+Image--->Image
+DNSName--->server.intodns.com
+Document--->http://www.deloitte.com/assets/Dcom-Canada/Local%20Assets/Other%20Assets/ca_en_Dialogue_on_diversity_080710.txt www.deloitte.com
+DNSName--->www.allaboutcircuits.com
+Netblock--->162.159.248.0-162.159.251.255
+Website--->mall.nihaowang.com
+BuiltWithTechnology--->Modernizr 2.0
+URL--->http://pastie.org/pastes/5453762
+Website--->www.acunetix.com
+Website--->ismartus.deloitte.com
+Domain--->firstlook.org
+Document--->http://astro1.panet.utoledo.edu/~wwritter/archive/FITS-spectra/zetaAql/Ech/980712.020.fits astro1.panet.utoledo.edu
+Website--->www.askives.com
+URL--->http://www.100marks.in/colleges/dbit-mumbai-don-bosco-institute-of-technology/
+DNSName--->lh4.ggpht.com
+DNSName--->imap.bleedfirst.com
+EmailAddress--->domain@activeminds.net
+EmailAddress--->jobermann@normanalex.com
+EmailAddress--->sitab@op.pl
+IPv4Address--->107.22.176.82
+Website--->virtualizeyournetwork.com
+Website--->www.zoominfo.com
+URL--->http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0096
+MXRecord--->emvm-gh1-uea08.nsa.gov
+Document--->http://155.76.244.230/riverstage/bullet.txt River &lt;b&gt;Bulletin&lt;/b&gt; - U.S. Army Corps of Engineers -- Vicksburg ...
+Website--->nere.se
+URL--->http://pastebin.com/xrvJfdTv
+Website--->www.consumerelectronicsnet.com
+EmailAddress--->cuss-chairs@tools.ietf.org
+DNSName--->www.computer.org
+Image--->Image
+WebTitle--->Everything in college and university shared by its students | Youth4work
+EmailAddress--->walter.jones@morris.com
+PhoneNumber--->+1 301 688 0851
+EmailAddress--->licensecompliance@gettyimages.com
+PhoneNumber--->+1 800 365 2459
+EmailAddress--->vmworld@nectarpr.com
+EmailAddress--->sushmaswaraj@hotmail.com
+FacebookObject--->IN 3 DAYS I GET TO WATCH MY BA...
+EmailAddress--->drew.diller@gmail.com
+Phrase--->"Moscone Center In"
+Website--->se.cj.com
+Document--->http://911.wikileaks.org/files/messages_2001_09_11-13_35_2001_09_11-13_39.txt 911.wikileaks.org
+URL--->http://www.nsa.gov/academia/_files/collected_learning/elementary/arithmetic/Two_Digit_Addition_at_the_Zoo.pdf Title: Two-Digit Addition at the Zoo - National Security Agency
+Document--->http://academicarchive.snhu.edu/bitstream/handle/10474/1757/gradcat2008-2009.pdf.txt?sequence=3 academicarchive.snhu.edu
+MXRecord--->aspmx4.googlemail.com
+IPv4Address--->173.194.115.110
+EmailAddress--->tpo@devprayag.ac.in
+URL--->http://www.marketwatch.com/story/vmworldr-2013-the-leading-virtualization-and-cloud-computing-event-of-the-year-heads-to-san-francisco-and-barcelona-2013-07-02
+IPv4Address--->23.206.228.226
+Person--->Richard Dickson
+Person--->Dirk Schaufert
+Website--->www.verizonwireless.com
+IPv4Address--->209.191.96.199
+URL--->https://owa.rapid7.com/owa/redir.aspx?C=e9cfa868c9d24a508fea432dc37ba481&URL=http%3a%2f%2fdownload2.rapid7.com%2fdownload%2fNeXpose-v4%2fNeXpose_API_v1.1_Guide.pdf
+affiliation.Twitter--->Bulletin
+Location--->San Francisco, -
+Person--->Michael Briggs
+Website--->93.115.8.229.ipaddress.com
+EmailAddress--->mmccall@computer.org
+URL--->http://www.nsa.gov/public_info/declass/ukusa.shtml
+BuiltWithTechnology--->Telerik Controls
+EmailAddress--->elizabeth.brake@duke.edu
+Image--->Image
+URL--->http://www.missdomain.se/
+Document--->http://tweet-detector.googlecode.com/svn/branches/prototype-2/oneMillionTweets/488 tweet-detector.googlecode.com
+URL--->http://entrelesoreilles.blogspot.com/feeds/posts/default?orderby=updated
+DNSName--->www.nejm.org
+Website--->docs.google.com
+Website--->ag.cmdbet.com
+Website--->z69n0110lt1.ting.com
+Image--->Image
+Website--->www.federallabs.org
+EmailAddress--->leicester@wilts.co.uk
+Website--->users.cis.fiu.edu
+WebTitle--->VMware Virtualization for Desktop & Server, Application, Public & Hybrid Clouds | United States
+Website--->standards.ieee.org
+Website--->accounts.google.com
+DNSName--->images-karoseriedumptruck.wordpress.com
+Website--->sites.google.com
+EmailAddress--->info@ncfta.net
+Website--->autos.yahoo.com
+DNSName--->ting.com
+PhoneNumber--->+1 416 874 3888
+EmailAddress--->live@yahoo.com
+EmailAddress--->netblock@yahoo-inc.com
+BuiltWithTechnology--->Yahoo User Interface
+EmailAddress--->yingyang@public.bta.net
+EmailAddress--->support@loopia.se
+Phrase--->Acme
+URL--->http://moeflats.hubpages.com/hub/How-to-Beat-Electronic-Harassment-Pain-Mind-Games
+WebTitle--->Krebs on Security
+Document--->http://www.deloitte.com/assets/Dcom-Canada/Local%20Assets/Other%20Assets/ca_fr_Dialogue_on_diversity_080710.txt www.deloitte.com
+BuiltWithTechnology--->Twitter Platform
+EmailAddress--->game@cmdbet.com
+Document--->http://www.corpgov.deloitte.com/binary/com.epicentric.contentmanagement.servlet.ContentDeliveryServlet/USEng/Documents/Audit%20Committee/Audit%20Committee%20Resource%20Guide/AICPADiscussionstoExpect.doc Discussions to Expect From the Independent Auditors
+DNSName--->p3nlhg156c1156.shr.prod.phx3.secureserver.net
+EmailAddress--->nsapao@nsa.gov
+Website--->www.uber.com
+DNSName--->178.38.116profile.karoseriedumptruck.wordpress.com
+Person--->Philip Dollery
+Website--->www.istockanalyst.com
+Website--->nulledwordpressthemes.com
+EmailAddress--->employees@hak5.org
+EmailAddress--->dictionary@oxfordlearnersdictionaries.com
+Website--->news.google.com
+EmailAddress--->naama@5min.com
+URL--->http://www.arin.net/public/whoisinaccuracy/index.xhtml
+EmailAddress--->blake.greenlee@greenlee.com
+DNSName--->www.deloitte.com
+URL--->https://www.youtube.com/watch?v=Vfn4Z3A8X8U&feature=youtu.be
+Website--->forums.cox.com
+EmailAddress--->anton@twingly.com
+DNSName--->flesler-plugins.googlecode.com
+Image--->Image
+Phrase--->Nerc
+Website--->video.nihaowang.com
+Website--->www.navycollege.navy.mil
+Website--->www.npd.com
+EmailAddress--->mvanna@computer.org
+Image--->Image
+Website--->issuu.com
+EmailAddress--->ldap-dir-request@ietf.org
+Website--->www.baseball-reference.com
+URL--->http://www.nsa.gov/ia/contacts/index.shtml
+Website--->www.okbase.net
+EmailAddress--->cve-editorial-board-list-subscribe-request@lists.mitre.org
+EmailAddress--->klbake4@tycho.ncsc.mil
+EmailAddress--->4nvefi@dropbox.theresumator.com
+BuiltWithTechnology--->script.aculo.us
+Document--->http://www.corpgov.deloitte.com/binary/com.epicentric.contentmanagement.servlet.ContentDeliveryServlet/CanEng/Documents/Resources/Financial%20Reporting%20Tools/MDA.xls MD&amp;amp;A Assessment Tool - Deloitte
+DNSName--->en.wikipedia.org
+EmailAddress--->cve-editorial-board-list-request@lists.mitre.org
+BuiltWithTechnology--->Safe Count
+IPv4Address--->148.251.128.237
+DNSName--->christianfaithhistory.com
+BuiltWithTechnology--->ASP.NET Ajax
+Website--->www.disc0nnected.com
+EmailAddress--->found@community.rapid7.com
+Website--->members.nw3c.org
+Website--->epay.pdc4u.com.ipaddress.com
+EmailAddress--->root@dns-a.activeminds.net
+Website--->channeleventsponsors.intel.com
+EmailAddress--->here@antiwar.com
+URL--->http://pastebin.com/PahwjTwj
+EmailAddress--->salette@www.christ-roi.net
+Website--->thehill.com
+PhoneNumber--->+1 650 319 8930
+Website--->mrn-api-external-prod-176407564.us-west-2.elb.amazonaws.com
+EmailAddress--->pradeep@100marks.in
+URL--->http://vmblog.com/archive/2014/07/16/vmworld-2014-the-leading-virtualization-and-cloud-computing-event-of-the-year-heads-to-san-francisco-and-barcelona.aspx
+FacebookObject--->Such News Bulletin 03 pm 20 se...
+Website--->davidwilkerson.org.ipaddress.com
+Domain--->nihaowang.com
+PhoneNumber--->+1 304 277 3022
+Website--->sc.chinaz.com
+Phrase--->Alibaba
+URL--->http://www.imc.org/ietf-smime/archive1/msg02696.html
+EmailAddress--->info@dietist.se
+Image--->Image
+Website--->www.bendbulletin.com
+Website--->idss.ncqa.org
+PhoneNumber--->+1 443 479 4056
+EmailAddress--->moesch@box.com
+EmailAddress--->jobb@binero.se
+Domain--->binero.se
+Website--->community.rapid7.com
+URL--->http://lh4.ggpht.com/kWCeJJrxTV6USoGvIwygoMpymzLqzfP_Qq-IEvvH5t13QxngKrhWy0FnwI4hRgDUHh3LW7hbwOEsTanQWMUAaRSW1gx5wzM=s64
+Image--->Image
+EmailAddress--->markus@eastpoint.se
+BuiltWithTechnology--->BIG-IP
+URL--->http://twittercounter.com/devteev
+EmailAddress--->max@qz.com
+Domain--->disc0nnected.com
+WebTitle--->Ð ÑÐµÐ¼Ñ ÐÐ
+Website--->www.usnavy.com
+Website--->www.city.brampton.on.ca
+DNSName--->school.nihaowang.com
+Website--->continuousassurance.org
+EmailAddress--->froomkin@firstlook.org
+Website--->www.surveymonkey.com
+URL--->http://www.nsa.gov/ia/_files/factsheets/I43V_Slick_Sheets/Slicksheet_OpenSSL_Web.pdf
+EmailAddress--->pcgamingisdead@gmail.com
+Website--->old.binero.se
+IPv4Address--->61.135.185.121
+EmailAddress--->inux@tycho.nsa.gov
+URL--->https://www.facebook.com/pages/Century-21-Times-Square-Realty-Inc/189865101036483
+Website--->ow.ly
+Website--->www.pythonanywhere.com
+EmailAddress--->prinquiries@biometrx.net
+FacebookObject--->Rt....love urself, n take care...
+DNSName--->ip-184-168-232-11.ip.secureserver.net
+Image--->Image
+Image--->Image
+BuiltWithTechnology--->jQuery 1.9.0
+EmailAddress--->elements@encyclopedia.com
+EmailAddress--->tmdubui@tycho.ncsc.mil
+Website--->www.schmap.com
+Website--->search.yahoo.com
+Website--->threatpost.com
+BuiltWithTechnology--->cufÃÂ³n
+Domain--->domaincrawler.com
+Website--->www.trackipaddresses.com
+BuiltWithTechnology--->jQuery Metadata
+EmailAddress--->free@ipaddress.com
+URL--->http://www.domaincrawler.com/209.200.154.238
+Website--->www.loopia.rs
+Website--->www.siventure.com
+EmailAddress--->eran.evan@gmail.com
+EmailAddress--->taplliance@vmware.com
+Website--->wpchrg.com.cutestat.com
+Document--->http://www.nsa.gov/academia/_files/collected_learning/elementary/arithmetic/multiplication_strategies_day_at_zoo.pdf Multiplication Strategies (Repeated Addition/Arrays) - A Day ...
+EmailAddress--->username@earth.com
+IPv4Address--->104.28.12.61
+Website--->dev.datasift.com
+URL--->http://pastebin.com/ikC2vHVz
+EmailAddress--->avalatron@gmail.com
+PhoneNumber--->+1 217 935 3488
+Website--->alccwinnershouse.org.cubestat.com
+Document--->http://bura.brunel.ac.uk/bitstream/2438/5158/3/FulltextThesis.pdf.txt bura.brunel.ac.uk
+Person--->Kali View
+Website--->72.104.172.24.ipaddress.com
+URL--->http://www.nsa.gov/about/_files/nsacss_strategy.pdf Goal 5���Manifesting NSA/CSS We will protect national ...
+EmailAddress--->more@ipaddress.com
+EmailAddress--->website@clickbook.com
+EmailAddress--->alexander.stadium@birmingham.gov.uk
+IPv4Address--->23.218.157.42
+DNSName--->www.commoncriteriaportal.org
+Website--->iamthesonofgoddotcom.com
+PhoneNumber--->+31 015 275 5715
+Website--->www.python.org
+EmailAddress--->alejandro@gomezmoreno.com
+Website--->www.paypal.com
+EmailAddress--->mepp@nsa.gov
+Website--->sloanreview.mit.edu
+WebTitle--->Google Maps
+Website--->ipaddress.com
+Website--->t1.extreme-dm.com
+Document--->http://ux.brookdalecc.edu/fac/engtech/andy/elec121/powerpoint/10%20fets.ppt FET Basics - Brookdale Community College
+Website--->www.paypalobjects.com
+FacebookObject--->IDsS Uganda office receives  e...
+Website--->www.quickleak.org
+EmailAddress--->netops@prolexic.com
+URL--->http://ir.vmware.com/releasedetail.cfm?ReleaseID=827889
+Website--->www.twitter.com
+Website--->www.acq.osd.mil
+EmailAddress--->clientservices@glhec.org
+Website--->www.eiseverywhere.com
+Website--->www.dslreports.com
+EmailAddress--->arnitajones@gmail.com
+EmailAddress--->admin@cloudflare.com
+Phrase--->Turbine
+URL--->http://websitedetective.net/dn/kik.at
+EmailAddress--->free@yourdictionary.com
+Domain--->yahoo.ca
+EmailAddress--->netops@dreamhost.com
+Domain--->2x.png
+Website--->www.dias.ac.in
+EmailAddress--->natashavc@theintercept.org
+URL--->https://firstlook.org/theintercept/2014/03/12/nsa-plans-infect-millions-computers-malware/
+EmailAddress--->mdg@degrimm.com.fr
+Alias--->artbytwymon
+Image--->Image
+EmailAddress--->clecouf@normanalex.com
+Netblock--->72.52.0.0-72.52.63.255
+Website--->www.yelp.com.sg
+EmailAddress--->vmware@theoutcastagency.com
+EmailAddress--->simon@techhead.co.uk
+Website--->www.fashion-jewellery.info
+Website--->ops.ietf.org
+Website--->northplattebulletin.com
+EmailAddress--->customercomplaints@britishgas.co.uk
+EmailAddress--->sigs@pcisecuritystandards.org
+Image--->Image
+BuiltWithTechnology--->Varnish
+EmailAddress--->josh.flint@phoenix.edu
+EmailAddress--->kevin@drnunley.com
+Website--->datatracker.ietf.org
+Website--->apps.infusion.com
+Website--->daytoncodebreakers.org
+Website--->regist.mail.goo.ne.jp
+DNSName--->www.dodgit.com
+DNSName--->pw1.netcom.com
+Website--->www.blackhat.com
+IPv4Address--->69.56.152.41
+WebTitle--->Ting - mobile that makes sense
+Website--->www.dsgroups.org
+BuiltWithTechnology--->FitVids.JS
+Phrase--->"Museum Group"
+EmailAddress--->sneate@vmware.com
+URL--->http://pastebin.com/03DiqzHp
+Website--->www.cuwhois.com
+Alias--->DabitCavazos
+Website--->www.motherfitness.com
+Phrase--->"National Security"
+URL--->http://pastebin.com/0Hjunvyb
+DNSName--->textec.org
+DNSName--->theharmonicalewinskies.com
+DNSName--->ecx.images-karoseriedumptruck.wordpress.com
+URL--->http://www.vmworld.com/community/conference/us/analysts
+URL--->http://pastie.org/pastes/4614742
+Website--->www.navyhistory.org
+Website--->www.vmware.com
+EmailAddress--->owner-cve-editorial-board-list@lists.mitre.org
+URL--->http://ipaddress.com/about.html
+EmailAddress--->info39@info.cmptechdirect.com
+Image--->Image
+Website--->www.wn.se
+EmailAddress--->balenson@aol.com
+DNSName--->intodns.com
+Website--->www.spy-ip.com
+URL--->http://www.gottabemobile.com/2011/08/16/google-motorola-will-webtop-os-pave-the-way-to-an-android-chromebook-dock/
+Person--->Chris Bookholt
+Website--->travel.aol.com
+FacebookObject--->City And Colour - 08 - Constan...
+URL--->http://adaptivedefiance.wordpress.com/2011/12/page/4/
+Domain--->vmware.com
+EmailAddress--->careers@oneflare.com
+Website--->www.silverton1000.com
+URL--->http://www.reuters.com/article/2014/04/09/idUSnMKW3cPyMa+1ca+MKW20140409
+Website--->www.medscape.com
+NSRecord--->wdprs.internic.net
+EmailAddress--->bubble-arrow-@2x.png
+BuiltWithTechnology--->Quantcast Measurement
+EmailAddress--->preferred-email-encoding@pgp.com
+EmailAddress--->kunaliit2002@gmail.com
+Website--->www.dni.gov
+Domain--->airforce.com
+Website--->mypeek.wildpackets.com
+Website--->www.nis.gr
+Website--->www.newarr.org
+DNSName--->agent.cmdbet.com
+Person--->Daniel Abrahamian
+Netblock--->184.168.0.0-184.168.255.255
+Domain--->prolexic.com
+PhoneNumber--->+1 443 479 1522
+BuiltWithTechnology--->ForeSee Results
+EmailAddress--->jeeadv@admin.iitd.ac.in
+EmailAddress--->info@amstock.com
+DNSName--->www.university.youth4work.com
+EmailAddress--->airforcewebsite@ideacity.com
+Phrase--->Idss
+Website--->whos.amung.us
+EmailAddress--->dns@cloudflare.com
+DNSName--->ns1.yahoo.com
+Website--->87.111.242.180.ipaddress.com
+EmailAddress--->online@peeldatacentre.ca
+EmailAddress--->jeidelson@bloomberg.net
+Person--->Naguib, Mina
+Website--->m1.app111.org
+Website--->www.seoheap.com
+Website--->www.hcn.org
+Website--->mail-archives.apache.org
+Phrase--->"Operator Global Network"
+URL--->http://ir.vmware.com/releasedetail.cfm?ReleaseID=775067
+EmailAddress--->murtaza.hussain@theintercept.com
+Website--->fmv.se
+URL--->http://www.droid-life.com/2014/07/28/t-mobile-launches-own-best-ever-family-plan-10gb-of-data-plus-unlimited-talktext-for-100/
+URL--->http://themesparksz.blogspot.com/2013/01/storyland-renfrew.html
+EmailAddress--->50e72e74a71c34650b01f0fc_acara@jtp.jpg
+Website--->107.194.76.130.ipaddress.com
+EmailAddress--->support@agent.cmdbet.com
+URL--->http://pastie.org/pastes/8661924?wrap=0
+Domain--->goo.ne.jp
+Person--->Iana Id
+EmailAddress--->pkellenberger@computer.org
+PhoneNumber--->+1 571 372 4652
+Document--->http://cn.bing.com/dict/bulletin%20of%20science%20and%20technology &lt;b&gt;bulletin&lt;/b&gt; of science and technology���������������_&lt;b&gt;bulletin&lt;/b&gt; of ...
+EmailAddress--->balenson@acm.org
+EmailAddress--->cve%2deditorial%2dboard%2dlist@lists.mitre.org
+Phrase--->Digg
+EmailAddress--->anand@triesten.com
+Phrase--->Army-navy
+NSRecord--->auth111.ns.uu.net
+EmailAddress--->vlape@me.com
+EmailAddress--->lee.shearer@onlineathens.com
+Website--->sickness.tor.hu
+EmailAddress--->cora.currier@theintercept.com
+Netblock--->76.74.254.0-76.74.254.127
+Website--->www.ignou.ac.in
+URL--->http://www.marketwatch.com/story/vmworld-2014-the-leading-virtualization-and-cloud-computing-event-of-the-year-heads-to-san-francisco-and-barcelona-2014-07-16
+BuiltWithTechnology--->Optimizely
+PhoneNumber--->+1 440 261 4014
+PhoneNumber--->+1 304 285 4086
+Document--->http://www.ncqa.org/Portals/0/HEDISQM/DataSubmission/IDSS_2010_New_Users_Slides6110.ppt PRESENTATION TITLE HERE YOUR NAME YOUR TITLE
+Website--->pinterest.com
+URL--->http://www.digchip.com/companies_news/2010/2010_04_22_6.php
+IPv4Address--->66.35.36.83
+MXRecord--->aspmx3.googlemail.com
+Website--->120.37.227.48.ipaddress.com
+Website--->www.eia.gov
+Website--->www.epa.gov
+BuiltWithTechnology--->Lightbox
+IPv4Address--->198.96.114.60
+Image--->Image
+Website--->themcglynn.org
+Document--->https://www.neco.navy.mil/upload/N63394/N6339410T003710T0037.doc ITEM NO - &lt;b&gt;United States Navy&lt;/b&gt;
+Image--->Image
+Website--->forums.timewarnercable.com
+MXRecord--->alt1.aspmx.l.google.com
+URL--->https://www.youtube.com/vmwareceska
+Domain--->nejm.org
+Website--->www.processregister.com
+URL--->https://www.fenron.net/~fenner/ietf/deps/viz/lmap.pdf
+Website--->itunes.apple.com
+EmailAddress--->kcupadhyaya@amity.edu
+Document--->http://www.nsa.gov/academia/_files/collected_learning/elementary/arithmetic/bugs_can_multiply.pdf Bugs Can Multiply, So Can I! - National Security Agency
+URL--->http://www.whoisstuff.net/ip-lookup.php?domain=72.52.4.90
+URL--->http://tools.securitytube.net/index.php?title=Main_Page
+Website--->docs.exdat.com
+EmailAddress--->peter.maass@theintercept.com
+WebTitle--->Breaking News and Opinion on The Huffington Post
+Document--->https://www.nsa.gov/ia/_files/os/win2k/sceregvl.inf www.nsa.gov
+EmailAddress--->toprani@mylife.com
+EmailAddress--->licensecompliance@gettvimacles.com
+Website--->www.trustedsec.com
+Website--->eventseeker.com
+Website--->www.networktools.nl
+EmailAddress--->manoj@t.homes.com
+URL--->https://onionshare.org/
+MXRecord--->emvm-gh1-uea09.nsa.gov
+Image--->Image
+DNSName--->maps.google.com
+Image--->Image
+URL--->http://247ecards.com/tags/inderbir-behl
+EmailAddress--->partnerships@ornl.gov
+URL--->https://maps.google.com/maps?q=250%2bMarquette%2bAvenue%2bSouth%2C%2bSuite%2b1330%2bMinneapolis%2C%2bMN%2bUSA%2b55401&z=10&t=m&hl=en&iwloc=A&output=embed
+affiliation.Flickr--->VMwarePR
+IPv4Address--->72.21.91.19
+EmailAddress--->football@sports-reference.com
+PhoneNumber--->04 470 3500
+EmailAddress--->af@loopia.se
+PhoneNumber--->+1 301 688 5849
+EmailAddress--->@cloudflare.com
+Document--->http://cd.textfiles.com/group42/INTERNET/HADMINBY.TXT cd.textfiles.com
+Domain--->nsa.gov
+URL--->http://pastebin.com/c72SWAu8
+Website--->gist.github.com
+EmailAddress--->support@randmilitarystudy.org
+EmailAddress--->lthurber@mac.com
+URL--->http://en.wikipedia.org/wiki/EMSEC
+BuiltWithTechnology--->IIS 8
+Website--->www.fbo.gov
+BuiltWithTechnology--->New Relic
+IPv4Address--->54.77.28.203
+IPv4Address--->195.74.38.68
+FacebookObject--->Petitioning Seargent at Arms P...
+URL--->https://eballot4.votenet.com/IEEE
+PhoneNumber--->052 583 8634
+IPv4Address--->184.168.235.195
+Document--->http://www.deloitte.com/assets/Dcom-Vietnam/Local%20Assets/Documents/Deloitte%20Application%20Form%20%20-%20%20Internship%20Program%202013.doc Thank you for applying to Deloitte
+Website--->sns.nihaowang.com
+EmailAddress--->gscoker@alpha.ncsc.mil
+Document--->http://docs.lib.noaa.gov/rescue/TIROS/TIROS_011.TXT docs.lib.noaa.gov
+URL--->http://www.marketwired.com/press-release/United-Data-Technologies-UDT-Makes-Procurement-Easier-With-New-Configuration-Center-1304388.htm
+EmailAddress--->quickonlinetips@gmail.com
+Phrase--->"United States Navy"
+URL--->https://www.youtube.com/watch?v=CctvJHzBNAk
+EmailAddress--->mark.e.lewis@lmco.com
+Website--->www.binero.se
+DNSName--->www.ranklite.se
+Domain--->huffingtonpost.com
+Website--->www.lenntech.de
+EmailAddress--->bfd@jabber.ietf.org
+Domain--->theintercept.com
+BuiltWithTechnology--->J2EE
+Website--->www.odni.gov
+EmailAddress--->trevor.j.thomas@lmco.com
+Image--->Image
+Website--->ctftime.org
+PhoneNumber--->+1 443 479 0802
+EmailAddress--->prinquiries@ingroupinc.com
+PhoneNumber--->+1 443 479 7104
+Website--->search.vmware.com
+DNSName--->www.dtra.mil
+Phrase--->"Signals Intelligence"
+NSRecord--->whois.arin.net
+EmailAddress--->tyk@tetsuyuki.com
+EmailAddress--->doug@pnl.gov
+Website--->wepartypatriots.com
+EmailAddress--->dominus@dominus.ws
+EmailAddress--->surname@gmail.com
+Website--->www.unlocktheinbox.com
+Document--->http://www.corpgov.deloitte.com/binary/com.epicentric.contentmanagement.servlet.ContentDeliveryServlet/CanEng/Documents/Resources/Financial%20Reporting%20Tools/AIF.xls AIF Assessment Tool - Deloitte
+Document--->http://www.deloitte.com/assets/Dcom-UnitedStates/Local%20Assets/Other%20Assets/D-US-sitemap.txt www.deloitte.com
+Website--->www.slideshare.net
+Website--->178.38.116profile.karoseriedumptruck.wordpress.com
+EmailAddress--->jack@colorpowered.com
+Website--->resweb.passkey.com
+BuiltWithTechnology--->jQuery
+Website--->www.youth4work.com
+EmailAddress--->robert.lyon1@navy.mil
+URL--->https://www.youtube.com/watch?v=OGpwOY_ChXk
+Location--->Romania
+Website--->myloc.gov
+EmailAddress--->netops@bluehost.com
+EmailAddress--->peering@node4.co.uk
+Website--->s0.wp.com
+IPv4Address--->173.194.115.104
+EmailAddress--->blog@cutre.com
+Website--->www.ircc.iitb.ac.in
+EmailAddress--->bazemoremh@appstate.ed
+Website--->eservice.peel.ca
+Website--->osdir.com
+DNSName--->www.missdomain.se
+EmailAddress--->nihonnococoro@webry.info
+EmailAddress--->atjoyce.france@osd.mil
+URL--->http://www.nsa.gov/academia/_files/collected_learning/elementary/arithmetic/bugs_can_multiply.pdf Bugs Can Multiply, So Can I! - National Security Agency
+Domain--->mozilla.org
+Image--->Image
+IPv4Address--->64.58.70.76
+EmailAddress--->here@graphicshunt.com
+EmailAddress--->anorris@globeandmail.com
+EmailAddress--->found@cve.mitre.org
+EmailAddress--->onewhiteduck777@gmail.com
+PhoneNumber--->+1 307 248 1523
+DNSName--->vc.deloitte.com
+URL--->http://krebsonsecurity.com/2013/03/new-java-0-day-attack-echoes-bit9-breach/
+Website--->www.theblueline.com
+FacebookObject--->IDsS Uganda office receives  e...
+Location--->-, United States
+EmailAddress--->ace@aceraft.com
+Website--->seal.verisign.com
+Website--->www.documentcloud.org
+PhoneNumber--->+1 650 427 3132
+Website--->www.grotal.com
+Domain--->youth4work.com
+EmailAddress--->abuse@yahoo-inc.com
+BuiltWithTechnology--->jQuery NoConflict
+PhoneNumber--->+1 443 479 0921
+EmailAddress--->kwburgi@tycho.ncsc.mil
+EmailAddress--->wikipedia-l@wikimedia.org
+Image--->Image
+Website--->www.navyreserve.navy.mil
+EmailAddress--->nico@cryptonector.com
+EmailAddress--->sdarville@chalkbeat.org
+EmailAddress--->trademarks@mozilla.com
+EmailAddress--->howard.l.ruddell@lmco.com
+Domain--->jabber.ietf.org
+Website--->www.baidu.com
+Document--->https://navyreserve.navy.mil/Documents/Center%20for%20Personal%20and%20Professional%20Development.docx NKO deadline for IRR participation - &lt;b&gt;United States Navy&lt;/b&gt;
+BuiltWithTechnology--->LinkedIn Platform API
+Image--->Image
+EmailAddress--->andrejgallant@gmail.com
+URL--->http://hak5.org/contact-us
+Website--->www.backupreview.info
+DNSName--->webmail.deloitte.com
+Website--->thedaywefightback.org
+Document--->http://www.nsa.gov/academia/_files/collected_learning/elementary/arithmetic/Two_Digit_Addition_at_the_Zoo.pdf Title: Two-Digit Addition at the Zoo - National Security Agency
+URL--->https://www.youtube.com/watch?v=GlCazmVBUMg
+URL--->http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3145
+EmailAddress--->naomi.longworth@brands2life.com
+BuiltWithTechnology--->Google JS Api
+DNSName--->blog.deloitte.com
+Image--->Image
+EmailAddress--->copyrightagent@myspace.com
+Image--->Image
+Website--->js.adm.cnzz.net
+Website--->programs.pcissc.org
+Website--->banglachoti.wordpress.com.cutestat.com
+PhoneNumber--->+1 410 269 0586
+Document--->http://ascprobienestar.com/Asc.txt ascprobienestar.com
+Website--->idss.mobimanage.com
+Image--->Image
+WebTitle--->Relevansanalys SÃ¶kmotoroptimering & DomÃ¤ner: Nyheter Varje Dag!
+Website--->ip-184-168-232-3.ip.secureserver.net
+WebTitle--->Welcome to Python.org
+BuiltWithTechnology--->StatCounter
+Netblock--->184.168.232.0-184.168.235.255
+Website--->www.doncio.navy.mil
+EmailAddress--->cgbook2@tycho.ncsc.mil
+EmailAddress--->more@century21.ca
+URL--->http://www.lookip.net/whois/209.200.153.88
+EmailAddress--->dan.froomkin@theintercept.com
+WebTitle--->Armed with Science | Providing You Information on Military Science and Technology
+EmailAddress--->anne.salazar-orvig@paris5.sorbonne.fr
+IPv4Address--->199.59.150.7
+PhoneNumber--->+1 866 800 0366
+DNSName--->blog.goo.ne.jp
+Website--->www.simplethemes.com
+DNSName--->ip-184-168-232-2.ip.secureserver.net
+Website--->cvb.idssasp.com
+Website--->www.pine.nl
+Image--->Image
+DNSName--->pop.disc0nnected.com
+Website--->feedads.g.doubleclick.net
+affiliation.Flickr--->natekost
+BuiltWithTechnology--->nginx 1.4
+Website--->m.mrnumber.com
+DNSName--->www.stephens.edu
+Website--->www.kennedyspacecenter.com
+Website--->secure.polldaddy.com
+EmailAddress--->agupte@deloitte.com
+EmailAddress--->results@www.cbse.nic.in
+EmailAddress--->aungar@farradyne.com
+Website--->www.cia.gov
+BuiltWithTechnology--->jQuery Tooltip
+Website--->jobs.deloitte.com
+DNSName--->www.fenron.net
+Phrase--->"Brusa System"
+IPv4Address--->66.155.11.238
+Document--->http://dhmh.maryland.gov/dental/doc/Bulletins%202012/Anesthesia%20and%20Sedation-April%204,%202012.doc &lt;b&gt;Bulletin&lt;/b&gt; - Maryland DHMH
+PhoneNumber--->+1 240 373 3799
+DNSName--->*.38.116profile.karoseriedumptruck.wordpress.com
+EmailAddress--->urp@tycho.ncsc.mil
+WebTitle--->Socks Us | Socks Live
+URL--->http://finance.yahoo.com/news/United-Data-Technologies-UDT-iw-2013475006.html
+Website--->www.freeproxyserverslistuk.blogspot.com
+Website--->sophharlow06.blogspot.com
+EmailAddress--->webmaster@tools.ietf.org
+BuiltWithTechnology--->Google Conversion Tracking
+EmailAddress--->sales@edassugarfree.com
+WebTitle--->Welcome to the National Security Agency - NSA/CSS
+EmailAddress--->ballardusa@earthlink.net
+PhoneNumber--->+1 301 688 2336
+EmailAddress--->help@ecnext.com
+EmailAddress--->nikhilsharma538@gmail.com
+Document--->http://www.goldenrodkennels.com/InTheNewsMaterial/GK%20Directions%20to%20Goldenrod%20Kennels.doc Directions to Goldenrod Kennels
+PhoneNumber--->+1 412 885 6050
+Website--->spring.me
+Website--->open.mapquestapi.com
+Website--->public-api.wordpress.com
+Document--->http://www.nsa.gov/about/_files/nsacss_strategy.pdf Goal 5���Manifesting NSA/CSS We will protect national ...
+NSRecord--->eva.ns.cloudflare.com
+Website--->e-dolby.icims.com
+Website--->firstlook.org
+URL--->http://pastebin.com/5ZEPf1XF
+DNSName--->116profile.karoseriedumptruck.wordpress.com
+Website--->hezuo.nihaowang.com
+Document--->http://csrc.nist.gov/publications/nistbul/csl94-11.txt csl94-11.txt - NIST Computer Security Division - Computer ...
+EmailAddress--->dmc@tycho.ncsc.mil
+EmailAddress--->coordinator@pcisecuritystandards.org
+Website--->nwtoolsblog.blogspot.com
+Website--->www.thegioicobac.net
+URL--->http://www.scribd.com/doc/100182787/Windows-Post-Exploitation-Command-List
+EmailAddress--->l.immink@student.fnt.hvu.nl
+Netblock--->76.74.248.0-76.74.255.255
+EmailAddress--->rkrebs@cdow.org
+PhoneNumber--->01 331 4046478
+EmailAddress--->be83398@yahoo.com
+WebTitle--->Webbhotell och domÃ¤nnamn fÃ¶r din hemsida
+Person--->Richard Quirk Iii
+EmailAddress--->amc@vmware.com
+IPv4Address--->192.241.217.200
+EmailAddress--->support@node4.co.uk
+DNSName--->www.blogger.com
+DNSName--->wildcard-in-use.ipaddress.com
+Website--->www.skipet.no.ipaddress.com
+DNSName--->www.workingclientsites.com
+BuiltWithTechnology--->CallidusCloud
+EmailAddress--->homes@canadianlisted.com
+Website--->evilzone.org
+EmailAddress--->abuse@hknet.com
+IPv4Address--->184.168.235.227
+Website--->apaccess.redcross.ca
+EmailAddress--->acc@tycho.ncsc.mil
+Domain--->163.com
+Document--->http://allegannews.com/articles/2014/02/27/obituaries/1.txt allegannews.com
+URL--->http://pastebin.com/bjMSYPuk
+EmailAddress--->jcarruth@computer.org
+Website--->psg.deloitte.com
+EmailAddress--->logo@2x.png
+URL--->http://torontoskyscraper.blogspot.com/2013/10/waterscapes-waterview-humber-bay-shores.html
+Location--->Grove, -
+MXRecord--->aspmx3.l.google.com
+Person--->Thomas DuBuisson
+Website--->asunews.asu.edu
+Website--->www.digitales.oesterreich.gv.at
+Document--->http://www.shemesh.co.il/pipermail/list/2006-April.txt www.shemesh.co.il
+EmailAddress--->darpa-baa-14-50@darpa.mil
+BuiltWithTechnology--->Red Hat Enterprise Linux
+Website--->www.droid-life.com
+Website--->www.kde.ps.pl
+DNSName--->afsstore-new.euro.karoseriedumptruck.wordpress.com
+EmailAddress--->derbyessay@room362.com
+Website--->travel.state.gov
+EmailAddress--->noreply-comment@blogger.com
+EmailAddress--->trademarks@mozilla.org
+Website--->www.imperial.ac.uk
+Website--->color-names.hex-code.com
+BuiltWithTechnology--->Monetate
+Website--->plus.google.com
+EmailAddress--->arin-contact@google.com
+Phrase--->"British Intelligence"
+EmailAddress--->sales@idss.com
+EmailAddress--->style2-32@2x.png
+EmailAddress--->mjs@tycho.ncsc.mil
+Website--->www.downloademail.net
+EmailAddress--->lias-admin@lists.linux.org.au
+Website--->www.wsfa.com
+Website--->www.theglobeandmail.com
+Document--->http://www.va.gov/optometry/docs/VBA_April_VSCM_Bulletin_Visual_Fields.doc C&amp;amp;P &lt;b&gt;Bulletin&lt;/b&gt; - United States Department of Veterans Affairs
+Website--->www.100marks.in
+IPv4Address--->192.0.81.250
+BuiltWithTechnology--->jQuery 1.7.1
+EmailAddress--->service@livebinders.com
+EmailAddress--->marc.holloran@lmco.com
+EmailAddress--->baonysh@tycho.ncsc.mil
+Website--->advanceddefiance.blogspot.com
+Website--->drive.google.com
+PhoneNumber--->+1 301 688 1800
+URL--->https://www.pcisecuritystandards.org/pdfs/asv_program_guide_v1.0.pdf
+URL--->http://blog.rapid7.com/?author=26
+EmailAddress--->more@hollisterclothing.co.uk
+URL--->http://www.airforce.com/careers/detail/aerospace-ground-equipment/
+Website--->www.navy.com
+DNSName--->www.droid-life.com
+Document--->http://www.leaguelineup.com/spponytail/files/Directions_to_Ponytail_Park_Fields[1][1].doc Directions to Ponytail Park Fields - LeagueLineup.com
+Website--->www.123cha.com
+EmailAddress--->simons@vmware.com
+EmailAddress--->markus.mackenbrock@bsi.bund.de
+URL--->http://traffic.alexa.com/graph?w=260&h=190&o=f&c=1&y=t&b=f5f5f5&n=666666&r=2y&u=banglachoti.wordpress.com
+Image--->Image
+PhoneNumber--->+1 301 688 6198
+Website--->sas.elluminate.com
+Image--->Image
+Website--->pagead2.googlesyndication.com
+EmailAddress--->network-abuse@cc.yahoo-inc.com
+EmailAddress--->20paul.calandra@parl.gc.ca
+Image--->Image
+Document--->http://cdn.preterhuman.net/texts/conspiracy/CN/cn09-68.txt cdn.preterhuman.net
+Website--->www.3dayol.org
+Website--->www.rcew.ac.in
+DNSName--->onlineathens.com
+Image--->Image
+affiliation.Facebook--->Robyn Wheeler
+BuiltWithTechnology--->selectivizr
+EmailAddress--->copyrightagent@tds.net
+Domain--->seas.gwu.edu
+WebTitle--->Home - First Look Media
+Person--->David Balenson DSS/DH
+URL--->http://www.century21.ca/Property/ON/L4A_0X4/Stouffville/60_Vera_Lynn_Cres
+DNSName--->xpandstaffing.com.ipaddress.com
+Document--->http://caselaw.lp.findlaw.com/data/ny/cases/app/ssm15mem.wpd caselaw.lp.findlaw.com
+EmailAddress--->links@google.com
+URL--->http://ipaddress.com/email-tools/
+Website--->womenaredreamerstoo.wordpress.com
+Website--->pressoffice.telefonica.com
+PhoneNumber--->+1 201 723 5865
+EmailAddress--->keith.mordoff@lmco.com
+Website--->www.classmates.com
+MXRecord--->aspmx2.l.google.com
+Person--->Edward Snowden
+Website--->www.teradici.com
+Image--->Image
+Domain--->tools.ietf.org
+EmailAddress--->online@verifyemailaddress.org
+BuiltWithTechnology--->jQuery Easing
+PhoneNumber--->+86 202 831 1026
+Website--->www.allworldfurniture.com
+EmailAddress--->live@thesaurus.com
+Website--->www.bloomberg.com
+EmailAddress--->tech@synthasite.com
+URL--->http://www.normanalex.com/fr/societe/equipe
+Website--->varjager.wordpress.com
+URL--->http://pastebin.com/izRFguGd
+EmailAddress--->smaillet@embeddedfusion.com
+EmailAddress--->kwi-mozilla@e.mozilla.org
+Website--->productforums.google.com
+WebTitle--->Welcome | Tenable Discussions Forum
+BuiltWithTechnology--->Octopress
+DNSName--->www.room362.com
+Website--->secure.airforce.com
+EmailAddress--->dahatch@nsa.gov
+Website--->prod01-cdn01.cdn.firstlook.org
+Website--->www.rapid7.com
+Website--->egov.immigration.gov
+Phrase--->Rapid7
+Website--->www.bloglines.com
+Website--->www.checksiteinfo.info
+EmailAddress--->website@www.archives.gov
+Website--->marinecruisejogja.com
+URL--->http://finance.yahoo.com/news/vmworld-2014-leading-virtualization-cloud-120000733.html
+EmailAddress--->maaphotophoto@gmail.com
+EmailAddress--->cspri@gwu.edu
+BuiltWithTechnology--->MediaWiki
+URL--->https://metasploit.com/svn/framework3/unstable/modules/exploits/
+Website--->apelsec.reformal.ru
+Website--->www.cityfreq.com
+FacebookObject--->CTM3 Matthew J. O'Bryant10 May...
+Website--->samsunggalaxypromotions.com
+Person--->Eugene Myers
+Website--->hootsuite.com
+URL--->http://www.mobilitytechzone.com/lte/news/2012/03/06/6169304.htm
+Website--->www.usfirst.org
+Website--->www.linkedinsummit.com
+Website--->www.coolsocial.net
+Domain--->ipaddress.com
+EmailAddress--->fred@domain.hu
+PhoneNumber--->+1 301 688 5892
+Website--->prod01-cdn00.cdn.firstlook.org
+Document--->http://www.seaport.navy.mil/Shared%20Documents/Rolling%20Admissions/Spring%202013/Synopsis%20Rolling%20Admissions.doc Synopsis - &lt;b&gt;United States Navy&lt;/b&gt;
+WebTitle--->Region of Peel - Working for Citizens in Brampton, Caledon and Mississauga
+EmailAddress--->navynewsservice@dma.mil
+IPv4Address--->162.159.250.90
+PhoneNumber--->+1 443 479 0997
+PhoneNumber--->+1 213 688 0800
+IPv4Address--->23.218.157.98
+EmailAddress--->amdale@missi.ncsc.mil
+EmailAddress--->enc@nsa.gov
+Domain--->idssasp.com
+IPv4Address--->23.206.244.79
+Website--->www.vmworld.com
+Image--->Image
+URL--->http://dictionary.sensagent.com/Jean-Jacques_Rousseau/en-en/
+Document--->http://www.secnav.navy.mil/rda/OneSource/Documents/WAWF%20Overview/Government%20Information/WAWF%20Resources/wawfoverviewslidesv4.10510.pptx WAWF Overview Slides - &lt;b&gt;United States Navy&lt;/b&gt;
+Document--->http://www.corpgov.deloitte.com/binary/com.epicentric.contentmanagement.servlet.ContentDeliveryServlet/CanEng/Documents/Resources/Create%20your%20own%20Agenda/PlanningToolCanada.xlsm www.corpgov.deloitte.com
+Website--->www.npmjs.org
+URL--->http://www.nsa.gov/public_info/declass/ufo/index.shtml
+URL--->http://onlineathens.com/stories/102510/new_725497567.shtml
+EmailAddress--->snabel@efternamn.com
+Website--->facebook.com
+Website--->www.recordedfuture.com
+Website--->account.woot.com
+EmailAddress--->instructions@cve.mitre.org
+Website--->www.dits.deloitte.com
+Website--->lh6.ggpht.com
+Website--->forums.watchuseek.com
+EmailAddress--->http%3a%2f%2fwww.census.gov%2fcompendia%2fstatab%2fcats%2fpopulation%2fancestry_language_spoken@home.html
+Website--->technorati.com
+EmailAddress--->ace-chairs@tools.ietf.org
+EmailAddress--->upleaks1@gmail.com
+Website--->www.securitymetrics.com
+DNSName--->dfw06s46-in-f7.1e100.net
+URL--->http://cyberwar.nl/d/hak5.org_OSXPost-Exploitation_copy-20130228.pdf
+PhoneNumber--->+1 301 854 5363
+EmailAddress--->com@protecteddomainservices.com
+BuiltWithTechnology--->Shadowbox
+EmailAddress--->consular.lagos@fco.gov.uk
+EmailAddress--->intl.admission@stanford.edu
+PhoneNumber--->+1 301 688 6214
+Website--->www.smartypig.com
+URL--->http://benswann.com/nsa-spying-was-never-about-terrorism-it-is-about-economic-spying/
+Website--->tictail.com
+Phrase--->Nsa
+EmailAddress--->mhogas@gmail.com
+Website--->walpage.com
+IPv4Address--->198.96.114.188
+EmailAddress--->customercare@nsa.gov
+URL--->http://www.nsa.gov/about/cryptologic_heritage/museum/map/
+EmailAddress--->j7gov1cmnqr9tvg14k621j7t5c@group.calendar.google.com
+PhoneNumber--->+1 443 479 6372
+Website--->moscow.abongo.com
+Image--->Image
+IPv4Address--->23.235.40.223
+Website--->www.skimble.com
+WebTitle--->Penetration Testing Software | Metasploit
+PhoneNumber--->+1 443 479 1193
+PhoneNumber--->+372 640 6500
+BuiltWithTechnology--->jQuery 1.5.1
+EmailAddress--->ballards@norwich.edu
+BuiltWithTechnology--->WordPress 3.8
+Website--->www.iiit.ac.in
+BuiltWithTechnology--->Google Analytics Anonymize IP
+EmailAddress--->registry@binero.se
+Website--->190.247.144.225.ipaddress.com
+FacebookObject--->TRIS & WINNIE! OCAS, ORLANDO, ...
+EmailAddress--->admin@securityaegis.com
+Website--->xpandstaffing.com.ipaddress.com
+URL--->https://community.rapid7.com/docs/DOC-1136
+URL--->http://www.nsa.gov/ia/programs/suiteb_cryptography/index.shtml
+Image--->Image
+PhoneNumber--->+1 301 497 4352
+URL--->http://forum.prisonplanet.com/index.php?topic=213411.0
+PhoneNumber--->+1 301 688 0842
+DNSName--->www.websitedetective.net
+IPv4Address--->64.170.98.42
+EmailAddress--->tom@punkave.com
+Website--->www.smoothmag.com
+EmailAddress--->him@facebook.com
+EmailAddress--->westonanthony@bellsouth.net
+Website--->play.google.com
+Website--->secure3.computer.org
+PhoneNumber--->+1 800 375 5283
+PhoneNumber--->+31 015 275 5705
+EmailAddress--->fhouzelot@normanalex.com
+Website--->www.jabber.org
+IPv4Address--->74.125.227.110
+EmailAddress--->support@missdomain.com
+Website--->68.14.248.140.ipaddress.com
+BuiltWithTechnology--->comScore
+DNSName--->pagead2.googlesyndication.com
+IPv4Address--->192.186.234.195
+IPv4Address--->104.28.30.9
+URL--->http://www.securitytube.net/Metasploit-Megaprimer-Part-4-%28Meterpreter-Extensions-Stdapi-and-Priv%29-video.aspx
+EmailAddress--->hap10@tycho.ncsc.mil
+PhoneNumber--->+1 908 805 4105
+Alias--->dabitnjackeyy
+FacebookObject--->-> Main Causes of the First Wo...
+Location--->Old Delhi, -
+IPv4Address--->66.155.9.238
+BuiltWithTechnology--->jQuery QTip
+Domain--->www.barbaratallent.com
+Domain--->udtonline.com
+Website--->chat.airforce.com
+EmailAddress--->root@phdays.ctf
+EmailAddress--->berlin@mails.de
+Netblock--->64.233.160.0-64.233.191.255
+URL--->https://www.youtube.com/watch?v=azAHn0y91Xk
+EmailAddress--->available@dealseekers.com
+Website--->webmaker.org
+Website--->novellisrestaurant.com
+EmailAddress--->jlsmith1003@netscape.net
+Website--->xml2rfc.ietf.org
+Website--->getmaillist.blogspot.com
+PhoneNumber--->+1 443 479 2959
+EmailAddress--->pal@tycho.ncsc.mil
+URL--->http://spl0it.wordpress.com/
+Document--->http://brownwoodbulletin.mycapture.com/ Second Street Online Promotions Platform
+Website--->farm4.staticflickr.com
+Website--->science360.gov
+EmailAddress--->trooper@nsa.gov
+Website--->ontheneedlesedge.blogspot.com
+Website--->pixel.wp.com
+EmailAddress--->qcrkscw70lc@public.gmane.org
+EmailAddress--->adams@cisco.com
+Phrase--->Metasploit
+IPv4Address--->173.194.115.121
+EmailAddress--->mlovos@computer.org
+EmailAddress--->sipcore@jabber.ietf.org
+Website--->creme.isde.vanderbilt.edu
+DNSName--->ip-184-168-232-10.ip.secureserver.net
+Website--->pis2.wikispaces.com
+EmailAddress--->maik.jablonski@gmail.com
+Domain--->youtube.com
+EmailAddress--->dan@dancoulter.com
+EmailAddress--->peelhealth@peelregion.ca
+Website--->www.yelp.es
+Website--->wpedia.goo.ne.jp
+Website--->www.microsoft.com
+Website--->vmwgcomms.com
+Website--->www.dk-hostmaster.dk
+EmailAddress--->ajax-loader@2x.gif
+PhoneNumber--->+1 410 854 4458
+EmailAddress--->6bgklq7r@public.gmane.org
+EmailAddress--->arrow-menu@2x.png
+EmailAddress--->sanooktrance@gmail.com
+Website--->deloittenet.deloitte.com
+Domain--->rapid7.com
+EmailAddress--->press@youtube.com
+PhoneNumber--->+1 443 479 2384
+IPv4Address--->176.28.50.165
+URL--->http://www.nsa.gov/academia/_files/collected_learning/elementary/arithmetic/party_with_place_value.pdf Title: Place Value- ���Let���s Party With Place Value���
+Website--->botellasrotas.wordpress.com
+Website--->www.usa.gov
+Website--->s1.wp.com
+BuiltWithTechnology--->Facebook SDK
+Alias--->Dabit Cavazos
+EmailAddress--->career@ptsecurity.ru
+Website--->www.google-analytics.com
+Person--->Eamil
+Website--->www.ncqa.org
+Location--->Hollywood, -
+Website--->tagdiv.com
+Website--->adcenter.microsoft.com
+Document--->http://www.nsa.gov/academia/_files/collected_learning/elementary/arithmetic/party_with_place_value.pdf Title: Place Value- ���Let���s Party With Place Value���
+EmailAddress--->johnson7993@sbcglobal.net
+EmailAddress--->noc@prolexic.com
+URL--->http://www.nsa.gov/public_info/contacts/index.shtml
+Website--->sealserver.trustkeeper.net
+EmailAddress--->arichard@normanalex.com
+EmailAddress--->hundred@dictionary.com
+Website--->db2.audioasylum.com
+EmailAddress--->kfarlow@deloitte.com
+Website--->testphp.vulnweb.com
+Website--->s7.addthis.com
+DNSName--->us.deloitte.com
+Website--->s3.buysellads.com
+URL--->http://1thevenusfactor.blogspot.com/feeds/posts/default
+EmailAddress--->askiasp@nsa.gov
+Phrase--->"Cambridge Center City"
+EmailAddress--->email@yourisp.com
+EmailAddress--->netops@onesc.net
+PhoneNumber--->+1 717 761 6535
+Netblock--->72.3.223.72-72.3.223.79
+WebTitle--->What Is My IP Address Lookup - IP Tools, Locator, Trace Any IP Address!
+IPv4Address--->173.194.115.109
+Website--->www.volvoforum.nl
+EmailAddress--->abelleq@missi.ncsc.mil
+Website--->tracker.marinsm.com
+DNSName--->www.loopia.se
+Website--->careers.deloitte.com
+URL--->http://pastebin.com/Tv29PHRj
+EmailAddress--->licensecompliance@symantec.com
+DNSName--->tilleyart.com
+Document--->http://cn.bing.com/dict/united%20states%20navy%20ships &lt;b&gt;united states navy&lt;/b&gt; ships���������������_&lt;b&gt;united states navy&lt;/b&gt; ...
+NSRecord--->whois.networksolutions.com
+URL--->http://www.nsa.gov/public_info/press_room/2009/vcc1_goes_green.shtml
+EmailAddress--->calext@jabber.ietf.org
+DNSName--->test.acunetix.com
+EmailAddress--->askiace@nsa.gov
+EmailAddress--->info@aire-la-ville.ch
+PhoneNumber--->+1 732 462 0756
+Website--->www.blogtap.net
+URL--->https://www.fenron.net/~fenner/ietf/deps/viz/bfd.pdf
+Website--->allaboutcircuits.com.foxmos.com
+EmailAddress--->bj@rentec.com
+URL--->http://practicalpwnage.com/2010/12/vpn-pivot-test-metasploit-pro/
+Website--->www.marie-antoinette.org
+URL--->https://twitter.com/devteev
+Website--->periodiques.wordpress.com
+EmailAddress--->kimba@whitelionsocial.com
+URL--->http://nere.se/sitemap/1114.html
+EmailAddress--->gpsmith@nsa.gov
+Website--->detroitjockcity.com
+BuiltWithTechnology--->HTML5 History API
+Website--->www.showsite.org
+FacebookObject--->Sistaah ? Bruddah ? Right Hand...
+Website--->www.mozilla.com
+IPv4Address--->162.159.251.90
+Website--->checklists.nist.gov
+FacebookObject--->--->RT --->RETWEETTime to take a sta...
+FacebookObject--->Russia has said the conduct of...
+Location--->Barcelona, -
+EmailAddress--->alexander.rosemann@nospamcontec.at
+PhoneNumber--->+1 767 425 4120
+URL--->http://pastie.org/pastes/4138534
+Website--->science.dodlive.mil
+EmailAddress--->us@benswann.com
+IPv4Address--->173.194.115.100
+Website--->cve.mitre.org
+BuiltWithTechnology--->Apache 2.2
+Website--->dl.acm.org
+EmailAddress--->briarsidelane@gmail.com
+Domain--->secureserver.net
+URL--->http://address007.com/Address-of-National-Cryptologic-Museum-011902
+Website--->www.webutations.info
+WebTitle--->JEE Main, JEE Advanced, Engineering Entrance help
+EmailAddress--->prinquiries@vmware.com
+EmailAddress--->uploading_icon_style1@2x.png
+IPv4Address--->205.251.243.105
+Website--->www.worldofsmartphone.com
+Document--->http://ardf.wr.usgs.gov/ardf_data/SR_refs.txt ardf.wr.usgs.gov
+EmailAddress--->dns@jomax.net
+IPv4Address--->206.200.251.19
+Website--->movie4m.com.ipaddress.com
+NSRecord--->d.ns14.net
+Domain--->ietf.org
+Website--->twitter.com
+Website--->www.m-systems.com
+Domain--->lmco.com
+Location--->-, Afghanistan
+URL--->http://www.t30p.ru/Twitter.aspx?p=1036&amp;order=2
+EmailAddress--->abuse@web.com
+Website--->www.duote.com
+EmailAddress--->pjschon@tycho.ncsc.mil
+EmailAddress--->jan.jarfalk@unwrongest.com
+Document--->http://www.ncqa.org/Portals/0/HEDISQM/DataSubmission/IDSS_SNP_Demo6110.ppt PRESENTATION TITLE HERE YOUR NAME YOUR TITLE
+Website--->games.yahoo.com
+EmailAddress--->elements@2x.png
+PhoneNumber--->+1 301 688 6524
+PhoneNumber--->083 433 3380854
+URL--->http://pastie.org/pastes/3715119
+Person--->Michael Paul
+Website--->www.shfg.org
+URL--->http://krebsonsecurity.com/2012/09/chinese-hackers-blamed-for-intrusion-at-energy-industry-giant-telvent/
+PhoneNumber--->+1 888 771 0471
+PhoneNumber--->240 238 3900
+Website--->discussions.nessus.org
+EmailAddress--->smith@eclipse.ncsc.mil
+Netblock--->208.118.224.0-208.118.239.255
+EmailAddress--->tunes@reverbnation.com
+Image--->Image
+EmailAddress--->david_balenson@nai.com
+Website--->cima.computer.org
+URL--->http://devteev.blogspot.com/feeds/posts/default?orderby=updated
+EmailAddress--->pjdolle@tycho.ncsc.mil
+Image--->Image
+URL--->http://pastebin.com/wraxhLg1
+EmailAddress--->balenson@seas.gwu.edu
+Image--->Image
+PhoneNumber--->+1 301 688 0847
+Website--->wawftraining.eb.mil
+Website--->www.findip-address.com
+URL--->http://armysecurityagency.blogspot.com/feeds/4829781541027202062/comments/default
+Website--->fonts.googleapis.com
+Website--->vbadud.blogspot.com
+Document--->http://www.deloitte.com/assets/Dcom-UnitedStates/Local%20Assets/Other%20Assets/DTT_sitemap.txt www.deloitte.com
+Document--->http://www.deloitte.com/assets/Dcom-Canada/Local%20Assets/Other%20Assets/ca_fr_diversity_dialogue_102711.txt www.deloitte.com
+IPv4Address--->93.113.174.225
+EmailAddress--->mobile@civilization.ca
+PhoneNumber--->+1 301 688 2100
+Website--->firestorm-test.innocentive.com
+EmailAddress--->victor.donado@us.af.mil
+URL--->http://www.rapid7.com/db/modules/post/windows/gather/cachedump
+Website--->rhn.redhat.com
+EmailAddress--->erik@domain.com
+Image--->Image
+URL--->http://lh4.ggpht.com/xiZedl1qNZydU5FrUms5jzJrLr5A2-xnwTq4lrqVFuE5e0_3wGuL6-DV-YhPnPIF756P5o5i10C3mRZiDCvn4mTjd3ZPHyI=s64
+EmailAddress--->britney.spears@hotmail.com
+EmailAddress--->rengle@deloitte.com
+DNSName--->cvb.idssasp.com
+EmailAddress--->jason@onehackoranother.com
+Phrase--->"Nsa’s Technology Directorate"
+Website--->www.norwichbulletin.com
+EmailAddress--->domain@yahoo-inc.com
+Image--->Image
+NSRecord--->a.ns14.net
+EmailAddress--->americas@idss-int.com
+Website--->wildcatwebsites.blogspot.com
+Website--->k7evt3kf.cmdbet.com
+PhoneNumber--->481 624 2500
+EmailAddress--->renewalmove@binero.se
+BuiltWithTechnology--->eXTReMe Tracking
+WebTitle--->Sveriges vÃ¤nligaste webbhotell - Binero
+URL--->http://www.nsa.gov/about/_files/CoreValues.pdf agency central security - Welcome to the National Security ...
+Website--->www.ymcagta.org
+PhoneNumber--->+1 612 348 8240
+Website--->108.51.227.102.ipaddress.com
+URL--->https://www.fenron.net/~fenner/ietf/deps/viz/calext.pdf
+Website--->www.pcisecuritystandards.org
+EmailAddress--->shanna.u@gmail.com
+Domain--->google.com
+Alias--->BillyTwymonII
+EmailAddress--->layouta@2x.png
+BuiltWithTechnology--->DoubleClick Floodlight
+EmailAddress--->jhartsho@uark.edu
+FacebookObject--->City And Colour - 08 - Constan...
+IPv4Address--->184.168.235.198
+EmailAddress--->._1998@yahoo.com
+URL--->http://pastie.org/pastes/1337398
+Document--->https://cno.ahf.nmci.navy.mil/dns/webdoc01.nsf/B791050C51FDA18F852571ED008030E9/$File/CNOpointpaperformat%20-%20N00Z%20Ver.doc CINCLANTFLT POSITION PAPER - &lt;b&gt;United States Navy&lt;/b&gt;
+Website--->myip.ms
+EmailAddress--->dsims@computer.org
+URL--->http://www.nsa.gov/academia/early_opportunities/math_edu_partnership/
+Website--->117.21.192.11.ipaddress.com
+EmailAddress--->him@myspace.com
+Website--->www.livrd.com
+URL--->https://maps.googleapis.com/maps/api/js?%20key=AIzaSyDdKhtrV93aDe25CC2nddy97OgVn71mWHA&sensor=true
+BuiltWithTechnology--->Python 2.6
+EmailAddress--->post@washingtonpost.com
+EmailAddress--->timothy.reed.7@us.af.mil
+Website--->coolbranch.com
+Phrase--->Udt
+Website--->www.snapback.se
+IPv4Address--->74.125.227.97
+Website--->www.reuters.com
+Website--->objectmix.com
+Website--->www.airforce.com
+EmailAddress--->carlos.caballero.1@us.af.mil
+URL--->http://www.vmware.com/company/news/media-contacts
+EmailAddress--->adarcy@theoutcastagency.com
+Website--->thailandlotterytips.blogspot.com
+URL--->https://www.youtube.com/vmwarekorea
+Website--->player.vimeo.com
+Phrase--->"Second Party"
+EmailAddress--->sgordeychik@ptsecurity.ru
+EmailAddress--->andrew.h.cox@lmco.com
+URL--->https://twitter.com/Memorion
+EmailAddress--->copyrightagent@turner.com
+Image--->Image
+EmailAddress--->bulletin@thesaurus.com
+Phrase--->Oracle
+URL--->http://myip.ms/phim69.net
+Website--->aucvb.idssasp.com.php54-2.ord1-1.websitetestlink.com
+EmailAddress--->licensecompliance@autodesk.com
+EmailAddress--->ekonomi@loopia.se
+EmailAddress--->david@windward.net
+EmailAddress--->croatia@wordcamp.org
+EmailAddress--->nzhang10@gwu.edu
+URL--->http://www.university.youth4work.com/DBIT_Don-Bosco-Institute-of-Technology
+Website--->www.tnet.com
+EmailAddress--->downloads@booksreadr.net
+EmailAddress--->riel@andylau.net
+Website--->addons.mozilla.org
+EmailAddress--->guy@vmware.com
+Website--->www.aftonbladet.se
+Website--->mypay.dfas.mil
+EmailAddress--->dwaters@vmware.com
+URL--->http://www.ietf.org/mail-archive/web/smime/current/msg00537.html
+URL--->http://pastebin.com/bgYhgZNv
+Document--->http://www.nature.org/ourinitiatives/regions/northamerica/unitedstates/newjersey/nj-office-directionsdocxnull.docx DIRECTIONS TO THE ELIZABETH D. KAY ENVIRONMENTAL CENTER AT ...
+EmailAddress--->style4-16@2x.png
+DNSName--->www.binero.se
+Domain--->googleapis.com
+Image--->Image
+Website--->www.digitec.ch
+Website--->adwords.google.com
+Website--->thatballsouttahere.com
+Website--->pochp.wordpress.com
+WebTitle--->Wikipedia, the free encyclopedia
+Domain--->krebsonsecurity.com
+FacebookObject--->Who has more passion for the B...
+Website--->www.jobui.com
+Website--->www.idss-ep.com
+BuiltWithTechnology--->jQuery Cookie
+EmailAddress--->hana@outcastpr.com
+Website--->www.transcend.org
+EmailAddress--->daily@rasmussenreports.com
+Website--->www.enthought.com
+URL--->http://www.loopia.se/
+EmailAddress--->aduggan@stfx.ca
+EmailAddress--->cvrk1help@deloitte.com
+EmailAddress--->webmaster@navy.mil
+EmailAddress--->tdemare@tycho.ncsc.mil
+EmailAddress--->dcinvestigations@ap.org
+Website--->vmware.se
+BuiltWithTechnology--->Google Analytics with Ad Tracking
+Website--->pa.bizdirlib.com
+DNSName--->www.baseball-reference.com
+IPv4Address--->173.194.115.101
+IPv4Address--->184.168.235.224
+EmailAddress--->noreply@blogger.com
+IPv4Address--->64.233.160.82
+EmailAddress--->ramartin@mitre.org
+Website--->designbydavi.com.ipaddress.com
+EmailAddress--->skoglund@pdmsb.com
+IPv4Address--->184.168.235.200
+URL--->http://www.nsa.gov/ia/mitigation_guidance/security_configuration_guides/index.shtml
+Domain--->nere.se
+Image--->Image
+Website--->tools.ietf.org
+EmailAddress--->dtjtakumi@gmail.com
+Website--->tools.securitytube.net
+EmailAddress--->hostmaster@1and1.com
+DNSName--->address007.com
+EmailAddress--->keith@prolexic.com
+EmailAddress--->cjwagne@missi.ncsc.mil
+Website--->login.monster.com
+BuiltWithTechnology--->Touchwipe
+EmailAddress--->cmdbet.com@protecteddomainservices.com
+affiliation.Flickr--->evanfleischer
+DNSName--->ip-184-168-232-12.ip.secureserver.net
+Image--->Image
+PhoneNumber--->+1 443 479 9572
+Website--->www.marinsoftware.com
+Website--->krebsonsecurity.com
+BuiltWithTechnology--->MooTools
+FacebookObject--->Every time I tell myself I don...
+Image--->Image
+BuiltWithTechnology--->CentOS
+BuiltWithTechnology--->Adobe ColdFusion
+BuiltWithTechnology--->jQuery Tools
+Location--->Atlanta, United States
+NSRecord--->ns4.yahoo.com
+Document--->http://www.virginiatrappers.org/Reports/2012%20convention%20flyer.doc Virginia Trappers Association - Virginia Trapper's ...
+EmailAddress--->aruzziconi@normanalex.com
+Website--->answers.yahoo.com
+EmailAddress--->tjjackso@uwaterloo.ca
+EmailAddress--->yourname@gmail.com
+URL--->http://www.siteencyclopedia.com/dealdash.com/
+Image--->Image
+DNSName--->smtp.bleedfirst.com
+EmailAddress--->smaight@hotmail.com
+Website--->www.cdc.gov
+Location--->Unknown,Unknown,Unknown
+Document--->http://allegannews.com/articles/2014/01/25/obituaries/1.txt allegannews.com
+WebTitle--->Home
+Image--->Image
+Website--->www.owasp.org
+PhoneNumber--->+1 301 688 4784
+URL--->http://flesler-plugins.googlecode.com/files/jquery.scrollTo-1.4.2-min.js
+EmailAddress--->e1@vmware.com
+PhoneNumber--->074 12 5227102
+WebTitle--->Navy.mil The Official Website of the United States Navy: Home Page
+URL--->http://pastebin.com/TKvzf5Dz
+EmailAddress--->hdm@metasploit.com
+Website--->traffic.alexa.com
+Website--->www.webhits.de
+Website--->thedreamstress.com
+Domain--->idss.com
+EmailAddress--->avangate@highwirepr.com
+Website--->www.merriam-webster.com
+Domain--->ting.com
+Website--->www.mobilitytechzone.com
+Image--->Image
+BuiltWithTechnology--->jQuery Colorbox
+PhoneNumber--->+1 888 282 0870
+DNSName--->vmworld2014.activeevents.com
+EmailAddress--->manderson@computer.org
+Person--->Millicent Adkinson
+DNSName--->eballot4.votenet.com
+EmailAddress--->matti@meikalainen.com
+URL--->http://lh4.ggpht.com/ng8qixn9-GOaBIY8gZyVEUqxzi9zQg1XNTZ7kHsN1eIdkQgfmcrY8URgRgnHZWfKJyuUx896Nnc1uPHo=s64
+IPv4Address--->162.254.148.162
+Website--->www.graywolfpress.org
+EmailAddress--->karen@w3.org
+Website--->www.matthewaid.com
+IPv4Address--->184.26.136.114
+Website--->www.empowermint.com
+Image--->Image
+DNSName--->malkaphotoproject.org
+EmailAddress--->audience@benswann.com
+Website--->diswww.mit.edu
+EmailAddress--->eontiveros@vmware.com
+EmailAddress--->nsets@nsa.gov
+Website--->creative.peelregion.ca
+EmailAddress--->copyrightagent@linkedin.com
+EmailAddress--->ifund@ifundinternational.com
+EmailAddress--->sveerepalli@deloitte.com
+Website--->www.afio.com
+Website--->www.secmaniac.com
+IPv4Address--->184.168.232.9
+BuiltWithTechnology--->Prototype
+Website--->www.informationclearinghouse.info
+Website--->kid-winner.blogspot.com
+DNSName--->tracker.marinsm.com
+Website--->www.exacttarget.com
+EmailAddress--->eugene@rentec.com
+EmailAddress--->service@gao7.com
+EmailAddress--->namn@doman.se
+Website--->website.informer.com
+PhoneNumber--->+1 301 688 7866
+URL--->http://shelf3d.com/i/Rousseau
+URL--->http://www.nsa.gov/academia/nat_cae_cyber_ops/nat_cae_co_centers.shtml
+Person--->Engle, Raymond
+Website--->muckrack.com
+Domain--->embeddedfusion.com
+Website--->tinyletter.com
+EmailAddress--->angukena@yahoo.com
+BuiltWithTechnology--->Hubspot
+Website--->www.inta.org
+IPv4Address--->184.168.235.226
+PhoneNumber--->01 650 3198930
+Website--->www.technology-digital.com
+Website--->www.machshav.com
+Website--->www.4literature.net
+Website--->archive.org
+EmailAddress--->evan.fleischer@gmail.com
+BuiltWithTechnology--->MyBlogLog
+EmailAddress--->info@100marks.in
+Phrase--->"Coordination Of Cryptanalysis"
+Website--->signin.verizon.com
+DNSName--->www.livebinders.com
+Website--->www.rousseauassociation.org
+Website--->www.nationalmuseum.af.mil
+Location--->TALLAHASSEE, -
+EmailAddress--->michael.keen@u-dox.com
+IPv4Address--->199.59.148.10
+URL--->http://pastebin.com/rSzpUCC5
+URL--->http://www.vmware.com/files/js/framework/vmw.main.js?t=201308262104
+PhoneNumber--->+1 495 787 0601
+Website--->www.calameo.com
+Website--->affiliates.mozilla.org
+Domain--->baseball-reference.com
+Website--->hiring.local-jobs.monster.com
+URL--->https://www.fenron.net/~fenner/ietf/deps/viz/core.pdf
+Image--->Image
+EmailAddress--->ballardr@gwu.edu
+Image--->Image
+URL--->http://www.nsa.gov/ia/_files/government/MDG/NSA_CSS-EPL-13-09_15_Jan_2014.pdf
+IPv4Address--->54.83.80.11
+EmailAddress--->usnpeople@gmail.com
+EmailAddress--->mhaase@vmware.com
+EmailAddress--->licensecompliance@imagerights.com
+EmailAddress--->technicalarchitect2007@gmail.com
+Document--->http://media.deloitte.com/ media.deloitte.com
+BuiltWithTechnology--->Lazy Load for JQuery
+Website--->fct.deloitte.com
+Domain--->twitter.com
+Phrase--->"Al Dhabi Brokerage"
+EmailAddress--->iag@travelocity.com
+EmailAddress--->smunday@kprglobal.com
+FacebookObject---><<<<<<   >>>>>>         -  
+EmailAddress--->16.50@fragrancex.com
+Website--->www.360doc.com
+EmailAddress--->christer.bengtsson@binero.se
+Website--->ir.vmware.com
+WebTitle--->IETF Tools
+Website--->www.ip-adress.com
+EmailAddress--->akshat.shankar@gmail.com
+Website--->www.aviationmuseum.eu
+Website--->www.ncdhhs.gov
+WebTitle--->TrustedSec - Information Security Made Simple
+Website--->www.sevenforums.com
+EmailAddress--->tech_transfer@nsa.gov
+EmailAddress--->ballestaynini@yahoo.com
+Website--->go.disads.info
+URL--->http://lh4.ggpht.com/CCVpkQg0o1N4pF6BHB4M8VF3r4aZNxOaUFsDUMjz5lWFRIwut2i6L2aSXJJGqCiOry-HpuHUoMzwyqAd6VpEmGj9NJrZCQ=s64
+EmailAddress--->bradley.wilson.2@us.af.mil
+EmailAddress--->projects@brandt.ie
+Image--->Image
+Domain--->blog.goo.ne.jp
+Website--->www.experts-exchange.com
+EmailAddress--->admissions@mit.edu
+Document--->http://www.un.org/esa/sustdev/natlinfo/indicators/idsd/workshops/workshop10-27-31/06_IDSS%20Pre%20for%20IDSD%20in%20TT.ppt PowerPoint Presentation
+Website--->manabadizone.blogspot.com
+EmailAddress--->netops@singlehop.com
+URL--->http://www.nsa.gov/careers/jobs_search_apply/
+Image--->Image
+EmailAddress--->customerservice@onlineathens.com
+URL--->http://www.bizvineca.com/Services/Real-Estate/ON/STRATHROY
+Website--->www.pendriveapps.com
+Person--->Michael Hayden
+URL--->http://www.nsa.gov/academia/_files/collected_learning/elementary/arithmetic/multiplication_treasure_hunt.pdf Title: Multiplication: A Treasure Hunt to Two and Three Digit ...
+Website--->translate.google.com
+Location--->Boston, United States
+DNSName--->abundantgraceparis.com
+Website--->www.nextbigsound.com
+Website--->www.thefreedictionary.com
+Website--->des.sootuu.com
+EmailAddress--->matthew.sheran@lmco.com
+Image--->Image
+EmailAddress--->webmaster@chinfo.navy.mil
+Website--->subscribe.wordpress.com
+BuiltWithTechnology--->nginx
+FacebookObject--->It takes a lot to wear this bi...
+PhoneNumber--->+1 301 688 2587
+Image--->Image
+affiliation.Facebook--->Awais Qaiser
+Website--->acronyms.thefreedictionary.com
+Website--->ipmap.info
+URL--->http://www.technology-digital.com/press_releases/hardware/united-data-technologies-udt-recognized-as-cisco-identity-services-engine-authorized-technology-prov
+Website--->www.isthewebsafe.com
+Website--->transit.goo.ne.jp
+Website--->www.homeandabroad.com
+EmailAddress--->hr@navysealfoundation.org
+EmailAddress--->now@ipaddress.com
+Domain--->hak5.org
+Phrase--->"Apply Online"
+WebTitle--->Room362.com
+Website--->siterecruit.comscore.com
+EmailAddress--->bdt@bournville.ac.uk
+Website--->www.livebinders.com
+NSRecord--->whoisproxy.com
+IPv4Address--->209.191.96.197
+WebTitle--->Ben Swann Truth In Media
+EmailAddress--->bennett@securitytube.net
+PhoneNumber--->+1 301 688 5958
+EmailAddress--->info@aajtak.com
+EmailAddress--->laura.poitras@theintercept.com
+BuiltWithTechnology--->Google Analytics Enchanced Link Attribution
+Website--->www.maxpreps.com
+Website--->www.computer.org
+Website--->www.ietf.org
+EmailAddress--->noreply@nsa.gov
+Phrase--->Nyse
+EmailAddress--->support@idss.com
+EmailAddress--->froomkin@gmail.com
+Website--->owa.rapid7.com
+Website--->shfg.org
+EmailAddress--->annalee2000ash@yahoo.com
+Website--->www.imc.org
+EmailAddress--->smaillet@pps.ca
+Website--->www.legacy.com
+DNSName--->www.coppersinksales.com
+URL--->https://www.youtube.com/user/monakarinto
+PhoneNumber--->495 787 0600
+Image--->Image
+Website--->www.veracast.com
+Website--->www.cmdbet.com
+affiliation.Twitter--->IDSS Ltd
+IPv4Address--->184.168.235.194
+URL--->http://pastebin.com/Sn1hJ159
+Image--->Image
+EmailAddress--->glaguna@nvidia.com
+URL--->http://pastebin.com/RXT1BV99
+Person--->Trevor Richardson
+WebTitle--->VMware, Inc. - Investor Relations
+Document--->http://www.deloitte.com/robots.txt www.deloitte.com
+IPv4Address--->74.125.227.101
+EmailAddress--->info@nywcc.com
+Website--->support.google.com
+Website--->www.lenntech.es
+Website--->studentcompetitions-general.s3.amazonaws.com
+WebTitle--->Marin Software, Inc.
+WebTitle--->MissDomain | KÃ¶p och sÃ¤lj domÃ¤ner, domÃ¤n, domÃ¤nnamn
+BuiltWithTechnology--->nginx 1.1
+DNSName--->tuyetquin.wordpress.com
+Website--->www.uscg.mil
+NSRecord--->ns01.domaincontrol.com
+Document--->http://www.deloitte.com/assets/Dcom-Ireland/Local%20Assets/Documents/ie_FinancialServices_AuditCommittees_100309.ppt Title ��� Times New Roman 36pt Title 2 ��� 36pt
+Alias--->Billy Twymon II
+EmailAddress--->dupress@deloitte.com
+Website--->ambassadorcentral.deloitte.com
+Document--->http://bsa.nfipstat.fema.gov/wyobull/2013/w-13006.txt bsa.nfipstat.fema.gov
+Website--->www.lookip.net
+Website--->urldefense.proofpoint.com
+EmailAddress--->jcdrye@tycho.ncsc.mil
+Phrase--->Brusa
+EmailAddress--->press@cowtowncomputercongress.org
+DNSName--->sierravieja.com
+IPv4Address--->206.71.237.18
+EmailAddress--->kent@bbn.com
+Phrase--->Asp.net
+URL--->https://github.com/pwnwiki/q
+IPv4Address--->192.52.194.135
+EmailAddress--->abuse@godaddy.com
+EmailAddress--->drodden@prolexic.com
+Phrase--->Cia
+IPv4Address--->184.168.235.229
+Netblock--->208.118.227.0-208.118.227.255
+IPv4Address--->194.9.94.162
+NSRecord--->dbru.br.ns.els-gms.att.net
+Document--->http://fbla.dpi.wi.gov/files/fbla/doc/fblabulletinboards.doc &lt;b&gt;Bulletin&lt;/b&gt; Board Ideas - Wisconsin
+Person--->Awais Qaiser
+DNSName--->www.networktools.nl
+Domain--->learncentral.org
+EmailAddress--->gjart@163.com
+Website--->lumberbaltimore.com.cubestat.com
+IPv4Address--->192.0.80.250
+EmailAddress--->comercial.ace@jumbotours.es
+EmailAddress--->online@www.vmware.com
+Document--->http://ftp.wu-wien.ac.at/pub/earlym-l/logfiles/em.2000-09 ftp.wu-wien.ac.at
+Website--->www.flashback.org
+PhoneNumber--->021 630 3789
+Person--->Joseph Magee
+URL--->http://pastie.org/pastes/8722242
+EmailAddress--->business@ijustine.com
+PhoneNumber--->+1 301 688 0526
+Website--->www.mpgi.edu.in
+DNSName--->eva.ns.cloudflare.com
+URL--->http://www.droid-life.com/about/
+URL--->https://www.youtube.com/user/vmloginsight
+IPv4Address--->173.194.115.98
+Website--->www.infrastructure-management.uw.edu
+Domain--->secmaniac.com
+Website--->www.googleadservices.com
+EmailAddress--->psf-donations@python.org
+EmailAddress--->chnserv@globalsources.com
+Document--->http://www.nsa.gov/academia/_files/collected_learning/elementary/arithmetic/march_dividing_ant.pdf Title: March of the Dividing Ant - National Security Agency
+Image--->Image
+Document--->http://bf2awards.com/sitemap.txt bf2awards.com
+URL--->http://www.droid-life.com/about/comment-page-17/
+Image--->Image
+Document--->http://www.public.navy.mil/bupers-npc/boards/administrative/ldo_cwo/Documents/FY-16/FY-16%20Application%20Instructions.docx APPLICATION INSTRUCTIONS / EXCEPTIONS - &lt;b&gt;United States Navy&lt;/b&gt;
+PhoneNumber--->+1 850 925 4783
+URL--->http://www.securitytube.net/Metasploit-Megaprimer-%28Getting-Started-with-Metasploit%29-Part-2-video.aspx
+Website--->www.intodns.com
+URL--->https://www.youtube.com/watch?v=kgguOFGKdsg
+DNSName--->www.relevansanalys.se
+EmailAddress--->info@prolexic.com
+EmailAddress--->2c4260db@andylau.net
+IPv4Address--->165.254.24.150
+Phrase--->"Central Security Service"
+WebTitle--->Society for History in the Federal GovernmentÂ |Â Bringing together government professionals, academics, consultants, students, and citizens interested in understanding federal history work and the historical development of the federal government.
+Website--->www.normanalex.com
+EmailAddress--->search@seekasong.com
+EmailAddress--->devesh6009@gmail.com
+EmailAddress--->tetorayade@hcn.zaq.ne
+affiliation.Flickr--->katzafzouf
+EmailAddress--->pghsfp@sfpusa.com
+BuiltWithTechnology--->Drupal
+Website--->e02b7499.cmdbet.com
+NSRecord--->key-systems.net
+Website--->s113.cnzz.com
+Website--->gov.lawchek.com
+DNSName--->media.deloitte.com
+URL--->http://www.century21.ca/Property/ON/L5M_6J1/Mississauga/5950_Glen_Erin_Dr_12
+NSRecord--->dsdn-gh1-uea02.ncsc.mil
+BuiltWithTechnology--->QUIC
+EmailAddress--->list-unsubscribe@securiteam.com
+Website--->agent.cmdbet.com
+BuiltWithTechnology--->jQuery Preload
+Website--->download3.vmware.com
+Person--->Peter Loscocco
+DNSName--->www.arganoiltreat.wordpress.com
+BuiltWithTechnology--->Google Front End
+Website--->www.telenor.rs
+affiliation.Myspace--->Dabit Cavazos
+Website--->sqlite.1065341.n5.nabble.com
+EmailAddress--->feedproxy@google.com
+Website--->www2.mississauga.ca
+Website--->www.flipboard.com
+EmailAddress--->alexron4@gmail.com
+URL--->http://seekingalpha.com/pr/10482805-vmworld-2014-the-leading-virtualization-and-cloud-computing-event-of-the-year-heads-to-san-francisco-and-barcelona
+FacebookObject--->THAT i was afraid of!!!
+BuiltWithTechnology--->clueTip
+Website--->benswann.com
+PhoneNumber--->+1 301 688 2145
+Document--->http://www.deloitte.com/assets/Dcom-Nigeria/Local%20Assets/Documents/IFRS%20Watch/EFFECTIVE%20INTEREST%20RATE2.xlsx Effective Interest Rate(EIR) - Deloitte
+Website--->technews.tmcnet.com
+EmailAddress--->pistadegel@fcbarcelona.cat
+DNSName--->stephens.edu
+PhoneNumber--->+1 301 688 5847
+EmailAddress--->products@bluebeez.com
+AS--->26496
+EmailAddress--->it@ipaddress.com
+Website--->savedwebhistory.org
+affiliation.Flickr--->eleniklonari
+EmailAddress--->youraccount@gmail.com
+Website--->about.twitter.com
+MXRecord--->aspmx2.googlemail.com
+EmailAddress--->jlsmith1003@gmail.com
+Website--->iphonix.fr
+WebTitle--->Welcome | SecurityStreet
+Document--->http://bwrcs.eecs.berkeley.edu/Classes/icdesign/ee241_s00/ASSIGNMENTS/TSMC035-n96g-params.txt bwrcs.eecs.berkeley.edu
+URL--->http://pastebin.com/N6cVns3j
+URL--->http://pastie.org/pastes/1337394
+EmailAddress--->games@108game.com
+URL--->http://pastebin.com/Nuh5cLGv
+BuiltWithTechnology--->Marin Software
+EmailAddress--->noc@commercialnetworkservices.net
+EmailAddress--->fusion_beta@vmware.com
+EmailAddress--->business@olgakay.com
+EmailAddress--->pcimonitor@pcissc.org
+Website--->celebrity.yahoo.com
+Website--->deals.droid-life.com
+EmailAddress--->ronoffringa3@gmail.com
+Phrase--->"University Of Pennsylvania"
+EmailAddress--->me@www.barbaratallent.com
+EmailAddress--->emakwana@deloitte.com
+Netblock--->184.168.235.0-184.168.235.255
+Website--->capergirl42.deviantart.com
+URL--->http://www.nsa.gov/public_info/contacts/
+EmailAddress--->omorye007@yahoo.com
+Document--->http://www.nsa.gov/about/_files/CoreValues.pdf agency central security - Welcome to the National Security ...
+Website--->caas.tmcnet.com
+Document--->http://www.portal.state.pa.us/portal/server.pt?open=18&amp;objID=498062&amp;mode=2 HMO CONTRACTS WITH &lt;b&gt;IDSs&lt;/b&gt; - Enterprise Portal Information
+Website--->mummywedding.com.cutestat.com
+Website--->162.168.1.1.ipaddress.com
+EmailAddress--->legal@google.com
+URL--->http://www.nsa.gov/business/contacts/index.shtml
+Website--->sbwsweb.ieee.org
+EmailAddress--->edm@tycho.ncsc.mil
+EmailAddress--->hjean@region.waterloo.on.ca
+Website--->www.siteencyclopedia.com
+Website--->wn.com
+DNSName--->couldthisbethefountainofyouth.com
+EmailAddress--->300px-ukrainian_paratroopers@savur-mohyla.jpg
+Website--->collaboratory.airforce.com
+Website--->forums.hak5.org
+URL--->http://pastebin.com/A2xBJW5q
+EmailAddress--->info.itc-security@t-systems.com
+Website--->riseuptimes.org
+IPv4Address--->144.76.8.154
+Document--->http://www.nsa.gov/about/_files/cryptologic_heritage/publications/coldwar/venona_story.pdf The V enona S tory - National Security Agency
+Domain--->commoncriteriaportal.org
+EmailAddress--->cjeanbaptiste@normanalex.com
+EmailAddress--->bced.webmaster@gov.bc.ca
+Image--->Image
+Website--->www.limetorrents.cc
+Website--->govcentral.monster.com
+Website--->www.3zitie.cn
+Image--->Image
+BuiltWithTechnology--->Marketo
+EmailAddress--->genealogy@e-familytree.net
+Image--->Image
+URL--->https://vmworld2014.activeevents.com/connect/search.ww
+URL--->http://www.rtgrim.com/location
+PhoneNumber--->+1 301 688 1785
+PhoneNumber--->+31 015 275 5717
+EmailAddress--->bqq9rbeug@public.gmane.org
+URL--->http://rss.global-katalog.com/rss/view/archive/26426.html
+EmailAddress--->servers@broadfield.nl
+Phrase--->Belgacom
+PhoneNumber--->01 888 2820870
+Domain--->dtra.mil
+IPv4Address--->209.208.19.222
+Website--->myinvoice.csd.disa.mil
+URL--->http://ir.vmware.com/releasedetail.cfm?ReleaseID=860081
+EmailAddress--->a.krzywdzinski@gmail.com
+URL--->https://community.rapid7.com/docs/DOC-1133
+Document--->http://www.missdomain.se/press/Pressmeddelande_gents-finland_070104.pdf Helsingborg den 4 januari 2007
+URL--->http://www.securitytube.net/Metasploit-Megaprimer-Part-3-%28Meterpreter-Basics-and-using-Stdapi%29-video.aspx
+EmailAddress--->info@infintec.com
+URL--->http://www.livebinders.com/play/play?id=42034
+IPv4Address--->64.233.160.191
+EmailAddress--->cbateman@vmware.com
+EmailAddress--->alsalqan@eng.sun.com
+Website--->www.iad.gov
+PhoneNumber--->313669 213 6283
+NSRecord--->whois.arin
+Website--->onlinelinkscan.com
+Website--->www.gottabemobile.com
+IPv4Address--->104.28.31.9
+Website--->64.12.106.135.ipaddress.com
+Website--->www.baseball-almanac.com
+EmailAddress--->associate@invitationwarehouse.com
+EmailAddress--->companion@connectdirector.com
+Website--->ip-reverse-lookup.com
+Website--->gjart.cn
+Website--->www.herdprotect.com
+Website--->petitions.whitehouse.gov
+Alias--->Ron Offringa
+URL--->http://abrahamiandaniel10.tumblr.com/
+Document--->http://www.carboncti.org/images/CCTIDrivingDirections.doc From New York and New Jersey- Take I-80 from the George ...
+EmailAddress--->history@nsa.gov
+Website--->www.vao-bong.com
+EmailAddress--->server@rs.internic.net
+Location--->Scottsdale, -
+Domain--->linkedin.com
+Website--->contact.airforce.com
+EmailAddress--->teacher+studentusername@domain.com
+Website--->www.email-format.com
+Website--->extremetracking.com
+BuiltWithTechnology--->jQuery Validate
+Image--->Image
+Website--->apis.google.com
+Website--->weather.yahoo.com
+DNSName--->filteredmemories.com
+Website--->emregistry.deloitte.com
+Website--->www.vmware.se
+EmailAddress--->yourname@domain.com
+URL--->http://satelliteterrorism3.blogspot.com/2010/12/dew-directed-energy-weapons.html
+DNSName--->ir.vmware.com
+Website--->support.binero.se
+EmailAddress--->bsanorthstar@cs.com
+EmailAddress--->netops-team@ustream.tv
+Website--->www.jag.navy.mil
+DNSName--->www.mozilla.org
+Website--->pypi.python.org
+EmailAddress--->niasc@nsa.gov
+URL--->http://lh4.ggpht.com/N_s46Vx7RGUaMjaa1v6ELGulYWiysv9D3dHj-Q3ieLFVDnzHKERhUsel-SqdWIJ4NnIYavQzcyVRxZgtvlUX-H2eRTlSXhU=s64
+IPv4Address--->72.3.223.78
+IPv4Address--->165.254.24.167
+EmailAddress--->mdejean@udtonline.com
+DNSName--->dsdn-gh1-uea01.ncsc.mil
+EmailAddress--->amixon@acadia.k12.la.us
+WebTitle--->YouTube
+URL--->http://www.nsa.gov/public_info/press_room/2003/new_sigint_director.shtml
+EmailAddress--->asa@asa-calais.com
+Person--->Nicholson, Mark
+EmailAddress--->cme@acm.org
+EmailAddress--->foialo@nsa.gov
+Website--->www.ucdmc.ucdavis.edu
+PhoneNumber--->856 863 0900
+Person--->Tim Grance
+Website--->www.passkey.com
+EmailAddress--->ato.andoh@dtra.mil
+Domain--->100marks.in
+EmailAddress--->info@binero.se
+URL--->http://www.dtra.mil/missions/ChemicalbiologicalDefense/ChemicalBiologicalDefenseHome.aspx
+IPv4Address--->64.233.160.121
+URL--->http://www.vmware.com/ap/company/news/releases/vmw-vmworld-2013-070213.html
+Website--->www.envirolink.org
+URL--->http://www.facebook.com/pages/Century-21-ACTION-POWER-TEAM/138893952854608
+Website--->www.rfc-archive.org
+Website--->ipinformations.com
+Document--->http://www.corpgov.deloitte.com/binary/com.epicentric.contentmanagement.servlet.ContentDeliveryServlet/CanEng/Documents/Resources/Financial%20Reporting%20Tools/CDA.xls Executive Compensation Assessment Tool - Deloitte
+EmailAddress--->albert.einstein@gmail.com
+URL--->http://wa-com.com/208ritchieavenue.com
+URL--->http://test.acunetix.com/
+PhoneNumber--->+1 650 427 7643
+EmailAddress--->smaillet@embeddedfusion.com.net
+NSRecord--->ns16.domaincontrol.com
+Website--->proxy-hunter.blogspot.com
+DNSName--->ips.deloitte.com
+IPv4Address--->173.194.115.107
+Website--->contextual.media.net
+URL--->http://www.whois365.com/cn/ip/72.52.4.90
+EmailAddress--->pcain@bbn.com
+Website--->idss.drozianwebworkshosting.com
+BuiltWithTechnology--->IIS 6
+EmailAddress--->astock@prolexic.com
+URL--->http://www.vmware.com/pdf/esx3_vlan_wp.pdf
+BuiltWithTechnology--->SLI Systems
+DNSName--->mail.ipaddress.com
+URL--->https://www.fenron.net/~fenner/ietf/deps/viz/ecrit.pdf
+EmailAddress--->andre.gallant@onlineathens.com
+Website--->csrc.nist.gov
+Website--->e14.ultipro.com.ipaddress.com
+Location--->WASHINGTON, -
+Person--->Chidozie Enyinna
+BuiltWithTechnology--->Baidu Analytics
+EmailAddress--->miloannjohnston@yahoo.com
+URL--->http://www.mobilitytechzone.com/lte/news/2014/08/26/7987687.htm
+PhoneNumber--->852 2110 3663
+Website--->www.draftkings.com
+URL--->https://www.fenron.net/~fenner/ietf/deps/viz/codec.pdf
+Website--->editoriallapaz.org.cutestat.com
+URL--->https://community.rapid7.com/docs/DOC-1216
+Domain--->ip.secureserver.net
+Domain--->tis.com
+Website--->www.dtra.mil
+Document--->http://astro1.panet.utoledo.edu/~wwritter/archive/FITS-spectra/iotaOri/970921.046.fits astro1.panet.utoledo.edu
+URL--->http://lib.znate.ru/docs/index-21915.html?page=59
+EmailAddress--->330px-landing@anzio.jpg
+Domain--->benswann.com
+Website--->webbmail.loopia.se
+Website--->stars.dtra.mil
+EmailAddress--->h-diplo@mail.h-net.msu.edu
+Website--->renwu.chda.net
+Website--->websitedetective.net
+EmailAddress--->auberte_gladia@yahoo.fr
+EmailAddress--->fabienne@degrimm.fr
+EmailAddress--->killzoneblog@gmail.com
+Website--->www.travelmuse.com
+Website--->www.tubestart.com
+EmailAddress--->mschmidt@dohertyinc.com
+EmailAddress--->ejh@tycho.ncsc.mil
+EmailAddress--->jrerwin6@gmail.com
+EmailAddress--->thomas.boghardt@us.army.mil
+Website--->www.fangraphs.com
+Website--->jitsi.org
+Phrase--->"Finance Cnbc Contributors"
+EmailAddress--->surname@gmail.vom
+Document--->http://docs.lib.noaa.gov/rescue/mwr/050/Text/mwr-050-03-0145a.TXT docs.lib.noaa.gov
+EmailAddress--->fred@domain.com
+EmailAddress--->help@manta.com
+EmailAddress--->darias@deloitte.com
+NSRecord--->dsdn-gh1-uea01.ncsc.mil
+Image--->Image
+DNSName--->38.116profile.karoseriedumptruck.wordpress.com
+PhoneNumber--->091 637 5582
+Website--->www.lenntech.fr
+Website--->www.hqmc.marines.mil
+BuiltWithTechnology--->PNG Fix
+Domain--->onlineathens.com
+URL--->http://www.stockhouse.com/news/press-releases/2013/09/04/vmware-announces-vmware-workstation-tm-10
+EmailAddress--->jennifer.l.allen@lmco.com
+Document--->https://www.missdomain.se/press/Pressmeddelande_varderingstjanst_101004.pdf 2010-10-04 Majoriteten av alla dom��ner ��r felv��rderade i ...
+URL--->http://www.nsa.gov/ia/mitigation_guidance/security_configuration_guides/operating_systems.shtml
+DNSName--->thementalindex.com
+Domain--->python.org
+EmailAddress--->matthew.s.kramer@lmco.com
+Website--->register.mitre.org
+Website--->www.epsonconnect.com
+PhoneNumber--->09 221 0461
+URL--->http://www.century21.ca/susan.rabichuk/100913408
+EmailAddress--->christian@blueskygis.com
+Alias--->vmwarepr
+Domain--->websitedetective.net
+BuiltWithTechnology--->CrazyEgg
+EmailAddress--->imagine@riseup.net
+PhoneNumber--->+6038 996 6799 -
+DNSName--->www.disc0nnected.com
+Website--->twinstrivia.com
+EmailAddress--->biographies@thesaurus.com
+EmailAddress--->bfox@microsoft.com
+BuiltWithTechnology--->OpenSSL
+BuiltWithTechnology--->Clicky
+IPv4Address--->195.74.38.37
+URL--->http://pastebin.com/shuzee2c
+Website--->lib.znate.ru
+Website--->www.networksorcery.com
+IPv4Address--->54.231.8.193
+EmailAddress--->cve-editorial-board-list-unsubscribe-request@lists.mitre.org
+WebTitle--->Joshua "Jabra" Abraham | Random thoughts about security, webappsec and I also code in Perl.
+EmailAddress--->tips@theintercept.com
+Website--->www.ed.youth4work.com
+URL--->http://www.stockhouse.com/news/press-releases/2014/07/16/vmworld-2014-the-leading-virtualization-and-cloud-computing-event-of-the-year
+BuiltWithTechnology--->Tweet for jQuery
+EmailAddress--->john.cook@theintercept.com
+PhoneNumber--->+1 443 479 0626
+URL--->http://www.exploit-db.com/exploits/21845/
+EmailAddress--->crooks@station.jpg
+Domain--->thesaurus.com
+Location--->Huntington Park, United States
+Phrase--->"Nsa Transportation"
+EmailAddress--->abuse@prolexic.com
+EmailAddress--->games@freegames.ws
+Website--->www.ipinformations.com
+WebTitle--->Welcome to SecurityTube.net
+WebTitle--->OnionShare
+URL--->http://www.rapid7.com/db/modules/auxiliary/admin/smb/list_directory
+Website--->e1.extreme-dm.com
+EmailAddress--->info@studiograsshopper.ch
+EmailAddress--->lori@shakadoghawaii.com
+EmailAddress--->abuse@linkedin.com
+EmailAddress--->we_can_help@cable.comcast.com
+Image--->Image
+EmailAddress--->denise@iconsecurity.co.uk
+PhoneNumber--->+1 727 258 1340
+URL--->http://www.idss.com/about-us
+WebTitle--->Xpandstaffing.com - Xpandstaffing | Website Information
+EmailAddress--->copyrightagent@herffjones.com
+EmailAddress--->meschke6267@gmail.com
+Website--->www.avaloninnovation.com
+PhoneNumber--->+3582 040 2082 -
+Website--->www.cve.mitre.org
+Domain--->bleedfirst.com
+EmailAddress--->vovashahrin@ya.ru
+Website--->ctt.marketwire.com
+BuiltWithTechnology--->html5shiv
+Domain--->acunetix.com
+Website--->www.schneier.com
+Domain--->nessus.org
+Website--->edsc.deloitte.com
+Website--->mrnumber.com
+EmailAddress--->balenson@tis.com
+Website--->web.archive.org
+Location--->PALO ALTO, -
+IPv4Address--->54.243.173.253
+Netblock--->162.159.251.0-162.159.251.255
+PhoneNumber--->+1 410 822 2202
+Website--->win7.so
+PhoneNumber--->+31 015 261 6289
+EmailAddress--->i-d-announce-request@ietf.org
+BuiltWithTechnology--->SWFObject
+Image--->Image
+Website--->www.amacad.org
+EmailAddress--->efoia@dtra.mil
+EmailAddress--->brianfleury5440@hotmail.com
+Domain--->activeevents.com
+Website--->www.allwebdevhelp.com
+PhoneNumber--->202 216 2400
+Phrase--->Vmworld
+EmailAddress--->askcaeia@nsa.gov
+URL--->http://www.whitepages.com/phone/1-443-479
+Website--->ifihadmyway.com
+DNSName--->www.idss.com
+Website--->www.defcon-russia.ru
+IPv4Address--->173.194.115.97
+WebTitle--->flesler-plugins - My jQuery plugins and other scripts - Google Project Hosting
+URL--->https://www.youtube.com/watch?v=We40H_Blz1E
+Netblock--->64.233.160.0-64.233.160.255
+URL--->http://www.century21.ca/Property/ON/L6S_3K7/Brampton/18_Borden_Hill_Crt
+Website--->cyberwar.nl
+URL--->http://www.neontommy.com/news/2011/08/tampa-teen-arrested-bomb-plot
+Website--->wordpress.com
+BuiltWithTechnology--->mod_ssl
+Website--->coastwatch.pfeg.noaa.gov
+Website--->www.washington.edu
+Person--->George Meade
+EmailAddress--->smallbusiness@nsa.gov
+BuiltWithTechnology--->Google API
+EmailAddress--->newsletter@godaddy.com
+Website--->www.facebook.com
+EmailAddress--->navyoutreach@navy.mil
+Website--->www.tulasinstitute.com
+Website--->cdn.bidvertiser.com
+Domain--->yahoo.com
+EmailAddress--->nicole.saavedra@onlineathens.com
+BuiltWithTechnology--->Google Webmaster
+Website--->www.iccc2012paris.com
+EmailAddress--->anderson@learncentral.org
+Document--->http://www.corpgov.deloitte.com/binary/com.epicentric.contentmanagement.servlet.ContentDeliveryServlet/CanEng/Documents/Not-for-profit%20Organizations/Corporate%20Governance/Sample_NFP_BoardSkillsMatrix_Deloitte_CCG_May2011.xlsx Board Skills Matrix Analysis - Deloitte
+FacebookObject--->` Thisss Blunt Just Burnt Thee...
+BuiltWithTechnology--->MSN/Bing Webmaster
+Person--->Clark Cooper
+Location--->-, Japan
+Website--->internet911.com
+IPv4Address--->141.138.209.1
+Alias--->evanfleischer
+Website--->www.metasploit.com
+URL--->http://mawords.com/1925concessionroadm-n.com
+Website--->pics.ebaystatic.com
+Website--->www.ehow.com
+EmailAddress--->videos@5min.com
+EmailAddress--->info@lenntech.com
+EmailAddress--->anderson@oksenate.gov
+EmailAddress--->mkanorwala@deloitte.com
+EmailAddress--->style3-16@2x.png
+Website--->callcenterinfo.tmcnet.com
+URL--->https://eballot4.votenet.com/IEEE/login.cfm
+EmailAddress--->ist@nsa.gov
+EmailAddress--->randy@projectmentor.net
+Website--->www.iie.org
+URL--->http://www.itbusinessnet.com/articles/viewarticle.jsp?id=1929762
+EmailAddress--->licensecompliance@rangdesi.com
+EmailAddress--->michaelbrien@deloitte.com
+Website--->help.goo.ne.jp
+EmailAddress--->sbrown@computer.org
+Location--->-, UAE
+Website--->torrentby.com.ipaddress.com
+Website--->psi.secunia.com
+Website--->www.bestindiaedu.com
+PhoneNumber--->+62 212 992 3100
+EmailAddress--->designs@elementsflowers.com
+Website--->economictimes.indiatimes.com
+PhoneNumber--->015 307 7684
+Document--->http://www.leaguelineup.com/njbaberuth/files/Directions%20to%20Prince%20Rodgers%20Baseball%20Complex%20-%20Bridgewater.doc Directions to Prince Rodgers Baseball Complex - Bridgewater, NJ
+EmailAddress--->fsessions@vmware.com
+DNSName--->americanmadeproperties.net
+Phrase--->Intelligence
+URL--->http://devteev.blogspot.com
+EmailAddress--->point@thesaurus.com
+Website--->robertomrmilan.blogspot.com
+EmailAddress--->secretariat@npafc.org
+EmailAddress--->dnbroad@me.com
+EmailAddress--->tapas_maana@yahoo.co.in
+EmailAddress--->biography@thesaurus.com
+Website--->www.scienceopen.com
+URL--->http://www.marketwatch.com/story/vmware-delivers-ultimate-windows-on-mac-experience-with-vmware-fusion-7-and-vmware-fusion-7-pro-2014-09-03
+Netblock--->72.3.223.0-72.3.223.255
+URL--->http://www.whois365.com/cn/ip/NET-72-52-0-0-1
+Website--->wh.ip-adress.com
+Website--->so.nihaowang.com
+Website--->testhtml5.vulnweb.com
+Website--->63e3a92d.cmdbet.com
+EmailAddress--->paul@kinetek.net
+Website--->fsdata.se
+EmailAddress--->iq.info@lmco.com
+Domain--->tilleyart.com
+Website--->www.visitmalone.com
+EmailAddress--->businessrelations@dtra.mil
+Phrase--->Canon
+PhoneNumber--->+1 410 854 8035
+Domain--->wikipedia.org
+PhoneNumber--->+1 800 474 6836
+Website--->crimeflare.com
+IPv4Address--->209.86.60.43
+EmailAddress--->admin.development@brampton.ca
+PhoneNumber--->+1 800 688 6115
+Website--->songwriter.whooznxt.com.ipaddress.com
+Location--->Homeland Security, -
+EmailAddress--->science@dma.mil
+NSRecord--->networksolutions.com
+EmailAddress--->mailmarketing@web.de
+Domain--->wall.jpg
+DNSName--->www.pcisecuritystandards.org
+Phrase--->"Pitney Bowes"
+Phrase--->"Take Rt"
+Document--->http://hvactechgroup.com/files/Carrier%20SMB%2009-0022.doc &lt;b&gt;BULLETIN&lt;/b&gt; - HVAC TECH GROUP
+Website--->62.210.56.250.ipaddress.com
+Website--->adwords.google.se
+Person--->Fort George Meade
+Phrase--->"Day 2: I am thankful for:1. My son, Thomas Gonzales. He is one of my best friends and I couldn't ask for a better son.  I appreciate him more and more each day, He has grown into a fine, intelligent, responsible man. I couldn't be more proud to be his mom.2. I am thankful for the US NAVY! Not only for all that they do for us as citizens of the United States, but for all the US NAVY has done for some many people close to me.  Thank you for keeping America safe. God bless all our military and their families.3.  I am thankful for all my nephews - too many to name (love them all and I am so proud of them!!) who serve, think about serving, or have served in the military. I pray for world peace on a regular basis."
+Website--->mail.yahoo.com
+Website--->chat.intele.com
+DNSName--->email.disc0nnected.com
+Document--->http://ascprobienestar.com/organo.txt ascprobienestar.com
+PhoneNumber--->+1 443 479 0582
+WebTitle--->ä½ å¥½å¨å¨æ-æä¸ç æåºå½ç«åæç´¢
+Website--->224.0.0.225.ipaddress.com
+Website--->www.tobiasholmberg.com
+PhoneNumber--->01 480 5058809
+PhoneNumber--->+1 203 851 7802
+Image--->Image
+DNSName--->kid-winner.blogspot.com
+MXRecord--->aspmx5.googlemail.com
+Image--->Image
+Phrase--->DabitCavazos
+Website--->www.cafepress.com
+Website--->iccc2012paris.com
+Website--->smita786.blogspot.com
+Phrase--->Fortune
+Website--->www.loopia.com
+Person--->Fort Meade
+EmailAddress--->you@example.com
+EmailAddress--->jan@domena.pl
+EmailAddress--->hybi@jabber.ietf.org
+FacebookObject--->Sistaah ? Bruddah ? Right Hand...
+EmailAddress--->joanstone@vmware.com
+Document--->http://www.rurdev.usda.gov/SupportDocuments/WY-supplement-environmental.doc &lt;b&gt;BULLETIN&lt;/b&gt; - USDA
+URL--->http://pastebin.com/Dmjav5dz
+FacebookObject--->arc converter-The arc converte...
+EmailAddress--->smaillet@entelechyconsulting.com
+Netblock--->76.74.254.0-76.74.254.255
+Website--->www.insideview.com
+EmailAddress--->support@binero.se
+Website--->udtonline.com
+URL--->http://pastebin.com/Lgz36wHf
+IPv4Address--->23.207.17.78
+EmailAddress--->jot@thesaurus.com
+Website--->poetiqrosespublishing.blogspot.com
+Website--->www.netc.navy.mil
+IPv4Address--->77.232.66.166
+BuiltWithTechnology--->Lazy Load
+EmailAddress--->iibnwaha1973@hotmail.fr
+Website--->csab.nic.in
+Image--->Image
+Website--->gate.looyu.com
+Website--->www.localiser-ip.com
+DNSName--->ip-184-168-232-9.ip.secureserver.net
+EmailAddress--->sarajevohoteli@mail.com
+EmailAddress--->devteev@ptsecurity.ru
+DNSName--->ip-184-168-232-6.ip.secureserver.net
+PhoneNumber--->+1 301 688 0255
+Domain--->netcom.com
+EmailAddress--->sale@fragrancenet.com
+EmailAddress--->pcinewsletter@pcisecuritystandards.org
+URL--->http://seekingalpha.com/pr/10856885-vmware-nvidia-and-google-unveil-future-of-graphics-rich-applications-delivered-on-enterprise-cloud-desktops
+EmailAddress--->fcervoni@normanalex.com
+EmailAddress--->manufacturers@alibaba.com
+EmailAddress--->help@computer.org
+Location--->Sunnyvale, -
+Website--->dodcio.defense.gov
+Person--->Matthew Plumb
+EmailAddress--->youremail@gmail.com
+BuiltWithTechnology--->Liferay
+BuiltWithTechnology--->Ruby on Rails
+PhoneNumber--->+1 717 761 4113
+Website--->www.docstoc.com
+URL--->http://www.ietf.org/mail-archive/web/smime/current/msg00504.html
+Phrase--->Fbi
+DNSName--->mx1.deloittetw.iphmx.com
+Person--->Hammarby Fabriksvag
+EmailAddress--->fundamentalresearch@dtra.mil
+Person--->Robyn Wheeler
+WebTitle--->Blogger
+EmailAddress--->j.tangelder@gmail.com
+URL--->http://lh4.ggpht.com/dDZW07qZfceUzVofAavtmTrVaRSeiS8Z__-qizueGO6FDRanm1iMrLogmQZRse8kRCo5fmGt41fe5hfShQ=s64
+EmailAddress--->directions-icon-@2x.png
+URL--->http://www16.co.hennepin.mn.us/dir/PhoneDirectory.html?appFunction=listAll
+URL--->https://ting.com/blog/whats-new/tings-nexus-5-manifesto-redux-a-very-ting-roadtrip/
+DNSName--->admin.missdomain.se
+Document--->https://www.missdomain.se/press/Pressmeddelande_MissPark_081007.pdf Minskade webbutvecklingskostnader med MissPark
+PhoneNumber--->+1 480 624 2505
+BuiltWithTechnology--->GitHub Hosting
+URL--->http://pastebin.com/shuzee2c
+IPv4Address--->4.53.16.143
+EmailAddress--->dbalenso@nai.com
+Website--->www.lucky2u.net
+WebTitle--->CVE - Common Vulnerabilities and Exposures (CVE) ï»¿
+Netblock--->141.138.209.0-141.138.209.63
+URL--->http://shfg.org/shfg/recentpublications/eavesdropping-on-hell-historical-guide-to-western-communications-intelligence-and-the-holocaust-1939%E2%80%931945/
+Website--->www.upvery.com
+Document--->http://burlcojif.org/wp/wp-content/uploads/2012/12/Directions-To-Delran-Municipal-Building.doc DELRAN TOWNSHIP MUNICIPAL BUILDING - Burlington County ...
+Website--->maps.google.com
+Website--->dns-records.info
+URL--->http://pastie.org/pastes/4082943
+Website--->prod01-cdn03.cdn.firstlook.org
+Domain--->athena.unige.ch
+DNSName--->ftp.bleedfirst.com
+Website--->www.university.youth4work.com
+URL--->http://www.commoncriteriaportal.org/ccra/schemes/
+EmailAddress--->loehner@gmail.com
+Website--->www.jacklistens.com.ipaddress.com
+EmailAddress--->avwatki@nsa.gov
+WebTitle--->Baseball-Reference.com - MLB Stats, Standings, Scores, History
+EmailAddress--->luc.martineau@forces.gc.ca
+Website--->sv.wikipedia.org
+Website--->www.ipa.go.jp
+MXRecord--->aspmx1.l.google.com
+Website--->test.acunetix.com
+EmailAddress--->michelle.clapp@hkstrategies.com
+DNSName--->practicalpwnage.com
+EmailAddress--->multimob-chairs@tools.ietf.org
+EmailAddress--->servers@dnsmadeeasy.com
+Website--->support.t-mobile.com
+Website--->www.lenntech.com.pt
+EmailAddress--->abuse@cloudflare.com
+DNSName--->mx1.deloitteie.c3s2.iphmx.com
+EmailAddress--->clue-chairs@tools.ietf.org
+IPv4Address--->184.168.235.192
+EmailAddress--->david.a.mcgrew@mindspring.com
+DNSName--->imap.disc0nnected.com
+EmailAddress--->elements@thesaurus.com
+EmailAddress--->marknad@loopia.se
+EmailAddress--->listserv@lists.mitre.org
+NSRecord--->ns3.yahoo.com
+MXRecord--->mx2.deloitte.iphmx.com
+Image--->Image
+Image--->Image
+EmailAddress--->rfortier@vmware.com
+Domain--->ns1.yahoo.com
+Document--->http://dbpedia-live.openlinksw.com/data/3rd_Battalion_3rd_Marines.ntriples dbpedia-live.openlinksw.com
+EmailAddress--->manicholson@deloitte.com
+BuiltWithTechnology--->Alternate Protocol
+Domain--->digitec.ch
+EmailAddress--->timotato@droid-life.com
+Image--->Image
+Website--->www.ccs.neu.edu
+EmailAddress--->loscocco@tycho.nsa.gov
+EmailAddress--->public@nytimes.com
+Image--->Image
+EmailAddress--->dan.froomkin@firstlook.org
+Website--->www.2shared.com
+Domain--->juradogroup.com
+EmailAddress--->denning@cs.cosc.georgetown.edu
+EmailAddress--->cve-id-change@mitre.org
+Website--->www.google.co.in
+Website--->advertising.nttr.co.jp
+Website--->www.buffalorunners.com
+URL--->http://pastebin.com/BmPn5MZV
+EmailAddress--->prinquiries@udtonline.com
+Website--->webcasts.deloitte.com
+Website--->www.serenitystreetnews.com
+Website--->www.nttr.co.jp
+EmailAddress--->dnsimar@tycho.ncsc.mil
+Website--->www.websitelooker.net
+Document--->http://www.ihbrr.com/dob/currentdob.doc IHB DAILY OPERATING &lt;b&gt;BULLETIN&lt;/b&gt; No - Indiana Harbor Belt Railroad
+Domain--->marinsm.com
+EmailAddress--->karahleigh.hancock@onlineathens.com
+WebTitle--->Common Criteria : New CC Portal
+EmailAddress--->copyrightagent@quinstreet.com
+Website--->cdn.cutestat.com
+Website--->office.microsoft.com
+DNSName--->krebsonsecurity.com
+IPv4Address--->184.73.236.147
+Website--->rebelcircus.com.cutestat.com
+Website--->oss.maxcdn.com
+IPv4Address--->74.125.227.96
+PhoneNumber--->+1 703 354 7336
+IPv4Address--->184.168.235.228
+Website--->www.itbusinessnet.com
+Website--->www.dod.mil
+IPv4Address--->173.194.115.102
+EmailAddress--->laomeow@gmail.com
+EmailAddress--->chasdowns@verizon.net
+Document--->http://www.missdomain.se/press/Pressmeddelande_Haiti_100209.pdf Dom��ner och webbplatser p�� auktion till hj��lp f��r Haiti
+Website--->www.virustotal.com
+EmailAddress--->cristina@cristinafontanelli.com
+Document--->http://www.cfm.va.gov/TIL/spec/101123.doc SECTION 10 11 23, TACKBOARDS - Office of Construction ...
+Website--->www.enotes.com
+Website--->sj8z27k5.cmdbet.com
+Netblock--->209.191.64.0-209.191.127.255
+Location--->Str Traian Mosoiu Nr, -
+PhoneNumber--->+1 410 854 4790
+Person--->Don Simard
+Website--->115.127.40.33.ipaddress.com
+BuiltWithTechnology--->Adobe Active Content
+Website--->validator.w3.org
+Image--->Image
+EmailAddress--->firstnamesurname@gmail.com
+BuiltWithTechnology--->Eloqua
+Website--->www.ieeetcsc.org
+Website--->devteev.blogspot.ru
+Person--->Potentially Self-dealing
+EmailAddress--->a-list-request@world.std.com
+Document--->https://www.netsafa.navy.mil/New%20IMSO%20Cheat%20Sheet.doc User's Manual Template - United States Navy
+Website--->usmilitary.about.com
+Website--->resourcedescriptionandaccess.blogspot.com
+Phrase--->"European Union"
+Website--->192.33.137.200.ipaddress.com
+URL--->http://pastebin.com/nkmuWmp8
+Image--->Image
+Website--->h20566.www2.hp.com
+Website--->4.bp.blogspot.com
+WebTitle--->United States Air Force - airforce.com
+Phrase--->Quantumhand
+EmailAddress--->info@theriverwoodconservancy.org
+Website--->onionshare.org
+DNSName--->ns2.ettnet.se
+EmailAddress--->hutton@sand.net
+URL--->http://pastebin.com/JYa4BXSs
+EmailAddress--->info@secureusballiance.org
+EmailAddress--->modules@kobesearch.cpan.org
+EmailAddress--->cfp@phdays.com
+EmailAddress--->amine.bouchama@gmail.com
+Alias--->ronoffringa
+Website--->api.demandbase.com
+EmailAddress--->220px-damaged_monument@savur-mohyla.jpg
+WebTitle--->Website Detective
+Website--->www.bidvertiser.com
+Image--->Image
+Website--->www.tuugo.es
+DNSName--->www.youtube.com
+IPv4Address--->23.235.44.133
+EmailAddress--->bluebirdnsa01@aol.com
+Person--->Arin Whois
+PhoneNumber--->800 562 1758
+Domain--->relevansanalys.se
+EmailAddress--->fry@eclipse.ncsc.mil
+Phrase--->Trustedsec
+DNSName--->www.navy.mil
+Person--->Vladyka, Michael
+Website--->securitytube-training.com
+Domain--->votenet.com
+Website--->www.nihaowang.com
+Website--->code.google.com
+PhoneNumber--->+1 443 479 1458
+EmailAddress--->registry@loopia.se
+Website--->forumvacances.free.fr
+Phrase--->"Rsa Security"
+Website--->i0.wp.com
+EmailAddress--->contacttheboard@vmware.com
+Website--->queenannescofair.com
+Document--->http://buffalo.craigslist.org/gms/4664967860.html buffalo.craigslist.org
+EmailAddress--->shop@hak5.org
+Website--->www.4rfv.com
+Website--->www.miiwss.com
+Website--->login.binero.se
+Website--->www.loopia.se
+EmailAddress--->edward.archer@dtra.mil
+Website--->114.79.51.172.ipaddress.com
+Image--->Image
+Website--->www.cyclopaedia.de
+IPv4Address--->74.125.227.100
+Website--->www.ipaddress.com
+EmailAddress--->liming@nsa.gov
+EmailAddress--->jgamrhe@nsa.gov
+IPv4Address--->173.194.115.105
+Website--->frca.pcisecuritystandards.org
+Website--->www.sunfrogshirts.com
+Location--->Otopeni, Romania
+EmailAddress--->press@neom.com
+DNSName--->appzapk.com
+Website--->permalink.gmane.org
+URL--->http://www.nsa.gov/public_info/press_room/2014/nsa_css_adds_two_heroes_to_crypto_memorial_wall_2014.shtml
+EmailAddress--->flipstylemusic@gmail.com
+Netblock--->173.194.0.0-173.194.255.255
+Document--->http://ardf.wr.usgs.gov/ardf_data/MM_refs.txt ardf.wr.usgs.gov
+BuiltWithTechnology--->Yahoo Web Analytics
+EmailAddress--->prolexic@mail.com
+Image--->Image
+Website--->m.cmdbet.com
+Domain--->mitre.org
+EmailAddress--->dbit@dbit.in
+Website--->www.dirwall.com
+EmailAddress--->international@jmu.edu
+BuiltWithTechnology--->mod_pagespeed
+PhoneNumber--->091 022 5040508
+URL--->http://www.nsa.gov/careers/opportunities_4_u/students/undergraduate/hr.shtml
+PhoneNumber--->+1 832 491 3935
+Website--->mx-records.net
+Document--->http://www.freddiemac.com/singlefamily/guide/docs/bll1402_spreadsheet.xls &lt;b&gt;Bulletin&lt;/b&gt; 2014-2 (Selling and Servicing) Guide Updates Spreadsheet
+Website--->www.kimbertal.com
+Website--->www.iana.org
+Location--->Kwai Chung, Hong Kong
+EmailAddress--->best-of-security@cyber.com.au
+IPv4Address--->192.0.78.16
+DNSName--->208.118.227.14.rapid7.com
+EmailAddress--->bastidas@gmail.com
+Website--->urlm.co
+Website--->www.leakedin.com
+URL--->http://www.marketwatch.com/story/vmware-nvidia-and-google-unveil-future-of-graphics-rich-applications-delivered-on-enterprise-cloud-desktops-2014-08-26
+URL--->http://www.nsa.gov/about/cryptologic_heritage/museum/
+Website--->thebulletinboard.com
+Website--->yt3.ggpht.com
+EmailAddress--->draftname.ad@tools.ietf.org
+Website--->public.deloitte.com
+EmailAddress--->isn@c4i.org
+Website--->www.sarkari-naukri.youth4work.com
+Website--->www.capella.edu
+URL--->http://pastebin.com/brmcCwF2
+PhoneNumber--->083 992 5168
+Netblock--->74.125.227.0-74.125.227.255
+EmailAddress--->dave@davegandy.com
+Document--->http://www.k2-eng.com/DIRECTIONS.doc DIRECTIONS - K2 Eng
+URL--->https://owa.rapid7.com/owa/redir.aspx?C=e9cfa868c9d24a508fea432dc37ba481&URL=http%3a%2f%2fdownload2.rapid7.com%2fdownload%2fNeXpose-v4%2fNeXpose_Extended_API_XMLSchemas_v1.2.zip
+EmailAddress--->dtra.publicaffairs@dtra.mil
+EmailAddress--->recruit@cenix.com
+Website--->www.deloitte.com
+Website--->www.krgv.com
+DNSName--->maps.googleapis.com
+BuiltWithTechnology--->SuperFish
+EmailAddress--->pooks.motorbooks@virgin.net
+Image--->Image
+Website--->www.afrotc.com
+URL--->http://www.computer.org/csdl/proceedings/sndss/1995/7027/00/7027x.pdf
+EmailAddress--->glee@vmware.com
+Domain--->livebinders.com
+Website--->www.pr-inside.com
+URL--->http://www.itbusinessnet.com/articles/viewarticle.jsp?id=1874448
+Website--->ajax.googleapis.com
+Website--->www.iis.se
+Website--->capec.mitre.org
+Website--->vmworld2014.activeevents.com
+EmailAddress--->abfab@jabber.ietf.org
+EmailAddress--->aris@gwu.edu
+FacebookObject--->History of computing hardware ...
+PhoneNumber--->+1 301 854 5358
+EmailAddress--->abuse@acuitsys.com
+Website--->www.lenntech.nl
+EmailAddress--->listmaster@lists.debian.org
+URL--->https://owa.rapid7.com/owa/redir.aspx?C=e9cfa868c9d24a508fea432dc37ba481&URL=http%3a%2f%2fdownload2.rapid7.com%2fdownload%2fNeXpose-v4%2fNeXpose_API_XMLSchemas_v1.1.zip
+IPv4Address--->208.80.154.224
+Website--->www.svenskaturistforeningen.se
+Domain--->cutestat.com
+DNSName--->www.peelregion.ca
+EmailAddress--->moore2793@bellsouth.net
+BuiltWithTechnology--->Fancybox
+BuiltWithTechnology--->Piwik Web Analytics
+Website--->sourceforge.net
+Website--->www.dol.gov
+URL--->http://websitedetective.net/dn/spieleaffe.de
+Website--->graph.renren.com
+EmailAddress--->deon@prolexic.com
+Phrase--->Emc
+FacebookObject--->Shit just got real folks. Well...
+Website--->travel.yahoo.com
+IPv4Address--->173.194.115.106
+EmailAddress--->chabarton@deloitte.com
+Website--->secure.eventsonline.ca
+URL--->https://www.youtube.com/watch?v=tcJogFu5HLg
+DNSName--->how2hack.net
+MXRecord--->mailstore1.secureserver.net
+EmailAddress--->abc.xyz@gmail.com
+IPv4Address--->184.168.235.230
+Website--->www.fucoidantw.com.ipaddress.com
+URL--->http://technews.tmcnet.com/email-hosting/news/2012/07/18/6447231.htm
+Website--->svn.tools.ietf.org
+PhoneNumber--->+1 703 235 5110
+Website--->www.vpnc.org
+EmailAddress--->custservice@andersonstatebank.com
+Website--->scamfraudalert.org
+Website--->www.isoc.org
+EmailAddress--->definition@dictionary.com
+Website--->juradogroup.com
+affiliation.Flickr--->Ron Offringa
+WebTitle--->VMworld.com: VMworld.com: VMworld 2014 Registration
+Document--->http://www2.deloitte.com/content/dam/Deloitte/global/Documents/Technology-Media-Telecommunications/dttl_TMT-Deloitte-Tech-Fast-500-2013-News-Release.doc Contacts: - Deloitte
+Website--->incubator.apache.org
+EmailAddress--->noc@agava.com
+Location--->-, US
+WebTitle--->intoDNS: checks DNS and mail servers health
+URL--->http://pastebin.com/awMcc2jB
+URL--->http://www.lenntech.com.pt/calculadoras/calculadoras.htm
+URL--->http://www.lekkoo.com/?location=Elkridge
+Domain--->blogspot.com
+BuiltWithTechnology--->Apache
+IPv4Address--->184.168.235.231
+NSRecord--->dns-a.activeminds.net
+EmailAddress--->ba_faulkner2@yahoo.ca
+Location--->Scottsdale, United States
+EmailAddress--->employees@embeddedfusion.com
+PhoneNumber--->+1 443 479 0420
+Website--->topsy.com
+Document--->http://aluigi.altervista.org/adv/termdd_1-adv.txt Luigi���s Advisory
+Website--->bestcollege.info
+DNSName--->www.secmaniac.com
+EmailAddress--->eric@droid-life.com
+EmailAddress--->heather.sliwinski@hkstrategies.com
+URL--->http://www.peelregion.ca/housing/home-in-peel/pdf/real-estate-agent-list-2012.pdf
+Website--->www.socks24.org
+EmailAddress--->joanna@missgroup.com
+Image--->Image
+EmailAddress--->billw@riseup.net
+EmailAddress--->media@prolexic.com
+URL--->http://ascprobienestar.com/Asc.txt ascprobienestar.com
+EmailAddress--->webmaster@dtra.mil
+DNSName--->www.cmdbet.com
+PhoneNumber--->+1 301 415 1534
+DNSName--->email.bleedfirst.com
+Person--->Dan Froomkin
+PhoneNumber--->+1 800 254 3643
+BuiltWithTechnology--->jQuery 1.2.6
+URL--->http://www.showsite.org/www/adbtrade.com
+EmailAddress--->you@yourdomain.com
+BuiltWithTechnology--->jQuery Throttle Debounce
+Website--->opi.yahoo.com
+EmailAddress--->out@sploitcast.com
+Website--->mission.sfgov.org
+Website--->www.ncbi.nlm.nih.gov
+Website--->pentest.enkn.net
+EmailAddress--->history@shoppbs.org
+Website--->webhostingtalk.ir
+Domain--->blogger.com
+Domain--->public.gmane.org
+Website--->commons.wikimedia.org
+EmailAddress--->www3zitiecn@163.com
+Website--->bulletin.uga.edu
+Location--->-, India
+URL--->http://en.wikipedia.org/wiki/National_Military_Command_Center
+DNSName--->pop.bleedfirst.com
+Location--->Sunnyvale, United States
+Document--->http://www.deloitte.com/assets/Dcom-Canada/Local%20Assets/Other%20Assets/ca_en-diversity_dialogue_102711.txt www.deloitte.com
+Website--->dictionary.reference.com
+URL--->https://twitter.com/nbdu1nder
+PhoneNumber--->800 382 1431
+EmailAddress--->mozspaces@mozilla.com
+Website--->textarchive.ru
+Document--->http://bears.ece.ucsb.edu/class/ece224a/amis05.txt bears.ece.ucsb.edu
+EmailAddress--->info@14-iccc.org
+EmailAddress--->emil.paulsson@affiliator.com
+BuiltWithTechnology--->Wordpress 3.9
+Location--->-, Sweden
+PhoneNumber--->+1 808 678 8868
+Website--->vmware.webex.com
+FacebookObject--->Big crowd for today's 10k/5k R...
+URL--->http://www.brandigg.info/unternehmen/ATHENA-DEVELOPPEMENT-Sarl-in-Geneve
+BuiltWithTechnology--->jQuery Cycle
+IPv4Address--->104.28.13.61
+Person--->muffaddal
+URL--->http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0027
+URL--->http://www.thesaurus.com/browse/biography
+IPv4Address--->184.168.235.197
+Website--->www.salesforce.com
+URL--->http://pastie.org/pastes/1365915
+PhoneNumber--->+1 443 479 2742
+EmailAddress--->litherland@gmail.com
+BuiltWithTechnology--->Hover Intent
+WebTitle--->disc0nnected.Com | Security Blog
+EmailAddress--->abuse@key-systems.net
+URL--->http://www.insiderpages.com/b/15239996623/ripoff-report-phoenix
+Document--->http://www.corpgov.deloitte.com/binary/com.epicentric.contentmanagement.servlet.ContentDeliveryServlet/InEng/Page%20Copy/Board%20of%20Directors/Board%20Orientation%20Program%20Template.pptx Board Orientation Program template - Home | Center for ...
+Website--->onlineathens.com
+BuiltWithTechnology--->Jive Software
+IPv4Address--->184.168.235.199
+EmailAddress--->faktura@binero.se
+EmailAddress--->help@chinfo.navy.mil
+EmailAddress--->webmaster@bulletin.ncsu.edu
+URL--->http://pastebin.com/XFTWnAMi
+URL--->https://www.blogger.com/feeds/10861780/posts/default?alt=json&max-results=0
+DNSName--->stevieqtn.wordpress.com
+Image--->Image
+EmailAddress--->fred@dominio.com
+Location--->San Francisco, United States
+DNSName--->hintofpleasure.com
+PhoneNumber--->480 505 8800
+URL--->http://www.nsa.gov/public_info/speeches_testimonies/29may14.shtml
+Image--->Image
+URL--->http://www.nsa.gov/plugin_detect.shtml
+EmailAddress--->owner%2dcve%2deditorial%2dboard%2dlist@lists.mitre.org
+EmailAddress--->aravulavaru@deloitte.com
+Website--->eboard.eboardsolutions.com
+Phrase--->"Work Experience Past"
+EmailAddress--->sean.salvadalena@fibercloud.com
+Website--->www.bcclnet.com
+BuiltWithTechnology--->Tablesorter
+PhoneNumber--->+1 650 253 0000
+URL--->http://aftereffects.digitalmedianet.com/article/United-Data-Technologies-(UDT)-Establishes-Placement-in-the-Social-Media-and-Analytics-Business-Space--1885258
+Website--->www.66560.com
+EmailAddress--->servers@okebola.com
+URL--->http://lh4.ggpht.com/PSx9qnamUzn5iTJYK9rm2ofnWOtjMuHYGAvhyLlIOdFX6YzVPBTE1LU3qY-JQlkBUIJPokyjZ_A0i45RLA=s64
+URL--->http://www.ipaddressden.com/email/abuse@prolexic.com.html
+DNSName--->science.dodlive.mil
+IPv4Address--->184.168.235.191
+IPv4Address--->98.129.108.62
+Website--->news.thomasnet.com
+URL--->http://www.droid-life.com/about/comment-page-5/
+EmailAddress--->jhs@tycho.ncsc.mil
+Website--->www.greenroofs.org
+Website--->www.ip-address.org
+BuiltWithTechnology--->Modernizr 2.6
+URL--->https://www.youtube.com/vmwarebrasil
+Website--->itandbusinesstalk.blogspot.com
+Document--->http://dhmh.maryland.gov/dental/doc/Bulletins%202012/Continuing%20Education%20Requirements-March%2019,%202013.doc &lt;b&gt;Bulletin&lt;/b&gt; - Maryland DHMH
+PhoneNumber--->+1 410 854 4200
+Website--->www.iimc.nic.in
+Website--->www.brandprotect.com
+Website--->www.academia.edu
+Website--->dnsbl.nl
+BuiltWithTechnology--->jQuery 1.4.2
+URL--->http://www.tech-archive.net/Archive/WindowsCE/microsoft.public.windowsce.platbuilder/2006-05/msg00467.html
+Website--->tools.google.com
+Website--->www.lockheedmartin.com
+Website--->www.mozilla.org
+EmailAddress--->editor@bulletin.us.com
+URL--->https://www.fenron.net/~fenner/ietf/deps/viz/avtext.pdf
+Domain--->trackipaddresses.com
+Website--->www.aspectsecurity.com
+Website--->www.nrc.nl
+EmailAddress--->onboarding@dtra.mil
+FacebookObject--->Watching U571....What I want t...
+EmailAddress--->pdiddie@gmail.com
+PhoneNumber--->852 2110 9746
+WebTitle--->goo ¥Ö¥í¥° ÌµÎÁ¤Ç¥Ö¥í¥°¤òºîÀ®
+Domain--->gmail.com
+Website--->www.lekkoo.com
+Phrase--->Gchq
+Website--->www.ldsces.org
+URL--->http://www.domaincrawler.com/209.200.167.5
+NSRecord--->ns02.domaincontrol.com
+EmailAddress--->assupetud@ml.free
+BuiltWithTechnology--->jQuery 1.7.2
+WebTitle--->Search Big Brands in Address007.com
+EmailAddress--->evanbissell@gmail.com
+Website--->time.com
+MXRecord--->alt2.aspmx.l.google.com
+Domain--->century21.ca
+URL--->http://pastie.org/pastes/4902022
+Website--->themeforest.net
+DNSName--->news.deloitte.com
+Image--->Image
+URL--->https://owa.rapid7.com/owa/redir.aspx?C=e9cfa868c9d24a508fea432dc37ba481&URL=http%3a%2f%2fdownload2.rapid7.com%2fdownload%2fNeXpose-v4%2fNeXpose_Extended_API_v1.2_Guide.pdf
+Website--->www.luoboxia.com
+Website--->codepaste1.rssing.com
+URL--->http://pastebin.com/5AJvr64g
+Document--->http://boards.law.af.mil/ARMY/BCMR/CY2009/20090003517.txt boards.law.af.mil
+EmailAddress--->aterkel@huffingtonpost.com
+Image--->Image
+Person--->Victor Jerlin
+Document--->http://www.doa.virginia.gov/Payroll/Payroll_Bulletins/2014/2014_09.docx Payroll &lt;b&gt;Bulletin&lt;/b&gt; 2014-09 - Virginia
+URL--->https://www.fenron.net/~fenner/ietf/deps/viz/clue.pdf
+IPv4Address--->23.206.211.51
+EmailAddress--->roles@wikitech.wikimedia.org
+EmailAddress--->minnaguib@deloitte.com
+URL--->http://www.trackipaddresses.com/
+NSRecord--->whois.name.com
+Website--->cdiac.esd.ornl.gov
+Website--->www.flickr.com
+EmailAddress--->aflesler@gmail.com
+DNSName--->juradogroup.com
+PhoneNumber--->+1 966 545 3206
+URL--->http://www.computer.org/csdl/proceedings/sndss/1996/7222/00/7222viii.pdf
+Website--->msraynsford.blogspot.com
+URL--->http://www.intodns.com/banglachoti.wordpress.com
+Website--->comments.gmane.org
+Website--->www.domain-lookup-az.com
+Website--->dnschecker.org
+URL--->http://blog.goo.ne.jp/nichikon1/e/dfffb4b05fbc6dcd4c7abb2166c5f799
+EmailAddress--->press@ting.com
+DNSName--->public.deloitte.com
+Document--->http://www.nsa.gov/academia/_files/collected_learning/elementary/arithmetic/add_it_up.pdf Add It Up in Number Ville - National Security Agency
+Website--->www.linguee.it
+EmailAddress--->-timotato@droid-life.com
+EmailAddress--->chengl@vmware.com
+WebTitle--->Networktools: Reverse IP Lookup, Whois, Ping, RBL Check, DNS Records, Traceroute, Host information
+Image--->Image
+Website--->www.marketwired.com
+EmailAddress--->pine.lnx.4.31.0105081332360.30931-100000@emperor.deirdre.org.html
+EmailAddress--->niap@niap-ccevs.org
+Location--->Mountain View, United States
+EmailAddress--->gbako@yahoo.com
+IPv4Address--->184.106.12.66
+Website--->friendsofwilbur.weebly.com
+Person--->David Balenson
+DNSName--->ns15.domaincontrol.com
+IPv4Address--->184.168.232.3
+Website--->www.wallstreet-online.de
+EmailAddress--->dealbunny20@gmail.com
+PhoneNumber--->+1 724 229 4012
+PhoneNumber--->+1 301 261 7399
+Website--->misternumber.com
+DNSName--->ftp.disc0nnected.com
+WebTitle--->Twitter
+FacebookObject--->` Thisss Blunt Just Burnt Thee...
+Website--->www.google.com
+EmailAddress--->partnernetwork@vmware.com
+Website--->www.city-data.com
+PhoneNumber--->+1 650 506 7000
+Person--->Malware By Ryan Gallagher
+BuiltWithTechnology--->Google Analytics
+Website--->college.tiandaoedu.com
+Website--->search.thawte.com
+DNSName--->metasploit.com
+URL--->http://pastie.org/pastes/1639703
+Domain--->networktools.nl
+affiliation.Myspace--->Billy Twymon II
+Document--->https://www.navyreserve.navy.mil/Helpdesk%20Library/Helpdesk%20Guides/NRH_TROUBLESHOOTING_GUIDE.doc NRH_TROUBLESHOOTING_GUIDE - &lt;b&gt;United States Navy&lt;/b&gt;
+EmailAddress--->yrofe0a@public.gmane.org
+WebTitle--->Banglachoti Wordpress : à¦¬à¦¾à¦à¦²à¦¾ à¦à¦à¦¿ | à¦à¦à¦¿à¦° à¦­à¦¾à¦¨à§à¦¡à¦¾à¦°
+Website--->www.cesg.gov.uk
+IPv4Address--->173.194.115.122
+URL--->http://pastebin.com/5vxsXA78
+EmailAddress--->cee-discussion-list@lists.mitre.org
+EmailAddress--->help@aboutus.org
+DNSName--->p3nlhg144c1144.shr.prod.phx3.secureserver.net
+MXRecord--->aspmx5.l.google.com
+DNSName--->webmail.disc0nnected.com
+Website--->bronxpinstripes.com
+URL--->http://pastebin.com/u5HtpkJM
+Website--->chrome.google.com
+EmailAddress--->info@itsec.gov.uk
+URL--->http://www.arin.net/whois_tou.html
+Website--->85.94.98.121.ipaddress.com
+EmailAddress--->achandra31@gmail.com
+EmailAddress--->first-sec@first.org
+EmailAddress--->readers@onlineathens.com
+Website--->www.freesoft.org
+DNSName--->shieldbar.com
+BuiltWithTechnology--->jQuery ScrollTo
+Website--->bit.ly
+EmailAddress--->balloon_1@2x.png
+PhoneNumber--->+1 443 479 1050
+DNSName--->ip-184-168-232-5.ip.secureserver.net
+EmailAddress--->cve@mitre.org
+Website--->www.idss.com
+MXRecord--->aspmx4.l.google.com
+Website--->www.teachinghistory.org
+URL--->http://www.webutations.info/go/review/hak5.org
+EmailAddress--->info@foretag.se
+BuiltWithTechnology--->PHP
+Website--->ting.com
+Website--->vijayjt.blogspot.com
+Website--->testaspnet.vulnweb.com
+DNSName--->tools.ietf.org
+Website--->machine-solution.com
+URL--->http://www.nejm.org/doi/full/10.1056/NEJM198706043162301
+DNSName--->traffic.alexa.com
+Website--->www.bleepingcomputer.com
+URL--->http://wpedia.goo.ne.jp/enwiki/Rousseau
+Website--->www.taochu.com
+Location--->United States
+BuiltWithTechnology--->Python
+Website--->html5shiv.googlecode.com
+EmailAddress--->ptatton@deloitte.com
+Website--->192.168.254.251.ipaddress.com
+Website--->en.wikipedia.org
+Website--->git.openssl.org
+Website--->digg.com
+IPv4Address--->173.194.115.99
+Document--->http://www.public.navy.mil/bupers-npc/officer/communitymanagers/StaffCorps/Documents/MSC_SUB_SPEC_DIRECTORY_FEB_2013.docx Medical Service Corps - &lt;b&gt;United States Navy&lt;/b&gt;
+EmailAddress--->sdevteev@gmail.com
+Website--->www.llnl.gov
+BuiltWithTechnology--->jQuery 1.9.1
+EmailAddress--->pao@dtic.mil
+Location--->Otopeni Ilfov Romania, -
+Website--->www.stacken.kth.se
+Website--->www.faqs.org
+BuiltWithTechnology--->TipTip JQuery
+Location--->Hollywood, United States
+Image--->Image
+Website--->pop.dnstree.com
+Website--->www.sarangworld.com
+Document--->http://68.109.158.95:8080/lake/Obits/Obit-LarryELakey.txt 68.109.158.95:8080
+URL--->http://www.gottabemobile.com/2011/08/15/what-google-buying-motorola-could-mean-for-the-droid-bionic/
+WebTitle--->Home of the Mozilla Project â Mozilla
+EmailAddress--->berlin.1961crisis@nara.gov
+Website--->proxy-worlds.blogspot.com
+Website--->tryyt546.cmdbet.com
+Document--->http://boston.craigslist.org/gbs/reb/4633036218.html boston.craigslist.org
+Website--->cassandra.cerias.purdue.edu
+DNSName--->ns01.domaincontrol.com
+Website--->www.rwanational.org
+BuiltWithTechnology--->Apache Tomcat Coyote
+Document--->http://www.doa.louisiana.gov/osr/lac/28v115/28v115.doc Top line of doc - Louisiana
+Website--->address007.com
+EmailAddress--->niarl@tycho.ncsc.mil
+PhoneNumber--->184 16 8235195
+Document--->http://chroniclingamerica.loc.gov/lccn/sn83030214/1880-02-15/ed-1/seq-4/ocr.txt chroniclingamerica.loc.gov
+Website--->resuscitation.heartandstroke.ca
+DNSName--->ipaddress.com
+Website--->www.aurecongroup.com
+Website--->www.caughtonline.org
+Website--->www.users.interport.net
+PhoneNumber--->+1 866 781 9246
+Netblock--->72.3.128.0-72.3.255.255
+URL--->http://midtownblogger.blogspot.com/2014/06/born-today-philosopher-jean-jacques.html
+EmailAddress--->hostmaster@yahoo-inc.com
+Website--->www.cendyn.com
+Domain--->alexa.com
+Website--->www.marghuzdunghillwife.blogspot.com
+EmailAddress--->teacher@domain.com
+Website--->www.google.co.uk
+BuiltWithTechnology--->Facebook for Websites
+Website--->www.commoncriteriaportal.org
+Image--->Image
+Netblock--->72.52.7.0-72.52.7.255
+Person--->Michael Rogers
+Document--->http://baz2baz.persiangig.com/program/c%2B%2B_zakhireh/PROGEH_zakhireh.CPP baz2baz.persiangig.com
+IPv4Address--->184.26.136.80
+EmailAddress--->dtriac@dtra.mil
+EmailAddress--->callus-icon-@2x.png
+DNSName--->nc-immigration-attorney.com
+Domain--->peelregion.ca
+EmailAddress--->arca.huitres@wanadoo.fr
+Website--->www.cyberspacebase.us
+EmailAddress--->henman@henman.ca
+MXRecord--->mx1.deloitte.iphmx.com
+URL--->http://devteev.blogspot.com/2013/02/contact-information.html
+Location--->San Antonio, United States
+EmailAddress--->froomkin@theintercept.com
+Website--->www.digchip.com
+EmailAddress--->hostmaster@domaincrawler.com
+Website--->www.seamheads.com
+URL--->http://pastie.org/pastes/1738930
+WebTitle--->Lekkoo
+DNSName--->bleedfirst.com
+EmailAddress--->more@bolizle.com
+Location--->Delhi, -
+BuiltWithTechnology--->jQuery Innerfade
+Website--->0.gravatar.com
+Website--->www.nsaarc.net
+Netblock--->162.158.0.0-162.159.255.255
+PhoneNumber--->+1 301 688 6672
+EmailAddress--->abuse@port80.se
+Domain--->googlesyndication.com
+Website--->games.cmdbet.com
+PhoneNumber--->+1 070 020 1409
+Website--->oval.mitre.org
+NSRecord--->name.com
+EmailAddress--->liz.neser@wiggin.co.uk
+FacebookObject--->"The greatest security threat ...
+EmailAddress--->glenn.greenwald@theintercept.com
+EmailAddress--->support2014@loopia.se
+Image--->Image
+URL--->http://pastebin.com/xBmJTWGY
+URL--->http://www.whois365.com/en/ip/209.200.157.181
+Website--->3.bp.blogspot.com
+Website--->support.loopia.se
+EmailAddress--->one@gravatar.com
+URL--->http://school.nihaowang.com/2735.html
+URL--->http://pastebin.com/3rMk3D31
+Domain--->dodlive.mil
+EmailAddress--->mohanty73@yahoo.com
+EmailAddress--->sports@onlineathens.com
+PhoneNumber--->+1 301 688 6857
+Website--->www.ny-sportsman.com
+Location--->Registry, -
+BuiltWithTechnology--->Ubuntu
+PhoneNumber--->+1 866 672 4473
+URL--->http://www.quickiwiki.com/en/Jean-Jacques_Rousseau
+EmailAddress--->jobbahosloopia@loopia.se
+Website--->www.mamiesrestaurant.com
+Phrase--->"U.s. Army"
+URL--->http://pastebin.com/ZTwyvxsE
+EmailAddress--->jbearce@deloitte.com
+EmailAddress--->3haig2m9msslkpf2tn1h56nn9g@group.calendar.google.com
+Website--->www.securitytube.net
+EmailAddress--->ancestry_language_spoken@home.html
+DNSName--->ns1.goo.ne.jp
+DNSName--->onionshare.org
+EmailAddress--->blog@wordpress.com
+EmailAddress--->cpi-pgpa@chevron.com
+Domain--->amazonaws.com
+Phrase--->"Central Intelligence"
+Website--->www.t30p.ru
+PhoneNumber--->413 528 8002
+Website--->websitelooker.net
+IPv4Address--->184.168.235.190
+EmailAddress--->prinquiries@cristinafontanelli.com
+EmailAddress--->info@bd.care.org
+EmailAddress--->zzg-teachingplanninginpeel@peelregion.ca
+IPv4Address--->218.213.143.197
+EmailAddress--->info@fi.com
+Website--->spl0it.wordpress.com
+EmailAddress--->finis864refuge@m.facebook.com
+PhoneNumber--->+1 240 373 6728
+WebTitle--->Online Athens | Georgia News, Digital Advertising, Athens Banner-Herald Newspaper, UGA Bulldogs
+Website--->abrahamiandan.wordpress.com
+EmailAddress--->pmmenon@ozonetech.com.sg
+PhoneNumber--->+1 301 688 0849
+EmailAddress--->sjones@scannex.co.uk
+Website--->gregmankiw.blogspot.com
+Website--->school.nihaowang.com
+Domain--->pcisecuritystandards.org
+Document--->http://apps.weather.gov/partners/nws2013s/IDSS_PartnersMeeting_072513.ppt NEC Standard Presentation Format
+Website--->getmaillist.blogspot.com.es
+IPv4Address--->72.167.0.128
+Website--->mail-attachment.googleusercontent.com.ipaddress.com
+Website--->meta.wikimedia.org
+PhoneNumber--->+8522 749 6449 -
+EmailAddress--->abcxyz@gmail.com
+Website--->www.icarizona.com
+URL--->http://lh4.ggpht.com/Foq5iiSo7RAcggzMY0XunPNIYvFsxkRXXT8DnG5a6TyI7g46rSCAmi2oA2YIKQmfYFz9QeoNyjULtMDiy0-4a9zgyfZAMHM=s64
+Website--->platform.twitter.com
+IPv4Address--->74.125.227.104
+URL--->http://benswann.com/exclusive-nsa-using-copyright-claims-to-crush-free-speech/
+EmailAddress--->339.to.@gmail.com
+BuiltWithTechnology--->OpenSSL 0.9.8
+URL--->http://www.lenntech.com/periodic/elements/index.htm
+Website--->www.aonhewittvia.com.ipaddress.com
+BuiltWithTechnology--->ASP.NET MVC
+DNSName--->imgt1.s3.amazonaws.com
+Document--->http://www.nsa.gov/academia/_files/collected_learning/elementary/arithmetic/how_much_is_a_million.pdf Title: Place Value/ How Much Is A Million
+Website--->www.seospecialist.co.uk
+URL--->http://wa-com.com/115-18averillstreet.com
+BuiltWithTechnology--->Modernizr
+BuiltWithTechnology--->Ruby on Rails Token
+EmailAddress--->rebellatip@peelregion.ca
+EmailAddress--->degrimm@nsa.gov
+DNSName--->community.rapid7.com
+EmailAddress--->askcaeiae@nsa.gov
+EmailAddress--->webmaster@7iccc.es
+EmailAddress--->lifeline@bom2.vsnl.net.in
+EmailAddress--->privacy@livebinders.com
+EmailAddress--->sjobin@cssd.org
+NSRecord--->b.ns14.net
+URL--->http://pastie.org/pastes/4257092
+Image--->Image
+Location--->Reading, -
+Phrase--->Cisco
+PhoneNumber--->+1 410 798 5315
+IPv4Address--->202.217.72.80
+URL--->http://all-kvn.ru/video?watch=UTlsU093cDlKMWM%3D
+EmailAddress--->charlesmjr@bellsouth.net
+EmailAddress--->branding@youtube.com
+Website--->katiekieffer.com
+Website--->www.linkedin.com
+EmailAddress--->sdbutl2@nsa.gov
+IPv4Address--->23.206.196.215
+Website--->www.sbgmath.com.ipaddress.com
+Document--->http://apps.weather.gov/partners/partners14/5-Levine-IDSS%20SDD%20for%20Partners%20Meeting.ppt NOAA Partnership Policy ��� The First Year AMS Symposium on ...
+URL--->https://hostcabi.net/domain/anglonubia.com
+URL--->http://cyberwar.nl/d/hak5.org_WindowsPost-ExploitationCommandList_copy-20130228.pdf
+Website--->tv.yahoo.com
+EmailAddress--->jnoble@nsa.gov
+EmailAddress--->products@folica.com
+URL--->http://www.hqmc.marines.mil/intelligence/Units/MarineCryptologicSupportBattalion/FamilyReadinessProgram.aspx
+EmailAddress--->gmw@tycho.ncsc.mil
+EmailAddress--->tribstarcollegereport@yahoo.com
+Website--->hdxxxaccess.com.ipaddress.com
+EmailAddress--->bryan.hockensmith@us.army.mil
+PhoneNumber--->+1 800 882 9919
+FacebookObject--->Pictures from our successful g...
+Phrase--->"Communication Intelligence"
+DNSName--->mail.disc0nnected.com
+Website--->image.nihaowang.com
+EmailAddress--->support@livebinders.com
+BuiltWithTechnology--->IE Pinning
+Website--->www.pentesterlab.com
+Website--->www.unclaimedfundsprocessing.com
+EmailAddress--->style1-16@2x.png
+URL--->http://www.siteencyclopedia.com/officialiqquiz.com/
+URL--->https://community.rapid7.com/docs/DOC-1256
+NSRecord--->dmtu.mt.ns.els-gms.att.net
+URL--->http://udtonline.com/Newsroom/Latest-News/ArtMID/1114/ArticleID/52/United-Data-Technologies-UDT-Receives-Minority-Business-Enterprise-Certification-from-National-Council
+EmailAddress--->darpa-baa-14-58@darpa.mil
+EmailAddress--->rnamn@efternamn.com
+URL--->http://lh4.ggpht.com/hg8GUQTfR1QhyI6IS8AhDzZsyaiQdz2MD9Vx08yd1B_hbQbpQRGW9qCgwF4XsZrBo2qMFXVAIH3dswBmZg=s64
+EmailAddress--->angela.nibbs@hkstrategies.com
+Image--->Image
+Website--->seclists.org
+Domain--->metasploit.com
+Website--->services.mozilla.com
+EmailAddress--->premiumdns@binero.se
+IPv4Address--->208.118.237.137
+Website--->devteev.blogspot.com
+DNSName--->blogs.deloitte.com
+Person--->Adrian Andreias
+Website--->www.lenntech.it
+EmailAddress--->ckenyin@tycho.ncsc.mil
+URL--->http://www.nsa.gov/academia/_files/collected_learning/elementary/arithmetic/add_it_up.pdf Add It Up in Number Ville - National Security Agency
+NSRecord--->whois.rrpproxy.net
+Website--->www.ammobot.com.ipaddress.com
+EmailAddress--->sandeeptunna2050@gmail.com
+Website--->www.saveblast.com.ipaddress.com
+DNSName--->www.vmware.com
+EmailAddress--->bsnow@radium.ncsc.mil
+Website--->sukolaras.wordpress.com.w3snoop.com
+BuiltWithTechnology--->Debian
+EmailAddress--->fdcc@nist.gov
+EmailAddress--->crypto_museum@nsa.gov
+EmailAddress--->zzg-privacy@peelregion.ca
+Netblock--->74.125.0.0-74.125.255.255
+Website--->www.media-server.com
+Document--->http://133.25.100.8/conf/aina/2006/acceptedpaper/pcac06-acpapers.txt PCAC06 - Distributed System Laboratory
+EmailAddress--->nttr-network@wh.verio.net
+EmailAddress--->aqn@ud.com
+EmailAddress--->games@games.com
+FacebookObject--->It is no mystery that Democrat...
+BuiltWithTechnology--->jQuery Mousewheel
+EmailAddress--->sprite@2x.png
+Website--->www.counselingandlearning.com
+PhoneNumber--->015 307 7248
+WebTitle--->Connect with EarthLink, the award-winning Internet service provider (ISP) you can trust!
+BuiltWithTechnology--->Yandex Verification
+URL--->http://dvdcreation.digitalmedianet.com/article/United-Data-Technologies-(UDT)-Golf-Tournament-Raises-Thousands-of-Dollars-for-South-Florida-Childrens-Charity--1897118
+Website--->maps.google.se
+Domain--->address007.com
+EmailAddress--->mjo@tycho.ncsc.mil
+Website--->www.bleedfirst.com
+EmailAddress--->tommytronics@gmail.com
+EmailAddress--->jessicarwarfield@gmail.com
+Website--->ip-184-168-232-9.ip.secureserver.net
+AS--->39369
+Website--->www.koist.kr
+EmailAddress--->shafinfraizer@yahoo.com
+Website--->www.sam.gov
+Website--->195.168.1.1.ipaddress.com
+DNSName--->ip-184-168-232-3.ip.secureserver.net
+Website--->www.piet.co.in
+Website--->www.blogger.com
+Location--->-, New Zealand
+Phrase--->Sigint
+Website--->netnummer.wpoi.nl
+EmailAddress--->admissions@berkeley.edu
+PhoneNumber--->+1 865 632 2101
+Website--->www.fpds.gov
+EmailAddress--->tls@jabber.ietf.org

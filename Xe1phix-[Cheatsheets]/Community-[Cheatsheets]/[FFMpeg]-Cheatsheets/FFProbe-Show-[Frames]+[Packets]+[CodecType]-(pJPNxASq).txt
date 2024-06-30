@@ -1,0 +1,1 @@
+ffprobe <input> -loglevel warning -hide_banner -print_format json -count_frames -count_packets -show_entries "stream=nb_frames,nb_read_frames,nb_read_packets,start_time,duration,index,codec_name,codec_type : format=start_time,duration"

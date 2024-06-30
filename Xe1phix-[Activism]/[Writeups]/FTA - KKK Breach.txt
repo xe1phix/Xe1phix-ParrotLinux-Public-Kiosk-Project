@@ -1,0 +1,39 @@
+FTA - KKK Breach.txt
+
+  ~[CTRL-Z]~ EOF & Mirrors
+  
+    Staminus
+    
+        FILES:
+            http://emqyrhqhxwbetyjb.onion/chatbot.tar.gz
+            http://emqyrhqhxwbetyjb.onion/lighttpd.tar.gz
+            http://emqyrhqhxwbetyjb.onion/main.tar.gz
+            http://emqyrhqhxwbetyjb.onion/openvpn.tar.gz
+            http://emqyrhqhxwbetyjb.onion/svn.tar.gz
+            
+        SQL:
+            http://emqyrhqhxwbetyjb.onion/3-9-staminus2.sql
+            http://emqyrhqhxwbetyjb.onion/accountUpdate.sql
+            http://emqyrhqhxwbetyjb.onion/acctserver.sql
+            http://emqyrhqhxwbetyjb.onion/appliance_lan.sql
+            http://emqyrhqhxwbetyjb.onion/full.sql
+            http://emqyrhqhxwbetyjb.onion/ip_limit_history.sql
+            http://emqyrhqhxwbetyjb.onion/ip_limit_profile.sql
+            http://emqyrhqhxwbetyjb.onion/ip_limit.sql
+            http://emqyrhqhxwbetyjb.onion/sp.sql
+    
+    Intreppid
+    
+        FILES:
+            http://emqyrhqhxwbetyjb.onion/www2.tar.gz
+        SQL:
+            http://emqyrhqhxwbetyjb.onion/fucked.dump
+    
+    KKK + Friends
+    
+        FILES:
+            http://emqyrhqhxwbetyjb.onion/american.tar.gz
+            http://emqyrhqhxwbetyjb.onion/harrisonarkansas.tar.gz
+            http://emqyrhqhxwbetyjb.onion/kkkcom.tar.gz
+            http://emqyrhqhxwbetyjb.onion/kkkpen6.tar.gz
+            http://emqyrhqhxwbetyjb.onion/kkkradio.tar.gz

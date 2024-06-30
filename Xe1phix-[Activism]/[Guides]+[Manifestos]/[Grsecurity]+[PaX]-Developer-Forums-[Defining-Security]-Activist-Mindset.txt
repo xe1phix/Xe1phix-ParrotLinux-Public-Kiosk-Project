@@ -1,0 +1,25 @@
+
+
+------------------------------------------------------------------
+Before you dive into the devils, plz go get a cup of cofee or green tea and think what the hell is/isn't security..........
+------------------------------------------------------------------
+
+## Security is NOT:
+
+* Security is NOT installing a firewall ..
+* Security is NOT a Product or Service .. ( by Schneier, Bruce )
+* Security is Not a Product; It's a Process .. ( by Schneier, Bruce )
+* A Security Audit is NOT "running a port scan and turning things off" ..
+
+
+## Security is:
+
+* Security is "Can you still continue to work productively/safely, without compounding the security breach"
+* Security is only as good as your "weakest link"
+* Security is "risk management" of your corporate resources(computers/people), required expertise, time management, implementation costs, data backup/recovery proceedures ...
+* Security is a Process, Methodology, Costs, Policies and People
+* Security is "Can somebody physically walk out with your computers, disks, tapes, .. "
+* Security is 24x7x365 ... constantly ongoing .. never ending
+* Security is "learn all you can as fast as you can, without negatively affecting the network, productivity and budget"
+------------------------------------------------------------------
+
