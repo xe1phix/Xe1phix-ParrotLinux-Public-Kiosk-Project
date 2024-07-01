@@ -1,0 +1,8 @@
+#!/bin/bash
+#: Title		: Open Terminal Here
+#: Date			: 2010-05-11
+#: Author		: "John Lehr" <slo.sleuth@gmail.com>
+#: Version		: 1.0
+#: Description	: Opens terminal in current directory, adapted for paths with spaces
+
+gnome-terminal "$(pwd)" 

@@ -1,0 +1,256 @@
+#!/bin/bash
+#: Title		: Save as Evidence
+#: Date			: 05/12/2011
+#: Author		: "John Lehr" <slo.sleuth@gmail.com>
+#: Version		: 1.0.4
+#: Description	: Copies files user selected directory and creates a text file
+#:				: with file metadata.  Accepts a user comment.
+
+#: 05/12/2011	: v1.0.4 bug fix to obscure mountpoint function
+#: 05/11/2011	: v1.0.3 added directory recursion, obscured mountpoint in rpt
+#: 05/09/2011	: v1.0.2 added "about" information, noclobber existing files
+#: 05/06/2011	: v1.0.1 added ability to change save location
+#: 05/11/2010	: v1.0.0 initial release
+
+## To do:
+#: add hexdump of directory blocks to report
+
+## Variables
+TITLE="Save as Evidence"
+SAVE_DIR="$(cat $HOME/.save_dir)"
+DIRECTORY=0
+
+## Functions
+check_cancel ()
+{
+	if [ $? = 1 ]; then
+		exit 1
+	fi
+}
+
+check_overwrite ()
+{
+	yad --form \
+		--title="$TITLE" \
+		--image=gtk-info \
+		--text=" $BASENAME exists in $SAVE_DIR\n Overwrite existing file/report?" \
+		--button=gtk-no:1 \
+		--button="No to All":2 \
+		--button="Yes to All":3 \
+ 		--button=gtk-yes:0
+	BUTTON=$?
+}
+
+copy_print ()
+{
+	cp "$FILENAME" "$SAVE_DIR/$NEW_FILENAME"
+	print_report > "$SAVE_DIR/${NEW_FILENAME}_report.txt"
+	unset DIRECTORY_REPORT
+}
+
+get_filename ()
+{
+	## extract filename from file URI
+	URI="${URI#file://}"
+	FILENAME="${URI//%20/ }"
+	
+	## file renamed to include inode
+	INODE=$(stat -L -c %i "$FILENAME")
+	BASENAME="${FILENAME##*/}"
+	if [[ "$BASENAME" =~ \. ]]; then
+		EXTENSION=".${BASENAME##*.}"
+	else
+		EXTENSION=
+	fi		
+	NEW_FILENAME="${BASENAME%.*}($INODE)${EXTENSION}"
+}
+
+get_filestats ()
+{
+	## Obtain file metadata
+	FILE_STAT="$(stat -L "$FILENAME")"
+	MD5=($(md5sum "$FILENAME"))
+	SHA1=($(sha1sum "$FILENAME"))
+	FILE_TYPE="$(file -bL "$FILENAME")"
+	MIME_TYPE="$(file -bi "$FILENAME")"
+}
+
+get_dir_info ()
+{
+	#HEXDUMP="$(od -c "$FILENAME")"
+	LS="$(ls -l "$FILENAME")"
+	DIRECTORY_REPORT="
+Directory contents:
+$LS"
+}
+
+get_initial_input ()
+{
+	USER_INPUT=$(
+		yad --form \
+		--title="$TITLE" \
+		--image=gtk-save \
+		--text=" Copies file to save location and produces a report. Comment is optional." \
+		--field="Save Location":DIR "$SAVE_DIR" \
+		--field="Open Save Location on completion?":CHK FALSE \
+		--field="Comment:":TEXT \
+		--width=500 \
+		--button=gtk-about:2 \
+		--button=gtk-cancel:1 \
+		--button=gtk-ok:0 
+		)
+	BUTTON=$?
+}
+
+no_clobber ()
+{
+	##  Copy file to save directory and print report
+	if [ -e "$SAVE_DIR/$NEW_FILENAME" ] || [ -e "$SAVE_DIR/${NEW_FILENAME}_report.txt" ]; then
+		if [ $BUTTON = 3 ]; then
+			copy_print
+		elif [ $BUTTON = 2 ]; then
+			continue
+		else
+			check_overwrite
+			case $BUTTON in
+				0) copy_print ;;
+				1) ;;
+				2) BUTTON=2 ;; # no to all
+				3) BUTTON=3; copy_print ;; # yes to all
+			esac
+		fi
+	else
+		copy_print
+	fi
+}
+
+obscure_mountpoint ()
+{
+	MOUNT_POINT="$FILENAME"
+	RESULT=1
+	until [ $RESULT = 0 ]; do
+		mountpoint -q "$MOUNT_POINT"
+		[[ $? = 0 ]] && ORIG_FILENAME="$MOUNT_POINT"
+		RESULT=$?
+		MOUNT_POINT="${MOUNT_POINT%/*}"
+		[[ -z $MOUNT_POINT ]] && RESULT=0
+	done
+}
+
+print_about ()
+{
+	ABOUT_TEXT="
+\"Save as Evidence\" is a \"Previewer\" forensics script that copies selected
+files to a user defined location.  It renames the file, inserting the inode
+number between the file's basename and extension to allow same-named files to
+exist in the same export directory.
+
+The script also produces a report containing data of interest in forensic
+investigations.  The user has the option to input a comment that will be
+included in the report."
+
+	yad --title=$TITLE \
+		--image=gtk-info \
+		--text="$ABOUT_TEXT" \
+		--button=gtk-ok
+}
+
+print_report () 
+{
+	cat << EOF
+FILE REPORT FOR $BASENAME
+	
+${FILE_STAT//$ORIG_FILENAME/}
+
+MD5 HASH:	${MD5:0}
+SHA1 HASH:	${SHA1:0}
+
+File Type: $FILE_TYPE
+MIME Type: $MIME_TYPE
+$DIRECTORY_REPORT
+
+Investigator's Note: ${COMMENT:-No comment entered by investigator.}
+
+Filename note: File renamed from "$BASENAME" to "$NEW_FILENAME" when copied to save location to prevent overwriting of same-named files.
+EOF
+}
+
+process_dir ()
+{
+	LEVELS=$(yad --form \
+		--title="$TITLE" \
+		--image=gtk-info \
+		--text="\"$BASENAME\" is a directory.  Do you want to copy the directory\nitself, the files in the directory, or both?" \
+		--field="Number of sublevels to process? (0=all)":NUM 1 \
+		--button="Directory Only":0 \
+		--button="Files Only":2 \
+		--button="Both":4)
+	EXIT_CODE=$?
+
+	case $EXIT_CODE in
+		0) get_dir_info; no_clobber ;;
+		2) find $FILENAME -type f -maxdepth ${LEVELS%.*} | \
+			while read URI; do
+				[[ -z $URI ]] && break
+				process_file
+			done ;;
+		4)	DIRECTORY=1
+			find $FILENAME -maxdepth ${LEVELS%.*} | \
+			while read URI; do
+				[[ -z $URI ]] && break
+				process_file
+			done ;;
+	esac
+}
+	
+process_file ()
+{
+	get_filename
+	get_filestats
+	obscure_mountpoint
+	check_cancel
+	if [ "$FILE_TYPE" = "directory" ]; then
+		case $DIRECTORY in
+			0) #FILENAME=${FILENAME%/}
+				process_dir ;;
+			1) get_dir_info; no_clobber ;;
+		esac
+	else
+		no_clobber		
+	fi
+}
+
+## Obtain optional user comment about evidence item
+RUN_SCRIPT=0
+while [ $RUN_SCRIPT = 0 ]; do
+	get_initial_input
+	case $BUTTON in
+	1) exit 0 ;;
+	2) print_about ;;
+	0) RUN_SCRIPT=1 ;;
+	esac
+done
+
+## Read user input
+for var in SAVE_DIR OPEN_DIR COMMENT; do
+	eval $var="\${USER_INPUT%%|*}"
+	USER_INPUT="${USER_INPUT#*|}"
+done
+
+## Open save directory if selected
+if [ "$OPEN_DIR" = "TRUE" ]; then
+	caja "$SAVE_DIR"
+fi
+
+## Write save directory to settings file
+echo "$SAVE_DIR" > $HOME/.save_dir
+
+## Gather data for evidence report.  URIs must be used to accomodate Caja
+## virutal folders (e.g., search results)
+echo "$CAJA_SCRIPT_SELECTED_URIS" | \
+while read URI; do
+	[[ -z $URI ]] && break #prevent file artifact in save directory
+	process_file
+done
+
+exit 0

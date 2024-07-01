@@ -1,0 +1,25 @@
+#!/bin/bash
+#Show Form History
+#by John Lehr (C) 2009
+
+TITLE="Firefox Form History"
+TEMP_FILE=$(mktemp)
+
+if [ "$@" != "formhistory.sqlite" ]; then
+	zenity --error \
+		--title "$TITLE" \
+		--text "This is not a formhistory.sqlite file!"
+	exit 1	
+fi
+		
+sqlite3 $@ "select * from moz_formhistory" | \
+	while read i ; do 
+		a=$(echo $i | cut -d '|' -f1-4)
+		b=$(echo $i | cut -d '|' -f5 | grep -Eo "[0-9]{10,10}")
+		c=$(echo $i | cut -d '|' -f6| grep -Eo "[0-9]{10,10}")
+		echo ""$a"|$(date -d @"$b")|$(date -d @"$c")" >> $TEMP_FILE
+	done
+	
+pluma $TEMP_FILE
+					
+rm $TEMP_FILE			

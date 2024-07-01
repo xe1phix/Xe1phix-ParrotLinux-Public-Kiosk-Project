@@ -1,0 +1,391 @@
+#!/bin/bash
+
+#
+# Copyright (C) 2011-2016 Gianni 'guelfoweb' Amato < guelfoweb@gmail.com >
+#
+# This program is released under the terms of the GNU General Public License
+# (GPL), which is distributed with this software in the file "COPYING".
+# The GPL specifies the terms under which users may copy and use this software.
+#
+# This is a GUI forensic tool for file information.
+#
+# http://code.google.com/p/fileinfo-gui/
+#
+# PEFRAME Json analysis added by Nanni Bassetti 12/oct/2016
+
+VERSION="FileInfo v.0.6.1"
+# ↓
+
+# Dependence
+# --------------------------------------------
+# zenity
+# jpegjudge
+# libimage-exiftool-perl
+# peframe » https://github.com/guelfoweb/peframe
+# --------------------------------------------
+
+# Meta Information
+meta_report(){
+	EXIF=`exiftool "$FILE" \
+	| grep -v "ExifTool Version Number" \
+	| grep -v "Directory" \
+	| grep -v "File Name"`
+
+	if [ "$TYPE" == "JPEG" ]; then
+		JPEGQUALITY=`jpegjudge "$FILE" | cut -d\: -f2 | sed 's/ //g'`
+		QUALITY="JPEG Quality [0-1000]           : $JPEGQUALITY"
+		META="$QUALITY
+$EXIF"
+	else
+		META="$EXIF"
+	fi
+	
+	echo "$META" | sed 's/:/\n/' \
+	| zenity --title="Meta Data - $BASENAME" --list --column='Meta' --column='Description' --width 650 --height 500
+	if [ "$?" == "0" ] ; then
+		zenity --question --text "Do you want to save this report?";
+		if [ "$?" == "0" ] ; then
+			SavePath=$(zenity --file-selection --title="Save report as" --save --confirm-overwrite)
+				echo "$HEADER" > $SavePath; echo "" >> $SavePath
+				echo "$META" >> $SavePath
+		fi
+	fi
+}
+
+# Check for thumbnail
+thumb_check(){
+	THUMBCHECK=`exiftool "$FILE" | grep "Thumbnail Image"`
+	if [ -z "$THUMBCHECK" ]; then # not found
+		ADDROW=""
+		main_menu
+	else
+		ADDROW="FALSE Thumbnail Extract"
+		main_menu
+	fi
+}
+
+# Extract and save thumbnail
+save_thumbnail(){
+	SavePath=$(zenity --file-selection --title="Save thumbnail as" --save --confirm-overwrite)
+	if [ -z "$SavePath" ] ; then 
+		#main_menu
+		echo ""
+	else
+		exiftool -b -ThumbnailImage "$FILE" > "$SavePath-thumb.jpg"
+	fi
+}
+
+# Strings report
+strings_report(){
+	ASCII=`strings "$FILE"`
+	UNICODE=`strings -el "$FILE"`
+	echo "$ASCII$UNICODE" | zenity --title "Strings - $BASENAME" --text-info --width 650 --height 500
+	# 0 -> Ok
+	# 1 -> Cancel
+	if [ "$?" == "0" ] ; then
+		zenity --question --text "Do you want to save this report?";
+		if [ "$?" == "0" ] ; then
+			SavePath=$(zenity --file-selection --title="Save report as" --save --confirm-overwrite)
+			echo "$HEADER" > $SavePath; echo "" >> $SavePath
+			echo "$ASCII$UNICODE" >> $SavePath
+		fi
+	fi
+}
+
+# Show pdf elements
+pdf_analysis_show(){
+	OBJ=`strings "$FILE" | grep --count "[0-9]* [0-9] obj"`
+	ENDOBJ=`strings "$FILE" | grep --count "endobj"`
+	STREAM=`strings "$FILE" | grep --count "endstream"`
+	ENDSTREAM=`strings "$FILE" | grep --count "endstream"`
+	XREF=`strings "$FILE" | grep --count "startxref"`
+	STARTXREF=`strings "$FILE" | grep --count "startxref"`
+	TRAILER=`strings "$FILE" | grep --count "trailer"`
+	PAGE=`strings "$FILE" | grep --count "\/Page"`
+	ENCRYPT=`strings "$FILE" | grep --count "\/Encrypt"`
+	OBJSTM=`strings "$FILE" | grep --count "\/ObjStm"`
+	JS=`strings "$FILE" | grep --count "\/JS"`
+	JAVASCRIPT=`strings "$FILE" | grep --count "\/Javascript"`
+	AA=`strings "$FILE" | grep --count "\/AA"`
+	OPENACTION=`strings "$FILE" | grep --count "\/OpenAction"`
+	ACROFORM=`strings "$FILE" | grep --count "\/AcroForm"`
+	JBIG2DECODE=`strings "$FILE" | grep --count "\/JBIG2Decode"`
+	RICHMEDIA=`strings "$FILE" | grep --count "\/RichMedia"`
+	COLORS=`strings "$FILE" | grep --count "\/Colors > 2\^24"`
+	LAUNCH=`strings "$FILE" | grep --count "\/Launch"`
+
+	ELEM="
+	obj:$OBJ 
+	endobj:$ENDOBJ 
+	stream:$STREAM 
+	endstream:$ENDSTREAM 
+	xref:$XREF 
+	startxref:$STARTXREF 
+	trailer:$TRAILER 
+	Page:$PAGE 
+	Encrypt:$ENCRYPT 
+	Objstm:$OBJSTM 
+	JS:$JS 
+	Javascript:$JAVASCRIPT 
+	AA:$AA 
+	OpenAction:$OPENACTION 
+	AcroForm:$ACROFORM 
+	JBIG2Decode:$JBIG2DECODE 
+	RichMedia:$RICHMEDIA 
+	Colors:$COLORS 
+	Launch:$LAUNCH"
+
+	PDF_ACT="\/JS|\/JavaScript|\/AA|\/OpenAction|\/RichMedia"
+
+	PDF_SUSP_ACT="\/ASCIIHexDecode|\/ASCII85Decode|\/LZWDecode|\/RunLengthDecode|\/CCITTFaxDecode|\/JBIG2Decode|\/JPXDecode|\/Crypt|\/AcroForm"
+	PDF_SUSP_ELEM="util.printf|printf|getIcon|spell.|customDictionaryOpen|DictionaryOpen|getAnnots|.newPlayer|collectEmailInfo|2Decode"
+	PDF_SUSP_SHELLCODE="\"%[a-z][a-z0-9]{4}|'%[a-z][a-z0-9]{4}"
+	PDF_SUSP_JS=".this|function|eval|unescape|.replace|.substring|fromCharCode|byteToChar|toString|setTimeOut"
+
+	PDFSUSP="$PDF_SUSP_ACT|$PDF_SUSP_ELEM|$PDF_SUSP_SHELLCODE|$PDF_SUSP_JS"
+
+	if [ "$ENCRYPT" -ne 0 ]; then
+		PRE_ANALYSIS_TXT="$PRE_ANALYSIS_TXT
+This PDF use Encrypted code: $ENCRYPT Encrypt"
+	fi
+	if [ "$JS" -ne 0 ]; then
+		PRE_ANALYSIS_TXT="$PRE_ANALYSIS_TXT
+This PDF use Javascript code: $JS JS"
+	fi
+	if [ "$JAVASCRIPT" -ne 0 ]; then
+		PRE_ANALYSIS_TXT="$PRE_ANALYSIS_TXT
+This PDF use Javascript code: $JS Javascript"
+	fi
+	if [ "$RICHMEDIA" -ne 0 ]; then
+		PRE_ANALYSIS_TXT="$PRE_ANALYSIS_TXT
+This PDF use Flash code: $RICHMEDIA RichMedia"
+	fi
+	if [ "$JBIG2DECODE" -ne 0 ]; then
+		PRE_ANALYSIS_TXT="$PRE_ANALYSIS_TXT
+Vulnerable filter found: $JBIG2DECODE JBIG2Decode"
+	fi
+	if [ "$COLORS" -ne 0 ]; then
+		PRE_ANALYSIS_TXT="$PRE_ANALYSIS_TXT
+Vulnerable filter found: $COLORS Colors > 2\^24"
+	fi
+	if [ "$ACROFORM" -ne 0 ]; then
+		PRE_ANALYSIS_TXT="$PRE_ANALYSIS_TXT
+Automatic action found: $ACROFORM AcroForm"
+	fi
+	if [ "$AA" -ne 0 ]; then
+		PRE_ANALYSIS_TXT="$PRE_ANALYSIS_TXT
+Automatic action found: $AA AA"
+	fi
+	if [ "$OPENACTION" -ne 0 ]; then
+		PRE_ANALYSIS_TXT="$PRE_ANALYSIS_TXT
+Automatic action found: $OPENACTION OpenAction"
+	fi
+	if [ "$LAUNCH" -ne 0 ]; then
+		PRE_ANALYSIS_TXT="$PRE_ANALYSIS_TXT
+Automatic action found: $LAUNCH Launch"
+	fi
+
+	i=0
+	while [ "$i" -lt "$ENDOBJ" ]
+	do
+		let "i += 1"
+		OBJECT=`strings "$FILE" | sed -n "/$i 0 obj/,/endobj/p"`
+		PDF_MAL_ACT=`echo "$OBJECT" | egrep -c "$PDF_ACT"`
+		if [ "$PDF_MAL_ACT" -gt 0 ]; then
+			PRE_ANALYSIS_TXT="$PRE_ANALYSIS_TXT
+
+Object with suspicious action script:
+[ $i 0 obj ]
+`echo "$OBJECT" | egrep -o "$PDF_ACT"`"
+		fi
+		PDF_MAL_SUSP=`echo "$OBJECT" | egrep -c "$PDFSUSP"`
+		if [ "$PDF_MAL_SUSP" -gt 0 ]; then
+			PRE_ANALYSIS_TXT="$PRE_ANALYSIS_TXT
+
+Object with suspicious code:
+[ $i 0 obj ]
+`echo "$OBJECT" | egrep -o "$PDFSUSP"`"
+		fi
+	done
+
+	FOUND_ACT=`strings "$FILE" | egrep -c "$PDF_ACT"`
+	FOUND_ACT_SHW=`strings "$FILE" | egrep -o "$PDF_ACT"`
+	FOUND_SUSP=`strings "$FILE" | egrep -c "$PDFSUSP"`
+	FOUND_SUSP_SHW=`strings "$FILE" | egrep -o "$PDFSUSP" | sort | uniq`
+
+	if [ "$FOUND_ACT" -gt 0 ]; then
+		if [ "$FOUND_SUSP" -gt 0 ]; then
+			ANALYSIS_TXT="This PDF file is potentially malicious and requires further analysis.
+
+Found [$FOUND_ACT] suspicious element(s):
+$FOUND_ACT_SHW
+
+Found [$FOUND_SUSP] suspicious code(s):
+$FOUND_SUSP_SHW
+
+$PRE_ANALYSIS_TXT
+
+Element(s):
+$ELEM
+"
+			echo "$ANALYSIS_TXT" | zenity --title "PDF Analysis - $BASENAME" --text-info --width 650 --height 500
+			if [ "$?" == "0" ] ; then
+				zenity --question --text "Do you want to save this report?";
+				if [ "$?" == "0" ] ; then
+					SavePath=$(zenity --file-selection --title="Save report as" --save --confirm-overwrite)
+						echo "$HEADER" > $SavePath; echo "" >> $SavePath
+						echo "$ANALYSIS_TXT" >> $SavePath
+				fi
+			fi
+		fi
+	else
+		ANALYSIS_TXT="Found [$FOUND_ACT] suspicious element(s)"
+		zenity --info --title="PDF Analysis - $BASENAME" --text="$ANALYSIS_TXT" --width 350 --height 100
+	fi
+	$ANALYSIS_TXT=""
+}
+
+# Manage PDF menu
+pdf_check(){
+	ADDROW="FALSE PDF-Analysis Static-Analysis"
+	main_menu
+}
+
+pe32_analysis_show(){
+	PEFANALYSIS=`peframe "$FILE"`
+	echo "$PEFANALYSIS" | zenity --title "PE32 Analysis - $BASENAME" --text-info --width 650 --height 500
+	if [ "$?" == "0" ] ; then
+		zenity --question --text "Do you want to save this report?";
+		if [ "$?" == "0" ] ; then
+			SavePath=$(zenity --file-selection --title="Save report as" --save --confirm-overwrite)
+				echo "$HEADER" > $SavePath; echo "" >> $SavePath
+				echo "$PEFANALYSIS" >> $SavePath
+		fi
+	fi
+}
+
+pe32_json_analysis_show(){
+	PEFANALYSIS=`peframe --json "$FILE" | tr '\t' ' '`
+	echo "$PEFANALYSIS" | zenity --title "PE32 Analysis - $BASENAME" --text-info --width 650 --height 500
+	if [ "$?" == "0" ] ; then
+		zenity --question --text "Do you want to save this report?";
+		if [ "$?" == "0" ] ; then
+			SavePath=$(zenity --file-selection --title="Save report as" --save --confirm-overwrite)
+				echo "$HEADER" > $SavePath; echo "" >> $SavePath
+				echo "$PEFANALYSIS" >> $SavePath
+		fi
+	fi
+}
+
+# Manage PE menu
+pe32_check(){
+	ADDROW="FALSE PE32-Analysis Static-Analysis FALSE PE32-Json-Analysis Static-Analysis"
+	main_menu
+}
+
+hash_md5(){
+	MD5=`md5sum "$FILE" | cut -d" " -f1`
+	echo "$MD5" | zenity --title "MD5 - $BASENAME" --text-info --width 300 --height 50
+	if [ "$?" == "0" ] ; then
+		zenity --question --text "Do you want to save this report?";
+		if [ "$?" == "0" ] ; then
+			SavePath=$(zenity --file-selection --title="Save report as" --save --confirm-overwrite)
+				echo "$HEADER" > $SavePath; echo "" >> $SavePath
+				echo "MD5: $MD5" >> $SavePath
+		fi
+	fi
+}
+
+hash_sha1(){
+	SHA1=`sha1sum "$FILE" | cut -d" " -f1`
+	echo "$SHA1" | zenity --title "SHA1 - $BASENAME" --text-info --width 350 --height 50
+	if [ "$?" == "0" ] ; then
+		zenity --question --text "Do you want to save this report?";
+		if [ "$?" == "0" ] ; then
+			SavePath=$(zenity --file-selection --title="Save report as" --save --confirm-overwrite)
+				echo "$HEADER" > $SavePath; echo "" >> $SavePath
+				echo "SHA1: $SHA1" >> $SavePath
+		fi
+	fi
+}
+
+# Usage 
+if [ $# == 0 ]; then
+	zenity --error --text="No such file\n\nUsage:\nfileinfo filename.ext\n"
+	exit;
+fi
+
+# Purge filename
+FILE=`echo "$1" | sed 's/file:\/\///g' | sed 's/\%20/ /g'`
+
+# Verify argument
+if [ "$FILE" == "" ]; then
+	zenity --error --text="No such file."
+	echo "bye ;)"
+	exit;
+fi
+
+# File Name
+BASENAME=`basename "$FILE"`
+
+# Report Header
+HEADER="Report generated from $VERSION @ `date`
+http://code.google.com/p/fileinfo-gui/
+
+Filename: $BASENAME
+"
+
+# Get File Type
+FT=`file "$FILE" | cut -d\: -f2`
+
+about(){
+	zenity --info --text="$VERSION\nForensics GUI for file information\n\nLicense:\nGNU General Public 3\n\nAuthor:\nGianni 'guelfoweb' Amato\n\nDownload:\nhttp://code.google.com/p/fileinfo-gui\n\nSponsored by:\nhttp://www.securityside.it\n\nThis version has been modded by Nanni Bassetti"
+}
+
+menu_error(){
+	zenity --error --text "Select a file please!"
+}
+
+main_menu(){
+	response=$(zenity --list --title="File Info - $BASENAME" --radiolist  --column "↓" --column "Action" --column "Description" \
+	TRUE "Meta Information" "Exif Data" \
+	FALSE "String Information" "ASCII and Unicodes" \
+	$ADDROW \
+	FALSE "Hash MD5" "MD5 Value" \
+	FALSE "Hash SHA1" "SHA1 Value" \
+	FALSE "About" "File Info" \
+	--width 350 --height 300)
+}
+
+main_info(){
+	clear
+	TYPE=`echo "$FT" | cut -d" " -f2 | sed 's/ //g'`
+	case $TYPE in
+		"PE32") pe32_check;;
+		"PE32+") pe32_check;;
+		"MS-DOS") pe32_check;;
+		"JPEG") thumb_check;;
+		"PDF") pdf_check;;
+		"directory") menu_error; exit;;
+		*) main_menu;
+	esac
+
+	if [ -z "$response" ] ; then
+		 echo "bye :-)"
+		 exit 1
+	fi
+
+	case $response in
+		"Meta Information") meta_report; main_info; exit 1;;
+		"String Information") strings_report; main_info; exit 1;;
+		"PE32-Analysis") pe32_analysis_show; main_info; exit 1;;
+		"PE32-Json-Analysis") pe32_json_analysis_show; main_info; exit 1;;
+		"PDF-Analysis") pdf_analysis_show; main_info; exit 1;;
+		"Thumbnail") save_thumbnail; main_info; exit 1;;
+		"Hash MD5") hash_md5; main_info; exit 1;;
+		"Hash SHA1") hash_sha1; main_info; exit 1;;
+		"About") about; main_info; exit 1;;
+	esac
+}
+
+main_info

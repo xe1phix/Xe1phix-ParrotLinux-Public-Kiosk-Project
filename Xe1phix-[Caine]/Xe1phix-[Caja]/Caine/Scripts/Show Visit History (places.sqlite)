@@ -1,0 +1,28 @@
+#!/bin/bash
+#Show Visit History
+#by John Lehr (C) 2009
+
+TITLE="Show Visit History"
+TEMP_FILE=$(mktemp)
+
+sqlite3 "@";
+if [ "$@" != "places.sqlite" ]; then
+	zenity --error \
+		--title "$TITLE" \
+		--text "This is not a places.sqlite file!"
+	exit 1	
+fi
+
+sqlite3 $@ "SELECT url, visit_date FROM moz_places, moz_historyvisits WHERE moz_places.id=moz_historyvisits.place_id ORDER by visit_date" | \
+	while read i
+	do
+		A=$(echo $i | cut -d '|' -f1)
+		B=$(echo $i | cut -d '|' -f2 | grep -Eo "[0-9]{10,10}")
+		echo ""$A"|$(date -d @"$B")" >> $TEMP_FILE
+	done			
+
+# sh "$HOME"/.config/caja/scripts/.support_scripts/ff3histview.pl -txt -s "$@" > $TEMP_FILE
+
+pluma $TEMP_FILE 
+
+rm $TEMP_FILE

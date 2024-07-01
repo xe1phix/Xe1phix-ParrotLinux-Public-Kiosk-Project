@@ -1,0 +1,132 @@
+#!/bin/bash
+#: Title		: Quick View Content
+#: Date			: 2010-05-11
+#: Author		: "John Lehr" <slo.sleuth@gmail.com>
+#: Version		: 1.0
+#: Description	: Convert file to text for quick examination
+
+# Script Variables
+temp_file=$(mktemp)
+
+path_name="$(echo "$@" | sed 's/ /\\ /g')"
+file_name="$(basename $path_name)"
+
+file_type="$(file -b "$@" | cut -d ',' -f1)"
+mime_type="$(file -i -b "$@" | cut -d ';' -f1)"
+
+
+# Script
+echo -e "File: $@\n" >> $temp_file
+
+# Microsoft Word rendering
+if [ "$mime_type" == "application/msword" ]
+then
+	(echo "FILE CONTENTS: rendered with antiword"
+	echo -e "--------------------------------------------------------------------------------\n"
+	echo -e "Document Metadata:\n"
+	wvSummary "$@" | tail -n +2
+	echo -e "\nDocument Contents:\n"
+	antiword -frs "$@") >> $temp_file
+
+# Microsot Excel rendering
+elif [ "$mime_type" == "application/vnd.ms-office" ]
+then
+	(echo "FILE CONTENTS: rendered with antiword/xls2csv"
+	echo -e "--------------------------------------------------------------------------------\n"
+	echo -e "Document Metadata:\n"
+	wvSummary "$@" | tail -n +2
+	echo -e "\nDocument Contents:\n"
+	antiword -frs "$@"
+	if [ $? -gt 0 ]
+	then 
+		xls2csv "$@"
+	fi) >> $temp_file
+
+# Microsoft Open XML (docx)
+elif [ "$mime_type" = "application/zip" ]; then
+	unzip -p "$@" | grep -q "officedocument.wordprocessing"
+	if [ $? == 0 ]; then
+		(echo "FILE CONTENTS: rendered with read_open_xml.pl/cat_open_xml.pl"
+		echo -e "--------------------------------------------------------------------------------\n"
+		echo -e "Document Metadata:\n"
+		.support_scripts/./read_open_xml.pl "$@"
+		echo "\nDocument Contents:\n"
+		.support_scripts/./cat_open_xml.pl "$@") >> $temp_file
+
+# ZIP archive rendering
+	else
+		(echo "FILE CONTENTS: rendered with unzip"
+		echo -e "--------------------------------------------------------------------------------\n"
+		echo -e "Archive Contents:\n "
+		unzip -l "$@" | tail -n +2
+		echo -e "\nArchive Strings Content:\n"
+		unzip -p "$@" | (tee >/dev/null >(strings -td) >(strings -td -el) >(strings -td -eb) >(strings -td -eL) >(strings -td -eB)) | sort -n) >> $temp_file
+	fi
+# Sqlite Rendering
+elif [ "$file_type" = "SQLite 3.x database" ]; then
+	(echo "FILE CONTENTS: SQLite database dump"
+	echo -e "--------------------------------------------------------------------------------\n"
+	echo -e "Database tables:\n"
+	echo -e "$(sqlite3 "$@" .tables)\n\n"
+	for i in $(sqlite3 "$@" .tables); do 
+		echo -e "Table $i contents:\n"
+		sqlite3 -line "$@" "select * from $i"
+		echo -e "\n\n"
+	done) >> $temp_file
+
+# XML rendering
+elif [ "$mime_type" = "application/xml" ]; then
+	(echo "FILE CONTENTS: rendered with xml_pp"
+	echo -e "--------------------------------------------------------------------------------\n"
+	xml_pp "$@") >> $temp_file
+
+# Index.dat rendering
+elif [ "$file_type" = "Internet Explorer cache file version Ver 5.2" ]; then
+	(echo "FILE CONTENTS: rendered with pasco"
+	echo -e "--------------------------------------------------------------------------------\n"
+	pasco -d "$@") >> $temp_file
+
+# PDF rendering
+elif [ "$mime_type" = "application/pdf" ]; then
+	(echo "FILE CONTENTS: rendered with pdf2html and html2text"
+	echo -e "--------------------------------------------------------------------------------\n"
+	pdftotext "$@" - ) >> $temp_file
+
+# Plist Rendering
+elif [ "$file_type" = "Apple binary property list" ]; then
+	(echo "FILE 711500CONTENTS: rendered with plutil"
+	echo -e "--------------------------------------------------------------------------------\n"
+	perl /usr/local/bin/plutil "$@" >/dev/null
+	cat "$@".text) >> $temp_file
+
+# Windows Registry Rendering
+elif [ "$file_type" = "MS Windows registry file" ]; then
+	(echo "FILE CONTENTS: rendered reglookup"
+	echo -e "--------------------------------------------------------------------------------\n"
+	reglookup "$@") >> $temp_file
+	
+# HTML Rendering
+elif [ "$mime_type" = "text/html" ]; then
+	(echo "FILE CONTENTS: rendered with elinks"
+	echo -e "--------------------------------------------------------------------------------\n") >> $temp_file
+	elinks "$@" >> $temp_file
+
+# Media file rendering
+	(echo "FILE Metadata: rendered exiftool"
+	echo -e "--------------------------------------------------------------------------------\n"
+	exiftool "$@") >> $temp_file
+	
+# Extract strings from all other file types
+else
+	(echo "FILE CONTENTS: ASCII and Unicode Strings"
+	echo -e "--------------------------------------------------------------------------------\n"
+	cat "$@" | (tee >/dev/null >(strings) >(strings -el) >(strings -eb) >(strings -eL) >(strings -eB))) >> $temp_file
+
+fi
+
+# Display results
+pluma $temp_file
+
+# Remove temp file
+sleep 5
+rm $temp_file

@@ -1,0 +1,14 @@
+#!/bin/bash
+#: Title		: Show Nautilus Variables
+#: Date			: 2010-05-11
+#: Author		: "John Lehr" <slo.sleuth@gmail.com>
+#: Version		: 1.0
+#: Description	: Shows Nautilus variable for selected items to aid in scripting
+
+TEXT=$(echo -e "Selected File Paths: $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS\n\nSelected URI's: $NAUTILUS_SCRIPT_SELECTED_URIS\n\nCurrent URI: $NAUTILUS_SCRIPT_CURRENT_URI\n\nWindow Geometry: $NAUTILUS_SCRIPT_WINDOW_GEOMETRY\n\nPositional Parameter \$\@: $@")
+
+zenity --info \
+	--title="Nautilus Variables" \
+	--text="$TEXT"
+
+exit 0
