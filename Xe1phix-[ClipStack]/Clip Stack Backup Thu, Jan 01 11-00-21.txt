@@ -1,0 +1,73 @@
+Clip Stack Backup 
+
+Wed Dec 31 20:30:44 CST 1969
+https://github.com/ukanth/afwall/wiki/CustomScripts
+Wed Dec 31 20:36:10 CST 1969
+https://github.com/dschuermann/ad-away/wiki/HostsSources
+Thu Jan 01 05:13:59 CST 1970
+xe1phix z4ro:
+Its OK. I can say that. I'm primarily German
+Thu Jan 01 05:22:56 CST 1970
+Father:
+is this what you are studying?
+Thu Jan 01 10:39:55 CST 1970
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+
+https://gist.github.com/CHEF-KOCH/5a7b1593d1880f906b12a3c87cee4500
+
+https://gist.github.com/CHEF-KOCH/ef0cf71138b7c0e81b49ada5b5a5e356
+
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+
+Droidwall scripts that fix some problems for e.g. Orbot, startup data leak and other things (see comments)
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+
+AFWall+ [2017 Edition]
+https://gist.github.com/CHEF-KOCH/79924daa128c0a5526cb94bec5ad9187
+
+Droidwall scripts that fix some problems for e.g. Orbot, startup data leak and other things (see comments)
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+
+OpenVPN hardening
+https://gist.github.com/CHEF-KOCH/5918aeb0433a82694adfc857d1372167
+
+AFWall+ [2017 Edition]
+https://gist.github.com/CHEF-KOCH/79924daa128c0a5526cb94bec5ad9187
+
+Droidwall scripts that fix some problems for e.g. Orbot, startup data leak and other things (see comments)
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3#file-firewall-allow-adb-sh
+
+uTorrent activation/ads
+https://gist.github.com/CHEF-KOCH/b042e55ea1f9e635610fbaabe38334db
+
+Audio fingerprint pages [2017 Edition]
+https://gist.github.com/CHEF-KOCH/63fd2e506cb34a2378ad2620ab06d2e0
+
+Canvas fingerprinting pages [2017 Edition]
+https://gist.github.com/CHEF-KOCH/2dea75d43b2184f228ae94b168d275b1
+
+WebRTC tracking list [2017 Edition]
+https://gist.github.com/CHEF-KOCH/5a7b1593d1880f906b12a3c87cee4500
+
+List of Popular Free Torrent Sites
+https://gist.github.com/CHEF-KOCH/d1c6f49492f6d10ee1d192817b7cdce5
+
+Hidden Wiki .onion Urls Tor Link Directory [2017 Edition]
+https://gist.github.com/CHEF-KOCH/ef0cf71138b7c0e81b49ada5b5a5e356
+
+Removing Video Metadata
+https://gist.github.com/CHEF-KOCH/5d98f57fd614cc2524d1d17e41edc652
+
+CHEF-KOCH’s gists
+https://gist.github.com/CHEF-KOCH
+
+Droidwall scripts that fix some problems for e.g. Orbot, startup data leak and other things (see comments)
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+Thu Jan 01 10:54:23 CST 1970
+Umatrix blocks the bad XSS, bad  javascript, etc. And adblock origin blocks by bad known ip address or domains.
+Thu Jan 01 10:57:18 CST 1970
+https://github.com/pragma-/networklog
+Thu Jan 01 10:58:31 CST 1970
+https://github.com/ukanth/afwall/wiki/FAQ
+Thu Jan 01 10:59:56 CST 1970
+https://github.com/ukanth/afwall/wiki

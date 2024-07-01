@@ -1,0 +1,3351 @@
+Clip Stack Backup 
+
+Wed Dec 31 20:36:10 CST 1969
+https://github.com/dschuermann/ad-away/wiki/HostsSources
+Thu Jan 01 05:13:59 CST 1970
+xe1phix z4ro:
+Its OK. I can say that. I'm primarily German
+Thu Jan 01 05:22:56 CST 1970
+Father:
+is this what you are studying?
+Thu Jan 01 10:39:55 CST 1970
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+
+https://gist.github.com/CHEF-KOCH/5a7b1593d1880f906b12a3c87cee4500
+
+https://gist.github.com/CHEF-KOCH/ef0cf71138b7c0e81b49ada5b5a5e356
+
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+
+Droidwall scripts that fix some problems for e.g. Orbot, startup data leak and other things (see comments)
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+
+AFWall+ [2017 Edition]
+https://gist.github.com/CHEF-KOCH/79924daa128c0a5526cb94bec5ad9187
+
+Droidwall scripts that fix some problems for e.g. Orbot, startup data leak and other things (see comments)
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+
+OpenVPN hardening
+https://gist.github.com/CHEF-KOCH/5918aeb0433a82694adfc857d1372167
+
+AFWall+ [2017 Edition]
+https://gist.github.com/CHEF-KOCH/79924daa128c0a5526cb94bec5ad9187
+
+Droidwall scripts that fix some problems for e.g. Orbot, startup data leak and other things (see comments)
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3#file-firewall-allow-adb-sh
+
+uTorrent activation/ads
+https://gist.github.com/CHEF-KOCH/b042e55ea1f9e635610fbaabe38334db
+
+Audio fingerprint pages [2017 Edition]
+https://gist.github.com/CHEF-KOCH/63fd2e506cb34a2378ad2620ab06d2e0
+
+Canvas fingerprinting pages [2017 Edition]
+https://gist.github.com/CHEF-KOCH/2dea75d43b2184f228ae94b168d275b1
+
+WebRTC tracking list [2017 Edition]
+https://gist.github.com/CHEF-KOCH/5a7b1593d1880f906b12a3c87cee4500
+
+List of Popular Free Torrent Sites
+https://gist.github.com/CHEF-KOCH/d1c6f49492f6d10ee1d192817b7cdce5
+
+Hidden Wiki .onion Urls Tor Link Directory [2017 Edition]
+https://gist.github.com/CHEF-KOCH/ef0cf71138b7c0e81b49ada5b5a5e356
+
+Removing Video Metadata
+https://gist.github.com/CHEF-KOCH/5d98f57fd614cc2524d1d17e41edc652
+
+CHEF-KOCH’s gists
+https://gist.github.com/CHEF-KOCH
+
+Droidwall scripts that fix some problems for e.g. Orbot, startup data leak and other things (see comments)
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+Thu Jan 01 10:54:23 CST 1970
+Umatrix blocks the bad XSS, bad  javascript, etc. And adblock origin blocks by bad known ip address or domains.
+Thu Jan 01 10:57:18 CST 1970
+https://github.com/pragma-/networklog
+Thu Jan 01 10:58:31 CST 1970
+https://github.com/ukanth/afwall/wiki/FAQ
+Thu Jan 01 10:59:56 CST 1970
+https://github.com/ukanth/afwall/wiki
+Thu Jan 01 11:17:59 CST 1970
+https://github.com/ukanth/afwall/wiki/CustomScripts
+Sun Feb 11 11:09:21 CST 2018
+ Swipe to delete. 👉
+Sun Feb 11 11:09:21 CST 2018
+Click here 🙋 to edit.
+Sun Feb 11 11:09:21 CST 2018☆★☆
+It can show clipboard history in notification.
+Sun Feb 11 11:09:21 CST 2018☆★☆
+Welcome to Clip Stack. 😄
+Sun Feb 11 14:21:56 CST 2018
+Ask Noah Show!
+https://t.me/asknoahshow
+Sun Feb 11 14:56:26 CST 2018
+https://t.me/parrotsecgroup
+Sun Feb 11 14:57:03 CST 2018
+https://t.me/asknoahshow
+Sun Feb 11 14:58:02 CST 2018
+https://t.me/grouplinux
+Sun Feb 11 14:58:34 CST 2018
+https://t.me/linux_group
+Sun Feb 11 14:59:12 CST 2018
+https://t.me/DebianProject
+Sun Feb 11 15:00:43 CST 2018
+https://t.me/kalilinux
+Mon Feb 12 01:36:27 CST 2018
+necromancer audiobook
+Mon Feb 12 10:39:13 CST 2018
+xe1phix z4ro:
+I'm converting to ZFS. BSD clearly one the filesystem debate.
+
+ZFS so amazing they have entire conferences only covering zfs
+Tue Feb 13 03:29:44 CST 2018
+intent://github.com/ukanth/afwall/wiki/CustomScripts#Intent;scheme=https;launchFlags=0x3000000;S.com.android.browser.application_id=dev.ukanth.ufirewall;end 
+------------ 
+ACTION: android.intent.action.VIEW 
+DATA: https://github.com/ukanth/afwall/wiki/CustomScripts 
+URI: intent://github.com/ukanth/afwall/wiki/CustomScripts#Intent;scheme=https;launchFlags=0x3000000;S.com.android.browser.application_id=dev.ukanth.ufirewall;end 
+FLAGS: 
+FLAG_ACTIVITY_FORWARD_RESULT 
+FLAG_ACTIVITY_PREVIOUS_IS_TOP 
+EXTRAS: 
+1 Class: java.lang.String 
+Key: com.android.browser.application_id 
+Value: dev.ukanth.ufirewall 
+
+------------ 
+MATCHING ACTIVITIES: 
+Privacy Browser (com.stoutner.privacybrowser.standard - com.stoutner.privacybrowser.activities.MainWebViewActivity) 
+Orweb (info.guardianproject.browser - info.guardianproject.browser.Browser) 
+Firefox Klar (org.mozilla.klar - org.mozilla.focus.activity.MainActivity) 
+
+Tue Feb 13 03:44:18 CST 2018
+/storage/emulated/0/Android/data/org.telegram.messenger/cache/
+Wed Feb 28 21:43:33 CST 2018
+https://m.youtube.com/watch?v=bsgKZb9jQ1s
+Fri Mar 02 13:19:23 CST 2018
+Owsley Stanley
+Fri Mar 02 13:48:36 CST 2018
+xe1phix z4ro:
+I have 4 hours of compliance training today on the subject of deceptive, unfair, and abusive practices.
+
+> created by a bank...
+
+Do you see the irony here?..
+Sat Mar 03 04:42:09 CST 2018
+ZFS on Linux releases are signed by the official maintainer for that branch. These signatures are automatically verified by GitHub and can be checked locally by downloading the maintainers public key.
+
+Maintainers
+Release branch (spl/zfs-*-release)
+Maintainer: Ned Bass
+Download: pgp.mit.edu
+Key ID: C77B9667
+Fingerprint: 29D5 610E AE29 41E3 55A2 FE8A B974 67AA C77B 9667
+
+Maintainer: Tony Hutter
+Download: pgp.mit.edu
+Key ID: D4598027
+Fingerprint: 4F3B A9AB 6D1F 8D68 3DC2 DFB5 6AD8 60EE D459 8027
+
+Master branch (master)
+Maintainer: Brian Behlendorf
+Download: pgp.mit.edu
+Key ID: C6AF658B
+Fingerprint: C33D F142 657E D1F7 C328 A296 0AB9 E991 C6AF 658B
+
+Checking the Signature of a Git Tag
+First import the public key listed above in to your key ring.
+
+$ gpg --keyserver pgp.mit.edu --recv C6AF658B
+gpg: requesting key C6AF658B from hkp server pgp.mit.edu
+gpg: key C6AF658B: "Brian Behlendorf <behlendorf1@llnl.gov>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+After the pubic key is imported the signature of a git tag can be verified as shown.
+
+$ git tag --verify zfs-0.6.5
+object 7a27ad00ae142b38d4aef8cc0af7a72b4c0e44fe
+type commit
+tag zfs-0.6.5
+tagger Brian Behlendorf <behlendorf1@llnl.gov> 1441996302 -0700
+
+ZFS Version 0.6.5
+gpg: Signature made Fri 11 Sep 2015 11:31:42 AM PDT using DSA key ID C6AF658B
+gpg: Good signature from "Brian Behlendorf <behlendorf1@llnl.gov>"
+gpg:                 aka "Brian Behlendorf (LLNL) <behlendorf1@llnl.gov>"
+Sat Mar 03 04:42:21 CST 2018
+https://github.com/zfsonlinux/zfs/wiki/Signing-Keys
+Sat Mar 03 07:33:05 CST 2018
+.mp4
+Sat Mar 03 15:46:54 CST 2018
+@gif Mr robot
+Sun Mar 04 03:41:59 CST 2018
+xe1phix z4ro:
+"Self healing RAID"
+
+Its able to take the parity, and reconstruct the corrupt data
+
+Not to mention, snapshots, cloning, import/export of snapshots and metadata.
+
+ZPool compression, ACLs, auto snapshotting, loop device creation and RAIDing,
+
+Etc etc
+
+FUCKIN MAGIC man
+
+"Any sufficiently advanced technology is indistinguishable from magic"
+Sun Mar 04 04:08:14 CST 2018
+xe1phix z4ro:
+This brings a new meaning to the phrase "fuck you, pay me!" Lolol
+
+The Hacker News
+Thousands of Government Websites Hacked to Mine Cryptocurrencies
+
+There was a time when hackers simply defaced websites to get attention, then they started hijacking them to spread banking trojan and ransomware, and now the trend has shifted towards injecting scripts into sites to mine cryptocurrencies.
+
+Thousands of government websites around the world have been found infected with a specific script that secretly forces visitors' computers to mine
+Sun Mar 04 04:32:59 CST 2018
+I've spent nearly half of my life (16 out of 34 years) on this work and published it for free for people to learn and benefit from
+Sun Mar 04 04:42:08 CST 2018
+I've spent nearly half of my life (16 out of 34 years) on this work and published it for free for people to learn and benefit from. And he deceptively
+Sun Mar 04 07:19:33 CST 2018
+http://www.jupiterbroadcasting.com/122427/high-on-zfs-bsd-now-233/
+Sun Mar 04 11:59:57 CST 2018
+</service>
+<service android:name=".service.TelenetAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+Sun Mar 04 12:11:13 CST 2018
+https://github.com/xe1phix/ParrotSecWiki/blob/InfoSecTalk/ParrotInfoSecTalkBSides.txt
+Sun Mar 04 12:22:14 CST 2018
+https://www.qubes-os.org/news/2017/04/26/qubes-compromise-recovery/
+Sun Mar 04 12:25:12 CST 2018
+The inconvenient and somehow embarrassing truth for us – the malware experts – is that there does not exist any reliable method to determine if a given system is not compromised. True, there is a number of conditions that can warn us that the system is compromised, but there is no limit on the number of checks that a system must pass in order to be deemed “clean”.
+Sun Mar 04 12:31:53 CST 2018
+https://github.com/QubesOS/qubes-core-admin/blob/core3-devel/doc/libvirt.rst
+Sun Mar 04 12:33:56 CST 2018
+https://github.com/QubesOS/qubes-builder
+Sun Mar 04 12:36:51 CST 2018
+https://www.qubes-os.org/doc/secondary-storage/
+Sun Mar 04 12:41:02 CST 2018
+https://www.qubes-os.org/doc/dispvm-customization/
+Sun Mar 04 12:45:23 CST 2018
+https://www.qubes-os.org/doc/dispvm/#starting-an-arbitrary-program-in-a-disposable-vm-from-an-appvm
+Sun Mar 04 13:09:36 CST 2018
+@Kernellinux
+Sun Mar 04 15:33:01 CST 2018
+xe1phix z4ro:
+http://www.justpain.com/ut_maps/wordlists/
+
+http://contest-2010.korelogic.com/wordlists.html
+
+https://github.com/danielmiessler/SecLists/tree/master/Passwords
+
+http://www.adeptus-mechanicus.com/codex/hashpass/hashpass.php
+
+https://weakpass.com/wordlist/real
+Sun Mar 04 15:37:02 CST 2018
+http://asalor.blogspot.com/2012/08/re-encryption-of-luks-device-cryptsetup.html
+Sun Mar 04 15:42:28 CST 2018
+https://t.me/dolbaebgif/4815
+Sun Mar 04 15:48:07 CST 2018
+https://arstechnica.com/information-technology/2018/03/23000-https-certificates-axed-after-ceo-e-mails-private-keys/
+Sun Mar 04 15:48:13 CST 2018
+A:
+This one too! 23,000 HTTPS certificates axed after CEO emails private keys | Ars Technica — https://arstechnica.com/information-technology/2018/03/23000-https-certificates-axed-after-ceo-e-mails-private-keys/
+Sun Mar 04 16:02:57 CST 2018
+https://t.me/Crazy_Porn_Gif/1565
+Sun Mar 04 16:19:17 CST 2018
+@giffree
+Sun Mar 04 16:22:11 CST 2018
+@ninegag2
+Sun Mar 04 16:22:47 CST 2018
+@AnalInsertion
+Sun Mar 04 16:46:31 CST 2018
+https://github.com/berzerk0/Probable-Wordlists
+Sun Mar 04 16:48:05 CST 2018
+https://github.com/jeanphorn/wordlist
+Sun Mar 04 16:52:43 CST 2018
+https://www.ghacks.net/2018/03/01/a-history-of-fingerprinting-protection-in-firefox/
+Sun Mar 04 16:55:15 CST 2018
+http://www.justpain.com/ut_maps/wordlists/
+
+http://contest-2010.korelogic.com/wordlists.html
+
+https://github.com/danielmiessler/SecLists/tree/master/Passwords
+
+http://www.adeptus-mechanicus.com/codex/hashpass/hashpass.php
+
+https://weakpass.com/wordlist/real
+Sun Mar 04 17:09:15 CST 2018
+https://github.com/IAIK/meltdown
+Sun Mar 04 17:10:30 CST 2018
+https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/dechand
+Sun Mar 04 23:35:14 CST 2018
+Best Porno Gifs
+https://t.me/bestpornogifs
+Sun Mar 04 23:49:23 CST 2018
+@Russian_Schoolgirls
+Mon Mar 05 00:01:26 CST 2018
+@cumgram
+Mon Mar 05 00:06:52 CST 2018
+https://t.me/Crazy_Porn_Gif
+Mon Mar 05 00:07:17 CST 2018
+https://t.me/Sexy_Russia
+Mon Mar 05 00:13:10 CST 2018
+https://t.me/sexzxxxxx/1315
+Mon Mar 05 00:27:48 CST 2018
+@sexzxxxxx
+Mon Mar 05 00:28:55 CST 2018
+@REDEPORNOO
+Mon Mar 05 00:31:43 CST 2018
+@bestpornogifs
+Mon Mar 05 00:53:17 CST 2018
+https://t.me/bestpornogifs/94
+Mon Mar 05 01:02:36 CST 2018
+https://t.me/DillionHarperClub
+Mon Mar 05 01:03:42 CST 2018
+Holly Michaels
+Mon Mar 05 06:51:50 CST 2018
+intent:#Intent;action=android.intent.action.SEND;type=text/plain;launchFlags=0x1b080000;S.android.intent.extra.TEXT=https%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F79924daa128c0a5526cb94bec5ad9187%0ASat%20Jan%2013%2016%3A17%3A06%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2Fe0b8771cd1fd17c9b4d3%0ASat%20Jan%2013%2016%3A17%3A09%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F5918aeb0433a82694adfc857d1372167%0ASat%20Jan%2013%2016%3A17%3A13%20CST%202018%0Ahttps%3A%2F%2Fgithub.com%2FAdAway%2FAdAway%2Fwiki%2FHostsSources%0ASat%20Jan%2013%2016%3A17%3A45%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F2dea75d43b2184f228ae94b168d275b1%0ASat%20Jan%2013%2016%3A17%3A48%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F5a7b1593d1880f906b12a3c87cee4500%0ASat%20Jan%2013%2016%3A17%3A52%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2Fd1c6f49492f6d10ee1d192817b7cdce5%0ASat%20Jan%2013%2016%3A17%3A57%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F5d98f57fd614cc2524d1d17e41edc652%0ASat%20Jan%2013%2016%3A18%3A01%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%0ASat%20Jan%2013%2016%3A18%3A27%20CST%202018%0Ahttps%3A%2F%2Fgithub.com%2Fcollinbarrett%2FFilterLists%0ASun%20Jan%2014%2002%3A27%3A38%20CST%202018%0Ahttps%3A%2F%2Fgithub.com%2Fukanth%2Fafwall%2Fwiki%2FCustomScripts%0ASun%20Jan%2014%2002%3A29%3A59%20CST%202018%0A!%20Ads%20related%0A!%0A!%20Adblock%20Warning%20Removal%20List%0A!%20https%3A%2F%2Feasylist-downloads.adblockplus.org%2Fantiadblockfilters.txt%0A!%20Anti-Adblock%20Killer%20%7C%20Reek%0A!%20raw.githubusercontent.com%2Freek%2Fanti-adblock-killer%2Fmaster%2Fanti-adblock-killer-filters.txt%0A!%20EasyList%0A!%20easylist-downloads.adblockplus.org%2Feasylist.txt%0A!%20EasyList%20w%2Fo%20element%20hiding%20rules%0A!%20easylist-downloads.adblockplus.org%2Feasylist_noelemhide.txt%0A!%20Acceptable%20Ads%0A!%20https%3A%2F%2Fadblockplus.org%2Fen%2Facceptable-ads%0A%0A%0A%0A!%20Privacy%20related%0A!%0A!%20Basic%20tracking%20list%20by%20Disconnect%E2%80%8E%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_tracking.txt%0A!%20EasyPrivacy%20by%20adblock.org%0A!%20easylist-downloads.adblockplus.org%2Feasyprivacy.txt%0A!%20Fanboy%E2%80%99s%20Enhanced%20Tracking%20List%20by%20fanboy.co.nz%0A!%20http%3A%2F%2Fwww.fanboy.co.nz%2Fenhancedstats.txt%0A!%20GNU%20privacy%20filter%0A!%20http%3A%2F%2Fgnuzilla.gnu.org%2Ffilters%2Fblacklist.txt%0A!%20CHEF-KOCH's%20NSA%20blocklist%0A!%20https%3A%2F%2Fgithub.com%2FCHEF-KOCH%2FNSABlocklist%2Fblob%2Fmaster%2FHOSTS.txt%0A%0A%0A%0A!%20Blocks%20Malware%20domains%0A!%0A!%20Malvertising%20filter%20list%20by%20Disconnect%E2%80%8E%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_malvertising.txt%0A!%20Malware%20filter%20list%20by%20Disconnect%E2%80%8E%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_malware.txt%0A!%20Malware%20Domain%20list%0A!%20http%3A%2F%2Fwww.malwaredomainlist.com%2Fhostslist%2Fhosts.txt%0A!%20Malware%20Domain%20(just%20Domains)%20%5Bmirror%20from%20mailwaredomainlist.com%5D%0A!%20mirror1.malwaredomains.com%2Ffiles%2Fjustdomains%0A!%20Immortal%20Domains%20(also%20called%20long-lived)%0A!%20mirror1.malwaredomains.com%2Ffiles%2Fimmortal_domains.txt%0A!%20Spam404%20by%20spam404bl.com%0A!%20http%3A%2F%2Fspam404bl.com%2Fblacklist.txt%0A%0A%0A%0A!%20Anti%20social%20networks%20and%20buttons%0A!%20%0A!%20Fanboy's%20anti-social%20list%20which%20blocks%20buttons%2C%20sites%2C%20...%0A!%20http%3A%2F%2Fwww.fanboy.co.nz%2Ffanboy-antifacebook.txt%0A!%20Fanboy%E2%80%99s%20Annoyance%20List%20by%20adblockplus.org%0A!%20easylist-downloads.adblockplus.org%2Ffanboy-annoyance.txt%0A!%20Fanboy's%20third-party%20Annoyance%20list%0A!%20easylist-downloads.adblockplus.org%2Ffanboy-annoyance.txt%0A!%20Fanboy's%20Social%20Blocking%20List%20%0A!%20easylist-downloads.adblockplus.org%2Ffanboy-social.txt%0A%0A%0A%0A!%20Multipurpose%20and%20Misc%0A!%0A!%20Dan%20Pollock%E2%80%99s%20hosts%20file%20by%20someonewhocares.org%20%5Balso%20avb.%20as%20IPv6%20and%20nulled%5D%0A!%20someonewhocares.org%2Fhosts%2Fhosts%0A!%20Fanboy's%20ultimate%20list%20(combines%20all)%0A!%20http%3A%2F%2Fwww.fanboy.co.nz%2Ffanboy-ultimate.txt%0A!%20hpHosts%E2%80%99s%20Ad%20and%20tracking%20servers%20by%20hosts-file.net%20%5Bsometimes%20offline%5D%0A!%20hosts-file.net%2Fad-servers%0A!%20MVPS%20HOSTS%0A!%20winhelp2002.mvps.org%2Fhosts.txt%0A!%20AdGuards%20blocking%20list%20(overview%20only)%0A!%20-%3E%20https%3A%2F%2Fadguard.com%2Fen%2Ffilters.html%0A%0A%0A%0A!%20YouTube%20related%0A!%20%0A!%20YouTube%20all%20suggestions%20and%20comments%0A!%20https%3A%2F%2Feasylist-downloads.adblockplus.org%2Fyt_annoyances_full.txt%0A!%20YouTube%20suggestions%20%0Ahttps%3A%2F%2Feasylist-downloads.adblockplus.org%2Fyt_annoyances_suggestions.txt%0A!%20YouTube%20annoyances%0A!%20https%3A%2F%2Feasylist-downloads.adblockplus.org%2Fyt_annoyances_other.txt%0A!%20YouTube%20Remove%20Comments%0Ahttps%3A%2F%2Feasylist-downloads.adblockplus.org%2Fyt_annoyances_comments.txt%0A%0A%0A%0A!%20Cookie%20related%0A!%0A!%20EU%3A%20Prebake%20-%20Filter%20Obtrusive%20Cookie%20Notices%0A!%20https%3A%2F%2Fraw.githubusercontent.com%2Fliamja%2FPrebake%2Fmaster%2Fobtrusive.txt%0ASun%20Jan%2014%2002%3A36%3A54%20CST%202018%0Aeasylist-downloads.adblockplus.org%2Feasylist.txt%0ASun%20Jan%2014%2002%3A40%3A31%20CST%202018%0Asomeonewhocares.org%2Fhosts%2Fhosts%0ASun%20Jan%2014%2002%3A42%3A00%20CST%202018%0Ahttps%3A%2F%2Fgithub.com%2FCHEF-KOCH%2FNSABlocklist%2Fblob%2Fmaster%2FHOSTS.txt%0ASun%20Jan%2014%2002%3A42%3A40%20CST%202018%0Ahttp%3A%2F%2Fwww.fanboy.co.nz%2Fenhancedstats.txt%0ASun%20Jan%2014%2002%3A45%3A38%20CST%202018%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_malware.txt%0ASun%20Jan%2014%2002%3A46%3A00%20CST%202018%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_malvertising.txt%0ASun%20Jan%2014%2002%3A47%3A03%20CST%202018%0Ahttps%3A%2F%2Fraw.githubusercontent.com%2Fliamja%2FPrebake%2Fmaster%2Fobtrusive.txt%0ASun%20Jan%2014%2002%3A53%3A05%20CST%202018%0Ahttp%3A%2F%2Fwww.fanboy.co.nz%2Ffanboy-ultimate.txt%0ASun%20Jan%2014%2002%3A58%3A40%20CST%202018%0Ahttp%3A%2F%2Fgnuzilla.gnu.org%2Ffilters%2Fblacklist.txt;end 
+------------ 
+ACTION: android.intent.action.SEND 
+MIME: text/plain 
+URI: intent:#Intent;action=android.intent.action.SEND;type=text/plain;launchFlags=0x1b080000;S.android.intent.extra.TEXT=https%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F79924daa128c0a5526cb94bec5ad9187%0ASat%20Jan%2013%2016%3A17%3A06%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2Fe0b8771cd1fd17c9b4d3%0ASat%20Jan%2013%2016%3A17%3A09%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F5918aeb0433a82694adfc857d1372167%0ASat%20Jan%2013%2016%3A17%3A13%20CST%202018%0Ahttps%3A%2F%2Fgithub.com%2FAdAway%2FAdAway%2Fwiki%2FHostsSources%0ASat%20Jan%2013%2016%3A17%3A45%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F2dea75d43b2184f228ae94b168d275b1%0ASat%20Jan%2013%2016%3A17%3A48%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F5a7b1593d1880f906b12a3c87cee4500%0ASat%20Jan%2013%2016%3A17%3A52%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2Fd1c6f49492f6d10ee1d192817b7cdce5%0ASat%20Jan%2013%2016%3A17%3A57%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F5d98f57fd614cc2524d1d17e41edc652%0ASat%20Jan%2013%2016%3A18%3A01%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%0ASat%20Jan%2013%2016%3A18%3A27%20CST%202018%0Ahttps%3A%2F%2Fgithub.com%2Fcollinbarrett%2FFilterLists%0ASun%20Jan%2014%2002%3A27%3A38%20CST%202018%0Ahttps%3A%2F%2Fgithub.com%2Fukanth%2Fafwall%2Fwiki%2FCustomScripts%0ASun%20Jan%2014%2002%3A29%3A59%20CST%202018%0A!%20Ads%20related%0A!%0A!%20Adblock%20Warning%20Removal%20List%0A!%20https%3A%2F%2Feasylist-downloads.adblockplus.org%2Fantiadblockfilters.txt%0A!%20Anti-Adblock%20Killer%20%7C%20Reek%0A!%20raw.githubusercontent.com%2Freek%2Fanti-adblock-killer%2Fmaster%2Fanti-adblock-killer-filters.txt%0A!%20EasyList%0A!%20easylist-downloads.adblockplus.org%2Feasylist.txt%0A!%20EasyList%20w%2Fo%20element%20hiding%20rules%0A!%20easylist-downloads.adblockplus.org%2Feasylist_noelemhide.txt%0A!%20Acceptable%20Ads%0A!%20https%3A%2F%2Fadblockplus.org%2Fen%2Facceptable-ads%0A%0A%0A%0A!%20Privacy%20related%0A!%0A!%20Basic%20tracking%20list%20by%20Disconnect%E2%80%8E%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_tracking.txt%0A!%20EasyPrivacy%20by%20adblock.org%0A!%20easylist-downloads.adblockplus.org%2Feasyprivacy.txt%0A!%20Fanboy%E2%80%99s%20Enhanced%20Tracking%20List%20by%20fanboy.co.nz%0A!%20http%3A%2F%2Fwww.fanboy.co.nz%2Fenhancedstats.txt%0A!%20GNU%20privacy%20filter%0A!%20http%3A%2F%2Fgnuzilla.gnu.org%2Ffilters%2Fblacklist.txt%0A!%20CHEF-KOCH's%20NSA%20blocklist%0A!%20https%3A%2F%2Fgithub.com%2FCHEF-KOCH%2FNSABlocklist%2Fblob%2Fmaster%2FHOSTS.txt%0A%0A%0A%0A!%20Blocks%20Malware%20domains%0A!%0A!%20Malvertising%20filter%20list%20by%20Disconnect%E2%80%8E%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_malvertising.txt%0A!%20Malware%20filter%20list%20by%20Disconnect%E2%80%8E%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_malware.txt%0A!%20Malware%20Domain%20list%0A!%20http%3A%2F%2Fwww.malwaredomainlist.com%2Fhostslist%2Fhosts.txt%0A!%20Malware%20Domain%20(just%20Domains)%20%5Bmirror%20from%20mailwaredomainlist.com%5D%0A!%20mirror1.malwaredomains.com%2Ffiles%2Fjustdomains%0A!%20Immortal%20Domains%20(also%20called%20long-lived)%0A!%20mirror1.malwaredomains.com%2Ffiles%2Fimmortal_domains.txt%0A!%20Spam404%20by%20spam404bl.com%0A!%20http%3A%2F%2Fspam404bl.com%2Fblacklist.txt%0A%0A%0A%0A!%20Anti%20social%20networks%20and%20buttons%0A!%20%0A!%20Fanboy's%20anti-social%20list%20which%20blocks%20buttons%2C%20sites%2C%20...%0A!%20http%3A%2F%2Fwww.fanboy.co.nz%2Ffanboy-antifacebook.txt%0A!%20Fanboy%E2%80%99s%20Annoyance%20List%20by%20adblockplus.org%0A!%20easylist-downloads.adblockplus.org%2Ffanboy-annoyance.txt%0A!%20Fanboy's%20third-party%20Annoyance%20list%0A!%20easylist-downloads.adblockplus.org%2Ffanboy-annoyance.txt%0A!%20Fanboy's%20Social%20Blocking%20List%20%0A!%20easylist-downloads.adblockplus.org%2Ffanboy-social.txt%0A%0A%0A%0A!%20Multipurpose%20and%20Misc%0A!%0A!%20Dan%20Pollock%E2%80%99s%20hosts%20file%20by%20someonewhocares.org%20%5Balso%20avb.%20as%20IPv6%20and%20nulled%5D%0A!%20someonewhocares.org%2Fhosts%2Fhosts%0A!%20Fanboy's%20ultimate%20list%20(combines%20all)%0A!%20http%3A%2F%2Fwww.fanboy.co.nz%2Ffanboy-ultimate.txt%0A!%20hpHosts%E2%80%99s%20Ad%20and%20tracking%20servers%20by%20hosts-file.net%20%5Bsometimes%20offline%5D%0A!%20hosts-file.net%2Fad-servers%0A!%20MVPS%20HOSTS%0A!%20winhelp2002.mvps.org%2Fhosts.txt%0A!%20AdGuards%20blocking%20list%20(overview%20only)%0A!%20-%3E%20https%3A%2F%2Fadguard.com%2Fen%2Ffilters.html%0A%0A%0A%0A!%20YouTube%20related%0A!%20%0A!%20YouTube%20all%20suggestions%20and%20comments%0A!%20https%3A%2F%2Feasylist-downloads.adblockplus.org%2Fyt_annoyances_full.txt%0A!%20YouTube%20suggestions%20%0Ahttps%3A%2F%2Feasylist-downloads.adblockplus.org%2Fyt_annoyances_suggestions.txt%0A!%20YouTube%20annoyances%0A!%20https%3A%2F%2Feasylist-downloads.adblockplus.org%2Fyt_annoyances_other.txt%0A!%20YouTube%20Remove%20Comments%0Ahttps%3A%2F%2Feasylist-downloads.adblockplus.org%2Fyt_annoyances_comments.txt%0A%0A%0A%0A!%20Cookie%20related%0A!%0A!%20EU%3A%20Prebake%20-%20Filter%20Obtrusive%20Cookie%20Notices%0A!%20https%3A%2F%2Fraw.githubusercontent.com%2Fliamja%2FPrebake%2Fmaster%2Fobtrusive.txt%0ASun%20Jan%2014%2002%3A36%3A54%20CST%202018%0Aeasylist-downloads.adblockplus.org%2Feasylist.txt%0ASun%20Jan%2014%2002%3A40%3A31%20CST%202018%0Asomeonewhocares.org%2Fhosts%2Fhosts%0ASun%20Jan%2014%2002%3A42%3A00%20CST%202018%0Ahttps%3A%2F%2Fgithub.com%2FCHEF-KOCH%2FNSABlocklist%2Fblob%2Fmaster%2FHOSTS.txt%0ASun%20Jan%2014%2002%3A42%3A40%20CST%202018%0Ahttp%3A%2F%2Fwww.fanboy.co.nz%2Fenhancedstats.txt%0ASun%20Jan%2014%2002%3A45%3A38%20CST%202018%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_malware.txt%0ASun%20Jan%2014%2002%3A46%3A00%20CST%202018%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_malvertising.txt%0ASun%20Jan%2014%2002%3A47%3A03%20CST%202018%0Ahttps%3A%2F%2Fraw.githubusercontent.com%2Fliamja%2FPrebake%2Fmaster%2Fobtrusive.txt%0ASun%20Jan%2014%2002%3A53%3A05%20CST%202018%0Ahttp%3A%2F%2Fwww.fanboy.co.nz%2Ffanboy-ultimate.txt%0ASun%20Jan%2014%2002%3A58%3A40%20CST%202018%0Ahttp%3A%2F%2Fgnuzilla.gnu.org%2Ffilters%2Fblacklist.txt;end 
+FLAGS: 
+FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET 
+FLAG_ACTIVITY_FORWARD_RESULT 
+FLAG_RECEIVER_REGISTERED_ONLY_BEFORE_BOOT 
+FLAG_ACTIVITY_PREVIOUS_IS_TOP 
+FLAG_RECEIVER_FOREGROUND 
+EXTRAS: 
+1 Class: java.lang.String 
+Key: android.intent.extra.TEXT 
+Value: https://gist.github.com/CHEF-KOCH/79924daa128c0a5526cb94bec5ad9187 Sat Jan 13 16:17:06 CST 2018 https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3 Sat Jan 13 16:17:09 CST 2018 https://gist.github.com/CHEF-KOCH/5918aeb0433a82694adfc857d1372167 Sat Jan 13 16:17:13 CST 2018 https://github.com/AdAway/AdAway/wiki/HostsSources Sat Jan 13 16:17:45 CST 2018 https://gist.github.com/CHEF-KOCH/2dea75d43b2184f228ae94b168d275b1 Sat Jan 13 16:17:48 CST 2018 https://gist.github.com/CHEF-KOCH/5a7b1593d1880f906b12a3c87cee4500 Sat Jan 13 16:17:52 CST 2018 https://gist.github.com/CHEF-KOCH/d1c6f49492f6d10ee1d192817b7cdce5 Sat Jan 13 16:17:57 CST 2018 https://gist.github.com/CHEF-KOCH/5d98f57fd614cc2524d1d17e41edc652 Sat Jan 13 16:18:01 CST 2018 https://gist.github.com/CHEF-KOCH Sat Jan 13 16:18:27 CST 2018 https://github.com/collinbarrett/FilterLists Sun Jan 14 02:27:38 CST 2018 https://github.com/ukanth/afwall/wiki/CustomScripts Sun Jan 14 02:29:59 CST 2018 ! Ads related ! ! Adblock Warning Removal List ! https://easylist-downloads.adblockplus.org/antiadblockfilters.txt ! Anti-Adblock Killer | Reek ! raw.githubusercontent.com/reek/anti-adblock-killer/master/anti-adblock-killer-filters.txt ! EasyList ! easylist-downloads.adblockplus.org/easylist.txt ! EasyList w/o element hiding rules ! easylist-downloads.adblockplus.org/easylist_noelemhide.txt ! Acceptable Ads ! https://adblockplus.org/en/acceptable-ads ! Privacy related ! ! Basic tracking list by Disconnect‎ https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt ! EasyPrivacy by adblock.org ! easylist-downloads.adblockplus.org/easyprivacy.txt ! Fanboy’s Enhanced Tracking List by fanboy.co.nz ! http://www.fanboy.co.nz/enhancedstats.txt ! GNU privacy filter ! http://gnuzilla.gnu.org/filters/blacklist.txt ! CHEF-KOCH's NSA blocklist ! https://github.com/CHEF-KOCH/NSABlocklist/blob/master/HOSTS.txt ! Blocks Malware domains ! ! Malvertising filter list by Disconnect‎ https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt ! Malware filter list by Disconnect‎ https://s3.amazonaws.com/lists.disconnect.me/simple_malware.txt ! Malware Domain list ! http://www.malwaredomainlist.com/hostslist/hosts.txt ! Malware Domain (just Domains) [mirror from mailwaredomainlist.com] ! mirror1.malwaredomains.com/files/justdomains ! Immortal Domains (also called long-lived) ! mirror1.malwaredomains.com/files/immortal_domains.txt ! Spam404 by spam404bl.com ! http://spam404bl.com/blacklist.txt ! Anti social networks and buttons ! ! Fanboy's anti-social list which blocks buttons, sites, ... ! http://www.fanboy.co.nz/fanboy-antifacebook.txt ! Fanboy’s Annoyance List by adblockplus.org ! easylist-downloads.adblockplus.org/fanboy-annoyance.txt ! Fanboy's third-party Annoyance list ! easylist-downloads.adblockplus.org/fanboy-annoyance.txt ! Fanboy's Social Blocking List ! easylist-downloads.adblockplus.org/fanboy-social.txt ! Multipurpose and Misc ! ! Dan Pollock’s hosts file by someonewhocares.org [also avb. as IPv6 and nulled] ! someonewhocares.org/hosts/hosts ! Fanboy's ultimate list (combines all) ! http://www.fanboy.co.nz/fanboy-ultimate.txt ! hpHosts’s Ad and tracking servers by hosts-file.net [sometimes offline] ! hosts-file.net/ad-servers ! MVPS HOSTS ! winhelp2002.mvps.org/hosts.txt ! AdGuards blocking list (overview only) ! -> https://adguard.com/en/filters.html ! YouTube related ! ! YouTube all suggestions and comments ! https://easylist-downloads.adblockplus.org/yt_annoyances_full.txt ! YouTube suggestions https://easylist-downloads.adblockplus.org/yt_annoyances_suggestions.txt ! YouTube annoyances ! https://easylist-downloads.adblockplus.org/yt_annoyances_other.txt ! YouTube Remove Comments https://easylist-downloads.adblockplus.org/yt_annoyances_comments.txt ! Cookie related ! ! EU: Prebake - Filter Obtrusive Cookie Notices ! https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt Sun Jan 14 02:36:54 CST 2018 easylist-downloads.adblockplus.org/easylist.txt Sun Jan 14 02:40:31 CST 2018 someonewhocares.org/hosts/hosts Sun Jan 14 02:42:00 CST 2018 https://github.com/CHEF-KOCH/NSABlocklist/blob/master/HOSTS.txt Sun Jan 14 02:42:40 CST 2018 http://www.fanboy.co.nz/enhancedstats.txt Sun Jan 14 02:45:38 CST 2018 https://s3.amazonaws.com/lists.disconnect.me/simple_malware.txt Sun Jan 14 02:46:00 CST 2018 https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt Sun Jan 14 02:47:03 CST 2018 https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt Sun Jan 14 02:53:05 CST 2018 http://www.fanboy.co.nz/fanboy-ultimate.txt Sun Jan 14 02:58:40 CST 2018 http://gnuzilla.gnu.org/filters/blacklist.txt 
+
+------------ 
+MATCHING ACTIVITIES: 
+Bluetooth (com.android.bluetooth - com.android.bluetooth.opp.BluetoothOppLauncherActivity) 
+Messaging (com.android.messaging - com.android.messaging.ui.conversationlist.ShareIntentActivity) 
+Copy to clipboard (com.catchingnow.tinyclipboardmanager - com.catchingnow.tinyclipboardmanager.ActivityEditor) 
+Yalp Store (com.github.yeriomin.yalpstore - com.github.yeriomin.yalpstore.DirectDownloadActivity) 
+Termux (com.termux - com.termux.filepicker.TermuxFileReceiverActivity) 
+Term here (jackpal.androidterm - jackpal.androidterm.TermHere) 
+Firefox Klar (org.mozilla.klar - org.mozilla.focus.activity.MainActivity) 
+Encrypt (org.sufficientlysecure.keychain - org.sufficientlysecure.keychain.ui.EncryptTextActivity) 
+Decrypt (org.sufficientlysecure.keychain - org.sufficientlysecure.keychain.ui.DecryptActivity) 
+Telegram (org.telegram.messenger - org.telegram.ui.LaunchActivity) 
+
+Mon Mar 05 06:54:43 CST 2018
+intent:#Intent;action=android.intent.action.SEND;type=text/plain;launchFlags=0x1b080000;S.android.intent.extra.TEXT=https%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F79924daa128c0a5526cb94bec5ad9187%0ASat%20Jan%2013%2016%3A17%3A06%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2Fe0b8771cd1fd17c9b4d3%0ASat%20Jan%2013%2016%3A17%3A09%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F5918aeb0433a82694adfc857d1372167%0ASat%20Jan%2013%2016%3A17%3A13%20CST%202018%0Ahttps%3A%2F%2Fgithub.com%2FAdAway%2FAdAway%2Fwiki%2FHostsSources%0ASat%20Jan%2013%2016%3A17%3A45%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F2dea75d43b2184f228ae94b168d275b1%0ASat%20Jan%2013%2016%3A17%3A48%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F5a7b1593d1880f906b12a3c87cee4500%0ASat%20Jan%2013%2016%3A17%3A52%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2Fd1c6f49492f6d10ee1d192817b7cdce5%0ASat%20Jan%2013%2016%3A17%3A57%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F5d98f57fd614cc2524d1d17e41edc652%0ASat%20Jan%2013%2016%3A18%3A01%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%0ASat%20Jan%2013%2016%3A18%3A27%20CST%202018%0Ahttps%3A%2F%2Fgithub.com%2Fcollinbarrett%2FFilterLists%0ASun%20Jan%2014%2002%3A27%3A38%20CST%202018%0Ahttps%3A%2F%2Fgithub.com%2Fukanth%2Fafwall%2Fwiki%2FCustomScripts%0ASun%20Jan%2014%2002%3A29%3A59%20CST%202018%0A!%20Ads%20related%0A!%0A!%20Adblock%20Warning%20Removal%20List%0A!%20https%3A%2F%2Feasylist-downloads.adblockplus.org%2Fantiadblockfilters.txt%0A!%20Anti-Adblock%20Killer%20%7C%20Reek%0A!%20raw.githubusercontent.com%2Freek%2Fanti-adblock-killer%2Fmaster%2Fanti-adblock-killer-filters.txt%0A!%20EasyList%0A!%20easylist-downloads.adblockplus.org%2Feasylist.txt%0A!%20EasyList%20w%2Fo%20element%20hiding%20rules%0A!%20easylist-downloads.adblockplus.org%2Feasylist_noelemhide.txt%0A!%20Acceptable%20Ads%0A!%20https%3A%2F%2Fadblockplus.org%2Fen%2Facceptable-ads%0A%0A%0A%0A!%20Privacy%20related%0A!%0A!%20Basic%20tracking%20list%20by%20Disconnect%E2%80%8E%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_tracking.txt%0A!%20EasyPrivacy%20by%20adblock.org%0A!%20easylist-downloads.adblockplus.org%2Feasyprivacy.txt%0A!%20Fanboy%E2%80%99s%20Enhanced%20Tracking%20List%20by%20fanboy.co.nz%0A!%20http%3A%2F%2Fwww.fanboy.co.nz%2Fenhancedstats.txt%0A!%20GNU%20privacy%20filter%0A!%20http%3A%2F%2Fgnuzilla.gnu.org%2Ffilters%2Fblacklist.txt%0A!%20CHEF-KOCH's%20NSA%20blocklist%0A!%20https%3A%2F%2Fgithub.com%2FCHEF-KOCH%2FNSABlocklist%2Fblob%2Fmaster%2FHOSTS.txt%0A%0A%0A%0A!%20Blocks%20Malware%20domains%0A!%0A!%20Malvertising%20filter%20list%20by%20Disconnect%E2%80%8E%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_malvertising.txt%0A!%20Malware%20filter%20list%20by%20Disconnect%E2%80%8E%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_malware.txt%0A!%20Malware%20Domain%20list%0A!%20http%3A%2F%2Fwww.malwaredomainlist.com%2Fhostslist%2Fhosts.txt%0A!%20Malware%20Domain%20(just%20Domains)%20%5Bmirror%20from%20mailwaredomainlist.com%5D%0A!%20mirror1.malwaredomains.com%2Ffiles%2Fjustdomains%0A!%20Immortal%20Domains%20(also%20called%20long-lived)%0A!%20mirror1.malwaredomains.com%2Ffiles%2Fimmortal_domains.txt%0A!%20Spam404%20by%20spam404bl.com%0A!%20http%3A%2F%2Fspam404bl.com%2Fblacklist.txt%0A%0A%0A%0A!%20Anti%20social%20networks%20and%20buttons%0A!%20%0A!%20Fanboy's%20anti-social%20list%20which%20blocks%20buttons%2C%20sites%2C%20...%0A!%20http%3A%2F%2Fwww.fanboy.co.nz%2Ffanboy-antifacebook.txt%0A!%20Fanboy%E2%80%99s%20Annoyance%20List%20by%20adblockplus.org%0A!%20easylist-downloads.adblockplus.org%2Ffanboy-annoyance.txt%0A!%20Fanboy's%20third-party%20Annoyance%20list%0A!%20easylist-downloads.adblockplus.org%2Ffanboy-annoyance.txt%0A!%20Fanboy's%20Social%20Blocking%20List%20%0A!%20easylist-downloads.adblockplus.org%2Ffanboy-social.txt%0A%0A%0A%0A!%20Multipurpose%20and%20Misc%0A!%0A!%20Dan%20Pollock%E2%80%99s%20hosts%20file%20by%20someonewhocares.org%20%5Balso%20avb.%20as%20IPv6%20and%20nulled%5D%0A!%20someonewhocares.org%2Fhosts%2Fhosts%0A!%20Fanboy's%20ultimate%20list%20(combines%20all)%0A!%20http%3A%2F%2Fwww.fanboy.co.nz%2Ffanboy-ultimate.txt%0A!%20hpHosts%E2%80%99s%20Ad%20and%20tracking%20servers%20by%20hosts-file.net%20%5Bsometimes%20offline%5D%0A!%20hosts-file.net%2Fad-servers%0A!%20MVPS%20HOSTS%0A!%20winhelp2002.mvps.org%2Fhosts.txt%0A!%20AdGuards%20blocking%20list%20(overview%20only)%0A!%20-%3E%20https%3A%2F%2Fadguard.com%2Fen%2Ffilters.html%0A%0A%0A%0A!%20YouTube%20related%0A!%20%0A!%20YouTube%20all%20suggestions%20and%20comments%0A!%20https%3A%2F%2Feasylist-downloads.adblockplus.org%2Fyt_annoyances_full.txt%0A!%20YouTube%20suggestions%20%0Ahttps%3A%2F%2Feasylist-downloads.adblockplus.org%2Fyt_annoyances_suggestions.txt%0A!%20YouTube%20annoyances%0A!%20https%3A%2F%2Feasylist-downloads.adblockplus.org%2Fyt_annoyances_other.txt%0A!%20YouTube%20Remove%20Comments%0Ahttps%3A%2F%2Feasylist-downloads.adblockplus.org%2Fyt_annoyances_comments.txt%0A%0A%0A%0A!%20Cookie%20related%0A!%0A!%20EU%3A%20Prebake%20-%20Filter%20Obtrusive%20Cookie%20Notices%0A!%20https%3A%2F%2Fraw.githubusercontent.com%2Fliamja%2FPrebake%2Fmaster%2Fobtrusive.txt%0ASun%20Jan%2014%2002%3A36%3A54%20CST%202018%0Aeasylist-downloads.adblockplus.org%2Feasylist.txt%0ASun%20Jan%2014%2002%3A40%3A31%20CST%202018%0Asomeonewhocares.org%2Fhosts%2Fhosts%0ASun%20Jan%2014%2002%3A42%3A00%20CST%202018%0Ahttps%3A%2F%2Fgithub.com%2FCHEF-KOCH%2FNSABlocklist%2Fblob%2Fmaster%2FHOSTS.txt%0ASun%20Jan%2014%2002%3A42%3A40%20CST%202018%0Ahttp%3A%2F%2Fwww.fanboy.co.nz%2Fenhancedstats.txt%0ASun%20Jan%2014%2002%3A45%3A38%20CST%202018%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_malware.txt%0ASun%20Jan%2014%2002%3A46%3A00%20CST%202018%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_malvertising.txt%0ASun%20Jan%2014%2002%3A47%3A03%20CST%202018%0Ahttps%3A%2F%2Fraw.githubusercontent.com%2Fliamja%2FPrebake%2Fmaster%2Fobtrusive.txt%0ASun%20Jan%2014%2002%3A53%3A05%20CST%202018%0Ahttp%3A%2F%2Fwww.fanboy.co.nz%2Ffanboy-ultimate.txt%0ASun%20Jan%2014%2002%3A58%3A40%20CST%202018%0Ahttp%3A%2F%2Fgnuzilla.gnu.org%2Ffilters%2Fblacklist.txt;end 
+------------ 
+ACTION: android.intent.action.SEND 
+MIME: text/plain 
+URI: intent:#Intent;action=android.intent.action.SEND;type=text/plain;launchFlags=0x1b080000;S.android.intent.extra.TEXT=https%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F79924daa128c0a5526cb94bec5ad9187%0ASat%20Jan%2013%2016%3A17%3A06%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2Fe0b8771cd1fd17c9b4d3%0ASat%20Jan%2013%2016%3A17%3A09%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F5918aeb0433a82694adfc857d1372167%0ASat%20Jan%2013%2016%3A17%3A13%20CST%202018%0Ahttps%3A%2F%2Fgithub.com%2FAdAway%2FAdAway%2Fwiki%2FHostsSources%0ASat%20Jan%2013%2016%3A17%3A45%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F2dea75d43b2184f228ae94b168d275b1%0ASat%20Jan%2013%2016%3A17%3A48%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F5a7b1593d1880f906b12a3c87cee4500%0ASat%20Jan%2013%2016%3A17%3A52%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2Fd1c6f49492f6d10ee1d192817b7cdce5%0ASat%20Jan%2013%2016%3A17%3A57%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%2F5d98f57fd614cc2524d1d17e41edc652%0ASat%20Jan%2013%2016%3A18%3A01%20CST%202018%0Ahttps%3A%2F%2Fgist.github.com%2FCHEF-KOCH%0ASat%20Jan%2013%2016%3A18%3A27%20CST%202018%0Ahttps%3A%2F%2Fgithub.com%2Fcollinbarrett%2FFilterLists%0ASun%20Jan%2014%2002%3A27%3A38%20CST%202018%0Ahttps%3A%2F%2Fgithub.com%2Fukanth%2Fafwall%2Fwiki%2FCustomScripts%0ASun%20Jan%2014%2002%3A29%3A59%20CST%202018%0A!%20Ads%20related%0A!%0A!%20Adblock%20Warning%20Removal%20List%0A!%20https%3A%2F%2Feasylist-downloads.adblockplus.org%2Fantiadblockfilters.txt%0A!%20Anti-Adblock%20Killer%20%7C%20Reek%0A!%20raw.githubusercontent.com%2Freek%2Fanti-adblock-killer%2Fmaster%2Fanti-adblock-killer-filters.txt%0A!%20EasyList%0A!%20easylist-downloads.adblockplus.org%2Feasylist.txt%0A!%20EasyList%20w%2Fo%20element%20hiding%20rules%0A!%20easylist-downloads.adblockplus.org%2Feasylist_noelemhide.txt%0A!%20Acceptable%20Ads%0A!%20https%3A%2F%2Fadblockplus.org%2Fen%2Facceptable-ads%0A%0A%0A%0A!%20Privacy%20related%0A!%0A!%20Basic%20tracking%20list%20by%20Disconnect%E2%80%8E%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_tracking.txt%0A!%20EasyPrivacy%20by%20adblock.org%0A!%20easylist-downloads.adblockplus.org%2Feasyprivacy.txt%0A!%20Fanboy%E2%80%99s%20Enhanced%20Tracking%20List%20by%20fanboy.co.nz%0A!%20http%3A%2F%2Fwww.fanboy.co.nz%2Fenhancedstats.txt%0A!%20GNU%20privacy%20filter%0A!%20http%3A%2F%2Fgnuzilla.gnu.org%2Ffilters%2Fblacklist.txt%0A!%20CHEF-KOCH's%20NSA%20blocklist%0A!%20https%3A%2F%2Fgithub.com%2FCHEF-KOCH%2FNSABlocklist%2Fblob%2Fmaster%2FHOSTS.txt%0A%0A%0A%0A!%20Blocks%20Malware%20domains%0A!%0A!%20Malvertising%20filter%20list%20by%20Disconnect%E2%80%8E%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_malvertising.txt%0A!%20Malware%20filter%20list%20by%20Disconnect%E2%80%8E%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_malware.txt%0A!%20Malware%20Domain%20list%0A!%20http%3A%2F%2Fwww.malwaredomainlist.com%2Fhostslist%2Fhosts.txt%0A!%20Malware%20Domain%20(just%20Domains)%20%5Bmirror%20from%20mailwaredomainlist.com%5D%0A!%20mirror1.malwaredomains.com%2Ffiles%2Fjustdomains%0A!%20Immortal%20Domains%20(also%20called%20long-lived)%0A!%20mirror1.malwaredomains.com%2Ffiles%2Fimmortal_domains.txt%0A!%20Spam404%20by%20spam404bl.com%0A!%20http%3A%2F%2Fspam404bl.com%2Fblacklist.txt%0A%0A%0A%0A!%20Anti%20social%20networks%20and%20buttons%0A!%20%0A!%20Fanboy's%20anti-social%20list%20which%20blocks%20buttons%2C%20sites%2C%20...%0A!%20http%3A%2F%2Fwww.fanboy.co.nz%2Ffanboy-antifacebook.txt%0A!%20Fanboy%E2%80%99s%20Annoyance%20List%20by%20adblockplus.org%0A!%20easylist-downloads.adblockplus.org%2Ffanboy-annoyance.txt%0A!%20Fanboy's%20third-party%20Annoyance%20list%0A!%20easylist-downloads.adblockplus.org%2Ffanboy-annoyance.txt%0A!%20Fanboy's%20Social%20Blocking%20List%20%0A!%20easylist-downloads.adblockplus.org%2Ffanboy-social.txt%0A%0A%0A%0A!%20Multipurpose%20and%20Misc%0A!%0A!%20Dan%20Pollock%E2%80%99s%20hosts%20file%20by%20someonewhocares.org%20%5Balso%20avb.%20as%20IPv6%20and%20nulled%5D%0A!%20someonewhocares.org%2Fhosts%2Fhosts%0A!%20Fanboy's%20ultimate%20list%20(combines%20all)%0A!%20http%3A%2F%2Fwww.fanboy.co.nz%2Ffanboy-ultimate.txt%0A!%20hpHosts%E2%80%99s%20Ad%20and%20tracking%20servers%20by%20hosts-file.net%20%5Bsometimes%20offline%5D%0A!%20hosts-file.net%2Fad-servers%0A!%20MVPS%20HOSTS%0A!%20winhelp2002.mvps.org%2Fhosts.txt%0A!%20AdGuards%20blocking%20list%20(overview%20only)%0A!%20-%3E%20https%3A%2F%2Fadguard.com%2Fen%2Ffilters.html%0A%0A%0A%0A!%20YouTube%20related%0A!%20%0A!%20YouTube%20all%20suggestions%20and%20comments%0A!%20https%3A%2F%2Feasylist-downloads.adblockplus.org%2Fyt_annoyances_full.txt%0A!%20YouTube%20suggestions%20%0Ahttps%3A%2F%2Feasylist-downloads.adblockplus.org%2Fyt_annoyances_suggestions.txt%0A!%20YouTube%20annoyances%0A!%20https%3A%2F%2Feasylist-downloads.adblockplus.org%2Fyt_annoyances_other.txt%0A!%20YouTube%20Remove%20Comments%0Ahttps%3A%2F%2Feasylist-downloads.adblockplus.org%2Fyt_annoyances_comments.txt%0A%0A%0A%0A!%20Cookie%20related%0A!%0A!%20EU%3A%20Prebake%20-%20Filter%20Obtrusive%20Cookie%20Notices%0A!%20https%3A%2F%2Fraw.githubusercontent.com%2Fliamja%2FPrebake%2Fmaster%2Fobtrusive.txt%0ASun%20Jan%2014%2002%3A36%3A54%20CST%202018%0Aeasylist-downloads.adblockplus.org%2Feasylist.txt%0ASun%20Jan%2014%2002%3A40%3A31%20CST%202018%0Asomeonewhocares.org%2Fhosts%2Fhosts%0ASun%20Jan%2014%2002%3A42%3A00%20CST%202018%0Ahttps%3A%2F%2Fgithub.com%2FCHEF-KOCH%2FNSABlocklist%2Fblob%2Fmaster%2FHOSTS.txt%0ASun%20Jan%2014%2002%3A42%3A40%20CST%202018%0Ahttp%3A%2F%2Fwww.fanboy.co.nz%2Fenhancedstats.txt%0ASun%20Jan%2014%2002%3A45%3A38%20CST%202018%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_malware.txt%0ASun%20Jan%2014%2002%3A46%3A00%20CST%202018%0Ahttps%3A%2F%2Fs3.amazonaws.com%2Flists.disconnect.me%2Fsimple_malvertising.txt%0ASun%20Jan%2014%2002%3A47%3A03%20CST%202018%0Ahttps%3A%2F%2Fraw.githubusercontent.com%2Fliamja%2FPrebake%2Fmaster%2Fobtrusive.txt%0ASun%20Jan%2014%2002%3A53%3A05%20CST%202018%0Ahttp%3A%2F%2Fwww.fanboy.co.nz%2Ffanboy-ultimate.txt%0ASun%20Jan%2014%2002%3A58%3A40%20CST%202018%0Ahttp%3A%2F%2Fgnuzilla.gnu.org%2Ffilters%2Fblacklist.txt;end 
+FLAGS: 
+FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET 
+FLAG_ACTIVITY_FORWARD_RESULT 
+FLAG_RECEIVER_REGISTERED_ONLY_BEFORE_BOOT 
+FLAG_ACTIVITY_PREVIOUS_IS_TOP 
+FLAG_RECEIVER_FOREGROUND 
+EXTRAS: 
+1 Class: java.lang.String 
+Key: android.intent.extra.TEXT 
+Value: https://gist.github.com/CHEF-KOCH/79924daa128c0a5526cb94bec5ad9187 Sat Jan 13 16:17:06 CST 2018 https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3 Sat Jan 13 16:17:09 CST 2018 https://gist.github.com/CHEF-KOCH/5918aeb0433a82694adfc857d1372167 Sat Jan 13 16:17:13 CST 2018 https://github.com/AdAway/AdAway/wiki/HostsSources Sat Jan 13 16:17:45 CST 2018 https://gist.github.com/CHEF-KOCH/2dea75d43b2184f228ae94b168d275b1 Sat Jan 13 16:17:48 CST 2018 https://gist.github.com/CHEF-KOCH/5a7b1593d1880f906b12a3c87cee4500 Sat Jan 13 16:17:52 CST 2018 https://gist.github.com/CHEF-KOCH/d1c6f49492f6d10ee1d192817b7cdce5 Sat Jan 13 16:17:57 CST 2018 https://gist.github.com/CHEF-KOCH/5d98f57fd614cc2524d1d17e41edc652 Sat Jan 13 16:18:01 CST 2018 https://gist.github.com/CHEF-KOCH Sat Jan 13 16:18:27 CST 2018 https://github.com/collinbarrett/FilterLists Sun Jan 14 02:27:38 CST 2018 https://github.com/ukanth/afwall/wiki/CustomScripts Sun Jan 14 02:29:59 CST 2018 ! Ads related ! ! Adblock Warning Removal List ! https://easylist-downloads.adblockplus.org/antiadblockfilters.txt ! Anti-Adblock Killer | Reek ! raw.githubusercontent.com/reek/anti-adblock-killer/master/anti-adblock-killer-filters.txt ! EasyList ! easylist-downloads.adblockplus.org/easylist.txt ! EasyList w/o element hiding rules ! easylist-downloads.adblockplus.org/easylist_noelemhide.txt ! Acceptable Ads ! https://adblockplus.org/en/acceptable-ads ! Privacy related ! ! Basic tracking list by Disconnect‎ https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt ! EasyPrivacy by adblock.org ! easylist-downloads.adblockplus.org/easyprivacy.txt ! Fanboy’s Enhanced Tracking List by fanboy.co.nz ! http://www.fanboy.co.nz/enhancedstats.txt ! GNU privacy filter ! http://gnuzilla.gnu.org/filters/blacklist.txt ! CHEF-KOCH's NSA blocklist ! https://github.com/CHEF-KOCH/NSABlocklist/blob/master/HOSTS.txt ! Blocks Malware domains ! ! Malvertising filter list by Disconnect‎ https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt ! Malware filter list by Disconnect‎ https://s3.amazonaws.com/lists.disconnect.me/simple_malware.txt ! Malware Domain list ! http://www.malwaredomainlist.com/hostslist/hosts.txt ! Malware Domain (just Domains) [mirror from mailwaredomainlist.com] ! mirror1.malwaredomains.com/files/justdomains ! Immortal Domains (also called long-lived) ! mirror1.malwaredomains.com/files/immortal_domains.txt ! Spam404 by spam404bl.com ! http://spam404bl.com/blacklist.txt ! Anti social networks and buttons ! ! Fanboy's anti-social list which blocks buttons, sites, ... ! http://www.fanboy.co.nz/fanboy-antifacebook.txt ! Fanboy’s Annoyance List by adblockplus.org ! easylist-downloads.adblockplus.org/fanboy-annoyance.txt ! Fanboy's third-party Annoyance list ! easylist-downloads.adblockplus.org/fanboy-annoyance.txt ! Fanboy's Social Blocking List ! easylist-downloads.adblockplus.org/fanboy-social.txt ! Multipurpose and Misc ! ! Dan Pollock’s hosts file by someonewhocares.org [also avb. as IPv6 and nulled] ! someonewhocares.org/hosts/hosts ! Fanboy's ultimate list (combines all) ! http://www.fanboy.co.nz/fanboy-ultimate.txt ! hpHosts’s Ad and tracking servers by hosts-file.net [sometimes offline] ! hosts-file.net/ad-servers ! MVPS HOSTS ! winhelp2002.mvps.org/hosts.txt ! AdGuards blocking list (overview only) ! -> https://adguard.com/en/filters.html ! YouTube related ! ! YouTube all suggestions and comments ! https://easylist-downloads.adblockplus.org/yt_annoyances_full.txt ! YouTube suggestions https://easylist-downloads.adblockplus.org/yt_annoyances_suggestions.txt ! YouTube annoyances ! https://easylist-downloads.adblockplus.org/yt_annoyances_other.txt ! YouTube Remove Comments https://easylist-downloads.adblockplus.org/yt_annoyances_comments.txt ! Cookie related ! ! EU: Prebake - Filter Obtrusive Cookie Notices ! https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt Sun Jan 14 02:36:54 CST 2018 easylist-downloads.adblockplus.org/easylist.txt Sun Jan 14 02:40:31 CST 2018 someonewhocares.org/hosts/hosts Sun Jan 14 02:42:00 CST 2018 https://github.com/CHEF-KOCH/NSABlocklist/blob/master/HOSTS.txt Sun Jan 14 02:42:40 CST 2018 http://www.fanboy.co.nz/enhancedstats.txt Sun Jan 14 02:45:38 CST 2018 https://s3.amazonaws.com/lists.disconnect.me/simple_malware.txt Sun Jan 14 02:46:00 CST 2018 https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt Sun Jan 14 02:47:03 CST 2018 https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt Sun Jan 14 02:53:05 CST 2018 http://www.fanboy.co.nz/fanboy-ultimate.txt Sun Jan 14 02:58:40 CST 2018 http://gnuzilla.gnu.org/filters/blacklist.txt 
+Mon Mar 05 07:03:14 CST 2018
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.bluetooth" android:versionCode="25" android:versionName="7.1.2" package="com.android.bluetooth" platformBuildVersionCode="25" platformBuildVersionName="7.1.2">
+<uses-sdk android:minSdkVersion="25" android:targetSdkVersion="25"/>
+<original-package android:name="com.android.bluetooth"/>
+<permission android:label="@7F060002" android:name="android.permission.ACCESS_BLUETOOTH_SHARE" android:protectionLevel="0x00000002" android:description="@7F060003"/>
+<permission android:label="@7F060004" android:name="com.android.permission.WHITELIST_BLUETOOTH_DEVICE" android:protectionLevel="0x00000002" android:description="@7F060005"/>
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+<uses-permission android:name="android.permission.ACCESS_BLUETOOTH_SHARE"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.BLUETOOTH"/>
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+<uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"/>
+<uses-permission android:name="android.permission.BLUETOOTH_MAP"/>
+<uses-permission android:name="android.permission.DUMP"/>
+<uses-permission android:name="android.permission.WAKE_LOCK"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.READ_CONTACTS"/>
+<uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+<uses-permission android:name="android.permission.READ_CALL_LOG"/>
+<uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+<uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+<uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+<uses-permission android:name="android.permission.NFC_HANDOVER_STATUS"/>
+<uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+<uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
+<uses-permission android:name="android.permission.NET_ADMIN"/>
+<uses-permission android:name="android.permission.CALL_PRIVILEGED"/>
+<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+<uses-permission android:name="android.permission.NET_TUNNELING"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.CONNECTIVITY_INTERNAL"/>
+<uses-permission android:name="android.permission.TETHER_PRIVILEGED"/>
+<uses-permission android:name="android.permission.MODIFY_PHONE_STATE"/>
+<uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+<uses-permission android:name="android.permission.BLUETOOTH_STACK"/>
+<uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"/>
+<uses-permission android:name="android.permission.MANAGE_USERS"/>
+<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+<uses-permission android:name="com.google.android.gallery3d.permission.GALLERY_PROVIDER"/>
+<uses-permission android:name="com.android.gallery3d.permission.GALLERY_PROVIDER"/>
+<uses-permission android:name="android.permission.RECEIVE_SMS"/>
+<uses-permission android:name="android.permission.SEND_SMS"/>
+<uses-permission android:name="android.permission.READ_SMS"/>
+<uses-permission android:name="android.permission.WRITE_SMS"/>
+<uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL"/>
+<uses-permission android:name="android.permission.UPDATE_APP_OPS_STATS"/>
+<uses-permission android:name="android.permission.VIBRATE"/>
+<uses-permission android:name="android.permission.DEVICE_POWER"/>
+<uses-permission android:name="android.permission.REAL_GET_TASKS"/>
+<uses-permission android:name="android.permission.MODIFY_AUDIO_ROUTING"/>
+<uses-permission android:name="android.permission.UPDATE_DEVICE_STATS"/>
+<uses-permission android:name="com.android.email.permission.ACCESS_PROVIDER"/>
+<uses-permission android:name="com.android.email.permission.READ_ATTACHMENT"/>
+<uses-permission android:name="android.permission.READ_PROFILE"/>
+<application android:label="@7F06007F" android:icon="@7F030000" android:name=".btservice.AdapterApp" android:persistent="false" android:supportsRtl="true" android:usesCleartextTraffic="false" android:defaultToDeviceProtectedStorage="true" android:directBootAware="true">
+<uses-library android:name="javax.obex"/>
+<provider android:name=".opp.BluetoothOppProvider" android:exported="true" android:process="@7F060063" android:authorities="com.android.bluetooth.opp">
+<path-permission android:permission="android.permission.ACCESS_BLUETOOTH_SHARE" android:pathPrefix="/btopp"/>
+</provider>
+<provider android:name="android.support.v4.content.FileProvider" android:exported="false" android:authorities="com.google.android.bluetooth.fileprovider" android:grantUriPermissions="true">
+<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@7F050001"/>
+</provider>
+<service android:name=".btservice.AdapterService" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.bluetooth.IBluetooth"/>
+</intent-filter>
+</service>
+<service android:name=".opp.BluetoothOppService" android:permission="android.permission.ACCESS_BLUETOOTH_SHARE" android:enabled="@7F070006" android:process="@7F060063"/>
+<receiver android:name=".opp.BluetoothOppReceiver" android:enabled="@7F070006" android:exported="true" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+<action android:name="android.btopp.intent.action.OPEN_RECEIVED_FILES"/>
+</intent-filter>
+</receiver>
+<receiver android:name=".opp.BluetoothOppHandoverReceiver" android:permission="com.android.permission.WHITELIST_BLUETOOTH_DEVICE" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.btopp.intent.action.WHITELIST_DEVICE"/>
+<action android:name="android.btopp.intent.action.STOP_HANDOVER_TRANSFER"/>
+</intent-filter>
+<intent-filter>
+<action android:name="android.nfc.handover.intent.action.HANDOVER_SEND"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:mimeType="*/*"/>
+</intent-filter>
+<intent-filter>
+<action android:name="android.nfc.handover.intent.action.HANDOVER_SEND_MULTIPLE"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:mimeType="*/*"/>
+</intent-filter>
+</receiver>
+<activity android:theme="@android:01030239" android:label="@7F060006" android:name=".opp.BluetoothOppLauncherActivity" android:enabled="@7F070006" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.intent.action.SEND"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:mimeType="image/*"/>
+<data android:mimeType="video/*"/>
+<data android:mimeType="audio/*"/>
+<data android:mimeType="text/x-vcard"/>
+<data android:mimeType="text/plain"/>
+<data android:mimeType="text/html"/>
+<data android:mimeType="text/xml"/>
+<data android:mimeType="application/zip"/>
+<data android:mimeType="application/vnd.ms-excel"/>
+<data android:mimeType="application/msword"/>
+<data android:mimeType="application/vnd.android.package-archive"/>
+<data android:mimeType="application/vnd.ms-powerpoint"/>
+<data android:mimeType="application/pdf"/>
+<data android:mimeType="application/epub+zip"/>
+<data android:mimeType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+<data android:mimeType="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
+<data android:mimeType="application/vnd.openxmlformats-officedocument.presentationml.presentation"/>
+<data android:mimeType="application/x-hwp"/>
+</intent-filter>
+<intent-filter>
+<action android:name="android.intent.action.SEND_MULTIPLE"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:mimeType="image/*"/>
+<data android:mimeType="video/*"/>
+<data android:mimeType="audio/*"/>
+<data android:mimeType="x-mixmedia/*"/>
+<data android:mimeType="text/x-vcard"/>
+</intent-filter>
+<intent-filter>
+<action android:name="android.btopp.intent.action.OPEN"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:mimeType="vnd.android.cursor.item/vnd.android.btopp"/>
+</intent-filter>
+</activity>
+<activity android:theme="@android:0103023A" android:name=".opp.BluetoothOppBtEnableActivity" android:enabled="@7F070006" android:process="@7F060063" android:excludeFromRecents="true"/>
+<activity android:theme="@android:0103023A" android:name=".opp.BluetoothOppBtErrorActivity" android:process="@7F060063" android:excludeFromRecents="true"/>
+<activity android:theme="@android:0103023A" android:name=".opp.BluetoothOppBtEnablingActivity" android:enabled="@7F070006" android:process="@7F060063" android:excludeFromRecents="true"/>
+<activity android:theme="@android:0103023A" android:name=".opp.BluetoothOppIncomingFileConfirmActivity" android:enabled="@7F070006" android:process="@7F060063" android:excludeFromRecents="true"/>
+<activity android:theme="@android:0103023A" android:name=".opp.BluetoothOppTransferActivity" android:enabled="@7F070006" android:process="@7F060063" android:excludeFromRecents="true"/>
+<activity android:label="" android:name=".opp.BluetoothOppTransferHistory" android:enabled="@7F070006" android:process="@7F060063" android:excludeFromRecents="true" android:configChanges="0x000004A0"/>
+<activity android:theme="@android:0103023A" android:name=".pbap.BluetoothPbapActivity" android:enabled="@7F070008" android:process="@7F060063" android:excludeFromRecents="true">
+<intent-filter>
+<category android:name="android.intent.category.DEFAULT"/>
+</intent-filter>
+</activity>
+<service android:name=".pbap.BluetoothPbapService" android:enabled="@7F070008" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.bluetooth.IBluetoothPbap"/>
+</intent-filter>
+</service>
+<receiver android:name=".pbap.BluetoothPbapReceiver" android:enabled="@7F070008" android:exported="true" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+<action android:name="android.bluetooth.device.action.CONNECTION_ACCESS_REPLY"/>
+<action android:name="android.bluetooth.device.action.ACL_DISCONNECTED"/>
+<category android:name="android.intent.category.DEFAULT"/>
+</intent-filter>
+</receiver>
+<service android:name=".map.BluetoothMapService" android:enabled="@7F07000C" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.bluetooth.IBluetoothMap"/>
+<action android:name="android.btmap.intent.action.SHOW_MAPS_SETTINGS"/>
+<action android:name="com.android.bluetooth.map.USER_CONFIRM_TIMEOUT"/>
+</intent-filter>
+</service>
+<activity android:label="@7F060069" android:name=".map.BluetoothMapSettings" android:enabled="@7F07000C" android:process="@7F060063" android:excludeFromRecents="true" android:configChanges="0x000000A0"/>
+<provider android:name=".map.MmsFileProvider" android:enabled="true" android:exported="false" android:authorities="com.android.bluetooth.map.MmsFileProvider" android:grantUriPermissions="true"/>
+<service android:name=".sap.SapService" android:enabled="@7F07000E" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.bluetooth.IBluetoothSap"/>
+</intent-filter>
+</service>
+<service android:name=".gatt.GattService" android:enabled="@7F070009" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.bluetooth.IBluetoothGatt"/>
+</intent-filter>
+</service>
+<service android:name=".hfp.HeadsetService" android:enabled="@7F070003" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.bluetooth.IBluetoothHeadset"/>
+</intent-filter>
+</service>
+<service android:name=".a2dp.A2dpService" android:enabled="@7F070000" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.bluetooth.IBluetoothA2dp"/>
+</intent-filter>
+</service>
+<service android:name=".a2dpsink.A2dpSinkService" android:enabled="@7F070001" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.bluetooth.IBluetoothA2dpSink"/>
+</intent-filter>
+</service>
+<service android:name=".a2dpsink.mbs.A2dpMediaBrowserService" android:enabled="@7F070001" android:exported="true" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.media.browse.MediaBrowserService"/>
+</intent-filter>
+</service>
+<service android:name=".avrcp.AvrcpControllerService" android:enabled="@7F07000D" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.bluetooth.IBluetoothAvrcpController"/>
+</intent-filter>
+</service>
+<service android:name=".hid.HidService" android:enabled="@7F070005" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.bluetooth.IBluetoothInputDevice"/>
+</intent-filter>
+</service>
+<service android:name=".hdp.HealthService" android:enabled="@7F070002" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.bluetooth.IBluetoothHealth"/>
+</intent-filter>
+</service>
+<service android:name=".pan.PanService" android:enabled="@7F070007" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.bluetooth.IBluetoothPan"/>
+</intent-filter>
+</service>
+<service android:name=".hfpclient.HeadsetClientService" android:enabled="@7F070004" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.bluetooth.IBluetoothHeadsetClient"/>
+</intent-filter>
+</service>
+<service android:name=".hfpclient.connserv.HfpClientConnectionService" android:permission="android.permission.BIND_CONNECTION_SERVICE" android:enabled="@7F070012" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.telecom.ConnectionService"/>
+</intent-filter>
+</service>
+<service android:name=".pbapclient.PbapClientService" android:enabled="@7F07000F" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.bluetooth.IBluetoothPbapClient"/>
+</intent-filter>
+</service>
+<service android:name=".AuthenticationService" android:enabled="@7F07000F" android:exported="true" android:process="@7F060063">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F050000"/>
+</service>
+</application>
+</manifest>
+Mon Mar 05 07:10:26 CST 2018
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="7008110" android:versionName="7.1.2" package="com.android.email" platformBuildVersionCode="25" platformBuildVersionName="7.1.2">
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.VIBRATE"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+<uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+<uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+<uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+<uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+<uses-permission android:name="android.permission.READ_CONTACTS"/>
+<uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+<uses-permission android:name="android.permission.READ_CALENDAR"/>
+<uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+<uses-permission android:name="android.permission.READ_PROFILE"/>
+<uses-permission android:name="android.permission.NFC"/>
+<uses-permission android:name="android.permission.WAKE_LOCK"/>
+<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="23"/>
+<original-package android:name="com.android.email"/>
+<permission android:label="@7F09020C" android:name="com.android.email.permission.READ_ATTACHMENT" android:protectionLevel="0x00000001" android:permissionGroup="android.permission-group.MESSAGES" android:description="@7F09020D"/>
+<uses-permission android:name="com.android.email.permission.READ_ATTACHMENT"/>
+<uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+<permission android:label="@7F09020E" android:name="com.android.email.permission.ACCESS_PROVIDER" android:protectionLevel="0x00000002" android:description="@7F09020F"/>
+<uses-permission android:name="com.android.email.permission.ACCESS_PROVIDER"/>
+<application android:theme="@7F0B0221" android:label="@7F09008D" android:icon="@7F030002" android:name=".EmailApplication" android:allowBackup="false" android:hardwareAccelerated="true" android:supportsRtl="true" android:requiredAccountType="com.android.exchange,com.android.email.imap,com.android.email.pop3,com.android.email.legacy.imap" android:usesCleartextTraffic="true">
+<uses-library android:name="org.apache.http.legacy" android:required="false"/>
+<activity android:theme="@7F0B0225" android:label="@7F09008D" android:name="com.android.email.activity.ComposeActivityEmail" android:documentLaunchMode="1" android:autoRemoveFromRecents="true">
+<intent-filter>
+<action android:name="android.intent.action.VIEW"/>
+<action android:name="android.intent.action.SENDTO"/>
+<data android:scheme="mailto"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<category android:name="android.intent.category.BROWSABLE"/>
+</intent-filter>
+<intent-filter android:label="@7F09008D">
+<action android:name="android.intent.action.SEND"/>
+<data android:mimeType="*/*"/>
+<category android:name="android.intent.category.DEFAULT"/>
+</intent-filter>
+<intent-filter android:label="@7F09008D">
+<action android:name="android.intent.action.SEND_MULTIPLE"/>
+<data android:mimeType="*/*"/>
+<category android:name="android.intent.category.DEFAULT"/>
+</intent-filter>
+<intent-filter>
+<action android:name="com.android.email.intent.action.REPLY"/>
+</intent-filter>
+<intent-filter>
+<action android:name="android.intent.action.SEND"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:scheme="content" android:host="ui.email2.android.com" android:pathPrefix="/compose"/>
+</intent-filter>
+<intent-filter>
+<action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:scheme="mailto"/>
+</intent-filter>
+<intent-filter>
+<action android:name="com.android.mail.intent.action.LAUNCH_COMPOSE"/>
+<category android:name="android.intent.category.DEFAULT"/>
+</intent-filter>
+<intent-filter>
+<action android:name="com.android.mail.intent.action.LAUNCH_COMPOSE"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:scheme="content"/>
+</intent-filter>
+</activity>
+<activity-alias android:name="com.android.mail.compose.ComposeActivity" android:targetActivity="com.android.email.activity.ComposeActivityEmail"/>
+<activity android:label="@7F09022E" android:name=".activity.setup.OAuthAuthenticationActivity"/>
+<activity android:theme="@7F0B0231" android:label="@7F09022F" android:name=".activity.setup.AccountCredentials" android:exported="false" android:excludeFromRecents="true"/>
+<activity android:label="@7F09008D" android:name=".activity.EventViewer">
+<intent-filter>
+<action android:name="android.intent.action.VIEW"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:scheme="content" android:host="ui.email2.android.com" android:pathPrefix="/event"/>
+</intent-filter>
+</activity>
+<activity android:theme="@7F0B0228" android:label="@7F09014E" android:name="com.android.mail.ui.FolderSelectionActivity"/>
+<activity android:theme="@7F0B0228" android:label="@7F09008D" android:name="com.android.email2.ui.MailboxSelectionActivityEmail">
+<intent-filter>
+<action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+</intent-filter>
+</activity>
+<activity android:theme="@7F0B0228" android:label="@7F09015C" android:name="com.android.mail.ui.ShortcutNameActivity"/>
+<activity android:theme="@7F0B0228" android:label="@7F09008D" android:name="com.android.mail.ui.MailboxSelectionActivity">
+<intent-filter>
+<action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+</intent-filter>
+</activity>
+<activity android:theme="@7F0B0228" android:label="@7F09014F" android:name="com.android.email2.ui.CreateShortcutActivityEmail">
+<intent-filter>
+<action android:name="android.intent.action.CREATE_SHORTCUT"/>
+<category android:name="android.intent.category.DEFAULT"/>
+</intent-filter>
+</activity>
+<activity android:theme="@7F0B0224" android:label="@7F09008D" android:name="com.android.email2.ui.MailActivityEmail" android:windowSoftInputMode="0x00000003">
+<intent-filter>
+<action android:name="android.intent.action.VIEW"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:scheme="content"/>
+<data android:mimeType="@7F090301"/>
+</intent-filter>
+<intent-filter>
+<action android:name="android.intent.action.SEARCH"/>
+<category android:name="android.intent.category.DEFAULT"/>
+</intent-filter>
+</activity>
+<activity-alias android:label="@7F09008D" android:name="com.android.email.activity.Welcome" android:targetActivity="com.android.email2.ui.MailActivityEmail">
+<intent-filter>
+<action android:name="android.intent.action.MAIN"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<category android:name="android.intent.category.LAUNCHER"/>
+<category android:name="android.intent.category.APP_EMAIL"/>
+</intent-filter>
+<intent-filter>
+<action android:name="android.intent.action.VIEW"/>
+<action android:name="android.intent.action.MAIN"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<category android:name="android.intent.category.LAUNCHER"/>
+<data android:scheme="content" android:host="ui.email.android.com" android:path="/view/mailbox"/>
+</intent-filter>
+</activity-alias>
+<activity android:label="@7F09022D" android:name=".activity.setup.AccountSetupFinal" android:exported="true">
+<intent-filter>
+<action android:name="com.android.email.FORCE_CREATE_ACCOUNT"/>
+<action android:name="com.android.email.CREATE_NEW_ACCOUNT"/>
+<category android:name="android.intent.category.DEFAULT"/>
+</intent-filter>
+</activity>
+<activity android:label="@7F0901FA" android:name=".activity.setup.EmailPreferenceActivity" android:exported="true">
+<intent-filter>
+<action android:name="android.intent.action.EDIT"/>
+<action android:name="android.intent.action.VIEW"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:scheme="content" android:host="ui.email.android.com" android:pathPrefix="/settings"/>
+</intent-filter>
+</activity>
+<activity android:theme="@android:01030055" android:label="@7F0901FA" android:name="com.android.mail.ui.settings.PublicPreferenceActivity" android:exported="true">
+<intent-filter>
+<action android:name="com.android.email.activity.setup.ACCOUNT_MANAGER_ENTRY"/>
+<category android:name="android.intent.category.DEFAULT"/>
+</intent-filter>
+<intent-filter>
+<action android:name="android.intent.action.MANAGE_NETWORK_USAGE"/>
+<category android:name="android.intent.category.DEFAULT"/>
+</intent-filter>
+</activity>
+<activity android:theme="@7F0B0231" android:label="@7F0902D3" android:name=".activity.setup.AccountServerSettingsActivity" android:exported="false" android:excludeFromRecents="true" android:windowSoftInputMode="0x00000010"/>
+<activity android:theme="@android:01030010" android:name=".activity.setup.HeadlessAccountSettingsLoader">
+<intent-filter>
+<action android:name="android.intent.action.VIEW"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:host="com.android.email.ACCOUNT_SETTINGS"/>
+<data android:host="com.android.email.ACCOUNT_SECURITY"/>
+<data android:scheme="auth"/>
+</intent-filter>
+</activity>
+<activity android:label="@7F09008D" android:name=".provider.FolderPickerActivity">
+<intent-filter>
+<action android:name="android.intent.action.EDIT"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:scheme="content" android:host="ui.email.android.com" android:pathPrefix="/setup"/>
+</intent-filter>
+</activity>
+<activity android:label="@7F09029E" android:name=".activity.setup.AccountSecurity">
+<intent-filter>
+<action android:name="android.intent.action.VIEW"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:host="com.android.email.ACCOUNT_SECURITY"/>
+<data android:scheme="auth"/>
+</intent-filter>
+</activity>
+<activity android:label="@7F0902D3" android:name=".activity.setup.MailboxSettings" android:exported="false"/>
+<activity android:theme="@7F0B022B" android:label="@7F09008D" android:name="com.android.mail.photo.MailPhotoViewActivity"/>
+<activity android:theme="@7F0B0221" android:label="@7F09008D" android:name="com.android.mail.browse.EmlViewerActivity">
+<intent-filter>
+<action android:name="android.intent.action.VIEW"/>
+<category android:name="android.intent.category.DEFAULT"/>
+<data android:mimeType="message/rfc822"/>
+<data android:mimeType="application/eml"/>
+</intent-filter>
+</activity>
+<activity android:label="@7F0901D4" android:name="com.android.mail.ui.HelpActivity"/>
+<activity android:label="@7F0901E0" android:name="com.android.mail.ui.LicensesActivity"/>
+<activity android:name="com.android.email.activity.RequestPermissionsActivity"/>
+<activity android:name="com.android.email.activity.RequestPermissionsActivityBase"/>
+<provider android:label="@7F09008B" android:name="com.android.mail.browse.EmailConversationProvider" android:exported="true" android:authorities="com.android.email.conversation.provider">
+<grant-uri-permission android:pathPattern=".*"/>
+</provider>
+<provider android:label="@7F09008C" android:name="com.android.mail.providers.EmailAccountCacheProvider" android:exported="false" android:authorities="com.android.email.accountcache">
+<grant-uri-permission android:pathPattern=".*"/>
+</provider>
+<provider android:name="com.android.mail.providers.EmlAttachmentProvider" android:exported="false" android:authorities="@7F0901A8">
+<grant-uri-permission android:pathPattern=".*"/>
+</provider>
+<service android:name="com.android.mail.compose.EmptyService"/>
+<receiver android:label="@7F09008D" android:name=".provider.WidgetProvider">
+<intent-filter>
+<action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+</intent-filter>
+<intent-filter>
+<action android:name="com.android.mail.ACTION_NOTIFY_DATASET_CHANGED"/>
+<data android:mimeType="@7F090301"/>
+</intent-filter>
+<intent-filter>
+<action android:name="com.android.mail.ACTION_UPDATE_WIDGET"/>
+<data android:mimeType="@7F090301"/>
+</intent-filter>
+<intent-filter>
+<action android:name="com.android.mail.ACTION_VALIDATE_ALL_WIDGETS"/>
+<data android:mimeType="@7F090301"/>
+</intent-filter>
+<meta-data android:name="android.appwidget.provider" android:resource="@7F06003B"/>
+</receiver>
+<service android:name="com.android.mail.widget.WidgetService" android:permission="android.permission.BIND_REMOTEVIEWS" android:exported="false"/>
+<receiver android:name=".service.AttachmentService$AttachmentWatchdog" android:enabled="true"/>
+<receiver android:name=".service.EmailUpgradeBroadcastReceiver" android:enabled="true">
+<intent-filter>
+<action android:name="android.intent.action.BOOT_COMPLETED"/>
+<action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+</intent-filter>
+</receiver>
+<receiver android:name=".service.EmailBroadcastReceiver" android:enabled="true">
+<intent-filter>
+<action android:name="android.intent.action.BOOT_COMPLETED"/>
+<action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+<action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+<action android:name="android.intent.action.LOCALE_CHANGED"/>
+<action android:name="android.accounts.LOGIN_ACCOUNTS_CHANGED"/>
+</intent-filter>
+<intent-filter>
+<action android:name="com.android.mail.action.update_notification" android:priority="-10"/>
+<data android:mimeType="@7F090301"/>
+</intent-filter>
+<intent-filter>
+<action android:name="android.provider.Telephony.SECRET_CODE"/>
+<data android:scheme="android_secret_code" android:host="36245"/>
+</intent-filter>
+</receiver>
+<receiver android:name=".service.BluetoothEmailBroadcastReceiver" android:permission="com.android.email.permission.ACCESS_PROVIDER" android:enabled="true">
+<intent-filter>
+<action android:name="android.intent.action.BOOT_COMPLETED"/>
+<action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+<action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+<action android:name="android.intent.action.LOCALE_CHANGED"/>
+<action android:name="android.accounts.LOGIN_ACCOUNTS_CHANGED"/>
+<action android:name="org.codeaurora.email.intent.action.MAIL_SERVICE_WAKEUP"/>
+<action android:name="org.codeaurora.email.intent.action.MAIL_SERVICE_DELETE_MESSAGE"/>
+<action android:name="org.codeaurora.email.intent.action.MAIL_SERVICE_MOVE_MESSAGE"/>
+<action android:name="org.codeaurora.email.intent.action.MAIL_SERVICE_MESSAGE_READ"/>
+<action android:name="org.codeaurora.email.intent.action.MAIL_SERVICE_SEND_PENDING"/>
+</intent-filter>
+<intent-filter>
+<action android:name="com.android.mail.action.update_notification" android:priority="-10"/>
+<data android:mimeType="@7F090301"/>
+</intent-filter>
+<intent-filter>
+<action android:name="android.provider.Telephony.SECRET_CODE"/>
+<data android:scheme="android_secret_code" android:host="36245"/>
+</intent-filter>
+</receiver>
+<service android:name=".service.EmailBroadcastProcessorService"/>
+<receiver android:label="@7F0902DC" android:name=".SecurityPolicy$PolicyAdmin" android:permission="android.permission.BIND_DEVICE_ADMIN" android:description="@7F0902DD">
+<meta-data android:name="android.app.device_admin" android:resource="@7F06002C"/>
+<intent-filter>
+<action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+</intent-filter>
+</receiver>
+<service android:name=".service.AttachmentService" android:enabled="false"/>
+<service android:name=".service.Pop3AuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06001B"/>
+</service>
+<service android:name=".service.ImapAuthenticatorService" android:enabled="false" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06000E"/>
+</service>
+<service android:name="com.android.email.service.Pop3SyncAdapterService" android:exported="true">
+<intent-filter>
+<action android:name="android.content.SyncAdapter"/>
+</intent-filter>
+<meta-data android:name="android.content.SyncAdapter" android:resource="@7F06003A"/>
+</service>
+<service android:name="com.android.email.service.LegacyImapSyncAdapterService" android:exported="true">
+<intent-filter>
+<action android:name="android.content.SyncAdapter"/>
+</intent-filter>
+<meta-data android:name="android.content.SyncAdapter" android:resource="@7F060039"/>
+</service>
+<service android:name=".service.PolicyService" android:permission="com.android.email.permission.ACCESS_PROVIDER" android:enabled="true">
+<intent-filter>
+<action android:name="com.android.email.POLICY_INTENT"/>
+</intent-filter>
+</service>
+<service android:name=".service.AccountService" android:permission="com.android.email.permission.ACCESS_PROVIDER" android:enabled="true">
+<intent-filter>
+<action android:name="com.android.email.ACCOUNT_INTENT"/>
+</intent-filter>
+</service>
+<service android:name=".service.ImapService" android:permission="com.android.email.permission.ACCESS_PROVIDER" android:enabled="true">
+<intent-filter>
+<action android:name="com.android.email.IMAP_INTENT"/>
+</intent-filter>
+</service>
+<service android:name=".service.BluetoothImapService" android:permission="com.android.email.permission.ACCESS_PROVIDER" android:enabled="true">
+<intent-filter>
+<action android:name="com.android.email.IMAP_INTENT"/>
+<action android:name="org.codeaurora.email.intent.action.MAIL_SERVICE_DELETE_MESSAGE"/>
+<action android:name="org.codeaurora.email.intent.action.MAIL_SERVICE_MOVE_MESSAGE"/>
+<action android:name="org.codeaurora.email.intent.action.MAIL_SERVICE_MESSAGE_READ"/>
+<action android:name="org.codeaurora.email.intent.action.MAIL_SERVICE_SEND_PENDING"/>
+</intent-filter>
+</service>
+<service android:name=".service.Pop3Service" android:permission="com.android.email.permission.ACCESS_PROVIDER" android:enabled="true">
+<intent-filter>
+<action android:name="com.android.email.POP3_INTENT"/>
+</intent-filter>
+</service>
+<service android:name=".service.BluetoothPop3Service" android:permission="com.android.email.permission.ACCESS_PROVIDER" android:enabled="true">
+<intent-filter>
+<action android:name="com.android.email.POP3_INTENT"/>
+</intent-filter>
+</service>
+<service android:name=".service.EasAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060009"/>
+</service>
+<service android:name=".service.MobistarAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060013"/>
+</service>
+<service android:name=".service.WanadooAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06002A"/>
+</service>
+<service android:name=".service.OrangeMailAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060018"/>
+</service>
+<service android:name=".service.CorreoOrangeAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060008"/>
+</service>
+<service android:name=".service.OrangeMobileAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060019"/>
+</service>
+<service android:name=".service.MultiBoxAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060014"/>
+</service>
+<service android:name=".service.BelgacomAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060005"/>
+</service>
+<service android:name=".service.SkynetAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06001F"/>
+</service>
+<service android:name=".service.TelenetAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060023"/>
+</service>
+<service android:name=".service.ScarletAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06001D"/>
+</service>
+<service android:name=".service.EuphonyAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06000A"/>
+</service>
+<service android:name=".service.VooAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060029"/>
+</service>
+<service android:name=".service.Tele2AuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060021"/>
+</service>
+<service android:name=".service.VersatelAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060026"/>
+</service>
+<service android:name=".service.TiscaliAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060024"/>
+</service>
+<service android:name=".service.SwingAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060020"/>
+</service>
+<service android:name=".service.VersatelADSLAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060027"/>
+</service>
+<service android:name=".service.BruteleAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060006"/>
+</service>
+<service android:name=".service.TeledisnetAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060022"/>
+</service>
+<service android:name=".service.TVCableNetAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060025"/>
+</service>
+<service android:name=".service.WanadooAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06002A"/>
+</service>
+<service android:name=".service.OrangeMailAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060018"/>
+</service>
+<service android:name=".service.CorreoOrangeAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060008"/>
+</service>
+<service android:name=".service.OrangeMobileAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060019"/>
+</service>
+<service android:name=".service.MultiBoxAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060014"/>
+</service>
+<service android:name=".service.BelgacomAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060005"/>
+</service>
+<service android:name=".service.SkynetAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06001F"/>
+</service>
+<service android:name=".service.TelenetAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060023"/>
+</service>
+<service android:name=".service.ScarletAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06001D"/>
+</service>
+<service android:name=".service.EuphonyAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06000A"/>
+</service>
+<service android:name=".service.VooAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060029"/>
+</service>
+<service android:name=".service.Tele2AuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060021"/>
+</service>
+<service android:name=".service.VersatelAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060026"/>
+</service>
+<service android:name=".service.TiscaliAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060024"/>
+</service>
+<service android:name=".service.SwingAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060020"/>
+</service>
+<service android:name=".service.VersatelADSLAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060027"/>
+</service>
+<service android:name=".service.BruteleAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060006"/>
+</service>
+<service android:name=".service.TeledisnetAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060022"/>
+</service>
+<service android:name=".service.TVCableNetAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060025"/>
+</service>
+<service android:name=".service.AliceAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060002"/>
+</service>
+<service android:name=".service.YahooAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06002B"/>
+</service>
+<service android:name=".service.OutLookAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06001A"/>
+</service>
+<service android:name=".service.GmailAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06000C"/>
+</service>
+<service android:name=".service.SfrAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06001E"/>
+</service>
+<service android:name=".service.AolAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060004"/>
+</service>
+<service android:name=".service.LaposteAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06000F"/>
+</service>
+<service android:name=".service.NoosAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060016"/>
+</service>
+<service android:name=".service.VodafoneAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060028"/>
+</service>
+<service android:name=".service.HotmailAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06000D"/>
+</service>
+<service android:name=".service.SapoAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06001C"/>
+</service>
+<service android:name=".service.NetcaboAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060015"/>
+</service>
+<service android:name=".service.ClixAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060007"/>
+</service>
+<service android:name=".service.OrangeAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060017"/>
+</service>
+<service android:name=".service.FreeAuthenticatorService" android:enabled="true" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06000B"/>
+</service>
+<service android:name=".service.EasTestAuthenticatorService" android:enabled="false" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F06002D"/>
+</service>
+<service android:name=".service.EasAuthenticatorServiceAlternate" android:enabled="false" android:exported="true">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060003"/>
+</service>
+<service android:name=".service.LegacyImapAuthenticatorService" android:enabled="true" android:exported="false">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060012"/>
+</service>
+<provider android:name=".provider.AttachmentProvider" android:readPermission="com.android.email.permission.READ_ATTACHMENT" android:exported="true" android:authorities="com.android.email.attachmentprovider" android:grantUriPermissions="true"/>
+<provider android:label="@7F09008D" android:name=".provider.EmailProvider" android:permission="com.android.email.permission.ACCESS_PROVIDER" android:exported="true" android:authorities="com.android.email.provider;com.android.email.notifier" android:grantUriPermissions="true">
+<grant-uri-permission android:pathPrefix="/attachment/cachedFile"/>
+</provider>
+<service android:name=".service.LegacyEmailAuthenticatorService" android:enabled="true" android:exported="false">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060011"/>
+</service>
+<service android:name=".service.LegacyEasAuthenticatorService" android:enabled="true" android:exported="false">
+<intent-filter>
+<action android:name="android.accounts.AccountAuthenticator"/>
+</intent-filter>
+<meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@7F060010"/>
+</service>
+<service android:name="com.android.email.EmailIntentService" android:exported="false">
+<intent-filter>
+<action android:name="com.android.mail.action.RESEND_NOTIFICATIONS"/>
+<action android:name="com.android.mail.action.RESEND_NOTIFICATIONS_WEAR"/>
+<action android:name="com.android.mail.action.SEND_SET_NEW_EMAIL_INDICATOR"/>
+</intent-filter>
+<intent-filter>
+<action android:name="com.android.mail.action.CLEAR_NEW_MAIL_NOTIFICATIONS"/>
+<data android:scheme="content"/>
+</intent-filter>
+<intent-filter>
+<action android:name="com.android.mail.action.update_notification" android:priority="-10"/>
+<data android:mimeType="@7F090301"/>
+</intent-filter>
+</service>
+<service android:name="com.android.mail.NotificationActionIntentService" android:exported="false">
+<intent-filter>
+<action android:name="com.android.mail.action.notification.MARK_READ"/>
+<action android:name="com.android.mail.action.notification.ARCHIVE"/>
+<action android:name="com.android.mail.action.notification.DELETE"/>
+<action android:name="com.android.mail.action.notification.UNDO"/>
+<action android:name="com.android.mail.action.notification.DESTRUCT"/>
+<action android:name="com.android.mail.action.notification.UNDO_TIMEOUT"/>
+<action android:name="com.android.mail.action.notification.REPLY"/>
+<action android:name="com.android.mail.action.notification.REPLY_ALL"/>
+<action android:name="com.android.mail.action.notification.FORWARD"/>
+<data android:scheme="content"/>
+</intent-filter>
+</service>
+<service android:name="com.android.mail.MailLogService"/>
+<service android:name="com.android.mail.browse.EmlTempFileDeletionService"/>
+</application>
+</manifest>
+Mon Mar 05 09:06:37 CST 2018☆★☆
+https://gist.github.com/CHEF-KOCH/79924daa128c0a5526cb94bec5ad9187
+Sat Jan 13 16:17:06 CST 2018
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+Sat Jan 13 16:17:09 CST 2018
+https://gist.github.com/CHEF-KOCH/5918aeb0433a82694adfc857d1372167
+Sat Jan 13 16:17:13 CST 2018
+https://github.com/AdAway/AdAway/wiki/HostsSources
+Sat Jan 13 16:17:45 CST 2018
+https://gist.github.com/CHEF-KOCH/2dea75d43b2184f228ae94b168d275b1
+Sat Jan 13 16:17:48 CST 2018
+https://gist.github.com/CHEF-KOCH/5a7b1593d1880f906b12a3c87cee4500
+Sat Jan 13 16:17:52 CST 2018
+https://gist.github.com/CHEF-KOCH/d1c6f49492f6d10ee1d192817b7cdce5
+Sat Jan 13 16:17:57 CST 2018
+https://gist.github.com/CHEF-KOCH/5d98f57fd614cc2524d1d17e41edc652
+Sat Jan 13 16:18:01 CST 2018
+https://gist.github.com/CHEF-KOCH
+Sat Jan 13 16:18:27 CST 2018
+https://github.com/collinbarrett/FilterLists
+Sun Jan 14 02:27:38 CST 2018
+https://github.com/ukanth/afwall/wiki/CustomScripts
+Sun Jan 14 02:29:59 CST 2018
+! Ads related
+!
+! Adblock Warning Removal List
+! https://easylist-downloads.adblockplus.org/antiadblockfilters.txt
+! Anti-Adblock Killer | Reek
+! raw.githubusercontent.com/reek/anti-adblock-killer/master/anti-adblock-killer-filters.txt
+! EasyList
+! easylist-downloads.adblockplus.org/easylist.txt
+! EasyList w/o element hiding rules
+! easylist-downloads.adblockplus.org/easylist_noelemhide.txt
+! Acceptable Ads
+! https://adblockplus.org/en/acceptable-ads
+
+
+
+! Privacy related
+!
+! Basic tracking list by Disconnect‎
+https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
+! EasyPrivacy by adblock.org
+! easylist-downloads.adblockplus.org/easyprivacy.txt
+! Fanboy’s Enhanced Tracking List by fanboy.co.nz
+! http://www.fanboy.co.nz/enhancedstats.txt
+! GNU privacy filter
+! http://gnuzilla.gnu.org/filters/blacklist.txt
+! CHEF-KOCH's NSA blocklist
+! https://github.com/CHEF-KOCH/NSABlocklist/blob/master/HOSTS.txt
+
+
+
+! Blocks Malware domains
+!
+! Malvertising filter list by Disconnect‎
+https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt
+! Malware filter list by Disconnect‎
+https://s3.amazonaws.com/lists.disconnect.me/simple_malware.txt
+! Malware Domain list
+! http://www.malwaredomainlist.com/hostslist/hosts.txt
+! Malware Domain (just Domains) [mirror from mailwaredomainlist.com]
+! mirror1.malwaredomains.com/files/justdomains
+! Immortal Domains (also called long-lived)
+! mirror1.malwaredomains.com/files/immortal_domains.txt
+! Spam404 by spam404bl.com
+! http://spam404bl.com/blacklist.txt
+
+
+
+! Anti social networks and buttons
+! 
+! Fanboy's anti-social list which blocks buttons, sites, ...
+! http://www.fanboy.co.nz/fanboy-antifacebook.txt
+! Fanboy’s Annoyance List by adblockplus.org
+! easylist-downloads.adblockplus.org/fanboy-annoyance.txt
+! Fanboy's third-party Annoyance list
+! easylist-downloads.adblockplus.org/fanboy-annoyance.txt
+! Fanboy's Social Blocking List 
+! easylist-downloads.adblockplus.org/fanboy-social.txt
+
+
+
+! Multipurpose and Misc
+!
+! Dan Pollock’s hosts file by someonewhocares.org [also avb. as IPv6 and nulled]
+! someonewhocares.org/hosts/hosts
+! Fanboy's ultimate list (combines all)
+! http://www.fanboy.co.nz/fanboy-ultimate.txt
+! hpHosts’s Ad and tracking servers by hosts-file.net [sometimes offline]
+! hosts-file.net/ad-servers
+! MVPS HOSTS
+! winhelp2002.mvps.org/hosts.txt
+! AdGuards blocking list (overview only)
+! -> https://adguard.com/en/filters.html
+
+
+
+! YouTube related
+! 
+! YouTube all suggestions and comments
+! https://easylist-downloads.adblockplus.org/yt_annoyances_full.txt
+! YouTube suggestions 
+https://easylist-downloads.adblockplus.org/yt_annoyances_suggestions.txt
+! YouTube annoyances
+! https://easylist-downloads.adblockplus.org/yt_annoyances_other.txt
+! YouTube Remove Comments
+https://easylist-downloads.adblockplus.org/yt_annoyances_comments.txt
+
+
+
+! Cookie related
+!
+! EU: Prebake - Filter Obtrusive Cookie Notices
+! https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt
+Sun Jan 14 02:36:54 CST 2018
+easylist-downloads.adblockplus.org/easylist.txt
+Sun Jan 14 02:40:31 CST 2018
+someonewhocares.org/hosts/hosts
+Sun Jan 14 02:42:00 CST 2018
+https://github.com/CHEF-KOCH/NSABlocklist/blob/master/HOSTS.txt
+Sun Jan 14 02:42:40 CST 2018
+http://www.fanboy.co.nz/enhancedstats.txt
+Sun Jan 14 02:45:38 CST 2018
+https://s3.amazonaws.com/lists.disconnect.me/simple_malware.txt
+Sun Jan 14 02:46:00 CST 2018
+https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt
+Sun Jan 14 02:47:03 CST 2018
+https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt
+Sun Jan 14 02:53:05 CST 2018
+http://www.fanboy.co.nz/fanboy-ultimate.txt
+Sun Jan 14 02:58:40 CST 2018
+http://gnuzilla.gnu.org/filters/blacklist.txt
+Mon Mar 05 09:11:02 CST 2018
+! Ads related
+!
+! Adblock Warning Removal List
+! https://easylist-downloads.adblockplus.org/antiadblockfilters.txt
+! Anti-Adblock Killer | Reek
+! raw.githubusercontent.com/reek/anti-adblock-killer/master/anti-adblock-killer-filters.txt
+! EasyList
+! easylist-downloads.adblockplus.org/easylist.txt
+! EasyList w/o element hiding rules
+! easylist-downloads.adblockplus.org/easylist_noelemhide.txt
+! Acceptable Ads
+! https://adblockplus.org/en/acceptable-ads
+
+
+
+! Privacy related
+!
+! Basic tracking list by Disconnect‎
+https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
+! EasyPrivacy by adblock.org
+! easylist-downloads.adblockplus.org/easyprivacy.txt
+! Fanboy’s Enhanced Tracking List by fanboy.co.nz
+! http://www.fanboy.co.nz/enhancedstats.txt
+! GNU privacy filter
+! http://gnuzilla.gnu.org/filters/blacklist.txt
+! CHEF-KOCH's NSA blocklist
+! https://github.com/CHEF-KOCH/NSABlocklist/blob/master/HOSTS.txt
+
+
+
+! Blocks Malware domains
+!
+! Malvertising filter list by Disconnect‎
+https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt
+! Malware filter list by Disconnect‎
+https://s3.amazonaws.com/lists.disconnect.me/simple_malware.txt
+! Malware Domain list
+! http://www.malwaredomainlist.com/hostslist/hosts.txt
+! Malware Domain (just Domains) [mirror from mailwaredomainlist.com]
+! mirror1.malwaredomains.com/files/justdomains
+! Immortal Domains (also called long-lived)
+! mirror1.malwaredomains.com/files/immortal_domains.txt
+! Spam404 by spam404bl.com
+! http://spam404bl.com/blacklist.txt
+
+
+
+! Anti social networks and buttons
+! 
+! Fanboy's anti-social list which blocks buttons, sites, ...
+! http://www.fanboy.co.nz/fanboy-antifacebook.txt
+! Fanboy’s Annoyance List by adblockplus.org
+! easylist-downloads.adblockplus.org/fanboy-annoyance.txt
+! Fanboy's third-party Annoyance list
+! easylist-downloads.adblockplus.org/fanboy-annoyance.txt
+! Fanboy's Social Blocking List 
+! easylist-downloads.adblockplus.org/fanboy-social.txt
+
+
+
+! Multipurpose and Misc
+!
+! Dan Pollock’s hosts file by someonewhocares.org [also avb. as IPv6 and nulled]
+! someonewhocares.org/hosts/hosts
+! Fanboy's ultimate list (combines all)
+! http://www.fanboy.co.nz/fanboy-ultimate.txt
+! hpHosts’s Ad and tracking servers by hosts-file.net [sometimes offline]
+! hosts-file.net/ad-servers
+! MVPS HOSTS
+! winhelp2002.mvps.org/hosts.txt
+! AdGuards blocking list (overview only)
+! -> https://adguard.com/en/filters.html
+
+
+
+! YouTube related
+! 
+! YouTube all suggestions and comments
+! https://easylist-downloads.adblockplus.org/yt_annoyances_full.txt
+! YouTube suggestions 
+https://easylist-downloads.adblockplus.org/yt_annoyances_suggestions.txt
+! YouTube annoyances
+! https://easylist-downloads.adblockplus.org/yt_annoyances_other.txt
+! YouTube Remove Comments
+https://easylist-downloads.adblockplus.org/yt_annoyances_comments.txt
+
+
+
+! Cookie related
+!
+! EU: Prebake - Filter Obtrusive Cookie Notices
+! https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt
+
+easylist-downloads.adblockplus.org/easylist.txt
+
+someonewhocares.org/hosts/hosts
+
+https://github.com/CHEF-KOCH/NSABlocklist/blob/master/HOSTS.txt
+
+http://www.fanboy.co.nz/enhancedstats.txt
+
+https://s3.amazonaws.com/lists.disconnect.me/simple_malware.txt
+
+https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt
+
+https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt
+
+http://www.fanboy.co.nz/fanboy-ultimate.txt
+
+http://gnuzilla.gnu.org/filters/blacklist.txt
+Mon Mar 05 09:11:48 CST 2018
+https://easylist-downloads.adblockplus.org/antiadblockfilters.txt
+Mon Mar 05 09:17:30 CST 2018
+someonewhocares.org/hosts/hosts
+Mon Mar 05 23:33:58 CST 2018
+@luxurias
+Mon Mar 05 23:35:17 CST 2018
+@sexy_cosplay
+Mon Mar 05 23:36:33 CST 2018
+@hotgirlgif
+Mon Mar 05 23:37:59 CST 2018
+@beatycosplay
+Mon Mar 05 23:47:42 CST 2018
+@OSUNAPORNOGIFS
+Mon Mar 05 23:52:21 CST 2018
+@sexporngifs
+Thu Mar 08 17:00:21 CST 2018
+Lucas Frantz:
+wow! two down. that just leaves lauren.
+Fri Mar 09 13:44:58 CST 2018
+ZFS on Linux releases are signed by the official maintainer for that branch. These signatures are automatically verified by GitHub and can be checked locally by downloading the maintainers public key.
+
+Maintainers
+Release branch (spl/zfs-*-release)
+Maintainer: Ned Bass
+Download: pgp.mit.edu
+Key ID: C77B9667
+Fingerprint: 29D5 610E AE29 41E3 55A2 FE8A B974 67AA C77B 9667
+
+Maintainer: Tony Hutter
+Download: pgp.mit.edu
+Key ID: D4598027
+Fingerprint: 4F3B A9AB 6D1F 8D68 3DC2 DFB5 6AD8 60EE D459 8027
+
+Master branch (master)
+Maintainer: Brian Behlendorf
+Download: pgp.mit.edu
+Key ID: C6AF658B
+Fingerprint: C33D F142 657E D1F7 C328 A296 0AB9 E991 C6AF 658B
+
+Checking the Signature of a Git Tag
+First import the public key listed above in to your key ring.
+
+$ gpg --keyserver pgp.mit.edu --recv C6AF658B
+gpg: requesting key C6AF658B from hkp server pgp.mit.edu
+gpg: key C6AF658B: "Brian Behlendorf <behlendorf1@llnl.gov>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+After the pubic key is imported the signature of a git tag can be verified as shown.
+
+$ git tag --verify zfs-0.6.5
+object 7a27ad00ae142b38d4aef8cc0af7a72b4c0e44fe
+type commit
+tag zfs-0.6.5
+tagger Brian Behlendorf <behlendorf1@llnl.gov> 1441996302 -0700
+
+ZFS Version 0.6.5
+gpg: Signature made Fri 11 Sep 2015 11:31:42 AM PDT using DSA key ID C6AF658B
+gpg: Good signature from "Brian Behlendorf <behlendorf1@llnl.gov>"
+gpg:                 aka "Brian Behlendorf (LLNL) <behlendorf1@llnl.gov
+Fri Mar 09 13:45:41 CST 2018
+Release branch (spl/zfs-*-release)
+Maintainer: Ned Bass
+Download: pgp.mit.edu
+Key ID: C77B9667
+Fingerprint: 29D5 610E AE29 41E3 55A2 FE8A B974 67AA C77B 9667
+
+Maintainer: Tony Hutter
+Download: pgp.mit.edu
+Key ID: D4598027
+Fingerprint: 4F3B A9AB 6D1F 8D68 3DC2 DFB5 6AD8 60EE D459 8027
+
+Master branch (master)
+Maintainer: Brian Behlendorf
+Download: pgp.mit.edu
+Key ID: C6AF658B
+Fingerprint: C33D F142 657E D1F7 C328 A296 0AB9 E991 C6AF 658B
+Fri Mar 09 13:46:21 CST 2018
+gpg --keyserver pgp.mit.edu --recv C6AF658B
+gpg: requesting key C6AF658B from hkp server pgp.mit.edu
+gpg: key C6AF658B: "Brian Behlendorf <behlendorf1@llnl.gov>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+After the pubic key is imported the signature of a git tag can be verified as shown.
+
+$ git tag --verify zfs-0.6.5
+object 7a27ad00ae142b38d4aef8cc0af7a72b4c0e44fe
+type commit
+tag zfs-0.6.5
+tagger Brian Behlendorf <behlendorf1@llnl.gov> 1441996302 -0700
+
+ZFS Version 0.6.5
+gpg: Signature made Fri 11 Sep 2015 11:31:42 AM PDT using DSA key ID C6AF658B
+gpg: Good signature from "Brian Behlendorf <behlendorf1@llnl.gov>"
+gpg:                 aka "Brian Behlendorf (LLNL) <behlendorf1@llnl.gov
+Fri Mar 09 13:53:25 CST 2018
+https://github.com/zfsonlinux/zfs.wiki.git
+Fri Mar 09 13:53:41 CST 2018
+Debian and Ubuntu:
+
+sudo apt-get install build-essential autoconf libtool gawk alien fakeroot linux-headers-$(uname -r)
+sudo apt-get install zlib1g-dev uuid-dev libattr1-dev libblkid-dev libselinux-dev libudev-dev libssl-dev
+sudo apt-get install parted lsscsi ksh
+Fri Mar 09 13:53:50 CST 2018
+git clone https://github.com/zfsonlinux/spl
+git clone https://github.com/zfsonlinux/zfs
+Fri Mar 09 13:54:18 CST 2018
+cd spl
+git checkout master
+sh autogen.sh
+./configure
+make -s -j$(nproc)
+tip: --with-linux=PATH and --with-linux-obj=PATH can be passed to configure to specify a kernel installed in a non-default location. This option is also supported when building ZFS.
+tip: --enable-debug can be set to enable all ASSERTs and additional correctness tests. This option is also supported when building ZFS.
+
+Next move to the ZFS source tree and build it the same way.
+
+cd ../zfs
+git checkout master
+sh autogen.sh
+./configure
+make -s -j$(nproc)
+tip: --with-spl=PATH and --with-spl-obj=PATH, where PATH is a full path, can be passed to configure if it is unable to locate the SPL.
+
+Optional Build packages
+
+make deb #example for Debian/Ubuntu 
+Fri Mar 09 13:54:26 CST 2018
+Running zloop.sh and zfs-tests.sh
+There are a few helper scripts provided in the top-level scripts directory designed to aid developers working with in-tree builds.
+
+zfs-helper.sh: Certain functionality (i.e. /dev/zvol/) depends on the ZFS provided udev helper scripts being installed on the system. This script can be used to create symlinks on the system from the installation location to the in-tree helper. These links must be in place to successfully run the ZFS Test Suite. The -i and -r options can be used to install and remove the symlinks.
+sudo ./scripts/zfs-helpers.sh -i
+zfs.sh: The freshly built kernel modules can be loaded using zfs.sh. This script can latter be used to unload the kernel modules with the -u option.
+sudo ./scripts/zfs.sh
+zloop.sh: A wrapper to run ztest repeatedly with randomized arguments. The ztest command is a user space stress test designed to detect correctness issues by concurrently running a random set of test cases. If a crash is encountered, the ztest logs, any associated vdev files, and core file (if one exists) are collected and moved to the output directory for analysis.
+sudo ./scripts/zloop.sh
+zfs-tests.sh: A wrapper which can be used to launch the ZFS Test Suite. Three loopback devices are created on top of sparse files located in /var/tmp/ and used for the regression test. Detailed directions for the ZFS Test Suite can be found in the README located in the top-level tests directory.
+ ./scripts/zfs-tests.sh -vx
+Fri Mar 09 20:29:57 CST 2018
+  ~[CTRL-Z]~ EOF & Mirrors
+  
+    Staminus
+    
+        FILES:
+            http://emqyrhqhxwbetyjb.onion/chatbot.tar.gz
+            http://emqyrhqhxwbetyjb.onion/lighttpd.tar.gz
+            http://emqyrhqhxwbetyjb.onion/main.tar.gz
+            http://emqyrhqhxwbetyjb.onion/openvpn.tar.gz
+            http://emqyrhqhxwbetyjb.onion/svn.tar.gz
+            
+        SQL:
+            http://emqyrhqhxwbetyjb.onion/3-9-staminus2.sql
+            http://emqyrhqhxwbetyjb.onion/accountUpdate.sql
+            http://emqyrhqhxwbetyjb.onion/acctserver.sql
+            http://emqyrhqhxwbetyjb.onion/appliance_lan.sql
+            http://emqyrhqhxwbetyjb.onion/full.sql
+            http://emqyrhqhxwbetyjb.onion/ip_limit_history.sql
+            http://emqyrhqhxwbetyjb.onion/ip_limit_profile.sql
+            http://emqyrhqhxwbetyjb.onion/ip_limit.sql
+            http://emqyrhqhxwbetyjb.onion/sp.sql
+    
+    Intreppid
+    
+        FILES:
+            http://emqyrhqhxwbetyjb.onion/www2.tar.gz
+        SQL:
+            http://emqyrhqhxwbetyjb.onion/fucked.dump
+    
+    KKK + Friends
+    
+        FILES:
+            http://emqyrhqhxwbetyjb.onion/american.tar.gz
+            http://emqyrhqhxwbetyjb.onion/harrisonarkansas.tar.gz
+            http://emqyrhqhxwbetyjb.onion/kkkcom.tar.gz
+            http://emqyrhqhxwbetyjb.onion/kkkpen6.tar.gz
+            http://emqyrhqhxwbetyjb.onion/kkkradio.tar.gz
+Fri Mar 09 20:34:04 CST 2018
+Staminus
+Fri Mar 09 20:39:05 CST 2018
+http://www.theonion.com/article/neighbors-confront-alcoholic-child-abuser-about-hi-744
+Fri Mar 09 20:52:38 CST 2018
+https://m.youtube.com/watch?v=e4wdCeYTwKw
+Sat Mar 10 02:32:03 CST 2018
+https://easylist-downloads.adblockplus.org/antiadblockfilters.tx
+Sat Mar 10 02:32:44 CST 2018
+https://
+Sat Mar 10 02:35:18 CST 2018☆★☆
+hosts-file.net
+Sat Mar 10 02:35:25 CST 2018
+http://www.fanboy.co.nz
+Sat Mar 10 02:35:30 CST 2018
+https://hosts-file.net/ad-servers
+Sat Mar 10 02:35:49 CST 2018
+https://easylist-downloads.adblockplus.org/yt_annoyances_full.txt
+Sat Mar 10 02:35:56 CST 2018
+https://easylist-downloads.adblockplus.org/yt_annoyances_suggestions.txt
+Sat Mar 10 02:36:11 CST 2018
+https://easylist-downloads.adblockplus.org/yt_annoyances_other.txt
+Sat Mar 10 02:36:16 CST 2018
+https://easylist-downloads.adblockplus.org/yt_annoyances_comments.txt
+Sat Mar 10 02:37:13 CST 2018
+https://filters.adtidy.org/extension/chromium/filters/2.txt
+Sat Mar 10 02:37:48 CST 2018
+https://github.com/AdguardTeam/AdguardForAndroid/
+Sat Mar 10 02:37:59 CST 2018
+http://www.mista.nu/iptables/
+Sat Mar 10 02:41:53 CST 2018
+video metadata
+
+https://gist.github.com/CHEF-KOCH/5d98f57fd614cc2524d1d17e41edc652
+Sat Mar 10 02:42:23 CST 2018
+Hidden Wiki .onion Urls Tor Link Directory [2017 Edition]
+https://gist.github.com/CHEF-KOCH/ef0cf71138b7c0e81b49ada5b5a5e356
+Sat Mar 10 02:42:35 CST 2018
+https://gist.github.com/CHEF-KOCH/ef0cf71138b7c0e81b49ada5b5a5e356
+Sat Mar 10 02:43:55 CST 2018
+Hidden Wiki .onion Urls Tor Link Directory [2017 Edition]
+Sat Mar 10 02:44:08 CST 2018
+CHEF-KOCH
+Sat Mar 10 02:44:34 CST 2018
+Hidden Wiki .onion Urls Tor Link Directory [2017 Edition] - CHEF-KOCH
+Sat Mar 10 02:52:44 CST 2018
+https://someonewhocares.org/hosts/hosts
+Sat Mar 10 02:55:20 CST 2018
+https://easylist-downloads.adblockplus.org/fanboy-social.txt
+Sat Mar 10 02:56:22 CST 2018
+https://easylist-downloads.adblockplus.org/fanboy-annoyance.txt
+Sat Mar 10 02:56:57 CST 2018
+https://adguard.com/en/filters.html
+Sat Mar 10 03:02:38 CST 2018
+https://easylist-downloads.adblockplus.org/easylist.txt
+Sat Mar 10 03:04:39 CST 2018
+https://easylist-downloads.adblockplus.org/easyprivacy.txt
+Sat Mar 10 03:06:19 CST 2018
+https://raw.githubusercontent.com/reek/anti-adblock-killer/master/anti-adblock-killer-filters.txt
+
+Sat Mar 10 03:08:09 CST 2018
+https://mirror1.malwaredomains.com/files/immortal_domains.txt
+Sat Mar 10 03:11:22 CST 2018
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+Sat Mar 10 03:11:50 CST 2018
+xe1phix z4ro:
+Removing Video Metadata
+https://gist.github.com/CHEF-KOCH/5d98f57fd614cc2524d1d17e41edc652
+Sat Mar 10 03:12:04 CST 2018
+https://gist.github.com/CHEF-KOCH/5d98f57fd614cc2524d1d17e41edc652
+Sat Mar 10 03:12:13 CST 2018
+xe1phix z4ro:
+Hidden Wiki .onion Urls Tor Link Directory [2017 Edition]
+https://gist.github.com/CHEF-KOCH/ef0cf71138b7c0e81b49ada5b5a5e356
+Sat Mar 10 03:12:33 CST 2018
+xe1phix z4ro:
+List of Popular Free Torrent Sites
+https://gist.github.com/CHEF-KOCH/d1c6f49492f6d10ee1d192817b7cdce5
+Sat Mar 10 03:12:53 CST 2018
+xe1phix z4ro:
+WebRTC tracking list [2017 Edition]
+https://gist.github.com/CHEF-KOCH/5a7b1593d1880f906b12a3c87cee4500
+Sat Mar 10 03:13:07 CST 2018
+xe1phix z4ro:
+Canvas fingerprinting pages [2017 Edition]
+https://gist.github.com/CHEF-KOCH/2dea75d43b2184f228ae94b168d275b1
+Sat Mar 10 03:13:25 CST 2018
+xe1phix z4ro:
+Audio fingerprint pages [2017 Edition]
+https://gist.github.com/CHEF-KOCH/63fd2e506cb34a2378ad2620ab06d2e0
+Sat Mar 10 03:13:43 CST 2018
+xe1phix z4ro:
+uTorrent activation/ads
+https://gist.github.com/CHEF-KOCH/b042e55ea1f9e635610fbaabe38334db
+Sat Mar 10 03:14:03 CST 2018
+xe1phix z4ro:
+AFWall+ [2017 Edition]
+https://gist.github.com/CHEF-KOCH/79924daa128c0a5526cb94bec5ad9187
+Sat Mar 10 03:14:39 CST 2018
+xe1phix z4ro:
+OpenVPN hardening
+https://gist.github.com/CHEF-KOCH/5918aeb0433a82694adfc857d1372167
+Sat Mar 10 03:14:46 CST 2018
+xe1phix z4ro:
+Sat Mar 10 03:14:51 CST 2018
+xe1phix z4ro:
+Droidwall scripts that fix some problems for e.g. Orbot, startup data leak and other things (see comments)
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+Sat Mar 10 03:15:02 CST 2018
+xe1phix z4ro
+Sat Mar 10 03:17:11 CST 2018
+xe1phix z4ro:
+https://www.youtube.com/watch?v=sF3aZyNDF1Q
+
+http://www.justpain.com/ut_maps/wordlists/
+
+https://github.com/danielmiessler/SecLists/tree/master/Passwords
+
+http://www.adeptus-mechanicus.com/codex/hashpass/hashpass.php
+
+https://weakpass.com/wordlist/real
+Sat Mar 10 03:20:11 CST 2018
+http://spam404.com/blacklist.txt
+Sat Mar 10 03:36:18 CST 2018
+@FuckinAss
+Sat Mar 10 03:36:37 CST 2018
+@newsezygif
+Sat Mar 10 03:36:56 CST 2018
+@coolteleporngif
+Sat Mar 10 03:37:24 CST 2018
+@christy_mack
+Sat Mar 10 03:37:46 CST 2018
+@JapanSex
+Sat Mar 10 03:38:14 CST 2018
+🔞Master Porno🔞
+Sat Mar 10 03:38:17 CST 2018
+
+https://t.me/masterporno
+Sat Mar 10 03:38:54 CST 2018
+@iGIFyouPORN
+Sat Mar 10 03:39:56 CST 2018
+@gifpornxxx
+Sat Mar 10 03:40:48 CST 2018
+@spyphoto
+Sat Mar 10 03:43:07 CST 2018
+xe1phix z4ro:
+https://pastebin.com/u/ThisIsGame0ver
+Sat Mar 10 03:43:58 CST 2018
+xe1phix z4ro:
+https://pastebin.com/u/BaSs_HaXoR
+
+https://pastebin.com/u/JuanDeLemos
+
+https://pastebin.com/u/Cyb3r_h4ck3r
+
+https://pastebin.com/u/CoderSec
+
+https://pastebin.com/u/noxsquad
+
+https://pastebin.com/u/AnonymousWiki
+
+https://pastebin.com/u/devil4u4ever
+
+https://pastebin.com/u/Lucky_V
+
+https://pastebin.com/u/FlyHack
+
+https://pastebin.com/u/Aluf
+
+https://pastebin.com/u/chris_defaulter007
+
+https://hashkiller.co.uk/
+Sat Mar 10 03:44:22 CST 2018
+
+https://pastebin.com/u/BaSs_HaXoR
+
+https://pastebin.com/u/JuanDeLemos
+
+https://pastebin.com/u/Cyb3r_h4ck3r
+
+https://pastebin.com/u/CoderSec
+
+https://pastebin.com/u/noxsquad
+
+https://pastebin.com/u/AnonymousWiki
+
+https://pastebin.com/u/devil4u4ever
+
+https://pastebin.com/u/Lucky_V
+
+https://pastebin.com/u/FlyHack
+
+https://pastebin.com/u/Aluf
+
+https://pastebin.com/u/chris_defaulter007
+
+https://hashkiller.co.uk/
+Sat Mar 10 03:58:45 CST 2018
+@dolbaebgif
+Sat Mar 10 03:59:04 CST 2018
+@nasa_apod
+Sat Mar 10 06:59:22 CST 2018
+DNS66 (Block ads/hosts via DNS) - https://f-droid.org/app/org.jak_linux.dns66
+Sat Mar 10 07:01:56 CST 2018
+getChromium  - https://f-droid.org/app/com.anddevw.getchromium
+Sat Mar 10 07:08:27 CST 2018
+xe1phix z4ro:
+The creative and intellectual capacity of a conscious agent is directly proportional to their available degrees of freedom. Thus, the more options an individual has available to them, the better they are able to operate. Coercion restricts degrees of freedom by forcing the agent into a predetermined path of action. Anything which unnecessarily restricts freedom by coercion is inefficient and a detriment to the overall creative and intellectual capacity of the species, and thereby is an existential risk to the species, and thereby should be considered ethically wrong. The state does not ask the citizen if they wish to be a citizen, it tells them so. There is no other option, and thus the state is intrinsically coercive, and thus ethically wrong.
+Sat Mar 10 07:08:51 CST 2018
+xe1phix z4ro:
+263695344421
+Sat Mar 10 07:19:43 CST 2018
+Clip Stack (Manage clipboard history) - https://f-droid.org/app/com.catchingnow.tinyclipboardmanager
+Sat Mar 10 07:35:05 CST 2018
+https://www.startpage.com
+Sat Mar 10 07:36:41 CST 2018
+https://boards.420chan.org/b/
+Sat Mar 10 07:38:35 CST 2018
+https://boards.4chan.org/b/
+Sat Mar 10 07:39:19 CST 2018
+https://boards.4chan.org/gif/
+Sat Mar 10 07:42:50 CST 2018
+https://boards.4chan.org/gif/archive
+Sat Mar 10 07:49:56 CST 2018
+https://www.youporn.com/watch/12890323/punk-girl-gets-a-good-fucking-ultima/
+Sat Mar 10 07:50:13 CST 2018
+https://www.youporn.com/watch/8447916/two-punk-strippers-going-at-it-in-the-club-harmony/
+Sat Mar 10 07:51:11 CST 2018
+https://www.youporn.com/watch/7634028/punk-girl-gets-fucked/
+Sat Mar 10 07:52:16 CST 2018
+https://www.youporn.com/watch/13806241/cute-goth-chick-painful-anal-avi/
+Sat Mar 10 07:52:26 CST 2018
+https://www.youporn.com/watch/7634144/punk-girl-fucked-good/
+Sat Mar 10 07:54:20 CST 2018
+https://www.youporn.com/watch/11088849/burningangel-goth-chick-in-public-with-big-dick/
+Sat Mar 10 07:55:03 CST 2018
+https://www.youporn.com/watch/9435233/gotta-love-goth-girls-telsev/
+Sat Mar 10 07:55:07 CST 2018
+https://www.youporn.com/watch/9113454/goths-love-anal-sex-telsev/
+Sat Mar 10 07:55:21 CST 2018
+https://www.youporn.com/watch/677842/goth-slut-fucks-and-sucks-2-guys/
+Sat Mar 10 07:56:08 CST 2018
+https://www.youporn.com/watch/14138889/goth-girl-face-fucked-with-anal-creampie-rhi-kitty/
+Sat Mar 10 07:59:24 CST 2018
+https://ev.ypncdn.com/201110/26/7651837/vl_480p_750k_7651837/YouPorn_-_these-boots-are-made-for-fucking-future-works.mp4?rate=93k&burst=1800k&validfrom=1520683200&validto=1520697600&hash=9sv99Mf57Eo8UEKwwgLk9P%2FWkWQ%3D
+Sat Mar 10 08:04:59 CST 2018
+https://www.youporn.com/porntags/goth-anal/
+Sat Mar 10 08:05:09 CST 2018
+https://www.youporn.com/porntags/goth-creampie/
+Sat Mar 10 08:05:23 CST 2018
+https://www.youporn.com/porntags/punk/
+Sat Mar 10 08:05:55 CST 2018
+https://www.youporn.com/watch/14132103/etudiante-goth-se-donne-un-gros-orgasme-anna-furiosa/
+Sat Mar 10 08:06:28 CST 2018
+https://www.youporn.com/watch/14275983/sexy-goth-slut-in-full-leather-gets-a-pussy-full-of-cum-after-deepthroat-bj/
+Sat Mar 10 08:06:54 CST 2018
+https://www.youporn.com/watch/13400281/cute-goth-girl-gets-eaten-and-fucked/
+Sat Mar 10 08:07:16 CST 2018
+https://www.youporn.com/search/duration/?query=Goth+public+sex&page=7
+Sat Mar 10 08:08:55 CST 2018
+https://www.youporn.com/watch/10134615/clea/
+Sat Mar 10 08:09:21 CST 2018
+https://www.youporn.com/watch/11838245/emo-goth-teen-mia-s-orgasmic-porn-debut/
+Sat Mar 10 08:09:27 CST 2018
+https://www.youporn.com/watch/9110244/hardcore-swingers-party-on-homemade-video/
+Sat Mar 10 08:11:14 CST 2018
+https://www.youporn.com/watch/11222253/burningangel-emo-punk-tori-facesitting-and-facial/
+Sat Mar 10 08:11:39 CST 2018
+https://www.youporn.com/watch/14236415/goth-pet-dahlia-sky-hot-and-nasty-ass-fucking/
+Sat Mar 10 08:11:46 CST 2018
+https://www.youporn.com/watch/9040593/burningangel-teen-emo-moretta-cox-ass-fucked/
+Sat Mar 10 08:11:55 CST 2018
+https://www.youporn.com/watch/13933543/emo-punk-slut-ripped-layered-pantyhose-footjob-blowjob-fuck-cum-on-face/
+Sat Mar 10 08:12:24 CST 2018
+https://www.youporn.com/watch/11249641/burningangel-emo-asian-anal-fucked/
+Sat Mar 10 08:12:27 CST 2018
+https://www.youporn.com/watch/9040567/burningangel-emo-vulpix-lesbian-fucking/
+Sat Mar 10 08:12:45 CST 2018
+https://www.youporn.com/watch/9702737/burningangel-emo-punk-chick-has-hot-anal-sex/
+Sat Mar 10 08:12:59 CST 2018
+https://www.youporn.com/watch/13506391/skinny-teen-goth-babes-public-nudity-of-emo/
+Sat Mar 10 08:15:50 CST 2018
+https://www.youporn.com/watch/11249643/goth-chick-sucks-and-fucks-for-the-competition/
+Sat Mar 10 08:15:59 CST 2018
+https://www.youporn.com/watch/440478/goth-girl-rides-hard-at-rustic-rendezvous/
+Sat Mar 10 08:16:05 CST 2018
+https://www.youporn.com/watch/472228/goth-girl-sucks-a-big-dick/
+Sat Mar 10 08:16:09 CST 2018
+https://www.youporn.com/watch/472229/goth-girl-sucks-a-big-dick-part-2/
+Sat Mar 10 08:16:26 CST 2018
+https://www.youporn.com/watch/13442535/fake-taxi-free-road-trip-for-hot-anal-sex/
+Sat Mar 10 08:16:44 CST 2018
+https://www.youporn.com/watch/530791/goth-tattoo-princess-fucks-guy-with-2-other-chicks-watching/
+Sat Mar 10 08:17:14 CST 2018
+https://www.youporn.com/collections/videos/28240/
+Sat Mar 10 08:17:33 CST 2018
+https://www.youporn.com/watch/11051609/anal-education-for-naomi-russell/
+Sat Mar 10 08:17:40 CST 2018
+https://www.youporn.com/watch/373390/hot-squirting-goth/
+Sat Mar 10 08:17:51 CST 2018
+https://www.youporn.com/watch/290275/tattooed-pierced-and-fucked-pt-3-3/
+Sat Mar 10 08:18:14 CST 2018
+https://www.youporn.com/watch/13902875/burningangel-goth-bunny-squirts-from-anal/
+Sat Mar 10 08:19:51 CST 2018
+https://www.youporn.com/watch/9893157/double-teaming-the-white-man-candy-shop/
+Sat Mar 10 08:20:43 CST 2018
+https://www.youporn.com/watch/7713069/sexy-black-teen-secretary-is-punished-fucked-in-the-ass-at-work/
+Sat Mar 10 08:23:03 CST 2018
+https://www.youporn.com/watch/719256/sexy-emo-brunette-teen-is-fucked-anal-at-work-by-c/
+Sat Mar 10 08:23:06 CST 2018
+https://www.youporn.com/watch/14243075/tiny-teen-gets-her-asshole-blown-out-by-guy-she-met-online/
+Sat Mar 10 08:25:18 CST 2018
+https://www.youporn.com/collections/videos/81048/
+Sat Mar 10 08:25:45 CST 2018
+https://www.youporn.com/watch/305488/take-5-pt-2-2/
+Sat Mar 10 08:26:20 CST 2018
+https://www.youporn.com/watch/14155039/teensloveanal-pale-hottie-fucked-in-the-ass/
+Sat Mar 10 08:27:19 CST 2018
+https://www.youporn.com/watch/13768669/exxtrasmall-hot-tatted-teen-ass-fucked-by-bodyguard/
+Sat Mar 10 08:27:34 CST 2018
+https://www.youporn.com/watch/13872153/exxxtrasmall-tiny-teen-pounded-and-fucked/
+Sat Mar 10 08:28:04 CST 2018
+https://www.youporn.com/search/?query=Public+sex+goth&page=2
+Sat Mar 10 08:29:46 CST 2018
+https://www.youporn.com/watch/11587145/burningangel-bbw-punk-chick-anal-fucked-pov/
+Sat Mar 10 08:30:36 CST 2018
+https://www.youporn.com/watch/14093351/phat-ass-goth-girl-gets-her-first-anal-creampie/
+Sat Mar 10 08:31:18 CST 2018
+https://www.youporn.com/watch/11640489/burningangel-emo-babe-ass-licked-and-pussy-pounded/
+Sat Mar 10 08:31:33 CST 2018
+https://www.youporn.com/watch/13742961/burningangel-punk-chick-loving-this-anal/
+Sat Mar 10 08:32:38 CST 2018
+https://www.youporn.com/watch/8614499/horny-tattoed-emo-teen-loves-masturbating/
+Sat Mar 10 08:34:23 CST 2018
+https://www.youporn.com/watch/11951865/720p-hd-anal-pov-from-my-emo-teen-girlfriend/
+Sat Mar 10 08:36:38 CST 2018
+https://www.youporn.com/watch/9434863/goth-girls-are-huge-sluts-telsev/
+Sat Mar 10 08:37:01 CST 2018
+https://www.youporn.com/watch/7790793/graceful-teen-hottie-impaling-her-fucking-holes-on-a-massive-dick/
+Sat Mar 10 08:37:07 CST 2018
+https://www.youporn.com/watch/8655682/cute-blue-haired-gf-swallows-hd/
+Sat Mar 10 08:39:38 CST 2018
+https://www.youporn.com/collections/videos/13754/
+Sat Mar 10 08:39:42 CST 2018
+https://www.youporn.com/collections/videos/45513/
+Sat Mar 10 08:42:08 CST 2018
+https://www.youporn.com/watch/8579049/burning-angel-high-heels-fetish-fucking-with-hot-goth-girl/
+Sat Mar 10 08:42:15 CST 2018
+https://www.youporn.com/watch/42950/liz-girl-evils/
+Sat Mar 10 08:42:40 CST 2018
+https://www.youporn.com/watch/9263087/meli-s-spermasucht/
+Sat Mar 10 08:43:21 CST 2018
+https://www.youporn.com/collections/videos/63435/
+Sat Mar 10 08:47:06 CST 2018
+https://www.youporn.com/watch/330533/goth-chick-hard-ass-fuck/
+Sat Mar 10 08:48:44 CST 2018
+https://www.youporn.com/watch/10191721/home-bathroom-swingers-group-sex/
+Sat Mar 10 08:50:40 CST 2018
+https://www.youporn.com/watch/13264499/bts-of-riley-reid-s-rough-anal-training-sex-tape-with-james-deen/
+Sat Mar 10 08:56:15 CST 2018
+https://www.youporn.com/channel/3308/burning-angel/
+Sat Mar 10 08:57:25 CST 2018
+https://www.youporn.com/watch/11835959/tushy-riley-reid-first-anal/
+Sat Mar 10 08:57:45 CST 2018
+https://www.youporn.com/watch/9864873/exxxtrasmall-riley-reid-gets-her-tight-pussy-pounded/
+Sat Mar 10 08:58:01 CST 2018
+riley-reid-
+Sat Mar 10 08:58:17 CST 2018
+https://www.youporn.com/watch/13902103/bangbros-exotic-brunette-riley-reid-takes-a-good-fucking-pos11900/
+Sat Mar 10 08:58:34 CST 2018
+https://www.youporn.com/watch/9643059/petite-yoga-cutie-gets-the-fuck-of-her-life/
+Sat Mar 10 08:58:54 CST 2018
+https://www.youporn.com/watch/10173947/tiny-punk-babe-takes-cum-on-her-tits/
+Sat Mar 10 09:00:31 CST 2018
+https://www.youporn.com/watch/13851193/punishteens-sexy-teen-caught-masturbating-and-fucked-roughly/
+Sat Mar 10 09:12:07 CST 2018
+https://www.youporn.com/watch/13613501/baeb-instagirl-janice-griffith-puts-out/
+Sat Mar 10 09:13:00 CST 2018
+https://www.youporn.com/watch/13720337/baeb-brunette-babe-riley-reid-gets-her-pussy-fucked-on-420/
+Sat Mar 10 09:17:52 CST 2018
+https://boards.420chan.org/stim/
+Sat Mar 10 09:18:11 CST 2018
+https://boards.420chan.org/psy/
+Sat Mar 10 09:18:39 CST 2018
+420chan
+Sat Mar 10 09:21:13 CST 2018
+https://wiki.securityweekly.com/Security_Weekly
+Sat Mar 10 09:32:48 CST 2018
+http://traffic.libsyn.com/pauldotcom/PSW546compressed.mp3
+Sat Mar 10 09:35:35 CST 2018
+http://traffic.libsyn.com/pauldotcom/PSW550compressed.mp3
+Sat Mar 10 09:40:15 CST 2018
+http://traffic.libsyn.com/pauldotcom/PSW549compressed.mp3
+Sat Mar 10 09:41:57 CST 2018
+https://secure-hwcdn.libsyn.com/p/a/b/0/ab0757c7627e42d1/PSW550compressed.mp3
+Sat Mar 10 09:43:06 CST 2018
+http://traffic.libsyn.com/pauldotcom/psw548compressed.mp3
+Sat Mar 10 09:44:19 CST 2018
+http://traffic.libsyn.com/pauldotcom/PSW545compressed.mp3
+Sat Mar 10 09:44:50 CST 2018
+http://traffic.libsyn.com/pauldotcom/PSW547compressed.mp3
+Sat Mar 10 10:07:21 CST 2018
+@privacycentral 
+
+We live in a state of constant techno-surveillance with privacy implications.
+Therefore we discuss everything from technology tools for safeguarding privacy
+Sat Mar 10 13:05:59 CST 2018
+5153059213
+Sat Mar 10 20:05:44 CST 2018
+xe1phix z4ro:
+Hey, I have a question for you.
+Sat Mar 10 20:09:14 CST 2018
+xe1phix z4ro:
+When I was studying for the LPIC-1, I had minor differences between the certification guides. (The difference was minor topics)
+Sat Mar 10 20:10:16 CST 2018
+xe1phix z4ro:
+However, with the LPIC-2, the difference in material is so much, you could combine it and end up with entire chapters.
+Sat Mar 10 20:11:01 CST 2018
+xe1phix z4ro:
+What ive chosen to do up to this point was to follow the exam objectives on the  LPI site.
+Sat Mar 10 20:11:19 CST 2018
+xe1phix z4ro:
+Now that I've covered over 75%.
+I can't help but question myself.
+Sat Mar 10 23:52:21 CST 2018
+/storage/emulated/0/Pr0n
+Sun Mar 11 05:08:31 CDT 2018
+@paparassi
+Sun Mar 11 05:08:45 CDT 2018
+‌‼️ NEW LINK ‼️
+🔞 PAPARAzzI 🔞
+👉 https://t.me/paparassi
+Sun Mar 11 05:10:16 CDT 2018
+‌‼️ NEW LINK ‼️
+🔞 Fresh Porn 🔞
+👉 https://t.me/freshporn
+Sun Mar 11 05:10:38 CDT 2018
+https://t.me/freshporn
+Sun Mar 11 05:23:14 CDT 2018
+@IndianPorno
+Sun Mar 11 05:23:31 CDT 2018
+@secretsstuff
+Sun Mar 11 05:26:36 CDT 2018
+@Sexy_Fitness_Girls
+Sun Mar 11 05:27:58 CDT 2018
+https://t.me/Russian_Schoolgirls
+Sun Mar 11 05:28:26 CDT 2018
+@Hot_Bitches
+Sun Mar 11 05:28:49 CDT 2018
+@sochni
+Sun Mar 11 05:29:21 CDT 2018
+@mediahud
+Sun Mar 11 13:39:01 CDT 2018
+http://heartwisdom.libsyn.com/ 
+Sun Mar 11 13:39:53 CDT 2018
+http://hackermedia.org
+Sun Mar 11 13:40:25 CDT 2018
+www.hackerpublicradio.org
+Sun Mar 11 13:40:37 CDT 2018
+http://www.hackerpublicradio.org/series.php
+Sun Mar 11 13:42:09 CDT 2018
+http://chaosradio.ccc.de/chaosradio_international-latest.rss
+Sun Mar 11 13:43:13 CDT 2018
+http://duncantrussell.com/category/podcast
+Sun Mar 11 13:43:49 CDT 2018
+http://ramdasshereandnow.libsyn.com
+Sun Mar 11 13:48:29 CDT 2018
+Dr. Bruce Damer
+Sun Mar 11 13:57:43 CDT 2018
+https://archive.org/details/RamDassHereAndNowEp.93TheThinkingMind
+Sun Mar 11 14:00:53 CDT 2018
+https://archive.org/details/Philosophy_138_001_Fall_2010_UC_Berkeley_Philosophy_of_Society
+Sun Mar 11 14:27:50 CDT 2018
+https://archive.org/details/dharmatalks
+Sun Mar 11 14:28:01 CDT 2018
+https://archive.org/details/nissaranavanayaarchive
+Sun Mar 11 14:28:25 CDT 2018
+https://archive.org/search.php?query=subject%3A%22ram+dass%22
+Sun Mar 11 14:29:46 CDT 2018
+https://archive.org/details/PsychedelicSalon183-leary-whathuman1983
+Sun Mar 11 14:30:01 CDT 2018
+https://archive.org/details/youtube-N16Iphyxk00
+Sun Mar 11 14:30:43 CDT 2018
+https://archive.org/details/PsychedelicSalon247-wattsdivinedeath
+Sun Mar 11 14:31:06 CDT 2018
+https://archive.org/details/AlanWatts1
+Sun Mar 11 14:31:29 CDT 2018
+https://archive.org/details/pra-IZ1234B
+Sun Mar 11 14:40:57 CDT 2018
+https://archive.org/details/Episode95AlanWattsZenPretzels
+Sun Mar 11 14:41:08 CDT 2018
+https://archive.org/details/AlanWattsMyselfACaseOfMisatakenIdentityTrack1
+Sun Mar 11 14:41:46 CDT 2018
+https://archive.org/details/247WattsDivineDeath
+Sun Mar 11 14:42:12 CDT 2018
+https://archive.org/details/PsychedelicSalon207-alanwattstribute
+Sun Mar 11 14:42:58 CDT 2018
+Lorenzo Hagerty
+Sun Mar 11 14:43:23 CDT 2018
+https://archive.org/details/pra-IZ1234A
+Sun Mar 11 14:44:04 CDT 2018
+https://archive.org/details/025DrBruceStudioSessionsBUBBLECULTUREPt1
+Sun Mar 11 14:46:33 CDT 2018
+https://archive.org/details/@lorenzohagerty
+Sun Mar 11 14:47:37 CDT 2018
+https://archive.org/details/HibakushaJinxATributeToDoctorTimothyLeary
+Sun Mar 11 14:55:14 CDT 2018
+https://archive.org/details/BestOfBeatGeneration
+Sun Mar 11 14:56:30 CDT 2018
+https://archive.org/details/098GaryFisher6507Disk2
+Sun Mar 11 14:56:38 CDT 2018
+https://archive.org/details/AllenWattsOnMeditation
+Sun Mar 11 14:57:31 CDT 2018
+https://archive.org/details/193WattsLearyHsbtSumit67
+Sun Mar 11 14:57:44 CDT 2018
+https://archive.org/details/Alan_Watts_-_You_are_It
+Sun Mar 11 14:58:11 CDT 2018
+https://archive.org/details/The_Alan_Watt_Collection
+Sun Mar 11 14:58:23 CDT 2018
+https://archive.org/details/183LearyWhatHuman1983
+Sun Mar 11 14:58:35 CDT 2018
+https://archive.org/details/PsychedelicSalon213-wattsalchemylsd
+Sun Mar 11 14:58:43 CDT 2018
+https://archive.org/details/awattsarchive
+Sun Mar 11 14:58:52 CDT 2018
+https://archive.org/details/MysticMindPodcast-Episode8ATributeToAlanWatts
+Sun Mar 11 14:59:17 CDT 2018
+https://archive.org/details/PsychedelicSalon193-wattslearyhsbtsumit67
+Sun Mar 11 14:59:30 CDT 2018
+https://archive.org/details/Tripmastermonk-LostSoulsFeat.AlanWatts
+Sun Mar 11 14:59:39 CDT 2018
+https://archive.org/details/AlanWattsMysticmorals
+Sun Mar 11 15:00:56 CDT 2018
+https://archive.org/details/LecturesOnAlchemyT.McKenna
+Sun Mar 11 15:01:37 CDT 2018
+https://archive.org/details/PsychedelicSalon173-shulgin1998amsterdam
+Sun Mar 11 15:02:01 CDT 2018
+https://archive.org/details/PsychedelicSalon053-asktheshulgins-palenquenorte2006
+Sun Mar 11 15:02:14 CDT 2018
+https://archive.org/details/PsychedelicSalon142-learysf1980part2
+Sun Mar 11 15:02:38 CDT 2018
+https://archive.org/details/PsychedelicSalon222-ottdrugwar01
+Sun Mar 11 15:02:57 CDT 2018
+https://archive.org/details/PsychedeliaDr.BruceDamersodeToTerenceMckenna
+Sun Mar 11 15:03:13 CDT 2018
+https://archive.org/details/PsychedelicSalon025-sashashulgin-cacti
+Sun Mar 11 15:03:23 CDT 2018
+https://archive.org/details/PsychedelicSalon133-leary-cybersociety1987
+Sun Mar 11 15:04:29 CDT 2018
+https://archive.org/details/Psychedelia-video-leary-video4-weatherundergrnd-outtakes-2001
+Sun Mar 11 15:04:51 CDT 2018
+https://archive.org/details/PsychedelicSalon026-erowiddruggeeks
+Sun Mar 11 15:05:19 CDT 2018
+https://archive.org/details/PsychedelicSalon097garyfisher6-5-7disk1
+Sun Mar 11 15:05:28 CDT 2018
+https://archive.org/details/PsychedeliaLorenzoHagertySashaShulginAndBruceDamerAtBurningMan
+Sun Mar 11 15:05:42 CDT 2018
+https://archive.org/details/PsychedelicSalon041-erowidgrassrootspeerreview2002
+Sun Mar 11 15:05:56 CDT 2018
+https://archive.org/details/PsychedelicSalon144-huxley-ultimaterevolution
+Sun Mar 11 15:06:02 CDT 2018
+https://archive.org/details/PsychedelicSalon160-leary1966intrvw
+Sun Mar 11 15:06:18 CDT 2018
+https://archive.org/details/PsychedelicSalon304Learybrown1995
+Sun Mar 11 15:06:29 CDT 2018
+https://archive.org/details/PsychedelicSalon196-learynotredame68
+Sun Mar 11 15:06:54 CDT 2018
+https://archive.org/details/PsychedelicSalon048-burningman2006samples
+Sun Mar 11 15:07:21 CDT 2018
+https://archive.org/details/PsychedelicSalon286Learykpfkpt3
+Sun Mar 11 15:07:47 CDT 2018
+https://archive.org/details/PsychedelicSalon256JonathanOtt-DrugEnhancerCalledChocolate_173
+Sun Mar 11 15:11:40 CDT 2018
+https://archive.org/details/MAPSConference2017-Dr.BruceDamer_DuncanTrussell_AndroidJones_on_Virtual_Reality
+Sun Mar 11 15:13:12 CDT 2018
+https://archive.org/details/drbruce
+Sun Mar 11 15:22:12 CDT 2018
+https://archive.org/details/Dr.BruceDamerOnTangentiallySpeakingByChristopherRyan
+Sun Mar 11 15:26:47 CDT 2018
+https://archive.org/download/The_Alan_Watt_Collection
+Sun Mar 11 17:18:55 CDT 2018
+@pornfactory
+Sun Mar 11 17:20:50 CDT 2018
+@freeporn
+Sun Mar 11 17:22:37 CDT 2018
+9Gag2
+https://t.me/ninegag2
+Sun Mar 11 17:36:27 CDT 2018
+@sexogram
+Mon Mar 12 03:07:13 CDT 2018
+https://www.ramdass.org/ram-dass-here-and-now-podcast-released/
+Wed Mar 14 16:15:18 CDT 2018
+Sam Tripoli
+Sat Mar 17 00:50:51 CDT 2018
+http://www.zencast.org/category/Jack%20Kornfield
+Sat Mar 17 00:51:09 CDT 2018
+https://www.mindpodnetwork.com/category/jack-kornfield/
+Sat Mar 17 00:51:37 CDT 2018
+http://www.dharmaseed.org/talks/
+Sat Mar 17 00:52:05 CDT 2018
+http://podbay.fm/browse/religion-and-spirituality
+Sat Mar 17 00:52:31 CDT 2018
+http://thedrunkentaoist.com/
+Sat Mar 17 00:53:10 CDT 2018
+https://soundcloud.com/beherenownetwork
+Sat Mar 17 00:56:36 CDT 2018
+https://player.fm/featured/buddhist
+Sat Mar 17 00:59:51 CDT 2018
+heart wisdom podcast libsyn
+Sat Mar 17 01:02:48 CDT 2018
+https://m.soundcloud.com/beherenownetwork/jack-kornfield-heart-wisdom-ep-72-exploring-the-eightfold-path
+Sat Mar 17 02:02:51 CDT 2018
+wire.com
+Sat Mar 17 02:06:05 CDT 2018
+https://play.google.com/store/apps/details?id=com.rsa.securidapp
+Sat Mar 17 02:24:39 CDT 2018
+www.oscium.com
+Sat Mar 17 02:33:17 CDT 2018
+https://github.com/meefik/linuxdeploy/wiki
+Sat Mar 17 02:59:55 CDT 2018
+https://github.com/corbinlc/gnuroot
+Sat Mar 17 03:15:48 CDT 2018
+https://github.com/M66B/XPrivacy#xprivacy
+Sat Mar 17 03:30:52 CDT 2018
+https://play.google.com/store/apps/details?id=com.replay.LeisureSuitLarry
+Sat Mar 17 03:47:24 CDT 2018
+https://play.google.com/store/apps/details?id=com.dvdb.bergnotes
+Sat Mar 17 03:49:42 CDT 2018
+https://play.google.com/store/apps/details?id=geckocreativeworks.gemmorg.lite
+Sat Mar 17 03:49:58 CDT 2018
+https://play.google.com/store/apps/details?id=com.cryptobees.mimind
+Sat Mar 17 03:51:29 CDT 2018
+https://play.google.com/store/apps/details?id=air.com.EXswap.Mindomo
+Sat Mar 17 03:55:29 CDT 2018
+https://opensource.srlabs.de/projects/snoopsnitch
+Sat Mar 17 03:56:12 CDT 2018
+PGP fingerprint: 9728 A7F9 D457 1FBB 746F 5381 D52C AC10 634A 9561
+-- snoop snitch
+Sat Mar 17 03:59:14 CDT 2018
+https://play.google.com/store/apps/details?id=edu.berkeley.icsi.netalyzr.android
+Sat Mar 17 04:02:33 CDT 2018
+https://play.google.com/store/apps/details?id=org.secuso.privacyfriendlynetmonitorapp
+Sat Mar 17 04:10:39 CDT 2018
+https://play.google.com/store/apps/details?id=com.intangibleobject.securesettings.plugin
+Sat Mar 17 04:19:43 CDT 2018
+AnkiDroid
+Sat Mar 17 04:29:22 CDT 2018
+http://forum.xda-developers.com/android/apps-games/app-noroot-data-firewall-t2996614
+Sat Mar 17 04:47:36 CDT 2018
+Wire.com
+Sat Mar 17 04:58:31 CDT 2018
+Wi-Fi Privacy Police (Prevent leaking sensitive data on WiFi) - https://f-droid.org/app/be.uhasselt.privacypolice
+Sat Mar 17 05:05:57 CDT 2018☆★☆
+https://hosts-file.net/ad_servers.txt
+Sat Mar 17 05:06:26 CDT 2018☆★☆
+http://winhelp2002.mvps.org/hosts.txt
+Sat Mar 17 05:06:42 CDT 2018☆★☆
+https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt
+Sat Mar 17 05:07:06 CDT 2018☆★☆
+https://adaway.org/hosts.txt
+Sat Mar 17 05:07:22 CDT 2018☆★☆
+https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+Sat Mar 17 05:07:35 CDT 2018☆★☆
+http://someonewhocares.org/hosts/hosts
+Sat Mar 17 05:07:49 CDT 2018☆★☆
+https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0
+Sat Mar 17 05:08:03 CDT 2018☆★☆
+https://raw.githubusercontent.com/ZeroDot1/CoinBlockerLists/master/hosts
+Sat Mar 17 05:08:33 CDT 2018☆★☆
+https://mirror1.malwaredomains.com/files/justdomains
+Sat Mar 17 05:08:43 CDT 2018☆★☆
+https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt
+Sat Mar 17 05:09:13 CDT 2018☆★☆
+https://s3.amazonaws.com/lists.disconnect.me/simple_malware.txt
+Sat Mar 17 05:10:50 CDT 2018
+https://github.com/CHEF-KOCH/NSABlocklist/blob/master/HOSTS.txt
+Sat Mar 17 05:12:32 CDT 2018
+http://www.fanboy.co.nz/fanboy-ultimate.txt
+Sat Mar 17 05:13:42 CDT 2018
+mirror1.malwaredomains.com/files/immortal_domains.txt
+Sat Mar 17 05:14:28 CDT 2018
+mirror1.malwaredomains.com/files/justdomains
+Sat Mar 17 05:14:59 CDT 2018
+http://spam404bl.com/blacklist.txt
+Sat Mar 17 05:15:29 CDT 2018☆★☆
+http://www.malwaredomainlist.com/hostslist/hosts.txt
+Sat Mar 17 05:15:51 CDT 2018☆★☆
+easylist-downloads.adblockplus.org/easyprivacy.txt
+Sat Mar 17 05:16:25 CDT 2018☆★☆
+http://www.fanboy.co.nz/enhancedstats.txt
+Sat Mar 17 05:17:31 CDT 2018
+easylist-downloads.adblockplus.org/easylist.txt
+Sat Mar 17 05:18:19 CDT 2018
+raw.githubusercontent.com/reek/anti-adblock-killer/master/anti-adblock-killer-filters.txt
+Sat Mar 17 05:19:02 CDT 2018☆★☆
+http://gnuzilla.gnu.org/filters/blacklist.txt
+Sat Mar 17 05:19:37 CDT 2018☆★☆
+https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
+Sat Mar 17 05:22:25 CDT 2018
+https://github.com/topjohnwu/Magisk_Repo_Central
+Sat Mar 17 05:25:37 CDT 2018
+downloads.adblockplus.org/fanboy-social.txt
+Sat Mar 17 05:25:44 CDT 2018
+easylist-downloads.adblockplus.org/fanboy-annoyance.txt
+Sat Mar 17 05:26:07 CDT 2018☆★☆
+http://www.fanboy.co.nz/fanboy-antifacebook.txt
+Sat Mar 17 05:27:08 CDT 2018
+https://github.com/AdAway/AdAway/wiki/HostsSources
+Sat Mar 17 05:27:28 CDT 2018
+https://github.com/collinbarrett/FilterLists
+Sat Mar 17 05:27:48 CDT 2018
+https://gist.github.com/CHEF-KOCH
+Sat Mar 17 05:28:39 CDT 2018
+https://weakpass.com/wordlist/real
+Sat Mar 17 05:34:06 CDT 2018
+https://f-droid.org/app/org.xposeddownloader
+Sat Mar 17 05:34:08 CDT 2018
+Xposed Downloader (Download Xposed Framework zip) - https://f-droid.org/app/org.xposeddownloader
+Sat Mar 17 06:35:29 CDT 2018
+Blokada Chat
+
+ t.me/blokadaorg
+https://t.me/blokadachat
+Sat Mar 17 06:35:53 CDT 2018
+Blokada News
+The official news and announcements channel of Blokada ad blocker. You may also want to join the chat at t.me/blokadachat
+https://t.me/blokadaorg
+Sat Mar 17 11:03:16 CDT 2018
+https://www.youtube.com/watch?v=sF3aZyNDF1Q
+Sat Mar 17 21:27:34 CDT 2018
+463139
+Sat Mar 17 21:45:41 CDT 2018
+936800
+Sun Mar 18 01:29:46 CDT 2018
+534442
+Sun Mar 18 08:52:46 CDT 2018
+@kalilinux
+Wed Mar 21 19:58:45 CDT 2018
+ZBro:
+withdrawal man
+Fri Mar 23 08:06:47 CDT 2018
+https://m.imdb.com/title/tt6220290/?ref_=fn_al_tt_0
+Fri Mar 23 08:12:15 CDT 2018
+scatological matters.
+Sat Mar 24 14:24:03 CDT 2018
+88℅ white privledge
+Sat Mar 24 19:57:48 CDT 2018
+On the beach
+Mon Mar 26 16:56:02 CDT 2018
+ZBro:
+'I'm going to put my doll heads in it'
+Mon Mar 26 21:33:38 CDT 2018
+ZBro:
+hes a happy boy when im home
+Wed Mar 28 12:45:06 CDT 2018
+xe1phix z4ro:
+"Guy buys some flowers for his wife, and brings them home to her. She says oh boy, now I have to spread my legs. He goes; why? Don't you have a vase?"
+Fri Mar 30 12:44:59 CDT 2018
+@Sexiest_Gifs
+Fri Mar 30 12:45:37 CDT 2018
+@AmateurPornPic
+Fri Mar 30 12:46:22 CDT 2018
+@freshporn
+Fri Mar 30 12:46:55 CDT 2018
+@Skinny_girlss
+Fri Mar 30 12:47:13 CDT 2018
+https://t.me/bestpornogifs
+Fri Mar 30 12:49:45 CDT 2018
+@analny
+Fri Mar 30 12:52:18 CDT 2018
+@stickergram
+Fri Mar 30 12:57:27 CDT 2018
+@SaucePls2D
+Fri Mar 30 12:57:39 CDT 2018
+@hentaimult
+Fri Mar 30 13:00:24 CDT 2018
+https://t.me/ParrotSecFrance
+Fri Mar 30 13:00:46 CDT 2018
+No 0ne:
+@parrotsecitaly
+Fri Mar 30 13:01:02 CDT 2018
+NEMO:
+Join Parrot Security Indian Community at @parrotsecindia
+Fri Mar 30 13:03:18 CDT 2018
+@TlgrmChannels
+Fri Mar 30 13:09:52 CDT 2018
+@ThePCMasterRace
+Fri Mar 30 13:10:03 CDT 2018
+@did_you_know
+Fri Mar 30 13:10:11 CDT 2018
+@Sasha_Greyyy
+Fri Mar 30 13:10:47 CDT 2018
+@eDenInfo
+Fri Mar 30 13:11:36 CDT 2018
+@features
+Fri Mar 30 13:14:24 CDT 2018
+Homer Simpson
+
+stickers
+Fri Mar 30 13:15:06 CDT 2018
+Merkel
+Fri Mar 30 13:15:18 CDT 2018
+stickers
+Angela Merkel
+
+Merkel pack
+Fri Mar 30 13:16:01 CDT 2018
+Longcat vs. Tacgnol
+
+longcat stickers
+Fri Mar 30 13:16:50 CDT 2018
+Pepelicious
+
+#Official #Contest2016 #Cartoon
+Fri Mar 30 13:25:10 CDT 2018
+@justmemes
+Fri Mar 30 13:25:57 CDT 2018
+https://t.me/tporndotcom
+
+https://t.me/pornfactory
+
+https://t.me/porno_sex
+
+https://t.me/retrofucking
+
+https://t.me/newsezygif
+
+https://t.me/spyphoto
+
+https://t.me/sweetanal
+
+https://t.me/dolbaebgif
+
+https://t.me/yobagif
+
+https://t.me/squirtanal
+
+https://t.me/giffree
+
+https://t.me/giffree
+https://t.me/newsezygif
+https://t.me/PartyGirl
+https://t.me/FuckinAss
+
+https://t.me/pornsnapchat
+https://t.me/coolteleporngif
+
+https://t.me/secretdesires
+https://t.me/DaGFs
+https://t.me/christy_mack
+https://t.me/hotbaza
+https://t.me/xxxcloud
+https://t.me/teen_porn
+https://t.me/JapanSex
+
+https://t.me/masterporno
+https://t.me/sexygirlsff
+https://t.me/hotgifschannel
+https://t.me/eroticporngif
+https://t.me/selfiru
+https://t.me/pornogram
+https://t.me/sg_channel
+
+https://t.me/SEXinCAR
+https://t.me/iGIFyouPORN
+https://t.me/iloveporn
+
+https://t.me/PornAddict
+https://t.me/porno_chat
+https://t.me/freeporngif1
+
+https://t.me/allaboutsexgif
+https://t.me/gifpornxxx
+https://t.me/epicporngifs
+https://t.me/squirtanal
+
+https://t.me/Pozisex
+https://t.me/humor18
+Fri Mar 30 13:27:06 CDT 2018
+@allaboutsexgif
+Fri Mar 30 13:27:47 CDT 2018
+@secretdesires
+Fri Mar 30 13:28:19 CDT 2018
+@DaGFs
+Fri Mar 30 13:30:12 CDT 2018
+@pornogram
+Fri Mar 30 13:30:22 CDT 2018
+@eroticporngif
+Fri Mar 30 13:30:52 CDT 2018
+@PornAddict
+Fri Mar 30 13:31:10 CDT 2018
+@freeporngif1
+Fri Mar 30 13:39:03 CDT 2018
+@xxx_telega
+Fri Mar 30 13:46:43 CDT 2018
+@Pozisex
+Fri Mar 30 13:58:19 CDT 2018
+@CreampieGIFs
+Fri Mar 30 13:58:52 CDT 2018
+@TopTierAnalGIFs
+Fri Mar 30 14:04:29 CDT 2018
+@linuxhardening
+Fri Mar 30 18:35:22 CDT 2018
+xe1phix z4ro:
+https://m.youtube.com/watch?v=wy2ef9vFqZg
+Fri Mar 30 20:01:41 CDT 2018
+https://freedombox.org/
+Sat Mar 31 18:30:46 CDT 2018
+prejudice
+Sun Apr 01 00:01:06 CDT 2018
+Ryan:
+🔥🔥🔥Rules and Resources🔥🔥🔥
+
+🔥Rules:🔥
+ 
+1) Practce right speech by refraining from false, divisive, and harsh speech.
+
+2) Refrain from encouraging, boasting about, or idle chatter about breaking the five precepts (including drugs).
+
+Five Precepts: 
+
+1) I undertake the precept to refrain from destroying living creatures.
+
+2) I undertake the precept to refrain from taking that which is not given.
+
+3) I undertake the precept to refrain from sexual misconduct.
+
+4) I undertake the precept to refrain from incorrect speech.
+
+5) I undertake the precept to refrain from intoxicating drinks and drugs which lead to carelessness.
+
+🔥Resources:🔥
+
+✌How to Meditate:
+
+https://m.youtube.com/playlist?list=PL603BD0B03E12F5A1
+
+✌Self guided tour of the Buddhas teachings:
+
+http://www.accesstoinsight.org/ptf/index.html
+
+✌Dhamma Talks:
+
+Thanissaro Bhikkhu - https://m.youtube.com/channel/UC6FSq_ptJ-I6aTHT-XA_e0Q
+Ajhan Brahm and others - https://m.youtube.com/channel/UC6M_EhnSSdTG_SXUp6IAWmQ
+Bhante Yuttadhammo - https://m.youtube.com/user/yuttadhammo
+
+Bhante Vimalaramsi: https://m.youtube.com/user/begintosee
+
+Many more at http://Dharmaseed.org
+
+✌History and differences between the major sects:
+
+https://m.youtube.com/watch?v=GDI6VYAMzIA
+
+✌Suttas (scriptures):
+
+https://suttacentral.net
+
+✌Buddhismchat free books: https://telegram.me/joinchat/DFwgeT60yIfzdPsRaIwJ9Q
+
+Ask for recommendations.
+
+🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+Sun Apr 01 00:01:39 CDT 2018
+https://youtu.be/NK0Q3wUqkOo
+Sun Apr 01 00:04:42 CDT 2018
+😁Fuck sluts every day. It is so simple!
+😃Трахай шлюх каждый день. Это так просто!
+⬇️⬇️⬇️⬇️⬇️⬇️
+https://goo.gl/r4pPri
+Sun Apr 01 00:15:19 CDT 2018
+💦 https://goo.gl/DJJhKL  🔞⛔️ porn anal
+🔞 https://goo.gl/NJhN18 👈 sucks wildly
+🤑 https://goo.gl/HWH4sh 💵 Money
+Sun Apr 01 02:10:59 CDT 2018
+@Crypto_Analysis_News
+Sun Apr 01 02:12:04 CDT 2018
+https://t.me/joinchat/BvtJ30HveGesl5jHPG0VlQ
+Sun Apr 01 02:12:13 CDT 2018
+‌‼️ NEW LINK ‼️
+🔞 Hentai 3D english 🔞
+👉 https://t.me/joinchat/BvtJ30HveGesl5jHPG0VlQ
+Sun Apr 01 02:12:58 CDT 2018
+@Gif_Exclusive
+Sun Apr 01 13:14:01 CDT 2018
+xe1phix z4ro:
+'Cause I drop punk-ass bitches like a modem drops packets. 
+Dump your motherfucking core, and trace your stack 
+'Cause where your ass is going, there won't be no callback.
+Sun Apr 01 13:18:12 CDT 2018
+yo MC++, you such a fucking hardcore computer scientist... why don't the track numbers of your album start at 0? Bitch!
+
+I guess I'll have to shut you down for good this time,
+Already tried a SIGQUIT, so now it's KILL DASH 9.
+You gotta learn when it's time for your thread to yield;
+It shoulda slept; instead you stepped and now your fate is sealed.
+I'll take your process off the run queue without even asking
+'Cause my flow is like reentrant and preemptive multitasking.
+Your sad rhymes are spinnin' like you're in a deadlock,
+You're like a synchronous sock that don't know when to block;
+So I pull out my keyboard and I pull out my glock,
+And I dismount your girl and I mount /proc
+And I've got your fuckin pid and the bottom line
+Is that you best not front or else it's KILL DASH NINE.
+
+KILL DASH NINE,
+No more CPU time.
+I run KILL DASH NINE,
+And your process is mine.
+I run KILL DASH NINE,
+'Cause it's MY time to shine
+So don't step outta line or else it's
+KILL DASH NINE!
+
+See it ain't about the Benjamins or Pentiums or Athlons,
+But you rappin' 50 meters while I'm spittin' in decathlons.
+Your shit's old and busted, mine's the new hotness;
+You're like CLR and I'm like CLRS.
+You're running csh and my shell is bash,
+You're the tertiary storage; I'm the L1 cache.
+I'm a web crawling spider; you an Internet mosquito;
+You thought the 7-layer model referred to a burrito.
+You're a dialup connection; I'm a gigabit LAN.
+I last a mythical man-month; you a one-minute man.
+It's like I'm running Thunderbird and you're still stuck with Pine,
+Which is why I think it's time for me to KILL DASH NINE.
+
+Yeah it's KILL DASH NINE
+No more CPU time.
+'Cause it's KILL DASH NINE,
+And your process is mine.
+I said KILL DASH NINE
+'Cause it's my time to shine,
+So don't step outta line or else it's
+KILL DASH NINE!
+
+My posse throws down like leaky bucket regulators;
+I was coding shit in MIPS while you were playing Space Invaders.
+With my finger on the trigger I run ./configure
+Yo, this package is big, but MY package is bigger.
+I roll my weed with Zig Zag while I zag-zig splay,
+And I do a bounds check before I write to an array.
+I'm a loc'd out baller writing KLOCS a day,
+'Cause it's publish or perish, fool, what can I say?
+I'm 26 now, will I live to see 28?
+Some days I wonder if I'll survive to graduate.
+But hey, that's just fine, I won't ever resign,
+And if fools try to step then it's KILL DASH NINE!
+
+Yeah it's KILL DASH NINE,
+From my command line
+It's KILL DASH NINE
+Sending chills down your spine,
+I said KILL DASH NINE,
+'Cause it's my time to shine,
+So don't step outta line or else it's
+KILL DASH NINE!
+
+fs sa rlidwka
+I'll chown your home and take your access away
+Comin' straight outta Stanford, ain't nobody tougher,
+Control-X, Control-C, I'll discard your fuckin' buffer.
+You're outside your scope, son, close them curly brackets,
+'Cause I drop punk-ass bitches like a modem drops packets.
+Dump your motherfucking core, and trace your stack
+'Cause where your ass is going, there won't be no callback.
+See my style is divine and my code is sublime,
+My career's in a climb and yours is in a decline.
+I'll write a pound-define and assign you as mine,
+So refine those sad rhymes or remove your plus signs,
+
+Or it's KILL DASH NINE,
+No more CPU time,
+'Cause it's KILL DASH NINE,
+And your process is mine,
+I said KILL DASH NINE
+'Cause it's my time to shine,
+Bitch you stepped outta line and now it's
+KILL DASH NINE!
+Sun Apr 01 13:19:22 CDT 2018
+https://youtube.com/watch?v=0rG74rG_ubs
+Sun Apr 01 15:19:58 CDT 2018
+/storage/emulated/0/
+Sun Apr 01 23:22:49 CDT 2018
+@iloveanalporn
+Thu Apr 05 12:25:21 CDT 2018
+"Prolong not the past.
+Invite not the future.
+Don't alter your innate wakefulness.
+Don't fear appearances.
+Its nothing more then that."
+Thu Apr 05 13:48:40 CDT 2018
+https://youtube.com/watch?v=Ir5ydNXpJlA
+Thu Apr 05 13:49:00 CDT 2018
+https://youtube.com/watch?v=hQnlLdvmlHU
+Mon Apr 09 02:11:39 CDT 2018
+Assfucking the demons out of her
+Wed Apr 11 22:06:10 CDT 2018
+xe1phix z4ro:
+BSides is on the saturday the 14th. You guys wanna carpool?
+Fri Apr 13 19:34:45 CDT 2018
+Fwknop2 (Client to send SPA packets to a fwknopd server) - https://f-droid.org/app/org.cipherdyne.fwknop2
+Sat Apr 14 00:25:05 CDT 2018
+Life Must Be A Preparation For The Transition To Another Dimension
+
+Sat Apr 14 00:30:43 CDT 2018
+xe1phix z4ro:
+I told him "the mind is a wonderful servant, but a terrible master."
+Sat Apr 14 00:32:13 CDT 2018
+Blissful Savant 尊捨:
+or a dollar... for one hundred dollars. And what sort of person is not thrown into jail for half a dollar... for a dollar... for one hundred dollars? There is the case where a person is wealthy, with many belongings, many possessions. This is the sort of person who is not thrown into jail for half a dollar... for a dollar... for one hundred dollars.
+
+"In the same way, there is the case where a trifling evil deed done by one individual takes him to hell; and there is the case where the very same sort of trifling deed done by the other individual is experienced in the here & now, and for the most part barely appears for a moment.
+
+"Now, a trifling evil deed done by what sort of individual takes him to hell? There is the case where a certain individual is undeveloped in [contemplating] the body, undeveloped in virtue, undeveloped in mind, undeveloped in discernment: restricted, small-hearted, dwelling with suffering. A trifling evil deed done by this sort of individual takes him to hell.
+
+"Now, a trifling evil deed done by what sort of individual is experienced in the here & now, and for the most part barely appears for a moment? There is the case where a certain individual is developed in [contemplating] the body, developed in virtue, developed in mind, developed in discernment: unrestricted, large-hearted, dwelling with the immeasurable. A trifling evil deed done by this sort of individual is experienced in the here & now, and for the most part barely appears for a moment.
+
+"It's just as when a goat butcher is empowered to beat or bind or slay or treat as he likes a certain person who steals a goat, but is not empowered to beat or bind or slay or treat as he likes another person who steals a goat. Now, when what sort of person has stolen a goat is the goat butcher empowered to beat him or bind him or slay him or treat him as he likes? There is the case where a person is poor, of little wealth, of few possessions. This is the sort of person who, when he has stolen a goat, the goat butcher is empowered to beat or bind or slay or treat as he likes. And when what sort of person has stolen a goat is the goat butcher not empowered to beat him or bind him or slay him or treat him as he likes? There is the case where a person is wealthy, with many belongings, many possessions; a king or a king's minister. This is the sort of person who, when he has stolen a goat, the goat butcher is not empowered to beat or bind or slay or treat as he likes. All he can do is go with his hands clasped before his heart and beg: 'Please, dear sir, give me a goat or the price of a goat.'
+
+"In the same way, there is the case where a trifling evil deed done by one individual takes him to hell; and there is the case where the very same sort of trifling deed done by the other individual is experienced in the here & now, and for the most part barely appears for a moment.
+
+"Now, a trifling evil deed done by what sort of individual takes him to hell? There is the case where a certain individual is undeveloped in [contemplating] the body, undeveloped in virtue, undeveloped in mind, undeveloped in discernment: restricted, small-hearted, dwelling with suffering. A trifling evil deed done by this sort of individual takes him to hell.
+
+"Now, a trifling evil deed done by what sort of individual is experienced in the here & now, and for the most part barely appears for a moment? There is the case where a certain individual is developed in [contemplating] the body, developed in virtue, developed in mind, developed in discernment: unrestricted, large-hearted, dwelling with the immeasurable. A trifling evil deed done by this sort of individual is experienced in the here & now, and for the most part barely appears for a moment.
+
+"Monks, for anyone who says, 'In whatever way a person makes kamma, that is how it is experienced,' there is no living of the holy life, there is no opportunity for the right ending of stress. But for anyone who says, 'When a person makes kamma to be felt in such & such a way, that is how its result is experienced,' there is the living of the
+Sat Apr 14 00:48:54 CDT 2018
+https://www.eventbrite.com/e/bsidesiowa-2018-security-conference-tickets-40728653499?aff=WebSite
+Sat Apr 14 00:51:57 CDT 2018
+ZBro:
+but why
+Sat Apr 14 00:54:56 CDT 2018
+xe1phix z4ro:
+yo MC++, you such a fucking hardcore computer scientist... why don't the track numbers of your album start at 0? Bitch! I guess I'll have to shut you down for good this time, Already tried a SIGQUIT, so now it's KILL DASH 9. You gotta learn when it's time for your thread to yield; It shoulda slept; instead you stepped and now your fate is sealed. I'll take your process off the run queue without even asking 'Cause my flow is like reentrant and preemptive multitasking. Your sad rhymes are spinnin' like you're in a deadlock, You're like a synchronous sock that don't know when to block; So I pull out my keyboard and I pull out my glock, And I dismount your girl and I mount /proc And I've got your fuckin pid and the bottom line Is that you best not front or else it's KILL DASH NINE. KILL DASH NINE, No more CPU time. I run KILL DASH NINE, And your process is mine. I run KILL DASH NINE, 'Cause it's MY time to shine So don't step outta line or else it's KILL DASH NINE! See it ain't about the Benjamins or Pentiums or Athlons, But you rappin' 50 meters while I'm spittin' in decathlons. Your shit's old and busted, mine's the new hotness; You're like CLR and I'm like CLRS. You're running csh and my shell is bash, You're the tertiary storage; I'm the L1 cache. I'm a web crawling spider; you an Internet mosquito; You thought the 7-layer model referred to a burrito. You're a dialup connection; I'm a gigabit LAN. I last a mythical man-month; you a one-minute man. It's like I'm running Thunderbird and you're still stuck with Pine, Which is why I think it's time for me to KILL DASH NINE. Yeah it's KILL DASH NINE No more CPU time. 'Cause it's KILL DASH NINE, And your process is mine. I said KILL DASH NINE 'Cause it's my time to shine, So don't step outta line or else it's KILL DASH NINE! My posse throws down like leaky bucket regulators; I was coding shit in MIPS while you were playing Space Invaders. With my finger on the trigger I run ./configure Yo, this package is big, but MY package is bigger. I roll my weed with Zig Zag while I zag-zig splay, And I do a bounds check before I write to an array. I'm a loc'd out baller writing KLOCS a day, 'Cause it's publish or perish, fool, what can I say? I'm 26 now, will I live to see 28? Some days I wonder if I'll survive to graduate. But hey, that's just fine, I won't ever resign, And if fools try to step then it's KILL DASH NINE! Yeah it's KILL DASH NINE, From my command line It's KILL DASH NINE Sending chills down your spine, I said KILL DASH NINE, 'Cause it's my time to shine, So don't step outta line or else it's KILL DASH NINE! fs sa rlidwka I'll chown your home and take your access away Comin' straight outta Stanford, ain't nobody tougher, Control-X, Control-C, I'll discard your fuckin' buffer. You're outside your scope, son, close them curly brackets, 'Cause I drop punk-ass bitches like a modem drops packets. Dump your motherfucking core, and trace your stack 'Cause where your ass is going, there won't be no callback. See my style is divine and my code is sublime, My career's in a climb and yours is in a decline. I'll write a pound-define and assign you as mine, So refine those sad rhymes or remove your plus signs, Or it's KILL DASH NINE, No more CPU time, 'Cause it's KILL DASH NINE, And your process is mine, I said KILL DASH NINE 'Cause it's my time to shine, Bitch you stepped outta line and now it's KILL DASH NINE!
+Sat Apr 14 00:58:00 CDT 2018
+Cause I drop punk-ass bitches like a modem drops packets.
+Sat Apr 14 00:59:24 CDT 2018
+I'm a web crawling spider; you an Internet mosquito; You thought the 7-layer model referred to a burrito. You're a dialup connection; I'm a gigabit LAN. I last a mythical man-month; you a one-minute man. It's like I'm running Thunderbird and you're still stuck with Pine
+Sat Apr 14 01:00:17 CDT 2018
+I'm a web crawling spider; you an Internet mosquito; You thought the 7-layer model referred to a burrito. You're a dialup connection; I'm a gigabit LAN. It's like I'm running Thunderbird and you're still stuck with Pine
+Sat Apr 14 01:15:11 CDT 2018
+xe1phix z4ro:
+You wouldn't get it. 
+Your more of  an Apple plug kinda guy
+Sat Apr 14 09:01:40 CDT 2018
+https://mapspodcast.libsyn.com/
+Sat Apr 14 09:03:27 CDT 2018
+http://psychedelicmilk.libsyn.com/
+Sat Apr 14 12:58:48 CDT 2018
+ZBro:
+ur right, i wouldnt get it
+Wed Apr 18 16:49:39 CDT 2018
+Jordan:
+I need a boy in a wheelchair, don't care if he's black, white or in between RIGHT NOW RIGHT NOW RIGHT NOW!
+
+https://www.youtube.com/watch?v=9FJNzy1rHV4
+Thu Apr 26 22:54:48 CDT 2018
+https://github.com/pyllyukko/user.js
+Fri Apr 27 15:45:57 CDT 2018
+@MetaphysicsAndPhilosophy
+Fri Apr 27 19:03:14 CDT 2018
+https://youtube.com/channel/UC4rzx4VToyHJDWbAEJ5cMxQ/videos
+Sat Apr 28 13:50:56 CDT 2018
+023640
+Sat Apr 28 13:52:46 CDT 2018
+768870
+Sat Apr 28 13:57:51 CDT 2018
+701448
+Sat Apr 28 17:13:46 CDT 2018
+I would like to give another infosec talk. At corncon last year I created scripts that I publicly released on my github, as well as a live CLI demo, and links to my YouTube channel replicating the steps. 
+Sat Apr 28 20:24:45 CDT 2018
+intent://org.telegram.messenger.provider/media/Telegram/Telegram%20Documents/1_5118677027632709677.wav#Intent;scheme=content;type=audio/x-wav;launchFlags=0x3000000;end 
+------------ 
+ACTION: android.intent.action.VIEW 
+DATA: content://org.telegram.messenger.provider/media/Telegram/Telegram%20Documents/1_5118677027632709677.wav 
+MIME: audio/x-wav 
+URI: intent://org.telegram.messenger.provider/media/Telegram/Telegram%20Documents/1_5118677027632709677.wav#Intent;scheme=content;type=audio/x-wav;launchFlags=0x3000000;end 
+FLAGS: 
+FLAG_ACTIVITY_FORWARD_RESULT 
+FLAG_ACTIVITY_PREVIOUS_IS_TOP 
+
+------------ 
+MATCHING ACTIVITIES: 
+VLC (org.videolan.vlc - org.videolan.vlc.StartActivity) 
+
+Sat Apr 28 21:05:45 CDT 2018
+ParrotSec-Building A Restricted & Trustworthy Environment-.txt
+Sat Apr 28 21:18:43 CDT 2018
+thoroughly documented, 
+Sun Apr 29 09:20:25 CDT 2018
+@parrotsecgroup
+Sun Apr 29 09:21:09 CDT 2018
+@linux_group
+Sun Apr 29 09:21:33 CDT 2018
+@DebianProject
+Sun Apr 29 09:22:04 CDT 2018
+@debiangroup
+Sun Apr 29 09:22:39 CDT 2018
+@QubesOS
+Sun Apr 29 09:22:57 CDT 2018
+@asknoahshow
+Mon Apr 30 00:47:34 CDT 2018
+I just read some clinical trials on the  placebo effect. And in one trial they had subjects imagine themselves flexing. And they had sensors to make sure the muscles weren't being flexed. And they found the focus groups subjects muscles became 15% stronger.
+Mon Apr 30 04:46:11 CDT 2018
+xe1phix z4ro:
+Its so powerfully ironic that the most complex metaphysical concepts are strangely inner twinned with simplicity.
+Mon Apr 30 05:39:42 CDT 2018
+https://samharris.org/the-illusion-of-the-self2/
+Mon Apr 30 05:44:50 CDT 2018
+Dan Harris
+Mon Apr 30 05:47:32 CDT 2018
+alan watts nothingness 
+Mon Apr 30 05:53:34 CDT 2018
+https://m.youtube.com/playlist?list=PLwJtfD75oryyaxJ_YTwB5-8wFD4g9s7i-
+Mon Apr 30 05:54:13 CDT 2018
+https://m.youtube.com/watch?v=Iua_XU5KZNA
+
+https://samharris.org/podcasts/111-science-meditation/
+
+https://samharris.org/the-illusion-of-the-self2/
+
+https://samharris.org/podcasts/questions-along-the-way-further-reflections-on-the-practice-of-meditation-w/
+
+https://samharris.org/podcasts/the-path-and-the-goal/
+
+https://samharris.org/taming-the-mind/
+
+https://m.youtube.com/playlist?list=PLu54AxhYKtw76BkpwYHZSEOvnN3Ymmj0x
+
+https://m.youtube.com/watch?v=1Dg7VlvvM88
+
+https://m.youtube.com/playlist?list=PLwJtfD75oryyaxJ_YTwB5-8wFD4g9s7i-
+
+https://m.youtube.com/watch?v=xzfSPK9eE_E
+Mon Apr 30 05:57:30 CDT 2018
+Trialogue
+Mon Apr 30 06:07:33 CDT 2018
+https://m.youtube.com/watch?v=Iua_XU5KZNA
+
+https://samharris.org/podcasts/111-science-meditation/
+
+https://samharris.org/the-illusion-of-the-self2/
+
+https://samharris.org/podcasts/questions-along-the-way-further-reflections-on-the-practice-of-meditation-w/
+
+https://samharris.org/podcasts/the-path-and-the-goal/
+
+https://samharris.org/taming-the-mind/
+
+https://m.youtube.com/playlist?list=PLu54AxhYKtw76BkpwYHZSEOvnN3Ymmj0x
+
+https://m.youtube.com/watch?v=1Dg7VlvvM88
+
+https://m.youtube.com/playlist?list=PLwJtfD75oryyaxJ_YTwB5-8wFD4g9s7i-
+
+https://m.youtube.com/watch?v=xzfSPK9eE_E
+
+https://m.youtube.com/watch?v=lYOC_IFmWzE
+
+https://archive.org/details/PsychedeliaRawAudioOfTheTrialoguesmckennaAbrahamSheldrake
+
+https://archive.org/details/psychedelia_collection
+
+https://archive.org/details/PsychedelicSalonALL
+
+https://archive.org/details/PsychedelicSalon015-garyFisherTreatingChildhoodSchizophrenia
+
+https://archive.org/details/PsychedeliaRawArchivesOfTerenceMckennaTalks
+
+https://archive.org/details/Tim_Leary_Archive
+
+https://archive.org/details/Psychedelia-91-rawAudioFilesFromTheTimothyLearyArchives
+Mon Apr 30 06:16:30 CDT 2018
+https://archive.org/details/youtube-BDpcX-cC62M
+Mon Apr 30 06:23:36 CDT 2018
+https://archive.org/details/Psychedelia-91-rawAudioFilesFromTheTimothyLearyArchives
+Mon Apr 30 06:26:19 CDT 2018
+maharishi
+Mon Apr 30 06:27:44 CDT 2018
+https://plato.stanford.edu/entries/qt-consciousness/
+Mon Apr 30 06:30:04 CDT 2018
+https://plato.stanford.edu/entries/james/
+Mon Apr 30 06:30:15 CDT 2018
+https://plato.stanford.edu/entries/russell/
+Mon Apr 30 06:33:32 CDT 2018
+https://plato.stanford.edu/entries/mental-causation/
+Mon Apr 30 06:34:10 CDT 2018
+https://plato.stanford.edu/entries/causation-metaphysics/
+Mon Apr 30 06:34:58 CDT 2018
+https://plato.stanford.edu/entries/metaphysics/#Rel
+Mon Apr 30 06:36:42 CDT 2018
+https://plato.stanford.edu/search/r?entry=/entries/descartes-modal/&page=2&total_hits=1146&pagesize=10&archive=None&rank=10&query=Metaphysics
+Mon Apr 30 06:37:02 CDT 2018
+https://plato.stanford.edu/search/r?entry=/entries/kant-metaphysics/&page=2&total_hits=1146&pagesize=10&archive=None&rank=13&query=Metaphysics
+Mon Apr 30 06:37:18 CDT 2018
+https://plato.stanford.edu/entries/kant-metaphysics/
+Mon Apr 30 06:38:29 CDT 2018
+https://plato.stanford.edu/entries/qt-idind/
+Mon Apr 30 06:39:12 CDT 2018
+https://plato.stanford.edu/entries/qm-decoherence/
+Mon Apr 30 06:41:47 CDT 2018
+https://plato.stanford.edu/entries/structural-realism/#Rel
+Mon Apr 30 06:42:26 CDT 2018
+https://plato.stanford.edu/entries/identity-indiscernible/
+Mon Apr 30 06:44:21 CDT 2018
+https://plato.stanford.edu/entries/kant/
+Mon Apr 30 06:44:33 CDT 2018
+https://plato.stanford.edu/entries/descartes/
+Mon Apr 30 06:44:44 CDT 2018
+https://plato.stanford.edu/entries/burke/
+Mon Apr 30 06:45:45 CDT 2018
+https://m.youtube.com/watch?v=Iua_XU5KZNA
+Mon Apr 30 06:45:54 CDT 2018
+https://samharris.org/podcasts/111-science-meditation
+Mon Apr 30 06:46:38 CDT 2018
+https://m.youtube.com/watch?v=1Dg7VlvvM88
+Mon Apr 30 06:46:47 CDT 2018
+https://m.youtube.com/playlist?list=PLu54AxhYKtw76BkpwYHZSEOvnN3Ymmj0x
+Mon Apr 30 06:47:12 CDT 2018
+https://m.youtube.com/watch?v=xzfSPK9eE_E
+Mon Apr 30 06:47:24 CDT 2018
+https://m.youtube.com/watch?v=lYOC_IFmWzE
+Mon Apr 30 06:47:39 CDT 2018
+https://archive.org/details/PsychedeliaRawAudioOfTheTrialoguesmckennaAbrahamSheldrake
+Mon Apr 30 06:47:47 CDT 2018
+https://archive.org/details/psychedelia_collection
+Mon Apr 30 06:48:10 CDT 2018
+https://archive.org/details/PsychedelicSalonALL
+Mon Apr 30 06:48:34 CDT 2018
+https://vimeo.com/125312075
+Mon Apr 30 06:48:44 CDT 2018
+https://vimeo.com/26044511
+Mon Apr 30 06:48:51 CDT 2018
+https://m.youtube.com/watch?v=wGLLDEYFAzs
+Mon Apr 30 06:49:06 CDT 2018
+https://plato.stanford.edu/entries/qt-consciousness
+Mon Apr 30 06:50:10 CDT 2018
+https://samharris.org/the-illusion-of-the-self2
+Mon Apr 30 06:52:41 CDT 2018
+xe1phix z4ro:
+https://archive.org/details/PsychedeliaRawAudioOfTheTrialoguesmckennaAbrahamSheldrake
+
+https://archive.org/details/Psychedelia-91-rawAudioFilesFromTheTimothyLearyArchives
+
+https://vimeo.com/125312075
+
+https://vimeo.com/26044511
+
+https://m.youtube.com/watch?v=wGLLDEYFAzs
+
+https://plato.stanford.edu/entries/qt-consciousness/
+
+https://plato.stanford.edu/entries/panpsychism/
+
+https://plato.stanford.edu/entries/consciousness/
+Mon May 07 02:44:09 CDT 2018
+https://t.me/Crazy_Porn_Gif/2377
+Mon May 07 02:46:20 CDT 2018
+@gifsexyita
+Mon May 07 10:06:05 CDT 2018
+@hotgifschannel
+Mon May 07 21:03:04 CDT 2018
+https://m.youtube.com/watch?v=RbpNyrzoJNQ
+Mon May 07 21:03:25 CDT 2018
+https://m.youtube.com/watch?v=uLuohdZ9Kr4
+Mon May 07 21:07:12 CDT 2018
+@gif Linux hack
+Mon May 07 23:51:25 CDT 2018
+@TrueOSCommunity
+Tue May 08 12:24:00 CDT 2018
+https://github.com/subgraph/citadel
+Tue May 08 12:24:07 CDT 2018
+https://github.com/subgraph/oz
+Tue May 08 12:24:27 CDT 2018
+https://github.com/subgraph/fw-daemon
+Tue May 08 12:25:18 CDT 2018
+https://github.com/subgraph/subgraph-oz-profiles
+Tue May 08 12:27:12 CDT 2018
+https://github.com/subgraph/go-nfnetlink
+Tue May 08 12:27:22 CDT 2018
+https://github.com/subgraph/usblockout
+Tue May 08 12:27:40 CDT 2018
+https://github.com/subgraph/subgraph-sysctl-config
+Tue May 08 12:28:07 CDT 2018
+https://github.com/subgraph/subgraph-ferm-config
+Tue May 08 12:28:24 CDT 2018
+https://github.com/subgraph/macouflage-multi
+Tue May 08 12:28:37 CDT 2018
+https://github.com/subgraph/subgraph-defaults
+Tue May 08 12:28:56 CDT 2018
+https://github.com/subgraph/gnome-shell-extension-ozshell
+Tue May 08 12:29:01 CDT 2018
+https://github.com/subgraph/gnome-shell-extension-torstatus
+Tue May 08 12:29:09 CDT 2018
+https://github.com/subgraph/subgraph-gnupg-config
+Tue May 08 12:29:33 CDT 2018
+https://github.com/subgraph/subgraph-kernel-configs
+Tue May 08 12:29:47 CDT 2018
+https://github.com/subgraph/go-seccomp
+Tue May 08 12:30:40 CDT 2018
+https://github.com/subgraph/roflcoptor
+Tue May 08 12:30:52 CDT 2018
+https://github.com/subgraph/paxrat
+Tue May 08 12:31:01 CDT 2018
+https://github.com/subgraph/subgraph-os-apparmor-profiles
+Tue May 08 12:34:53 CDT 2018
+https://github.com/subgraph/sublogmon-gui
+Tue May 08 12:36:04 CDT 2018
+https://github.com/troubadoour/apparmor-profile-virtualbox
+Tue May 08 12:37:25 CDT 2018
+https://github.com/Whonix/anon-apps-config
+Tue May 08 12:37:36 CDT 2018
+https://github.com/Whonix/whonix-libvirt
+Tue May 08 12:37:49 CDT 2018
+https://github.com/Whonix/anon-shared-helper-scripts
+Tue May 08 12:38:16 CDT 2018
+https://github.com/Whonix/qubes-template-whonix
+Tue May 08 12:38:44 CDT 2018
+https://github.com/Whonix/whonix-ws-irc-chat-support
+Tue May 08 12:39:00 CDT 2018
+https://github.com/Whonix/vbox-disable-timesync
+Tue May 08 12:39:20 CDT 2018
+https://github.com/Whonix/security-misc
+Tue May 08 12:40:05 CDT 2018
+https://github.com/Whonix/apparmor-profile-virtualbox
+Tue May 08 12:40:29 CDT 2018
+https://github.com/Whonix/anon-icon-pack
+Tue May 08 12:41:24 CDT 2018
+hexchat
+Tue May 08 12:42:31 CDT 2018
+https://github.com/wirelesspt/hexchat
+Tue May 08 12:42:57 CDT 2018
+https://github.com/aur-archive/hexchat-sasl
+Tue May 08 12:43:32 CDT 2018
+https://github.com/catlinman/nekoconfig/tree/master/hexchat
+Tue May 08 12:43:36 CDT 2018
+https://github.com/catlinman/nekoconfig/tree/master/letsencrypt
+Tue May 08 12:44:55 CDT 2018
+
+# This is the sshd server system-wide configuration file.
+
+# This sshd was compiled with PATH=/usr/bin:/bin:/usr/sbin:/sbin
+
+# The strategy used for options in the default sshd_config shipped with
+# OpenSSH is to specify options with their default value where
+# possible, but leave them commented.  Uncommented options override the
+# default value.
+
+# ============================== WHAT IS THIS ? ============================== #
+
+# This is my default setup when it comes to setting up a new server and ssh.
+# A lot of these settings are further customized for the server and setup at
+# hand so make sure look into what you need for your use case. I run on Arch
+# Linux so some of the settings here might not be the same for you if you are
+# using some other SSH service.
+
+# Here's a quick rundown of the settings and methods I use:
+# - Enforce public key authentication
+# - Disable root login and lock the account
+# - Plain text login attempts can lead to bans
+# - 2 Factor Authentication is mandatory
+# - SFTP requires the same authentication methods
+
+# ============================= CUSTOM SETTINGS ============================== #
+
+# - Connection options. The most important being the port. - #
+Port 32641
+# AddressFamily any
+# ListenAddress 0.0.0.0
+# ListenAddress ::
+
+# - Custom host key settings. - #
+# HostKey /etc/ssh/ssh_host_rsa_key
+# HostKey /etc/ssh/ssh_host_dsa_key
+# HostKey /etc/ssh/ssh_host_ecdsa_key
+# HostKey /etc/ssh/ssh_host_ed25519_key
+
+# - We ignore enforcing strict policies as fail2ban will handle the most. - #
+# LoginGraceTime 2m
+# StrictModes yes
+# MaxAuthTries 6
+# MaxSessions 10
+
+# - Log additional information such as failed logins. - #
+LogLevel VERBOSE
+
+# - Enable public key authentication. - #
+PubkeyAuthentication yes
+
+# The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
+# but this is overridden so installations will only check .ssh/authorized_keys
+AuthorizedKeysFile .ssh/authorized_keys
+
+# - To disable tunneled clear text passwords, change to no here! - #
+PasswordAuthentication no
+PermitEmptyPasswords no
+
+# - Disable logging in as root. - #
+PermitRootLogin no
+
+# Set this to 'yes' to enable PAM authentication, account processing,
+# and session processing. If this is enabled, PAM authentication will
+# be allowed through the ChallengeResponseAuthentication and
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication via ChallengeResponseAuthentication may bypass
+# the setting of "PermitRootLogin without-password".
+# If you just want the PAM account and session checks to run without
+# PAM authentication, then enable this but set PasswordAuthentication
+# and ChallengeResponseAuthentication to 'no'.
+UsePAM yes
+
+# - Disable key passwords. Enabling is required for 2FA. - #
+ChallengeResponseAuthentication yes
+
+# - Authentication order. First use public key then ask for 2FA. - #
+AuthenticationMethods publickey,keyboard-interactive:pam
+
+# - Override default of no subsystems - #
+Subsystem sftp /usr/lib/ssh/sftp-server
+
+# - Disable printing the MOTD as PAM does that. - #
+PrintMotd no
+
+# - Set default banner path. - #
+Banner /etc/banner
+
+# ======================= ADDITIONAL UNTOUCHED OPTIONS ======================= #
+
+# - Ciphers and keying - #
+# RekeyLimit default none
+
+# - Logging - #
+# SyslogFacility AUTH
+
+# AuthorizedPrincipalsFile none
+# AuthorizedKeysCommand none
+# AuthorizedKeysCommandUser nobody
+
+# - For this to work you'll also need host keys in /etc/ssh/ssh_known_hosts - #
+# HostbasedAuthentication no
+
+# - Change to yes if you don't trust ~/.ssh/known_hosts - #
+# HostbasedAuthentication
+# IgnoreUserKnownHosts no
+
+# - Don't read the user's ~/.rhosts and ~/.shosts files - #
+# IgnoreRhosts yes
+
+# Kerberos options
+# KerberosAuthentication no
+# KerberosOrLocalPasswd yes
+# KerberosTicketCleanup yes
+# KerberosGetAFSToken no
+
+# GSSAPI options
+# GSSAPIAuthentication no
+# GSSAPICleanupCredentials yes
+
+# AllowAgentForwarding yes
+# AllowTcpForwarding yes
+# GatewayPorts no
+# X11Forwarding no
+# X11DisplayOffset 10
+# X11UseLocalhost yes
+# PermitTTY yes
+
+# PrintLastLog yes
+# TCPKeepAlive yes
+# UseLogin no
+# PermitUserEnvironment no
+# Compression delayed
+# ClientAliveInterval 0
+# ClientAliveCountMax 3
+# UseDNS no
+# PidFile /run/sshd.pid
+# MaxStartups 10:30:100
+# PermitTunnel no
+# ChrootDirectory none
+# VersionAddendum none
+
+# - Example of overriding settings on a per-user basis - #
+# Match User anoncvs
+#	 X11Forwarding no
+#	 AllowTcpForwarding no
+#	 PermitTTY no
+#	 ForceCommand cvs server
+Tue May 08 12:46:59 CDT 2018
+https://github.com/catlinman/nekoconfig/raw/master/sshd/sshd_config
+Tue May 08 12:47:08 CDT 2018
+sshd_config
+Tue May 08 12:49:23 CDT 2018
+https://raw.github.com/arieonline/autoscript/master/conf/badvpn-udpgw
+Tue May 08 12:49:34 CDT 2018
+https://raw.github.com/arieonline/autoscript/master/conf/1194-client.conf
+Tue May 08 12:49:41 CDT 2018
+https://raw.github.com/arieonline/autoscript/master/conf/iptables.up.rules
+Tue May 08 12:49:52 CDT 2018
+https://raw.github.com/arieonline/autoscript/master/conf/1194-centos.conf
+Tue May 08 12:49:57 CDT 2018
+https://raw.github.com/arieonline/autoscript/master/conf/vps.conf
+Tue May 08 12:51:22 CDT 2018
+https://github.com/Vpaproject/centos6.sh/raw/master/centos6.sh
+Tue May 08 12:51:43 CDT 2018
+https://github.com/Vpaproject/centos6.sh.git
+Tue May 08 12:55:00 CDT 2018
+https://github.com/KeningauVPS/setupall.sh

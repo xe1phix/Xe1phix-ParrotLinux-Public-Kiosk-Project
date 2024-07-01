@@ -1,0 +1,67 @@
+Clip Stack Backup 
+
+Fri Mar 02 13:48:36 CST 2018
+xe1phix z4ro:
+I have 4 hours of compliance training today on the subject of deceptive, unfair, and abusive practices.
+
+> created by a bank...
+
+Do you see the irony here?..
+Fri Mar 02 13:19:23 CST 2018
+Owsley Stanley
+Wed Feb 28 21:43:33 CST 2018
+https://m.youtube.com/watch?v=bsgKZb9jQ1s
+Tue Feb 13 03:44:18 CST 2018
+/storage/emulated/0/Android/data/org.telegram.messenger/cache/
+Tue Feb 13 03:29:44 CST 2018
+intent://github.com/ukanth/afwall/wiki/CustomScripts#Intent;scheme=https;launchFlags=0x3000000;S.com.android.browser.application_id=dev.ukanth.ufirewall;end 
+------------ 
+ACTION: android.intent.action.VIEW 
+DATA: https://github.com/ukanth/afwall/wiki/CustomScripts 
+URI: intent://github.com/ukanth/afwall/wiki/CustomScripts#Intent;scheme=https;launchFlags=0x3000000;S.com.android.browser.application_id=dev.ukanth.ufirewall;end 
+FLAGS: 
+FLAG_ACTIVITY_FORWARD_RESULT 
+FLAG_ACTIVITY_PREVIOUS_IS_TOP 
+EXTRAS: 
+1 Class: java.lang.String 
+Key: com.android.browser.application_id 
+Value: dev.ukanth.ufirewall 
+
+------------ 
+MATCHING ACTIVITIES: 
+Privacy Browser (com.stoutner.privacybrowser.standard - com.stoutner.privacybrowser.activities.MainWebViewActivity) 
+Orweb (info.guardianproject.browser - info.guardianproject.browser.Browser) 
+Firefox Klar (org.mozilla.klar - org.mozilla.focus.activity.MainActivity) 
+
+Tue Feb 13 03:28:22 CST 2018
+https://github.com/ukanth/afwall/wiki/CustomScripts
+Mon Feb 12 10:39:13 CST 2018
+xe1phix z4ro:
+I'm converting to ZFS. BSD clearly one the filesystem debate.
+
+ZFS so amazing they have entire conferences only covering zfs
+Mon Feb 12 01:36:27 CST 2018
+necromancer audiobook
+Sun Feb 11 15:00:43 CST 2018
+https://t.me/kalilinux
+Sun Feb 11 14:59:12 CST 2018
+https://t.me/DebianProject
+Sun Feb 11 14:58:34 CST 2018
+https://t.me/linux_group
+Sun Feb 11 14:58:02 CST 2018
+https://t.me/grouplinux
+Sun Feb 11 14:57:03 CST 2018
+https://t.me/asknoahshow
+Sun Feb 11 14:56:26 CST 2018
+https://t.me/parrotsecgroup
+Sun Feb 11 14:21:56 CST 2018
+Ask Noah Show!
+https://t.me/asknoahshow
+Sun Feb 11 11:09:21 CST 2018☆★☆
+Welcome to Clip Stack. 😄
+Sun Feb 11 11:09:21 CST 2018☆★☆
+It can show clipboard history in notification.
+Sun Feb 11 11:09:21 CST 2018
+Click here 🙋 to edit.
+Sun Feb 11 11:09:21 CST 2018
+ Swipe to delete. 👉

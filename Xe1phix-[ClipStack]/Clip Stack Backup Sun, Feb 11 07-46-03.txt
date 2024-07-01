@@ -1,0 +1,2505 @@
+Clip Stack Backup 
+
+Fri Jan 12 18:39:45 CST 2018
+ Swipe to delete. 👉
+Fri Jan 12 18:39:45 CST 2018
+Click here 🙋 to edit.
+Fri Jan 12 18:39:45 CST 2018☆★☆
+It can show clipboard history in notification.
+Fri Jan 12 18:39:45 CST 2018☆★☆
+Welcome to Clip Stack. 😄
+Sat Jan 13 02:33:14 CST 2018
+chrisryan
+Sat Jan 13 02:43:27 CST 2018
+ram dass libsyn
+Sat Jan 13 02:48:45 CST 2018
+ramdasshereandnow libsyn
+Sat Jan 13 03:31:35 CST 2018
+==========
+IPv4 Rules
+==========
+
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 587K  606M bw_INPUT   all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 587K  606M fw_INPUT   all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 oem_fwd    all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 fw_FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 bw_FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 natctrl_FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 afwall     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 432K   29M DPM_FIN_CHAIN  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 432K   29M oem_out    all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 432K   29M fw_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 432K   29M st_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 432K   29M bw_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain DPM_FIN_CHAIN (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+Chain afwall (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 afwall-vpn  all  --  *      tun+    0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-vpn  all  --  *      ppp+    0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-vpn  all  --  *      tap+    0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-vpn  all  --  *      *       0.0.0.0/0            0.0.0.0/0           [goto]  mark match 0x3c/0xfffc
+    0     0 afwall-vpn  all  --  *      *       0.0.0.0/0            0.0.0.0/0           [goto]  mark match 0x40/0xfff8
+    0     0 afwall-wifi  all  --  *      eth+    0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-wifi  all  --  *      wlan+   0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-wifi  all  --  *      tiwlan+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-wifi  all  --  *      ra+     0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-wifi  all  --  *      bnep+   0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      rmnet+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      pdp+    0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      uwbr+   0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      wimax+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      vsnet+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      rmnet_sdio+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      ccmni+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      qmi+    0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      svnet0+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      ccemni+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      wwan+   0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      cdma_rmnet+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      usb+    0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      rmnet_usb+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      clat4+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      cc2mni+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      bond1+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      rmnet_smux+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      ccinet+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      v4-rmnet+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      seth_w+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      v4-rmnet_data+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      rmnet_ipa+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      rmnet_data+  0.0.0.0/0            0.0.0.0/0           
+    0     0 afwall-3g  all  --  *      r_rmnet_data+  0.0.0.0/0            0.0.0.0/0           
+Chain afwall-3g (25 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 afwall-3g-postcustom  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain afwall-3g-fork (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 afwall-3g-home  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain afwall-3g-home (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 owner UID match 0
+    0     0 afwall-reject  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain afwall-3g-postcustom (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 afwall-3g-fork  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain afwall-3g-roam (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 owner UID match 0
+    0     0 afwall-reject  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain afwall-3g-tether (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 0 udp dpt:53
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 9999 udp dpt:53
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 0 tcp dpt:53
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 9999 tcp dpt:53
+    0     0 afwall-3g-fork  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain afwall-reject (5 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 NFLOG      all  --  *      *       0.0.0.0/0            0.0.0.0/0            nflog-prefix  "{AFL}" nflog-group 40
+    0     0 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            reject-with icmp-port-unreachable
+Chain afwall-vpn (5 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 owner UID match 0
+    0     0 afwall-reject  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain afwall-wifi (5 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 afwall-wifi-postcustom  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain afwall-wifi-fork (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 afwall-wifi-wan  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain afwall-wifi-lan (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 owner UID match 0
+    0     0 afwall-reject  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain afwall-wifi-postcustom (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 1014
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 1010
+    0     0 afwall-wifi-fork  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain afwall-wifi-tether (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 0 udp spt:67 dpt:68
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 9999 udp spt:67 dpt:68
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 0 udp spt:53
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 9999 udp spt:53
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 0 tcp spt:53
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 9999 tcp spt:53
+    0     0 afwall-wifi-fork  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain afwall-wifi-wan (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 10090
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 owner UID match 0
+    0     0 afwall-reject  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain bw_FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 bw_costly_v4-rmnet_data0  all  --  *      v4-rmnet_data0  0.0.0.0/0            0.0.0.0/0           
+Chain bw_INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+57001   37M            all  --  *      *       0.0.0.0/0            0.0.0.0/0            ! quota globalAlert: 2097152 bytes 
+    1    76 bw_costly_v4-rmnet_data0  all  --  v4-rmnet_data0 *       0.0.0.0/0            0.0.0.0/0           
+ 587K  606M bw_restrict_app_INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 573K  604M            all  --  *      *       0.0.0.0/0            0.0.0.0/0            owner socket exists
+Chain bw_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+45475 3031K            all  --  *      *       0.0.0.0/0            0.0.0.0/0            ! quota globalAlert: 2097152 bytes 
+    2   148 bw_costly_v4-rmnet_data0  all  --  *      v4-rmnet_data0  0.0.0.0/0            0.0.0.0/0           
+ 432K   29M bw_restrict_app_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 432K   29M            all  --  *      *       0.0.0.0/0            0.0.0.0/0            owner socket exists
+Chain bw_costly_shared (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 bw_penalty_box  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain bw_costly_v4-rmnet_data0 (3 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    3   224 bw_penalty_box  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ! quota v4-rmnet_data0: 9223372036854775807 bytes  reject-with icmp-port-unreachable
+Chain bw_data_saver (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain bw_happy_box (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 10009
+    3   224 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 0-9999
+    0     0 bw_data_saver  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain bw_penalty_box (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    3   224 bw_happy_box  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain bw_restrict_app_INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 REJECT     all  --  wlan0  *       0.0.0.0/0            0.0.0.0/0            owner UID match 10004 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  rmnet_data0 *       0.0.0.0/0            0.0.0.0/0            owner UID match 10004 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  wlan0  *       0.0.0.0/0            0.0.0.0/0            owner UID match 10041 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  rmnet_data0 *       0.0.0.0/0            0.0.0.0/0            owner UID match 10041 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  wlan0  *       0.0.0.0/0            0.0.0.0/0            owner UID match 10065 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  rmnet_data0 *       0.0.0.0/0            0.0.0.0/0            owner UID match 10065 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  rmnet_data0 *       0.0.0.0/0            0.0.0.0/0            owner UID match 10074 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  wlan0  *       0.0.0.0/0            0.0.0.0/0            owner UID match 10080 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  rmnet_data0 *       0.0.0.0/0            0.0.0.0/0            owner UID match 10080 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  wlan0  *       0.0.0.0/0            0.0.0.0/0            owner UID match 10071 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  rmnet_data0 *       0.0.0.0/0            0.0.0.0/0            owner UID match 10071 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  rmnet_data0 *       0.0.0.0/0            0.0.0.0/0            owner UID match 10090 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  rmnet_data0 *       0.0.0.0/0            0.0.0.0/0            owner UID match 10076 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  rmnet_data0 *       0.0.0.0/0            0.0.0.0/0            owner UID match 10075 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  rmnet_data0 *       0.0.0.0/0            0.0.0.0/0            owner UID match 10087 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  wlan0  *       0.0.0.0/0            0.0.0.0/0            owner UID match 10050 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  rmnet_data0 *       0.0.0.0/0            0.0.0.0/0            owner UID match 10050 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  wlan0  *       0.0.0.0/0            0.0.0.0/0            owner UID match 10046 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  rmnet_data0 *       0.0.0.0/0            0.0.0.0/0            owner UID match 10046 reject-with icmp-port-unreachable
+ 587K  606M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain bw_restrict_app_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 REJECT     all  --  *      wlan0   0.0.0.0/0            0.0.0.0/0            owner UID match 10004 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      rmnet_data0  0.0.0.0/0            0.0.0.0/0            owner UID match 10004 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      wlan0   0.0.0.0/0            0.0.0.0/0            owner UID match 10041 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      rmnet_data0  0.0.0.0/0            0.0.0.0/0            owner UID match 10041 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      wlan0   0.0.0.0/0            0.0.0.0/0            owner UID match 10065 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      rmnet_data0  0.0.0.0/0            0.0.0.0/0            owner UID match 10065 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      rmnet_data0  0.0.0.0/0            0.0.0.0/0            owner UID match 10074 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      wlan0   0.0.0.0/0            0.0.0.0/0            owner UID match 10080 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      rmnet_data0  0.0.0.0/0            0.0.0.0/0            owner UID match 10080 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      wlan0   0.0.0.0/0            0.0.0.0/0            owner UID match 10071 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      rmnet_data0  0.0.0.0/0            0.0.0.0/0            owner UID match 10071 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      rmnet_data0  0.0.0.0/0            0.0.0.0/0            owner UID match 10090 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      rmnet_data0  0.0.0.0/0            0.0.0.0/0            owner UID match 10076 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      rmnet_data0  0.0.0.0/0            0.0.0.0/0            owner UID match 10075 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      rmnet_data0  0.0.0.0/0            0.0.0.0/0            owner UID match 10087 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      wlan0   0.0.0.0/0            0.0.0.0/0            owner UID match 10050 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      rmnet_data0  0.0.0.0/0            0.0.0.0/0            owner UID match 10050 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      wlan0   0.0.0.0/0            0.0.0.0/0            owner UID match 10046 reject-with icmp-port-unreachable
+    0     0 REJECT     all  --  *      rmnet_data0  0.0.0.0/0            0.0.0.0/0            owner UID match 10046 reject-with icmp-port-unreachable
+ 432K   29M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain fw_FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+Chain fw_INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 587K  606M fw_standby  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain fw_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 432K   29M fw_standby  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain fw_dozable (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  lo     lo      0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp flags:0x04/0x04
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 0-9999
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain fw_powersave (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  lo     lo      0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp flags:0x04/0x04
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0            owner UID match 0-9999
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain fw_standby (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  lo     lo      0.0.0.0/0            0.0.0.0/0           
+  286 13828 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp flags:0x04/0x04
+Chain natctrl_FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain natctrl_tether_counters (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+Chain oem_fwd (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+Chain oem_out (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+Chain st_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+Chain st_clear_caught (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+Chain st_clear_detect (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            connmark match  0x2000000/0x2000000 reject-with icmp-port-unreachable
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0            connmark match  0x1000000/0x1000000
+    0     0 CONNMARK   tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            u32 "0x0>>0x16&0x3c@0xc>>0x1a&0x3c@0x0&0xffff0000=0x16030000&&0x0>>0x16&0x3c@0xc>>0x1a&0x3c@0x4&0xff0000=0x10000" CONNMARK or 0x1000000
+    0     0 CONNMARK   udp  --  *      *       0.0.0.0/0            0.0.0.0/0            u32 "0x0>>0x16&0x3c@0x8&0xffff0000=0x16fe0000&&0x0>>0x16&0x3c@0x14&0xff0000=0x10000" CONNMARK or 0x1000000
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0            connmark match  0x1000000/0x1000000
+    0     0 st_clear_caught  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state ESTABLISHED u32 "0x0>>0x16&0x3c@0xc>>0x1a&0x3c@0x0&0x0=0x0"
+    0     0 st_clear_caught  udp  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain st_penalty_log (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 CONNMARK   all  --  *      *       0.0.0.0/0            0.0.0.0/0            CONNMARK or 0x1000000
+    0     0 NFLOG      all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain st_penalty_reject (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 CONNMARK   all  --  *      *       0.0.0.0/0            0.0.0.0/0            CONNMARK or 0x2000000
+    0     0 NFLOG      all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            reject-with icmp-port-unreachable
+
+==================
+Network interfaces
+==================
+
+r_rmnet_data4
+r_rmnet_data3
+r_rmnet_data1
+r_rmnet_data2
+r_rmnet_data0
+r_rmnet_data8
+r_rmnet_data7
+r_rmnet_data5
+r_rmnet_data6
+rmnet_data4
+rmnet_data2
+rmnet_data3
+rmnet_data1
+rmnet_data0
+rmnet_data7
+rmnet_data5
+rmnet_data6
+bonding_masters
+bond0
+sit0
+lo
+rmnet_ipa0
+dummy0
+
+========
+ifconfig
+========
+
+bond0     Link encap:Ethernet  HWaddr 42:11:DF:86:8F:62  
+          BROADCAST MASTER MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+dummy0    Link encap:Ethernet  HWaddr D6:DD:3F:4B:3A:3B  
+          UP BROADCAST RUNNING NOARP  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:210 (210.0 B)
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:8956 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:8956 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:733975 (716.7 KiB)  TX bytes:733975 (716.7 KiB)
+r_rmnet_data0 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          [NO FLAGS]  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+r_rmnet_data1 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          [NO FLAGS]  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+r_rmnet_data2 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          [NO FLAGS]  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+r_rmnet_data3 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          [NO FLAGS]  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+r_rmnet_data4 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          [NO FLAGS]  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+r_rmnet_data5 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          [NO FLAGS]  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+r_rmnet_data6 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          [NO FLAGS]  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+r_rmnet_data7 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          [NO FLAGS]  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+r_rmnet_data8 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          [NO FLAGS]  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+rmnet_data0 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          [NO FLAGS]  MTU:1500  Metric:1
+          RX packets:76 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:87 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:46627 (45.5 KiB)  TX bytes:10419 (10.1 KiB)
+rmnet_data1 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          [NO FLAGS]  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+rmnet_data2 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          [NO FLAGS]  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+rmnet_data3 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          [NO FLAGS]  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+rmnet_data4 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          [NO FLAGS]  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+rmnet_data5 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          [NO FLAGS]  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+rmnet_data6 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          [NO FLAGS]  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+rmnet_data7 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          UP RUNNING  MTU:2000  Metric:1
+          RX packets:30 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:30 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:2286 (2.2 KiB)  TX bytes:2422 (2.3 KiB)
+rmnet_ipa0 Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          UP RUNNING  MTU:2000  Metric:1
+          RX packets:79 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:117 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:50185 (49.0 KiB)  TX bytes:12841 (12.5 KiB)
+sit0      Link encap:UNSPEC  HWaddr 00-00-00-00-01-00-00-00-00-00-00-00-00-00-00-00  
+          NOARP  MTU:1480  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+===========
+System info
+===========
+
+Android version: 7.1.2
+Manufacturer: LeMobile
+Model: LEX820
+Build: LeMax2-userdebug 7.1.2 NJH47F d5ccccbf51
+Active interface: unknown
+Tether status: unknown
+Roam status: no
+IPv4 subnet: 
+IPv6 subnet: 
+/system/bin/su: 166576 bytes
+/system/xbin/su: 166576 bytes
+/system/app/Superuser.apk: not present
+Superuser: none found
+
+===========
+Preferences
+===========
+
+activeNotification: true
+activeRules: true
+addStartupDelay: true
+appVersion: 15979
+applyOnSwitchProfiles: true
+bb_path: builtin
+controlIPv6: true
+customDelay: 5
+disableIcons: false
+disableTaskerToast: false
+dns_value: auto
+enableConfirm: true
+enableDeviceCheck: false
+enableIPv6: false
+enableLAN: true
+enableLogService: true
+enableMultiProfile: true
+enableRoam: true
+enableVPN: true
+fixDownloadManagerLeak: false
+forward_chain: true
+forward_chain_v6: false
+hasRoot: true
+input_chain: true
+input_chain_v6: false
+ip_path: auto
+ipurchaseddonatekey: false
+locale: en
+logDmesg: OS
+logTarget: NFLOG
+notification_priority: 0
+notifyAppInstall: true
+output_chain: true
+output_chain_v6: false
+passSetting: p2
+patternMax: 4
+profile1: Telegram
+profile2: Icecat
+profile3: FDroid
+profilesmigrated: true
+quickApply: false
+showFilter: true
+showLogToasts: true
+showUid: true
+stealthMode: true
+storedProfile: AFWallProfile1
+sysColor: -6160129
+toast_pos: bottom
+widgetX: 1440
+widgetY: 2560
+Profile Mode : whitelist
+Status : Enabled
+
+======
+Logcat
+======
+
+19:09:15 State of rootShellREADY
+19:09:28 Now assuming NO connection (all interfaces down)
+19:09:28 Selected Profile: AFWallProfile1
+19:09:28 Using fastApply
+19:09:28 Setting OUTPUT chain to DROP
+19:09:28 No ipaddress found for LAN
+19:09:28 Setting OUTPUT chain to ACCEPT
+19:09:28 Setting OUTPUT chain to DROP
+19:09:28 No ipaddress found for LAN
+19:09:28 Setting OUTPUT chain to ACCEPT
+19:09:28 Received cmds: #24
+19:09:28 Start processing next state
+19:09:28 Total commamds: #24
+19:09:28 CONNECTIVITY_CHANGE: applied rules at 1515805768985
+19:09:28 Received cmds: #6
+19:09:28 Received cmds: #3
+19:09:28 Start processing next state
+19:09:28 Total commamds: #3
+19:09:29 Start processing next state
+19:09:29 Total commamds: #3
+19:09:33 State of rootShellBUSY
+19:09:33 Forcefully changing the state BUSY
+19:09:33 State of rootShellBUSY
+19:56:13 isWifiApEnabled is false
+19:56:13 Now assuming wifi connection
+19:56:13 IPv4 LAN netmask on wlan0: 192.168.1.128/24
+19:56:13 IPv6 LAN netmask on wlan0: fe80::b6ef:faff:fe07:4eae/64
+19:56:13 Selected Profile: AFWallProfile1
+19:56:13 Using fastApply
+19:56:13 Setting OUTPUT chain to DROP
+19:56:13 Setting OUTPUT chain to ACCEPT
+19:56:13 Setting OUTPUT chain to DROP
+19:56:13 Setting OUTPUT chain to ACCEPT
+19:56:13 Received cmds: #26
+19:56:13 Start processing next state
+19:56:13 Total commamds: #26
+19:56:14 CONNECTIVITY_CHANGE: applied rules at 1515808574339
+19:56:14 Received cmds: #6
+19:56:14 Received cmds: #3
+19:56:14 Start processing next state
+19:56:14 Total commamds: #3
+19:56:14 Start processing next state
+19:56:14 Total commamds: #3
+19:56:19 State of rootShellBUSY
+19:56:19 Forcefully changing the state BUSY
+19:56:19 State of rootShellREADY
+19:56:52 Now assuming NO connection (all interfaces down)
+19:56:52 Selected Profile: AFWallProfile1
+19:56:52 Using fastApply
+19:56:52 Setting OUTPUT chain to DROP
+19:56:52 No ipaddress found for LAN
+19:56:52 Setting OUTPUT chain to ACCEPT
+19:56:52 Setting OUTPUT chain to DROP
+19:56:52 No ipaddress found for LAN
+19:56:52 Setting OUTPUT chain to ACCEPT
+19:56:52 Received cmds: #24
+19:56:52 Start processing next state
+19:56:52 Total commamds: #24
+19:56:52 CONNECTIVITY_CHANGE: applied rules at 1515808612664
+19:56:52 Received cmds: #6
+19:56:52 Received cmds: #3
+19:56:52 Start processing next state
+19:56:52 Total commamds: #3
+19:56:52 Start processing next state
+19:56:52 Total commamds: #3
+19:56:57 State of rootShellBUSY
+19:56:57 Forcefully changing the state BUSY
+19:56:57 State of rootShellREADY
+20:20:41 isWifiApEnabled is false
+20:20:41 Now assuming wifi connection
+20:20:41 IPv4 LAN netmask on wlan0: 192.168.1.128/24
+20:20:41 IPv6 LAN netmask on wlan0: fe80::b6ef:faff:fe07:4eae/64
+20:20:41 Selected Profile: AFWallProfile1
+20:20:41 Using fastApply
+20:20:41 Setting OUTPUT chain to DROP
+20:20:41 Setting OUTPUT chain to ACCEPT
+20:20:41 Setting OUTPUT chain to DROP
+20:20:41 Setting OUTPUT chain to ACCEPT
+20:20:41 Received cmds: #26
+20:20:41 Start processing next state
+20:20:41 Total commamds: #26
+20:20:42 CONNECTIVITY_CHANGE: applied rules at 1515810042201
+20:20:42 Received cmds: #6
+20:20:42 Received cmds: #3
+20:20:42 Start processing next state
+20:20:42 Total commamds: #3
+20:20:42 Start processing next state
+20:20:42 Total commamds: #3
+20:20:47 State of rootShellBUSY
+20:20:47 Forcefully changing the state BUSY
+20:20:47 State of rootShellREADY
+20:22:03 Now assuming NO connection (all interfaces down)
+20:22:03 Selected Profile: AFWallProfile1
+20:22:03 Using fastApply
+20:22:03 Setting OUTPUT chain to DROP
+20:22:03 No ipaddress found for LAN
+20:22:03 Setting OUTPUT chain to ACCEPT
+20:22:03 Setting OUTPUT chain to DROP
+20:22:03 No ipaddress found for LAN
+20:22:03 Setting OUTPUT chain to ACCEPT
+20:22:03 Received cmds: #24
+20:22:03 Start processing next state
+20:22:03 Total commamds: #24
+20:22:03 CONNECTIVITY_CHANGE: applied rules at 1515810123927
+20:22:03 Received cmds: #6
+20:22:03 Received cmds: #3
+20:22:03 Start processing next state
+20:22:03 Total commamds: #3
+20:22:04 Start processing next state
+20:22:04 Total commamds: #3
+20:22:08 State of rootShellBUSY
+20:22:08 Forcefully changing the state BUSY
+20:22:08 State of rootShellREADY
+21:12:40 isWifiApEnabled is false
+21:12:40 Now assuming wifi connection
+21:12:40 IPv4 LAN netmask on wlan0: 192.168.1.128/24
+21:12:40 IPv6 LAN netmask on wlan0: fe80::b6ef:faff:fe07:4eae/64
+21:12:40 Selected Profile: AFWallProfile1
+21:12:40 Using fastApply
+21:12:40 Setting OUTPUT chain to DROP
+21:12:40 Setting OUTPUT chain to ACCEPT
+21:12:40 Setting OUTPUT chain to DROP
+21:12:40 Setting OUTPUT chain to ACCEPT
+21:12:40 Received cmds: #26
+21:12:40 Start processing next state
+21:12:40 Total commamds: #26
+21:12:41 CONNECTIVITY_CHANGE: applied rules at 1515813161320
+21:12:41 Received cmds: #6
+21:12:41 Received cmds: #3
+21:12:41 Start processing next state
+21:12:41 Total commamds: #3
+21:12:41 Start processing next state
+21:12:41 Total commamds: #3
+21:12:46 State of rootShellBUSY
+21:12:46 Forcefully changing the state BUSY
+21:12:46 State of rootShellREADY
+21:13:45 Now assuming NO connection (all interfaces down)
+21:13:45 Selected Profile: AFWallProfile1
+21:13:45 Using fastApply
+21:13:45 Setting OUTPUT chain to DROP
+21:13:45 No ipaddress found for LAN
+21:13:45 Setting OUTPUT chain to ACCEPT
+21:13:45 Setting OUTPUT chain to DROP
+21:13:45 No ipaddress found for LAN
+21:13:45 Setting OUTPUT chain to ACCEPT
+21:13:45 Received cmds: #24
+21:13:45 Start processing next state
+21:13:45 Total commamds: #24
+21:13:46 CONNECTIVITY_CHANGE: applied rules at 1515813226045
+21:13:46 Received cmds: #6
+21:13:46 Received cmds: #3
+21:13:46 Start processing next state
+21:13:46 Total commamds: #3
+21:13:46 Start processing next state
+21:13:46 Total commamds: #3
+21:13:51 State of rootShellBUSY
+21:13:51 Forcefully changing the state BUSY
+21:13:51 State of rootShellREADY
+22:01:18 isWifiApEnabled is false
+22:01:18 Now assuming wifi connection
+22:01:18 IPv4 LAN netmask on wlan0: 192.168.1.128/24
+22:01:18 IPv6 LAN netmask on wlan0: fe80::b6ef:faff:fe07:4eae/64
+22:01:18 Selected Profile: AFWallProfile1
+22:01:18 Using fastApply
+22:01:18 Setting OUTPUT chain to DROP
+22:01:18 Setting OUTPUT chain to ACCEPT
+22:01:18 Setting OUTPUT chain to DROP
+22:01:18 Setting OUTPUT chain to ACCEPT
+22:01:18 Received cmds: #26
+22:01:18 Start processing next state
+22:01:18 Total commamds: #26
+22:01:19 CONNECTIVITY_CHANGE: applied rules at 1515816079313
+22:01:19 Received cmds: #6
+22:01:19 Received cmds: #3
+22:01:19 Start processing next state
+22:01:19 Total commamds: #3
+22:01:19 Start processing next state
+22:01:19 Total commamds: #3
+22:01:24 State of rootShellBUSY
+22:01:24 State of rootShellBUSY
+22:01:24 Forcefully changing the state BUSY
+23:11:40 Now assuming NO connection (all interfaces down)
+23:11:40 Selected Profile: AFWallProfile1
+23:11:40 Using fastApply
+23:11:40 Setting OUTPUT chain to DROP
+23:11:40 No ipaddress found for LAN
+23:11:40 Setting OUTPUT chain to ACCEPT
+23:11:40 Setting OUTPUT chain to DROP
+23:11:40 No ipaddress found for LAN
+23:11:40 Setting OUTPUT chain to ACCEPT
+23:11:40 Received cmds: #24
+23:11:40 Start processing next state
+23:11:40 Total commamds: #24
+23:11:40 CONNECTIVITY_CHANGE: applied rules at 1515820300916
+23:11:40 Received cmds: #6
+23:11:40 Received cmds: #3
+23:11:40 Start processing next state
+23:11:40 Total commamds: #3
+23:11:40 Start processing next state
+23:11:40 Total commamds: #3
+23:11:45 State of rootShellBUSY
+23:11:45 Forcefully changing the state BUSY
+23:11:45 State of rootShellREADY
+00:24:22 isWifiApEnabled is false
+00:24:22 Now assuming wifi connection
+00:24:22 IPv4 LAN netmask on wlan0: 192.168.1.128/24
+00:24:22 IPv6 LAN netmask on wlan0: fe80::b6ef:faff:fe07:4eae/64
+00:24:22 Selected Profile: AFWallProfile1
+00:24:22 Using fastApply
+00:24:22 Setting OUTPUT chain to DROP
+00:24:22 Setting OUTPUT chain to ACCEPT
+00:24:22 Setting OUTPUT chain to DROP
+00:24:22 Setting OUTPUT chain to ACCEPT
+00:24:22 Received cmds: #26
+00:24:22 Start processing next state
+00:24:22 Total commamds: #26
+00:24:23 CONNECTIVITY_CHANGE: applied rules at 1515824663749
+00:24:23 Received cmds: #6
+00:24:23 Received cmds: #3
+00:24:23 Start processing next state
+00:24:23 Total commamds: #3
+00:24:23 Start processing next state
+00:24:23 Total commamds: #3
+00:24:28 State of rootShellBUSY
+00:24:28 Forcefully changing the state BUSY
+00:24:28 State of rootShellREADY
+00:27:19 Now assuming NO connection (all interfaces down)
+00:27:19 Selected Profile: AFWallProfile1
+00:27:19 Using fastApply
+00:27:19 Setting OUTPUT chain to DROP
+00:27:19 No ipaddress found for LAN
+00:27:19 Setting OUTPUT chain to ACCEPT
+00:27:19 Setting OUTPUT chain to DROP
+00:27:19 No ipaddress found for LAN
+00:27:19 Setting OUTPUT chain to ACCEPT
+00:27:19 Received cmds: #24
+00:27:19 Start processing next state
+00:27:19 Total commamds: #24
+00:27:20 CONNECTIVITY_CHANGE: applied rules at 1515824840248
+00:27:20 Received cmds: #6
+00:27:20 Received cmds: #3
+00:27:20 Start processing next state
+00:27:20 Total commamds: #3
+00:27:20 Start processing next state
+00:27:20 Total commamds: #3
+00:27:25 State of rootShellBUSY
+00:27:25 Forcefully changing the state BUSY
+00:27:25 State of rootShellREADY
+00:32:47 Received cmds: #1
+00:32:47 Start processing next state
+00:32:47 Total commamds: #1
+00:32:47 Selected Profile: AFWallProfile1
+00:32:50 Selected Profile: AFWallProfile1
+00:32:53 Selected Profile: AFWallProfile3
+00:32:53 Selected Profile: AFWallProfile3
+00:32:53 Using applySavedIptablesRules
+00:32:53 Setting OUTPUT to Drop
+00:32:53 No ipaddress found for LAN
+00:32:53 Setting OUTPUT to Accept State
+00:32:53 Setting OUTPUT to Drop
+00:32:53 No ipaddress found for LAN
+00:32:53 Setting OUTPUT to Accept State
+00:32:53 Received cmds: #210
+00:32:53 Start processing next state
+00:32:53 Total commamds: #210
+00:33:39 Received cmds: #1
+00:33:39 Start processing next state
+00:33:39 Total commamds: #1
+00:33:39 Selected Profile: AFWallProfile3
+00:33:42 Selected Profile: AFWallProfile3
+00:33:46 Using applySavedIptablesRules
+00:33:46 Setting OUTPUT to Drop
+00:33:46 No ipaddress found for LAN
+00:33:46 Setting OUTPUT to Accept State
+00:33:46 Setting OUTPUT to Drop
+00:33:46 No ipaddress found for LAN
+00:33:46 Setting OUTPUT to Accept State
+00:33:46 Received cmds: #210
+00:33:46 Start processing next state
+00:33:46 Total commamds: #210
+00:34:57 isWifiApEnabled is false
+00:34:57 Now assuming wifi connection
+00:34:57 IPv4 LAN netmask on wlan0: 192.168.1.128/24
+00:34:57 IPv6 LAN netmask on wlan0: fe80::b6ef:faff:fe07:4eae/64
+00:34:57 Selected Profile: AFWallProfile3
+00:34:57 Using fastApply
+00:34:57 Setting OUTPUT chain to DROP
+00:34:57 Setting OUTPUT chain to ACCEPT
+00:34:57 Setting OUTPUT chain to DROP
+00:34:57 Setting OUTPUT chain to ACCEPT
+00:34:57 Received cmds: #26
+00:34:57 Start processing next state
+00:34:57 Total commamds: #26
+00:34:57 CONNECTIVITY_CHANGE: applied rules at 1515825297779
+00:34:57 Received cmds: #6
+00:34:57 Received cmds: #3
+00:34:57 Start processing next state
+00:34:57 Total commamds: #3
+00:34:57 Start processing next state
+00:34:57 Total commamds: #3
+00:35:02 State of rootShellBUSY
+00:35:02 Forcefully changing the state BUSY
+00:35:02 State of rootShellREADY
+00:49:19 Now assuming NO connection (all interfaces down)
+00:49:19 Selected Profile: AFWallProfile3
+00:49:19 Using fastApply
+00:49:19 Setting OUTPUT chain to DROP
+00:49:19 No ipaddress found for LAN
+00:49:19 Setting OUTPUT chain to ACCEPT
+00:49:19 Setting OUTPUT chain to DROP
+00:49:19 No ipaddress found for LAN
+00:49:19 Setting OUTPUT chain to ACCEPT
+00:49:19 Received cmds: #24
+00:49:19 Start processing next state
+00:49:19 Total commamds: #24
+00:49:19 CONNECTIVITY_CHANGE: applied rules at 1515826159642
+00:49:19 Received cmds: #6
+00:49:19 Received cmds: #3
+00:49:19 Start processing next state
+00:49:19 Total commamds: #3
+00:49:19 Start processing next state
+00:49:19 Total commamds: #3
+00:49:24 State of rootShellBUSY
+00:49:24 Forcefully changing the state BUSY
+00:49:24 State of rootShellREADY
+02:23:20 Received cmds: #1
+02:23:20 Start processing next state
+02:23:20 Total commamds: #1
+02:23:20 Selected Profile: AFWallProfile3
+02:23:23 Selected Profile: AFWallProfile3
+02:23:28 Selected Profile: Klar
+02:23:28 Selected Profile: Klar
+02:23:28 Using applySavedIptablesRules
+02:23:28 Setting OUTPUT to Drop
+02:23:28 No ipaddress found for LAN
+02:23:28 Setting OUTPUT to Accept State
+02:23:28 Setting OUTPUT to Drop
+02:23:28 No ipaddress found for LAN
+02:23:28 Setting OUTPUT to Accept State
+02:23:28 Received cmds: #210
+02:23:28 Start processing next state
+02:23:28 Total commamds: #210
+02:24:02 Application state changed: com.android.providers.media
+02:24:16 Using applySavedIptablesRules
+02:24:16 Setting OUTPUT to Drop
+02:24:16 No ipaddress found for LAN
+02:24:16 Setting OUTPUT to Accept State
+02:24:16 Setting OUTPUT to Drop
+02:24:16 No ipaddress found for LAN
+02:24:16 Setting OUTPUT to Accept State
+02:24:16 Received cmds: #212
+02:24:16 Start processing next state
+02:24:16 Total commamds: #212
+02:27:20 Received cmds: #1
+02:27:20 Start processing next state
+02:27:20 Total commamds: #1
+02:27:20 Selected Profile: Klar
+02:27:22 Selected Profile: Klar
+02:27:24 Application state changed: org.mozilla.klar
+02:27:46 Using applySavedIptablesRules
+02:27:46 Setting OUTPUT to Drop
+02:27:46 No ipaddress found for LAN
+02:27:46 Setting OUTPUT to Accept State
+02:27:46 Setting OUTPUT to Drop
+02:27:46 No ipaddress found for LAN
+02:27:46 Setting OUTPUT to Accept State
+02:27:46 Received cmds: #214
+02:27:46 Start processing next state
+02:27:46 Total commamds: #214
+02:28:10 isWifiApEnabled is false
+02:28:10 Now assuming wifi connection
+02:28:10 IPv4 LAN netmask on wlan0: 192.168.1.128/24
+02:28:10 IPv6 LAN netmask on wlan0: fe80::b6ef:faff:fe07:4eae/64
+02:28:10 Selected Profile: Klar
+02:28:10 Using fastApply
+02:28:10 Setting OUTPUT chain to DROP
+02:28:10 Setting OUTPUT chain to ACCEPT
+02:28:10 Setting OUTPUT chain to DROP
+02:28:10 Setting OUTPUT chain to ACCEPT
+02:28:10 Received cmds: #26
+02:28:10 Start processing next state
+02:28:10 Total commamds: #26
+02:28:11 CONNECTIVITY_CHANGE: applied rules at 1515832091356
+02:28:11 Received cmds: #6
+02:28:11 Received cmds: #3
+02:28:11 Start processing next state
+02:28:11 Total commamds: #3
+02:28:11 Start processing next state
+02:28:11 Total commamds: #3
+02:28:16 State of rootShellBUSY
+02:28:16 Forcefully changing the state BUSY
+02:28:16 State of rootShellREADY
+03:24:20 Now assuming NO connection (all interfaces down)
+03:24:20 Selected Profile: Klar
+03:24:20 Using fastApply
+03:24:20 Setting OUTPUT chain to DROP
+03:24:20 No ipaddress found for LAN
+03:24:20 Setting OUTPUT chain to ACCEPT
+03:24:20 Setting OUTPUT chain to DROP
+03:24:20 No ipaddress found for LAN
+03:24:20 Setting OUTPUT chain to ACCEPT
+03:24:20 Received cmds: #24
+03:24:20 Start processing next state
+03:24:20 Total commamds: #24
+03:24:20 CONNECTIVITY_CHANGE: applied rules at 1515835460545
+03:24:20 Received cmds: #6
+03:24:20 Received cmds: #3
+03:24:20 Start processing next state
+03:24:20 Total commamds: #3
+03:24:20 Start processing next state
+03:24:20 Total commamds: #3
+03:24:25 State of rootShellBUSY
+03:24:25 Forcefully changing the state BUSY
+03:24:25 State of rootShellREADY
+03:27:26 Received cmds: #1
+03:27:26 Start processing next state
+03:27:26 Total commamds: #1
+03:27:26 Selected Profile: Klar
+03:27:29 Selected Profile: Klar
+03:27:32 Selected Profile: AFWallProfile1
+03:27:32 Selected Profile: AFWallProfile1
+03:27:32 Using applySavedIptablesRules
+03:27:32 Setting OUTPUT to Drop
+03:27:32 No ipaddress found for LAN
+03:27:32 Setting OUTPUT to Accept State
+03:27:32 Setting OUTPUT to Drop
+03:27:32 No ipaddress found for LAN
+03:27:32 Setting OUTPUT to Accept State
+03:27:32 Received cmds: #212
+03:27:32 Start processing next state
+03:27:32 Total commamds: #212
+03:27:45 Application state changed: dev.afwall.special.vpn
+03:27:51 Application state changed: dev.afwall.special.tether
+03:28:09 Using applySavedIptablesRules
+03:28:09 Setting OUTPUT to Drop
+03:28:09 No ipaddress found for LAN
+03:28:09 Setting OUTPUT to Accept State
+03:28:09 Setting OUTPUT to Drop
+03:28:09 No ipaddress found for LAN
+03:28:09 Setting OUTPUT to Accept State
+03:28:09 Received cmds: #210
+03:28:09 Start processing next state
+03:28:09 Total commamds: #210
+03:28:39 Received cmds: #5
+03:28:39 Start processing next state
+03:28:39 Total commamds: #5
+03:28:39 Received cmds: #1
+03:28:39 Received cmds: #1
+03:28:39 Start processing next state
+03:28:39 Total commamds: #1
+03:28:39 Start processing next state
+03:28:39 Total commamds: #1
+03:28:42 Received cmds: #1
+03:28:42 Start processing next state
+03:28:42 Total commamds: #1
+03:28:43 Received cmds: #1
+03:28:43 Start processing next state
+03:28:43 Total commamds: #1
+03:28:44 State of rootShellREADY
+03:28:44 State of rootShellREADY
+03:29:02 Received cmds: #5
+03:29:02 Start processing next state
+03:29:02 Total commamds: #5
+03:29:32 Selected Profile: AFWallProfile1
+03:29:41 Using applySavedIptablesRules
+03:29:41 Setting OUTPUT to Drop
+03:29:41 No ipaddress found for LAN
+03:29:41 Setting OUTPUT to Accept State
+03:29:41 Setting OUTPUT to Drop
+03:29:41 No ipaddress found for LAN
+03:29:41 Setting OUTPUT to Accept State
+03:29:41 Received cmds: #210
+03:29:41 Start processing next state
+03:29:41 Total commamds: #210
+03:30:02 Received cmds: #5
+03:30:02 Start processing next state
+03:30:02 Total commamds: #5
+03:30:02 Received cmds: #1
+03:30:02 Received cmds: #1
+03:30:02 Start processing next state
+03:30:02 Total commamds: #1
+03:30:02 Start processing next state
+03:30:02 Total commamds: #1
+03:30:04 Received cmds: #1
+03:30:04 Start processing next state
+03:30:04 Total commamds: #1
+03:30:05 Received cmds: #1
+03:30:05 Start processing next state
+03:30:05 Total commamds: #1
+03:30:07 State of rootShellREADY
+03:30:07 State of rootShellREADY
+03:30:12 Selected Profile: AFWallProfile1
+03:30:14 Using applySavedIptablesRules
+03:30:14 Setting OUTPUT to Drop
+03:30:14 No ipaddress found for LAN
+03:30:14 Setting OUTPUT to Accept State
+03:30:14 Received cmds: #105
+03:30:14 Start processing next state
+03:30:14 Total commamds: #105
+03:30:34 Received cmds: #5
+03:30:34 Start processing next state
+03:30:34 Total commamds: #5
+03:30:52 Selected Profile: AFWallProfile1
+03:31:17 Received cmds: #1
+03:31:17 Start processing next state
+03:31:17 Total commamds: #1
+03:31:17 Received cmds: #1
+03:31:17 Start processing next state
+03:31:17 Total commamds: #1
+03:31:17 Received cmds: #1
+03:31:17 Start processing next state
+03:31:17 Total commamds: #1
+
+Sat Jan 13 03:48:23 CST 2018
+https://www.samharris.org/podcast
+Sat Jan 13 16:05:43 CST 2018
+@CalebFindlay
+Sat Jan 13 16:16:49 CST 2018
+https://gist.github.com/CHEF-KOCH/79924daa128c0a5526cb94bec5ad9187
+Sat Jan 13 16:17:06 CST 2018
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+Sat Jan 13 16:17:09 CST 2018
+https://gist.github.com/CHEF-KOCH/5918aeb0433a82694adfc857d1372167
+Sat Jan 13 16:17:13 CST 2018
+https://github.com/AdAway/AdAway/wiki/HostsSources
+Sat Jan 13 16:17:45 CST 2018
+https://gist.github.com/CHEF-KOCH/2dea75d43b2184f228ae94b168d275b1
+Sat Jan 13 16:17:48 CST 2018
+https://gist.github.com/CHEF-KOCH/5a7b1593d1880f906b12a3c87cee4500
+Sat Jan 13 16:17:52 CST 2018
+https://gist.github.com/CHEF-KOCH/d1c6f49492f6d10ee1d192817b7cdce5
+Sat Jan 13 16:17:57 CST 2018
+https://gist.github.com/CHEF-KOCH/5d98f57fd614cc2524d1d17e41edc652
+Sat Jan 13 16:18:01 CST 2018
+https://gist.github.com/CHEF-KOCH
+Sat Jan 13 16:18:27 CST 2018
+https://github.com/collinbarrett/FilterLists
+Sun Jan 14 02:27:38 CST 2018
+https://github.com/ukanth/afwall/wiki/CustomScripts
+Sun Jan 14 02:29:59 CST 2018
+! Ads related
+!
+! Adblock Warning Removal List
+! https://easylist-downloads.adblockplus.org/antiadblockfilters.txt
+! Anti-Adblock Killer | Reek
+! raw.githubusercontent.com/reek/anti-adblock-killer/master/anti-adblock-killer-filters.txt
+! EasyList
+! easylist-downloads.adblockplus.org/easylist.txt
+! EasyList w/o element hiding rules
+! easylist-downloads.adblockplus.org/easylist_noelemhide.txt
+! Acceptable Ads
+! https://adblockplus.org/en/acceptable-ads
+
+
+
+! Privacy related
+!
+! Basic tracking list by Disconnect‎
+https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
+! EasyPrivacy by adblock.org
+! easylist-downloads.adblockplus.org/easyprivacy.txt
+! Fanboy’s Enhanced Tracking List by fanboy.co.nz
+! http://www.fanboy.co.nz/enhancedstats.txt
+! GNU privacy filter
+! http://gnuzilla.gnu.org/filters/blacklist.txt
+! CHEF-KOCH's NSA blocklist
+! https://github.com/CHEF-KOCH/NSABlocklist/blob/master/HOSTS.txt
+
+
+
+! Blocks Malware domains
+!
+! Malvertising filter list by Disconnect‎
+https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt
+! Malware filter list by Disconnect‎
+https://s3.amazonaws.com/lists.disconnect.me/simple_malware.txt
+! Malware Domain list
+! http://www.malwaredomainlist.com/hostslist/hosts.txt
+! Malware Domain (just Domains) [mirror from mailwaredomainlist.com]
+! mirror1.malwaredomains.com/files/justdomains
+! Immortal Domains (also called long-lived)
+! mirror1.malwaredomains.com/files/immortal_domains.txt
+! Spam404 by spam404bl.com
+! http://spam404bl.com/blacklist.txt
+
+
+
+! Anti social networks and buttons
+! 
+! Fanboy's anti-social list which blocks buttons, sites, ...
+! http://www.fanboy.co.nz/fanboy-antifacebook.txt
+! Fanboy’s Annoyance List by adblockplus.org
+! easylist-downloads.adblockplus.org/fanboy-annoyance.txt
+! Fanboy's third-party Annoyance list
+! easylist-downloads.adblockplus.org/fanboy-annoyance.txt
+! Fanboy's Social Blocking List 
+! easylist-downloads.adblockplus.org/fanboy-social.txt
+
+
+
+! Multipurpose and Misc
+!
+! Dan Pollock’s hosts file by someonewhocares.org [also avb. as IPv6 and nulled]
+! someonewhocares.org/hosts/hosts
+! Fanboy's ultimate list (combines all)
+! http://www.fanboy.co.nz/fanboy-ultimate.txt
+! hpHosts’s Ad and tracking servers by hosts-file.net [sometimes offline]
+! hosts-file.net/ad-servers
+! MVPS HOSTS
+! winhelp2002.mvps.org/hosts.txt
+! AdGuards blocking list (overview only)
+! -> https://adguard.com/en/filters.html
+
+
+
+! YouTube related
+! 
+! YouTube all suggestions and comments
+! https://easylist-downloads.adblockplus.org/yt_annoyances_full.txt
+! YouTube suggestions 
+https://easylist-downloads.adblockplus.org/yt_annoyances_suggestions.txt
+! YouTube annoyances
+! https://easylist-downloads.adblockplus.org/yt_annoyances_other.txt
+! YouTube Remove Comments
+https://easylist-downloads.adblockplus.org/yt_annoyances_comments.txt
+
+
+
+! Cookie related
+!
+! EU: Prebake - Filter Obtrusive Cookie Notices
+! https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt
+Sun Jan 14 02:36:54 CST 2018
+easylist-downloads.adblockplus.org/easylist.txt
+Sun Jan 14 02:40:31 CST 2018
+someonewhocares.org/hosts/hosts
+Sun Jan 14 02:42:00 CST 2018
+https://github.com/CHEF-KOCH/NSABlocklist/blob/master/HOSTS.txt
+Sun Jan 14 02:42:40 CST 2018
+http://www.fanboy.co.nz/enhancedstats.txt
+Sun Jan 14 02:45:38 CST 2018
+https://s3.amazonaws.com/lists.disconnect.me/simple_malware.txt
+Sun Jan 14 02:46:00 CST 2018
+https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt
+Sun Jan 14 02:47:03 CST 2018
+https://raw.githubusercontent.com/liamja/Prebake/master/obtrusive.txt
+Sun Jan 14 02:53:05 CST 2018
+http://www.fanboy.co.nz/fanboy-ultimate.txt
+Sun Jan 14 02:58:40 CST 2018
+http://gnuzilla.gnu.org/filters/blacklist.txt
+Sun Jan 14 04:05:10 CST 2018
+🤓 @yobagif
+Sun Jan 14 04:28:52 CST 2018
+@DillionHarperClub
+Sun Jan 14 04:30:09 CST 2018
+Anal Sex
+https://t.me/analny
+Sun Jan 14 04:31:32 CST 2018
+Sexy cosplay
+https://t.me/sexy_cosplay
+Sun Jan 14 04:32:24 CST 2018
+CʟᴀsɪxxX
+https://t.me/xclasix
+Sun Jan 14 04:33:55 CST 2018
+World Cosplay
+https://t.me/beatycosplay
+Sun Jan 14 04:34:34 CST 2018
+https://t.me/DarkNetPorn
+Sun Jan 14 04:35:45 CST 2018
+PornGifandPic
+https://t.me/xxxgifo
+Sun Jan 14 04:36:55 CST 2018
+iChan.2d
+https://t.me/ichan2d
+Sun Jan 14 04:38:39 CST 2018
+‌‼️ NEW LINK ‼️
+🔞 Voyeur & outdoor 🔞
+👉 https://t.me/joinchat/G9sjLhFKuJLhzwBoSBkPXA
+Sun Jan 14 04:40:06 CST 2018
+GIFSOSUNAPORNO
+https://t.me/OSUNAPORNOGIFS
+Sun Jan 14 04:41:35 CST 2018
+18+ Sticker Porno
+https://t.me/StickerPorno
+Sun Jan 14 04:57:26 CST 2018
+👑 Encyclopedia Britannica👑      
+            ♥️Chat Group♥️
+⭐️⭐️⭐️⭐️⭐️
+⛔️No greeting
+⛔️No Persian=bot will kick u
+⛔️No insulting
+⛔️No advertising and no link = 📛ban
+✅chat , learn English , have fun
+⭐️⭐️⭐⭐️⭐️
+join ➡️https://t.me/joinchat/AAAAAEEuiS9LROPUTcNO3w
+Sun Jan 14 04:57:38 CST 2018
+Encyclopedia 
+Sun Jan 14 04:58:36 CST 2018
+4chan
+https://t.me/only_4chan
+Sun Jan 14 05:01:12 CST 2018
+Qubes OS📢ㄱㄹㅁ
+A reasonably secure operating system for personal computers.
+
+Qubes-OS.org
+
+This channel is updated ASAP after devs make an announcement to the project.
+
+Group Info:
+t.me/QubesOS/63
+
+Tech News
+http://cur.lv/170ga9
+https://t.me/QubesOS
+Sun Jan 14 05:03:22 CST 2018
+OPNsense
+OPNsense Open Source Firewall
+https://t.me/OPNsense
+Sun Jan 14 05:04:29 CST 2018
+pfSense Brasil
+Grupo pfSense Brasil
+https://t.me/pfsensebr
+Sun Jan 14 05:07:20 CST 2018
+http://www.kitploit.com/2017/01/autolocalprivilegeescalation-automated.html
+https://highon.coffee/blog/lord-of-the-root-walkthrough/
+https://hub.docker.com/r/janes/mysql/
+https://www.digitalocean.com/community/tutorials/how-to-use-passwd-and-adduser-to-manage-passwords-on-a-linux-vps
+https://www.exploit-db.com/papers/13199/
+http://www.dankalia.com/tutor/01005/0100501004.htm
+https://null-byte.wonderhowto.com/how-to/hack-like-pro-finding-potential-suid-sgid-vulnerabilities-linux-unix-systems-0158373/
+https://warroom.securestate.com/building-a-vulnerable-box-rejetto-hfs/
+https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc
+https://github.com/rmusser01/Infosec_Reference/blob/master/Draft/Privilege%20Escalation%20%26%20Post-Exploitation.md
+https://github.com/devblackops/Switch-User
+https://blog.ropnop.com/using-credentials-to-own-windows-boxes-part-2-psexec-and-services/
+https://blog.ropnop.com/transferring-files-from-kali-to-windows/
+http://help.appveyor.com/discussions/problems/3281-rdesktop-on-linux-requires-credssp
+https://superuser.com/questions/904353/enable-remote-desktop-in-windows-firewall-from-command-line
+https://exploit.ph/web-hacking/2015/02/08/a-web-hack/
+https://x8x.net/2015/03/17/nfs-tunneling-via-ssh-for-easy-privilege-escalation/
+http://www.slashroot.in/how-are-passwords-stored-linux-understanding-hashing-shadow-utils
+https://www.exploit-db.com/exploits/24044/
+https://superuser.com/questions/1044667/ftp-directory-traversal-attack-on-directories-containing-white-spaces
+http://www.savetz.com/yic/YIC06FI_6.html
+https://www.adampalmer.me/iodigitalsec/2013/08/10/accessing-and-hacking-mssql-from-backtrack-linux/
+https://isc.sans.edu/diary.html
+https://geodasecurity.blogspot.in/2017/06/elevate-from-admin-to-nt-authoritysystem.html
+https://pentestlab.blog/2012/08/17/nmap-cheat-sheet/
+https://daemonchild.com/2015/08/10/got-ssh-creds-want-meterpreter-try-this/
+https://security.stackexchange.com/questions/68884/exploit-http-put-method-in-microsoft-iis-5-0
+https://pentesterlab.com/exercises/axis2_and_tomcat_manager/course
+http://insecure.org/sploits/test-cgi.server_protocol.html
+http://www.ldap389.info/en/2012/12/10/pentesting-active-directory-hacking/
+https://jhalon.github.io/pentestit-lab-10-win-dc0-token/
+http://resources.infosecinstitute.com/windows-kerberos-vulnerability-need-know/#gref
+https://pastebin.com/gpcy1K0r
+https://github.com/erik1o6/oscp
+http://it-ovid.blogspot.in/2012/02/windows-privilege-escalation.html
+https://pen-testing.sans.org/blog/2012/04/26/got-meterpreter-pivot
+https://pentest.blog/explore-hidden-networks-with-double-pivoting/
+https://pentestlab.blog/category/privilege-escalation/page/2/
+https://www.kali.org/penetration-testing/passing-hash-remote-desktop/
+http://avi.alkalay.net/software/RDM/
+https://hashkiller.co.uk/
+http://garage4hackers.com/showthread.php?t=6902
+https://monkeysm8.gitbooks.io/pentesting-methodology/
+https://medium.freecodecamp.org/lessons-from-my-first-year-of-live-coding-on-twitch-41a32e2f41c1
+https://github.com/ferreirasc/oscp
+https://myexploit.wordpress.com/control-smb-445-137-139/
+Sun Jan 14 05:08:15 CST 2018
+https://www.digitalocean.com/community/tutorials/how-to-use-passwd-and-adduser-to-manage-passwords-on-a-linux-vps
+Sun Jan 14 05:09:20 CST 2018
+https://isc.sans.edu/diary.html
+Sun Jan 14 05:09:44 CST 2018
+https://pastebin.com/gpcy1K0r
+Sun Jan 14 05:09:47 CST 2018
+https://github.com/erik1o6/oscp
+Sun Jan 14 05:10:02 CST 2018
+https://hashkiller.co.uk/
+Sun Jan 14 05:10:18 CST 2018
+https://github.com/ferreirasc/oscp
+Sun Jan 14 05:10:42 CST 2018
+Offensive Security 🍪
+This group goal is help you guys to prepare better. RULES['No Spoilers','Respect Everyone']
+https://t.me/offensive_sec
+Sun Jan 14 05:29:24 CST 2018
+Voyeur
+Sun Jan 14 05:46:18 CST 2018
+https://github.com/lapwat/secure-open
+Sun Jan 14 05:47:16 CST 2018
+https://gist.github.com/haasn/69e19fc2fe0e25f3cff5
+Sun Jan 14 05:55:56 CST 2018
+ZeBl
+Channel dedicated to minimalism, programming, hacking and GNU+Linux. 
+PLTelegram: @pltelegram 
+Algorithms: @algorithmsTg
+cat-v: cat-v.org suckless: http://suckless.org/philosophy
+https://t.me/zerobloat
+Sun Jan 14 06:11:53 CST 2018
+🌹 Nud€s Public 🌹 18+
+https://t.me/nudespublic
+Sun Jan 14 06:12:02 CST 2018
+PublicPr0nGIFs
+https://t.me/PublicPr0nGIFs
+Sun Jan 14 06:12:30 CST 2018
+https://t.me/joinchat/AAAAAFLQm6cys3RCG1mnsA
+Sun Jan 14 06:14:07 CST 2018
+Debian
+Talk about Debian, and get the Debian's power!
+
+https://debian.org/
+https://t.me/debiangroup
+Sun Jan 14 06:14:20 CST 2018
+Unix
+All Unix-like OS interested users group
+
+--> BSD OS specific Group @unitedbsd
+--> Linux specific Group: @linux_group
+--> Apple user's Group @AppleUsersGroup
+--> Privacy Central @privacycentral
+https://t.me/Unix9
+Sun Jan 14 06:15:19 CST 2018
+Linux Help
+Правила: telegra.ph/Linux-Help--RTFM-05-12
+
+Mostly Russian, but English is welcome
+https://t.me/grouplinux
+Sun Jan 14 06:15:39 CST 2018
+PublicCumSharking
+https://t.me/PublicCumSharking
+Sun Jan 14 06:16:09 CST 2018
+Malware Research
+Group for Malware Analyst
+https://t.me/MalwareResearch
+Sun Jan 14 06:16:36 CST 2018
+The Devs
+Developers Community on Telegram.
+https://thedevs.network
+
+Ads/sponsorship:
+@thedevssponsor
+
+Jobs:
+@thehire
+
+Have something to share?
+https://t.me/joinchat/BkBvqUOEe86pg_f2-V27qA
+https://t.me/thedevs
+Sun Jan 14 06:16:47 CST 2018
+Debian GNU/Linux
+https://t.me/DebianProject
+Sun Jan 14 06:17:10 CST 2018
+Suicide girls Channel 🔞
+https://t.me/sg_channel
+Sun Jan 14 06:17:29 CST 2018
+BSD
+Group about Berkeley Software Distributions, FreeBSD, OpenBSD, NetBSD and so on.
+https://unitedbsd.com
+
+--> Unix OS specific Group @Unix9
+--> Apple user's Group @AppleUsersGroup
+--> Privacy Central @privacycentral
+https://t.me/unitedbsd
+Sun Jan 14 06:17:45 CST 2018
+Threatpost
+https://t.me/threatpost
+Sun Jan 14 06:18:43 CST 2018
+HumorGif
+Best humor in the world.
+
+Adv
+@maximcoin
+https://t.me/humorgif
+Sun Jan 14 06:18:55 CST 2018
+Sex gif +18
+https://t.me/gif_sex_18
+Sun Jan 14 06:19:08 CST 2018
+Spy photo (18+)
+https://t.me/spyphoto
+Sun Jan 14 06:19:27 CST 2018
+Reuters Top News
+Top and Breaking news , Pictures and Videos from Reuters.
+
+Reuters.com
+
+This Channel for sell , If you interested contact us : @YusuF44
+https://t.me/Reuters
+Sun Jan 14 06:19:35 CST 2018
+Failosofar
+My original posts are signed with 
+-- Failosofar
+Facebook account: https://www.facebook.com/Failosofar
+https://t.me/Failosofar
+Sun Jan 14 06:19:47 CST 2018
+LinuxHardening
+Linux kernel hardening & security
+https://t.me/linuxhardening
+Sun Jan 14 06:20:03 CST 2018
+Christy Mack
+https://t.me/christy_mack
+Sun Jan 14 06:20:39 CST 2018
+Astronomy Picture of the Day
+A different astronomy and space science related image is featured each day, along with a brief explanation.
+https://t.me/nasa_apod
+Sun Jan 14 06:20:48 CST 2018
+Science
+Science channel, videos and articles - international project
+Biggest science channel in telegram
+
+Contact for advertising ⚡️only: @bigfarang
+https://t.me/science
+Sun Jan 14 06:21:02 CST 2018
+Data Science
+First Telegram Data Science channel
+https://t.me/opendatascience
+Sun Jan 14 06:21:13 CST 2018
+The Intercept (English)
+News from TheIntercept.com, in English.
+https://t.me/TheInterceptEnglish
+Sun Jan 14 06:21:22 CST 2018
+Metaphysics
+https://t.me/MetaphysicsAndPhilosophy
+Sun Jan 14 06:21:33 CST 2018
+EverythingScience
+The best science facts, news, discoveries, videos and more! Daily!
+
+EverythingScience.co.uk
+
+Official Chat: @EverythingScienceChat
+
+Contact: @DigitisedRealitySupport
+Links: @DigitisedRealityHub
+https://t.me/EverythingScience
+Sun Jan 14 06:22:23 CST 2018
+Viral Channel
+🗞 @geeksChannel
+🔎 @stickersChannel
+🤖 @botsChannel
+🎮 @tlgramGames
+
+FUN
+😱 @gifsChannel
+📺 @utubeChannel
+
+CHANNELS / GROUPS
+📢 @tlgrmChannels
+👩‍👩‍👧‍👦 @groupsTelegram
+
+🎨 THEMES
+@desktopThemes
+android @themeChannel
+
+need promotion? @S4Support
+
+⚡️ by @S4Dynamics
+https://t.me/viralChannel
+Sun Jan 14 06:22:38 CST 2018
+Telegram Themes
+PC Themes @desktopThemes
+______
+submit your theme to
+@S4Support
+______
+🗞 @geeksChannel
+🤖 @botsChannel
+
+Fun:
+📺 @gifsChannel
+😱 @viralChannel
+
+Channels / Groups:
+📢 @tlgrmChannels
+👩‍👩‍👧‍👦 @groupsTelegram
+
+need promotion? @S4Support
+
+⚡️ by @S4Dynamics
+https://t.me/themechannel
+Sun Jan 14 06:24:12 CST 2018
+Tech channel
+🆕 and 🆒 hacking channel: @hackathron
+—
+We will provide you tech-themed jokes, posts, apps, programs and much more cool staff!
+—
+Enjoy and join our chat group too: @tech_chats
+—
+Bot: @tech_chat_fdbckbot
+—
+Admin: @TechChannelAdmBot
+https://t.me/tech_channels
+Sun Jan 14 06:25:13 CST 2018
+Prisma/Channel
+Tech and cyber security news and thoughts with occasional humoresques of aligned theme.
+
+Twitter: https://twitter.com/PrismaDB
+Website: http://PrismaDB.com/
+https://t.me/prisma_channel
+Sun Jan 14 06:25:38 CST 2018
+🕉 OM Music 🕉
+جهت عضویت در کانال جدید
+به PV بنده پیغام ارسال کنید
+
+To join in the new channel 
+and get the link 
+Please message sending 
+to my PV
+                   👇👇👇👇
+
+Admin => @DigitalMushroom 🙏
+https://t.me/OM_music1
+Sun Jan 14 06:27:14 CST 2018
+🎼 BINAURAL
+Music is science. Because science is truth. 
+- Chuck Berry -
+
+This channel provides you good music.
+
+for more information or for any song requests :
+@cromags
+
+thanks and enjoy 
+🙏😊
+https://t.me/soultherapy
+Sun Jan 14 06:27:47 CST 2018
+Funny or Die
+Funniest channel ever 🤣 or ☠ 
+            
+           Now in Telegram!
+
+Follow us and laugh out loudly 
+so your neighbors could hear you!
+https://t.me/Funny0rDie
+Sun Jan 14 06:29:40 CST 2018
+Hacker's Point
+Hacking guide,Tech-tricks, HowTo's, Hacking news, Cracked Apps,Dumped Accounts, Giveaways etc.
+Everything about hacks 
+#Android 
+#PC
+Our Bot @asktech_bot
+Our Group https://t.me/joinchat/EjkQekqG-QbfJuHb9xVjZw
+https://t.me/HackersPoint
+Sun Jan 14 06:30:50 CST 2018
+Spiritual Science Channel
+Spirituality and Science are no longer separated. ☯️🕉️⚛️
+Link to group: 
+https://telegram.me/joinchat/AtT4FT_B-xMgql61mtwd8A
+
+Admins: @Milenoschka, @Daniiloschka,  @TheCosmicMariner, @Corpusscallossum
+https://t.me/spiritualscience
+Sun Jan 14 06:31:19 CST 2018
+All About Tech
+The main goal of @AllAboutTech  is to provide unique information, such as quality tips and tricks, tutorials, how-to guides on Windows, Android, iPhone, Internet, Security, Social Media and a few miscellaneous sub-topics such as reviews.
+https://t.me/AllAboutTech
+Sun Jan 14 06:32:47 CST 2018
+Gifs w/ Sound
+Send me memes @Josepdal. 😉
+https://t.me/Gif2Sound
+Sun Jan 14 06:33:54 CST 2018
+Reflection
+A reflection of our thoughts and indeed yours
+Get in touch with us through this ID:
+@contact_reflection
+https://t.me/The_Reflection
+Sun Jan 14 06:34:27 CST 2018
+Study Inspiration
+Infografics! They are fun and quick way to learn about a topic without a ton of heavy reading. There are many different styles of infographics and data visualizations in various topics presented in this channel
+
+Contact admin: @nodir_bekhbudi
+https://t.me/study_inspiration
+Sun Jan 14 06:35:10 CST 2018
+Critical thinking
+Contacts ✉️ @seeky
+
+Navigation:
+#CognitiveBiases
+#Psychology
+#Books
+#LogicalFallacy
+#Explanations
+https://t.me/feedbrain
+Sun Jan 14 06:35:59 CST 2018
+Awesome Pics
+🗞 @geeksChannel
+🔎 @stickersChannel
+🤖 @botsChannel
+🎮 @tlgramGames
+
+FUN
+📺 @gifsChannel
+😱 @viralChannel
+
+CHANNELS / GROUPS
+📢 @tlgrmChannels
+👩‍👩‍👧‍👦 @groupsTelegram
+
+🎨 THEMES
+@desktopThemes
+android @themeChannel
+
+need promotion? @S4Support
+
+⚡️ by @S4Dynamics
+https://t.me/imgurCh4nnel
+Sun Jan 14 06:44:46 CST 2018
+Stickers Channel
+🗞 @geeksChannel
+🤖 @botsChannel
+🎮 @tlgramGames
+
+FUN
+📺 @GIFsChannel
+😱 @viralChannel
+
+CHANNELS / GROUPS
+📢 @tlgrmChannels
+👩‍👩‍👧‍👦 @groupsTelegram
+
+🎨 THEMES
+PC @desktopThemes
+android @themeChannel
+
+need promotion? @S4Support
+
+⚡️ Powered by @S4Dynamics
+https://t.me/stickersChannel
+Sun Jan 14 06:58:53 CST 2018
+Voyeur +18
+https://t.me/voyeur_hot
+Sun Jan 14 06:59:30 CST 2018
+🔞TOP Porno 2017 CHANNELS🌪
+https://t.me/porn_uzbek
+Sun Jan 14 07:00:05 CST 2018
+🕵️‍♂️Oversee 18+
+https://t.me/podsmotrel
+Sun Jan 14 07:05:10 CST 2018
+Photohunter | Подсмотрено
+🍑Первый канал, где вы можете наблюдать и любоваться не выходя из дома, красивыми девушками и их прелестями.🍑
+
+Самая ламповая атмосфера и свежие трофеи👍
+Подпишись и наслаждайся😜
+
+
+
+Наш бот @overse_e_bot
+https://t.me/photohunter18
+Sun Jan 14 07:07:31 CST 2018
+Tender Fantasies
+https://t.me/nude_fapfap
+Sun Jan 14 07:08:54 CST 2018
+🎬 [SP] Gifs! (18+)
+https://t.me/SaucePlsGifs
+Mon Jan 15 07:44:14 CST 2018
+Sam Harris speaks with Jennifer Doudna about the gene-editing technology CRISPR/Cas9. They talk about the biology of gene editing, how specific tissues in the body can be targeted, the ethical implications of changing the human genome, the importance of curiosity-driven science, and other topics.
+Mon Jan 15 09:30:27 CST 2018
+https://github.com/herverenault/DirectDictaphone
+Mon Jan 15 10:19:17 CST 2018
+🏆XXX Channels 🔞
+https://t.me/SexChannelsList
+Mon Jan 15 10:24:34 CST 2018
+@voyeurworld
+Mon Jan 15 10:26:30 CST 2018
+https://t.me/voyeurworld
+Mon Jan 15 10:26:35 CST 2018
+🎥📷Voyeur world📷🎥
+https://t.me/voyeurworld
+Tue Jan 16 08:30:23 CST 2018
+Lucas Frantz:
+319-931-5611
+Sat Jan 20 17:21:07 CST 2018
+https://www.eventbrite.com/d/ia--grimes/events/?q=&loc=Grimes%2C%20IA%2C%20United%20States&date=
+Sat Jan 20 17:23:52 CST 2018
+https://www.meetup.com/find/events/?allMeetups=true&radius=50&userFreeform=Grimes%2C+Iowa%2C+USA&mcId=c50111&change=yes
+Sat Jan 20 18:45:30 CST 2018
+xe1phix z4ro:
+Any luck procuring the commodity?
+Sat Jan 20 19:56:11 CST 2018
+@yobagif
+Sat Jan 20 19:56:43 CST 2018
+@programmerjokes
+Sun Jan 28 14:33:30 CST 2018
+thune1.mp3
+Tue Jan 30 14:39:07 CST 2018
+xe1phix z4ro:
+That and, "Do you wanna be a minion to your technology? Or an emperor?"
+Tue Jan 30 14:54:35 CST 2018
+BackgroundRestrictor (Manage RUN_IN_BACKGROUND permissions) - https://f-droid.org/app/com.pavelsikun.runinbackgroundpermissionsetter
+Tue Jan 30 23:20:34 CST 2018
+https://github.com/ytisf/theZoo
+Wed Jan 31 05:04:02 CST 2018
+https://t.me/addstickers/Rudies
+Wed Jan 31 05:04:04 CST 2018
+https://t.me/addstickers/GOTsticker
+Wed Jan 31 05:04:05 CST 2018
+https://t.me/addstickers/game11
+Wed Jan 31 05:04:07 CST 2018
+https://t.me/addstickers/LitProgrammers
+Wed Jan 31 05:04:08 CST 2018
+https://t.me/addstickers/AustinPowersTop
+Wed Jan 31 05:04:12 CST 2018
+https://t.me/addstickers/Harper7B
+Wed Jan 31 05:04:18 CST 2018
+https://t.me/addstickers/GanjaFriends
+Wed Jan 31 05:04:19 CST 2018
+https://t.me/addstickers/checkitoutbunghole
+Wed Jan 31 05:04:22 CST 2018
+https://t.me/addstickers/fourDankSixMe
+Wed Jan 31 05:04:24 CST 2018
+https://t.me/addstickers/BreakingBadBySelaris
+Wed Jan 31 05:04:25 CST 2018
+https://t.me/addstickers/BreakingBadMM
+Wed Jan 31 05:04:28 CST 2018
+https://t.me/addstickers/Madebythepsycho
+Wed Jan 31 05:04:30 CST 2018
+https://t.me/addstickers/VT_TG
+Wed Jan 31 05:04:32 CST 2018
+https://t.me/addstickers/HaroldBest
+Wed Jan 31 05:04:33 CST 2018
+https://t.me/addstickers/BreakingBadMyths
+Wed Jan 31 05:04:34 CST 2018
+https://t.me/addstickers/bouchondeliegedanstonanus
+Wed Jan 31 05:04:37 CST 2018
+https://t.me/addstickers/stallman2
+Wed Jan 31 05:04:46 CST 2018
+https://t.me/addstickers/continentalphilosophy
+Wed Jan 31 05:04:48 CST 2018
+https://t.me/addstickers/anark
+Wed Jan 31 05:04:52 CST 2018
+https://t.me/addstickers/privacycentral1
+Wed Jan 31 05:04:53 CST 2018
+https://t.me/addstickers/SexyPhotoIraq
+Wed Jan 31 05:04:55 CST 2018
+https://t.me/addstickers/HofmannDrugs
+Wed Jan 31 05:04:57 CST 2018
+https://t.me/addstickers/Geekography
+Wed Jan 31 05:05:00 CST 2018
+https://t.me/addstickers/NSDAP
+Wed Jan 31 05:05:03 CST 2018
+https://t.me/addstickers/PackIce
+Wed Jan 31 05:05:04 CST 2018
+https://t.me/addstickers/GetRekd
+Wed Jan 31 05:05:05 CST 2018
+https://t.me/addstickers/badgirrl
+Wed Jan 31 05:05:07 CST 2018
+https://t.me/addstickers/overwatchhentai
+Wed Jan 31 05:05:09 CST 2018
+https://t.me/addstickers/StickyFaces
+Wed Jan 31 05:05:13 CST 2018
+https://t.me/addstickers/Intruder_poses_of_sex
+Wed Jan 31 05:05:16 CST 2018
+https://t.me/addstickers/Making_Love
+Wed Jan 31 05:05:18 CST 2018
+https://t.me/addstickers/ZZMemes
+Wed Jan 31 05:05:19 CST 2018
+https://t.me/addstickers/Ginofiga
+Wed Jan 31 05:05:22 CST 2018
+https://t.me/addstickers/CreamyGirls
+Wed Jan 31 05:05:25 CST 2018
+https://t.me/addstickers/submissivegirl
+Wed Jan 31 05:05:26 CST 2018
+https://t.me/addstickers/sashagreystickerpack
+Wed Jan 31 05:05:28 CST 2018
+https://t.me/addstickers/GoatRulez
+Wed Jan 31 05:05:31 CST 2018
+https://t.me/addstickers/RealMemes
+Wed Jan 31 05:05:34 CST 2018
+https://t.me/addstickers/shwebfair1
+Wed Jan 31 05:05:35 CST 2018
+https://t.me/addstickers/Amirtavahomi
+Wed Jan 31 05:05:36 CST 2018
+https://t.me/addstickers/Hothot
+Wed Jan 31 05:05:38 CST 2018
+https://t.me/addstickers/keymemes
+Wed Jan 31 05:05:39 CST 2018
+https://t.me/addstickers/web_technology_logos
+Wed Jan 31 05:05:40 CST 2018
+https://t.me/addstickers/gnuplusmemes
+Wed Jan 31 05:05:43 CST 2018
+https://t.me/addstickers/MusicWorld
+Wed Jan 31 05:05:47 CST 2018
+https://t.me/addstickers/futurama_pouyasaadeghi
+Wed Jan 31 05:05:48 CST 2018
+https://t.me/addstickers/SuperPepe
+Wed Jan 31 05:05:49 CST 2018
+https://t.me/addstickers/baroncohen
+Wed Jan 31 05:05:51 CST 2018
+https://t.me/addstickers/HitlerNyasha
+Wed Jan 31 05:05:53 CST 2018
+https://t.me/addstickers/ReactionPics
+Wed Jan 31 05:05:54 CST 2018
+https://t.me/addstickers/Chloedisney
+Wed Jan 31 05:05:57 CST 2018
+https://t.me/addstickers/IndianThings
+Wed Jan 31 05:05:59 CST 2018
+https://t.me/addstickers/ArcherPack
+Wed Jan 31 05:06:00 CST 2018
+https://t.me/addstickers/southpack
+Wed Jan 31 05:06:03 CST 2018
+https://t.me/addstickers/YummCum
+Wed Jan 31 05:06:06 CST 2018
+https://t.me/addstickers/Memesmemeseverywhere_2
+Wed Jan 31 05:06:07 CST 2018
+https://t.me/addstickers/Memesmemeseverywhere
+Wed Jan 31 05:06:11 CST 2018
+https://t.me/addstickers/FamilyGuyStickers2
+Wed Jan 31 05:06:12 CST 2018
+https://t.me/addstickers/FamilyGuyStickers
+Wed Jan 31 05:06:15 CST 2018
+https://t.me/addstickers/position18
+Wed Jan 31 05:06:17 CST 2018
+https://t.me/addstickers/hentaipack
+Wed Jan 31 05:06:19 CST 2018
+https://t.me/addstickers/Meme_stickers
+Wed Jan 31 05:06:20 CST 2018
+https://t.me/addstickers/LinuxNewsItalia
+Wed Jan 31 05:06:22 CST 2018
+https://t.me/addstickers/Ramily
+Wed Jan 31 05:13:43 CST 2018
+CHEF-KOCH’s gists
+https://gist.github.com/CHEF-KOCH
+
+Simple Iptables Script Generator
+http://www.mista.nu/iptables/
+
+Droidwall scripts that fix some problems for e.g. Orbot, startup data leak and other things (see comments)
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+
+AdguardTeam/AdguardForAndroid: Open bug tracker for Android version of AdGuard.
+https://github.com/AdguardTeam/AdguardForAndroid/
+
+topjohnwu/Magisk_Repo_Central
+https://github.com/topjohnwu/Magisk_Repo_Central
+
+copperhead/paxd-archive: PaX exception daemon - Temporarily abandoned due to the PaX and grsecurity patches becoming private
+https://github.com/copperhead/paxd-archive
+
+GitHub - collinbarrett/FilterLists: FilterLists is the independent and comprehensive directory of all public filter and hosts lists for advertisements, trackers, malware, and annoyances.
+https://github.com/collinbarrett/FilterLists
+
+http://www.kitploit.com/2017/01/autolocalprivilegeescalation-automated.html
+https://highon.coffee/blog/lord-of-the-root-walkthrough/
+https://hub.docker.com/r/janes/mysql/
+https://www.digitalocean.com/community/tutorials/how-to-use-passwd-and-adduser-to-manage-passwords-on-a-linux-vps
+https://www.exploit-db.com/papers/13199/
+http://www.dankalia.com/tutor/01005/0100501004.htm
+https://null-byte.wonderhowto.com/how-to/hack-like-pro-finding-potential-suid-sgid-vulnerabilities-linux-unix-systems-0158373/
+https://warroom.securestate.com/building-a-vulnerable-box-rejetto-hfs/
+https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc
+https://github.com/rmusser01/Infosec_Reference/blob/master/Draft/Privilege%20Escalation%20%26%20Post-Exploitation.md
+https://github.com/devblackops/Switch-User
+https://blog.ropnop.com/using-credentials-to-own-windows-boxes-part-2-psexec-and-services/
+https://blog.ropnop.com/transferring-files-from-kali-to-windows/
+http://help.appveyor.com/discussions/problems/3281-rdesktop-on-linux-requires-credssp
+https://superuser.com/questions/904353/enable-remote-desktop-in-windows-firewall-from-command-line
+https://exploit.ph/web-hacking/2015/02/08/a-web-hack/
+https://x8x.net/2015/03/17/nfs-tunneling-via-ssh-for-easy-privilege-escalation/
+http://www.slashroot.in/how-are-passwords-stored-linux-understanding-hashing-shadow-utils
+https://www.exploit-db.com/exploits/24044/
+https://superuser.com/questions/1044667/ftp-directory-traversal-attack-on-directories-containing-white-spaces
+http://www.savetz.com/yic/YIC06FI_6.html
+https://www.adampalmer.me/iodigitalsec/2013/08/10/accessing-and-hacking-mssql-from-backtrack-linux/
+https://isc.sans.edu/diary.html
+https://geodasecurity.blogspot.in/2017/06/elevate-from-admin-to-nt-authoritysystem.html
+https://pentestlab.blog/2012/08/17/nmap-cheat-sheet/
+https://daemonchild.com/2015/08/10/got-ssh-creds-want-meterpreter-try-this/
+https://security.stackexchange.com/questions/68884/exploit-http-put-method-in-microsoft-iis-5-0
+https://pentesterlab.com/exercises/axis2_and_tomcat_manager/course
+http://insecure.org/sploits/test-cgi.server_protocol.html
+http://www.ldap389.info/en/2012/12/10/pentesting-active-directory-hacking/
+https://jhalon.github.io/pentestit-lab-10-win-dc0-token/
+http://resources.infosecinstitute.com/windows-kerberos-vulnerability-need-know/#gref
+https://pastebin.com/gpcy1K0r
+https://github.com/erik1o6/oscp
+http://it-ovid.blogspot.in/2012/02/windows-privilege-escalation.html
+https://pen-testing.sans.org/blog/2012/04/26/got-meterpreter-pivot
+https://pentest.blog/explore-hidden-networks-with-double-pivoting/
+https://pentestlab.blog/category/privilege-escalation/page/2/
+https://www.kali.org/penetration-testing/passing-hash-remote-desktop/
+http://avi.alkalay.net/software/RDM/
+https://hashkiller.co.uk/
+http://garage4hackers.com/showthread.php?t=6902
+https://monkeysm8.gitbooks.io/pentesting-methodology/
+https://medium.freecodecamp.org/lessons-from-my-first-year-of-live-coding-on-twitch-41a32e2f41c1
+https://github.com/ferreirasc/oscp
+https://myexploit.wordpress.com/control-smb-445-137-139/
+
+https://github.com/Jean13/Penetration_Testing
+https://unix.stackexchange.com/questions/157477/how-can-shellshock-be-exploited-over-ssh
+https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php
+https://www.exploit-db.com/exploits/10/
+https://www.exploit-db.com/exploits/9545/
+https://www.exploit-db.com/papers/15311/
+https://www.exploit-db.com/exploits/31173/
+https://www.exploit-db.com/exploits/28718/
+https://gist.github.com/natesubra/5117959c660296e12d3ac5df491da395
+https://github.com/offensive-security/exploit-database-bin-sploits
+https://github.com/apenwarr/sshuttle
+https://anthonys.io/oscp-pwk-review/
+https://thegeekiestone.com/2017/04/28/how-to-prepare-for-pwkoscp-a-noob-friendly-guide/
+https://github.com/codingo/Reconnoitre
+https://baselinesecurity.wordpress.com/offensive-security-certifications/
+https://jivoi.github.io/2015/07/03/offensive-security-bookmarks/
+https://0x00sec.org/t/enumeration-for-linux-privilege-escalation/1959
+https://danielmiessler.com/study/tcpdump/#port
+https://www.securitysift.com/offsec-pwb-oscp/
+https://github.com/AusJock/Privilege-Escalation
+https://jivoi.github.io/2015/08/21/pentest-tips-and-tricks-number-2/
+https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/
+https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
+https://www.slideshare.net/nullthreat/fund-linux-priv-esc-wprotections
+http://www.openwall.com/lists/oss-security/2017/05/30/16
+https://blog.skullsecurity.org/2009/webdav-detection-vulnerability-checking-and-exploitation
+http://hacking-share.blogspot.in/2013/03/hacking-cold-fusion-servers-part-i.html
+https://netsec.ws/?p=331
+https://pentest.blog/windows-privilege-escalation-methods-for-pentesters/
+https://www.exploit-db.com/exploits/14641/
+http://hatriot.github.io/blog/2014/04/02/lfi-to-stager-payload-in-coldfusion/
+https://operating-systems.wonderhowto.com/how-to/create-admin-user-account-using-cmd-prompt-windows-0125689/
+https://nocommonsense.wordpress.com/2014/08/02/remove-windows-service-dependencies-with-sc-exe/
+http://bernardodamele.blogspot.in/2011/12/dump-windows-password-hashes.html
+https://www.windows-commandline.com/add-user-to-group-from-command-line/
+http://www.hackingarticles.in/hiding-shell-prepend-migrate-using-msfvenom/
+https://www.windows-commandline.com/enable-remote-desktop-command-line/
+https://charlesreid1.com/wiki/Metasploitable/Apache/DAV
+http://www.qed42.com/blog/using-curl-commands-webdav
+http://www.asianux.org.vn/2014/09/19/webdav-vulnerability-detect-exploit/
+http://paulsec.github.io/blog/2014/04/14/updating-openfuck-exploit/
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html/Getting_Started_Guide/ch02s03.html
+https://0xicf.wordpress.com/tag/exploit/
+https://github.com/lucyoa/kernel-exploits
+https://myexploit.wordpress.com/page/2/
+https://github.com/ucki/URP-T-v.01
+https://forums.offensive-security.com/showthread.php?t=4689&highlight=gamma
+https://packetstormsecurity.com/files/14721/r9-frontpage-netbios.txt.html
+http://www.madirish.net/59
+http://www.ush.it/2009/07/26/php-filesystem-attack-vectors-take-two/
+https://highon.coffee/blog/lfi-cheat-sheet/
+http://binholic.blogspot.in/2013/12/lfi-exploitation-basics-code-execution.html
+https://blog.g0tmi1k.com/2012/02/kioptrix-level-4-local-file/
+http://www.lanmaster53.com/2011/05/7-linux-shells-using-built-in-tools/
+http://www.phpknowhow.com/basics/include-files/
+http://arighi.blogspot.in/2013/05/linux-perfevents-root-exploit-cve-2013.html
+https://ritcsec.wordpress.com/2016/12/11/an-initial-look-at-web-exploit-development/
+https://docs.google.com/spreadsheets/d/1TD8KTRXvXwy1yU6s7Nz_JuNh7b7fa7pINZuHOVjtAAg/edit#gid=937533738
+https://github.com/g0tmi1k/mpc
+https://github.com/jshaw87/Cheatsheets
+https://www.kernel-exploits.com/
+https://github.com/abatchy17/WindowsExploits
+http://hackingandsecurity.blogspot.in/2016/04/oscp-related-notes.html
+https://quizlet.com/44970397/linux-and-hacking-common-commands-and-memorize-mes-flash-cards/
+https://0x00sec.org/t/practicalpentestlabs-com-boxes-writeups/2218/11
+
+https://github.com/mubix/post-exploitation/wiki/Linux-Post-Exploitation-Command-List
+
+This guy have applied that license to his project https://github.com/hovancik/BSDSec/blob/master/README.md
+
+https://github.com/vanhoefm/krackattacks-scripts
+
+https://github.com/guardianproject/haven
+
+https://github.com/trailofbits/algo/blob/master/README.md
+
+https://gist.github.com/haasn/69e19fc2fe0e25f3cff5
+Wed Jan 31 05:36:11 CST 2018
+🔞Rule 34🔞
+https://t.me/Rule34art
+Wed Jan 31 05:37:08 CST 2018
+Hentai gifs
+https://t.me/hentaigifs
+Wed Jan 31 05:39:50 CST 2018
+Public Nude
+https://t.me/publicnude
+Wed Jan 31 05:40:48 CST 2018
+Public Sex GIF
+https://t.me/public_sex
+Wed Jan 31 05:41:28 CST 2018
+Sex Gif
+https://t.me/SexGifs1
+Wed Jan 31 05:42:46 CST 2018
+Public Porn
+https://t.me/pornpublic
+Wed Jan 31 05:44:52 CST 2018
+Anal Sex
+https://t.me/FuckinAss
+Wed Jan 31 05:47:54 CST 2018
+18+ Groups & Communities
+https://t.me/SexChatList
+Wed Jan 31 05:53:38 CST 2018
+Porn Gif Bank
+https://t.me/PornGifBank
+Wed Jan 31 06:05:06 CST 2018
+Ebony
+https://t.me/ebonyporn
+Wed Jan 31 06:13:09 CST 2018
+https://t.me/porn_uzbek/2360
+Wed Jan 31 06:15:05 CST 2018
+TELELEAKS
+https://t.me/teleleaks
+Wed Jan 31 06:15:24 CST 2018
+Snapchat Porn
+https://t.me/pornsnapchat
+Wed Jan 31 06:15:43 CST 2018
+Cool teleporn gif
+https://t.me/coolteleporngif
+Wed Jan 31 06:16:07 CST 2018
+Secret Desires
+https://t.me/secretdesires
+Wed Jan 31 06:16:43 CST 2018
+Amateur Privè
+https://t.me/amateurprive
+Wed Jan 31 06:17:04 CST 2018
+DaGFs
+https://t.me/DaGFs
+Wed Jan 31 06:18:10 CST 2018
+‼️ NEW LINK ‼️
+🔞 Christy Mack 🔞
+👉 https://t.me/christy_mack
+Wed Jan 31 06:18:57 CST 2018
+Tattoo girls
+https://t.me/tattoos
+Wed Jan 31 06:19:41 CST 2018
+Pron
+https://t.me/pronhub
+Wed Jan 31 06:20:45 CST 2018
+Uncensored (18+)
+https://t.me/uncensored_channel
+Wed Jan 31 06:23:19 CST 2018
+Porn 18+
+https://t.me/mypornox
+Wed Jan 31 06:32:11 CST 2018
+Voyeur&Spy 18+
+https://t.me/voyandspy
+Wed Jan 31 06:32:32 CST 2018
+🔞Master Porno🔞
+https://t.me/masterporno
+Wed Jan 31 06:33:57 CST 2018
+@channelsex
+https://t.me/channelsex
+Wed Jan 31 06:34:45 CST 2018
+XXXmotion
+https://t.me/xxxmotion
+Wed Jan 31 06:35:41 CST 2018
+XVIDEOS HD
+https://t.me/xvideosHD
+Wed Jan 31 06:36:59 CST 2018
+Hot GIFs channel
+https://t.me/hotgifschannel
+Wed Jan 31 06:38:05 CST 2018
+Porn Gifs
+https://t.me/eroticporngif
+Wed Jan 31 06:39:01 CST 2018
+Pornogram
+https://t.me/pornogram
+Wed Jan 31 06:42:55 CST 2018
+💦 Squirt Pussy 🔞
+https://t.me/SquirtPussy
+Wed Jan 31 08:15:01 CST 2018
+https://t.me/joinchat/AAAAAEscgUTRwvLnEUsXkA
+Wed Jan 31 12:03:51 CST 2018
+Sasha Grey
+https://t.me/SashaGreyActress
+Wed Jan 31 17:48:29 CST 2018
+xe1phix z4ro:
+Setup my ras last night
+
+Any automation ideas?
+Wed Jan 31 18:59:12 CST 2018
+https://pastebin.com/u/BaSs_HaXoR
+
+https://pastebin.com/u/JuanDeLemos
+
+https://pastebin.com/u/Cyb3r_h4ck3r
+
+https://pastebin.com/u/CoderSec
+
+https://pastebin.com/u/noxsquad
+
+https://pastebin.com/u/AnonymousWiki
+
+https://pastebin.com/u/devil4u4ever
+
+https://pastebin.com/u/Lucky_V
+
+https://pastebin.com/u/FlyHack
+
+https://pastebin.com/u/Aluf
+
+https://pastebin.com/u/chris_defaulter007
+
+https://pastebin.com/u/ThisIsGame0ver
+Wed Jan 31 19:06:52 CST 2018
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+
+https://gist.github.com/CHEF-KOCH/5a7b1593d1880f906b12a3c87cee4500
+
+https://gist.github.com/CHEF-KOCH/ef0cf71138b7c0e81b49ada5b5a5e356
+
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+
+Droidwall scripts that fix some problems for e.g. Orbot, startup data leak and other things (see comments)
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+
+AFWall+ [2017 Edition]
+https://gist.github.com/CHEF-KOCH/79924daa128c0a5526cb94bec5ad9187
+
+Droidwall scripts that fix some problems for e.g. Orbot, startup data leak and other things (see comments)
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+
+OpenVPN hardening
+https://gist.github.com/CHEF-KOCH/5918aeb0433a82694adfc857d1372167
+
+AFWall+ [2017 Edition]
+https://gist.github.com/CHEF-KOCH/79924daa128c0a5526cb94bec5ad9187
+
+Droidwall scripts that fix some problems for e.g. Orbot, startup data leak and other things (see comments)
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3#file-firewall-allow-adb-sh
+
+uTorrent activation/ads
+https://gist.github.com/CHEF-KOCH/b042e55ea1f9e635610fbaabe38334db
+
+Audio fingerprint pages [2017 Edition]
+https://gist.github.com/CHEF-KOCH/63fd2e506cb34a2378ad2620ab06d2e0
+
+Canvas fingerprinting pages [2017 Edition]
+https://gist.github.com/CHEF-KOCH/2dea75d43b2184f228ae94b168d275b1
+
+WebRTC tracking list [2017 Edition]
+https://gist.github.com/CHEF-KOCH/5a7b1593d1880f906b12a3c87cee4500
+
+List of Popular Free Torrent Sites
+https://gist.github.com/CHEF-KOCH/d1c6f49492f6d10ee1d192817b7cdce5
+
+Hidden Wiki .onion Urls Tor Link Directory [2017 Edition]
+https://gist.github.com/CHEF-KOCH/ef0cf71138b7c0e81b49ada5b5a5e356
+
+Removing Video Metadata
+https://gist.github.com/CHEF-KOCH/5d98f57fd614cc2524d1d17e41edc652
+
+CHEF-KOCH’s gists
+https://gist.github.com/CHEF-KOCH
+
+Droidwall scripts that fix some problems for e.g. Orbot, startup data leak and other things (see comments)
+https://gist.github.com/CHEF-KOCH/e0b8771cd1fd17c9b4d3
+Wed Jan 31 19:12:25 CST 2018
+https://t.me/tporndotcom
+
+https://t.me/debiangroup
+
+https://t.me/OSdistroChat
+
+https://t.me/linux_group
+
+https://t.me/tchannels
+
+https://t.me/TheHackerNewsRSS
+
+https://t.me/realinfoplus
+
+https://t.me/Failosofar
+
+https://t.me/DebianProject
+
+https://t.me/StickersLine
+
+https://t.me/grouplinux
+
+https://t.me/PublicTestGroup
+
+https://t.me/archplanet
+
+https://t.me/topgif
+
+https://t.me/buddhismchat
+
+https://telegram.me/tchannels
+
+https://t.me/grouplinux
+
+https://t.me/threatpost
+
+https://t.me/linuxgram
+
+https://t.me/nasa_apod
+
+https://t.me/programmerjokes
+
+https://t.me/blckht6
+
+https://t.me/eDenInfo
+
+https://t.me/Technoloogy
+
+https://t.me/opendatascience
+
+https://t.me/PictureQuotes
+
+https://t.me/TheGuardian
+
+https://t.me/bbcbreaking
+
+https://t.me/did_you_know
+
+https://t.me/talks
+
+https://t.me/pornfactory
+
+https://t.me/porno_sex
+
+https://t.me/retrofucking
+
+https://t.me/newsezygif
+
+https://t.me/spyphoto
+
+https://t.me/sweetanal
+
+https://t.me/justmemes
+
+https://t.me/groupsTelegram/286
+
+https://t.me/dolbaebgif
+
+https://t.me/yobagif
+
+https://t.me/squirtanal
+
+https://t.me/giffree
+
+https://t.me/giffree
+https://t.me/newsezygif
+https://t.me/PartyGirl
+https://t.me/FuckinAss
+
+https://t.me/pornsnapchat
+https://t.me/coolteleporngif
+
+https://t.me/secretdesires
+https://t.me/DaGFs
+https://t.me/christy_mack
+https://t.me/hotbaza
+https://t.me/xxxcloud
+https://t.me/teen_porn
+https://t.me/JapanSex
+
+https://t.me/masterporno
+https://t.me/sexygirlsff
+https://t.me/hotgifschannel
+https://t.me/eroticporngif
+https://t.me/selfiru
+https://t.me/pornogram
+https://t.me/sg_channel
+
+https://t.me/SEXinCAR
+https://t.me/iGIFyouPORN
+https://t.me/iloveporn
+
+https://t.me/PornAddict
+https://t.me/porno_chat
+https://t.me/freeporngif1
+
+https://t.me/allaboutsexgif
+https://t.me/gifpornxxx
+https://t.me/epicporngifs
+https://t.me/squirtanal
+
+https://t.me/Pozisex
+https://t.me/humor18
+Wed Jan 31 19:28:15 CST 2018
+Suicide Girls Official 💋
+https://t.me/suicidegirlsofficial
+Wed Jan 31 19:28:51 CST 2018
+Real Anal
+https://t.me/RealAnal
+Wed Jan 31 19:29:00 CST 2018
+SexGIF
+https://t.me/sexgif
+Wed Jan 31 19:29:14 CST 2018
+CREAMPIE PORN
+https://t.me/creampieporn
+Wed Jan 31 23:57:58 CST 2018
+xe1phix z4ro:
+263695344421
+Wed Jan 31 23:58:10 CST 2018
+xe1phix z4ro:
+http://www.theonion.com/article/neighbors-confront-alcoholic-child-abuser-about-hi-744
+Wed Jan 31 23:58:13 CST 2018
+xe1phix z4ro:
+http://www.theonion.com/blogpost/ask-a-coffin-salesman-12239
+Thu Feb 01 00:09:39 CST 2018
+xe1phix z4ro:
+Its a strange predicament, when you realize the complexity of our conscious mind
+It is beyond the limits of physical matter. 
+Yet, because of its binding relationship with our physical vessel.
+The mind is continuously restricted to a confined plateau of existence.
+How does the human mind come into formation?
+> the realization that, the external world is responsible for the creation of the mind.
+Our perception of reality is completely dependant on the CNS's ability to create a neuro-network of innerconnectivity.
+So then, does a human organisms reality mearly consist of percepts and concepts,
+Thu Feb 01 00:09:44 CST 2018
+xe1phix z4ro:
+https://t.me/pornfactory
+Thu Feb 01 00:10:00 CST 2018
+xe1phix z4ro:
+http://www.justpain.com/ut_maps/wordlists/
+
+https://github.com/danielmiessler/SecLists/tree/master/Passwords
+
+http://www.adeptus-mechanicus.com/codex/hashpass/hashpass.php
+
+https://weakpass.com/wordlist/real
+Thu Feb 01 00:15:53 CST 2018
+xe1phix z4ro:
+https://www.youtube.com/watch?v=54Fndxv0llE
+
+https://www.youtube.com/watch?v=54Fndxv0llE
+
+https://www.youtube.com/watch?v=On_DeZFpEbM
+Thu Feb 01 00:16:38 CST 2018
+xe1phix z4ro:
+xe1phix z4ro:
+"there is no definitive way to seperate a human organism from its external environment. The two are a single field of behavior."
+
+xe1phix z4ro:
+Its a strange predicament, when you realize the complexity of our conscious mind
+It is beyond the limits of physical matter. 
+Yet, because of its binding relationship with our physical vessel.
+The mind is continuously restricted to a confined plateau of existence.
+How does the human mind come into formation?
+> the realization that, the external world is responsible for the creation of the mind.
+Our perception of reality is completely dependant on the CNS's ability to create a neuro-network of innerconnectivity.
+So then, does a human organisms reality mearly consist of percepts and concepts,
+Thu Feb 01 00:17:01 CST 2018
+xe1phix z4ro:
+https://twitter.com/hashtag/BadMalwarePickupLines?src=hash
+Thu Feb 01 00:17:12 CST 2018
+xe1phix z4ro:
+> #badmalwarepickuplines Girl, I like the way you binwalk that firmware
+Thu Feb 01 01:00:37 CST 2018
+@gif Linux malware
+Thu Feb 01 01:17:01 CST 2018
+Adult Comics English
+https://t.me/adultcomicsenglish
+Thu Feb 01 01:17:38 CST 2018
+🍓 Adult Gifs
+https://t.me/adultgif
+Thu Feb 01 01:36:14 CST 2018
+💥Adult Stickers
+https://t.me/AdultStickers
+Thu Feb 01 01:59:41 CST 2018
+https://t.me/Crazy_Porn_Gif/351
+Thu Feb 01 02:09:14 CST 2018
+Гиф Эксклюзив | Gif Exclusive
+https://t.me/Gif_Exclusive
+Thu Feb 01 02:15:51 CST 2018
+Gif Exclusive
+Thu Feb 01 02:17:07 CST 2018
+Anal Insertion Lover
+https://t.me/AnalInsertion
+Thu Feb 01 02:18:15 CST 2018
+Crazy Porn Gif
+https://t.me/Crazy_Porn_Gif
+Thu Feb 01 02:19:59 CST 2018
+Sex
+https://t.me/sexzxxxxx
+Thu Feb 01 02:33:06 CST 2018
+analworld
+https://t.me/analworld
+Thu Feb 01 06:01:56 CST 2018
+811806430_2051.webp
+Thu Feb 01 10:21:06 CST 2018
+intent:#Intent;action=android.intent.action.ASSIST;launchFlags=0x10000000;S.android.intent.extra.ASSIST_PACKAGE=org.telegram.messenger;i.android.intent.extra.ASSIST_UID=10090;i.android.intent.extra.ASSIST_INPUT_DEVICE_ID=8;end 
+------------ 
+ACTION: android.intent.action.ASSIST 
+URI: intent:#Intent;action=android.intent.action.ASSIST;launchFlags=0x10000000;S.android.intent.extra.ASSIST_PACKAGE=org.telegram.messenger;i.android.intent.extra.ASSIST_UID=10090;i.android.intent.extra.ASSIST_INPUT_DEVICE_ID=8;end 
+FLAGS: 
+FLAG_RECEIVER_FOREGROUND 
+EXTRAS: 
+1 Class: java.lang.String 
+Key: android.intent.extra.ASSIST_PACKAGE 
+Value: org.telegram.messenger 
+2 Class: java.lang.Integer 
+Key: android.intent.extra.ASSIST_UID 
+Value: 10090 
+3 Class: java.lang.Integer 
+Key: android.intent.extra.ASSIST_INPUT_DEVICE_ID 
+Value: 8 
+4 Class: android.os.Bundle 
+Key: android.intent.extra.ASSIST_CONTEXT 
+
+------------ 
+MATCHING ACTIVITIES: 
+none 
+
+Thu Feb 01 10:55:16 CST 2018
+https://m.youtube.com/#/watch?v=MKCYDrur_WI
+Sat Feb 03 14:06:05 CST 2018
+http://traffic.libsyn.com/pauldotcom/PSW546compressed.mp3
+Sat Feb 03 19:39:21 CST 2018
+@d1scharg3d
+Sat Feb 03 19:55:07 CST 2018
+https://t.me/tporndotcom
+
+https://t.me/pornfactory
+
+https://t.me/porno_sex
+
+https://t.me/retrofucking
+
+https://t.me/newsezygif
+
+https://t.me/spyphoto
+
+https://t.me/sweetanal
+
+https://t.me/groupsTelegram/286
+
+https://t.me/dolbaebgif
+
+https://t.me/yobagif
+
+https://t.me/squirtanal
+
+https://t.me/giffree
+
+https://t.me/giffree
+https://t.me/newsezygif
+https://t.me/PartyGirl
+https://t.me/FuckinAss
+
+https://t.me/pornsnapchat
+https://t.me/coolteleporngif
+
+https://t.me/secretdesires
+https://t.me/DaGFs
+https://t.me/christy_mack
+https://t.me/hotbaza
+https://t.me/xxxcloud
+https://t.me/teen_porn
+https://t.me/JapanSex
+
+https://t.me/masterporno
+https://t.me/sexygirlsff
+https://t.me/hotgifschannel
+https://t.me/eroticporngif
+https://t.me/selfiru
+https://t.me/pornogram
+https://t.me/sg_channel
+
+https://t.me/SEXinCAR
+https://t.me/iGIFyouPORN
+https://t.me/iloveporn
+
+https://t.me/PornAddict
+https://t.me/porno_chat
+https://t.me/freeporngif1
+
+https://t.me/allaboutsexgif
+https://t.me/gifpornxxx
+https://t.me/epicporngifs
+https://t.me/squirtanal
+
+https://t.me/Pozisex
+https://t.me/humor18
+Sat Feb 03 19:56:21 CST 2018
+@AdultStickers
+Sat Feb 03 23:16:40 CST 2018
+Leaked Sex
+https://t.me/leakedsex
+Tue Feb 06 10:33:00 CST 2018
+Hey, the roads here haven't been paved yet. Can we reschedule?
+Tue Feb 06 10:39:05 CST 2018
+Damn, I sent that to the wrong person
+Sat Feb 10 02:50:05 CST 2018
+xe1phix z4ro:
+I told him "the mind is a wonderful servant, but a terrible master."
+Sat Feb 10 02:50:20 CST 2018
+"the mind is a wonderful servant, but a terrible master."
+Sat Feb 10 02:56:29 CST 2018
+Buddhism group for telegram
+Sat Feb 10 02:57:12 CST 2018
+https://t.me/buddhismchat
+Sat Feb 10 02:59:40 CST 2018
+https://t.me/MetaphysicsAndPhilosophy
+Sun Feb 11 07:32:44 CST 2018
+58957820213056649278a7abfa61cb636d59d35514e6cdaf861be0012e0b2ed4  lineage-14.1-20180210-nightly-x2-signed.zip
+Sun Feb 11 07:37:15 CST 2018
+Select Wipe and then Advanced Wipe.
+Select Cache, System and Data partitions to be wiped and then Swipe to Wipe.

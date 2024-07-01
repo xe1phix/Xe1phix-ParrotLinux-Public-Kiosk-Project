@@ -1,0 +1,3407 @@
+Clip Stack Backup 
+
+Mon Sep 05 17:30:11 PDT 2022
+Saw this ''Etherium Wars'' talk in the Defcon booklet.
+Sounded like the talk you were searching for at the Bitcoin conference.
+Mon Sep 05 17:02:57 PDT 2022
+netool.io
+Mykeyport.com
+BladeRF
+SimpleWifi
+Tencent
+Sourceofknowledge defcononline.com
+UnicornTeam
+UAT.edu
+Ihackiot.com
+Baidu
+Calyxinstitude.org
+GhettoGeek
+Hackerwarehouse
+WA5VJB.com
+BEDR
+PI Zero
+Pocketbeagle
+OTG cable
+github.com/ekiojp/circo
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+
+
+
+
+Mon Sep 05 17:02:07 PDT 2022
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+github.com/
+
+Mon Sep 05 17:01:24 PDT 2022
+github.com/
+github.com/
+github.com/
+
+Mon Sep 05 17:01:08 PDT 2022
+github.com/
+
+Mon Sep 05 17:00:42 PDT 2022
+github.com/
+Mon Sep 05 12:18:05 PDT 2022☆★☆
+EatPissDrinkShit7!
+Mon Sep 05 12:14:53 PDT 2022☆★☆
+markrobertcurry-xe1phix
+Mon Sep 05 12:01:56 PDT 2022
+site:"https://t.me/addstickers/" xe1phix
+Mon Sep 05 12:01:45 PDT 2022
+site:"https://t.me/" xe1phix
+Mon Sep 05 11:59:31 PDT 2022
+https://t.me/addstickers/xe1phix
+Mon Sep 05 11:59:03 PDT 2022
+https://t.me/addstickers/HofmannDrugs
+Mon Sep 05 11:55:46 PDT 2022
+r/TelegramStickersShare
+Mon Sep 05 11:55:41 PDT 2022
+TelegramStickersShare
+Mon Sep 05 11:50:44 PDT 2022
+https://soundcloud.com/0xdade/advanced-persistent-threat
+Mon Sep 05 11:46:11 PDT 2022
+https://telegram.me/addstickers/Animals
+Mon Sep 05 11:45:21 PDT 2022
+https://core.telegram.org/stickers/webm-vp9-encoding
+Mon Sep 05 11:43:15 PDT 2022
+Xe1phix-Video-Stickers
+Mon Sep 05 11:37:02 PDT 2022
+https://t.me/addstickers/Xe1phix-Sticker
+Mon Sep 05 11:31:35 PDT 2022
+https://t.me/imagebot
+Mon Sep 05 11:28:56 PDT 2022
+Sticker
+Mon Sep 05 11:26:03 PDT 2022
+https://api.telegram.org/file/bot<token>/<file_path>
+Mon Sep 05 11:23:19 PDT 2022
+
+Generating a self-signed certificate pair (PEM):
+Openssl
+
+    Windows binaries for Openssl are available online
+
+openssl req -newkey rsa:2048 -sha256 -nodes -keyout YOURPRIVATE.key -x509 -days 365 -out YOURPUBLIC.pem -subj "/C=US/ST=New York/L=Brooklyn/O=Example Brooklyn Company/CN=YOURDOMAIN.EXAMPLE"
+
+YOURPUBLIC.pem has to be used as input for setting the self-signed webhook.
+
+You can inspect the generated certificate with:
+openssl x509 -text -noout -in YOURPUBLIC.pem
+
+Converting from a previously generated DER:
+openssl x509 -inform der -in YOURDER.der -out YOURPEM.pem
+
+Converting from a previously generated PKCS12:
+openssl pkcs12 -in YOURPKCS.p12 -out YOURPEM.pem
+Mon Sep 05 11:23:02 PDT 2022
+Using self-signed certificates
+
+Upload your certificate using the certificate parameter in the setWebhook method. The certificate supplied should be PEM encoded (ASCII BASE64), the pem file should only contain the public key (including BEGIN and END portions). When converting from a bundle format, please split the file to only include the public key.
+Generating a self-signed certificate pair (PEM):
+Openssl
+
+    Windows binaries for Openssl are available online
+
+openssl req -newkey rsa:2048 -sha256 -nodes -keyout YOURPRIVATE.key -x509 -days 365 -out YOURPUBLIC.pem -subj "/C=US/ST=New York/L=Brooklyn/O=Example Brooklyn Company/CN=YOURDOMAIN.EXAMPLE"
+
+YOURPUBLIC.pem has to be used as input for setting the self-signed webhook.
+
+You can inspect the generated certificate with:
+openssl x509 -text -noout -in YOURPUBLIC.pem
+
+Converting from a previously generated DER:
+openssl x509 -inform der -in YOURDER.der -out YOURPEM.pem
+
+Converting from a previously generated PKCS12:
+openssl pkcs12 -in YOURPKCS.p12 -out YOURPEM.pem
+
+    More information: https://www.openssl.org/
+
+Java keystore
+
+Generate self-signed JKS:
+keytool -genkey -keyalg RSA -alias YOURDOMAIN.EXAMPLE -keystore YOURJKS.jks -storepass YOURPASSWORD -validity 360 -keysize 2048
+
+Converting JKS to pkcs12 (intermediate step for conversion to PEM):
+keytool -importkeystore -srckeystore YOURJKS.jks -destkeystore YOURPKCS.p12 -srcstoretype jks -deststoretype pkcs12
+
+Convert PKCS12 to PEM (requires openssl):
+openssl pkcs12 -in YOURPKCS.p12 -out YOURPEM.pem
+Mon Sep 05 11:20:17 PDT 2022
+https://t.me/triviabot?startgroup=test
+Mon Sep 05 11:19:40 PDT 2022
+https://t.me/GiphyBot?startgroup=@Xe1phixIRCBot
+Mon Sep 05 11:18:24 PDT 2022
+@GiphyBot
+Mon Sep 05 11:17:47 PDT 2022
+https://t.me/gif?startgroup=@Xe1phixIRCBot
+Mon Sep 05 11:17:32 PDT 2022
+@Xe1phixIRCBot
+Mon Sep 05 11:16:55 PDT 2022
+https://telegram.me/gif
+Mon Sep 05 11:15:38 PDT 2022
+/start@
+Mon Sep 05 11:15:00 PDT 2022
+https://core.telegram.org/bots/2-0-intro#new-inline-keyboards
+Mon Sep 05 11:12:34 PDT 2022
+https://core.telegram.org/bots/api#encryptedpassportelement
+Mon Sep 05 11:11:36 PDT 2022
+https://core.telegram.org/bots/api#inlinequeryresultlocation
+Mon Sep 05 11:11:33 PDT 2022
+https://core.telegram.org/bots/api#inlinequeryresultgif
+Mon Sep 05 11:10:21 PDT 2022
+@sticker
+Mon Sep 05 11:10:11 PDT 2022
+https://telegram.me/youtube
+Mon Sep 05 11:09:57 PDT 2022
+@wiki
+Mon Sep 05 11:03:55 PDT 2022
+5659680134
+Mon Sep 05 11:03:42 PDT 2022
+Your token was replaced with a new one. You can use this token to access HTTP API:
+5659680134:AAGOSbQFZNSqg8lLT-RL-mbjzoXWSB-cZuk
+Mon Sep 05 11:00:29 PDT 2022
+https://t.me/discussbot
+Mon Sep 05 10:54:23 PDT 2022
+/start@TriviaBot
+Mon Sep 05 10:54:07 PDT 2022
+/get_messages_stats
+Mon Sep 05 10:52:37 PDT 2022
+https://t.me/sticker
+Mon Sep 05 10:49:38 PDT 2022
+IRC <--> Relay
+Mon Sep 05 10:46:13 PDT 2022
+http://t.me/Xe1phixIRCBot
+Mon Sep 05 10:45:42 PDT 2022
+Done! Congratulations on your new bot. You will find it at t.me/Xe1phixIRCBot. You can now add a description, about section and profile picture for your bot, see /help for a list of commands. By the way, when you've finished creating your cool bot, ping our Bot Support if you want a better username for it. Just make sure the bot is fully operational before you do this.
+
+Use this token to access the HTTP API:
+5659680134:AAFdUY8ew9N3YEg9gARBBClxrUpF8NV_I64
+Keep your token secure and store it safely, it can be used by anyone to control your bot.
+
+For a description of the Bot API, see this page: https://core.telegram.org/bots/api
+Mon Sep 05 10:45:12 PDT 2022
+Xe1phix-IRC-Bot
+Mon Sep 05 10:37:38 PDT 2022
+https://t.me/IndiaSocialSubreddit
+Mon Sep 05 10:37:06 PDT 2022
+https://t.me/wutttttttt
+Mon Sep 05 10:37:02 PDT 2022
+https://t.me/R_PoliticalCompassmemes
+Mon Sep 05 10:36:50 PDT 2022
+https://t.me/r_blueteamsec
+Mon Sep 05 10:36:29 PDT 2022
+https://t.me/Tumblrcontent
+Mon Sep 05 10:36:04 PDT 2022
+https://t.me/reddit_all
+Mon Sep 05 10:36:01 PDT 2022
+https://t.me/r_PrismaticLightChurch
+Mon Sep 05 10:33:47 PDT 2022
+https://t.me/coolguides
+Mon Sep 05 10:33:32 PDT 2022
+https://t.me/r_Damnthatsinteresting
+Mon Sep 05 10:32:53 PDT 2022
+https://t.me/r_channels
+Mon Sep 05 10:29:05 PDT 2022
+https://t.me/verifybot
+Mon Sep 05 10:28:47 PDT 2022
+05d41cef699a125fa77b1f38ab1c605cb8cc0a2002f12a91e83bca872e117cfc28
+Mon Sep 05 10:26:46 PDT 2022
+https://t.me/addstickers/FlashAndTecnology
+Mon Sep 05 10:01:58 PDT 2022
+Telegram-[Loop-Habits]-{Screens}
+Mon Sep 05 09:58:18 PDT 2022
+jpg
+Mon Sep 05 09:47:15 PDT 2022
+@gif Mr robot 
+Mon Sep 05 09:38:08 PDT 2022
+https://soundcloud.com/eraser_pp4l/zero-cool-aint-got-shit-on-me
+Mon Sep 05 09:37:47 PDT 2022
+https://soundcloud.com/eraser_pp4l/44birds
+Mon Sep 05 09:37:41 PDT 2022
+https://soundcloud.com/eraser_pp4l/disconnected
+Mon Sep 05 09:37:36 PDT 2022
+https://soundcloud.com/user-655025310/tell-no-tales-path-to-the-null
+Mon Sep 05 09:30:46 PDT 2022☆★☆
+DevianceAndExcessiveness7!
+Mon Sep 05 09:26:42 PDT 2022☆★☆
+https://t.me/HillsboroShuteParkCult
+Mon Sep 05 09:25:40 PDT 2022
+https://m.soundcloud.com/0xdade
+Mon Sep 05 09:25:22 PDT 2022
+https://soundcloud.com/eraser_pp4l
+Mon Sep 05 09:20:32 PDT 2022
+https://soundcloud.com/synrst
+Mon Sep 05 09:20:23 PDT 2022
+https://soundcloud.com/freqyxin
+Mon Sep 05 09:20:20 PDT 2022
+https://soundcloud.com/888hgc
+Mon Sep 05 09:15:28 PDT 2022
+https://soundcloud.com/synrst/0x190rd
+Mon Sep 05 09:14:32 PDT 2022
+every tick up in your system timing attack underrated
+bury data in the octets in the segments in your packets
+Mon Sep 05 09:08:52 PDT 2022
+https://m.facebook.com/Hillsboroparks
+Mon Sep 05 09:08:38 PDT 2022
+https://mobile.twitter.com/hillsboroparks
+Mon Sep 05 08:53:27 PDT 2022
+Senior Psychoanalytic Enforcement Officer
+Mon Sep 05 08:41:24 PDT 2022☆★☆
+https://t.me/parrotsecgroup
+Mon Sep 05 08:40:54 PDT 2022
+https://social.librem.one/@purism
+Mon Sep 05 08:39:33 PDT 2022☆★☆
+@xe1phix
+Mon Sep 05 08:33:10 PDT 2022
+each file that is to be sent to these CDN DCs is encrypted with a unique key using AES-256-CTR encryption. The CDN can't access the data it stores because these keys are only accessible to the main MTProto server and to the authorized client
+Mon Sep 05 08:16:31 PDT 2022
+/mybots
+Mon Sep 05 08:15:23 PDT 2022
+https://t.me/Bold
+Mon Sep 05 08:15:12 PDT 2022
+https://t.me/youtube
+Mon Sep 05 08:15:09 PDT 2022
+https://t.me/githubbot
+Mon Sep 05 08:15:03 PDT 2022
+https://t.me/wiki
+Mon Sep 05 08:14:55 PDT 2022
+https://t.me/gif
+Mon Sep 05 08:11:08 PDT 2022
+https://core.telegram.org/reproducible-builds
+Mon Sep 05 08:10:52 PDT 2022
+https://t.me/TAndroidAPK
+Mon Sep 05 07:59:28 PDT 2022
+https://core.telegram.org/mtproto/security_guidelines
+Mon Sep 05 07:58:27 PDT 2022
+https://t.me/forkgram
+Mon Sep 05 07:56:46 PDT 2022
+https://codeberg.org/orenom/wikiless
+Mon Sep 05 07:56:44 PDT 2022
+https://sr.ht/~edwardloveall/scribe
+Mon Sep 05 07:56:39 PDT 2022
+https://github.com/spikecodes/libreddit
+Mon Sep 05 07:56:35 PDT 2022
+https://codeberg.org/teddit/teddit
+Mon Sep 05 07:56:33 PDT 2022
+https://sr.ht/~cadence/bibliogram
+Mon Sep 05 07:56:29 PDT 2022
+https://github.com/iv-org/invidious
+Mon Sep 05 07:56:24 PDT 2022
+https://github.com/zedeus/nitter
+Mon Sep 05 07:55:13 PDT 2022
+
+What is Nitter:
+
+A free and open source alternative Twitter front-end focused on privacy.
+Github project: https://github.com/zedeus/nitter
+
+
+What is Invidious:
+
+A free and open source alternative front-end to YouTube
+Github project: https://github.com/omarroth/invidious
+
+
+What is Bibliogram:
+
+A free and open source alternative front-end to Instagram
+Github project: https://github.com/cloudrac3r/bibliogram
+
+
+What is Teddit:
+
+A free and open source alternative Reddit front-end focused on privacy.
+Github project: https://github.com/teddit-net/teddit
+
+
+What is Scribe:
+
+An alternative Medium front-end
+Sources: https://git.sr.ht/~edwardloveall/scribe
+
+
+What is Wikiless:
+
+A free open source alternative Wikipedia front-end focused on privacy.
+Project: https://codeberg.org/orenom/Wikiless
+Mon Sep 05 07:54:18 PDT 2022
+
+
+**Full version:
+
+- Contains all features of the lite version and it also handle all links to remove tracking parameters. It uses its own app picker that display URLs before visiting them.
+
+
+What is Nitter:
+
+A free and open source alternative Twitter front-end focused on privacy.
+Github project: https://github.com/zedeus/nitter
+
+
+What is Invidious:
+
+A free and open source alternative front-end to YouTube
+Github project: https://github.com/omarroth/invidious
+
+
+What is Bibliogram:
+
+A free and open source alternative front-end to Instagram
+Github project: https://github.com/cloudrac3r/bibliogram
+
+
+What is Teddit:
+
+A free and open source alternative Reddit front-end focused on privacy.
+Github project: https://github.com/teddit-net/teddit
+
+
+What is Scribe:
+
+An alternative Medium front-end
+Sources: https://git.sr.ht/~edwardloveall/scribe
+
+
+What is Wikiless:
+Mon Sep 05 07:51:09 PDT 2022
+Oversec (Privacy for All Apps! Encrypt and Disguise Messages in All Your Apps!)
+https://f-droid.org/packages/io.oversec.one/
+Mon Sep 05 07:49:43 PDT 2022
+https://pastebin.com/eH5x7B20
+Mon Sep 05 07:39:04 PDT 2022☆★☆
+markrobertcurry@protonmail.com
+Mon Sep 05 07:38:37 PDT 2022
+Imposter! I'll Shit Down Your Throat!
+Mon Sep 05 07:35:04 PDT 2022
+https://t.me/+15155986118
+Mon Sep 05 07:29:30 PDT 2022
+https://m.youtube.com/watch?v=laq7SGwiuAw
+Mon Sep 05 07:26:45 PDT 2022
+http://www.youtube.com/watch?v=VHZ9dA5ELXE
+Mon Sep 05 07:22:49 PDT 2022
+https://www.youtube.com/watch?v=XMEXPkPmmq0
+Mon Sep 05 07:18:26 PDT 2022
+https://t.me/ArchiveAnonChatRoom
+Mon Sep 05 07:12:25 PDT 2022
+https://t.me/webms_4chan
+Mon Sep 05 07:12:15 PDT 2022
+https://t.me/politically_incorrect_tg
+Mon Sep 05 07:06:31 PDT 2022
+Add me on Session, if you're in the mood to fucks around with bleeding edge anon networks.
+Mon Sep 05 06:59:49 PDT 2022
+GrapheneOS
+Mon Sep 05 06:58:55 PDT 2022
+Have you heard of DivestOS?
+Mon Sep 05 06:56:32 PDT 2022
+https://www.privacyguides.org/android/#divestos
+Mon Sep 05 05:16:24 PDT 2022
+Hey, I've been using Session to chat with complete privacy and security. Come join me! Download it at https://getsession.org/. 
+
+My Session ID is
+ 05d41cef699a125fa77b1f38ab1c605cb8cc0a2002f12a91e83bca872e117cfc28 !
+Mon Sep 05 05:09:40 PDT 2022
+mowing nail rodent devoid testing brunt foamy subtly boyfriend tubes thaw number foamy
+Mon Sep 05 05:08:32 PDT 2022
+Session ID:
+05e1ba8b6b6cd7f73ee0d3a57eb79df579ff21f7c41058e4d6e79b25fedc515d1e
+Mon Sep 05 05:08:01 PDT 2022
+05e1ba8b6b6cd7f73ee0d3a57eb79df579ff21f7c41058e4d6e79b25fedc515d1e
+Mon Sep 05 04:36:23 PDT 2022
+Xe1phix-[Gallery]-Backup-Settings-(09-05-22).txt
+Mon Sep 05 04:35:00 PDT 2022
+Xe1phix-Telegram-[Interesting]-Channel-[QR-Codes]
+Mon Sep 05 04:29:43 PDT 2022
+Telegram-[InfoSec-Memes]
+Mon Sep 05 04:22:31 PDT 2022
+@iloveanalporn
+Mon Sep 05 03:47:23 PDT 2022
++18323779296
+Mon Sep 05 03:46:10 PDT 2022
+(832)3779296
+Mon Sep 05 03:43:12 PDT 2022
+xe1phix z4ro
+Mon Sep 05 03:37:38 PDT 2022
+Xe1phix
+Mon Sep 05 03:31:37 PDT 2022
+Kopel
+Mon Sep 05 03:27:03 PDT 2022
+@r_pinetime
+Mon Sep 05 03:26:40 PDT 2022
+@r_adporn
+Mon Sep 05 03:26:15 PDT 2022
+https://t.me/TikTok_Thot
+Mon Sep 05 03:25:43 PDT 2022
+https://t.me/dailygratitudee
+Mon Sep 05 03:25:31 PDT 2022
+@r_indiandankmemes
+Mon Sep 05 03:12:39 PDT 2022
+@r_natureismetal
+Mon Sep 05 03:10:26 PDT 2022
+https://t.me/r_ImToGoingHellForThis
+Mon Sep 05 03:07:29 PDT 2022
+Xe1phix-Telegram-[InfoSec]-Group-[QR-Codes]
+Mon Sep 05 03:06:25 PDT 2022
+Xe1phix-Telegram-[Contacts]-[QR-Codes]
+Mon Sep 05 03:05:27 PDT 2022
+Xe1phix-Telegram-[Pr0n]-Group-[QR-Codes]
+Mon Sep 05 03:00:11 PDT 2022
+https://www.keeps.com/users/sign_in
+Mon Sep 05 02:57:52 PDT 2022
+https://www.bitchute.com/blackpilled
+Mon Sep 05 02:57:38 PDT 2022
+https://www.bitchute.com/video/WYCF22efscNV/
+Mon Sep 05 02:56:27 PDT 2022
+https://t.me/Jack_Posobiec/9741
+Mon Sep 05 02:45:24 PDT 2022
+@voicybot - bot for translating voice recordings into text (speech-to-text)
+Mon Sep 05 02:44:22 PDT 2022
+https://telegram.me/awesometelegram
+Mon Sep 05 02:43:39 PDT 2022
+https://github.com/ebertti/awesome-telegram
+Mon Sep 05 02:41:52 PDT 2022
+https://github.com/ebertti/awesome-telegram
+github.com/fillll/reddit2telegram
+https://www.reddit.com/r/Telegram
+https://www.reddit.com/r/TelegramStickersShare
+
+Mon Sep 05 02:41:36 PDT 2022
+##  Pr0n
+https://t.me/addstickers/Intruder_poses_of_sex
+https://t.me/addstickers/SensualPack
+https://t.me/addstickers/universohentai
+https://t.me/addstickers/aghentai
+
+https://t.me/addstickers/VOCALOIDJoynet
+https://t.me/addstickers/Yotsuba2
+
+
+
+https://t.me/addstickers/PussyAss
+https://t.me/addstickers/PornoStash
+https://t.me/addstickers/girloil
+https://t.me/addstickers/Sex_fucker2
+https://t.me/addstickers/IntimAdvTlg
+https://t.me/addstickers/SaucyGirls
+https://t.me/addstickers/hotmegirl
+https://t.me/addstickers/Rudies
+
+
+https://t.me/addstickers/PrincessOfWorld
+
+
+https://telegram.me/addstickers/GuidoFawkes
+https://telegram.me/addstickers/Oliver_the_frog (https://telegram.me/addstickers/Oliver_the_frog)
+https://telegram.me/addstickers/GoodBoyCody
+https://telegram.me/addstickers/SarcasticPolarBear
+https://telegram.me/addstickers/DragonBoy
+https://telegram.me/addstickers/GorgonMedusa
+https://telegram.me/addstickers/StaySpooky
+https://telegram.me/addstickers/GeekGoose
+https://telegram.me/addstickers/PugFord
+https://telegram.me/addstickers/FluffyLama
+https://telegram.me/addstickers/Loxodontus
+https://telegram.me/addstickers/MrHedgehog
+https://telegram.me/addstickers/ChaChaplin
+https://telegram.me/addstickers/AlienGuy
+https://telegram.me/addstickers/PastelGirl
+https://telegram.me/addstickers/GentleRabbit
+https://telegram.me/addstickers/MissDevil
+https://telegram.me/addstickers/LoveBirdsLife
+https://telegram.me/addstickers/Albrecht
+Mon Sep 05 02:40:38 PDT 2022
+https://t.me/stickersChannel/1847
+Mon Sep 05 02:39:39 PDT 2022
+https://t.me/distrowatch
+https://t.me/InternetSecurityTalk
+https://t.me/gentoogram
+https://t.me/voidlinux_org
+https://t.me/dockeren
+https://t.me/devnetwork_offical
+https://t.me/itsfoss
+https://t.me/jupiter_ENG
+https://t.me/exploithacker
+https://t.me/Hackingum
+https://t.me/exploithacker_group
+https://t.me/idistributed
+https://t.me/distributed
+https://t.me/kybernetwork
+https://t.me/Hacking_team_channel
+https://t.me/hacking_group_channel
+https://t.me/hackersInc
+https://t.me/theprogrammingart
+https://t.me/hackersworldunite
+Mon Sep 05 02:38:54 PDT 2022
+https://t.me/ritlugteleirc_bot
+Mon Sep 05 02:37:36 PDT 2022
+https://t.me/NSFW_StickersChat
+Mon Sep 05 02:37:20 PDT 2022
+https://t.me/tlgrmChannels
+Mon Sep 05 02:36:42 PDT 2022
+https://t.me/Stickers
+Mon Sep 05 02:36:17 PDT 2022
+https://t.me/r_Showerthoughts
+Mon Sep 05 02:36:11 PDT 2022
+https://t.me/shit_tg_says
+Mon Sep 05 02:35:59 PDT 2022
+https://t.me/r_shitposters_paradise
+Mon Sep 05 02:35:54 PDT 2022
+https://t.me/r_memetemplatesofficial
+Mon Sep 05 02:35:36 PDT 2022
+https://t.me/r_ComedyCemetery
+Mon Sep 05 02:35:26 PDT 2022
+https://t.me/programmer_humor
+https://t.me/politicallyincorrectjokes
+https://t.me/programmerjokes
+https://t.me/greentext4chan
+https://t.me/Trollbox
+https://t.me/justmemes					
+https://t.me/r_linuxmemes	
+https://t.me/admeme
+https://t.me/MemesMasters
+https://t.me/rareinsults
+https://t.me/r_dankmemes
+https://t.me/r_wellthatsucks
+https://t.me/r_pornhubcomments
+Mon Sep 05 02:34:58 PDT 2022
+https://t.me/programmer_humor
+Mon Sep 05 02:34:46 PDT 2022
+https://t.me/ThePCMasterRace
+Mon Sep 05 02:34:35 PDT 2022
+https://t.me/psychoactives
+Mon Sep 05 02:34:23 PDT 2022
+https://t.me/redditpiracy
+Mon Sep 05 02:34:13 PDT 2022
+https://t.me/r_listentothis
+Mon Sep 05 02:34:04 PDT 2022
+https://t.me/r_opensignups
+Mon Sep 05 02:33:46 PDT 2022
+https://t.me/TodayILearn
+Mon Sep 05 02:33:33 PDT 2022
+https://t.me/QuotesGroup
+Mon Sep 05 02:33:27 PDT 2022
+https://t.me/r_CoolGithubProjects
+Mon Sep 05 02:33:20 PDT 2022
+https://t.me/r_interestingasfuck
+Mon Sep 05 02:33:10 PDT 2022
+https://t.me/buddhism_mahayana
+Mon Sep 05 02:33:06 PDT 2022
+https://t.me/buddhismchat
+Mon Sep 05 02:32:40 PDT 2022
+https://t.me/r_dankmemes
+Mon Sep 05 02:32:37 PDT 2022
+https://t.me/r_greentext
+Mon Sep 05 02:32:21 PDT 2022
+https://t.me/r_wholesomememes
+Mon Sep 05 02:32:10 PDT 2022
+https://t.me/r_TechSupportGore
+Mon Sep 05 02:32:07 PDT 2022
+https://t.me/r_talesfromtechsupport
+Mon Sep 05 02:31:58 PDT 2022
+https://t.me/r_pcmasterrace
+Mon Sep 05 02:31:51 PDT 2022
+https://t.me/archlinuxgroup
+Mon Sep 05 02:31:39 PDT 2022
+https://t.me/system76_chat
+Mon Sep 05 02:31:36 PDT 2022
+https://t.me/AmateurRadioGroup
+Mon Sep 05 02:30:52 PDT 2022
+https://t.me/r_WikiLeaks
+Mon Sep 05 02:30:46 PDT 2022
+https://t.me/gentoogram
+Mon Sep 05 02:30:36 PDT 2022
+https://t.me/DEFCON
+Mon Sep 05 02:30:32 PDT 2022
+https://t.me/Antergos
+Mon Sep 05 02:30:25 PDT 2022
+https://t.me/IncidentResponse
+Mon Sep 05 02:30:22 PDT 2022
+https://t.me/cutter_re
+Mon Sep 05 02:30:17 PDT 2022
+https://t.me/radare
+Mon Sep 05 02:30:12 PDT 2022
+https://t.me/Unix9
+Mon Sep 05 02:30:09 PDT 2022
+https://t.me/grouplinux
+Mon Sep 05 02:30:04 PDT 2022
+https://t.me/DebianProject
+Mon Sep 05 02:29:58 PDT 2022
+https://t.me/pentoolinux
+Mon Sep 05 02:29:52 PDT 2022
+https://t.me/linux_group
+Mon Sep 05 02:29:49 PDT 2022
+https://t.me/debiangroup
+Mon Sep 05 02:29:42 PDT 2022
+https://t.me/Whonix
+Mon Sep 05 02:29:37 PDT 2022
+https://t.me/TrueOSCommunity
+Mon Sep 05 02:29:34 PDT 2022
+https://t.me/kalilinux
+Mon Sep 05 02:29:31 PDT 2022
+https://t.me/QubesOS
+Mon Sep 05 02:29:26 PDT 2022
+https://t.me/asknoahshow
+Mon Sep 05 02:29:19 PDT 2022
+https://t.me/SecDSM
+Mon Sep 05 02:29:16 PDT 2022
+https://t.me/linuxhardening
+Mon Sep 05 02:29:12 PDT 2022☆★☆
+https://t.me/MetaphysicsAndPhilosophy
+Mon Sep 05 02:26:48 PDT 2022
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4217602/
+Mon Sep 05 02:26:15 PDT 2022
+https://t.me/squirtanal
+Mon Sep 05 02:00:52 PDT 2022
+https://www.linkedin.com/company/protonprivacy/
+Mon Sep 05 01:59:38 PDT 2022
+protonmail
+Mon Sep 05 01:58:17 PDT 2022☆★☆
+markrobertcurry@gmail.com
+Mon Sep 05 01:53:44 PDT 2022
+keeps.com/TimDillon
+Mon Sep 05 01:51:45 PDT 2022
+Brush Teeth
+Mon Sep 05 01:48:41 PDT 2022
+https://f-droid.org/app/org.isoron.uhabits
+Mon Sep 05 01:48:37 PDT 2022
+https://github.com/iSoron/uhabits/releases
+Mon Sep 05 01:47:26 PDT 2022
+https://www.youtube.com/watch?v=tc-p93x5rPQ
+Mon Sep 05 01:43:25 PDT 2022
+https://m.youtube.com/watch?v=E8A0W1Qm73Q
+Mon Sep 05 01:41:53 PDT 2022
+Arch Enemy - I Am Legend-Out For Blood (Live)
+Mon Sep 05 01:40:04 PDT 2022
+https://github.com/iSoron/uhabits/discussions
+Mon Sep 05 01:35:15 PDT 2022
+Xe1phix-[Clip-Stack]
+Mon Sep 05 01:34:33 PDT 2022
+Xe1phix-[]
+Mon Sep 05 01:34:23 PDT 2022
+Xe1phix-[Privacy-Badger]
+Mon Sep 05 01:33:38 PDT 2022
+Xe1phix-[Telegram]
+Mon Sep 05 01:33:09 PDT 2022
+Telegram
+Mon Sep 05 01:32:48 PDT 2022
+Xe1phix-[Loop-Habits]
+Mon Sep 05 01:29:46 PDT 2022
+PrivacyBadger
+Mon Sep 05 01:21:27 PDT 2022
+Xe1phix - Linux Tutorial Video Series
+Mon Sep 05 01:18:51 PDT 2022
+ + Battle Rope
+Mon Sep 05 01:16:52 PDT 2022
+Exercise - 
+Mon Sep 05 01:14:56 PDT 2022
+Apple Cider Vinegar 
+Mon Sep 05 01:12:12 PDT 2022
+Write to Ross Ulbricht 
+Mon Sep 05 01:08:56 PDT 2022
+Stack Overflow
+Mon Sep 05 01:07:49 PDT 2022
+ParrotSec Telegram Group
+Mon Sep 05 01:03:43 PDT 2022
+Dr Appointment 
+Mon Sep 05 01:03:03 PDT 2022
+Matcha
+Mon Sep 05 01:02:34 PDT 2022
+Did you drink Green Tea today?
+Mon Sep 05 01:02:19 PDT 2022
+Green Tea
+Mon Sep 05 01:01:24 PDT 2022
+Alpha GPC
+Mon Sep 05 00:59:31 PDT 2022
+Did you take Lions Mane today?
+Mon Sep 05 00:59:24 PDT 2022
+Lions Mane
+Mon Sep 05 00:58:44 PDT 2022
+Did you take Choline Bitrate today?
+Mon Sep 05 00:58:29 PDT 2022
+Choline Bitrate
+Mon Sep 05 00:55:01 PDT 2022
+Biceps + Deltoids 
+Sun Sep 04 20:31:16 PDT 2022
+https://github.com/iSoron/uhabits
+Sun Sep 04 18:18:36 PDT 2022
+Arch Enemy - I Am Legend-Out For Blood (Live).mp4
+Sun Sep 04 18:18:14 PDT 2022
+Brutal Assault 24 - Sodom (live) 2019.m4a
+Sun Sep 04 18:18:05 PDT 2022
+RajaRam Full set @ Psy-Fi 2017.m4a
+Sun Sep 04 18:17:54 PDT 2022
+DECAPITATED - Iconoclast ft. Robb Flynn (OFFICIAL MUSIC VIDEO).opus.oga
+Sun Sep 04 18:15:08 PDT 2022
+https://soundcloud.com/ytcracker/ytcracker-hacker-music?in=ytcracker/sets/ytcracker-essential-listening&si=3a1ef9f602a84c509c6de85c2883a3ba&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing
+Sun Sep 04 18:07:33 PDT 2022
+https://soundcloud.com/ytcracker/ytcracker-status-update?in=xe1phix/sets/nerdcore&si=e45512e95c4d454c8ba07ca743e6daef&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing
+Sun Sep 04 18:06:00 PDT 2022
+https://soundcloud.com/queed-inc/vpn?in=xe1phix/sets/nerdcore&si=478ecf512dfd49e4addc78d350549304&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing
+Sun Sep 04 15:03:49 PDT 2022
+https://m.youtube.com/watch?v=hFkngrRDdaA
+Sat Sep 03 14:17:38 PDT 2022
+mass airflow sensor replacement
+Thu Sep 01 08:53:45 PDT 2022
+https://m.slashdot.org/story/404139
+Thu Sep 01 08:50:21 PDT 2022
+https://m.slashdot.org/story/404149
+Thu Sep 01 01:53:39 PDT 2022
+https://t.me/gif_wow
+Thu Sep 01 01:52:53 PDT 2022
+https://t.me/WorldHentaiIta
+Thu Sep 01 01:35:51 PDT 2022
+Coming to the Roseland theater
+AFI, Foreigner, Armon Armoth, 
+Static-x, Flogging Molly, Sabaton, Toadies, GWAR, Trivium, Clutch, etc.
+Thu Sep 01 01:35:17 PDT 2022
+https://roselandpdx.com/event/afi/
+
+https://roselandpdx.com/event/amon-amarth-the-great-heathen-tour-with-special-guests/
+
+https://roselandpdx.com/event/static-x-rise-of-the-machine-2022/
+
+https://roselandpdx.com/event/flogging-molly-the-interrupters/
+
+https://roselandpdx.com/event/sabaton-the-tour-to-end-all-tours/
+
+https://roselandpdx.com/event/foreigner-the-greatest-hits/
+
+https://roselandpdx.com/event/toadies/
+
+https://roselandpdx.com/event/gwar/
+
+https://roselandpdx.com/event/trivium-deadmen-and-dragons-tour/
+
+https://roselandpdx.com/event/clutch/
+Thu Sep 01 01:34:53 PDT 2022
+Coming to the Roseland theater
+AFI, Foreigner, Armon Armoth, 
+Static-x, Flogging Molly, Sabaton, Toadies, GWAR, Trivium, Clutch, etc.
+
+https://roselandpdx.com/event/afi/
+
+https://roselandpdx.com/event/amon-amarth-the-great-heathen-tour-with-special-guests/
+
+https://roselandpdx.com/event/static-x-rise-of-the-machine-2022/
+
+https://roselandpdx.com/event/flogging-molly-the-interrupters/
+
+https://roselandpdx.com/event/sabaton-the-tour-to-end-all-tours/
+
+https://roselandpdx.com/event/foreigner-the-greatest-hits/
+
+https://roselandpdx.com/event/toadies/
+
+https://roselandpdx.com/event/gwar/
+
+https://roselandpdx.com/event/trivium-deadmen-and-dragons-tour/
+
+https://roselandpdx.com/event/clutch/
+Thu Sep 01 01:33:04 PDT 2022
+https://roselandpdx.com/event/clutch/
+Thu Sep 01 01:32:29 PDT 2022
+https://roselandpdx.com/event/trivium-deadmen-and-dragons-tour/
+Thu Sep 01 01:32:00 PDT 2022
+https://roselandpdx.com/event/gwar/
+Thu Sep 01 01:31:33 PDT 2022
+https://roselandpdx.com/event/toadies/
+Thu Sep 01 01:31:09 PDT 2022
+https://roselandpdx.com/event/foreigner-the-greatest-hits/
+Thu Sep 01 01:30:22 PDT 2022
+https://roselandpdx.com/event/sabaton-the-tour-to-end-all-tours/
+Thu Sep 01 01:29:45 PDT 2022
+https://roselandpdx.com/event/flogging-molly-the-interrupters/
+Thu Sep 01 01:28:12 PDT 2022
+https://roselandpdx.com/event/static-x-rise-of-the-machine-2022/
+Thu Sep 01 01:27:01 PDT 2022
+https://roselandpdx.com/event/amon-amarth-the-great-heathen-tour-with-special-guests/
+Thu Sep 01 01:25:05 PDT 2022
+https://roselandpdx.com/event/afi/
+Wed Aug 31 19:26:12 PDT 2022
+https://m.youtube.com/watch?v=W9OGYuctMRQ
+Mon Aug 29 18:06:10 PDT 2022
+
+Idk if I can separate him from his political career.
+Mon Aug 29 18:05:16 PDT 2022
+https://m.youtube.com/watch?v=MOfvaUwWi2k
+Sun Aug 28 18:08:06 PDT 2022
+https://edgefieldconcerts.com/event/nine-inch-nails/
+Sun Aug 28 12:07:26 PDT 2022
+https://m.youtube.com/watch?v=xb99fX7e3GI
+Sat Aug 27 12:22:53 PDT 2022
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6761902/
+Sat Aug 27 02:10:44 PDT 2022
+https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/-/blob/master/Xe1phix-%5BASCII-Art%5D/toilet%20Mr%20self%20distruct%20diamonds.png
+Fri Aug 26 05:33:47 PDT 2022
+https://is2.4chan.org/b/1661494664800609m.jpg
+Fri Aug 26 05:27:34 PDT 2022
+https://t.me/squirtanal/12335
+Fri Aug 26 05:27:34 PDT 2022
+https://t.me/iloveanalporn/18041
+Fri Aug 26 05:27:34 PDT 2022
+https://t.me/iloveanalporn/4462
+Fri Aug 26 05:27:33 PDT 2022
+https://t.me/iloveanalporn/4456
+Fri Aug 26 05:27:33 PDT 2022
+https://t.me/iloveanalporn/4413
+Fri Aug 26 05:27:32 PDT 2022
+https://t.me/iloveanalporn/4392
+Fri Aug 26 05:27:32 PDT 2022
+https://t.me/iloveanalporn/4376
+Fri Aug 26 05:27:00 PDT 2022
+https://t.me/+PTmCMoFPKv1BUmxE
+Fri Aug 26 05:26:41 PDT 2022
+@ContatoSquirtA_bot
+Fri Aug 26 05:26:37 PDT 2022
+https://t.me/+Sp0EhaBTC6LQsA8h
+Fri Aug 26 05:26:18 PDT 2022
+#squirt #fingering
+Fri Aug 26 05:25:42 PDT 2022
+#anal
+Fri Aug 26 05:21:48 PDT 2022
+https://t.me/joinchat/AAAAAEZgsm-6f80DdICVxQ
+Fri Aug 26 02:47:41 PDT 2022
+https://i.4cdn.org/b/1661470490144361m.jpg
+Thu Aug 25 12:04:21 PDT 2022
+Just went to a 2 hour interview with 8 different people asking me questions..
+Thu Aug 25 05:52:14 PDT 2022
+https://boards.4chan.org/gif/thread/23440972/robbers-rekt
+Thu Aug 25 05:24:53 PDT 2022
+https://boards.4chan.org/gif/thread/23446346
+Thu Aug 25 05:24:09 PDT 2022
+https://boards.4chan.org/gif/thread/23442131
+Thu Aug 25 05:21:16 PDT 2022
+https://boards.4chan.org/gif/thread/23417724/rekt-suicide
+Thu Aug 25 05:20:10 PDT 2022
+https://boards.4chan.org/gif/thread/23426135/ylyl-some-quality
+Thu Aug 25 05:20:01 PDT 2022
+https://boards.4chan.org/gif/thread/23416355/ylyl-impossible-laugh-edition
+Thu Aug 25 05:19:47 PDT 2022
+https://boards.4chan.org/gif/thread/23410569/ylyl-you-laugh-you-lose
+Thu Aug 25 05:19:38 PDT 2022
+https://boards.4chan.org/gif/thread/23441035/omegle-trolls-thread
+Thu Aug 25 01:25:14 PDT 2022
+https://boards.4chan.org/pol/
+Wed Aug 24 23:48:22 PDT 2022
+https://t.me/addstickers/gnuplusmemes
+https://t.me/addstickers/LitProgrammers
+https://t.me/addstickers/gnuplusmemes
+https://t.me/addstickers/pyrotrollpack
+https://t.me/addstickers/ElevenElevenPack
+https://t.me/addstickers/CrimeVulpine
+https://t.me/addstickers/keymemes
+https://t.me/addstickers/Memesmemeseverywhere
+https://t.me/addstickers/Cheloidesmemestash3
+https://t.me/addstickers/WorstOfCrypto
+https://t.me/addstickers/BestOfCrypto
+https://t.me/addstickers/SuperMinds
+https://t.me/addstickers/InfamousBastard
+https://t.me/addstickers/GufoRazzoPack
+https://t.me/addstickers/nataliapoklonskaja
+https://t.me/addstickers/plebsticker
+https://t.me/addstickers/LegitNoScam
+https://t.me/addstickers/AlienJ2
+https://t.me/addstickers/memedonewell
+https://t.me/addstickers/FRY_4eeZee
+https://t.me/addstickers/Rushil_pack
+https://t.me/addstickers/aesthetics_png
+https://t.me/addstickers/milinovandco
+https://t.me/addstickers/fcplms
+https://t.me/addstickers/NopeReborn
+https://t.me/addstickers/Meme_stickers
+https://t.me/addstickers/fiveDankSevenMe
+https://t.me/addstickers/GoldfishMeme
+https://t.me/addstickers/sixDankEightMe
+https://t.me/addstickers/Thebestevermade
+https://t.me/addstickers/fudish
+https://t.me/addstickers/elitestickerskthx
+https://t.me/addstickers/ahm_m98
+https://t.me/addstickers/LOLMFAO
+https://t.me/addstickers/stickerstop2
+https://t.me/addstickers/jimcarrey2018
+https://t.me/addstickers/DyingInside2
+https://t.me/addstickers/yellowg
+https://t.me/addstickers/threeDankfiveMe
+https://t.me/addstickers/Mierda2
+https://t.me/addstickers/reakschuns
+https://t.me/addstickers/hksjftw
+https://t.me/addstickers/Fuckyoudear
+https://t.me/addstickers/leticiaoddhoshi
+https://t.me/addstickers/StickerChatQuotes
+https://t.me/addstickers/Sumfukery
+https://t.me/addstickers/PackIce
+https://t.me/addstickers/Sumfukery
+https://t.me/addstickers/Squeeksmemes
+https://t.me/addstickers/Twitter_Memes
+https://t.me/addstickers/hacken
+https://t.me/addstickers/Vaporwavetrash
+https://t.me/addstickers/khecmamuth
+https://t.me/addstickers/Randomkang
+https://t.me/addstickers/blamelenovo
+https://t.me/addstickers/blamelenovo
+https://t.me/addstickers/AmirAaronShabani
+https://t.me/addstickers/Customized_Mohsen
+https://t.me/addstickers/Memez
+https://t.me/addstickers/ManigxsDankmemes
+https://t.me/addstickers/Isthistheworldwereallywant
+https://t.me/addstickers/WooksMemePack
+https://t.me/addstickers/DiabloRobot_Pack
+https://t.me/addstickers/dbrito_pack
+https://t.me/addstickers/Maksim
+https://t.me/addstickers/QueerePack
+https://t.me/addstickers/bruuh
+https://t.me/addstickers/memesmehrdwd
+https://t.me/addstickers/Real9ja
+https://t.me/addstickers/Memes_Pics
+https://t.me/addstickers/Batnam
+https://t.me/addstickers/psycopblog
+https://t.me/addstickers/LulzStickersbyiizarc
+https://t.me/addstickers/IwannaDieNow
+https://t.me/addstickers/WATPack
+https://t.me/addstickers/shitpack2
+https://t.me/addstickers/DyingInside
+https://t.me/addstickers/TrolluzFamily
+https://t.me/addstickers/memes_sticker
+https://t.me/addstickers/cheloidesmemestash2
+https://t.me/addstickers/memes_sticker
+https://t.me/addstickers/PornPack
+https://t.me/addstickers/socksdumbs
+https://t.me/addstickers/Mmllmc
+https://t.me/addstickers/Kaycee
+https://t.me/addstickers/FlashAndTecnology
+https://t.me/addstickers/programmingbooks
+https://t.me/addstickers/rmsexy
+https://t.me/addstickers/bakudistros
+https://t.me/addstickers/linuxdistro
+https://t.me/addstickers/TuxMeaLux
+https://t.me/addstickers/Infowars
+https://t.me/addstickers/gnulnx
+https://t.me/addstickers/Linuxmemed
+https://t.me/addstickers/Derpingpack
+https://t.me/addstickers/UseBSD
+https://t.me/addstickers/stallman2
+https://t.me/addstickers/Frozenbox
+https://t.me/addstickers/LinuxNewsItalia
+https://t.me/addstickers/LitProgrammers
+https://t.me/addstickers/Harper7B
+https://t.me/addstickers/HofmannDrugs
+https://t.me/addstickers/GanjaFriends
+https://t.me/addstickers/fourDankSixMe
+https://t.me/addstickers/bouchondeliegedanstonanus
+https://t.me/addstickers/Madebythepsycho
+https://t.me/addstickers/continentalphilosophy
+https://t.me/addstickers/privacycentral1
+https://t.me/addstickers/PackIce
+
+Wed Aug 24 23:47:48 PDT 2022
+https://t.me/addstickers/PornPack
+Wed Aug 24 23:46:50 PDT 2022
+https://t.me/addstickers/gnuplusmemes
+Wed Aug 24 23:44:15 PDT 2022
+https://t.me/addstickers/Intruder_poses_of_sex
+Wed Aug 24 23:25:15 PDT 2022
+Firstbornunicorn
+Wed Aug 24 22:58:38 PDT 2022
+https://boards.4channel.org/wsg/catalog
+Wed Aug 24 19:39:56 PDT 2022
+https://youtu.be/HSdKtKDdpGI
+Wed Aug 24 18:45:16 PDT 2022
+Would you agree with that?
+Wed Aug 24 18:45:05 PDT 2022
+''With great knowledge comes great sorrow''
+Wed Aug 24 18:41:28 PDT 2022
+https://roselandpdx.com/event/hatebreed-20-years-of-perseverance-tour/
+Wed Aug 24 18:02:06 PDT 2022
+BSides Portland is October 7th
+RainSec is August 30th 6:30pm
+2600 is September 2nd at 7pm
+Linux Kernel meetup is September 28th 9pm
+Wed Aug 24 14:53:36 PDT 2022
+https://m.slashdot.org/story/403835
+Mon Aug 22 16:55:00 PDT 2022
+https://www.foxnews.com/world/british-raf-recruiting-head-resigns-protest-pause-hiring-white-men-appease-diversity-goals-report
+Mon Aug 22 14:11:49 PDT 2022
+https://m.youtube.com/watch?v=kdfym6LKpQ0
+Mon Aug 22 11:03:23 PDT 2022
+A UK veteran was just arrested for posting this meme on social media.
+Mon Aug 22 10:54:52 PDT 2022
+Finally! All these penalties are adding up!
+Sun Aug 21 11:17:57 PDT 2022
+https://m.youtube.com/watch?v=eearDxHbpik
+Sun Aug 21 09:42:42 PDT 2022
+https://m.youtube.com/watch?v=MllFWvAzb9U#t=29s
+Sun Aug 21 05:36:05 PDT 2022
+hillboro aquatic center
+Sun Aug 21 00:22:56 PDT 2022
+🍭Tʀᴇɴᴅɪɴɢ Oɴ Tᴇʟᴇɢʀᴀᴍ🌹
+
+♣️𝐀𝐃𝐃 𝐘𝐎𝐔𝐑 𝐂𝐇𝐀𝐍𝐍𝐄𝐋𝐒♣️
+📢𝟭𝗸+🔥
+-➖-➖-➖-➖-➖-➖-➖-➖-➖-➖-➖-➖-
+
+❤ @Real_Girls_Number
+❤ @Premium_Bhabhi
+🍓90k @kamasutra_tub18
+🍓84k BrazzersBox
+🍓43k @mommy_hdporn
+🍓32k Desi videos
+🍓28k @teens_tugs
+🍓25k @moms_anal_virgens
+🍓25k @gif_wow
+🍓24k @mommys_love_anal
+🍓23k @world_war_18
+🍓23k @sex_delux_hd
+🍓21k @savita_bhabhi_story1
+🍓20k കാമസൂത്ര ഭാഭി
+🍓19k @sexschoolhd
+🍓17k @things_moms_by_gril
+🍓17k @porno_girls18
+🍓14k Sexy Shruti Bhabhi
+🍓14k @S_E_X_Y_V_I_D_E_O_E_S_18
+🍓14k @kiki_good_girls_gone
+🍓13k @girls_do_porno
+🍓12k @pisininha_amor18
+🍓12k @porno_scandals
+🍓12k Hot Sexy Bhabhi
+🍓11k @primer_video
+🍓10k @gangbroshd
+🍓9k @wow_loli
+🍓9k @mysexygirl
+🍓9k  ഇൻസ്റ്റാ ഭാഭി
+🍓8k @sexxxcity
+🍓6k @hottranny
+🍓6k @siliconeros
+🍓6k @fantasiailha
+🍓6k @gifs018
+🍓5k @brazzersbox1
+🍓5k @tiktokvideos_channel
+🍓5k @pornhublinks_channel
+🍓4k @unseen_leaks_2
+🍓4k @incestdesires
+🍓3k @girlswhatsappnumberr
+🍓3k @transyheaven
+🍓3k @bikini_girls_online
+🍓2k @queensofcumisland
+🍓2k @ultimate_collections
+🍓2k @tv_shows_series
+🍓2k @desi_mastiman
+🍓2k @Apki_Desi_Bhabhiji
+🍓2k @desi_bhabhi_sexy_videos
+🍓2k Desi Bhabhi Xxx
+🍓2k IndianVsGf
+🍓2k @unseen_hub
+🍓2k AdultShort
+🍓2k @premium_collections_1
+🍓2k @premium_videoss
+🍓2k @slutsofunderworld
+🍓2k @youpornlinks
+🍓2k @xxx_aliexpress
+🍓2k @dollsgirl
+🍓2k @hent_anime
+🍓2k @youpornsexgirls
+🍓2k @tiktok_aunties
+🍓2k @girlswhatsappnumbersss
+🍓2k @boltikahani_mastifilm_flizmovies
+🍓2k BrazzerVideos
+🍓2k SAVITHABhabhi
+🍓2k DesiLeaks
+🍓2k Hot Photos
+🍓3k @indian_girls_videoes_xxx
+🍓3k @himdi_moviee
+🍓3k AuntiyonKaPyaar
+🍓4k InstaHotModels
+🍓4k DirtyPhotos
+🍓4k @inked_wow
+🍓4k DesiBoobitaji
+🍓5k @adults_games
+🍓5k @Mom_with_Young_Boys
+🍓5k @Real_Brother_and_Sister
+🍓5k ദേശിആന്റി
+🍓6k SavitaVideos
+🍓6k @incest_indian_hindi
+🍓6k @aunty_lover
+🍓8k @clubmodel
+🍓8k @INDIAN_Girl_Vs_Mom
+🍓9k @nude_album_and_web_series
+🍓9k @russianprivate
+🍓9k @p_18plus1
+🍓9k @cok_18
+🍓10k @girls_dating69
+🍓10k @Hot_Bhabhi_ki_mast_Chut
+🍓10k AdultShort
+🍓10k DESIANGELS
+🍓12k @pornstuff_channel
+🍓12k @wow_24video
+🍓12k @pornozinho_tubrs
+🍓12k @xxx_photo
+🍓13k @allmoviesfactory
+🍓13k @estrelas_porno_moms
+🍓14k @erotik_von_nebanan
+🍓14k @acervosexx
+🍓15k @daily_hindi_movies
+🍓15k @sunne_leonne
+🍓17k @gifs_hub_18
+🍓18k @pornlab_hd
+🍓18k @tudodeporno
+🍓19k @desihindisex24
+🍓20k XvideosVirgin
+🍓20k DesiVideos & Albums
+🍓21k @fliz_brazzers_videos
+🍓23k IndianBhabhi
+🍓24k @poonam_bhabhi_in
+🍓25k @red_moms_tub_21
+🍓28k @whatsappgirl2
+🍓31k @amadoras_moms_boy18
+🍓32k @perv_moms_com_21
+🍓37k @daddys_girls_21
+🍓42k @arabecsexxx
+🍓63k @mother_moms_boy_18
+🍓110k @moms_18
+
+🔴AUTO DELETE LIST🔴
+Sun Aug 21 00:14:21 PDT 2022
+https://t.me/MyWorldPorn/532
+Sun Aug 21 00:11:37 PDT 2022
+https://t.me/MyWorldPorn
+Sat Aug 20 23:48:34 PDT 2022
+Veronica Leal
+Sat Aug 20 23:42:07 PDT 2022
+mallori hensworth
+Sat Aug 20 18:26:29 PDT 2022
+https://m.psychonautwiki.org/w/index.php?title=Choline_bitartrate&_=
+Sat Aug 20 15:55:06 PDT 2022
+https://nootropicsdepot.com/cognizin-citicoline-capsules/
+Sat Aug 20 13:06:52 PDT 2022
+Listening to a podcast. they're taking about a video where a 4Jr came out as trans. And they said ''what happens when she has her first period?''  ''My boy pussy is bleeding''
+Sat Aug 20 09:50:24 PDT 2022
+renaissance fair shutepark Hillsboro
+Sat Aug 20 09:33:22 PDT 2022
+https://i.4cdn.org/b/1660977947151859m.jpg
+Sat Aug 20 07:55:54 PDT 2022
+renaissance fair
+Fri Aug 19 14:04:26 PDT 2022
+#antiwhite is trending on Twitter right now lol
+Fri Aug 19 14:03:37 PDT 2022
+http://twitter.com/libsoftiktok/status/1560675177976905728
+Fri Aug 19 13:52:27 PDT 2022
+The Food and Drug Administration (FDA) requires choline to be in non-dairy infant formula.[13]
+Thu Aug 18 17:48:04 PDT 2022
+https://m.slashdot.org/story/403611
+Thu Aug 18 16:41:46 PDT 2022
+https://m.youtube.com/watch?v=bItcoUb5xsw
+Wed Aug 17 15:00:08 PDT 2022
+I may of come to the wrong place...
+Wed Aug 17 14:59:51 PDT 2022
+http://twitter.com/libsoftiktok/status/1559711908936134661
+Tue Aug 16 21:14:13 PDT 2022
+https://mobile.twitter.com/bsdbandit/status/1559174925549707264?cxt=HHwWgICxwa_VpqMrAAAA, 
+Tue Aug 16 18:29:02 PDT 2022
+''The baddest man in the world needed to ask for help''
+Tue Aug 16 18:28:04 PDT 2022
+https://m.youtube.com/watch?v=_lXLhazxRIY#t=46s
+Tue Aug 16 18:18:50 PDT 2022
+https://m.youtube.com/watch?v=_lXLhazxRIY
+Tue Aug 16 16:06:48 PDT 2022
+But this place is across the street from where im staying and I need something more reliable once I start the Intel job.
+Mon Aug 15 16:55:49 PDT 2022
+https://mobile.twitter.com/bsdbandit/status/1559174925549707264?cxt=HHwWgICxwa_VpqMrAAAA
+Mon Aug 15 16:55:36 PDT 2022
+I love this guy.
+''I choose to own this day.
+ Its greatness that im after.  
+And Complacency isnt in any of my chapters.''
+Mon Aug 15 16:37:04 PDT 2022
+I just printed this out, and hung it up in the library.
+Mon Aug 15 16:35:44 PDT 2022
+I just printed this out, and hung it up in the library. Im glad ZBro shared this with me.
+Mon Aug 15 12:04:05 PDT 2022
+https://m.psychonautwiki.org/wiki/Phenibut
+Sun Aug 14 19:13:26 PDT 2022
+https://player.fm/series/2876264/337809820
+Sat Aug 13 15:08:38 PDT 2022
+''Circumstances don't make the man. They only reveal him to himself.''
+Sat Aug 13 12:23:17 PDT 2022
+https://psychonautwiki.org/wiki/5-htp
+Sat Aug 13 11:58:07 PDT 2022
+https://mobile.twitter.com/1GarethWynJones/status/1558104270133772291
+Sat Aug 13 11:41:09 PDT 2022
+https://t.me/DailyMotivations
+Fri Aug 12 22:26:23 PDT 2022
+sorcerer
+Fri Aug 12 21:22:14 PDT 2022
+https://player.fm/series/1332956/335559971
+Thu Aug 11 22:21:23 PDT 2022
+Trazodone
+Thu Aug 11 11:33:06 PDT 2022
+http://twitter.com/InterestingAsF/status/1557674897442160640
+Thu Aug 11 11:32:03 PDT 2022
+twitter.com/InterestingAsF/statusq
+Wed Aug 10 19:35:22 PDT 2022
+https://mobile.twitter.com/realytcracker/status/1552404203745579008
+Wed Aug 10 19:33:04 PDT 2022
+https://mobile.twitter.com/realytcracker/status/1511842340423417858
+Wed Aug 10 18:12:01 PDT 2022
+https://www.youtube.com/watch?v=IZUA9KtaCgc
+Tue Aug 02 20:51:44 PDT 2022
+https://t.me/StickersCity
+Tue Aug 02 20:50:50 PDT 2022
+https://t.me/vote
+Tue Aug 02 20:49:18 PDT 2022
+https://t.me/justmemes
+Tue Aug 02 20:48:46 PDT 2022
+https://t.me/r_crappydesign
+Tue Aug 02 20:48:32 PDT 2022
+https://t.me/ShitLiberalsSay
+Tue Aug 02 20:48:02 PDT 2022
+https://t.me/r_pornhubcomments
+Tue Aug 02 20:47:48 PDT 2022
+https://t.me/MemesMasters
+Tue Aug 02 20:47:36 PDT 2022
+https://t.me/r_linuxmemes
+Tue Aug 02 20:47:24 PDT 2022
+https://t.me/Trollbox
+Tue Aug 02 20:45:24 PDT 2022
+https://t.me/inspiringthoughts
+Tue Aug 02 20:45:15 PDT 2022
+https://t.me/InspiringImages
+Tue Aug 02 20:44:59 PDT 2022
+https://t.me/MindBlowingFacts
+Tue Aug 02 20:43:24 PDT 2022
+https://t.me/threatpost
+Tue Aug 02 20:40:58 PDT 2022
+https://t.me/programmerjokes
+Tue Aug 02 19:57:59 PDT 2022
+http://t.me/iloveanalporn
+Tue Aug 02 19:21:45 PDT 2022
+@TopTierAnalGIFs
+Tue Aug 02 19:20:44 PDT 2022
+https://t.me/TopTierAnalGIFs
+Tue Aug 02 07:09:31 PDT 2022
+deRay
+Tue Aug 02 07:04:28 PDT 2022
+@muchtomhdismay
+Tue Aug 02 05:37:12 PDT 2022
+https://m.soundcloud.com/xe1phix/sets/nerdcore
+Tue Aug 02 03:06:51 PDT 2022
+https://www.reddit.com/r/PeerTube/
+Tue Aug 02 02:45:31 PDT 2022
+https://t.me/InternetSecurityTalk
+Tue Aug 02 02:44:38 PDT 2022☆★☆
+https://t.me/MalwareResearch
+Tue Aug 02 02:44:03 PDT 2022
+How do you get a faggot to fuck a woman?
+Fill up her cunt with shit!
+Tue Aug 02 02:43:02 PDT 2022
+https://t.me/Gif_Exclusive
+Tue Aug 02 02:42:55 PDT 2022
+https://t.me/OSUNAPORNOGIFS
+Tue Aug 02 02:41:43 PDT 2022
+https://t.me/secretdesires
+Tue Aug 02 02:41:21 PDT 2022
+https://t.me/bestpornogifs
+Tue Aug 02 02:40:53 PDT 2022
+https://player.fm/series/beers-with-talos-podcast
+Tue Aug 02 02:39:47 PDT 2022
+
+"Man goes to a whore house, 
+  He's only got 2 dollars.
+  They say: 
+  "Well, go up to room 4, we have a dead hooker." 
+  So he goes up, and he comes back down.
+  And they go: "How was it?"
+  He goes "It was great, the only problem was, her nose kept running"
+  They go: "Ah, she's probably full"
+Tue Aug 02 02:36:40 PDT 2022
+https://player.fm/series/the-cyberjungle
+Tue Aug 02 02:33:13 PDT 2022
+@r_channels
+Tue Aug 02 02:32:51 PDT 2022
+@reddit2telegram
+https://github.com/Fillll/reddit2telegram
+Tue Aug 02 02:32:35 PDT 2022
+@programmerjokes
+Tue Aug 02 02:25:54 PDT 2022
+@freshporn
+Tue Aug 02 02:24:39 PDT 2022
+https://t.me/sweetanal
+Tue Aug 02 02:23:21 PDT 2022
+t.me/TopTierAnalGIFs
+Tue Aug 02 02:22:44 PDT 2022
+t.me/squirtanal
+Tue Aug 02 02:21:53 PDT 2022
+penny Jean creampie
+Tue Aug 02 02:15:35 PDT 2022
+https://portland.craigslist.org/wsc/sys/d/hillsboro-emmc-pocket-pc/7510969899.html
+Tue Aug 02 02:13:21 PDT 2022
+https://github.com/USSLab/DeMiCPU
+Tue Aug 02 02:13:06 PDT 2022
+https://attack.mitre.org/techniques/T1574/006/
+Tue Aug 02 02:12:54 PDT 2022
+https://www.schneier.com/blog/archives/2015/03/bios_hacking.html
+Tue Aug 02 02:11:42 PDT 2022
+https://www.schneier.com/tag/malware/
+Tue Aug 02 02:10:47 PDT 2022
+https://portland.craigslist.org/wsc/sys/d/hillsboro-thinkpad-p51/7513649308.html
+Tue Aug 02 02:10:20 PDT 2022
+https://portland.craigslist.org/search/wsc/sya
+Tue Aug 02 02:08:24 PDT 2022
+https://puri.sm/posts/librem-14-features-bios-and-ec-write-protection/
+Tue Aug 02 02:07:16 PDT 2022
+https://puri.sm/faq/what-is-librem-vault-usb-drive/
+Tue Aug 02 02:07:04 PDT 2022
+https://puri.sm/faq/#faq-librem-key
+Tue Aug 02 02:06:44 PDT 2022
+https://docs.puri.sm/Librem_One/PureOS/Social.html
+Tue Aug 02 02:05:55 PDT 2022
+https://github.com/Nitrokey/qubes-oem
+Tue Aug 02 02:05:18 PDT 2022
+https://source.puri.sm/Purism/qubes-oem
+Tue Aug 02 02:04:18 PDT 2022
+https://soundcloud.com/morbid/exist?in=xe1phix/sets/nerdcore
+Tue Aug 02 02:03:20 PDT 2022
+https://puri.sm/posts/demonstrating-tamper-detection-with-heads/
+Tue Aug 02 02:01:48 PDT 2022
+https://puri.sm/posts/why-freedom-is-essential-to-security-and-privacy/
+Tue Aug 02 01:19:10 PDT 2022
+Channel to dump webms that I’ve collected over the past few years
+
+/pol/ chat 
+@pol_4chan_telegram
+https://t.me/webms_4chan
+Tue Aug 02 01:18:31 PDT 2022
+@webms_4chan
+Tue Aug 02 01:18:28 PDT 2022
+@pol_4chan_telegram
+Tue Aug 02 01:15:41 PDT 2022
+Channel to dump webms that I’ve collected over the past few years
+
+/pol/ chat @pol_4chan_telegram
+https://t.me/webms_4chan
+Tue Aug 02 01:15:25 PDT 2022
+Channel to dump webms that I’ve collected over the past few years
+
+/pol/ chat @pol_4chan_telegram
+Tue Aug 02 01:07:37 PDT 2022
+https://t.me/squirtanal/8791
+Tue Aug 02 00:58:32 PDT 2022☆★☆
+xe1phix@protonmail.ch
+Mon Aug 01 23:40:44 PDT 2022
+https://cwe.mitre.org/about/documents.html
+Mon Aug 01 21:27:39 PDT 2022☆★☆
+https://t.me/DEFCON
+https://t.me/DC7499
+https://t.me/lockpick
+https://t.me/gentoogram
+https://t.me/InternetSecurityTalk
+https://t.me/crypto_experts_signals
+Mon Aug 01 21:25:26 PDT 2022
+https://t.me/MalwareResearch
+https://t.me/linuxhardening
+https://t.me/debiangroup
+https://t.me/linux_group
+https://t.me/DebianProject
+https://t.me/grouplinux
+https://t.me/Unix9
+Mon Aug 01 21:24:46 PDT 2022
+https://t.me/parrotsec					@parrotsec
+https://t.me/asknoahshow				@asknoahshow
+https://t.me/TrueOSCommunity
+https://t.me/kalilinux					@kalilinux
+https://t.me/QubesOS
+https://t.me/Antergos
+Mon Aug 01 21:24:00 PDT 2022☆★☆
+https://t.me/linuxhardening
+
+Mon Aug 01 21:11:11 PDT 2022
+*.preload
+Mon Aug 01 20:29:55 PDT 2022
+https://cwe.mitre.org/news/podcast.html
+Mon Aug 01 20:29:17 PDT 2022
+
+CWE/CAPEC on Twitter
+CWE Submissions Form & Guidelines
+Common Vulnerability Scoring System (CVSS)
+U.S. National Vulnerability Database’s (NVD) CVSS calculator
+Mon Aug 01 20:24:08 PDT 2022
+advice or other content. EACH USER WILL BE SOLELY RESPONSIBLE FOR ANY consequences of his or her direct or indirect use of this web site
+Mon Aug 01 20:21:19 PDT 2022
+CVE Scores:
+https://www.cvedetails.com/cvss-score-charts.php
+Mon Aug 01 20:20:16 PDT 2022
+CVE Vulnerability API and widget:
+https://www.cvedetails.com/register.php
+Mon Aug 01 20:18:15 PDT 2022
+https://www.cvedetails.com/vulnerability-feeds-form.php
+Mon Aug 01 20:16:13 PDT 2022
+https://www.cvedetails.com/vulnerabilities-by-types.php
+Mon Aug 01 20:15:57 PDT 2022
+https://puri.sm/posts/purism-integrates-heads-security-firmware-with-tpm-giving-full-control-and-digital-privacy-to-laptop-users/
+Mon Aug 01 20:15:26 PDT 2022
+https://osresearch.net/
+Mon Aug 01 20:15:05 PDT 2022
+https://trmm.net/Category%3ATalks/
+Mon Aug 01 20:14:47 PDT 2022
+https://arstechnica.com/science/2022/06/google-places-engineer-on-leave-after-he-claims-groups-chatbot-is-sentient/
+Mon Aug 01 14:42:30 PDT 2022
+https://t.me/coolteleporngif/1279
+Mon Aug 01 07:46:31 PDT 2022
+Savanah Hernandez
+Mon Aug 01 06:52:18 PDT 2022
+http://www.providencejournal.com/news/education/20150208-techies-are-in-nerd-vana-at-brown-university-hackathon-video.ece
+Mon Aug 01 03:35:49 PDT 2022
+https://boards.4chan.org/b/
+Mon Aug 01 02:26:26 PDT 2022☆★☆
+marcopolousa.org
+Mon Aug 01 02:15:16 PDT 2022
+https://t.me/marcopolousa/112
+Mon Aug 01 01:57:47 PDT 2022
+https://t.me/marcopolousa
+Mon Aug 01 01:55:13 PDT 2022
+https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F59b94986-d525-49d1-bbf3-9ee71ee5e07b_1920x1080.png
+Mon Aug 01 01:54:08 PDT 2022
+https://kanekoa.substack.com/p/hunter-bidens-sexually-inappropriate
+Mon Aug 01 01:53:53 PDT 2022
+@KanekoaTheGreat
+Mon Aug 01 01:14:12 PDT 2022
+https://t.me/ArchiveAnon
+Mon Aug 01 01:13:14 PDT 2022
+The Pretty Things are one of the most underappreciated bands of the 60s.
+
+https://youtu.be/mOgjEZJokvc
+Mon Aug 01 01:13:03 PDT 2022
+https://youtu.be/mOgjEZJokvc
+Mon Aug 01 01:12:47 PDT 2022
+https://youtu.be/BT5DSvDb9o4
+Mon Aug 01 01:07:08 PDT 2022
+https://resources.infosecinstitute.com/topic/http-response-splitting-attack/
+Mon Aug 01 00:52:52 PDT 2022
+RSA exponent
+Mon Aug 01 00:47:34 PDT 2022
+the Intel Microcode update format
+
+https://www.intel.com/content/dam/www/public/us/en/documents/guides/intel-txt-software-development-guide.pdf
+Mon Aug 01 00:46:30 PDT 2022
+the Intel Microcode update format
+Mon Aug 01 00:45:43 PDT 2022
+http://inertiawar.com/microcode/
+Mon Aug 01 00:38:08 PDT 2022
+https://en.wikipedia.org/wiki/Trusted_Execution_Technology#Chain_of_trust
+Mon Aug 01 00:31:50 PDT 2022
+https://puri.sm/about/social-purpose/
+Sun Jul 31 23:49:28 PDT 2022
+https://gitlab.com/xe1phix/Firefox-Hardening/-/raw/master/Xe1phix-%5BPrivacy-Badger%5D/PrivacyBadger_user_data-5_31_2022_11_04_02_PM.json
+Sun Jul 31 23:47:05 PDT 2022
+moz-extension://15eda6ac-9320-40bc-95c1-11e609214071/skin/options.html#tab-manage-data
+Sun Jul 31 23:22:04 PDT 2022
+https://www.youtube.com/watch?v=RZfHcwvGYGo
+Sun Jul 31 23:21:00 PDT 2022
+Kyle Rankin
+President
+PGP ID: 0xB9EF770D6EFE360F
+Fingerprint: 0DFE 2A03 7FEF B6BF C56F73C5 B9EF 770D 6EFE 360F
+Librem Social
+Sun Jul 31 23:19:19 PDT 2022
+http://pgp.mit.edu/pks/lookup?op=get&search=0xB9EF770D6EFE360F
+Sun Jul 31 23:18:30 PDT 2022
+http://twitter.com/kylerankin
+Sun Jul 31 23:10:08 PDT 2022
+How secure are my keys on Librem Key?
+
+We rely on the tamper protection of the embedded smart card. Smart cards are especially designed to protect the stored keys. They embed technologies like special metal coating and covers on the silicon so that attacks using an electron microscope are not possible (with regular chips you can actually see the stored bits). They also implement protection circuits to protect against current analysis attacks and more. So we can assume that the smart card, even if it gets intercepted, can not be tampered with, especially it is not possible to extract the key(s) from it.
+A different thing is the micro-controller on the Librem Key. This is not especially protected but you also have to ask what the possible attack vector could be. Since the private key(s) never leave the smart card the micro-controller thus never sees them or could expose them. So even it being unprotected does not impose any risk for exposing the private key(s).
+Sun Jul 31 23:00:41 PDT 2022
+librem.social
+Sun Jul 31 22:44:49 PDT 2022
+https://youtu.be/OJ04r1A_H1k
+Sun Jul 31 20:19:36 PDT 2022
+Defcon  - 
+
+Sun Jul 31 20:19:14 PDT 2022
+Defcon  - 
+Sun Jul 31 19:03:58 PDT 2022
+https://sites.google.com/site/nsaplayset/blinkercough
+Sun Jul 31 19:03:06 PDT 2022
+https://sites.google.com/site/nsaplayset/saviorburst
+Sun Jul 31 19:02:04 PDT 2022
+https://m.youtube.com/watch?v=OD2Wxe4RLeU
+Sun Jul 31 19:01:38 PDT 2022
+https://sites.google.com/site/nsaplayset/turnipschool
+Sun Jul 31 19:00:02 PDT 2022
+https://github.com/orgs/NSAPlayset/repositories
+Sun Jul 31 18:58:44 PDT 2022
+https://github.com/NSAPlayset/SAVIORBURST
+Sun Jul 31 18:45:34 PDT 2022
+https://m.youtube.com/watch?v=e0NM1jJbjrM
+Sun Jul 31 14:00:02 PDT 2022
+https://portland.craigslist.org/wsc/sys/d/beaverton-dell-inspiron-gb-ram-ssdhdd/7515694268.html
+Sun Jul 31 13:58:05 PDT 2022
+Thinkpad X1 Carbon (4th gen) 
+Sun Jul 31 13:00:42 PDT 2022
+https://krebsonsecurity.com/2022/05/when-your-smart-id-card-reader-comes-with-malware/
+Sun Jul 31 12:04:50 PDT 2022
+https://www.schneier.com/blog/archives/2022/06/m1-chip-vulnerability.html
+Sun Jul 31 12:04:35 PDT 2022
+https://thehackernews.com/2022/05/attackers-can-use-electromagnetic.html
+Sun Jul 31 12:01:40 PDT 2022
+https://portland.craigslist.org/wsc/sys/d/portland-cisco-ucs-c240-m4-servers-v4/7504105713.html
+Sun Jul 31 11:59:29 PDT 2022
+https://portland.craigslist.org/wsc/sys/d/portland-dell-poweredge-r220-1u/7508047094.html
+Sun Jul 31 11:57:34 PDT 2022
+https://portland.craigslist.org/wsc/sys/d/portland-heavy-duty-toughbook-laptop/7506751714.html
+Sun Jul 31 11:56:14 PDT 2022
+https://portland.craigslist.org/wsc/sys/d/portland-msi-1660-super-mining-rig/7514293658.html
+Sun Jul 31 11:54:56 PDT 2022
+https://portland.craigslist.org/wsc/syd/d/portland-new-server-racks-all-sizes/7514123959.html
+Sun Jul 31 11:35:11 PDT 2022☆★☆
+https://github.com/USSLab
+Sun Jul 31 04:00:52 PDT 2022
+Telegram Channels
+Sun Jul 31 03:57:32 PDT 2022
+@CoolTelePornGIFs
+Sun Jul 31 02:46:43 PDT 2022
++15635792701
+Sun Jul 31 02:43:10 PDT 2022
+19712681064
+Sun Jul 31 02:41:09 PDT 2022
++19712681064
+Sun Jul 31 02:24:13 PDT 2022
+https://github.com/USSLab/CapSpeaker
+Sun Jul 31 02:19:35 PDT 2022
+https://github.com/USSLab/DolphinAttack
+Sun Jul 31 02:19:18 PDT 2022
+How does DolphinAttack work?
+
+A nonlinear system is a system in which the change of the output is not proportional to the change of the input. Many electronic devices, such as microphones and amplifiers, are nonlinear under certain circumstances. When a signal containing two or more frequencies passes a nonlinear system, intermodulation happens which introduces additional signals at new frequencies. DolphinAttack is built on this effect. By transmitting modulated ultrasound, we can recover "audible" voice command signals from nonlinear hardware, and control the speech recognition systems.
+Sun Jul 31 02:17:14 PDT 2022
+ In this work, we design a completely inaudible attack, DolphinAttack, that modulates voice commands on ultrasonic carriers (e.g., frequency > 20 kHz) to achieve inaudibility. By leveraging the nonlinearity of the microphone circuits, the modulated low frequency audio commands can be successfully demodulated, recovered, and more importantly interpreted by the speech recognition systems
+Sun Jul 31 02:15:51 PDT 2022
+The reason is, the nonlinearity is highly hardware dependent and can vary greatly from devices to devices, and the key of this experiment is in finding and tuning the parameters. Due to the limitations of portable setup on power, modulation precision, transducer's frequency selectivity, debugging, etc., it
+Sun Jul 31 02:14:39 PDT 2022
+MIT Technology Review Secret Ultrasonic Commands Can Control Your Smartphone, Say Researchers
+
+WIRED Ultrasonic Voice Commands Can Hijack Siri and Amazon Echos
+
+BBC 'Dolphin' attacks fool Amazon, Google voice assistants
+Sun Jul 31 02:13:25 PDT 2022
+https://www.technologyreview.com/s/608825/secret-ultrasonic-commands-can-control-your-smartphone-say-researchers/
+Sun Jul 31 02:13:12 PDT 2022
+http://usslab.org/papers/CCS2017_DolphinAttack_CameraReady.pdf
+Sun Jul 31 01:56:37 PDT 2022
+https://github.com/USSLab/GhostTouch
+Sun Jul 31 01:52:17 PDT 2022
+The touch sensor consists of a grid of transmitting (TX) and receiving (RX) electrodes made of transparent conductive materials, e.g., indium-tin-oxide (ITO). The scan driving method is designed to locate the touch points on the screen by exciting all TX electrodes in turn. As only one TX is excited at a time, the touchscreen can locate a touch to a specific position by the row and column of the active TX-RX pair and can also support multi-touch detection
+Sun Jul 31 01:49:47 PDT 2022
+https://camo.githubusercontent.com/59de49b649bdfcb82c13c3bf015f5b338e82c83bb5acdd610f5193698384e7c1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d5553534c61622d626c7565
+Sun Jul 31 01:44:47 PDT 2022
+https://pacmanattack.com/paper.pdf
+Sun Jul 31 00:48:47 PDT 2022
+adb shell pm grant com.asdoi.quicktiles android.permission.WRITE_SECURE_SETTINGS
+Sun Jul 31 00:23:26 PDT 2022
+https://portland.craigslist.org/search/wsc/sec
+Sun Jul 31 00:23:18 PDT 2022
+https://portland.craigslist.org/search/wsc/trd
+Sun Jul 31 00:23:08 PDT 2022
+https://portland.craigslist.org/search/wsc/sad
+Sun Jul 31 00:23:02 PDT 2022
+https://portland.craigslist.org/search/wsc/tch
+Sun Jul 31 00:22:09 PDT 2022
+https://portland.craigslist.org/search/wsc/ela
+Sun Jul 31 00:21:55 PDT 2022
+https://portland.craigslist.org/search/wsc/syp
+Sun Jul 31 00:21:20 PDT 2022
+https://portland.craigslist.org/search/wsc/cps
+Sun Jul 31 00:20:48 PDT 2022
+https://portland.craigslist.org/search/wsc/cpg
+Sun Jul 31 00:18:47 PDT 2022
+Bioflavonoid1
+Sun Jul 31 00:14:05 PDT 2022
+Is the laptop still available? 
+I've wanted a thinkpad for years!
+Their firmware is written good enough to learn forensic analysis on, 
+without bricking it in the process.
+Sun Jul 31 00:01:00 PDT 2022
+Thinkpad P51
+Sat Jul 30 23:59:59 PDT 2022
+b0e842199b8537f7981c154b27f682d7@sale.craigslist.org
+Sat Jul 30 23:59:13 PDT 2022
+b0e842199b8537f7981c154b27f682d7@sale.craigslist.org?subject=Thinkpad%20P51&body=%0A%0Ahttps%3A%2F%2Fportland.craigslist.org%2Fwsc%2Fsys%2Fd%2Fhillsboro-thinkpad-p51%2F7513649308.html%0A
+Sat Jul 30 23:57:37 PDT 2022☆★☆
+xe1phix@aim.com
+Sat Jul 30 23:53:25 PDT 2022
+d16884c0a8473c8f8cc1a049814f2d40@sale.craigslist.org?subject=Thinkpad%20P51&body=%0A%0Ahttps%3A%2F%2Fportland.craigslist.org%2Fwsc%2Fsys%2Fd%2Fhillsboro-thinkpad-p51%2F7513649308.html%0A
+Sat Jul 30 23:53:15 PDT 2022
+https://mail.google.com/mail/?view=cm&fs=1&su=Thinkpad%20P51&body=%0A%0Ahttps%3A%2F%2Fportland.craigslist.org%2Fwsc%2Fsys%2Fd%2Fhillsboro-thinkpad-p51%2F7513649308.html%0A&to=d16884c0a8473c8f8cc1a049814f2d40%40sale.craigslist.org
+Sat Jul 30 23:49:02 PDT 2022
+https://portland.craigslist.org/wsc/sys/d/sherwood-hp-elitebook-mt42-14-amd-quad/7506148967.html
+Sat Jul 30 23:48:36 PDT 2022
+https://portland.craigslist.org/wsc/sys/d/sherwood-dell-latitude-core-i5-8265u/7507738464.html
+Sat Jul 30 23:47:52 PDT 2022
+https://portland.craigslist.org/wsc/sys/d/portland-amd-fx-core-38-ghz-cpu-gb-ram/7515124989.html
+Sat Jul 30 21:50:14 PDT 2022
+intent:#Intent;scheme=mailto;action=android.intent.action.SENDTO;launchFlags=0x3000000;S.android.intent.extra.SUBJECT=Exception%20in%20NewPipe%200.23.1;S.android.intent.extra.TEXT=%7B%22user_action%22%3A%22ui%20error%22%2C%22request%22%3A%22ACRA%20report%22%2C%22content_language%22%3A%22en%22%2C%22content_country%22%3A%22US%22%2C%22app_language%22%3A%22en%22%2C%22service%22%3A%22none%22%2C%22package%22%3A%22org.schabi.newpipe%22%2C%22version%22%3A%220.23.1%22%2C%22os%22%3A%22Linux%20Android%209%20-%2028%22%2C%22time%22%3A%222022-07-30%2021%3A47%22%2C%22exceptions%22%3A%5B%22java.lang.RuntimeException%3A%20Unable%20to%20start%20activity%20ComponentInfo%7Borg.schabi.newpipe%2Forg.schabi.newpipe.MainActivity%7D%3A%20androidx.fragment.app.Fragment%24InstantiationException%3A%20Unable%20to%20instantiate%20fragment%20org.schabi.newpipe.download.DownloadDialog%3A%20could%20not%20find%20Fragment%20constructor%5Cn%5Ctat%20android.app.ActivityThread.performLaunchActivity(ActivityThread.java%3A3162)%5Cn%5Ctat%20android.app.ActivityThread.handleLaunchActivity(ActivityThread.java%3A3305)%5Cn%5Ctat%20android.app.servertransaction.LaunchActivityItem.execute(LaunchActivityItem.java%3A78)%5Cn%5Ctat%20android.app.servertransaction.TransactionExecutor.executeCallbacks(TransactionExecutor.java%3A108)%5Cn%5Ctat%20android.app.servertransaction.TransactionExecutor.execute(TransactionExecutor.java%3A68)%5Cn%5Ctat%20android.app.ActivityThread%24H.handleMessage(ActivityThread.java%3A1993)%5Cn%5Ctat%20android.os.Handler.dispatchMessage(Handler.java%3A106)%5Cn%5Ctat%20android.os.Looper.loop(Looper.java%3A216)%5Cn%5Ctat%20android.app.ActivityThread.main(ActivityThread.java%3A7266)%5Cn%5Ctat%20java.lang.reflect.Method.invoke(Native%20Method)%5Cn%5Ctat%20com.android.internal.os.RuntimeInit%24MethodAndArgsCaller.run(RuntimeInit.java%3A494)%5Cn%5Ctat%20com.android.internal.os.ZygoteInit.main(ZygoteInit.java%3A975)%5CnCaused%20by%3A%20androidx.fragment.app.Fragment%24InstantiationException%3A%20Unable%20to%20instantiate%20fragment%20org.schabi.newpipe.download.DownloadDialog%3A%20could%20not%20find%20Fragment%20constructor%5Cn%5Ctat%20androidx.fragment.app.Fragment.instantiate(Fragment.java%3A628)%5Cn%5Ctat%20androidx.fragment.app.FragmentContainer.instantiate(FragmentContainer.java%3A57)%5Cn%5Ctat%20androidx.fragment.app.FragmentManager%243.instantiate(FragmentManager.java%3A483)%5Cn%5Ctat%20androidx.fragment.app.FragmentStateManager.%3Cinit%3E(FragmentStateManager.java%3A85)%5Cn%5Ctat%20androidx.fragment.app.FragmentManager.restoreSaveState(FragmentManager.java%3A2728)%5Cn%5Ctat%20androidx.fragment.app.FragmentController.restoreSaveState(FragmentController.java%3A198)%5Cn%5Ctat%20androidx.fragment.app.FragmentActivity%242.onContextAvailable(FragmentActivity.java%3A149)%5Cn%5Ctat%20androidx.activity.contextaware.ContextAwareHelper.dispatchOnContextAvailable(ContextAwareHelper.java%3A99)%5Cn%5Ctat%20androidx.activity.ComponentActivity.onCreate(ComponentActivity.java%3A322)%5Cn%5Ctat%20androidx.fragment.app.FragmentActivity.onCreate(FragmentActivity.java%3A273)%5Cn%5Ctat%20org.schabi.newpipe.MainActivity.onCreate(MainActivity.java%3A143)%5Cn%5Ctat%20android.app.Activity.performCreate(Activity.java%3A7353)%5Cn%5Ctat%20android.app.Activity.performCreate(Activity.java%3A7344)%5Cn%5Ctat%20android.app.Instrumentation.callActivityOnCreate(Instrumentation.java%3A1275)%5Cn%5Ctat%20android.app.ActivityThread.performLaunchActivity(ActivityThread.java%3A3142)%5Cn%5Ct...%2011%20more%5CnCaused%20by%3A%20java.lang.NoSuchMethodException%3A%20org.schabi.newpipe.download.DownloadDialog.%3Cinit%3E%20%5B%5D%5Cn%5Ctat%20java.lang.Class.getConstructor0(Class.java%3A2328)%5Cn%5Ctat%20java.lang.Class.getConstructor(Class.java%3A1725)%5Cn%5Ctat%20androidx.fragment.app.Fragment.instantiate(Fragment.java%3A613)%5Cn%5Ct...%2025%20more%5Cn%22%5D%2C%22user_comment%22%3A%22%22%7D;end 
+------------ 
+ACTION: android.intent.action.SENDTO 
+DATA: mailto: 
+URI: intent:#Intent;scheme=mailto;action=android.intent.action.SENDTO;launchFlags=0x3000000;S.android.intent.extra.SUBJECT=Exception%20in%20NewPipe%200.23.1;S.android.intent.extra.TEXT=%7B%22user_action%22%3A%22ui%20error%22%2C%22request%22%3A%22ACRA%20report%22%2C%22content_language%22%3A%22en%22%2C%22content_country%22%3A%22US%22%2C%22app_language%22%3A%22en%22%2C%22service%22%3A%22none%22%2C%22package%22%3A%22org.schabi.newpipe%22%2C%22version%22%3A%220.23.1%22%2C%22os%22%3A%22Linux%20Android%209%20-%2028%22%2C%22time%22%3A%222022-07-30%2021%3A47%22%2C%22exceptions%22%3A%5B%22java.lang.RuntimeException%3A%20Unable%20to%20start%20activity%20ComponentInfo%7Borg.schabi.newpipe%2Forg.schabi.newpipe.MainActivity%7D%3A%20androidx.fragment.app.Fragment%24InstantiationException%3A%20Unable%20to%20instantiate%20fragment%20org.schabi.newpipe.download.DownloadDialog%3A%20could%20not%20find%20Fragment%20constructor%5Cn%5Ctat%20android.app.ActivityThread.performLaunchActivity(ActivityThread.java%3A3162)%5Cn%5Ctat%20android.app.ActivityThread.handleLaunchActivity(ActivityThread.java%3A3305)%5Cn%5Ctat%20android.app.servertransaction.LaunchActivityItem.execute(LaunchActivityItem.java%3A78)%5Cn%5Ctat%20android.app.servertransaction.TransactionExecutor.executeCallbacks(TransactionExecutor.java%3A108)%5Cn%5Ctat%20android.app.servertransaction.TransactionExecutor.execute(TransactionExecutor.java%3A68)%5Cn%5Ctat%20android.app.ActivityThread%24H.handleMessage(ActivityThread.java%3A1993)%5Cn%5Ctat%20android.os.Handler.dispatchMessage(Handler.java%3A106)%5Cn%5Ctat%20android.os.Looper.loop(Looper.java%3A216)%5Cn%5Ctat%20android.app.ActivityThread.main(ActivityThread.java%3A7266)%5Cn%5Ctat%20java.lang.reflect.Method.invoke(Native%20Method)%5Cn%5Ctat%20com.android.internal.os.RuntimeInit%24MethodAndArgsCaller.run(RuntimeInit.java%3A494)%5Cn%5Ctat%20com.android.internal.os.ZygoteInit.main(ZygoteInit.java%3A975)%5CnCaused%20by%3A%20androidx.fragment.app.Fragment%24InstantiationException%3A%20Unable%20to%20instantiate%20fragment%20org.schabi.newpipe.download.DownloadDialog%3A%20could%20not%20find%20Fragment%20constructor%5Cn%5Ctat%20androidx.fragment.app.Fragment.instantiate(Fragment.java%3A628)%5Cn%5Ctat%20androidx.fragment.app.FragmentContainer.instantiate(FragmentContainer.java%3A57)%5Cn%5Ctat%20androidx.fragment.app.FragmentManager%243.instantiate(FragmentManager.java%3A483)%5Cn%5Ctat%20androidx.fragment.app.FragmentStateManager.%3Cinit%3E(FragmentStateManager.java%3A85)%5Cn%5Ctat%20androidx.fragment.app.FragmentManager.restoreSaveState(FragmentManager.java%3A2728)%5Cn%5Ctat%20androidx.fragment.app.FragmentController.restoreSaveState(FragmentController.java%3A198)%5Cn%5Ctat%20androidx.fragment.app.FragmentActivity%242.onContextAvailable(FragmentActivity.java%3A149)%5Cn%5Ctat%20androidx.activity.contextaware.ContextAwareHelper.dispatchOnContextAvailable(ContextAwareHelper.java%3A99)%5Cn%5Ctat%20androidx.activity.ComponentActivity.onCreate(ComponentActivity.java%3A322)%5Cn%5Ctat%20androidx.fragment.app.FragmentActivity.onCreate(FragmentActivity.java%3A273)%5Cn%5Ctat%20org.schabi.newpipe.MainActivity.onCreate(MainActivity.java%3A143)%5Cn%5Ctat%20android.app.Activity.performCreate(Activity.java%3A7353)%5Cn%5Ctat%20android.app.Activity.performCreate(Activity.java%3A7344)%5Cn%5Ctat%20android.app.Instrumentation.callActivityOnCreate(Instrumentation.java%3A1275)%5Cn%5Ctat%20android.app.ActivityThread.performLaunchActivity(ActivityThread.java%3A3142)%5Cn%5Ct...%2011%20more%5CnCaused%20by%3A%20java.lang.NoSuchMethodException%3A%20org.schabi.newpipe.download.DownloadDialog.%3Cinit%3E%20%5B%5D%5Cn%5Ctat%20java.lang.Class.getConstructor0(Class.java%3A2328)%5Cn%5Ctat%20java.lang.Class.getConstructor(Class.java%3A1725)%5Cn%5Ctat%20androidx.fragment.app.Fragment.instantiate(Fragment.java%3A613)%5Cn%5Ct...%2025%20more%5Cn%22%5D%2C%22user_comment%22%3A%22%22%7D;end 
+FLAGS: 
+FLAG_ACTIVITY_FORWARD_RESULT 
+FLAG_ACTIVITY_PREVIOUS_IS_TOP 
+EXTRAS: 
+1 Class: java.lang.String 
+Key: android.intent.extra.SUBJECT 
+Value: Exception in NewPipe 0.23.1 
+2 Class: java.lang.String 
+Key: android.intent.extra.TEXT 
+Value: {"user_action":"ui error","request":"ACRA report","content_language":"en","content_country":"US","app_language":"en","service":"none","package":"org.schabi.newpipe","version":"0.23.1","os":"Linux Android 9 - 28","time":"2022-07-30 21:47","exceptions":["java.lang.RuntimeException: Unable to start activity ComponentInfo{org.schabi.newpipe/org.schabi.newpipe.MainActivity}: androidx.fragment.app.Fragment$InstantiationException: Unable to instantiate fragment org.schabi.newpipe.download.DownloadDialog: could not find Fragment constructor\n\tat android.app.ActivityThread.performLaunchActivity(ActivityThread.java:3162)\n\tat android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:3305)\n\tat android.app.servertransaction.LaunchActivityItem.execute(LaunchActivityItem.java:78)\n\tat android.app.servertransaction.TransactionExecutor.executeCallbacks(TransactionExecutor.java:108)\n\tat android.app.servertransaction.TransactionExecutor.execute(TransactionExecutor.java:68)\n\tat android.app.ActivityThread$H.handleMessage(ActivityThread.java:1993)\n\tat android.os.Handler.dispatchMessage(Handler.java:106)\n\tat android.os.Looper.loop(Looper.java:216)\n\tat android.app.ActivityThread.main(ActivityThread.java:7266)\n\tat java.lang.reflect.Method.invoke(Native Method)\n\tat com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:494)\n\tat com.android.internal.os.ZygoteInit.main(ZygoteInit.java:975)\nCaused by: androidx.fragment.app.Fragment$InstantiationException: Unable to instantiate fragment org.schabi.newpipe.download.DownloadDialog: could not find Fragment constructor\n\tat androidx.fragment.app.Fragment.instantiate(Fragment.java:628)\n\tat androidx.fragment.app.FragmentContainer.instantiate(FragmentContainer.java:57)\n\tat androidx.fragment.app.FragmentManager$3.instantiate(FragmentManager.java:483)\n\tat androidx.fragment.app.FragmentStateManager.(FragmentStateManager.java:85)\n\tat androidx.fragment.app.FragmentManager.restoreSaveState(FragmentManager.java:2728)\n\tat androidx.fragment.app.FragmentController.restoreSaveState(FragmentController.java:198)\n\tat androidx.fragment.app.FragmentActivity$2.onContextAvailable(FragmentActivity.java:149)\n\tat androidx.activity.contextaware.ContextAwareHelper.dispatchOnContextAvailable(ContextAwareHelper.java:99)\n\tat androidx.activity.ComponentActivity.onCreate(ComponentActivity.java:322)\n\tat androidx.fragment.app.FragmentActivity.onCreate(FragmentActivity.java:273)\n\tat org.schabi.newpipe.MainActivity.onCreate(MainActivity.java:143)\n\tat android.app.Activity.performCreate(Activity.java:7353)\n\tat android.app.Activity.performCreate(Activity.java:7344)\n\tat android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1275)\n\tat android.app.ActivityThread.performLaunchActivity(ActivityThread.java:3142)\n\t... 11 more\nCaused by: java.lang.NoSuchMethodException: org.schabi.newpipe.download.DownloadDialog. []\n\tat java.lang.Class.getConstructor0(Class.java:2328)\n\tat java.lang.Class.getConstructor(Class.java:1725)\n\tat androidx.fragment.app.Fragment.instantiate(Fragment.java:613)\n\t... 25 more\n"],"user_comment":""} 
+3 Class: [Ljava.lang.String; 
+Key: android.intent.extra.EMAIL 
+
+------------ 
+MATCHING ACTIVITIES: 
+Email (com.samsung.android.email.provider - com.samsung.android.email.composer.activity.MessageCompose) 
+
+Sat Jul 30 21:22:04 PDT 2022
+https://www.youtube.com/channel/UCVe5DrZzi1XVZqTAPGFhrmw
+Sat Jul 30 21:12:12 PDT 2022
+15169c1f7148a05e66ee0c02ae3126f3bfaa0d94
+Sat Jul 30 11:00:17 PDT 2022
+Common usage
+Sat Jul 30 10:42:58 PDT 2022
+PeerTube(LIVE)	peertube.live
+Sat Jul 30 10:08:57 PDT 2022
+screenshot
+Sat Jul 30 08:30:21 PDT 2022
+soc 2 compliance certificate
+Sat Jul 30 08:30:06 PDT 2022
+https://tailscale.com/blog/how-tailscale-works/
+Sat Jul 30 08:28:16 PDT 2022
+https://peertube.european-pirates.eu
+Peertube of European Pirates
+Sat Jul 30 08:27:00 PDT 2022
+Peertube.io	peertube.io
+Sat Jul 30 08:25:53 PDT 2022
+FreeNet PeerTube Portal	peertube.freenet.ru
+Sat Jul 30 08:24:58 PDT 2022
+peertube.linuxrocks.online
+Sat Jul 30 08:24:42 PDT 2022
+Arch Linux Cz	peertube.arch-linux.cz	
+4.2.2
+	
+0
+	
+41
+	
+19
+	
+19
+	
+3
+	
+❌
+	
+✔
+	
+	
+PeerTube LinuxTrent	video.linuxtrent.it	
+4.2.2
+	
+4
+	
+32
+	
+16
+	
+197
+	
+7
+	
+❌
+	
+✔
+	
+	
+LinuxRocks PeerTube	peertube.linuxrocks.online	
+4.2.2
+	
+10
+	
+21
+	
+1K
+	
+5K
+	
+1K
+	
+❌
+	
+✔
+	
+	
+PeerTube.dynlinux.io	peertube.dynlinux.io
+Sat Jul 30 08:22:37 PDT 2022
+https://kolektiva.media/videos/trending?s=1
+Sat Jul 30 08:21:20 PDT 2022
+https://videotube.duckdns.org/
+Sat Jul 30 08:10:20 PDT 2022
+https://m.youtube.com/watch?v=qtVOGkYluoA
+Sat Jul 30 08:09:52 PDT 2022
+https://mobile.twitter.com/tailscale
+Sat Jul 30 08:09:42 PDT 2022
+https://tailscale.com/kb/1018/acls/
+Sat Jul 30 08:09:22 PDT 2022
+https://tailscale.com/blog/rbac-like-it-was-meant-to-be/
+Sat Jul 30 08:09:12 PDT 2022
+https://tailscale.com/kb/1118/custom-derp-servers/#what-are-derp-servers
+Sat Jul 30 08:09:01 PDT 2022
+https://tailscale.com/security/
+Sat Jul 30 08:08:52 PDT 2022
+https://tailscale.com/kb/1192/acl-samples/
+Sat Jul 30 08:07:39 PDT 2022
+Anarchy[dot]Video	anarchy.video
+Sat Jul 30 08:06:54 PDT 2022
+Paradigm Threat Conspiracy Repository	video.paradigmthreat.net
+Sat Jul 30 08:06:35 PDT 2022
+ShareTube.us	sharetube.us
+Sat Jul 30 08:06:13 PDT 2022
+PublicSpaces Video	video.publicspaces.net
+Sat Jul 30 08:05:49 PDT 2022
+The Hunter's Guild	video.pe6.eu
+Sat Jul 30 08:05:18 PDT 2022
+dsocialize Tube	tube.dsocialize.net
+Sat Jul 30 08:05:03 PDT 2022
+The Bearded Tek Peertube	peertube.beardedtek.com
+Sat Jul 30 08:04:14 PDT 2022
+LibreMedia	libremedia.video
+Sat Jul 30 08:03:42 PDT 2022
+HackerFraternity	peertube.hackerfraternity.org
+Sat Jul 30 08:03:29 PDT 2022
+PeerTube ELForcer	peertube.elforcer.ru
+Sat Jul 30 08:02:43 PDT 2022
+cliptube	
+cliptube.org	
+
+OurPipes	
+tube.tr4sk.me
+Sat Jul 30 08:01:47 PDT 2022
+VnChich.Com - Tổng hợp clip sex hay nhất hiện nay	
+
+vnchich.com
+Sat Jul 30 08:01:10 PDT 2022
+DyTube	
+dytube.com
+Sat Jul 30 08:00:10 PDT 2022
+PeerTube INFOTHEMA	infothema.net	
+
+	
+/podlibre/video/	
+podlibre.video
+Sat Jul 30 07:58:01 PDT 2022
+JupiterTube	
+jupiter.tube
+Sat Jul 30 07:57:10 PDT 2022
+PeerTube(LIVE)	
+peertube.live
+Sat Jul 30 07:55:55 PDT 2022
+videotube.duckdns.org
+Sat Jul 30 07:55:30 PDT 2022
+https://peertube.0x5e.eu/
+Sat Jul 30 07:55:22 PDT 2022
+https://peertube.freenet.ru/
+Sat Jul 30 07:54:36 PDT 2022
+https://peertube.onionstorm.net/
+Sat Jul 30 07:52:17 PDT 2022
+https://jupiter.tube/
+Sat Jul 30 07:51:42 PDT 2022
+https://peertube.newsocial.tech/
+Sat Jul 30 07:51:34 PDT 2022
+Peertube.NewSocial.Tech
+Sat Jul 30 07:48:57 PDT 2022
+https://tailscale.com/kb/1068/acl-tags/#using-an-acl-tag-with-an-auth-key
+Sat Jul 30 07:22:55 PDT 2022
+GetI2P.net
+Sat Jul 30 07:12:10 PDT 2022
+Tailscale
+Sat Jul 30 07:10:06 PDT 2022
+https://twitter.com/TailscaleSec
+Sat Jul 30 07:09:43 PDT 2022
+https://tailscale.com/kb/1196/security-hardening/
+Sat Jul 30 07:02:11 PDT 2022
+https://github.com/tailscale/tailscale-android
+Sat Jul 30 07:01:31 PDT 2022
+Jitsi Meet (Unknown application)
+https://f-droid.org/packages/org.jitsi.meet/
+Sat Jul 30 06:57:31 PDT 2022
+EDS Lite (Virtual disk encryption)
+https://f-droid.org/packages/com.sovworks.edslite/
+Sat Jul 30 06:56:46 PDT 2022
+TripSit (Information, combination charts and a live help chat for recreational drugs)
+https://f-droid.org/packages/me.tripsit.tripmobile/
+Sat Jul 30 06:55:17 PDT 2022
+Librem Social (Federated social network alternative)
+https://f-droid.org/packages/one.librem.social/
+Sat Jul 30 06:53:57 PDT 2022
+Conceal (Concealing WAVE audio files inside images)
+https://f-droid.org/packages/ir.mrahimy.conceal/
+Sat Jul 30 06:52:40 PDT 2022
+Lavabit Encrypted Proxy (Client for Lavabit‘s Encrypted Proxy)
+https://f-droid.org/packages/com.lavabit.pahoehoe/
+Sat Jul 30 06:52:03 PDT 2022
+Search searx (An unofficial Searx app)
+https://f-droid.org/packages/search.searx/
+Sat Jul 30 06:51:28 PDT 2022
+MetaGer Search (Android app for the German search engine MetaGer)
+https://f-droid.org/packages/de.metager.metagerapp.fdroid/
+Sat Jul 30 06:50:57 PDT 2022
+DroidRec (Record screen)
+https://f-droid.org/packages/com.yakovlevegor.DroidRec/
+Sat Jul 30 06:50:42 PDT 2022
+TubeLab (App for all Peertube instances)
+https://f-droid.org/packages/app.fedilab.tubelab/
+Sat Jul 30 06:47:55 PDT 2022
+Archlinux Forums (Satellite application for bbs.archlinux.org forums) - https://f-droid.org/app/com.kanedias.archforums
+Sat Jul 30 06:47:47 PDT 2022
+Search searx (An unofficial Searx app) - https://f-droid.org/app/search.searx
+Sat Jul 30 05:19:53 PDT 2022
+https://m.psychonautwiki.org/w/index.php?title=Dextromethorphan&_=
+Sat Jul 30 01:51:06 PDT 2022
+https://desktop.messenger.com
+Sat Jul 30 01:22:40 PDT 2022
+9712975611
+Sat Jul 30 00:18:02 PDT 2022
+does narcan work on fentanyl
+Fri Jul 29 18:59:42 PDT 2022
+https://player.fm/series/2000363/334162646
+Thu Dec 23 18:34:37 PST 2021
+Its hard to believe someone could be so ignorant to the facts
+Thu Dec 23 18:32:01 PST 2021
+I was listening to a podcast with some dumbass liberals.
+And they where talking about the Rittenhouse GoFundMe.
+And they said "white people are paying for the assassination of black men in this country."
+Thu Dec 23 17:39:28 PST 2021
+Nice, the recruiter for Microsoft just contacted me about a Linux admin position they posted
+Mon Dec 20 17:20:12 PST 2021
+Mullvad.net/en/account/#/openvpn-config/
+Mon Dec 20 16:02:06 PST 2021
+$Unit
+Mon Dec 20 11:55:58 PST 2021
+So I am hopeful 😄
+Mon Dec 20 11:55:43 PST 2021
+The Linux Admin role is asking for DNS, DHCP, SSH and FTP server experience. And I setup and managed them all at ICS and in Linux Academy cloud environments.
+Mon Dec 20 11:55:34 PST 2021
+Interview went great with the Intel recruiter.
+Mon Dec 20 10:54:13 PST 2021
+http://Mullvad.net/en/help/using-Mullvad-vpn-app/#tunnel-protocol
+Mon Dec 20 10:46:13 PST 2021
+The Linux Admin role is asking for DNS, DHCP, SSH and FTP server experience. And I setup and managed them all at ICS and in Linux Academy cloud environments. 
+Sat Dec 18 13:29:10 PST 2021
+salvation army hillboro oregan
+Wed Dec 15 12:28:02 PST 2021
+And thats what both of my certifications are in, Linux administration
+Wed Dec 15 12:27:49 PST 2021
+She said they have a really hard time finding Linux admins.
+Wed Dec 15 12:27:37 PST 2021
+I have an interview with a contractor Monday who works with Intel. The position is Linux Admistrator.
+Wed Dec 15 10:11:10 PST 2021
+ (503) 254-2828.
+Wed Dec 15 08:50:19 PST 2021
+ 805-222-0532 
+Mon Dec 13 10:14:22 PST 2021
+Question for you...
+When im applying for jobs it asks me how many years of experience do you have with x.
+With computers, the nice thing is self studying is directly transferrable to work experience.
+Can I claim that time, or should it only be experience earned on the job?
+Tue Dec 07 12:56:08 PST 2021
+salvation army hillboro oregan directiona
+Sun Dec 05 05:10:53 PST 2021
+https://t.me/OSUNAPORNOGIFS/13321
+Sun Dec 05 05:10:31 PST 2021
+https://t.me/TopTierAnalGIFs/1716
+Sun Dec 05 05:09:57 PST 2021
+https://t.me/TopTierAnalGIFs/1657
+Sun Dec 05 05:08:05 PST 2021
+https://t.me/iGIFyouPORN
+Sun Dec 05 05:06:09 PST 2021
+https://t.me/TopTierAnalGIFs/1636
+Sun Dec 05 05:05:58 PST 2021
+https://t.me/TopTierAnalGIFs/1630
+Sun Dec 05 05:05:46 PST 2021
+https://t.me/TopTierAnalGIFs/1627
+Sun Dec 05 05:05:43 PST 2021
+https://t.me/TopTierAnalGIFs/1626
+Sun Dec 05 05:05:36 PST 2021
+https://t.me/TopTierAnalGIFs/1625
+Sun Dec 05 05:05:12 PST 2021
+https://t.me/TopTierAnalGIFs/1614
+Sun Dec 05 05:05:03 PST 2021
+https://t.me/TopTierAnalGIFs/1612
+Sun Dec 05 05:04:39 PST 2021
+https://t.me/TopTierAnalGIFs/1611
+Sun Dec 05 05:04:34 PST 2021
+https://t.me/TopTierAnalGIFs/1610
+Sun Dec 05 05:04:30 PST 2021
+https://t.me/TopTierAnalGIFs/1609
+Sun Dec 05 05:04:23 PST 2021
+https://t.me/TopTierAnalGIFs/1608
+Sun Dec 05 05:04:18 PST 2021
+https://t.me/TopTierAnalGIFs/1607
+Sun Dec 05 05:04:01 PST 2021
+https://t.me/TopTierAnalGIFs/1594
+Sun Dec 05 05:03:52 PST 2021
+https://t.me/TopTierAnalGIFs/1591
+Sun Dec 05 05:03:47 PST 2021
+https://t.me/TopTierAnalGIFs/1590
+Sun Dec 05 05:03:41 PST 2021
+https://t.me/TopTierAnalGIFs/1589
+Sun Dec 05 05:03:35 PST 2021
+https://t.me/TopTierAnalGIFs/1587
+Sun Dec 05 05:03:22 PST 2021
+https://t.me/TopTierAnalGIFs/1586
+Sun Dec 05 05:03:17 PST 2021
+https://t.me/TopTierAnalGIFs/1584
+Sun Dec 05 05:03:10 PST 2021
+https://t.me/TopTierAnalGIFs/1583
+Sun Dec 05 05:03:05 PST 2021
+https://t.me/TopTierAnalGIFs/1581
+Sun Dec 05 05:03:02 PST 2021
+https://t.me/TopTierAnalGIFs/1580
+Sun Dec 05 05:02:58 PST 2021
+https://t.me/TopTierAnalGIFs/1579
+Sun Dec 05 05:02:50 PST 2021
+https://t.me/TopTierAnalGIFs/1576
+Sun Dec 05 05:02:40 PST 2021
+https://t.me/TopTierAnalGIFs/1573
+Sun Dec 05 05:02:34 PST 2021
+https://t.me/TopTierAnalGIFs/1571
+Sun Dec 05 05:02:29 PST 2021
+https://t.me/TopTierAnalGIFs/1570
+Sun Dec 05 05:02:27 PST 2021
+Sandra Luberc, Christian Clay & Mike Angelo
+Sun Dec 05 05:01:50 PST 2021
+https://t.me/Gif_Exclusive/905
+Sun Dec 05 05:01:43 PST 2021
+https://t.me/TopTierAnalGIFs/1568
+Sun Dec 05 05:01:41 PST 2021
+Susan Melo
+Sun Dec 05 05:01:37 PST 2021
+https://t.me/TopTierAnalGIFs/1529
+Sun Dec 05 05:01:34 PST 2021
+https://t.me/TopTierAnalGIFs/1528
+Sun Dec 05 05:01:32 PST 2021
+https://t.me/TopTierAnalGIFs/1527
+Sun Dec 05 05:01:28 PST 2021
+https://t.me/TopTierAnalGIFs/1526
+Sun Dec 05 05:00:50 PST 2021
+https://t.me/TopTierAnalGIFs/1523
+Sun Dec 05 05:00:02 PST 2021
+https://t.me/TopTierAnalGIFs/1514
+Sun Dec 05 04:59:53 PST 2021
+https://t.me/TopTierAnalGIFs/1513
+Sun Dec 05 04:59:46 PST 2021
+https://t.me/TopTierAnalGIFs/1512
+Sun Dec 05 04:59:42 PST 2021
+https://t.me/TopTierAnalGIFs/1511
+Sun Dec 05 04:59:34 PST 2021
+https://t.me/TopTierAnalGIFs/1510
+Sun Dec 05 04:59:10 PST 2021
+https://t.me/TopTierAnalGIFs/1505
+Sun Dec 05 04:58:45 PST 2021
+https://t.me/TopTierAnalGIFs/1503
+Sun Dec 05 04:58:35 PST 2021
+https://t.me/TopTierAnalGIFs/1502
+Sun Dec 05 04:58:26 PST 2021
+https://t.me/TopTierAnalGIFs/1499
+Sun Dec 05 04:58:19 PST 2021
+https://t.me/TopTierAnalGIFs/1496
+Sun Dec 05 04:58:10 PST 2021
+https://t.me/TopTierAnalGIFs/1494
+Sun Dec 05 04:57:52 PST 2021
+https://t.me/TopTierAnalGIFs/1487
+Sun Dec 05 04:57:46 PST 2021
+https://t.me/TopTierAnalGIFs/1485
+Sun Dec 05 04:57:41 PST 2021
+https://t.me/TopTierAnalGIFs/1483
+Sun Dec 05 04:57:29 PST 2021
+https://t.me/TopTierAnalGIFs/1479
+Sun Dec 05 04:57:25 PST 2021
+https://t.me/TopTierAnalGIFs/1477
+Sun Dec 05 04:57:19 PST 2021
+https://t.me/TopTierAnalGIFs/1476
+Sun Dec 05 04:57:15 PST 2021
+https://t.me/TopTierAnalGIFs/1475
+Sun Dec 05 04:57:09 PST 2021
+https://t.me/TopTierAnalGIFs/1474
+Sun Dec 05 04:57:01 PST 2021
+https://t.me/TopTierAnalGIFs/1470
+Sun Dec 05 04:56:52 PST 2021
+https://t.me/TopTierAnalGIFs/1466
+Sun Dec 05 04:56:47 PST 2021
+https://t.me/TopTierAnalGIFs/1464
+Sun Dec 05 04:56:41 PST 2021
+https://t.me/TopTierAnalGIFs/1465
+Sun Dec 05 04:56:05 PST 2021
+https://t.me/TopTierAnalGIFs/1462
+Sun Dec 05 04:55:58 PST 2021
+https://t.me/TopTierAnalGIFs/1461
+Sun Dec 05 04:55:47 PST 2021
+https://t.me/TopTierAnalGIFs/1458
+Sun Dec 05 04:55:40 PST 2021
+https://t.me/TopTierAnalGIFs/1455
+Sun Dec 05 04:55:34 PST 2021
+https://t.me/TopTierAnalGIFs/1453
+Sun Dec 05 04:55:28 PST 2021
+https://t.me/TopTierAnalGIFs/1452
+Sun Dec 05 04:55:25 PST 2021
+https://t.me/TopTierAnalGIFs/1451
+Sun Dec 05 04:55:21 PST 2021
+https://t.me/TopTierAnalGIFs/1450
+Sun Dec 05 04:55:16 PST 2021
+https://t.me/TopTierAnalGIFs/1449
+Sun Dec 05 04:55:10 PST 2021
+https://t.me/TopTierAnalGIFs/1448
+Sun Dec 05 04:54:43 PST 2021
+https://t.me/TopTierAnalGIFs/1436
+Sun Dec 05 04:54:27 PST 2021
+❎Chat: Whores, blowjob, anal
+http://WSOSO.RU 
+✅Chat: Puttane, pompino, anale
+http://WSOSO.RU
+Sun Dec 05 04:52:49 PST 2021
+https://t.me/iloveanalporn/4360
+Sun Dec 05 04:52:05 PST 2021
+https://t.me/iloveanalporn/4381
+Sun Dec 05 04:51:53 PST 2021
+https://t.me/iloveanalporn/4391
+Sun Dec 05 04:51:20 PST 2021
+https://t.me/iloveanalporn/4409
+Sun Dec 05 04:50:53 PST 2021
+https://t.me/iloveanalporn/4410
+Sun Dec 05 04:50:38 PST 2021
+https://t.me/iloveanalporn/4425
+Sun Dec 05 04:50:20 PST 2021
+https://t.me/iloveanalporn/4430
+Sun Dec 05 04:50:00 PST 2021
+https://t.me/iloveanalporn/4440
+Sun Dec 05 04:48:49 PST 2021
+https://t.me/iloveanalporn/4464
+Sun Dec 05 04:48:37 PST 2021
+https://t.me/iloveanalporn/4469
+Sun Dec 05 04:48:32 PST 2021
+https://t.me/iloveanalporn/4472
+Sun Dec 05 04:48:26 PST 2021
+https://t.me/iloveanalporn/4476
+Sun Dec 05 04:48:16 PST 2021
+https://t.me/iloveanalporn/4481
+Sun Dec 05 04:47:42 PST 2021
+https://t.me/iloveanalporn/4487
+Sun Dec 05 04:46:13 PST 2021
+https://t.me/iloveanalporn/4313
+Sun Dec 05 04:45:37 PST 2021
+https://t.me/iloveanalporn/14730
+Sun Dec 05 04:44:44 PST 2021
+https://t.me/iloveanalporn/14732
+Sun Dec 05 04:44:12 PST 2021
+https://t.me/iloveanalporn/14749
+Sun Dec 05 04:44:03 PST 2021
+https://t.me/iloveanalporn/14754
+Sun Dec 05 04:43:48 PST 2021
+https://t.me/iloveanalporn/14764
+Sun Dec 05 04:42:13 PST 2021
+https://t.me/iloveanalporn/14804
+Sun Dec 05 04:40:05 PST 2021
+https://t.me/iloveanalporn/4359
+Sun Dec 05 04:32:58 PST 2021
+https://t.me/TopTierAnalGIFs/1431
+Sun Dec 05 04:32:38 PST 2021
+https://t.me/TopTierAnalGIFs/1411
+Sun Dec 05 04:32:30 PST 2021
+https://t.me/TopTierAnalGIFs/1408
+Sun Dec 05 04:32:09 PST 2021
+https://t.me/TopTierAnalGIFs/1397
+Sun Dec 05 04:32:06 PST 2021
+https://t.me/TopTierAnalGIFs/1398
+Sun Dec 05 04:32:05 PST 2021
+https://t.me/TopTierAnalGIFs/1399
+Sun Dec 05 04:31:01 PST 2021
+https://t.me/TopTierAnalGIFs/1384
+Sun Dec 05 04:30:58 PST 2021
+https://t.me/TopTierAnalGIFs/1385
+Sun Dec 05 04:30:57 PST 2021
+https://t.me/TopTierAnalGIFs/1386
+Sun Dec 05 04:30:40 PST 2021
+https://t.me/TopTierAnalGIFs/1425
+Sun Dec 05 04:30:28 PST 2021
+https://t.me/TopTierAnalGIFs/1429
+Sun Dec 05 04:29:47 PST 2021
+https://t.me/TopTierAnalGIFs/1435
+Sun Dec 05 04:29:37 PST 2021
+https://t.me/TopTierAnalGIFs/1437
+Sun Dec 05 04:29:20 PST 2021
+https://t.me/TopTierAnalGIFs/1447
+Sun Dec 05 04:29:17 PST 2021
+https://t.me/TopTierAnalGIFs/1446
+Sun Dec 05 04:29:12 PST 2021
+https://t.me/TopTierAnalGIFs/1445
+Sun Dec 05 04:29:08 PST 2021
+https://t.me/TopTierAnalGIFs/1443
+Sun Dec 05 04:28:54 PST 2021
+https://t.me/TopTierAnalGIFs/1444
+Sun Dec 05 04:27:53 PST 2021
+https://t.me/TopTierAnalGIFs/1454
+Sun Dec 05 04:27:50 PST 2021
+https://t.me/TopTierAnalGIFs/1456
+Sun Dec 05 04:21:26 PST 2021
+https://t.me/TopTierAnalGIFs/1457
+Sun Dec 05 04:20:10 PST 2021
+https://t.me/TopTierAnalGIFs/1525
+Sun Dec 05 04:16:07 PST 2021
+https://t.me/iloveanalporn/14997
+Sun Dec 05 04:16:06 PST 2021
+https://t.me/iloveanalporn/14996
+Sun Dec 05 04:11:36 PST 2021
+https://t.me/TopTierAnalGIFs/1645
+Sun Dec 05 04:10:56 PST 2021
+https://t.me/TopTierAnalGIFs/1679
+Sun Dec 05 04:10:55 PST 2021
+https://t.me/TopTierAnalGIFs/1680
+Sun Dec 05 04:10:36 PST 2021
+https://t.me/TopTierAnalGIFs/1678
+Sun Dec 05 04:10:12 PST 2021
+https://t.me/TopTierAnalGIFs/1675
+Sun Dec 05 04:09:31 PST 2021
+https://t.me/TopTierAnalGIFs/1659
+Sun Dec 05 04:05:09 PST 2021
+https://t.me/TopTierAnalGIFs/1715
+Sun Dec 05 04:02:57 PST 2021
+https://t.me/coolteleporngif
+Sun Dec 05 03:30:21 PST 2021
+https://t.me/TopTierAnalGIFs/1782
+Sun Dec 05 03:27:11 PST 2021
+https://t.me/analny
+Sun Dec 05 03:15:21 PST 2021
+t.me/iloveanalporn
+Sun Dec 05 03:15:20 PST 2021
+t.me/sweetanal
+Sun Dec 05 03:15:13 PST 2021
+t.me/
+Sat Dec 04 00:55:03 PST 2021
+https://soundcloud.com/ytcracker/plead-the-fifth
+Sat Dec 04 00:54:44 PST 2021
+https://soundcloud.com/ytcracker/ytcracker-list-run-cold-8bit-old-town-road-flip
+Fri Dec 03 15:13:40 PST 2021
+hack naked
+Fri Dec 03 15:12:03 PST 2021
+hack naked podcast icon
+Fri Dec 03 14:57:31 PST 2021
+Breakin' the law
+Fri Dec 03 14:55:47 PST 2021
+https://gitlab.com/xe1phix/ParrotSecWiki/-/blob/InfoSecTalk/Xe1phix-InfoSec-Talk-Materials/Securing-Linux-VPNs-SecDSM-Nov-2021/Xe1phix-Secure-Linux-VPN-Use-%5Bv4.57.87%5D.odp
+Fri Dec 03 14:51:06 PST 2021
+https://gitlab.com/xe1phix/ParrotSecWiki/-/blob/InfoSecTalk/Xe1phix-InfoSec-Talk-Materials/Securing-Linux-VPNs-SecDSM-Nov-2021/Xe1phix-Secure-Linux-VPN-Use-%5Bv4.57.87%5D.odp.pdf
+Fri Dec 03 14:48:29 PST 2021
+https://wiki.archlinux.org/title/WireGuard
+Fri Dec 03 14:48:08 PST 2021
+https://packages.debian.org/bullseye/wireguard
+Fri Dec 03 14:44:01 PST 2021
+DNS-Over-
+Thu Dec 02 22:48:45 PST 2021
+5635792701
+Wed Dec 01 22:15:45 PST 2021
+https://lwn.net/Articles/776688/
+Wed Dec 01 09:16:10 PST 2021
+https://psychedelicsalon.com/podcast-156-treating-childhood-schizophrenia-with-psychedelics/
+Wed Dec 01 09:14:19 PST 2021
+https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project/-/blob/master/Xe1phix-%5BEDU%5D/Xe1phix-%5B.Nootropics-Research.%5D/Xe1phix-Daily-Nootropics-Checklist-%5Bv12.6.5%5D.txt
+Wed Dec 01 09:05:39 PST 2021
+https://gitlab.com/xe1phix/ParrotLinux-Public-Kiosk-Project
+Tue Nov 30 18:26:30 PST 2021
+Scholls Heights Elementary School, 16400 SW Loon Dr, Beaverton, OR 97007
+Tue Nov 30 15:11:31 PST 2021
+tusks movie
+Fri Oct 01 16:16:32 PDT 2021
+172.98.193.62
+Fri Jul 03 09:10:37 PDT 2020
+ (515) 643-8100
+Thu Jul 02 17:25:56 PDT 2020
+https://www.eventbrite.com/e/tom-macdonald-ghostories-tour-tickets-92290534473
+Wed Jul 01 22:56:51 PDT 2020
+eatibles
+Wed Jul 01 22:52:01 PDT 2020
+"debotery"
+Wed Jul 01 22:47:10 PDT 2020
+https://www.youtube.com/watch?v=Ita4g_oDyns
+Wed Jul 01 22:10:51 PDT 2020
+https://i.4cdn.org/b/1593665575246.jpg
+Wed Jul 01 19:43:04 PDT 2020
+turbocharger
+Wed Jul 01 18:30:15 PDT 2020
+https://www.youtube.com/channel/UCOWcZ6Wicl-1N34H0zZe38w/videos
+Wed Jul 01 01:02:58 PDT 2020
+https://m.youtube.com/watch?v=T29T4ZNvvCk
+Wed Jul 01 00:49:28 PDT 2020
+https://m.youtube.com/watch?v=SJ3plaSowWc
+Tue Jun 30 14:46:55 PDT 2020
+https://m.youtube.com/watch?v=TlJE2IjmayU
+Tue Jun 30 13:33:36 PDT 2020
+Beyond Belief: Fact or Fiction 
+Tue Jun 30 13:32:21 PDT 2020
+https://m.imdb.com/title/tt0138956/?ref_=fn_al_tt_0
+Mon Jun 29 22:56:32 PDT 2020
+Beyond belief
+Mon Jun 29 22:54:56 PDT 2020
+https://m.youtube.com/watch?v=nlt5Wa13fFU
+Mon Jun 29 19:51:58 PDT 2020
+https://github.com/Fillll/reddit2telegram
+Mon Jun 29 19:35:12 PDT 2020
+https://dlive.tv/m/home/
+Mon Jun 29 18:24:31 PDT 2020
+https://m.youtube.com/watch?v=zSErYhxNLX0
+Mon Jun 29 17:59:53 PDT 2020
+And they're spray painted to absolute shit!
+Mon Jun 29 17:59:14 PDT 2020
+Every building downtown has boarded up windows.
+
+And they're spray painted to absolute shit!
+Mon Jun 29 17:57:24 PDT 2020
+
+Theyve fuuuucked the city up though man
+
+Every buildings windows are boarded up
+
+And spray painted to absolute shit
+Mon Jun 29 16:51:11 PDT 2020
+https://m.youtube.com/watch?v=r4J2SZw0Fl0
+Sun Jun 28 20:50:44 PDT 2020
+https://sia.tech/
+Sat Jun 27 22:54:16 PDT 2020
+Hey, this is Mark Curry. I'm in Portland, and I'll be here for 6 days. If you wanted to do something while i'm here.
+Sat Jun 27 22:51:06 PDT 2020
+Hey, this is Mark.
+I'm leaving Des Moines tomorrow. And I'll be in Portland for 6 days.
+Sat Jun 27 14:43:48 PDT 2020
+7132610730
+Sat Jun 27 14:00:45 PDT 2020
+5639408449
+Sat Jun 27 11:21:29 PDT 2020
+12028444159
+Sat Jun 27 11:14:09 PDT 2020
+402802313?
+Mon Jun 15 17:45:51 PDT 2020
+@squirtanal
+Mon Jun 15 17:13:44 PDT 2020
+https://player.fm/series/beers-with-talos-podcast
+
+https://player.fm/podcasts/Jupiter-Broadcastings
+https://player.fm/series/ask-noah-show-2461651
+https://player.fm/series/linux-unplugged
+https://player.fm/series/series-2477891
+https://player.fm/series/series-2437711
+https://player.fm/series/techsnap-2438285
+https://player.fm/series/linux-action-news-2434932
+
+https://player.fm/series/the-forensic-lunch-with-david-cowen-and-matthew-seyer
+https://player.fm/series/trustedsec-security-podcast-2423158
+https://player.fm/series/digital-forensic-survival-podcast
+https://player.fm/series/defensive-security-podcast-malware-hacking-cyber-security-infosec-1344233
+https://player.fm/series/pauls-security-weekly-70666
+https://player.fm/series/security-weekly-news-audio
+
+https://player.fm/series/off-the-hook-low-bitrate
+https://player.fm/series/off-the-wall-83410
+
+https://player.fm/series/the-cyberwire
+https://player.fm/series/the-wan-show-podcast
+https://player.fm/series/darknet-diaries-2000363
+https://player.fm/series/the-threatpost-podcast
+https://player.fm/series/security-wire-weekly-51330
+https://player.fm/series/brakeing-down-security-podcast
+https://player.fm/series/the-cyberjungle
+
+https://player.fm/series/malicious-life-1724592
+
+
+https://player.fm/series/tangentially-speaking-with-dr-christopher-ryan
+Mon Jun 15 17:13:35 PDT 2020
+fuck shit, eat piss
+Mon Jun 15 17:13:22 PDT 2020
+"Man goes to a whore house, 
+  He's only got 2 dollars.
+  They say: 
+  "Well, go up to room 4, we have a dead hooker." 
+  So he goes up, and he comes back down.
+  And they go: "How was it?"
+  He goes "It was great, the only problem was, her nose kept running"
+  They go: "Ah, she's probably full"
+"
+Mon Jun 15 17:12:24 PDT 2020
+Do you realize, its just as intellectually lazy to believe everything you see, as It is to deny everything you see?
+Mon Jun 15 17:11:31 PDT 2020
+is that a miscarriage, or are you just glad to see me?
+Mon Jun 15 17:11:27 PDT 2020
+what do you know about anything!?
+Mon Jun 15 17:11:21 PDT 2020
+https://player.fm/series/aubrey-marcus-podcast-1820190
+Mon Jun 15 17:11:16 PDT 2020
+https://player.fm/series/duncan-trussell-family-hour-2417218
+Mon Jun 15 16:59:50 PDT 2020
+@sweetanal
+Sun Jun 14 15:38:28 PDT 2020
+--------- beginning of main
+W/libEGL  ( 9237): EGLNativeWindowType 0xcfdfe008 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xd08786c0, 0xcfdfe000
+D/ViewRootImpl@2415a2e[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@2415a2e[MainActivity]( 9237): stopped(true) old=false
+D/roidIMSICatcherDetector( 9237): BaseTask detach:com.secupwn.aimsicd.ui.activities.MainActivity
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 23273 ms.
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/SensorManager( 9237): unregisterListener ::   
+I/LocationTracker( 9237): Last known location (42.03446°, -93.68003°) = (0.7336397262978557 rad, -1.6350249668670638 rad)
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+I/RealmHelper( 9237): BTS updated: CID=48167702 LAC=48133
+I/RealmHelper( 9237): DBi_measure updated bts_id=48167702
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/SensorManager( 9237): registerListener :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/SensorManager( 9237): unregisterListener ::   
+I/LocationTracker( 9237): Last known location (42.03449°, -93.6801°) = (0.7336402498966312 rad, -1.6350261885975397 rad)
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+I/RealmHelper( 9237): BTS updated: CID=48167702 LAC=48133
+I/RealmHelper( 9237): DBi_measure updated bts_id=48167702
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/SettingsActivity( 9237): StatusWatcher stopped watching
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@c349550[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@2415a2e[MainActivity]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=61
+W/ActivityThread( 9237): handleWindowVisibility: no activity for token android.os.BinderProxy@8b1d364
+I/MultiWindowDecorSupport( 9237): updateCaptionType >> DecorView@e6ac1d0[], isFloating: false, isApplication: true, hasWindowDecorCaption: false, hasWindowControllerCallback: true
+D/MultiWindowDecorSupport( 9237): setCaptionType = 0, DecorView = DecorView@e6ac1d0[]
+D/Injector( 9237): Injection of com.secupwn.aimsicd.ui.activities.MainActivity@c822afc took 2ms
+D/Injector( 9237): Injection of DeviceFragment{5dc0032 #0 id=0x7f0d007e} took 1ms
+D/ScrollView( 9237): initGoToTop
+D/roidIMSICatcherDetector( 9237): BaseTask attach:com.secupwn.aimsicd.ui.activities.MainActivity
+D/MainActivity( 9237): StatusWatcher starting watching
+D/InputTransport( 9237): Input channel constructed: fd=61
+D/ViewRootImpl@6399f5[MainActivity]( 9237): setView = DecorView@e6ac1d0[MainActivity] TM=true MM=false
+D/ViewRootImpl@6399f5[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x7 surface={true 3487692800} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [540x960]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xd08cc920, 0xcfe1f808
+D/ScrollView( 9237):  onsize change changed 
+W/Notification( 9237): Use of stream types is deprecated for operations other than volume control
+W/Notification( 9237): See the documentation of setSound() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+W/Notification( 9237): Use of stream types is deprecated for operations other than volume control
+W/Notification( 9237): See the documentation of setSound() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+I/AimsicdService( 9237): Service destroyed.
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 27897 ms.
+D/Injector( 9237): Injection of com.secupwn.aimsicd.service.AimsicdService@e99a933 took 1ms
+D/SensorManager( 9237): registerListener :: 0, LIS2DS Accelerometer, 200000, 0,  
+E/RilExecutor( 9237): Samsung Multiclient RIL not available: gsm.version.ril-impl = Samsung RIL v4.0
+W/Notification( 9237): Use of stream types is deprecated for operations other than volume control
+W/Notification( 9237): See the documentation of setSound() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+W/Notification( 9237): Use of stream types is deprecated for operations other than volume control
+W/Notification( 9237): See the documentation of setSound() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+W/Notification( 9237): Use of stream types is deprecated for operations other than volume control
+W/Notification( 9237): See the documentation of setSound() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+--------- beginning of radio
+D/TelephonyManager( 9237): getCellLocation - caller PID:9237, UID: 10203, TID: 9237
+I/AimsicdService( 9237): Service launched successfully.
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_RESIZED: frame=[0,0][540,960] ci=[0,36][0,72] vi=[0,36][0,72] or=1
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@e6ac1d0[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@e6ac1d0[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=70
+D/InputTransport( 9237): Input channel destroyed: fd=92
+D/MainActivity( 9237): StatusWatcher received status change to OK, updating icon
+I/chatty  ( 9237): uid=10203(com.SecUpwN.AIMSICD) identical 2 lines
+D/MainActivity( 9237): StatusWatcher received status change to OK, updating icon
+I/CellTracker( 9237): CheckForNeighborCount()
+D/CellTracker( 9237): NC list not supported by AOS on this device. Nothing to do.
+D/CellTracker( 9237): : Setting nc_list_present to: false
+W/Notification( 9237): Use of stream types is deprecated for operations other than volume control
+W/Notification( 9237): See the documentation of setSound() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 29638 ms.
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+D/InputTransport( 9237): Input channel constructed: fd=74
+D/ViewRootImpl@ed6f57d[Toast]( 9237): setView = android.widget.LinearLayout{c00cc72 V.E...... ......I. 0,0-0,0} TM=true MM=false
+D/ViewRootImpl@ed6f57d[Toast]( 9237): Relayout returned: old=[0,36][540,888] new=[87,726][453,792] result=0x7 surface={true 3476396032} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [366x66]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xce673b80, 0xcf359808
+W/libEGL  ( 9237): EGLNativeWindowType 0xcf8f0808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xce4eee60, 0xcf8f0800
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@ed6f57d[Toast]( 9237): MSG_RESIZED: frame=[87,726][453,792] ci=[0,0][0,0] vi=[0,0][0,0] or=1
+D/ViewRootImpl@6399f5[MainActivity]( 9237): ViewPostIme pointer 0
+W/libEGL  ( 9237): EGLNativeWindowType 0xcf359808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xce673b80, 0xcf359800
+D/ViewRootImpl@ed6f57d[Toast]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=74
+D/SensorManager( 9237): unregisterListener ::   
+I/LocationTracker( 9237): Last known location (42.03449°, -93.68009°) = (0.7336402498966312 rad, -1.6350260140646147 rad)
+D/ViewRootImpl@6399f5[MainActivity]( 9237): ViewPostIme pointer 1
+D/InputTransport( 9237): Input channel constructed: fd=82
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): setView = android.widget.PopupWindow$PopupDecorView{f10fe8a V.E...... R.....I. 0,0-0,0} TM=true MM=false
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): Relayout returned: old=[0,36][540,888] new=[158,42][534,402] result=0x7 surface={true 3459166208} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [472x456]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xd00206a0, 0xce2eb008
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): MSG_RESIZED: frame=[158,42][534,402] ci=[0,0][0,0] vi=[0,0][0,0] or=1
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@e6ac1d0[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): Relayout returned: old=[158,42][534,402] new=[158,42][534,402] result=0x1 surface={true 3459166208} changed=false
+D/MainActivity( 9237): StatusWatcher stopped watching
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@e6ac1d0[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+W/ActivityThread( 9237): handleWindowVisibility: no activity for token android.os.BinderProxy@79b2b02
+I/MultiWindowDecorSupport( 9237): updateCaptionType >> DecorView@3fe666f[], isFloating: false, isApplication: true, hasWindowDecorCaption: false, hasWindowControllerCallback: true
+D/MultiWindowDecorSupport( 9237): setCaptionType = 0, DecorView = DecorView@3fe666f[]
+D/Injector( 9237): Injection of com.secupwn.aimsicd.ui.activities.AboutActivity@7b4fa8b took 3ms
+D/ScrollView( 9237): initGoToTop
+D/InputTransport( 9237): Input channel constructed: fd=67
+D/ViewRootImpl@4400904[AboutActivity]( 9237): setView = DecorView@3fe666f[AboutActivity] TM=true MM=false
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): stopped(true) old=false
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=83
+D/ViewRootImpl@4400904[AboutActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x7 surface={true 3482257408} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [540x960]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xcdd75aa0, 0xcf8f0808
+D/ScrollView( 9237):  onsize change changed 
+D/ViewRootImpl@4400904[AboutActivity]( 9237): MSG_RESIZED: frame=[0,0][540,960] ci=[0,36][0,72] vi=[0,36][0,72] or=1
+D/ViewRootImpl@4400904[AboutActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@3fe666f[AboutActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@3fe666f[AboutActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=75
+D/InputTransport( 9237): Input channel destroyed: fd=70
+W/libEGL  ( 9237): EGLNativeWindowType 0xce2eb008 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xd00206a0, 0xce2eb000
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=82
+W/System.err( 9237): java.lang.NullPointerException: Attempt to invoke virtual method 'int android.view.View.getVisibility()' on a null object reference
+W/System.err( 9237): 	at android.view.ViewRootImpl.getHostVisibility(ViewRootImpl.java:1862)
+W/System.err( 9237): 	at android.view.ViewRootImpl.handleAppVisibility(ViewRootImpl.java:1497)
+W/System.err( 9237): 	at android.view.ViewRootImpl$ViewRootHandler.handleMessage(ViewRootImpl.java:4938)
+W/System.err( 9237): 	at android.os.Handler.dispatchMessage(Handler.java:106)
+W/System.err( 9237): 	at android.os.Looper.loop(Looper.java:216)
+W/System.err( 9237): 	at android.app.ActivityThread.main(ActivityThread.java:7266)
+W/System.err( 9237): 	at java.lang.reflect.Method.invoke(Native Method)
+W/System.err( 9237): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:494)
+W/System.err( 9237): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:975)
+W/libEGL  ( 9237): EGLNativeWindowType 0xcfe1f808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xd08cc920, 0xcfe1f800
+D/ViewRootImpl@6399f5[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@6399f5[MainActivity]( 9237): stopped(true) old=false
+D/roidIMSICatcherDetector( 9237): BaseTask detach:com.secupwn.aimsicd.ui.activities.MainActivity
+D/ViewRootImpl@6399f5[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x1 surface={false 0} changed=false
+D/ViewRootImpl@4400904[AboutActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@4400904[AboutActivity]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@4400904[AboutActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@4400904[AboutActivity]( 9237): ViewPostIme pointer 1
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+I/RealmHelper( 9237): BTS updated: CID=48167702 LAC=48133
+I/RealmHelper( 9237): DBi_measure updated bts_id=48167702
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 22917 ms.
+D/ViewRootImpl@4400904[AboutActivity]( 9237): ViewPostIme key 0
+D/ViewRootImpl@4400904[AboutActivity]( 9237): ViewPostIme key 1
+D/ViewRootImpl@6399f5[MainActivity]( 9237): stopped(false) old=true
+D/roidIMSICatcherDetector( 9237): BaseTask attach:com.secupwn.aimsicd.ui.activities.MainActivity
+D/ViewRootImpl@6399f5[MainActivity]( 9237): stopped(false) old=false
+D/MainActivity( 9237): StatusWatcher starting watching
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+D/ViewRootImpl@4400904[AboutActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@3fe666f[AboutActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@6399f5[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x7 surface={true 3487692800} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [540x960]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xd08cc920, 0xcfe1f808
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@e6ac1d0[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@e6ac1d0[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=71
+D/InputTransport( 9237): Input channel destroyed: fd=75
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 20364 ms.
+W/libEGL  ( 9237): EGLNativeWindowType 0xcf8f0808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xcdd75aa0, 0xcf8f0800
+D/ViewRootImpl@4400904[AboutActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@4400904[AboutActivity]( 9237): stopped(true) old=false
+D/ViewRootImpl@4400904[AboutActivity]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=67
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 19083 ms.
+D/ViewRootImpl@6399f5[MainActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@6399f5[MainActivity]( 9237): ViewPostIme pointer 1
+D/InputTransport( 9237): Input channel constructed: fd=67
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): setView = android.widget.PopupWindow$PopupDecorView{6a1f49f V.E...... R.....I. 0,0-0,0} TM=true MM=false
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): Relayout returned: old=[0,36][540,888] new=[158,42][534,402] result=0x7 surface={true 3482257408} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [472x456]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xcdd75aa0, 0xcf8f0808
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): MSG_RESIZED: frame=[158,42][534,402] ci=[0,0][0,0] vi=[0,0][0,0] or=1
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@e6ac1d0[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): Relayout returned: old=[158,42][534,402] new=[158,42][534,402] result=0x1 surface={true 3482257408} changed=false
+D/MainActivity( 9237): StatusWatcher stopped watching
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@e6ac1d0[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+W/ActivityThread( 9237): handleWindowVisibility: no activity for token android.os.BinderProxy@e404d62
+I/MultiWindowDecorSupport( 9237): updateCaptionType >> DecorView@b59ddae[], isFloating: false, isApplication: true, hasWindowDecorCaption: false, hasWindowControllerCallback: true
+D/MultiWindowDecorSupport( 9237): setCaptionType = 0, DecorView = DecorView@b59ddae[]
+D/Injector( 9237): Injection of com.secupwn.aimsicd.ui.activities.DebugLogs@26a26ba took 2ms
+D/ScrollView( 9237): initGoToTop
+D/DebugLogs( 9237): StatusWatcher starting watching
+D/InputTransport( 9237): Input channel constructed: fd=83
+D/ViewRootImpl@e4f0e5e[DebugLogs]( 9237): setView = DecorView@b59ddae[DebugLogs] TM=true MM=false
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 0
+D/ViewRootImpl@e4f0e5e[DebugLogs]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x7 surface={true 3459166208} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [540x960]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xcdad17c0, 0xce2eb008
+D/ScrollView( 9237):  onsize change changed 
+D/ViewRootImpl@e4f0e5e[DebugLogs]( 9237): MSG_RESIZED: frame=[0,0][540,960] ci=[0,36][0,72] vi=[0,36][0,72] or=1
+D/ViewRootImpl@e4f0e5e[DebugLogs]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@b59ddae[DebugLogs]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@b59ddae[DebugLogs]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=80
+D/InputTransport( 9237): Input channel destroyed: fd=71
+W/libEGL  ( 9237): EGLNativeWindowType 0xcf8f0808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xcdd75aa0, 0xcf8f0800
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=67
+W/System.err( 9237): java.lang.NullPointerException: Attempt to invoke virtual method 'int android.view.View.getVisibility()' on a null object reference
+W/System.err( 9237): 	at android.view.ViewRootImpl.getHostVisibility(ViewRootImpl.java:1862)
+W/System.err( 9237): 	at android.view.ViewRootImpl.handleAppVisibility(ViewRootImpl.java:1497)
+W/System.err( 9237): 	at android.view.ViewRootImpl$ViewRootHandler.handleMessage(ViewRootImpl.java:4938)
+W/System.err( 9237): 	at android.os.Handler.dispatchMessage(Handler.java:106)
+W/System.err( 9237): 	at android.os.Looper.loop(Looper.java:216)
+W/System.err( 9237): 	at android.app.ActivityThread.main(ActivityThread.java:7266)
+W/System.err( 9237): 	at java.lang.reflect.Method.invoke(Native Method)
+W/System.err( 9237): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:494)
+W/System.err( 9237): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:975)
+W/libEGL  ( 9237): EGLNativeWindowType 0xcfe1f808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xd08cc920, 0xcfe1f800
+D/ViewRootImpl@6399f5[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@6399f5[MainActivity]( 9237): stopped(true) old=false
+D/roidIMSICatcherDetector( 9237): BaseTask detach:com.secupwn.aimsicd.ui.activities.MainActivity
+D/ViewRootImpl@6399f5[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x1 surface={false 0} changed=false
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 15179 ms.
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 13942 ms.
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+I/SecUpwN.AIMSIC( 9237): Background concurrent copying GC freed 235295(9MB) AllocSpace objects, 41(1848KB) LOS objects, 49% free, 24MB/48MB, paused 271us total 173.642ms
+I/RealmHelper( 9237): BTS updated: CID=48167702 LAC=48133
+I/RealmHelper( 9237): DBi_measure updated bts_id=48167702
+D/ViewRootImpl@e4f0e5e[DebugLogs]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@e4f0e5e[DebugLogs]( 9237): ViewPostIme pointer 1
+D/InputTransport( 9237): Input channel constructed: fd=60
+D/ViewRootImpl@d6bcf27[Toast]( 9237): setView = android.widget.LinearLayout{f2f45d4 V.E...... ......I. 0,0-0,0} TM=true MM=false
+D/ViewRootImpl@d6bcf27[Toast]( 9237): Relayout returned: old=[0,36][540,888] new=[102,726][438,792] result=0x7 surface={true 3487692800} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [336x66]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xcdc186a0, 0xcfe1f808
+D/ViewRootImpl@d6bcf27[Toast]( 9237): MSG_RESIZED: frame=[102,726][438,792] ci=[0,0][0,0] vi=[0,0][0,0] or=1
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 11334 ms.
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 10785 ms.
+W/libEGL  ( 9237): EGLNativeWindowType 0xcfe1f808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xcdc186a0, 0xcfe1f800
+D/ViewRootImpl@d6bcf27[Toast]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=60
+D/SensorManager( 9237): registerListener :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/SensorManager( 9237): unregisterListener ::   
+I/LocationTracker( 9237): Last known location (42.03449°, -93.68008°) = (0.7336402498966312 rad, -1.6350258395316897 rad)
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 29110 ms.
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 28468 ms.
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 26202 ms.
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 25951 ms.
+I/MultiWindowDecorSupport( 9237): updateCaptionType >> DecorView@b59ddae[DebugLogs], isFloating: false, isApplication: true, hasWindowDecorCaption: false, hasWindowControllerCallback: true
+D/MultiWindowDecorSupport( 9237): setCaptionType = 0, DecorView = DecorView@b59ddae[DebugLogs]
+D/ViewRootImpl@e4f0e5e[DebugLogs]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][960,540] result=0x23 surface={true 3459166208} changed=false
+I/MultiWindowDecorSupport( 9237): updateCaptionType >> DecorView@b59ddae[DebugLogs], isFloating: false, isApplication: true, hasWindowDecorCaption: false, hasWindowControllerCallback: true
+D/MultiWindowDecorSupport( 9237): setCaptionType = 0, DecorView = DecorView@b59ddae[DebugLogs]
+W/libEGL  ( 9237): EGLNativeWindowType 0xce2eb008 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xcdad17c0, 0xce2eb000
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [960x540]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xcdad17c0, 0xce2eb008
+D/ScrollView( 9237):  onsize change changed 
+D/ViewRootImpl@e4f0e5e[DebugLogs]( 9237): MSG_RESIZED_REPORT: frame=[0,0][960,540] ci=[0,36][72,0] vi=[0,36][72,0] or=2
+D/ViewRootImpl@e4f0e5e[DebugLogs]( 9237): MSG_RESIZED_REPORT: frame=[0,0][960,540] ci=[0,36][72,0] vi=[0,36][72,0] or=2
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 25312 ms.
+D/ViewRootImpl@e4f0e5e[DebugLogs]( 9237): MSG_RESIZED_REPORT: frame=[0,0][960,540] ci=[0,36][72,0] vi=[0,36][72,0] or=2
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 25155 ms.
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 23759 ms.
+
+Sun Jun 14 15:38:17 PDT 2020
+--------- beginning of main
+D/Injector( 9237): Injection of com.secupwn.aimsicd.ui.activities.SettingsActivity@bd5b67c took 2ms
+D/SettingsActivity( 9237): StatusWatcher starting watching
+D/InputTransport( 9237): Input channel constructed: fd=83
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): setView = DecorView@c349550[SettingsActivity] TM=true MM=false
+D/ViewRootImpl@2415a2e[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x7 surface={true 3482257408} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [540x960]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xce4eee60, 0xcf8f0808
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): MSG_RESIZED: frame=[0,0][540,960] ci=[0,36][0,72] vi=[0,36][0,72] or=1
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@c349550[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@c349550[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=92
+D/InputTransport( 9237): Input channel destroyed: fd=68
+W/libEGL  ( 9237): EGLNativeWindowType 0xcfdfe808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xcfe50aa0, 0xcfdfe800
+D/ViewRootImpl@643d760[PopupWindow:1cc731d]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=67
+W/System.err( 9237): java.lang.NullPointerException: Attempt to invoke virtual method 'int android.view.View.getVisibility()' on a null object reference
+W/System.err( 9237): 	at android.view.ViewRootImpl.getHostVisibility(ViewRootImpl.java:1862)
+W/System.err( 9237): 	at android.view.ViewRootImpl.handleAppVisibility(ViewRootImpl.java:1497)
+W/System.err( 9237): 	at android.view.ViewRootImpl$ViewRootHandler.handleMessage(ViewRootImpl.java:4938)
+W/System.err( 9237): 	at android.os.Handler.dispatchMessage(Handler.java:106)
+W/System.err( 9237): 	at android.os.Looper.loop(Looper.java:216)
+W/System.err( 9237): 	at android.app.ActivityThread.main(ActivityThread.java:7266)
+W/System.err( 9237): 	at java.lang.reflect.Method.invoke(Native Method)
+W/System.err( 9237): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:494)
+W/System.err( 9237): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:975)
+W/libEGL  ( 9237): EGLNativeWindowType 0xcfdfe008 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xd08786c0, 0xcfdfe000
+D/ViewRootImpl@2415a2e[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@2415a2e[MainActivity]( 9237): stopped(true) old=false
+D/roidIMSICatcherDetector( 9237): BaseTask detach:com.secupwn.aimsicd.ui.activities.MainActivity
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 23273 ms.
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/SensorManager( 9237): unregisterListener ::   
+I/LocationTracker( 9237): Last known location (42.03446°, -93.68003°) = (0.7336397262978557 rad, -1.6350249668670638 rad)
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+I/RealmHelper( 9237): BTS updated: CID=48167702 LAC=48133
+I/RealmHelper( 9237): DBi_measure updated bts_id=48167702
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/SensorManager( 9237): registerListener :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/SensorManager( 9237): unregisterListener ::   
+I/LocationTracker( 9237): Last known location (42.03449°, -93.6801°) = (0.7336402498966312 rad, -1.6350261885975397 rad)
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+I/RealmHelper( 9237): BTS updated: CID=48167702 LAC=48133
+I/RealmHelper( 9237): DBi_measure updated bts_id=48167702
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/SettingsActivity( 9237): StatusWatcher stopped watching
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@c349550[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@2415a2e[MainActivity]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=61
+W/ActivityThread( 9237): handleWindowVisibility: no activity for token android.os.BinderProxy@8b1d364
+I/MultiWindowDecorSupport( 9237): updateCaptionType >> DecorView@e6ac1d0[], isFloating: false, isApplication: true, hasWindowDecorCaption: false, hasWindowControllerCallback: true
+D/MultiWindowDecorSupport( 9237): setCaptionType = 0, DecorView = DecorView@e6ac1d0[]
+D/Injector( 9237): Injection of com.secupwn.aimsicd.ui.activities.MainActivity@c822afc took 2ms
+D/Injector( 9237): Injection of DeviceFragment{5dc0032 #0 id=0x7f0d007e} took 1ms
+D/ScrollView( 9237): initGoToTop
+D/roidIMSICatcherDetector( 9237): BaseTask attach:com.secupwn.aimsicd.ui.activities.MainActivity
+D/MainActivity( 9237): StatusWatcher starting watching
+D/InputTransport( 9237): Input channel constructed: fd=61
+D/ViewRootImpl@6399f5[MainActivity]( 9237): setView = DecorView@e6ac1d0[MainActivity] TM=true MM=false
+D/ViewRootImpl@6399f5[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x7 surface={true 3487692800} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [540x960]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xd08cc920, 0xcfe1f808
+D/ScrollView( 9237):  onsize change changed 
+W/Notification( 9237): Use of stream types is deprecated for operations other than volume control
+W/Notification( 9237): See the documentation of setSound() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+W/Notification( 9237): Use of stream types is deprecated for operations other than volume control
+W/Notification( 9237): See the documentation of setSound() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+I/AimsicdService( 9237): Service destroyed.
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 27897 ms.
+D/Injector( 9237): Injection of com.secupwn.aimsicd.service.AimsicdService@e99a933 took 1ms
+D/SensorManager( 9237): registerListener :: 0, LIS2DS Accelerometer, 200000, 0,  
+E/RilExecutor( 9237): Samsung Multiclient RIL not available: gsm.version.ril-impl = Samsung RIL v4.0
+W/Notification( 9237): Use of stream types is deprecated for operations other than volume control
+W/Notification( 9237): See the documentation of setSound() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+W/Notification( 9237): Use of stream types is deprecated for operations other than volume control
+W/Notification( 9237): See the documentation of setSound() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+W/Notification( 9237): Use of stream types is deprecated for operations other than volume control
+W/Notification( 9237): See the documentation of setSound() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+--------- beginning of radio
+D/TelephonyManager( 9237): getCellLocation - caller PID:9237, UID: 10203, TID: 9237
+I/AimsicdService( 9237): Service launched successfully.
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_RESIZED: frame=[0,0][540,960] ci=[0,36][0,72] vi=[0,36][0,72] or=1
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@e6ac1d0[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@e6ac1d0[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=70
+D/InputTransport( 9237): Input channel destroyed: fd=92
+D/MainActivity( 9237): StatusWatcher received status change to OK, updating icon
+I/chatty  ( 9237): uid=10203(com.SecUpwN.AIMSICD) identical 2 lines
+D/MainActivity( 9237): StatusWatcher received status change to OK, updating icon
+I/CellTracker( 9237): CheckForNeighborCount()
+D/CellTracker( 9237): NC list not supported by AOS on this device. Nothing to do.
+D/CellTracker( 9237): : Setting nc_list_present to: false
+W/Notification( 9237): Use of stream types is deprecated for operations other than volume control
+W/Notification( 9237): See the documentation of setSound() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 29638 ms.
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+D/InputTransport( 9237): Input channel constructed: fd=74
+D/ViewRootImpl@ed6f57d[Toast]( 9237): setView = android.widget.LinearLayout{c00cc72 V.E...... ......I. 0,0-0,0} TM=true MM=false
+D/ViewRootImpl@ed6f57d[Toast]( 9237): Relayout returned: old=[0,36][540,888] new=[87,726][453,792] result=0x7 surface={true 3476396032} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [366x66]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xce673b80, 0xcf359808
+W/libEGL  ( 9237): EGLNativeWindowType 0xcf8f0808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xce4eee60, 0xcf8f0800
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@ed6f57d[Toast]( 9237): MSG_RESIZED: frame=[87,726][453,792] ci=[0,0][0,0] vi=[0,0][0,0] or=1
+D/ViewRootImpl@6399f5[MainActivity]( 9237): ViewPostIme pointer 0
+W/libEGL  ( 9237): EGLNativeWindowType 0xcf359808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xce673b80, 0xcf359800
+D/ViewRootImpl@ed6f57d[Toast]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=74
+D/SensorManager( 9237): unregisterListener ::   
+I/LocationTracker( 9237): Last known location (42.03449°, -93.68009°) = (0.7336402498966312 rad, -1.6350260140646147 rad)
+D/ViewRootImpl@6399f5[MainActivity]( 9237): ViewPostIme pointer 1
+D/InputTransport( 9237): Input channel constructed: fd=82
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): setView = android.widget.PopupWindow$PopupDecorView{f10fe8a V.E...... R.....I. 0,0-0,0} TM=true MM=false
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): Relayout returned: old=[0,36][540,888] new=[158,42][534,402] result=0x7 surface={true 3459166208} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [472x456]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xd00206a0, 0xce2eb008
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): MSG_RESIZED: frame=[158,42][534,402] ci=[0,0][0,0] vi=[0,0][0,0] or=1
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@e6ac1d0[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): Relayout returned: old=[158,42][534,402] new=[158,42][534,402] result=0x1 surface={true 3459166208} changed=false
+D/MainActivity( 9237): StatusWatcher stopped watching
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@e6ac1d0[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+W/ActivityThread( 9237): handleWindowVisibility: no activity for token android.os.BinderProxy@79b2b02
+I/MultiWindowDecorSupport( 9237): updateCaptionType >> DecorView@3fe666f[], isFloating: false, isApplication: true, hasWindowDecorCaption: false, hasWindowControllerCallback: true
+D/MultiWindowDecorSupport( 9237): setCaptionType = 0, DecorView = DecorView@3fe666f[]
+D/Injector( 9237): Injection of com.secupwn.aimsicd.ui.activities.AboutActivity@7b4fa8b took 3ms
+D/ScrollView( 9237): initGoToTop
+D/InputTransport( 9237): Input channel constructed: fd=67
+D/ViewRootImpl@4400904[AboutActivity]( 9237): setView = DecorView@3fe666f[AboutActivity] TM=true MM=false
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 0
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): stopped(true) old=false
+D/ViewRootImpl@74dbf99[SettingsActivity]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=83
+D/ViewRootImpl@4400904[AboutActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x7 surface={true 3482257408} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [540x960]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xcdd75aa0, 0xcf8f0808
+D/ScrollView( 9237):  onsize change changed 
+D/ViewRootImpl@4400904[AboutActivity]( 9237): MSG_RESIZED: frame=[0,0][540,960] ci=[0,36][0,72] vi=[0,36][0,72] or=1
+D/ViewRootImpl@4400904[AboutActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@3fe666f[AboutActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@3fe666f[AboutActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=75
+D/InputTransport( 9237): Input channel destroyed: fd=70
+W/libEGL  ( 9237): EGLNativeWindowType 0xce2eb008 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xd00206a0, 0xce2eb000
+D/ViewRootImpl@58ec0f5[PopupWindow:813d87e]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=82
+W/System.err( 9237): java.lang.NullPointerException: Attempt to invoke virtual method 'int android.view.View.getVisibility()' on a null object reference
+W/System.err( 9237): 	at android.view.ViewRootImpl.getHostVisibility(ViewRootImpl.java:1862)
+W/System.err( 9237): 	at android.view.ViewRootImpl.handleAppVisibility(ViewRootImpl.java:1497)
+W/System.err( 9237): 	at android.view.ViewRootImpl$ViewRootHandler.handleMessage(ViewRootImpl.java:4938)
+W/System.err( 9237): 	at android.os.Handler.dispatchMessage(Handler.java:106)
+W/System.err( 9237): 	at android.os.Looper.loop(Looper.java:216)
+W/System.err( 9237): 	at android.app.ActivityThread.main(ActivityThread.java:7266)
+W/System.err( 9237): 	at java.lang.reflect.Method.invoke(Native Method)
+W/System.err( 9237): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:494)
+W/System.err( 9237): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:975)
+W/libEGL  ( 9237): EGLNativeWindowType 0xcfe1f808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xd08cc920, 0xcfe1f800
+D/ViewRootImpl@6399f5[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@6399f5[MainActivity]( 9237): stopped(true) old=false
+D/roidIMSICatcherDetector( 9237): BaseTask detach:com.secupwn.aimsicd.ui.activities.MainActivity
+D/ViewRootImpl@6399f5[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x1 surface={false 0} changed=false
+D/ViewRootImpl@4400904[AboutActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@4400904[AboutActivity]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@4400904[AboutActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@4400904[AboutActivity]( 9237): ViewPostIme pointer 1
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+I/RealmHelper( 9237): BTS updated: CID=48167702 LAC=48133
+I/RealmHelper( 9237): DBi_measure updated bts_id=48167702
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 22917 ms.
+D/ViewRootImpl@4400904[AboutActivity]( 9237): ViewPostIme key 0
+D/ViewRootImpl@4400904[AboutActivity]( 9237): ViewPostIme key 1
+D/ViewRootImpl@6399f5[MainActivity]( 9237): stopped(false) old=true
+D/roidIMSICatcherDetector( 9237): BaseTask attach:com.secupwn.aimsicd.ui.activities.MainActivity
+D/ViewRootImpl@6399f5[MainActivity]( 9237): stopped(false) old=false
+D/MainActivity( 9237): StatusWatcher starting watching
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+D/ViewRootImpl@4400904[AboutActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@3fe666f[AboutActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@6399f5[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x7 surface={true 3487692800} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [540x960]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xd08cc920, 0xcfe1f808
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@e6ac1d0[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@e6ac1d0[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=71
+D/InputTransport( 9237): Input channel destroyed: fd=75
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 20364 ms.
+W/libEGL  ( 9237): EGLNativeWindowType 0xcf8f0808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xcdd75aa0, 0xcf8f0800
+D/ViewRootImpl@4400904[AboutActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@4400904[AboutActivity]( 9237): stopped(true) old=false
+D/ViewRootImpl@4400904[AboutActivity]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=67
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 19083 ms.
+D/ViewRootImpl@6399f5[MainActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@6399f5[MainActivity]( 9237): ViewPostIme pointer 1
+D/InputTransport( 9237): Input channel constructed: fd=67
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): setView = android.widget.PopupWindow$PopupDecorView{6a1f49f V.E...... R.....I. 0,0-0,0} TM=true MM=false
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): Relayout returned: old=[0,36][540,888] new=[158,42][534,402] result=0x7 surface={true 3482257408} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [472x456]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xcdd75aa0, 0xcf8f0808
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): MSG_RESIZED: frame=[158,42][534,402] ci=[0,0][0,0] vi=[0,0][0,0] or=1
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@e6ac1d0[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): Relayout returned: old=[158,42][534,402] new=[158,42][534,402] result=0x1 surface={true 3482257408} changed=false
+D/MainActivity( 9237): StatusWatcher stopped watching
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@e6ac1d0[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+W/ActivityThread( 9237): handleWindowVisibility: no activity for token android.os.BinderProxy@e404d62
+I/MultiWindowDecorSupport( 9237): updateCaptionType >> DecorView@b59ddae[], isFloating: false, isApplication: true, hasWindowDecorCaption: false, hasWindowControllerCallback: true
+D/MultiWindowDecorSupport( 9237): setCaptionType = 0, DecorView = DecorView@b59ddae[]
+D/Injector( 9237): Injection of com.secupwn.aimsicd.ui.activities.DebugLogs@26a26ba took 2ms
+D/ScrollView( 9237): initGoToTop
+D/DebugLogs( 9237): StatusWatcher starting watching
+D/InputTransport( 9237): Input channel constructed: fd=83
+D/ViewRootImpl@e4f0e5e[DebugLogs]( 9237): setView = DecorView@b59ddae[DebugLogs] TM=true MM=false
+D/ViewRootImpl@6399f5[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 0
+D/ViewRootImpl@e4f0e5e[DebugLogs]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x7 surface={true 3459166208} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [540x960]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xcdad17c0, 0xce2eb008
+D/ScrollView( 9237):  onsize change changed 
+D/ViewRootImpl@e4f0e5e[DebugLogs]( 9237): MSG_RESIZED: frame=[0,0][540,960] ci=[0,36][0,72] vi=[0,36][0,72] or=1
+D/ViewRootImpl@e4f0e5e[DebugLogs]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@b59ddae[DebugLogs]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@b59ddae[DebugLogs]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=80
+D/InputTransport( 9237): Input channel destroyed: fd=71
+W/libEGL  ( 9237): EGLNativeWindowType 0xcf8f0808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xcdd75aa0, 0xcf8f0800
+D/ViewRootImpl@ed21e3e[PopupWindow:4e2743]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=67
+W/System.err( 9237): java.lang.NullPointerException: Attempt to invoke virtual method 'int android.view.View.getVisibility()' on a null object reference
+W/System.err( 9237): 	at android.view.ViewRootImpl.getHostVisibility(ViewRootImpl.java:1862)
+W/System.err( 9237): 	at android.view.ViewRootImpl.handleAppVisibility(ViewRootImpl.java:1497)
+W/System.err( 9237): 	at android.view.ViewRootImpl$ViewRootHandler.handleMessage(ViewRootImpl.java:4938)
+W/System.err( 9237): 	at android.os.Handler.dispatchMessage(Handler.java:106)
+W/System.err( 9237): 	at android.os.Looper.loop(Looper.java:216)
+W/System.err( 9237): 	at android.app.ActivityThread.main(ActivityThread.java:7266)
+W/System.err( 9237): 	at java.lang.reflect.Method.invoke(Native Method)
+W/System.err( 9237): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:494)
+W/System.err( 9237): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:975)
+W/libEGL  ( 9237): EGLNativeWindowType 0xcfe1f808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xd08cc920, 0xcfe1f800
+D/ViewRootImpl@6399f5[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@6399f5[MainActivity]( 9237): stopped(true) old=false
+D/roidIMSICatcherDetector( 9237): BaseTask detach:com.secupwn.aimsicd.ui.activities.MainActivity
+D/ViewRootImpl@6399f5[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x1 surface={false 0} changed=false
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 15179 ms.
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 13942 ms.
+
+Sun Jun 14 15:35:14 PDT 2020
+--------- beginning of main
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xe82d19e0, 0xe130c000
+D/ViewRootImpl@dfb92f3[PopupWindow:4d5ff44]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=65
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): MSG_RESIZED: frame=[0,0][540,960] ci=[0,36][0,72] vi=[0,36][0,72] or=1
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@cc5bd59[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@cc5bd59[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=65
+D/InputTransport( 9237): Input channel destroyed: fd=66
+W/System.err( 9237): java.lang.NullPointerException: Attempt to invoke virtual method 'int android.view.View.getVisibility()' on a null object reference
+W/System.err( 9237): 	at android.view.ViewRootImpl.getHostVisibility(ViewRootImpl.java:1862)
+W/System.err( 9237): 	at android.view.ViewRootImpl.handleAppVisibility(ViewRootImpl.java:1497)
+W/System.err( 9237): 	at android.view.ViewRootImpl$ViewRootHandler.handleMessage(ViewRootImpl.java:4938)
+W/System.err( 9237): 	at android.os.Handler.dispatchMessage(Handler.java:106)
+W/System.err( 9237): 	at android.os.Looper.loop(Looper.java:216)
+W/System.err( 9237): 	at android.app.ActivityThread.main(ActivityThread.java:7266)
+W/System.err( 9237): 	at java.lang.reflect.Method.invoke(Native Method)
+W/System.err( 9237): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:494)
+W/System.err( 9237): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:975)
+W/libEGL  ( 9237): EGLNativeWindowType 0xe1379008 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xe1747f40, 0xe1379000
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): stopped(true) old=false
+D/roidIMSICatcherDetector( 9237): BaseTask detach:com.secupwn.aimsicd.ui.activities.MainActivity
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x1 surface={false 0} changed=false
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 24897 ms.
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+I/RealmHelper( 9237): BTS updated: CID=48167702 LAC=48133
+I/RealmHelper( 9237): DBi_measure updated bts_id=48167702
+D/SensorManager( 9237): registerListener :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/SensorManager( 9237): unregisterListener ::   
+I/LocationTracker( 9237): Last known location (42.03414°, -93.68017°) = (0.7336341412442493 rad, -1.6350274103280165 rad)
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+I/RealmHelper( 9237): BTS updated: CID=48167702 LAC=48133
+I/RealmHelper( 9237): DBi_measure updated bts_id=48167702
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 0
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 26092 ms.
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 1
+E/pref    ( 9237): changed to true
+D/SettingsActivity( 9237): StatusWatcher stopped watching
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@cc5bd59[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+W/libEGL  ( 9237): EGLNativeWindowType 0xcfde0808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xd04c75c0, 0xcfde0800
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/InputTransport( 9237): Input channel destroyed: fd=65
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): stopped(true) old=false
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x1 surface={false 0} changed=false
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 20952 ms.
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x1 surface={false 0} changed=false
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): stopped(false) old=true
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): stopped(false) old=false
+D/SettingsActivity( 9237): StatusWatcher starting watching
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x7 surface={true 3487434752} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [540x960]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xd04c75c0, 0xcfde0808
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@cc5bd59[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@cc5bd59[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=65
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/SensorManager( 9237): registerListener :: 0, LIS2DS Accelerometer, 200000, 0,  
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 15844 ms.
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 0
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 13295 ms.
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/SensorManager( 9237): registerListener fail (2) :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/SensorManager( 9237): unregisterListener ::   
+I/LocationTracker( 9237): Last known location (42.03406°, -93.68021°) = (0.7336327449808476 rad, -1.635028108459717 rad)
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+I/RealmHelper( 9237): BTS updated: CID=48167702 LAC=48133
+I/RealmHelper( 9237): DBi_measure updated bts_id=48167702
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/Dialog  ( 9237): mIsSamsungBasicInteraction = false, isMetaDataInActivity = false
+I/DecorView( 9237): mWindow.mActivityCurrentConfig is null.
+I/MultiWindowDecorSupport( 9237): updateCaptionType >> DecorView@79750f3[], isFloating: true, isApplication: true, hasWindowDecorCaption: false, hasWindowControllerCallback: false
+D/MultiWindowDecorSupport( 9237): setCaptionType = 0, DecorView = DecorView@79750f3[]
+D/ScrollView( 9237): initGoToTop
+D/ScrollView( 9237): initGoToTop
+D/InputTransport( 9237): Input channel constructed: fd=71
+D/ViewRootImpl@4b65ce3[SettingsActivity]( 9237): setView = DecorView@79750f3[SettingsActivity] TM=true MM=false
+D/ViewRootImpl@4b65ce3[SettingsActivity]( 9237): Relayout returned: old=[0,36][540,888] new=[13,210][526,713] result=0x7 surface={true 3778514944} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [609x599]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xcf27b900, 0xe1379008
+D/ScrollView( 9237):  onsize change changed 
+D/ViewRootImpl@4b65ce3[SettingsActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/ViewRootImpl@4b65ce3[SettingsActivity]( 9237): MSG_RESIZED: frame=[13,210][526,713] ci=[0,0][0,0] vi=[0,0][0,0] or=1
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@cc5bd59[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 22608 ms.
+D/ViewRootImpl@4b65ce3[SettingsActivity]( 9237): ViewPostIme pointer 0
+W/libEGL  ( 9237): EGLNativeWindowType 0xe1379008 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xcf27b900, 0xe1379000
+D/ViewRootImpl@4b65ce3[SettingsActivity]( 9237): dispatchDetachedFromWindow
+W/InputEventReceiver( 9237): Attempted to finish an input event but the input event receiver has already been disposed.
+D/InputTransport( 9237): Input channel destroyed: fd=71
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@cc5bd59[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+E/ViewRootImpl( 9237): sendUserActionEvent() returned.
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/SettingsActivity( 9237): StatusWatcher stopped watching
+W/ActivityThread( 9237): handleWindowVisibility: no activity for token android.os.BinderProxy@5713b9d
+I/MultiWindowDecorSupport( 9237): updateCaptionType >> DecorView@f26f35e[], isFloating: false, isApplication: true, hasWindowDecorCaption: false, hasWindowControllerCallback: true
+D/MultiWindowDecorSupport( 9237): setCaptionType = 0, DecorView = DecorView@f26f35e[]
+D/Injector( 9237): Injection of com.secupwn.aimsicd.ui.activities.OpenCellIdActivity@2eae76a took 2ms
+D/OpenCellIdActivity( 9237): StatusWatcher starting watching
+D/InputTransport( 9237): Input channel constructed: fd=67
+D/ViewRootImpl@e4229c5[OpenCellIdActivity]( 9237): setView = DecorView@f26f35e[OpenCellIdActivity] TM=true MM=false
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@cc5bd59[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@e4229c5[OpenCellIdActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x7 surface={true 3778514944} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [540x960]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xcf27b900, 0xe1379008
+D/ViewRootImpl@e4229c5[OpenCellIdActivity]( 9237): MSG_RESIZED: frame=[0,0][540,960] ci=[0,36][0,72] vi=[0,36][0,72] or=1
+D/ViewRootImpl@e4229c5[OpenCellIdActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@f26f35e[OpenCellIdActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@f26f35e[OpenCellIdActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=74
+D/InputTransport( 9237): Input channel destroyed: fd=65
+W/libEGL  ( 9237): EGLNativeWindowType 0xcfde0808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xd04c75c0, 0xcfde0800
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): stopped(true) old=false
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x1 surface={false 0} changed=false
+D/ViewRootImpl@e4229c5[OpenCellIdActivity]( 9237): ViewPostIme key 0
+D/ViewRootImpl@e4229c5[OpenCellIdActivity]( 9237): ViewPostIme key 1
+D/OpenCellIdActivity( 9237): StatusWatcher stopped watching
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): stopped(false) old=true
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): stopped(false) old=false
+D/SettingsActivity( 9237): StatusWatcher starting watching
+D/ViewRootImpl@e4229c5[OpenCellIdActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@f26f35e[OpenCellIdActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x7 surface={true 3487434752} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [540x960]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xd04c75c0, 0xcfde0808
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@cc5bd59[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@cc5bd59[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=66
+D/InputTransport( 9237): Input channel destroyed: fd=74
+W/libEGL  ( 9237): EGLNativeWindowType 0xe1379008 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xcf27b900, 0xe1379000
+D/ViewRootImpl@e4229c5[OpenCellIdActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@e4229c5[OpenCellIdActivity]( 9237): stopped(true) old=false
+D/ViewRootImpl@e4229c5[OpenCellIdActivity]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=67
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/SettingsActivity( 9237): StatusWatcher stopped watching
+W/ActivityThread( 9237): handleWindowVisibility: no activity for token android.os.BinderProxy@b12f2e6
+I/MultiWindowDecorSupport( 9237): updateCaptionType >> DecorView@a2527c3[], isFloating: false, isApplication: true, hasWindowDecorCaption: false, hasWindowControllerCallback: true
+D/MultiWindowDecorSupport( 9237): setCaptionType = 0, DecorView = DecorView@a2527c3[]
+D/Injector( 9237): Injection of com.secupwn.aimsicd.smsdetection.AdvancedUserActivity@a287d1f took 2ms
+D/InputTransport( 9237): Input channel constructed: fd=76
+D/ViewRootImpl@7b376d2[AdvancedUserActivity]( 9237): setView = DecorView@a2527c3[AdvancedUserActivity] TM=true MM=false
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@cc5bd59[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@7b376d2[AdvancedUserActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x7 surface={true 3778068480} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [540x960]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xcf27ddc0, 0xe130c008
+D/ViewRootImpl@7b376d2[AdvancedUserActivity]( 9237): MSG_RESIZED: frame=[0,0][540,960] ci=[0,36][0,72] vi=[0,36][0,72] or=1
+D/ViewRootImpl@7b376d2[AdvancedUserActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@a2527c3[AdvancedUserActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@a2527c3[AdvancedUserActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=79
+D/InputTransport( 9237): Input channel destroyed: fd=66
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+I/RealmHelper( 9237): BTS updated: CID=48167702 LAC=48133
+I/RealmHelper( 9237): DBi_measure updated bts_id=48167702
+D/ViewRootImpl@7b376d2[AdvancedUserActivity]( 9237): MSG_RESIZED: frame=[0,0][540,960] ci=[0,36][0,536] vi=[0,36][0,536] or=1
+D/ViewRootImpl@7b376d2[AdvancedUserActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x1 surface={true 3778068480} changed=false
+W/libEGL  ( 9237): EGLNativeWindowType 0xcfde0808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xd04c75c0, 0xcfde0800
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): stopped(true) old=false
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x1 surface={false 0} changed=false
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 13654 ms.
+D/ViewRootImpl@7b376d2[AdvancedUserActivity]( 9237): The input has been finished in ImeInputStage.
+D/ViewRootImpl@7b376d2[AdvancedUserActivity]( 9237): The input has been finished in ImeInputStage.
+D/ViewRootImpl@7b376d2[AdvancedUserActivity]( 9237): MSG_RESIZED: frame=[0,0][540,960] ci=[0,36][0,72] vi=[0,36][0,72] or=1
+D/ViewRootImpl@7b376d2[AdvancedUserActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x1 surface={true 3778068480} changed=false
+D/ViewRootImpl@7b376d2[AdvancedUserActivity]( 9237): ViewPostIme key 0
+D/ViewRootImpl@7b376d2[AdvancedUserActivity]( 9237): ViewPostIme key 1
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): stopped(false) old=true
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): stopped(false) old=false
+D/SettingsActivity( 9237): StatusWatcher starting watching
+D/ViewRootImpl@7b376d2[AdvancedUserActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@a2527c3[AdvancedUserActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x7 surface={true 3487434752} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [540x960]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xcf47e440, 0xcfde0808
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@cc5bd59[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@cc5bd59[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=67
+D/InputTransport( 9237): Input channel destroyed: fd=79
+W/libEGL  ( 9237): EGLNativeWindowType 0xe130c008 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xcf27ddc0, 0xe130c000
+D/ViewRootImpl@7b376d2[AdvancedUserActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@7b376d2[AdvancedUserActivity]( 9237): stopped(true) old=false
+D/ViewRootImpl@7b376d2[AdvancedUserActivity]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=76
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme key 0
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): ViewPostIme key 1
+D/SettingsActivity( 9237): StatusWatcher stopped watching
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): stopped(false) old=true
+D/roidIMSICatcherDetector( 9237): BaseTask attach:com.secupwn.aimsicd.ui.activities.MainActivity
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): stopped(false) old=false
+D/MainActivity( 9237): StatusWatcher starting watching
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@cc5bd59[SettingsActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x7 surface={true 3778068480} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [540x960]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xcf27ddc0, 0xe130c008
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@9006e26[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@9006e26[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=68
+D/InputTransport( 9237): Input channel destroyed: fd=67
+W/libEGL  ( 9237): EGLNativeWindowType 0xcfde0808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xcf47e440, 0xcfde0800
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): stopped(true) old=false
+D/ViewRootImpl@2a9cc89[SettingsActivity]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=77
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): ViewPostIme pointer 0
+D/SensorManager( 9237): registerListener :: 0, LIS2DS Accelerometer, 200000, 0,  
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 8537 ms.
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): ViewPostIme pointer 0
+D/SensorManager( 9237): unregisterListener ::   
+I/LocationTracker( 9237): Last known location (42.03415°, -93.68047°) = (0.7336343157771744 rad, -1.6350326463157723 rad)
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): ViewPostIme pointer 1
+D/InputTransport( 9237): Input channel constructed: fd=65
+D/ViewRootImpl@50b57c[PopupWindow:7df8649]( 9237): setView = android.widget.PopupWindow$PopupDecorView{3913e05 V.E...... R.....I. 0,0-0,0} TM=true MM=false
+D/ViewRootImpl@50b57c[PopupWindow:7df8649]( 9237): Relayout returned: old=[0,36][540,888] new=[158,42][534,402] result=0x7 surface={true 3487692800} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [472x456]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xcf47e440, 0xcfe1f808
+D/ViewRootImpl@50b57c[PopupWindow:7df8649]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/ViewRootImpl@50b57c[PopupWindow:7df8649]( 9237): MSG_RESIZED: frame=[158,42][534,402] ci=[0,0][0,0] vi=[0,0][0,0] or=1
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@9006e26[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@50b57c[PopupWindow:7df8649]( 9237): ViewPostIme pointer 0
+D/ViewRootImpl@50b57c[PopupWindow:7df8649]( 9237): ViewPostIme pointer 1
+D/ViewRootImpl@50b57c[PopupWindow:7df8649]( 9237): Relayout returned: old=[158,42][534,402] new=[158,42][534,402] result=0x1 surface={true 3487692800} changed=false
+D/MainActivity( 9237): StatusWatcher stopped watching
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@9006e26[MainActivity]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/ViewRootImpl@50b57c[PopupWindow:7df8649]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 1
+W/ActivityThread( 9237): handleWindowVisibility: no activity for token android.os.BinderProxy@56dee40
+I/MultiWindowDecorSupport( 9237): updateCaptionType >> DecorView@a1e5c35[], isFloating: false, isApplication: true, hasWindowDecorCaption: false, hasWindowControllerCallback: true
+D/MultiWindowDecorSupport( 9237): setCaptionType = 0, DecorView = DecorView@a1e5c35[]
+D/Injector( 9237): Injection of com.secupwn.aimsicd.ui.activities.DebugLogs@16586b1 took 4ms
+D/ScrollView( 9237): initGoToTop
+D/DebugLogs( 9237): StatusWatcher starting watching
+D/InputTransport( 9237): Input channel constructed: fd=81
+D/ViewRootImpl@b45b82b[DebugLogs]( 9237): setView = DecorView@a1e5c35[DebugLogs] TM=true MM=false
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): MSG_WINDOW_FOCUS_CHANGED 0 0
+D/ViewRootImpl@b45b82b[DebugLogs]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x7 surface={true 3778514944} changed=true
+D/mali_winsys( 9237): EGLint new_window_surface(egl_winsys_display *, void *, EGLSurface, EGLConfig, egl_winsys_surface **, EGLBoolean) returns 0x3000,  [540x960]-format:1
+D/OpenGLRenderer( 9237): eglCreateWindowSurface = 0xd087aa00, 0xe1379008
+D/ScrollView( 9237):  onsize change changed 
+D/ViewRootImpl@b45b82b[DebugLogs]( 9237): MSG_RESIZED: frame=[0,0][540,960] ci=[0,36][0,72] vi=[0,36][0,72] or=1
+D/ViewRootImpl@b45b82b[DebugLogs]( 9237): MSG_WINDOW_FOCUS_CHANGED 1 1
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@a1e5c35[DebugLogs]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): prepareNavigationBarInfo() DecorView@a1e5c35[DebugLogs]
+D/InputMethodManager( 9237): getNavigationBarColor() -855310
+D/InputMethodManager( 9237): startInputInner - Id : 0
+I/InputMethodManager( 9237): startInputInner - mService.startInputOrWindowGainedFocus
+D/InputTransport( 9237): Input channel constructed: fd=82
+D/InputTransport( 9237): Input channel destroyed: fd=68
+W/libEGL  ( 9237): EGLNativeWindowType 0xcfe1f808 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xcf47e440, 0xcfe1f800
+D/ViewRootImpl@50b57c[PopupWindow:7df8649]( 9237): dispatchDetachedFromWindow
+D/InputTransport( 9237): Input channel destroyed: fd=65
+W/System.err( 9237): java.lang.NullPointerException: Attempt to invoke virtual method 'int android.view.View.getVisibility()' on a null object reference
+W/System.err( 9237): 	at android.view.ViewRootImpl.getHostVisibility(ViewRootImpl.java:1862)
+W/System.err( 9237): 	at android.view.ViewRootImpl.handleAppVisibility(ViewRootImpl.java:1497)
+W/System.err( 9237): 	at android.view.ViewRootImpl$ViewRootHandler.handleMessage(ViewRootImpl.java:4938)
+W/System.err( 9237): 	at android.os.Handler.dispatchMessage(Handler.java:106)
+W/System.err( 9237): 	at android.os.Looper.loop(Looper.java:216)
+W/System.err( 9237): 	at android.app.ActivityThread.main(ActivityThread.java:7266)
+W/System.err( 9237): 	at java.lang.reflect.Method.invoke(Native Method)
+W/System.err( 9237): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:494)
+W/System.err( 9237): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:975)
+W/libEGL  ( 9237): EGLNativeWindowType 0xe130c008 disconnect failed
+D/OpenGLRenderer( 9237): eglDestroySurface = 0xcf27ddc0, 0xe130c000
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x5 surface={false 0} changed=true
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): stopped(true) old=false
+D/roidIMSICatcherDetector( 9237): BaseTask detach:com.secupwn.aimsicd.ui.activities.MainActivity
+D/ViewRootImpl@ecd4e36[MainActivity]( 9237): Relayout returned: old=[0,0][540,960] new=[0,0][540,960] result=0x1 surface={false 0} changed=false
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+I/RealmHelper( 9237): BTS updated: CID=48167702 LAC=48133
+I/RealmHelper( 9237): DBi_measure updated bts_id=48167702
+D/SensorManager( 9237): registerListener :: 0, LIS2DS Accelerometer, 200000, 0,  
+D/SensorManager( 9237): unregisterListener ::   
+I/LocationTracker( 9237): Last known location (42.03408°, -93.68004°) = (0.7336330940466981 rad, -1.6350251413999888 rad)
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 29176 ms.
+D/TelephonyManager( 9237): getAllCellInfo : Caller (PID / UID / TID): 9237 / 10203 / 9237
+I/RealmHelper( 9237): BTS updated: CID=48167702 LAC=48133
+I/RealmHelper( 9237): DBi_measure updated bts_id=48167702
+I/SignalStrengthTracker( 9237): Ignored signal sample for CID: 48167702 due to device movement. Waiting for 27967 ms.
+
+Mon Jun 08 04:55:14 PDT 2020
+FagTastic7!
+Mon Jun 08 04:54:35 PDT 2020
+Node-of-1k-Faggotries
+Sun Jun 07 01:31:54 PDT 2020
+Xe1phix-Temp
+Sun Jun 07 01:31:54 PDT 2020☆★☆
+Welcome to Clip Stack. 😄
+Sun Jun 07 01:31:54 PDT 2020☆★☆
+It can show clipboard history in notification.
+Sun Jun 07 01:31:54 PDT 2020
+Click here 🙋 to edit.
+Sun Jun 07 01:31:54 PDT 2020
+ Swipe to delete. 👉
