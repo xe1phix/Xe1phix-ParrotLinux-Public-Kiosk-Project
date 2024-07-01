@@ -1,0 +1,10 @@
+<section id="nirvana">
+<div id="the4">
+<ul>
+<li>All composite phenomena are impermanent.<br /><br /></li>
+<li>All contaminated things and events are unsatisfactory.<br /><br /></li>
+<li>All phenomena are empty and selfless.<br /><br /></li>
+<li>Nirvana is true peace.</li>
+</ul>
+</div>
+</section>
