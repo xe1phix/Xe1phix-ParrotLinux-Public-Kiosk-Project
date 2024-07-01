@@ -1,0 +1,586 @@
+#!/bin/bash
+
+#Name: Script v1.0
+#Brief: In development
+#Author: Tino
+#I Love You Francessca_heyes
+
+clear
+show_menu(){
+    NORMAL=`echo "\033[m"`
+    MENU=`echo "\033[36m"` #Blue
+    NUMBER=`echo "\033[33m"` #yellow
+    FGRED=`echo "\033[41m"`
+    RED_TEXT=`echo "\033[31m"`
+    ENTER_LINE=`echo "\033[33m"`
+    echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+    echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+    echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+    echo -e "${MENU}*********************************************${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 1)${MENU} Cryptography - More Tools To Come! ${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 2)${MENU} Information Gathering -In development v1.0 ${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 3)${MENU} Vulnerability Analysis -Not Yet ${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 4)${MENU} Web Application Analysis -Not Yet ${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 5)${MENU} Database Assesment -Not Yet ${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 6)${MENU} Exploitation Tools -Not Yet ${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 7)${MENU} Post Exploitation -Not Yet ${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 8)${MENU} Password Attacks -Not Yet ${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 9)${MENU} Wireless Testing -Not Yet ${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 10)${MENU} Sniffing & Spoofing -Not Yet ${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 11)${MENU} Digital Forensics -Not Yet ${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 12)${MENU} Reverse Engineering -Not Yet ${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 13)${MENU} Reporting Tools -Not Yet ${NORMAL}"
+    echo -e "${MENU}**${NUMBER} 14)${MENU} System Services -Not Yet ${NORMAL}"
+    echo -e "${MENU}*********************************************${NORMAL}"
+    echo -e "${ENTER_LINE}Please enter a menu option and enter or ${RED_TEXT}enter to exit. ${NORMAL}"
+    read opt
+}
+function option_picked() {
+  COLOR='\033[01;31m' # bold red
+  RESET='\033[00;00m' # normal white
+  MESSAGE=${@:-"${RESET}Error: No message passed"}
+  echo -e "${COLOR}${MESSAGE}${RESET}"
+}
+
+
+clear
+show_menu
+while [ opt != '' ]
+  do
+  if [[ $opt = "" ]]; then
+          exit;
+  else
+      case $opt in
+      1) clear;
+
+      show_menu(){
+          NORMAL=`echo "\033[m"`
+          MENU=`echo "\033[36m"` #Blue
+          NUMBER=`echo "\033[33m"` #yellow
+          FGRED=`echo "\033[41m"`
+          RED_TEXT=`echo "\033[31m"`
+          ENTER_LINE=`echo "\033[33m"`
+          echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+          echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+          echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+          echo -e "${MENU}*********************************************${NORMAL}"
+          echo -e "${MENU}**${NUMBER} 1)${MENU} TCCF ${NORMAL}"
+          echo -e "${MENU}**${NUMBER} 2)${MENU} AESCRYPT ${NORMAL}"
+          echo -e "${MENU}**${NUMBER} 3)${MENU} GPA ${NORMAL}"
+          echo -e "${MENU}**${NUMBER} 4)${MENU} Upcoming! ${NORMAL}"
+          echo -e "${MENU}**${NUMBER} 5)${MENU} Upcoming! ${NORMAL}"
+          echo -e "${MENU}*********************************************${NORMAL}"
+          echo -e "${ENTER_LINE}Please enter a menu option and enter or ${RED_TEXT}enter to exit. ${NORMAL}"
+          read opt
+      }
+      function option_picked() {
+          COLOR='\033[01;31m' # bold red
+          RESET='\033[00;00m' # normal white
+          MESSAGE=${@:-"${RESET}Error: No message passed"}
+          echo -e "${COLOR}${MESSAGE}${RESET}"
+      }
+
+      clear
+      show_menu
+      while [ opt != '' ]
+          do
+          if [[ $opt = "" ]]; then
+                  exit;
+          else
+              case $opt in
+              1) clear;
+
+              tccf
+
+              ;;
+
+              2) clear;
+
+
+              echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+              echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+              echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+
+
+              echo Welcome To AESCRYPT!
+              echo Happy Hacking!
+              echo Easy File Encryption With AES-256
+              echo Input File Location:
+              read location
+              echo Write Output name:
+              read name
+              aescrypt -e $location -o $name
+
+                  ;;
+
+              3) clear;
+
+               gpa
+
+
+                  ;;
+
+              4) clear;
+
+
+
+
+                  ;;
+
+              x)exit;
+              ;;
+
+              \n)exit;
+              ;;
+
+              *)clear;
+              option_picked "Pick an option from the menu";
+              show_menu;
+              ;;
+          esac
+      fi
+      done
+
+      ;;
+
+      2) clear;
+
+      show_menu(){
+          NORMAL=`echo "\033[m"`
+          MENU=`echo "\033[36m"` #Blue
+          NUMBER=`echo "\033[33m"` #yellow
+          FGRED=`echo "\033[41m"`
+          RED_TEXT=`echo "\033[31m"`
+          ENTER_LINE=`echo "\033[33m"`
+          echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+          echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+          echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+          echo -e "${MENU}*********************************************${NORMAL}"
+          echo -e "${MENU}**${NUMBER} 1)${MENU} DNS Analysis ${NORMAL}"
+          echo -e "${MENU}**${NUMBER} 2)${MENU} IDS/IPS Identification ${NORMAL}"
+          echo -e "${MENU}**${NUMBER} 3)${MENU} Live Host Identification ${NORMAL}"
+          echo -e "${MENU}**${NUMBER} 4)${MENU} Network & Port Scanners - IP Scanners ${NORMAL}"
+          echo -e "${MENU}**${NUMBER} 5)${MENU} OSINT Analysis ${NORMAL}"
+          echo -e "${MENU}**${NUMBER} 6)${MENU} Route Analysis ${NORMAL}"
+          echo -e "${MENU}**${NUMBER} 7)${MENU} SMB Analysis - In Development ${NORMAL}"
+          echo -e "${MENU}**${NUMBER} 8)${MENU} SMTP Analysis -Not Yet ${NORMAL}"
+          echo -e "${MENU}**${NUMBER} 9)${MENU} SNMP Analysis -Not Yet ${NORMAL}"
+          echo -e "${MENU}**${NUMBER} 10)${MENU} SSL Analysis -Not Yet ${NORMAL}"
+          echo -e "${MENU}**${NUMBER} 11)${MENU} MORE! ${NORMAL}"
+          echo -e "${MENU}*********************************************${NORMAL}"
+          echo -e "${ENTER_LINE}Please enter a menu option and enter or ${RED_TEXT}enter to exit. ${NORMAL}"
+          read opt
+      }
+      function option_picked() {
+          COLOR='\033[01;31m' # bold red
+          RESET='\033[00;00m' # normal white
+          MESSAGE=${@:-"${RESET}Error: No message passed"}
+          echo -e "${COLOR}${MESSAGE}${RESET}"
+      }
+
+      clear
+      show_menu
+      while [ opt != '' ]
+          do
+          if [[ $opt = "" ]]; then
+                  exit;
+          else
+              case $opt in
+              1) clear;
+
+              OPTIONS="DNSENUM DNSMAP DNSRECON DNSTRACER DNSWALK FIERCE URLCRAZY EXIT"
+              select opt in $OPTIONS; do
+                if [ "$opt" = "DNSENUM" ]; then
+                  clear
+
+                  echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+                  echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+                  echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+
+
+echo Welcome TO DNSENUM
+echo You can get the following information by using DNSenum.
+
+echo   Host address
+echo    Name server
+echo    MX record
+echo    Sub domains
+echo    Whois performance
+echo    Reverse lookup for netblocks
+echo    Use google to do the job done
+
+echo DNSenum is a very important tool to perform a quick enumeration step on penetration testing.
+
+echo Input domain To Scan:
+read domain
+
+sudo dnsenum --enum -f -r $domain
+
+                  elif [ "$opt" = "DNSMAP" ]; then
+                      clear
+
+                      echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+                      echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+                      echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+
+                      echo Dnsmap is a small C based tool that perform brute-forcing of domains.
+                      echo The tool can use an internal wordlist, or work with an external dictionary file.
+                      echo Input domain:
+                      read domain
+                      echo Input wordlist:
+                      read wordlist
+
+                      dnsmap $domain -w $wordlist
+
+                    elif [ "$opt" = "DNSRECON" ]; then
+                      clear
+                      echo "Choose Your Option!
+                      1)Top level domain Expansion
+                      2)Reverse Lookup against IP range
+                      3)Domain Brute Force Enumeration
+                      4)Cache Snooping against name servers
+                      5)Standard Records Enumeration "
+
+  read n
+  case $n in
+      1)
+
+          echo Zone Transfer : The security problem with DNS zone transfer is that it can be used to decipher the topology of a company’s network. Specifically when a user is trying to perform a zone transfer it sends a DNS query to list all DNS information like name servers,host names,MX and CNAME records, zone serial number, Time to Live records etc.
+          echo Input domain:
+          read domain
+
+          dnsrecon -d $domain -a
+
+      ;;
+      2)
+
+     echo DNSRecon Can Do A Reverse Lookup Againts Ipv4 and Ipv6!
+     echo Input domain:
+     read domain
+
+     dnsrecon -d $domain -s
+
+
+      ;;
+      3)
+
+      echo For performing Domain Brute force technique, we have to give a name list and it will try to resolve the A,AAA and CNAME records against the domain by trying each entry one by one.
+      echo Input domain:
+      read domain
+      echo Input namelist:
+      read namelist
+
+      dnsrecon -d $domain -D $namelist -t brt
+
+      ;;
+      4)
+
+      echo DNS cache snooping happens when the DNS server has a specific DNS record cached.This DNS record will often reveal plenty of information about the name servers and other DNS information
+      echo Input Server ip:
+      read ip
+      echo Input dictionary:
+      read dictionary
+
+      dnsrecon -t snoop -n $ip -D $dicionary
+
+      ;;
+      5)
+
+        echo Standard Enumeration is generally used to gather information about NameServers,SOA and MX records.
+        echo Input domain:
+        read domain
+
+        dnsrecon -d $domain
+
+      ;;
+      *) invalid option;;
+  esac
+
+
+
+elif [ "$opt" = "DNSTRACER" ]; then
+  clear
+
+
+    echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+    echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+    echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+
+
+    echo It allows you to see the “path” a request takes to get the authoritative answers for your domain.
+    echo Input domain:
+    read domain
+
+    dnstracer -v -o $domain
+
+
+  elif [ "$opt" = "DNSWALK" ]; then
+                clear
+
+
+echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+
+
+echo Dnswalk is a DNS debugger. It performs zone transfers of specified domains, and checks the database in numerous ways for internal consistency, as well as for correctness according to accepted practices with the Domain Name System.
+echo Input domain:
+read domain
+
+dnswalk -r -d $domain
+
+
+              elif [ "$opt" = "FIERCE" ]; then
+              clear
+
+echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+
+
+echo Fierce is a DNS Enumeration and Fierce is a semi-lightweight scanner that helps locate non-contiguous IP space and hostnames against specified domains.
+echo Input dns:
+read dns
+echo How Many threads E.x 10:
+read threads
+echo Input Output file location with name E.x: /home/username/location/file.name
+read name
+
+fierce -dns $dns -threads $threads -file $name
+
+                elif [ "$opt" = "URLCRAZY" ]; then
+
+                  echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+                  echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+                  echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+
+
+                  echo Its purpose is to generate and test domain typos, and variations to detect and perform typo squatting, URL Hijacking, phishing, and corporate espionage.
+
+                  echo Input Keyboard layout: List: qwerty - azerty - qwertz - qwfpgj -
+                  read layout
+                  echo Input File Location : E.x /home/user/folder/file.name
+                  read location
+                  echo Input URL
+                  read url
+
+                  urlcrazy -k $layout -i -o $location $url
+
+
+              elif [ "$opt" = "EXIT" ]; then
+                clear
+                exit
+
+
+                fi
+                done
+                ;;
+
+
+
+
+
+              2) clear;
+
+              OPTIONS="FRAGROUTE FRAGROUTER LBD WAFW00F EXIT"
+              select opt in $OPTIONS; do
+                if [ "$opt" = "FRAGROUTE" ]; then
+                  clear
+                  echo "Choose Your Option
+                  1)Attack Machine
+                  2)Ping Large Size Packets
+                  3)EXIT"
+
+                  read n
+                  case $n in
+                      1)
+                      clear
+                      echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+                      echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+                      echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+
+                      echo "Fragroute  intercepts,  modifies,  and rewrites egress traffic destined  for the specified host. Simply frag route fragments packets originating from our(attacker) system to the destination system. Its used by security personnel or hackers for evading firewalls, avoiding IDS/IPS detections & alerts etc. Also pentesters use it to gather information from a highly secured remote host."
+
+                      echo "First You need to create a conf file! I will show you how!:"
+                      echo "Copy all of this and paste in on your notepad and then save it as .conf remember to edit the file so it can work:"
+                      echo "delay first|last|random <ms>"
+                      echo "drop first|last|random <prob-%>"
+                      echo "dup first|last|random <prob-%>"
+                      echo "echo <string> ..."
+                      echo "ip_chaff dup|opt|<ttl>"
+                      echo "ip_frag <size> [old|new]"
+                      echo "ip_opt lsrr|ssrr <ptr> <ip-addr> ..."
+                      echo "ip_ttl <ttl>"
+                      echo "ip_tos <tos>"
+                      echo "order random|reverse"
+                      echo "print"
+                      echo "tcp_chaff cksum|null|paws|rexmit|seq|syn|<ttl>"
+                      echo "tcp_opt mss|wscale <size>"
+                      echo "tcp_seg <size> [old|new]"
+                      echo Once your done and you edited the file and saved as a .conf! Now Input file location:
+                      read location
+                      echo Target ip:
+                      read ip
+
+                      sudo fragroute -f $location $ip
+
+
+                      ;;
+                      2)
+
+                      echo Input Paket size:
+                      read size:
+                      echo Input ip:
+                      read ip
+
+                      ping -s $size $ip
+
+                      ;;
+                      3)
+
+                      clear
+                      exit
+
+                      ;;
+                      *) invalid option;;
+                  esac
+
+                elif [ "$opt" = "FRAGROUTER" ]; then
+                  clear
+
+
+                  echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+                  echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+                  echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+
+
+               echo Fragrouter works by accepting IP packets routed to it by another system, fragmenting those packets according to one of the schemes first described by Ptacek and Newsham and described below, then transmitting the fragmented packets to the target host.
+               echo Input interface: E.x : eth0
+               read interface
+               echo Option List:
+              echo -B1: base-1: normal IP forwarding
+              echo -F1: frag-1: ordered 8-byte IP fragments
+              echo  -F2: frag-2: ordered 24-byte IP fragments
+              echo  -F3: frag-3: ordered 8-byte IP fragments, one out of order
+              echo  -F4: frag-4: ordered 8-byte IP fragments, one duplicate
+              echo  -F5: frag-5: out of order 8-byte fragments, one duplicate
+              echo  -F6: frag-6: ordered 8-byte fragments, marked last frag first
+              echo  -F7: frag-7: ordered 16-byte fragments, fwd-overwriting
+              echo  -T1: tcp-1:  3-whs, bad TCP checksum FIN/RST, ordered 1-byte segments
+              echo  -T3: tcp-3:  3-whs, ordered 1-byte segments, one duplicate
+              echo  -T4: tcp-4:  3-whs, ordered 1-byte segments, one overwriting
+              echo  -T5: tcp-5:  3-whs, ordered 2-byte segments, fwd-overwriting
+              echo  -T7: tcp-7:  3-whs, ordered 1-byte segments, interleaved null segments
+              echo  -T8: tcp-8:  3-whs, ordered 1-byte segments, one out of order
+              echo  -T9: tcp-9:  3-whs, out of order 1-byte segments
+              echo  -C2: tcbc-2: 3-whs, ordered 1-byte segments, interleaved SYNs
+              echo  -C3: tcbc-3: ordered 1-byte null segments, 3-whs, ordered 1-byte segments
+              echo  -R1: tcbt-1: 3-whs, RST, 3-whs, ordered 1-byte segments
+              echo  -I2: ins-2:  3-whs, ordered 1-byte segments, bad TCP checksums
+              echo  "-I3: ins-3:  3-whs, ordered 1-byte segments, no ACK set"
+              echo  -M1: misc-1: Windows NT 4 SP2 - http://www.dataprotect.com/ntfrag/
+              echo  -M2: misc-2: Linux IP chains - http://www.dataprotect.com/ipchains/
+              echo Input option:
+              read option
+
+              sudo fragrouter -i $interface $option
+
+
+
+
+            elif [ "$opt" = "LBD" ]; then
+                    clear
+
+
+                    echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+                    echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+                    echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+
+                 echo Load Balancing Detector  is a tool which checks, if a given domain use load balancing or not. lbd tool is mainly used by pentesters and hackers to checks site is dosable or not.
+                 echo Input domain: E.x www.domainname.com
+                 read domain
+
+                 lbd $domain
+
+
+               elif [ "$opt" = "WAFW00F" ]; then
+                      clear
+
+
+                      echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+                      echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+                      echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+
+
+               echo Web Application Firewall Detection Tool
+               echo Input domain: E.x : www.domainname.com
+               read domain
+
+               wafw00f -v $domain
+
+
+
+
+                      elif [ "$opt" = "EXIT" ]; then
+                        clear
+                        exit
+
+
+                  fi
+                done
+
+
+
+                  ;;
+
+
+
+              3) clear;
+
+
+
+
+
+
+
+              echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+              echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+              echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+
+              OPTIONS="CDPSnarf FPING HPING3 MASSCAN MIRANDA NCAT WOL-E XPROBE2 EXIT"
+              select opt in $OPTIONS; do
+                if [ "$opt" = "CDPSnarf" ]; then
+                  clear
+
+
+                  echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+                  echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+                  echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+
+
+                 echo CDPSnarf if a network sniffer exclusively written to extract information from CDP packets.
+                 echo It provides all the information a “show cdp neighbors detail” command would return on a Cisco router and even more.
+                 echo input interface: E.x eth0
+                 read interface
+
+                 sudo cdpsnarf -i $interface
+
+
+               elif [ "$opt" = "FPING" ]; then
+                  clear
+
+
+
+                                        echo ✄▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█░░▒█ 　 ▒█░▒█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▀█▀ ▒█▄░▒█ ▒█▀▀█ █
+                                        echo ✄▒█▀▀█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▄▄▄█ 　 ▒█▀▀█ ▒█▄▄█ ▒█░░░ ▒█▀▄░ ▒█░ ▒█▒█▒█ ▒█░▄▄ ▀
+                                        echo ✄▒█░▒█ ▒█░▒█ ▒█░░░ ▒█░░░ ░░▒█░░ 　 ▒█░▒█ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▄█▄ ▒█░░▀█ ▒█▄▄█ ▄
+
+                                        echo "Choose Your Option:
+                                        1)FPING 1 IP
+                                        2)1 PING PACKET/IP ON A NETWORK
+                                        3)4 PING PACKETS/IP ON A NETWORK
+                                        4)FPING A HOST LIST
+                                        5)EXIT"
+
+                                        read n
+                                        case $n in
