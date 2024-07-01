@@ -1,0 +1,50 @@
+
+
+## Normal keyservers:
+##--------------------
+keyserver hkp://keys.gnupg.net
+keyserver hkp://subkeys.pgp.net
+keyserver mailto:pgp-public-keys@keys.pgp.net
+#keysever ldap://keyserver.pgp.com
+keyserver pgp.mit.edu
+hkps://hkps.pool.sks-keyservers.net
+p80.pool.sks-keyservers.net
+ha.pool.sks-keyservers.net
+pool.sks-keyservers.net
+eu.pool.sks-keyservers.net
+na.pool.sks-keyservers.net
+oc.pool.sks-keyservers.net
+ipv6.pool.sks-keyservers.net
+ipv4.pool.sks-keyservers.net
+
+
+keys.fedoraproject.org
+keys.i2p-projekt.de
+keyserver.opensuse.org
+keyserver.ubuntu.com
+openpgp-keyserver.eu
+
+pgpkeys.co.uk
+pgpkeys.eu[@]
+sks.openpgp-keyserver.de[@]
+zimmermann.mayfirst.org[@]
+keyserver.freenet.de
+zimmermann.mayfirst.org 11370
+
+## Indymedia Keyservers:
+##----------------------
+keyserver hkp://qdigse2yzvuglcix.onion
+keyserver hkps://2eghzlv2wwcq7u7y.onion
+keyserver hkp://2eghzlv2wwcq7u7y.onion
+keyserver hkps://keys.indymedia.org
+keyserver hkp://keys.indymedia.org
+keyserver https://keys.indymedia.org
+keyserver http://keys.indymedia.org
+keyserver https://qtt2yl5jocgrk7nu.onion
+keyserver http://qtt2yl5jocgrk7nu.onion
+keyserver-options ca-cert-file=~/scripts/certs/keys.indymedia.org
+
+keyserver hkps://keys.mayfirst.org
+keyserver hkp://keys.mayfirst.org
+
+hkp://jirk5u4osbsr34t5.onion
