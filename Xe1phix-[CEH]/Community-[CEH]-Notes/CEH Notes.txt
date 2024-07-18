@@ -1,0 +1,2456 @@
+CEH
+
+- CEH Study Notes
+  - DOS Attacks
+    - LAND Attack (Local Area Network Denial)
+      - Uses TCP three-way handshake to occupy a servers resources and disable the target.  
+      - In this attack the attacker sends a spoofed IP address that has the source of the target systems address.  This forces a "looped" TCP connection to itself
+      - Probably obsolete by now
+    - WinNUKE
+      - Exploits certain TCP implemenations and how they process packets with the URG flag set
+      - The URG flag tells the target OS to process the packets immediately (out-of-band)
+      - This attack sent a stream of packets to port 139 with the URG flag set, usually causing the OS to crash on the target system
+    - Targa
+      - Can run 8 different DOS attacks
+      - Can be run simultaneously or 1 at a time
+    - Slowloris
+      - Highly targeted attack, using one web server to take down another web server
+      - This is performed by holding as many connections to the target web server open for as long as possible creating a denial condition for legit requests
+      - This is not a DDOS, but instead a DOS attack
+    - Zombies and Bots
+      - Common names for computers in a botnet
+    - "Shaft"
+      - Derivative of Trinoo
+      - Attack options are:
+        - ICMP
+        - UDP
+        - TCP
+    - Low Orbit Ion Cannon (LOIC)
+      - Uses TCP/UDP to flood a target
+      - Uses Windows
+      - Has a "Linux" version (LOIC Java)
+    - Smurf Attack
+      - DDOS attack
+      - Uses ICMP packets with victims SPOOFED source IP
+      - Sends requests to broadcast address on network, causing all nodes to respond back to the victim machine creating a DOS
+    - Fraggle
+      - Attacker crafts packet and pings the broadcast address
+      - Uses UDP instead of ICMP
+    - Fraggle vs Smurf
+      - Fraggle uses UDP for attack vector
+      - Smurf uses ICMP for attack vector
+    - RUDY (R U Dead Yet?)
+      - Used to execute slow-rate attacks
+      - Implemented via long form field submissions
+    - Classes of DOS attacks
+      - Application layer
+      - Volumetric
+      - TCP State Exhaustion
+      - Fragmentation
+      - State Attack
+    - Botnet definition
+      - Collection of security compromised computers controlled by a third party
+      - Usually controlled through IRC
+      - Sends SPAM and performs DDOS
+    - Filter ICMP packets at firewalls is a countermeausre to DOS attacks
+    - Ping of Death
+      - Sends a very large (64K) ICMP packet to a victim
+      - Exploited the fragmentation and reassembly implementations on a target by sending IP packets, usually ICMP echo requests, that exceed the maximum size once they have been reassembled.  
+      - Obsolete now
+    - "RID" is a scanning tool used to detect:
+      - TFN
+        - OLD method used to initiate DDoS 
+        - Uses ICMP, Syn flood, UDP flood & smurf attack
+        - Can do IP Spoofing
+        - Built in remote command execution for controlling botnet
+      - TRINOO
+        - is a program used to conduct DDoS attacks. 
+      - Stacheldraht  
+        - Malware written by Random for Linux and Solaris
+        - Provides DDoS agent service
+        - Detects and auto enables source address forgery
+        - Uses TCP Syn, ICMP flood and UDP flood
+    - Zombie Zapper
+      - Tool created to fight DDOS
+      - Free, open source
+      - Works against Trinoo, TFN and Stacheldraht
+    - DOS counters
+      - Network Ingress filtering
+      - IDS
+      - Rate limiting Network Traffic
+      - Syn cookies
+        - Does not allow server to dedicate resources until 3-way handshake has been completed
+      - Micro Blocks
+        - Method to prevent SYN flood attacks by allocating only a small space in memory for the connection record
+      - RST Cookies
+        - Server sends invalid SYN-ACK to client intentionally as a way to verify the request is legitimate
+        - If legit, logs entry and allows a connection from client
+      - Stack tweaking
+        - Tweaking TCP/IP implementation to mitigate or limit DoS affects.  
+    - Fragmentation attack
+      - TearDrop
+        - Uses fragmentation and a bug in the TCP/IP implementation
+        - AKA IP Fragmentation
+        - AKA Overlapping Fragment
+    - Fast Flux
+      - DNS technique to hide phishing and malware delivery sites behind constantly changing compromised hosts.  
+    - Syn flood vs Syn Attack
+      - Syn flood - sending SYN packets to target (aka half open attack)
+      - Syn Attack - spoofing source address, sending SYN packets to target
+    - CPUHog
+      - DoS tool used to consume processor cycles
+    - Hping3
+      - Can be used for DoS and Fingerprinting
+    - Mstream
+      - Uses both TCP and UDP for DoS
+      - Three tiered DDoS tool (Attacker > Master > Agent > Target
+  - The five stages of hacking in CEH
+    - 1. Recon / Footprinting
+      - Internet searches
+      - Social engineering
+      - Dumpster diving
+      - non-intrusive network scanning
+    - 2. Scanning
+      - Looking for open ports & services
+      - Vulnerabilities
+      - Enumeration of hardware and software
+    - 3. Gaining Access
+    - 4. Maintaining Access
+    - 5. Covering tracks
+  - Named Vulnerabilities
+    - POODLE = Padding Oracle On Downgraded Legacy Encryption 
+      - Man in the middle attack, exploits fall back mechanism in TLS to SSL
+      - Can decrypt a single byte of an encrypted message by making up to 256 SSL 3.0 requests while eavesdropping on the encrypted connection
+    - HEARTBLEED
+      - OPENSSL Vulnerability
+      - Allows an attacker to obtain about 64 KB of info from a web servers memory at regular intervals.  
+      - Discovered in 2014
+      - Memory handling bug 
+      - Found in OpenSSL 1.0.1 through 1.0.1f; OpenSSL 1.0.1g fixed the bug
+      - Attackers can obtain servers private key and allow them to perform MITM attacks
+    - FREAK = Factoring Attack on RSA-EXPORT 
+      - Man in the middle attack
+      - Forces downgrade of an RSA key to a weaker length; attack then attempts to brute force the shorter (weaker) key
+      - Discovered in 2015
+    - SHELLSHOCK
+      - AKA Bashbug
+      - Allows attacker to execute arbitrary code through vulnerability in BASH
+      - Found in September 2014
+      - How to exploit shellshock on webserver?
+        - By using CGI to deliver malformed code
+    - CCS Injection Vulnerability
+      - Discovered in 2014
+      - Man in the middle attack
+      - Requires attacker to craft a specific handshake that forces OpenSSL to use a weak method of keying
+  - Password Cracking
+    - Dictionary Attack
+      - This is a method of attack that uses a dictionary (or multiple dictionaries) of words to guess a password.
+    - Neped
+      - Used to detect password sniffing
+    - PWDump2
+      - Used to find and "dump" hashed password
+    - Most secure hash algorithm
+      - Whirlpool
+    - OPHcrack
+      - Claims to have 99% success rate
+      - Run off from live CD (not remotely run)
+      - Runs on linux
+      - Uses rainbow tables
+    - Hashcat
+      - "Worlds fastest CPU based password recovery tool"
+      - Availible on Linux, OS X, Windows
+      - Uses CPU or GPU
+    - John the ripper
+      - Used for brute forcing passwords
+      - Can crack NT Hashes
+      - Can crack Unix Hashes
+    - Cain and Abel
+      - Can be used for password cracking
+      - Can be used for ARP poisoning
+      - Can be used to sniff traffic
+      - Runs on windows
+      - Uses Dictionary and Brute force among other types of attacks
+    - Brutus
+      - Can be used for remote password cracking
+      - Only runs on windows
+      - Supports HTTP, POP3, FTP, SMB, Telnet, IMAP and others
+    - Password sniffing
+      - This is a "passive" attack style
+    - Rainbow tables are used to speed up the cracking of password hashes
+      - Makes use of precomputed password hashes
+      - SALT in HASHes can slow down this method
+    - Password Management definition
+      - The process of defining, implementing and maintaining password policies
+    - PAP
+      - Password Authentication Protocol
+      - Sends clear text usernames and passwords
+    - Password / Brute Force tools
+      - Brutus
+      - Rainbow Crack
+      - Wfuzz
+    - Brute Force Attack
+      - Tries all possible combinations of letters, numbers and special characters.  
+      - Computationally intensive
+      - Not always able to recover the password in a reasonable time
+      - Time consuming
+      - Best performed offline
+    - One time password is also referred to a "dynamic" password
+    - password sniffing
+      - A way to grab a password from a user electronically, usually during authentication
+    - Hashing is a one way process
+      - Hashes can NEVER be reversed
+    - Rule based password attack
+      - A focused password cracking technique; limits password attempts to only those allowed (think alphanumeric, 8 characters long, etc...)
+        - Why try 4 character passwords when 8 is the minimum?  
+    - What does a hash provide?
+      - It provides integrity.
+    - What is a SALT?
+      - This is padding added to a password before it is HASHED making it more difficult to brute force
+      - Typical size for a salt is 2 to 8 bytes
+    - Tools used to create rainbow tables
+      - Winrtgen
+      - rtgen
+      - cowpatty
+    - What is two factor auth?
+      - Something you have, something you are, something you know (pick 2)
+    - THC Hydra
+      - Can perform brute force against remote systems using more than 50 protocols
+      - Can use HTTPS-form-get, SSH2 & SIP protocols, telnet, FTP, SMB, 
+      - Well known online password cracking tool
+    - Hybrid attack
+      - Similiar to a dictionary attack, but ADDS numbers and symbols to the dictionary words (making it a hybrid attack)
+    - LM Hash (LANManager or LANMAN)
+      - Used by windows up to 2003/XP
+      - Passwords shorter than 8 char would have 7 null bytes hashed making it easier to crack
+      - Converts all characters to uppercase letters before encrypting
+      - Password is restricted to 14 characters in length
+      - If password is less than 7 characters, padding  = 0XAAD3B435B51404EE
+    - Reverse brute force attack
+      - Trying one password against a set of usernames 
+        - Instead of trying one username with a bunch of different passwords
+    - Syllable Password Attack
+      - A combo of Brute Force and Dictionary Attack
+      - Similar to a "Hybrid" attack, but is based in "brute force" while hybrid is based in Dictionary
+      - Tries smaller fragments of dictionary words rearranged and combined into new passwords
+    - CHNTPW
+      - Tool used to reset/enable/disable accounts in windows
+      - Must be run from boot disk 
+      - Runs on linux
+    - HASH suite
+      - Windows brute force password cracking tool
+    - Burp
+      - Integrated platform to perform security testing of web apps
+      - Modules
+        - Spider - Used for auto crawling an application - discovery
+        - Scanner - Used to auto scan HTTP requests to find security vulnerabilities
+        - Intruder - Allows your to perform customized automated attacks
+        - Repeater - Used to manually modify and reissue individual HTTP request (over and over)
+        - Sequencer - This is used to analyse the quality of randomness in an applications session tokens
+        - Decoder - Lets you transform bits of application data using common encoding and decoding schemes
+        - Comparer - Used to perform a visual comparison of bits of application data to find interesting differences
+    - Brute Force Cryptoanalyses
+      - This is when all possible keys are tested to recover the plaintext that is used to produce a specific ciphertext
+    - Account policies
+      - These define lockouts periods for accounts when a bad password is entered
+    - SAMInside
+      - Brute force password cracking tool
+    - SMBRelay
+      - Tool for implementation an eavesdropping attack
+      - Email is sent to victim, victim clicks link, this then sends the victims credentials over the network
+  - Cryptography
+    - Cryptographic Attacks
+      - Noninvasive
+        - An attack on the hardware of the cryptographic module without ever actually coming into physical contact with it
+      - Collision hash
+        - When one message produces the same digest as a different message
+      - Birthday Attack
+        - Exploits the collision found in a hashing algorithm  
+        - MD5 is vulnerable to birthday attack
+      - Replay cryptanalytic attack
+        - When an attacker captures some systematic data and replays it in order to spoof a computing system into thinking they are engaging in authorized activity.
+      - Frequency Analysis
+        - Involves counting the number of times a character appears in the cipher text
+        - Works on assumption that certain characters in a language are more common than others
+      - FMS Attack
+        - Fluhrer, Mantin and Shamir
+        - Stream cipher attack on RC4 stream cipher
+      - Meet-in-the-middle Attack
+        - Referred to as a Plain Text attack
+        - Attacker must know a piece of the plaintext and the cipher text
+        - "Generic space-time tradeoff cryptographic attack"
+      - Algebraic Cryptanalytic Attack
+        - An attack that exploits mathematical structures in encryption algorithms
+      - Differential Cryptanalytic Attack
+        - Occurs when an attacker examines the cipher text pairs generated by the encryption of plaintext pairs and analyses the differences
+      - Exhaustive Key search
+        - AKA Brute force search
+        - Tries every possible key (ala brute force password attack)
+      - Statistical Attack
+        - Focuses on the inability to produce random numbers
+        - Targets the lack of randomness in the key generation process
+      - Cache-timing attack
+        - This is a side channel attack
+        - Does not attack the cipher itself, but analyzes the effects of implementation of the cipher on a particular system
+        - Measures the time taken to encrypt data as part of the attack
+      - known-cipher attack
+        - AKA ciphertext-only attack (COA)
+        - This style of attack the attacker is assumed to have access only to some cipher texts
+        - Attacker has no access to plain texts
+      - known-plaintext attack
+        - Attacker obtains cipher text and plaintext for same message
+        - They use this to decrypt future messages since they can see "how the sausage is made"
+      - Side Channel attack
+        - These primarily focus on how info is delivered and not what is delivered
+      - power-monitoring attack
+        - Monitors power consumption of the system performing the encryption
+      - Frequency analyses
+        - Attacks looks at patterns in cipher text
+      - Analytic attack
+        - This is an algebraic manipulation that attempts to reduce the complexity of a cryptographic algorithm
+    - Cryptography implementation
+      - PGP (Pretty Good Privacy)
+        - Often used for encryption and signing of emails
+        - Uses IDEA algorithm for encryption
+        - Uses RSA algorithm for key distribution
+        - Developed by P.R. Zimmerman
+      - IPSec
+        - Tunnel mode
+          - The entire packet is encrypted
+        - Transport mode
+          - Only data is encrypted in transport mode
+      - PPTP (Point to Point Tunneling Protocol)
+        - Only works over IP networks
+        - Uses TCP for control channel
+        - Uses GRE tunnel for operating and encapsulate PPP packets
+        - Uses IKE (Internet Key Exchange) for peer authentication and key exchange
+    - Public Key Infrastructure
+      - ISAKMP
+        - Internet Security Association and Key Management Protocol
+        - Only proivdes a framework for authentication and key exchange
+      - Best way to describe public key crypto system?
+        - Use the receivers private key to decrypt data encrypted by the receivers public key
+      - SSHv2 uses Diffie-Helman for secure key exchange
+      - Purpose of PKI
+        - This is a set of roles, policies and procedures needed to create, manage, distribute, use, store and revoke digital certs.  
+      - Four basic components of PKI
+        - Certificate Authority
+          - Needs to be trusted by all for PKI to work
+          - Issues digital certs
+          - Provides Verification (controls the Certificate Revocation List)
+          - Performs certificate revocation
+          - Enables Enrollment (identifies person and creates X.509 cert)
+        - Registration Authority
+          - Authority on a network that verifies user requests for a digital certificate and tells the CA to issue it
+        - Certificate Repository
+          - This is where all unexpired certificates are held
+        - Archive
+          - This is where all expired certs are held
+      - X.509
+        - Standard is based on public key cryptography and digital signitures
+      - Registration Authority
+        - This is responsible for verifying certificate content for the certification authority
+        - Validates the certificate request
+      - Online Certificate Status Protocol (OCSP)
+        - Internet protocol used for obtaining the revocation status of an X.509 digital cert
+      - Certificate Revocation List (CRL)
+        - A list of digital certs that have been revoked by the issuing CA before their scheduled expiration date
+      - Intermediate CAs
+        - Subordinate CA that issues certificates only to users and to other subordinate CAs
+      - Kirchhoff's law 
+        - A crypto-system should be secure even if everything about the system, except the key, is public knowledge.  
+    - XOR
+      - Primary algorithm used in stream cipher
+      - XOR example:
+        - 1011001 (plaintext) with 
+        - 0110101 key = 
+        - 1101100 cipher text (1's when different, 0's when the same)
+    - Cryptographic hashes are used to preserve integrity 
+    - Key space
+      - A range of values used to construct the key
+    - Hashed Message Authentication Code (HMAC)
+      - This is also called a checksum
+      - Used to validate data integrity
+    - Clipper chip
+      - A device that enables gov agencies to bypass encryption
+      - Used the skipjack algorithm
+    - Cryptography definition
+      - This is the science of protecting info by encoding it into unreadable format
+    - symmetric encryption
+      - Faster than Asymmetric encryption
+      - Weaker than Asymmetric encryption
+      - Only one key is used
+      - Uses "shared private keys" for encryption
+      - Symmetric algorithms:
+        - DES
+        - AES
+        - Blowfish
+      - Two basic modes:
+        - Block and Cipher
+        - Stream and Bit
+      - Because the key must be shared before encryption can occur, this makes it weaker than asymmetric encryption
+    - Elliptic Curve Cryptography (ECC)
+      - This uses less computation and memory, well suited for mobile application
+      - Uses a smaller key, making it more effecient
+      - Typically used to encrypt cell phone sessions
+    - Key clustering
+      - A situation where two different keys generate the same cipher text from the same plaintext
+    - Hashing Algorithms
+      - SHA1
+      - SHA2
+      - MD4
+      - MD5
+      - HAVAL
+    - Diffie-Helman
+      - DH Group 1 = 768-bit
+      - DH Group 2 = 1024-bit
+      - DH Group 5 = 1536-bit
+    - SHA-1
+      - Produces a 160-bit hash value regardless of the size of the input (message)
+      - Stands for "Secure Hash Algorithm"
+    - DES
+      - effective Key size = 56 bits
+      - 8 bits are used for parity checking 
+      - TOTAL key size = 64 bits
+      - Block cypher
+      - Uses DEA algorithm
+      - DES operates in four modes:
+        - OFB
+        - ECB
+        - CBC
+        - CFB
+    - Triple DES
+      - Based on symmetric encryption
+      - Basically uses DES, three times over, different keys each time
+    - BlowFish
+      - Symmetric algorithm
+      - Uses 448-bit key length
+      - Developed in 1993 by Bruce Schneier
+    - MD5
+      - Creates a 128-bit hash value based on variable length plaint text
+      - subject to frequent collisions
+    - RC4
+      - Stream cipher
+    - Work factor
+      - The amount of time and resources needed to break the cryptosystem or its encryption process
+    - One-time pad
+      - AKA Vernam-cipher AKA perfect cipher
+      - Only unbreakable encryption in existance
+      - Used in WW2
+      - Uses a key of the same length as the message
+    - Asymmetric encryption
+      - Slower than symmetric
+      - Stronger than symmetric
+      - Uses two keys
+    - Message authentication & Integrity controls:
+      - Parity checks
+      - CRC Values
+      - Checksums
+    - digital signature
+      - Main purpose: Provide data authenticity
+      - This provides:
+        - Verification of the source (because it uses asymmetric encryption)
+        - Verification of the integrity of the data (provides authentication)
+      - Created by encrypting the message hash with the senders private key
+    - SALTS
+      - Used to add randomness to encryption process
+      - Takes random values, adds them to the encryption process for additional complexity
+    - Concealment Cipher
+      - This hides a message within a message
+    - RSA Algorithm
+      - Uses two large prime numbers as the basis of encryption
+      - Suitable for both digital signature and encryption
+      - Asymmetric
+      - One of the first great advances in public key cryptography
+    - Block Cipher
+      - Messages are divided into blocks of bits
+    - Caesar Cipher
+      - AKA Shift cipher
+      - One of the simplest forms of encryption
+      - Simply "shifts" letters from a few spaces over to "encrypt"
+      - VERY SMALL keyspace
+    - Stream cipher
+      - Works in real time on a single bit at a time
+      - Implemented in hardware
+      - Used one time then discarded
+    - Cryptoanalyses
+      - The goal is find a weakness or insecurity in a cryptographic scheme.
+    - Rijndael
+      - Uses 128, 192, 256 bit key sizes
+      - Block cipher
+      - Selected to become the new AES by NIST (current AES)
+    - Cryptography can help data integrity and confidentiality
+    - Steganography
+      - The practice of concealing a file, message, image or video within another file
+      - Steganography comes from the greek word Steganos meaning covered or concealed and graphein meaning written
+    - El Gamal
+      - Uses logarithmic numbers and conditions
+      - Used for transmitting digital signatures and key space exchanges
+      - Asymmetric encryption
+    - Monoalphabetic Cipher
+      - This is a cipher in which the cipher alphabet remains unchanged throughout the message
+      - Also called Monoalphabetic Substitution Cipher
+      - Substitutes an alphabetic character with another of the same alphabet
+    - Polyalphabetic Cipher
+      - Uses two or more fabricated substitution alphabets
+    - Concealment cipher
+      - Places a message within a message
+      - Classic example:
+        - Every 6th letter in a document can be used to spell out a smaller message hidden with the larger document
+    - Transposition Cipher
+      - This uses plaintext messages which are transposed into cipher text
+    - Decryption
+      - Converting cipher text to plaintext
+    - Session key
+      - A single use symmetric key used for encrypting all messages in one communication session
+    - Hashing
+      - Can not be reversed
+      - This is a one-way process
+    - KECCAK
+      - Selected to become SHA-3 in October 2012 by NIST
+      - "BLACK" was in final round, but beaten by KECCAK
+    - Biometric passport
+      - This is something you have
+      - This is a chip in a "thing" that stores bio metric data, this is not a part of a person
+    - IV (Initialization Vector) is only used on WEP wireless
+      - In order to be effective, this needs to be random
+  - Malware
+    - Worm
+      - Self-replicating form of malware
+      - Does not need user interaction to replcate
+    - Rootkit
+      - Designed to conceal the presence of other malware
+    - Wrapper
+      - These are used to install malware alongside legitimate software
+      - Uses a single exe file
+    - Logic Bomb
+      - Program set to execute at a specific time or when a specific action occurs
+    - Malware definition
+      - Any software with potential to compromise or destroy or give control to malware developer for their intended use for theft or fraud
+    - RAT = Remote Access trojan
+      - Behaves like an exe
+      - Interacts with registry
+      - Sometimes creates its own system services
+    - Keyloggers can collect:
+      - Text
+      - Images
+      - Voice
+    - Keyloggers can be hardware or software
+    - NTRootkit
+      - Can keylog at sys console
+      - Hide processes
+      - Hide files
+      - Hide registry entries
+    - Spyware main goal = steal info
+    - Torjans use covert channels to avoid detection by IDS
+    - Polymorphic virus
+      - change their signature every time they replicate 
+    - Utilities to detect trojans
+      - Netstat
+      - fport
+      - tcpview
+    - rootkit = malware thats used to gain access to a computer while being undetected
+    - Virus can infect:
+      - Disk clusters
+      - Source code
+      - Companion files
+      - .exe, .sys and .com file types
+    - SpyAnywhere can:
+      - Shutdown/restart remote system
+      - lock/freeze
+      - browse file system
+    - Masters paradise = type of trojan
+      - Uses ports 40422, 40423, 40421
+    - AutoHotKey can be used to develop a trojan
+    - Morris (of the "Morris Worm") was the first person convicted under the 1986 Computer Fraud and Abuse Act
+    - Back Orifice 2k (BO2K)
+      - Considered to be a trojan
+      - Older, but in courseware
+      - Logs sessions, redirect network traffic, prompt en user with message, remote shell via telnet, keylogging
+    - eblaster
+      - Type of spyware
+      - captures incoming/outgoing email, forwarding to other emails
+      - Captures IM convos
+      - Tracks websites visited
+    - Majority of AV detect using signatures
+    - Zeus trojan or Zbot
+      - Used primarily to steal banking info
+      - Uses keylogging
+      - Can also install ransomware
+      - spread through drive by downloads and phishing
+      - June 2009, Zeus had compromised 74,000 FTP accounts
+      - First found in 2007
+    - Macro Virus
+      - Can infect different platforms because they live in documents
+    - Cavity Virus
+      - Infects empty space that has been allocated to a file, possibly evading detection because of this
+  - Malware analysis
+    - Post mortem analyses
+      - Data that was written into swap space
+      - changes to file contents
+      - local or remote logging
+  - Steganography
+    - Steganography
+      - A method of hiding data in another media type in order to conceal it
+      - Uses images, MP3, Videos or white space in a document to hide/extract data.
+    - Information can be hidden in the file systems "Slack space"
+      - Slack space, unused space in storage blocks that are empty
+    - Noise Floor consistency analysis
+      - An advanced steganogrphy analyses technique
+    - Alternate Data Stream (ADS)
+      - This is a feature of NTFS file systems
+      - Designed to allow for compatibility with the Mac file system (HFS)
+      - Allows a file to be "run" by opening or running another file
+    - Least Significant Bit (LSB) Insertion
+      - During this method the bit which has the least impact on binary data is replaced with a bit from the embedded message
+  - Software Security
+    - Language most susceptible to buffer overflows
+      - C / C++
+        - Lacks built in protection against accessing of overwritting data in any part of memory
+        - Does not auto check that data written to an array is within bounds
+    - Software testing levels
+      - Regression Testing
+        - This is testing changes to a computer programs to make sure that older programming still works with new changes
+      - Acceptance testing
+        - This is where a system is tested for acceptability.  
+        - Purpose of test is to evaluate the software compliance with the requirements set forth during development
+      - Integration testing
+        - This phase of testing is where individual modules of software are combined and tested as a whole or a completed product
+    - Static Software testing
+      - Software test that tests code passively
+      - Sometimes called dry run testing
+      - Programmers manually read the code looking for errors
+      - Program is not run
+    - Stack overflow
+      - This occurs when the call stack pointer exceeds the stack bounds
+    - Buffer overflow attack
+      - Targets the call stack component of the buffer
+      - This is an exploit that causes the system to fail by overloading the memory or executing commands arbitrarily
+    - How to prevent buffer overflows
+      - Enable bounds checking
+      - Perform thorough input validation
+      - Set OS to protect memory pages that can execute content
+      - Make changes to programming language to prevent them
+      - Use dynamic or static code analyzers
+  - Operating System
+    - Kerberos
+      - Key Distribution Center
+        - This handles authentication in kerberos
+      - Ticket Granting Service
+        - Distributes unique tokens (tickets) to each client for each requested service
+      - Uses Time Stamps to protect from replay
+    - Windows File Protection
+      - Protects critical files that are installed as part of Windows
+        - DLL
+        - EXE
+        - OCX
+        - SYS
+    - Security Account Manager (SAM Database)
+      - Used by Windows XP, Vista & 7
+    - Fault tolerant systems continue to operate when faults are discovered, they do not correct them
+    - Multiprocessing
+      - This is the parallel execution of instructions
+    - 
+  - Windows
+    - NLTM and LanMan are used for authentication
+      - NTLM uses SHA2 for hashing
+    - How can SAM file be accessed?
+      - Using tools to dump the contents
+      - Accessing it through a "live CD" (boot from thumbdrive, etc..)
+    - Default location for SAM database
+      - C:\Windows\System32\config
+    - SID2User
+      - Command line tool used to associate SID with username
+    - Server 2008 Default users
+      - Guest 
+      - Administrator
+    - RID for Administrator
+      - Suffix of 500 for Administrators
+    - File system supported by Windows 7
+      - NTFS
+      - FAT16
+      - FAT32
+    - LM hashes
+      - No distinction between upper case and lower case letters
+      - Simple algorithim, can produce 100000 hashes a second
+      - Max password length 14 char
+    - ls -a
+      - List all files in directory, including hidden files
+    - SC Query
+      - Used to list all running services
+    - tasklist /svc
+      - This lists all running processes and the services associated with those processes
+    - attrib +h
+      - This is used to hide a file
+    - How to prevent SMB hijacking in Windows?
+      - Use SMB signing
+  - Web Server Security
+    - phpinfo();
+      - This function is used to display info about PHP version and config, doc root, memory limits and timezone
+    - SQLMap
+      - This can be used for SQL injection attacks
+    - Apache Tomcat
+      - Most commonly used to deliver Java web pages
+    - Valid load balancing techniques
+      - Reverse proxy
+      - Distributed content
+      - DNS Balancing
+    - Web Cache Poisoning
+      - When cached web pages are replaced with malicious entries
+    - CGI is the slowest server side scripts
+    - Server Side Scripting languages
+      - PHP
+      - ASP
+      - ColdFusion
+      - Ruby on Rails
+      - Perl
+    - HTTP Codes
+      - 200 = OK
+      - 201 = created
+      - 202 = Accepted
+      - 203 = non-authoritative info
+      - 204 = no content
+      - 205 = reset content
+      - 206 = partial content
+      - 400 = bad request
+      - 401 = Unauthorized access attempted 
+      - 403 = Forbidden
+      - 404 = Not found
+      - 503 = Service unavailable
+    - HTTP Methods
+      - GET
+      - HEAD
+      - POST
+      - PUT
+      - DELETE
+      - CONNECT
+      - OPTIONS
+      - TRACE
+    - HTTP response hijacking
+      - When an attacker sends a response splitting request to a webserver
+      - Attacker then gets users credentials as a result
+    - Directory traversals are also known as:
+      - dot dot slash
+      - backtracking
+      - directory climbing
+    - Directory Busting
+      - Detecting directories and pages
+    - MIME types
+      - Primary mechanism for deciding how the content is to be displayed
+      - Over 370 MIME types exist
+      - Used by Apache
+    - NMAP scan to find all availible HTTP Methods
+      - Use the NMAP HTTP-METHODS scan to find all methods available 
+    - Native Modules
+      - These are only found in IIS
+    - SSL Handshake authentication
+      - The SERVER authenticates to the client (most common)
+    - WTLS
+      - Wireless Transport Security Protocol
+      - Has three security classes:
+        - Class 1: Anon Auth
+        - Class 2: Server Auth
+        - Class 3: Two-way Auth
+    - IISExploit
+      - A tool built for testing directory traversal attacks
+    - HTTP PUT attack
+      - This can:
+        - Get access to write privileges on a server
+        - Insert garbage data in sensitive locations
+        - Upload arbitrary scripts on a server and execute it
+    - 
+  - Wireless
+    - EAP types
+      - EAP-TLS
+      - EAP-FAST
+      - EAP-AKA
+    - EAP-FAST
+      - Uses Protected Access Credentials to authenticate systems
+    - EAP-MD5
+      - One way authentication only
+    - Kismet 
+      - sends no packets that can be logged
+      - Detects 802.11a/b/g/n
+      - Used on linux
+      - Kismet file types:
+        - .netxml
+          - Network data in XML format
+        - .nettxt
+          - Network data in TXT format
+        - .gpsxml
+          - Per packet GPS log
+    - ICMPTX
+      - Ip over ICMP method / tool
+    - AircrackNG 
+      - Relies on large amounts of traffic to work best
+  - Mobile Devices
+    - Android
+      - Bootloader
+        - Unlocked bootloader could allow for a "cold boot attack"
+        - Locked bootloader limits phone to mostly manufacturer and carrier approved software
+        - Locked bootloader prevents custom ROMS, kernels or startup files on phones
+    - Jail breaking techniques
+      - Userland
+      - iBoot
+        - Allows file system and iBoot access
+      - Bootrom
+  - Linux
+    - Environment variables
+      - TERM
+      - HOME
+      - EDITOR
+      - USER
+    - Commands
+      - CD .. (command)
+        - Goes back one directory
+      - PS -aux (command)
+        - Used for listing all running processes
+        - PS -a & PS -e achieve the same thing
+      - CD ../.. (command)
+        - Goes back two directories
+      - Touch (Command)
+        - This is used to change a files timestamp
+        - Side effect, it "creates" the file again
+      - LS -la (Command)
+        - List all files in current directory AND display their permissions, size and owner
+        - the -l is "long list" which adds the details above
+        - The -a is "all files" which shows all files including hidden files
+      - DD (command)
+        - Creates an image of a volume
+      - Watch (command)
+        - This can be used to execute instructions every "n" secopnds
+      - Service [service name] stop
+        - This is how you stop services in linux
+    - On a linux webserver
+      - Document root is most likely in /var/www/
+    - After a reboot, files in /TMP are removed; this is usually written to memory hence why it is deleted when shut down
+    - Password hashes are stored in /etc/shadow file
+    - Linux text editors
+      - Jove
+      - VI
+      - Pico
+      - Nano
+    - /etc contains most of the linux config files
+    - Root UID is always 0
+    - ROOT default home directory
+      - /root
+    - SELinux
+      - This is a module to strengthen Linuxs security
+      - Security Enhanced Linux
+      - Uses mandatory access control (MAC) style
+  - Malware Analyses
+    - Why perform Malware Analyses
+      - Asses the damage 
+      - Determine level of sophistication
+      - To ID an attacker
+    - Rootkits can:
+      - Hide files
+      - Hide processes
+      - Hide Reg keys
+  - Footprinting
+    - Footprinting definition
+      - Gathering info about an organizations:
+        - Applications
+        - Network Architecture
+        - OS and version
+    - Blackwidow
+      - Used to copy all files on website
+    - Netcraft.com
+      - A feature found on this site called "Whats the site running" allows someone to get publicly available info about technologies on websites
+    - PTR records 
+      - These are the opposte of A records
+      - Used for reverse DNS lookups
+    - RIP has a 15 hop maximum
+    - The pipe operator has the same affect as the OR keyword in Google searches
+    - Tools to automate gathering competitive intelligence in Kali
+      - Paros
+      - Recon-ng
+      - Maltego
+      - Golismero
+  - Network
+    - Evading IDS
+      - False Negative
+        - Characterized by the IDS failing to properly classify attacks as an attack
+        - Does not trigger IDS alerts
+      - Common ways to evade IDS
+        - Encode/Embed payload into a powerpoint presentation
+        - Fragment the payload
+        - Encode the payload
+        - Use Unicode
+        - Decoy Traffic
+    - Gratuitous ARP
+      - Used to send an unsolicited ARP reply to a host on the same subnet
+      - Used to inject bad info into ARP cache on target/victim
+    - Tools for ARP spoofing
+      - Arpspoof
+      - Ettercap
+    - Yersinia
+      - Low-level protocol attack tool
+      - Can become root bridge, create CDP neighbor, become active router in HSRP
+      - Focuses on layer 2 protocols
+    - IP Address and routing attacks
+      - DHCP Starvation
+        - Attack which broadcast DHCP requests with spoofed MAC addresses to deplete DHCP servers IP scope
+      - Defenses to MITM
+        - TLS over HTTP
+        - Stronger mutual authentication
+        - Secure DNS extension
+      - MACOF
+        - Used to flood switches with MAC addresses
+      - SMBRelay
+        - Can be used for MITM attacks
+      - Session Fixation
+        - An attack that forces a users session ID to be a specific value
+    - Firewalking
+      - Term used to describe the method of analyzing a firewall for vulnerabilities
+    - ACK Flag Probe Scan
+      - This method is used to determine whether the host is protected by some kind of filtering
+      - Attacker sends ACK with random sequence to the target
+        - If no response, that means there is a firewall
+        - If a RST is received, it means the port is closed
+    - SCP (Secure Copy Protocol) uses SSH on Port 22
+    - FTPS uses SSL/TLS on port 21
+    - TCP Flags
+      - Fin aka Finish, no more transmissions will be sent
+      - Syn aka Syncronize, step 1 in 3-way handshake
+      - Syn Ack, step 2 in 3-way handshake
+      - Ack, step 3 in 3-way handshake
+      - RST resets connections
+    - FTP is a TCP service
+      - Control runs on port 21
+      - Data on Port 20
+    - TACACS+ uses TCP or UDP
+    - Wireshark
+      - Filter on IP
+        - ip.addr=XXX.XXX.XXX.XXX
+      - Filter on source
+        - ip.src=XXX.XXX.XXX.XXX
+      - Filter on Destination
+        - ip.dst=XXX.XXX.XXX.XXX
+    - Qualities of XMAS scan
+      - Inability to distinguis open and filtered ports
+      - Detection of closed ports
+      - fast scanning
+      - detection of open ports
+      - VERY NOISY
+    - ICMP
+      - ICMP runs on layer 3, does not need a port to function (a layer 4 service does)
+      - Type 3 (this means "destination unreachable)
+        -  Code 10 = Destination unreachable because communication with Destination host is administratively prohibited
+        - Code 13 = Administratively Prohibited 
+      - Type 11
+        - Provide the source with a "time exceeded" message
+      - Type 8 
+        - Echo
+      - Type 0
+        - Echo Reply
+    - ARP Poisoning
+      - Invalid entries are inserted into the ARP cache
+      - Results in attackers MAC address being linked to valid IP address
+    - RADIUS uses only UDP
+    - Sniffing countermeasures
+      - Use encryption
+      - Restrict physical access to network
+    - Wifi access points function like HUBS (not like switch)
+    - DNS
+      - Zone transfers use TCP 53
+      - Quries use UDP 53
+    - TCP
+      - Transport layer protocol
+      - Establishes end to end connection before transmitting data
+      - Uses sequence numbers to identify each byte of data.  
+      - The sequence number identifies the order of the bytes sent from each computer
+      - The sequence number of the first byte of data is determined during the 3-way handshake
+    - How to start a properly formed HTTP request?
+      - HEAD / HTTP/1.0
+    - SCP, SFTP, SSH all use port 22
+    - Application layer protocols
+      - SNMP
+      - DNS
+      - Telnet
+    - Three way handshake
+      - 1: Syn
+      - 2: Syn / Ack
+      - 3: Ack
+    - Fraggle
+      - DOS attack
+      - Sends large amount of spoofed UDP traffic to a routers broadcast address
+      - Similar to smurf, but uses UDP instead of ICMP
+      - Most routers no longer forward packets sent to the broadcast address, remediating this 
+    - Common ports
+      - Telnet = 23 (TCP)
+      - Internet Printing Port = 631 (TCP)
+      - SSH / SCP / SFTP = 22 (TCP)
+      - SMTP = 25
+      - DNS = 53
+      - TFTP = 69
+      - Microsoft SQL Server = 1433 (TCP)
+      - LDAP = 389
+      - IMAP = 143 (TCP)
+      - SNMP Listener = 161 (UDP)
+      - L2TP = 1701 (UDP)
+      - LDAP over SSL/TLS = 636 (TCP/UDP)
+      - Tacacs/Tacacs+ = 49
+      - NTP = UDP 123
+      - Pop3 = TCP 110
+      - HTTPS = TCP 443
+      - NetBios = 137, 138, 139
+      - RDP = 3389
+      - FTP (Control) = 21 TCP
+      - FTP (Data) = 20 TCP
+      - PPTP = 1723
+      - IPSEC = 500
+      - Kerberos = 88
+      - SMB = 445
+      - POP3 over SSL = 995
+      - SNMP Async trap = 162
+      - DHCP = 67/68 UDP
+      - NFS = 2049
+      - Syslog = 514
+      - IRC = 6667
+      - CIFS (common internet file service) = TCP 445
+    - Automatic network simulation that uses real-time data relies on UDP (NOT TCP)
+    - TCP/IP Model
+      - This has 4 layers (do not confuse with OSI model)
+    - SNMP
+      - A protocol specifically designed for transporting event messages
+    - Low Orbit Ion Cannon (LOIC)
+      - Open Source network stress testing tool and DOS application
+  - Documentation
+    - Policies
+      - Policies should be as short as possible; shorter policies are usually easier to understand
+      - Maximum of three pages (best practice)
+      - Helps to improve security awareness
+      - They should:
+        - NOT contain specific info
+        - avoid using directive words like should, may, can
+        - USE words like MUST and WILL
+  - Database terms and definitions
+    - Atomicity
+      - The property of a transaction that guarantees that either all or none of the changes made by the transaction are written to the DB.
+    - Concurrency
+      - The property in which two or more computing processes are executing at the same time.
+    - How to best describe a hierarchical database?
+      - They form a tree of data, made out of records and fields to make a logical tree structure
+      - A child node (in a hierarchical database) can have only one parent.  
+      - The root node has no parent
+    - Stored Procedures
+      - These can be used to limit the potential for SQL injections
+      - With stored procedures, the SQL statement lives on the DB server and can only be modified by the DB Admin
+    - Database definition
+      - An organized collection of data
+      - Has schemas, tables, queries, reports, views and other objects
+    - Database normalization
+      - Considered the most important part of database design
+      - Ensures that attributes in a table depend only on a primary key
+    - Commit
+      - Type of mechanism that periodically saves database information while it is being modified by users or applications.  
+    - Database admins should be allowed to:
+      - Reorganize DB
+      - Maintain DB
+      - Implement Access Rules
+    - DB admin should not:
+      - Authorize access to a DB (separation of duties)
+    - Foreign Key
+      - A Column or group of columns in a relational database that provides a link between data in two tables.  It acts as a cross reference.
+    - Relational Databases
+      - Contain two-dimensional tables of related data
+    - Tuple
+      - Tuple = series of values (usually numbers)
+      - In a relational database a tuple (one record or row) is identified by the relations primary key
+    - Cardinality
+      - A ratio of unique values to the toal number of values
+      - number of unique values for an attribute or key in a relation
+    - Trusted front end
+      - Used for retrofitting multilevel security to a DBMS
+    - Schema
+      - Used to describe the structure of a database
+    - Rollback
+      - Canceling a set of changes and restoring the DB to its prior state is called a Rollback
+    - Locking
+      - Mechanism used by databases to avoid collisions where two or more programs may be updating the same table at the same time
+    - Database Management System types (4)
+      - Hierarchical
+      - Network
+      - Relational
+      - Object-oriented
+    - Data Dictionary
+      - This is a collection of description of the data objects or items in a data model for the benefits of programmers and others who need to refer to them.
+      - Central repository of metadata and data relationships
+    - Database "view"
+      - This is a searchable object in a database that is defined by a query.  
+      - Does not store data, but can pull data from two or more tables
+    - SQL Sub languages
+      - DDL = Data Definition Language
+        - Syntax is similar to a computer programming language
+        - Used for defining data structures, especially database schemas
+        - Examples: "create table" & "alter table"
+      - DML = Data Manipulation Language
+        - This is used to retreive, store, modify, insert and update data in a DB
+        - Examples: "INSERT", "SELECT", "DELETE"
+    - Database Integrity services (3)
+      - Semantic
+        - Ensures semantic and structural rules are enforced
+        - These rules pertain to data types, logical values, uniqueness constraints, etc...
+      - Referential
+        - When all foreign keys reference existing primary keys, this exists
+      - Entity
+        - This gurantees that the tuples are uniquely identified by primary key values
+    - Cell suppression
+      - A technique used to hide specific cells that contain sensitive information
+    - Database Relation
+      - Term associated with data that is represented by a collection of tables
+    - Common ways to prevent inference attacks
+      - Partition the DB
+      - Add noise to the DB
+      - cell suppression
+  - Information Systems vulnerabilities
+    - Common Criteria
+      - Target of Evaluation (TOE)
+        - System being evaluated
+      - Protection Profile (PP)
+        - A document, usually created by a user, identifying security requirements for a class of security devices
+      - Security Target (ST)
+        - This is the document that identifies the security properties of the TOE
+        - Can claim conformance to one or more PPs
+      - Security Functional Requirements (SFR)
+        - Specifies individual security functions which may be provided by a product
+      - Security Assurance Requirements (SAR)
+        - Describes the measures taken during development and evaluation of the product to assure compliance with the claimed security functionality
+      - Evaluation Assurance Level
+        - Numerical rating describing the depth and rigor of an evaluation
+    - CVSS
+      - Common Vulnerability Scoring System
+      - Provides a way to capture the principle characteristics of a vulnerability and provides a numerical score
+    - SQL Injection tools
+      - SQL Injector
+      - Absinthe
+      - Havij
+      - SQL Ninja
+      - Pangolin
+    - Which HTTP method could allow an attacker to use a system as a file repo?
+      - HTTP PUT
+        - HTTP POST is used to create
+        - HTTP PUT is used to place a file somewhere (think "Put this file here on the server.."
+    - CVE
+      - Common Vulnerability and Exposures
+      - This is a dictionary of common names (CVE ID's) for publicly known cyber security vulnerabilities
+    - Cache poisoning 
+      - Also refered to as DNS spoofing
+      - "cache" refers to DNS server cache, not ARP cache
+    - OSSTTM (Open Source Security Testing Methodology Manual)
+      - Three compliance types
+        - Legislative
+        - Contractual
+        - Standards
+      - PCI DSS is a contractual type of compliance
+    - Inference Engine
+      - Uses forward chaining & backward chaining
+      - Part of an "expert system", programmed using AI techniques
+    - NIKTO
+      - Web vulnerability scanner
+    - Controls for vulnerability scanners
+      - Use a dedicated admin account
+      - Limit scanning from a single or small sub-set of IPs
+    - TCB (Trusted Computing Base)
+      - Everything in a computing system that provides a secure environment
+      - This includes:
+        - OS
+        - Software
+        - Hardware
+        - Firmware
+    - Attack Vector
+      - A metric that reflects how vulnerabilities are exploited
+    - Salami Attack
+      - An attack in which criminals take a small amount of money over time adding up to large sums
+    - Threat
+      - This is the potential exploitable danger associated with a vulnerability
+    - Common vulnerability scanners
+      - Nexpose
+      - Nessus
+      - OpenVAS
+      - Nikto
+    - CVSS = Common Vulnerability Scoring System
+      - Free open source, industry standard means to assess vulnerabilities
+    - Overt channel
+      - This is the normal and legitimate way that programs communicate within a computer system or network.  
+    - Covert channel definition
+      - A covert channel is a type of computer security attack that creates a capability to transfer information objects between processes that are not supported to be allowed to communicate by the computer security policy
+      - Communication method that allows transferring information in a way that violates the systems security policy
+      - Covert comm can also take advantage of unused TCP/IP header fields to carry data (remains hidden)
+    - TEMPEST
+      - A military term used to name the study of electromagnetic emissions that are emanated from an electronic source
+    - The use of a ' in a URL can identify SQL injection vulnerabilities
+    - Threats * Vulnerabilities * Asset Value = Total Risk
+    - Aggregation (attack)
+      - This is a type of attack that combines (aggregates) non-sensitive info to learn sensitive info.  
+    - Race Condition
+      - A race condition is a behavior of a system where the output is dependent on the sequence or timing of other uncontrollable events
+    - Buffer Overflow
+      - Condition caused when data exceeds its memory allocation
+      - One of the most common programmer-generated flaws+
+      - C++ functions to avoid
+        - strcopy() strcat() streadd()
+        - These are vulnerable to buffer overflows
+      - Null Operation (NOP)
+        - Used at beggining of code in a buffer overflow during an attack
+    - Cross site request forgery (CSRF)
+      - AKA one-click attack
+      - AKA session riding
+      - Forces an end user to execute unwanted actions on a web app in which they are currently authenticated
+    - CSPP Attack
+      - Connection String Parameter Pollution
+      - Uses the ";" character to perform attack
+    - hyperlink spoofing
+      - Rely on users not verifying the domain name in a URL
+    - Asynchronous attack
+      - AKA TOC/TOU attack (time of check / time of use)
+      - Targets timing
+    - Data mining
+      - Examining large amounts of data looking for sensitive info
+    - Transaction Management Systems
+      - Intended to prevent:
+        - Deadlock
+        - DoS
+        - Data loss
+    - HTTP Digest authentication
+      - This applies a hash function to the username and password before sending them over a network
+      - Hashing is weak, even though it is salted allowing attackers to break the integrity of the communication
+    - Open Source Vulnerability Database (OSVDB)
+      - Independent, open source database created by and for the community
+      - Holds more than 66,000 exploits
+    - Exploit Database (EDB)
+    - Control Zone
+      - Type of TEMPEST countermeasure involving implementation of protection devices that reduces electrical emissions (like white noise machine or faraday cage)
+    - Threat Event
+      - The accidental or intentional exploitation of vulnerabilities carried out by a threat agent
+    - Zero Day
+      - Previously undiscovered or unpublished flaw in a software application
+    - Cross site scripting (XSS)
+      - An attack in which the attacker injects malicious script into a web page where a victim clicks on the malicious code, allowing the attacker to access the victims cookies
+      - Can be mitigated by blocking HTML tags from data inputs (think username fields or email submissions)
+    - Perturbation
+      - Is a technique of inserting bogus info in the hopes of misdirecting an attacker or confusing the matter enough that the actual attack will not be fruitful
+      - AKA DISINFORMATION
+    - SOAP = Simple Object Access Protocol
+      - This is used to exchange XML messages
+    - Data mining techniques
+      - KDT = Knowledge Discovery in Texts 
+    - Maintenance Hook
+      - This is a mechanism (hardware or software) that is installed to permit maintenance of the system and bypasses the systems security protections
+      - Setup by the installer or vendor of the system
+    - Change control procedure purpose
+      - Ensures all changes are authorized, tested and recorded
+    - Inference Channels (3)
+      - Abductive
+      - Deductive
+      - Statistical
+    - VM Escaping
+      - When malware or code run on a virtual machine allows the guest operating system in the VM to "break out" and interact with the hypervisor
+    - Electro magnetic signals can result in data leakage
+    - Vulnerability Assessment
+      - The process of identifying, quantifying and priorityizing (ranking) vulnerabilities found in a system
+    - Symlink race = TOCTOU = Race condition
+      - This is a type of asynchronous attack
+    - SODA = Secure Object-oriented Database 
+      - Uses Polyinstantiation and is a remedy for multiparty update conflicts
+    - Covert Storage Attack
+      - This occurs when a higher-level subject writes data to the storage area and a lower-level subject reads that data
+    - Timing channel
+      - This is a type of covert channel
+      - Used by a Trojan where it loops and waits in cycles
+    - Polyinstantiation
+      - Used in database information security to hide information
+    - Shellshock
+      - Discovered in 2014
+      - Gave attackers the ability to run remote commands on vulnerable systems (linux)
+    - Defense for Aggregation and Inference Attacks
+      - Constant vigilance over permission granted to users of databases is the best defense
+    - Heartbleed
+      - Allows an attacker to steal a private key
+      - Discovered in OpenSSL
+      - Discovered in 2014
+      - When exploited, it leaks memory content from the server to the client
+  - Ethical Hacking Fundamentals
+    - Confidentiality
+      - When only authorized users have access to particular data
+    - SUDOers file
+      - Contains
+        - Host_Alias
+        - Cmnd_Alias
+        - User_Alias
+    - Availability
+      - Making sure data is accessible when permitted parties request it
+    - Privacy Act of 1974
+      - Governs how personal identifiable info can be used, collected and distributed by the US government
+    - Shrink-wrap code attack
+      - Takes advantage of built0in code and scripts most off the shelf applications come with
+    - John the Ripper
+      - Well known, linux brute force password tool
+    - SNMP
+      - Usually uses UDP
+    - Doxxing
+      - Publishing PII about someone that has been collected from a publicly available database and social media.
+    - grey-box testing
+      - Less likely to make assumptions about the environment than white box testing
+      - More expedient and can skip past recon efforts
+    - Purpose of key escrow
+      - Access Sensitive data if the need arises
+    - How many tiers in N-tier implementation?
+      - three or more tiers
+      - In this model, the presentation, application processing and data management processes are separated (three or more tiers)
+  - Enumeration
+    - Net view
+      - Used to obtain a list of al the shared resources of a remote host or workgroup
+      - Windows only
+    - SNScan
+      - Used to access info related to SNMP
+      - From mcafee
+    - Onesixtyone
+      - A tool for achieving unauthorized access
+      - Uses a dictionary attack to try and guess the community strings
+    - SNMPWalk
+      - Can be used to enumerate SNMP messages or settings on a device
+      - Requires you find the community string
+    - Metagoofil
+      - Information gathering tool built to extract metadata of public documents
+      - Can gather info like usersnames, software versions, servers or machine names
+  - Sniffing
+    - Traffic padding is an effective way to hide traffic
+    - Omnipeek
+      - Sniffer AKA Etherpeek
+      - packet analyzer
+    - MAC Flooding can be used to sniff traffic in a switched network
+    - Two types of sniffing
+      - Passive
+        - Listening/capturing traffic
+        - Undetectable
+      - Active
+        - ARP spoofing
+        - Detectable
+    - CACE Pilot
+      - Network analysis system
+      - GUI based analyzer, integrates with wireshark
+    - Promiscuous mode
+      - Allows NIC to send all traffic to CPU rather
+    - DHCP snooping bindings
+      - Used to prevent IP and MAC address spoofing
+    - IP Restrictions scanner (IRS)
+      - Scans for IP restrictions set for a particular host or IP
+      - Combines ARP poisoning with half-scan techniques
+  - Session Hijacking
+    - Session state parameters
+      - Session ID
+      - Master secret
+      - Peer cert
+    - Bad practices when making session keys
+      - sequences
+      - Weak random number generation
+      - time dependency 
+    - Ways to prevent session hijacking
+      - Create session keys with lengthy/random numbers making guessing harder
+      - Reduce life space on session or cookie
+      - Expire session when user logs out
+      - Regen session key once user logs in
+    - How Hijacking occurs
+      - Attacker uses sniffing to read traffic between two parties to steal cookie
+      - Attacker tricks users computer into running code which is treated as trustworthy
+      - Sets a users session id to one known to him
+    - Session ID best practices
+      - Dont allow users to choose session IDs
+      - Ensure that each user gets a clean session ID on every visit to site
+      - Use cookies for storing session values
+    - Sidejacking exploit
+      - Steals the users session cookie
+    - Tools used for session hijacking
+      - T-Sight
+        - Can monitor network connections in real time
+        - Intrusion and response tool
+        - En Garde systems developed it
+      - Burp Suite
+        - Can perform session hijacking
+      - Juggernaut
+      - HUNT Project
+      - Hamster
+        - Can also perform session hijacking
+      - Firesheep
+        - Extension for FireFox that uses packet sniffer to intercept unencrypted cookies
+    - Cookies for session management
+      - Cookies are usually more difficult to modify than hidden fields in CGI params
+      - Cookies can be restricted to a specific site or subsection of a site or set them to expire automaticly
+      - Cookies can be protected by setting the secure flag (protecting them from sniffing)
+    - 3 phases of session hijacking
+      - Tracking session
+      - Desynching connection
+      - injecting attackers packet
+    - PHP session ID passing methods
+      - Cookies
+      - URL Parameters
+    - 3 Types of hijack attacks
+      - Active
+      - Passive
+      - Hybrid
+    - Session ID's occur at the Application Layer of the OSI model
+    - Microsoft IIS session token parameter
+      - ASPSESSIONID
+  - Tools
+    - Kismet
+      - Sniffing tool for linux
+      - Kismet "is truly passive" per EC Council
+    - Windump
+      - Windows version of TCPDump
+    - NBTSTAT
+      - Used to display NetBIOS info like name tables, name cache, NetBIOS of TCP/IP protocol stats
+      - nbtstat -a 
+        - lists remote machines name table given its name
+      - nbtstat -A
+        - lists the remote machines anem table given its IP address
+      - nbtstat -c
+        - Lists NBT's cache of remote machine names and ip addresses
+      - nbtstat -r
+        - Lists names resolved by broadcast and via WINS
+      - nbtstat -R
+        - Purges and reloads the remote cache name table
+      - nbstat -S
+        - list sessions table with destination IP addresses
+      - nbtstat -s
+        - lists sessions table converting dest ip addresses to netbios names
+      - nbtstat -RR
+        - Sends name release packets to WINDS and then starts a refresh
+    - NSLookup
+      - To enter interactive mode type NSLOOKUP
+      - Set type = (MX, PTR, A, ANY, SOA, NS, CNAME, SRV)
+      - server hostname (server DNSservername for example)
+    - NMAP
+      - NMAP -A = Combines OS detection, script scanning, version scanning
+      - NMAP -sS = tcp syn scan
+        - Also called a "half open scan" or "stealth scan"
+      - NMAP -sT = TCP Connect scan
+      - NMAP -sF = TCP FIN scan
+      - NMAP -sX = Xmas tree scan
+        - Has FIN, URG, PSH flags set
+      - NMAP -sC = Run Default Script
+        - Enables script scanning with the NMAP script engine (NSE)
+      - NMAP -sP = Ping scan
+      - NMAP -sV = Version Detection Scan
+      - NMAP -sU = UDP Scan
+      - NMAP -sO = IP Protocol Scan
+      - NMAP -O = OS Scan
+      - NMAP -sA = ACK scan
+        - Can be used to find out if a network is behind a firewall
+        - Logic: Ack is not how you start a TCP connection, if a firewall exist on the other side it will block the ACK and no response will be sent (filtered).  If no firewalling, the host will respond with a RST because the ACK was unexpected (open).  
+      - NMAP -sW = Windows Scan
+      - NMAP -sR = RPC Scan (Now alias for -sV)
+      - NMAP -sL = List scan
+      - NMAP -sI = Idle scan
+      - NMAP -b = FTP Bounce Attack
+      - NMAP -P0 = For hosts that don't respond to pings
+      - NMAP -PT = TCP Ping
+      - NMAP -PS = SYN PING
+      - NMAP -PI = ICMP Ping
+      - NMAP -PB = PI and PT Ping
+      - NMAP -PP = ICMP Timestamp
+        - NMAP -PM = ICMP Netmask
+      - NMAP -oN = Normal output
+      - NMAP -oX = NMAP XML Output
+      - NMAP -oG = NMAP Grepable output
+      - NMAP -oA = NMAP all output
+      - NMAP -P <PORT RANGES>
+      - NMAP -- randomize_host s -O
+      - NMAP --traceroute enables traceroute
+      - Paranoid scan
+        - serial scan
+        - wait 300 sec
+      - Sneaky scan
+        - Serial scan
+        - wait 15 sec
+      - Polite scan
+        - serial scan
+        - wait 0.4 sec
+      - Normal scan
+        - parallel scan
+      - Aggressive scan
+        - parallel scan
+        - 300 sec timeout
+        - 1.25 sec/probe
+      - Insane scan
+        - parallel scan
+        - 75 second timeout
+        - .3sec/probe
+    - HPing2
+      - Uses TCP by default
+      - Has five different "modes" it can run in
+        - RAW IP mode
+        - ICMP mode
+        - UDP Mode
+    - NetCat
+      - NCat ipaddress portnumber (connects to IP as client)
+        - EX: ncat 192.168.0.1 80 (connects to IP at port 80)
+      - NCat -l portnumber = Listen mode for inbound connections
+        - EX: ncat -l 8000 (makes netcat listen on port 8000 for connections)
+      - NCat -e programname = launches a program after a succesful connection
+      - NCat -L = Listen harder; re-listen on socket close
+      - NCat -o = local port number
+      - NCat -t = Answer telnet negotiation
+      - NCat -u = UDP mode
+      - NCat -v = verbose mode
+      - NCat -w seconds = timeout for connect and final net counts
+      - NCat -n = tells netcat to not perform DNS lookups on names of machines found
+    - NetStumbler
+    - inSSIDer
+    - Aircrack-ng
+    - golismero
+    - unicornscan
+    - Maltego
+      - Tool that can analyze relationships between different entities
+      - Can coordinate info from:
+        - Companies
+        - Organizations
+        - People
+        - Websites
+        - Phrases
+        - Documents
+        - Files
+    - Ettercap
+    - NetSleuth
+    - pOf
+    - Nikto
+      - Open source, web server scanner
+      - Performs comprehensive tests against web servers including dangerous files and CGI's
+- Boson CEH study
+  - ISO 27001 (Governance)
+    - "Governance" standard
+    - Security Standard also based on BS 7799 but focuses on governance
+    - Defines a standard for creating an information security management system
+  - ISO 27002 (Security Controls)
+    - "Security controls" standard
+    - Security Standard that recommends security controls based on industry best practices
+    - Based on British Standard BS 7799
+  - P0F
+    - Passive OS fingerprinting tool
+  - SSO
+    - This is not a federated identity management model
+  - G++ 
+    - This is a C++ compiler
+    - C++ compiles into .cpp file extensions
+  - L2TP and PPTP operate at Datalink layer or layer 2 of OSI model
+  - To take advantage of Shellshock / Bashbug
+    - Send a specially crafted env variable with trailing commands
+  - Cain & Able can do:
+    - Record and extract VOIP conversations
+    - Capture/decrypt RDP traffic
+    - Collect and prepare server certs for a MITM attack
+    - Poison ARP tables
+    - start/stop/pause/continue/remote windows services
+    - detect 802.11 WLANs
+    - reveal passwords in text boxes
+    - Enumerate networks and extract SIDs
+  - Retinal scan
+    - Most likely to reveal private health info about a user
+    - Considered invasive
+  - Windows XP and Windows 7 do not respond to ICMP echo requests that are directed to a network address or broadcast address
+  - HTTPOnly flag in cookies can mitigate XSS attacks
+  - "Net" command
+    - Can do the following:
+      - Manage services
+      - manage user accounts
+      - connect to a remote resource
+      - manage a printer que
+      - manage shared resources
+  - Nmap, Xprobe, Queso - all active OS fingerprinting tools
+  - Metamorphic virus
+    - Rewrites themselve each time they infect a new file
+  - Microsoft Secure Development Lifecycle
+    - Training
+      - Train team member on security
+    - Requirements
+      - Establish security requirements
+      - Create quality gates and bug bars
+    - Design
+      - Establish design requirements
+      - Analyse attack surface 
+      - Use threat modeling
+    - Implementation
+      - Use approved tools
+      - deprecate unsafe functions
+      - perform static analyses
+    - Verification
+      - Perform dynamic analyses
+      - Fuzz testing
+    - Release
+      - Create IRP
+      - Final security review
+    - Response
+      - Everything that occurs after the software is released
+  - Cain & Abel
+    - Can crack Cisco VPN client passwords and record and extract voip conversations while John the Ripper can not do this
+  - HTTP PUT methods should be considered RISKY
+    - This allows clients to update files on the webserver
+  - A worm and a Bot can propagate without human interaction.
+  - N-tier architecture
+    - Allows each tier to be modified independently of the other tiers.  
+  - UTF-8
+    - Enabled unicode characters to be represented in an ASCII compatible length of 1 to 4 bytes
+  - You can perform Blackjacking with BBProxy
+  - Known plaintext attack
+    - Attacker has access to both plaintext and cipher text!
+  - Block ciphers
+    - Encrypt specific blocks of data
+  - ISECOM maintains the OSSTMM
+  - NMAP IPADDRESS <--this will work, returning results of first 1000 ports
+  - Signature based IDS have low false positive rates
+  - Software interrupt
+    - a signal that indicates an event has occured
+  - COBIT (Control Objects for Information Related Technology)
+    - IT management framework that was created by ISACA AND IT Governance Institute (ITGI)
+    - Four domains in COBIT
+      - Planning and Organization
+      - Acquisition and implementation
+      - Delivery and support
+      - Monitoring and Evaluation
+  - ITIL (Information Technology Infrastructure Library)
+    - Developed by the Central Computer and telecom Agency (CCTA) for the UK Gov
+    - ITIL Standardizes IT management procedures
+    - ITIL is divided into five main tasks:
+      - Service strategy
+      - Service design
+      - Service transition
+      - Service operation
+      - Continual Service improvement
+  - Windows NT 4.0 SP4 uses MD5 for hashing
+  - Kismet
+    - Supports Linux, Mac OS X, 802.11n and monitor mode
+    - Kismet can be used as a IDS
+  - NetStumbler
+    - Only installed on Windows
+    - Does not detect 802.11n
+    - Detects 802.11a, 802.11b & 802.11g
+    - Does not support monitor mode
+  - ARP spoofing is most likely to occur because of a trust relationship
+  - SC Query shows ONLY active services
+  - 802.11X
+    - Uses EAP (Extensible Authentication Protocol) to establish port-based Network Access Control
+  - NIDS are often setup using Switch SPAN ports
+  - 7 Categories of controls
+    - Directive
+      - Sometimes called procedural controls
+      - Used to define appropriate use and behavoir within an organization
+    - Deterrent
+      - Used to dissuade or deter a potential attack
+      - EX: Sign that warns of an alarm or policy that threatens termination if a user does X
+    - Preventive
+      - Used to stop potential attacks by preventing users from performing specific actions
+    - Compensating
+      - Used to supplement directive controls
+      - EX: An admin who reviews log data looking for policy violations
+    - Detective
+      - Used to monitor or send alerts about malicious or authorized activity
+    - Corrective
+      - Used to repair damage caused by malicious events
+      - EX: AV taking action to repair damage caused by virus
+      - EX: IPS blocking network traffic after detecting malicious traffic
+    - Recovery
+      - Used to restore system to a normal state after malicious activity has occurred
+      - EX: A backup system
+  - Port Scanning attack
+    - This is an attempt to determine whether vulnerabilities exist on the computers
+    - This is an attempt to access a computer through an open port
+  - Application layer firewalls
+    - Operate primarily at layer 7
+  - Circuit layer firewalls
+    - These operate at level 5 / session layer of OSI model
+  - Packet filtering firewalls
+    - These operate at the network level / Layer 3 of the OSI model
+  - Stateful multi-layer firewalls
+    - These combine qualities of other types of firewalls and operate at multiple layers
+  - Hinfo (DNS record)
+    - Contains info about OS's used by organization
+    - CPU type
+    - OS type
+  - Job postings
+    - This is a good way to gain info about the services and applications used in an organization
+  - OSSTMM (Open Source Security Testing Methodology Manual)
+    - Defines three types of compliance
+      - Legislative
+        - SOX, HIPAA
+      - Contractual
+        - PCI DSS
+      - standards-based
+        - ITIL, ISO, OSSTMM itself
+  - WPA uses MIC (Message Integrity Checks)
+    - MIC ensures frame integrity to protect against MITM attacks
+  - Metagoofil
+    - Uses google to search sites for DOC, PowerPoint, Excel, PDF and Open doc formats
+    - Metagoofil can extract metadata from those docs to reveal potentially useful info
+    - -f writes all the links to a date-time stamped .txt file instead of HTML
+    - -t recognizes ALL which will search all 17576 three letter file extensions
+    - -e allows you to specify the time delay between searches
+    - -r specifies the number of threads to use when downloading files
+  - PCI DSS Requirements
+    - Requirement 1: Install/Maintain a Firewall
+    - Requirement 2: Do not use vendor supplied defaults
+    - Requirement 3: Protect Card Holder data
+    - Requirement 4: Encrypt transmission of cardholder data across open/public network
+    - Requirement 5: Use and regularly update AV
+    - Requirement 6: Develop and maintain secure systems
+    - Requirement 7: Restrict Access to cardholder data
+    - Requirement 8: Assign a unique ID to each person with computer access
+    - Requirement 9: Restrict physical access to cardholder data
+    - Requirement 10: Track and monitor all access to network resources and cardholder data
+    - Requirement 11: Regularly test security systems and processes
+    - Requirement 12: Maintain a policy that addresses information security for all personnel
+  - 802.11i (WPA2) uses block cipher instead of stream cipher
+  - Libwhisker
+    - Perl module that supports IDS evasion techniques
+    - Nikto uses libwhisker for session splicing
+- CEH Book (Matt Walker)
+  - Chapter 1
+    - Threat modeling
+      - Five stages:
+        - Identify security objectives
+        - Application overview
+        - Decompose Strategy
+        - Identify threats
+        - Identify vulnerabilities
+    - EISA (Enterprise Information Security Architecture)
+      - A collection of requirements and processes that help determine how an organizations information systems are built and how they work
+    - Security Controls
+      - Physical
+        - Guards, lights, cameras
+      - Technical
+        - Encryption, smart cards, ACLs
+      - Administrative 
+        - Training, awareness, policy efforts
+    - Methods of security controls
+      - Preventative
+        - Authentication
+      - Detective
+        - Alerts on unauthorized access to resources
+      - Corrective
+        - backups and restoration options
+    - ALE=SLE*ARO
+      - ALE (Annualized loss expectancy)
+      - SLE (single loss expectancy
+      - ARO (annual rate of occurrence)
+    - Bit flipping
+      - Attack on integrity
+      - Attack on encryption, whereby an attacker manipulate bits in plain text to aid in decipher the plain text fed into the cipher
+    - Common Criteria
+      - TOE (Target of Evaluation)
+        - What is being tested
+      - ST (Security target)
+        - Document describing the TOE and security requirements
+      - PP (Protection Profile)
+        - A set of security requirements specifically for the type of product being tested
+      - EAL (Evaluation Assurance level)
+        - This is the result of the above steps/testing, allows vendors to make a claim as to the products security level
+    - Standards
+      - Mandatory rules used to achieve consistancy
+    - Baselines
+      - Provide minimum security level possible
+    - Guidelines
+      - Flexible recomendations, used when there is no standard to follow
+    - Procedures
+      - Detailed, step by step instructions 
+    - Policies
+      - Approved by board
+      - Lacking technical detail, broad in nature
+      - Mandatory
+    - Attacks phases:
+      - Recon
+      - Scan/enumeration
+      - Gaining access
+      - Maintaining access
+      - Covering tacks
+    - Passive recon
+      - gathering info about the target without their knowledge
+    - Active recon
+      - Uses tools and techniques that may or may not be discovered, but put your activities at more risk of being discovered
+        - IE Injecting packets into a network to see what happens vs just listening to packets and gathering data
+    - OSSTM ("Awestem")
+      - Peer-reviewed, formalized method of security testing and analysis that can provide
+      - Defines three types of compliance:
+        - Legislative
+          - Government standards
+        - Contractual
+          - Industry or group requirements
+        - Standards
+          - Practices that must be followed to be secure
+    - Five network zones
+      - Internet
+        - uncontrolled
+      - DMZ
+        - controlled, buffer between networks
+      - Production Network 
+        - Very restricted zone
+        - Very strict access rules that control access from uncontrolled zones
+      - Intranet 
+        - Controlled zone with very few to no restrictions
+      - Management network
+        - Highly secured zone, very strict policies
+    - BIA
+      - Business impact analyses
+      - Effort to ID the the systems and processes that are critical for operations
+    - MTD
+      - Maximum tolerable downtime
+    - BCP
+      - Business continuity plan
+      - this includes the DRP, addresses exactly what to do in event of disaster
+    - FISMA
+      - Defines comprehensive framework to protect government information, operations and assets against natural or man-made threats
+      - Federal Information Security Management Act
+      - Created in 2002
+    - Electronics Communication Privacy act
+      - created in 1986
+      - Extended government restrictions to wire taps to include transmission of data sent by computers
+      - Prohibited access stored electronic communications
+    - PATRIOT act
+      - Created in october 2001
+    - Privacy act of 1974
+      - Established a code of fair information practices that governs collection, maintenance, use and dissemination of info about individuals that is maintained in systems of records by federal agencies.
+    - CISPA (Cyber intelligence and protection Act)
+      - Aimed to help the US government investigate cyber threats and ensure the security of networks against cyber attacks
+    - Consumer data security and notification act
+      - This bill requires certain commercial entities regulated by the FTC to do the following
+        - 1: Implement security measures to protect electronic info
+        - 2: Restore integrity, security, and confidentiality of data systems following the discovery of a breach
+        - 3: Determine where there is a risk that breach will result in identity theft
+      - Requires notification of breach be sent to individual
+    - Computer security act of 1987
+      - aimed to improve the security and privacy of sensitive information in federal computer systems and to establish a minimum acceptable security practice for such systems
+    - HIPPA
+      - Developed by US Dept of Health and Human Services
+      - Address privacy standards with regard to medical info
+    - SOX
+      - This was created to make corporate disclosures more accurate and reliable in order to protect the public and investors from shady behavior 
+    - NIST 800-53
+      - Publication that recommends security controls for federal info systems and organizations and documents security controls for all federal info systems, except those designed for national security
+  - Chapter 2
+    - Footprinting (purposes of)
+      - Know the security posture
+      - Reduce the focus area
+      - ID vulnerabilities
+      - Draw a network map
+    - Social engineering is considered active footprinting by the ECC
+    - Dumpster diving is considered passive
+    - google, yahoo, twitter all offer notification services to keep you updated on a target
+    - Google hacking
+      - filetype:type
+      - Index of /string
+      - info:string
+      - intitle:string
+      - inurl:string
+      - link:string
+      - related:webpagename
+      - site:domain
+    - DNS Records
+      - SRV = Service
+        - Defines hostname and port number
+      - SOA = Start of Authority
+        - ID's primary name server for the zone
+      - PTR = Pointer
+        - Maps an IP address to a hostname.  Usually associated with email servers
+      - NS = Name Server
+        - Defines name servers within your name space
+      - MX = Mail Exchange
+        - IDs email servers
+      - CNAME = Canonical Name
+        - Provides domain name aliases within your zone
+      - A = Address
+        - Maps an IP address to a hostname
+    - Be familiar with WHOis output
+      - Registrant
+      - Admin names
+      - Contact numbers
+      - DNS servers
+    - Nslookup
+      - Interactive mode (simply type NSLOOKUP and hit enter)
+      - Once in interactive mode, these options are availible:
+        - server servername
+        - set type = type
+          - You can select a resource record type (see DNS records above for types) or select ALL
+        - You use "set" to choose an options
+    - Windows vs Nix Trace route function
+      - Windows is called tracert, uses ICMP only
+      - Linux is called traceroute, can use ICMP, UDP and others 
+  - Chapter 3
+    - IPV4 address types
+      - Unicast
+      - Multicast
+      - Broadcast
+    - Per ECC, scanning methodology is:
+      - 1. Check for live systems
+      - 2. Check for open ports
+      - 3. Scan beyond IDS
+      - 4. Perform banner grabbing
+      - 5. scan for vulnerabilities
+      - 6. draw network diagrams
+      - 7. prepare proxies
+    - ICMP Message types
+      - Type 0
+        - Echo REPLY
+      - Type 3
+        - Destination Unreachable
+          - Codes:
+            - 0 destination network unreachable (bad or missing routes)
+            - 1 destination host unreachable (host down)
+            - 6 Network unknown
+            - 7 Host unknown
+            - 9 Network admin prohibited
+            - 10 host admin prohibited
+            - 13 comm admin prohibited (firewall)
+      - Type 4
+        - Source Quench
+      - Type 5
+        - Redirect
+      - Type 8
+        - Echo REQUEST
+      - Type 11 
+        - Time Exceeded
+    - Ping steps
+      - step 1. ICMP type 8 (Echo request) is sent to target from sender
+      - step 2. ICMP type 0 (Echo reply) is sent from target to sender
+    - Ping sweeps = ICMP Echo scanning
+    - Nmap ACK flag scan
+      - This is used to check filtering at remote end
+      - If ACK is sent, and no reponse = firewall
+      - If ACK is sent, RST comes back = no firewall
+    - gzapper
+      - Utility to remove google tracking cookies from system
+    - Active banner grabbing
+      - sending specially crafted packets to the system to guess the OS based on responses
+    - Passive banner grabbing
+      - Reading error messages
+      - Sniffing network traffic
+      - looking at page extensions
+    - NBTstat
+      - -n is the local table
+      - -A IPADDRESS for a remote systems table
+      - -c for the cache
+    - Netbios enumeration
+      - Identifying the code and type
+      - Netbios name resolution does not work on IPv6
+      - Which tools can be used to perform it
+        - Superscan can be used to gather Netbios info
+        - Hyena can also gather netbios info
+        - Winfingerprint
+        - Netbios Enumerator
+        - NSAuditor
+    - NTPv3 and SNMPv3
+      - Both protocols provide encryption, authentication, and message integrity
+    - SNMP commands
+      - VRFY
+        - validates user
+      - EXPN
+        - Provides actual delivery address of mailing lists and aliases
+      - RCPT TO
+        - defines recipients
+  - Chapter 4
+    - Winpcap = Windows packet capture driver
+    - Libpcap = Linux packet capture driver
+    - MAC flooding also called switch port stealing
+    - Rogue DHCP server
+      - When an attacker sets up a DHCP and services a network
+    - Wireshark filters
+      - TCP Contains search-string
+        - How to search a packet for specific info
+      - equal to 
+        - ==
+      - And
+        - &&
+      - OR
+        - or
+      - ip.dst
+        - IP Destination
+      - ip.src
+        - IP Source
+      - ip.addr
+        - Specific ip address or subnet
+    - ARP poisoning is done on the machine creating the frame - the sender
+    - TCP Dump
+      - -A
+        - Print each packet in ASCII
+      - -B 
+        - Buffer size (in KB)
+      - -c
+        - Exit TCPDump after collecting X packets
+      - -d
+        - Dump packet matching code in a human readable form to standard output and stop
+      - -i
+        - Interface selection
+      - -q 
+        - Quick (quiet?) output - prints less protocol info so lines are shorter
+      - -r filename
+        - Read packets from a file
+    - Libwhisker
+      - Perl library for HTTP functions
+      - Including vulnerability scanning and IDS evasion
+    - Network tap
+      - Any kind of connection that allow you to see all traffic that passes by it
+    - Snort
+      - Snort config file = /etc/snort/snort.conf
+      - Snort rule file = /etc/snort/rules/local.rules
+      - Snort log directory = /var/log/snort
+      - -c /etc/snort/snort.conf
+        - How to point snort to a config file
+      - -i interface
+        - specifies an interface
+        - -i eth0 for example
+      - -q
+        - Quiet mode
+      - -A console
+        - Prints alerts to console
+      - example rule:
+        - alert ICMP any any -> $home_net any (msg: "ICMP test"; sid:10000001; rev:1; classtype:icmp-event;)
+          - Alert - rule action 
+          - Any Any - Source IP source port
+          - -> Direction
+          - $home_net - specifies destination (in this case a subnet)
+          - any - specifies a port in destination
+          - MSG = message
+    - Firewalls are dual homed
+      - DMZ aka public zone aka screened subnet
+      - Private zone (per ecc) has hosts that should not deal with internet based hosts
+    - sniffing = wiretapping in reference to law enforcement
+    - Gratuitous ARP
+      - Special ARP that updates the cache of all systems that receive it
+    - DHCP Starvation
+      - An attack where an attacker tries to use all DHCP addresses on a server
+    - IRDP
+      - ICMP Router Discovery Protocol
+  - Chapter 5
+    - LM (LanMan)
+      - Uses DES
+      - Used on windows 95/98
+    - NTLM
+      - Uses DES and MD4
+      - Used on NT machines up to SP3
+    - NTLM V2
+      - Uses MD5 on NT machines after SP3
+    - Kerberos came about with Windows 2000
+    - Linux directories
+      - / - root directory
+      - /bin - holds all sorts of basic linux commands
+        - This is like the c:\windows\system32 folder
+      - /dev
+        - This folder contains pointer locations to various storage locations
+      - /etc
+        - This folder contains all the administration files and passwords
+      - /home
+        - This folder is the users home directories
+      - /mnt
+        - This holds access to locations that are mounted
+      - /sbin
+        - System binaries folder
+        - Where daemons are located
+      - /usr
+        - Holds all the info, commands and files unique to users
+    - Linux commands
+      - &
+        - Linux command to make process run in background
+      - nohup
+        - Linux command to make a process run after user logs out
+      - adduser
+        - adds a user
+      - cat
+        - displays contents of a file
+      - cp
+        - copy command
+      - ifconfig
+        - interface config
+      - kill
+        - kills a process
+      - ls
+        - lists the contents of a folder
+        - -l provides the most info
+      - man
+        - displays the manual page of a command
+      - passwd
+        - Used to change your password
+      - PS
+        - Process Status command
+        - use -ef to show ALL processes running on the system
+      - rm
+        - Remove files
+        - -r makes this run recursivly and provides no warnings
+      - su
+        - allows you to perform functions as a different user
+        - sudo allows you to run commands as "super root" admin user
+    - Hacking steps
+      - 1. Recon
+      - 2. Scanning
+      - 3. Gaining Access
+      - 4. Maintaining Access
+      - 5. Covering tracks
+    - Software key loggers = easy to detect
+    - Hardware key loggers = very hard to detect
+    - Vertical privilege escalation
+      - This occurs when a lower level user executes code a higher priv level they should not have access too
+    - Horizontal privilege escalation
+      - This occurs when a user executes from a location on their same level, but from which should not allow execution (write protected, etc...)
+    - Semagram
+      - Visual Semagram
+        - Arraigning items a certain way on a desk to send a message (for example)
+      - Text Semagram
+        - Obscuring messages within text by using varying font sizes or font colors
+    - ECC steps for detecting root kits
+      - 1. dir /s /b /ah
+      - 2. dir /s /b /a-h 
+      - 3. Save results from both commands above
+      - 4. Boot from a clean CD version and same commands again 
+      - 5. Last use WinDiff on both systems to see if you can spot a difference
+  - Chapter 6
+    - Review OWASP top 10 from 2013
+      - https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project#tab=OWASP_Top_10_for_2013
+    - N-tier
+      - Usually three tiers
+        - Presentation 
+        - Logic
+        - Data
+    - Apache server
+      - Configuration is almost alwasy done as part of a module, modules are appropriatly names (mod_negotion for example)
+      - IIS runs as LOCAL_SYSTEM; shells spawned from this are also at LOCAL_SYSTEM level
+      - httpd.conf
+        - This controls a lot of stuff
+      - php.ini
+        - This is where you would look for verbose error logging
+    - HTTP Methods
+      - GET
+        - Places data in URL which makes it insecure
+      - POST
+        - This is generally considered a more secure option than GET
+    - DNS Amplification
+      - An attack in which an attacker uses recursive DNS from a botnet to DOS a target/victim
+    - Common Unicode characters
+      - "space" = &nbsp;
+      - " = &quot;
+      - ' = $apos;
+      - & = &amp;
+      - < = &lt
+      - > = &gt
+    - SOAP Injection
+      - Simple Object Access Protocol
+      - Uses custom XML strings to manipulate a victim
+    - Buffer overflow = smashing the stack
+    - Stored XSS or Persistent XSS or Type 1 XSS
+      - These all reference the same thing
+      - This is when an XSS attack is stored on the server and launched against visitors repeatedly as they use the site
+    - Session fixation
+      - An attacker obtains a legit session ID from a website, then tricks a user into using this session ID to connect to that site.  The attacker can then take over the session at that users permission level
+    - Most SQL injections use DML (Data Markup Language) within SQL
+    - Blind SQL injectin
+      - Takes a longer time to pull off attack
+      - No error messages or screen displays are returned to the attacker
+  - Chapter 7
+    - 802.11i
+      - Amendment to 802.11
+      - Specified security measures for use on a wireless lan
+    - 802.16
+      - This is WiMax
+      - up to 40 Mbps
+    - BSSID = MAC address of Access Point
+    - Spectrum analyzer can be used to verify wireless quality, detect rogue access point, detect various attacks
+    - Rogue APs = Evil Twins
+      - Also called a misassociation attack
+    - Faking a well known AP (like McDonalds) is called "Honeyspot"
+    - Aircrack uses a dictionary attack on WPA and WPA2
+    - Cain & Abel relies on statistical measures and PTW technique to break WEP codes
+    - MDM = mobile device management
+      - An effort to add controls to a enterprise enviroment
+      - Can push security policies, application deployment, monitoring
+    - bluetooth attacks
+      - Bluesmacking
+        - DoS attack
+      - BlueJacking
+        - Sending unsolicited messages to and from mobile devices
+      - Bluesniffing
+        - Like war-driving for wifi, an effort to discover bluetooth devices
+      - Bluebugging
+        - Succesfully accessing a bluetooth device and remotely using features
+      - Bluesnarfing
+        - The actual theft of data from a bluetooth device
+      - Blueprinting
+        - Like footpritning but for bluetooth
+    - BBProxy is a blackberry centric tool that useful for pulling off Bluejacking attacks
+  - Chapter 8
+    - NIST 500-292 (Cloud Computing Reference Architecture)
+      - Cloud carrier
+        - The organization responsible for transmitting data to/from the cloud service
+      - Cloud consumer
+        - The organization or person that acquires and uses cloud services
+      - Cloud provider
+        - The organization providing the cloud service
+      - Cloud broker
+        - Manages the cloud services and the relationship between the cloud consumer and the cloud provider
+      - Cloud auditor
+        - Independent assessor of cloud service and security controls
+    - cross-guest VM breach
+      - If an attacker can gain control of existing VM or place his own VM on a host, he may be able to attack other VMs on that host in several different ways
+    - Cloud computing threats
+      - Data breach or loss
+        - The malicious theft or erasure of any cloud data
+      - Abuse of cloud resources
+        - Unauthorized access to cloud resources for malicious purposes
+      - Insecure interfaces and APIs
+        - APIs can often circumvent security policies, making them a prime target for attackers
+    - Session riding
+      - CSRF under a different name
+      - Deals with cloud resources instead of web apps, but the idea is the same
+  - Chapter 9
+    - Netcat
+      - Can be used to create "common shell trojan"
+    - Registry
+      - Windows autorun locations
+        - Run
+        - RunServices
+        - RunOnce
+        - RunServicesOnce
+      - Most questions will focus on HKEY_LOCAL_MACHINE
+    - Botnet = Distributed reflection denial-of-service (DRDoS) attack
+      - Also known as spoof attack
+    - Four categories of DoS
+      - Fragmentation attacks
+        - Attack takes advantage of a systems inability to handle packet reassembly
+      - Volumetric attacks
+        - Also known as bandwidth attacks, consume all available bandwidth
+      - Application attacks
+        - These attacks consume the resources used for the applications, creating DOS
+      - TCP state-exhaustion attacks
+        - Focused on load balancers, firewalls, etc...
+        - aims to max out the number of connections a device can sustain
+    - Common DOS attack styles
+      - SYN attack
+        - Attacker floods victim with thousands of SYN packets from fake IP addresses.  Victim responds to SYN request, but because of spoofed IP no connection is made (wasting resources)
+      - SYN flood
+        - Hacker sends thousands of SYN packets to server using real IP
+        - Uses real IP, but never responds to victims request to create connection
+      - ICMP flood
+        - Sends thousands of ICMP echo requests to victim with spoofed source address, exhausting resources on victim
+      - Application level
+        - Attack where attacker sends more legit traffic than website can sustain, causing a  DoS
+      - Smurf
+        - This attack sends a large number of PINGS / ICMP echo requests to the broadcast address of a subnet
+        - Entire subnet then responds and pings back to the source (which is victim IP address)
+      - Fraggle
+        - Uses UDP instead of ICMP, like Smurf above
+      - Ping of Death
+        - Attacker fragments a PING packet then sends them to victim
+        - When victim reassembles ping packet, its larger than allowed and crashed victim
+      - Teardrop
+        - A large number of garbled IP fragments with overlapping, over sized payloads are sent to victim
+        - Takes advantage of fragmentation reassembly problem in older machines
+      - Peer to peer
+        - Clients of a peer to peer sharing hub are disconnected and directed to connect to the victim system
+      - Permanent
+        - Phlashing
+        - This attack causes permanent damage to a system, usually to hardware
+    - session hijacking steps
+      - 1. Sniff traffic
+      - 2. Monitor traffic
+      - 3. Desync session with victim
+      - 4. Predict the session token
+      - 5. Inject packets to the victim/target
+    - TCP sequence numbers increment on acknowledgement
+    - IPSec 
+      - Transport mode
+        - Payload and ESP trailer are encrypted
+        - IP header of original packet is not encrypted
+      - Tunnel mode
+        - the entire IP packet is encrypted
+      - Authentication header
+        - Protocol within IPSec 
+        - Guarantees Integrity and Authentication
+      - Encapsulating Security Payload (ESP)
+        - Provides origin authentication and integrity
+        - But can also provide confidentiality through encryption
+      - Internet Key Exchange (IKE)
+        - Protocol that produces keys for the encryption process
+      - Oakley
+        - Protocol that uses diffie-helman to create master and session keys
+      - Internet Security Association Key Management Protocol
+        - Software that facilitates encrypted communication between two endpoints
+    - Trojan port numbers
+      - Death = 2
+      - Senna spy = 20
+      - Hackers paradise = 31,456
+      - TCP Wrappers = 421
+      - DOOM, Satanz backdoor = 666
+      - Silencer, Webex = 1001
+      - RAT = 1095-1098
+      - SubSeven = 1243
+      - Shiva-Burka = 1600
+      - Trojan Cow = 2001
+      - Deep Throat = 6670-6671
+      - tini = 7777
+      - Netbus = 12345-12346
+      - whack a mole = 12361-63
+      - back orfice = 31337-31338
+    - Ghost eye worm
+      - Uses random messaging on facebook and other sites to perform malicious acts
+  - Chapter 10
+    - Asymetric encryption
+      - Public key = encrypt
+      - Private key = decrypt
+    - Diffie-Helman
+      - Key Exchange protocol
+      - Used in SSL and IPSec
+    - Elliptic Curve Cryptosystem
+      - Uses points on elliptic curve in conjunction with logarithmic problems for encryption and digital sigs
+    - El Gamal
+      - Uses solving discrete logarithmic problems for encryption and digital sigs
+    - RSA
+      - Uses factoring of two large prime numbers to create key sizes up to 4096 bits.
+    - Hashes are used for integrity
+    - Hashes are one way processes
+    - How to spot stenography
+      - Text: Character positions
+        - Look for patterns in text
+        - unusual blank spaces
+        - language anomalies
+      - Image:
+        - Files will be larger than they need to be
+        - may show weird color faults
+      - Audio/video:
+        - These require statistical analyses and special tools
+    - PKI Cross Certification
+      - A CA can be setup to trust a CA in a completly different PKI using cross-certification
+    - Heartbleed
+      - This takes advantage of the "heartbeat" function within OpenSSL that verifies data was received correctly by echoing back a piece of the data sent. 
+      - Attacker sends 1kb of data to server, then tells the server "I sent 64kb".  the server responds back with 64 kb of random data from memmory
+      - NMAP scan to look for this:
+        - nmap -d -script ssl-heartbleed -script-args vulns.showall -sV hostIPaddress
+        - This returns: "State: NOT VULNERABLE" if no vuln is found
+      - OpenSSL versions 1.0.1 through 1.0.1f are vulnerable
+      - CVE-2014-0160
+    - FREAK
+      - Factoring Attack on RSA-Export Keys
+      - Man in the middle attack, forces downgrade of RSA key to weaker length
+      - This in turn enables brute forcing which will break shorter keys quicker
+    - POODLE (AKA POODLEBLEED)
+      - Padding on Oracle Downgraded legacy
+      - Forces downgrade from TLS to SSL3.0, allowing an attacker to collect "leaked data" from messages
+      - CVE-2014-3566
+    - DROWN
+      - Decrypting RSA with Obsolete and Weakened eNcryption
+      - Requires SSLv2 be supported on server
+      - Turn off support for SSLv2 to fix this problem
+    - Cryptographic attacks
+      - Known plain-text
+        - In this attack, hacker has both plain-text and cipher text
+      - Chosen plain-text attacks
+        - In this attack, the attacker encrypts multiple plain text copies in order to gain key
+      - Adaptive chosen plain-text attack
+        - Attacker sends a bunch of cipher texts to be decrypted
+        - Then uses the results of decriptions to select different, closely related cipher texts
+      - Cipher-text only attack
+        - Attacker gains copies of several messages encrypted in the same way
+        - Statistical analyses is then used to reavel a repeating code which is used to break the crypto
+      - Replay attack
+        - Usually a MITM attack
+        - Attacker repeats a portion of a cryptographic exchange hoping to fool the target into setting up communications with the attacking machine
+      - Chosen cipher attack
+        - Attacker chooses a particular cipher text message and attempts to discern the key through comparative analysis with multiple keys and plain text version
+        - RSA is particularly vulnerable to this
+    - Side channel attack
+      - A physical attack that monitors environmental variables like power consumption, delay, timing, etc...
+  - Chapter 11
+    - ECC Defines 4 phases of social engineering
+      - Research
+      - Select the victim
+      - Develop a relationship
+      - Exploit the relationship
+    - Vishing
+      - Voice phising attack
+    - Tailgaiting vs piggbacking
+      - Tailgaters have ID badge, Piggbackers do not have ID
+      - On questions where these terms do not appear together, they are used interchangeably
+    - FAKE AV pop up
+      - AKA rogue security
+      - "allows potential attacker access to PII"
+      - Verify any link in an email about rogue security or fake AV
+    - Directed phishing attempts on high level executives is called WHALING
+    - Directed phishing attempts on ANYONE is called spear phising
+    - Methods to detect/deter phising
+      - Netcraft tool bar identifies risky sites
+      - Phishtank tool bar identifies risky sites
+      - A "sign in seal" is a image or watermark that can be verified to indicate the message came from who it says it did (sign in seal is kept local, making it harder to spoof)
+      - Three categories of physical security (per ECC)
+        - Physical security
+          - Like door locks, man traps, bollards in front of doors
+        - Technical security
+          - Like smart cards or BIO scanners which you have to touch or a token you bring with you (fob)
+        - Operation security
+          - Policies and procedures setup to enforce a security-minded operation
+      - Measuring effectiveness of bio-metric system
+        - FRR = False Rejection Rate
+          - Number of times the system rejects a legit user
+        - FAR = False Acceptance Rate
+          - Number of times the system allows a illegit user
+        - CER = Cross-Over Error Rate
+          - When graphed, this is where FRR & FAR meet or cross
+      - ECC Council defines 4 types of mobile attacks
+        - Publishing malicious apps
+        - Repackaging legitimate apps with malware
+        - Fake security apps
+        - SMS AKA SMISHING
+  - Chapter 12
+    - Security audit 
+      - This is procedure and policy focused
+    - Vulnerability assessment
+      - Scans and tests system looking for vulnerabilities, but does not exploit them
+    - Penetration test
+      - Actively seeks to exploit vulnerabilities
+    - Shellshock exploitation
+      - env var =' () ( :;): ECHO BADTHING' Bash -c "Echo Goodthing"
+      - Essentially passing a env variable to the vulnerable server that defines an command will allow that command to be executed
+    - Codenomicon
+      - "automated penetration testing" tool
+    - CORE impact Pro
+      - All inclusive automated pen testing tool
+    - Metasploit
+      - framework for developing and executing exploit code
+    - CANVAS
+      - From immunity security
+      - Also a framework for testing exploitations
+    - Three phases of pen test
+      - Pre-attack
+        - Gathering info, performing recon, DNS enumeration, NMAP scanning, etc
+      - Attack phase
+        - When you actually attempt to penetrate the network
+      - Post-attack
+        - Cleanup
+          - Removing tools, fixing registry as needed, etc...
+        - Reporting
+    - Four categories of insider threats (per ECC)
+      - Pure insider
+        - employee with all rights and access to internal network
+      - inside associate
+        - person with limited, but authorized access (think contractor or consultant)
+      - inside affiliate
+        - This is a spouse, friend, family member, etc..who uses an employees credentials to perform actions
+      - outside affiliate
+        - Person outside, unknown and untrusted, who uses an open channel to access the internal network
+- Skillset tests
+  - HTTP PUT method
+    - Can be used to leverage all of these attacks:
+      - Upload arbitrary code
+      - Inserting garbage data in sensitive locations
+      - Getting write access to server
+  - Webserver 401 = Unathorized
+  - \X41 = unicode for letter "A"
+  - Girlfriend Trojan uses port 21544
+  - SSL uses symmetric encryption
+  - First step in SSL is Client Hello
+  - Arp Poisoning is a popular way to "get in the middle"
+  - Paranoid mode in NMAP scans every 5 minutes
+  - NMAP "decoy" scan requires decoy machine to be on the network (online)
+  - ARP poisoning and MAC flooding are both forms of active sniffing
+  - CACE PILOT is used for sniffing
+  - Apache: Server often runs with priv of www-data
+  - Kernel level rootkit - attacks OS level that interacts with hardware
+  - YAGI antenna uses both UHF and VHF bands
+  - WPS pins = 11,000 attempts AT THE MOST (10,000 for first 4, 1,000 for next 4)
+  - OS fingerprinting is based on the way different OS vendors implement the TCP/IP stack differently
+  - Steganography technique that embeds message in frequency domain of a signal is called the transform domain technique
+  - TKIP rekeys every 5000 packets
+  - RC6 includes 4 four bit working registers and integer multiplication
+  - Honeypots show a particular service running but 3-way handshake fails
