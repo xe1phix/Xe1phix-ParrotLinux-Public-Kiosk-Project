@@ -1,0 +1,1529 @@
+[[snippets]]
+  description = "start dev file syncer. uses fswatch to know when to run rsync.  does not sync .git file.  Sort like a write-through cache network file system with only eventual consistency guarantees."
+  command = "fswatch -0 --exclude \"\\.git\" --exclude \"\\.xml\" --exclude \"___\"  -o  /Users/chris/Documents/workspace/lingt_chris_dev_rsync_checkout/myproject  | xargs -0 -n 1 -I {} rsync --progress --exclude '*.pyc'  --exclude '*.git' --recursive ~/workspace/lingt_chris_dev_rsync_checkout/myproject dev@dev.server:/home/user/webapps/dev_chris/myproject"
+  output = ""
+
+[[snippets]]
+  description = "plex find unscanned tv!"
+  command = "cat <(find /Users/chris/Downloads/media/dbx_mount/tv  -type f | sed 's/.*\\///' | grep  'mp4\\|mkv\\|avi') <(unbuffer /Applications/Plex\\ Media\\ Server.app/Contents/MacOS/Plex\\ Media\\ Scanner -c 4 --tree | grep 'mp4\\|mkv\\|avi'  | sed 's/.*\\///' | sed 's/\\w*\\[.*\\]$//' | awk '{$1=$1};1')  | sort | uniq -u"
+  output = ""
+
+[[snippets]]
+  description = "plex find unscanned movies"
+  command = "cat <(find /Users/chris/Downloads/media/dbx_mount/movies  -type f | sed 's/.*\\///' | grep  'mp4\\|mkv\\|avi') <(unbuffer /Applications/Plex\\ Media\\ Server.app/Contents/MacOS/Plex\\ Media\\ Scanner -c 5 --tree | grep 'mp4\\|mkv\\|avi'  | sed 's/.*\\///' | sed 's/\\w*\\[.*\\]$//' | awk '{$1=$1};1')  | sort | uniq -u"
+  output = ""
+
+[[snippets]]
+  description = "CRON command to backup a file every 10 minutes"
+  command = "*/10 * * * * /bin/cp /some/file /some/other/file.backup$(date +%Y%m%d)"
+  output = ""
+
+[[snippets]]
+  description = "Search apple messages sqlite database!  Also great for backing stuff up."
+  command = "sqlite3 ~/Library/Messages/chat.db \"SELECT text, datetime(date, 'unixepoch', '+31 year') FROM message WHERE text LIKE '%Hello%';\""
+  output = ""
+
+[[snippets]]
+  description = "shows dirs with most jpgs in them"
+  command = "for d in */*/; do; echo \"`find $d | grep -i jpg | wc -l` : $d\"; done  | sort -n"
+  output = ""
+
+[[snippets]]
+  description = "faster dailymotion youtube-dl downloads"
+  command = "youtube-dl -f 'best[format_id^=hls]' --hls-prefer-native https://www.dailymotion.com/XXXXXX"
+  output = ""
+
+[[snippets]]
+  description = "better fast dailymotion downloadusing aria2 to use multiple (8) connections to download the file in small chunks. This is helpful for bypassing free wifi spots which throttle the speed of a download after the first megabyte."
+  command = "youtube-dl --external-downloader aria2c --external-downloader-args '-c -j 8 -x 8 -s 8 -k 2M' http://www.dailymotion.com/video/XXXX"
+  output = ""
+
+[[snippets]]
+  description = "test disk write speed"
+  command = "dd if=/dev/zero bs=2048k of=tstfile count=1024 2>&1 | grep sec | awk '{print $1 / 1024 / 1024 / $5, \"MB/sec\" }'"
+  output = ""
+
+[[snippets]]
+  description = "test disk read speed"
+  command = "dd if=tstfile bs=2048k of=/dev/null count=1024 2>&1 | grep sec | awk '{print $1 / 1024 / 1024 / $5, \"MB/sec\" }'"
+  output = ""
+
+[[snippets]]
+  description = "homebrew: install old version thats from before a specific date"
+  command = "brew info https://raw.githubusercontent.com/Homebrew/homebrew-core/$(git -C $(brew --repo)/Library/Taps/homebrew/homebrew-core log --before=\"2018-01-01\" -n 1 --pretty=tformat:\"%h\" Formula/ffmpeg.rb)/Formula/ffmpeg.rb"
+  output = ""
+
+[[snippets]]
+  description = "homebrew: get total size of all of all of formula's dependencies.  WARNING: Slow"
+  command = "brew info --json=v1 $(brew deps -v ffmpeg) |  jq -r '.[].bottle.stable.files.mojave.url'  | xargs -I {} curl -sI {} | grep -i content-length   |  awk '{s+=$2} END {printf \"%.2f MB\\n\", s/1024**2}'"
+  output = ""
+
+[[snippets]]
+  description = "homebrew: show the largest mojave bottles sorted.  WARNING: Slow"
+  command = "brew info --json --all | jq -r '.[].bottle.stable.files.mojave.url' | xargs -I {} sh -c 'echo {}; curl -sI {}' | grep \"https\\|content-length\" | sed -e ':a' -e 'N' -e '$!ba' -e 's/gz\\n/gz /g'  | awk '{printf \"%d %s\\n\", $3,$1}' |  sort -nr| awk '{printf \"%.2f MB %s\\n\", $1/1024**2, $2}'"
+  output = ""
+
+[[snippets]]
+  description = "rclone: mount gdrive without the crap"
+  command = "rclone mount -v --vfs-cache-mode full --vfs-cache-max-age=1h --max-size=5M --exclude=\"/*photo*/\" --exclude=\"/Camera Uploads/\" --exclude=\"/Google Photos/\" --exclude-if-present=\"2019-02-25 00.22.43.jpg\" --exclude=\"*.jpg\" --exclude=\"*.png\" --allow-other --read-only --dir-cache-time 1h  gdrive:/ /tmp/gdrive"
+  output = ""
+
+[[snippets]]
+  description = "download file in parallal but inorder-ish for viewing while downloading"
+  command = "aria2c --enable-http-pipelining --min-split-size=5M --console-log-level=notice -x 6 --stream-piece-selector=geom --continue  https://XXXXXXXXXXXXXXX"
+  output = ""
+
+[[snippets]]
+  description = "clean subtitles"
+  command = "for f in *.mkv; do srt process -m re -f 'lambda sub: re.sub(\"\\[.+\\]\", \"\", sub)' -i \"${f%.*}\".en.srt -o \"${f%.*}\".en.srt; done"
+  output = ""
+
+[[snippets]]
+  description = "extract mkv subtitles"
+  command = "for f in *.mkv; do ffmpeg -y -i \"$f\" -map 0:m:language:eng -map -0:a -map -0:v \"${f%.*}.en.srt\"; done;"
+  output = ""
+
+[[snippets]]
+  description = "query for the number of miles of protected bike lanes in SF: As of 7/2020: 30miles"
+  command = "curl 'https://data.sfgov.org/resource/ygmz-vaxd.json?$select=sum%28length%29&$where=symbology%3D%22SEPARATED%20BIKEWAY%22'"
+  output = ""
+
+[[snippets]]
+  description = "clean up media filenames"
+  command = "rename 's/[\\_\\s]+/\\./g' *.mkv; rename \"s/\\(.*\\)//\"  *.mkv;  rename --trim -S \"'\" \"\" *.mkv;"
+  output = ""
+
+[[snippets]]
+  description = "avoid obvious traffic behavior. Randomly twiddle rclone bandwidth limit with a normal distribution (waaaay over complicating things)"
+  command = "while true; do rclone rc -v -v -v core/bwlimit rate=$[$[$[(${RANDOM}%7)/2.0+3.5]+$[(${RANDOM}%4)/2.0+4]]/2]0M; sleep $[(${RANDOM}%5+2)*5]; done"
+  output = ""
+
+[[snippets]]
+  description = "observe distribution of some random numbers"
+  command = "for i in `seq 30000`; do echo $[$[$[(${RANDOM}%7)/2.0+3.5]+$[(${RANDOM}%4)/2.0+4]]/2]0M; done | sort -n | uniq -c"
+  output = ""
+
+[[snippets]]
+  description = "extract english subtitles only using ffmpeg (negative mapping...includes all language:eng streams, then removes all audio and video streams)"
+  command = "ffmpeg.exe -i TEST_Input.mkv -map 0:m:language:eng -map -0:a -map -0:v \"TEST_output.srt\""
+  output = ""
+
+[[snippets]]
+  description = "subtitles: remove hearing impaired annotation in place using srtlab (https://github.com/DrLex0/SRTLab/blob/master/srtlab.pl)"
+  command = "srtlab -e -H -H -c SUB_FILE.srt"
+  output = ""
+
+[[snippets]]
+  description = "whois a list of ips"
+  command = "cat /tmp/ips | xargs  -n 1 -P 1 -I {{}}  bash -c  'echo ========== {{}} =========; whois {{}}' > /tmp/ipwho"
+  output = ""
+
+[[snippets]]
+  description = "look at org details for IP whois dump"
+  command = "cat /tmp/ipwho | grep \"CustName\\|Organization\\|org\\-name\\|descr:\\|=====\\|role:\" | less"
+  output = ""
+
+[[snippets]]
+  description = "look for interesting non-numerical strings in kernel state"
+  command = "sysctl  -a | grep -v \": $\"| grep  -v \": [_/ \\.0-9-]\\+$\""
+  output = ""
+
+[[snippets]]
+  description = "useless advisor for advanced ffmpeg commands"
+  command = "open https://amiaopensource.github.io/ffmprovisr/"
+  output = ""
+
+[[snippets]]
+  description = "exiftool: set all dates for image files to a specific one"
+  command = "exiftool -v -overwrite_original_in_place '-AllDates=2001:01:01 01:01:01' '-FileModifyDate=2001:01:01 01:01:01' '-CreationDate=2001:01:01 01:01:01' *.jpg"
+  output = ""
+
+[[snippets]]
+  description = "exiftool: set all dates to the file creation date (which can be copied over with wget)"
+  command = "exiftool -overwrite_original_in_place \"-alldates<filecreatedate\" \"-FileModifyDate<filecreatedate\" *"
+  output = ""
+
+[[snippets]]
+  description = "rclone mount putio"
+  command = "rclone mount --log-file /tmp/putio_cache.log -v -v --allow-other --buffer-size 300M --vfs-read-chunk-size=15M --vfs-read-chunk-size-limit=90M --vfs-cache-mode minimal  --read-only --vfs-cache-max-age=1h --max-read-ahead 60M --no-modtime  --no-checksum  --volname \"putio\" --fast-list --dir-cache-time 5m  --checkers 10 --cache-workers=6 putio-cache:/ ~/Downloads/media/putio_cache_mount"
+  output = ""
+
+[[snippets]]
+  description = "exiftool: check dates for the first jpeg in this dir"
+  command = "exiftool -time:all -a -G0:1 -s *.jpg([1])"
+  output = ""
+
+[[snippets]]
+  description = "compress images inside of a pdf.  Use /ebook for more compression or /screen for even more"
+  command = "gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf"
+  output = ""
+
+[[snippets]]
+  description = "find the nearest keyframe that precedes N seconds in a file.  Bash function. requires ffprobe"
+  command = "function ffnearest() { TIME=$2; export TIME; ffprobe -read_intervals $[$TIME-15]% -select_streams v -show_frames -show_entries frame=pkt_pts_time,pict_type -v quiet \"$1\" |  awk -F= ' /pict_type=/ { if (index($2, \"I\")) { i=1; } else { i=0; } } /pkt_pts_time/ { if (i && ($2 <= ENVIRON[\"TIME\"])) print $2; } /pkt_pts_time/ { if (i && ($2 > ENVIRON[\"TIME\"])) exit 0; }' | tail -n 1 }"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg extract 1st subtitles from range of number match (change to `-map 0:s:1` to extract 2nd subtitles)"
+  command = "for f in SomeThing.S1E{01..12}.*.mkv; do ffmpeg -y -i \"$f\" -map 0:s:0 \"${f%.*}.en.srt\"; done;"
+  output = ""
+
+[[snippets]]
+  description = "srtlab remove HI/SDH from range of subtitles, in place (destructive) editing and also remove empty subtitles."
+  command = "for f in *.srt; do srtlab -H -H -c -v -v -e \"$f\"; done;"
+  output = ""
+
+[[snippets]]
+  description = "mkvpropedit set an mkv's 2nd audio and subtitle track to be the default and remove default flag from 1st audio and subtitle track"
+  command = "mkvpropedit --edit track:s2 --set language=eng --set flag-default=1  --edit track:a2 --set language=eng --set flag-default=1 --edit track:s1 --set flag-default=0  --edit track:a1 --set flag-default=0 file.mkv"
+  output = ""
+
+[[snippets]]
+  description = "create a binary delta for a large file. Look at file_delta's size to understand the size of the binary diff."
+  command = "rdiff signature BigFile /tmp/file_sig; rdiff delta /tmp/file_sig OtherBigFile /tmp/file_delta; echo RUN THIS TO PATCH --> rdiff patch OtherBigFile /tmp/file_delta /tmp/NewFileFromDelta;"
+  output = ""
+
+[[snippets]]
+  description = "use datasf api over curl (some funky encoding is needed)"
+  command = "curl -s -G -v -v https://data.sfgov.org/resource/g8m3-pdis.json --data-urlencode '$query=select *  where  full_business_address=\"1 Dolo Drive\"' --data-urlencode \"\\$\\$app_token=___APP_KEY______\""
+  output = ""
+
+[[snippets]]
+  description = "homebrew wget2 formula"
+  command = "brew install robbajorek/homebrew-formulae/wget2"
+  output = ""
+
+[[snippets]]
+  description = "wget2 for recursive site downloading like wget...but parallized for much much faster speed. wget2 rocks!"
+  command = "wget2 --wait=0.1 --random-wait  --max-threads=5 --level 1 --convert-links --recursive --mirror -e robots=off --adjust-extension --reject jpg,png,css,js,jpeg  --domains xxx https://xxx        ### instead of reject can use `--accept html,mp3`"
+  output = ""
+
+[[snippets]]
+  description = "start a python simplehttpserver and serve the current directory, then use ngrok to get a public URL for that server.  Timeouts in 3 minutes.  resets terminal afterwards to fix mysterious things. USE CAREFULLY."
+  command = "timeout 180s python -m SimpleHTTPServer 8080 &; timeout 180s ngrok http 8080; reset"
+  output = ""
+
+[[snippets]]
+  description = "remove xattrs from files.  Useful when copying to networked file systems that don't support xattrs"
+  command = "xattr -c *"
+  output = ""
+
+[[snippets]]
+  description = "search/replace in a binary file (because sed reports errors on such files...)"
+  command = "xxd -p < input  | sed 's/9d/7427/g' | xxd -r -p > output"
+  output = ""
+
+[[snippets]]
+  description = "exiftool: set random date time in a 9 year range for a bunch of files.  Group times by sets of 5 photos"
+  command = "for i in `seq 400`; do exiftool  -overwrite_original_in_place \"-AllDates=$[2008 + ${RANDOM}%10]:$[1 + ${RANDOM}%12]:$[1 + ${RANDOM}%28] $[1 + ${RANDOM}%23]:$[1 + ${RANDOM}%59]:$[1 + ${RANDOM}%59]\"  `ls . | shuf -n 5`; done"
+  output = ""
+
+[[snippets]]
+  description = "move .srt subtitles matching an E number, to whatever mkv file also matches that E number"
+  command = "for id in {01..14}; do mv *E$id*.srt \"`basename ./*E$id*.mkv .mkv`.en.srt\" ; done;"
+  output = ""
+
+[[snippets]]
+  description = "disable subtitles on mkv files in current folder.  For most players only the bogus 'DISABLE' codec-id does the trick."
+  command = "for f in ./*.mkv; do mkvpropedit --edit track:s1 --set language=zh --set flag-default=0  --set flag-forced=0 --set flag-enabled=0 --set codec-id=DISABLED \"$f\"; done;"
+  output = ""
+
+[[snippets]]
+  description = "move some subs based on E$id with different name to current name"
+  command = "for id in {01..08}; do TMP=$(echo ./*E$id*.mkv);  cp subs/*E$id*.srt ${TMP%.mkv}.en.srt; done"
+  output = ""
+
+[[snippets]]
+  description = "convert mkv to apple tv compatible mp4"
+  command = "ffmpeg -i INPUT.mkv -map 0:v:0  -c:v copy -map 0:a:0  -c:a libfdk_aac -b:a 160k  -ac 2 -vtag hvc1 -y output.mp4;"
+  output = ""
+
+[[snippets]]
+  description = "convert x265 to mp4 for quicktime compatability.  use dolby eac3 for multistream audio support"
+  command = "ffmpeg -i INPUT.mkv -map 0:v:0  -c:v copy -map 0:a:0  -c:a eac3 -vtag hvc1 -y output.mp4"
+  output = ""
+
+[[snippets]]
+  description = "overwrite an input file on a shell pipe by buffering the stdin and then writing it to a file"
+  command = "sponge"
+  output = ""
+
+[[snippets]]
+  description = "read first 100MB of *.m* file and md5 it"
+  command = "gdd if=\"$(echo *.m*)\" bs=100M count=1  | md5sum"
+  output = ""
+
+[[snippets]]
+  description = "fetch a youtube video with youtube-dl and calculate words per minute (wpm) based on the vtt/srt subtitles (converted to text format hackily).  Youtube-dl also gets the duration"
+  command = "youtube-dl -o \"subs.%(ext)s\" --write-auto-sub --write-sub --sub-format vtt --skip-download --write-info-json https://<YOUTUBE_URL> ; echo \"Words per minute:\" $(( $(cat subs.en.vtt | grep -v \"^\\d\\d\" | sed -e 's/<[^>]*>//g'  | gsed -E \"s/\\s*(\\(|\\[).{3,}(\\)|\\])\\s*//g\"   | tr -cd '\\11\\12\\15\\40-\\176'  | tr -d '\\015' | sed  '/^$/d' | sed -E \"s/^[ ]+//\" | awk '!seen[$0]++'    | wc -w) / ( $(cat subs.info.json | jq \".duration\")/60)))"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg: cut 15 seconds from the start and 30 seconds from the end for every mkv video file in a folder.  (ffmpeg doesn't have an simple \"N seconds from end\" param)"
+  command = "for f in ./*.mkv; do ffmpeg -i \"$f\" -ss 00:00:15 -to  $(( $(ffprobe -v 0 -show_entries format=duration -of compact=p=0:nk=1 $f) - 30 )) -c copy  \"parts/${f%.*}-part.mkv\"; done"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg: concat all `*part*.mkv` video files into one big video file. Very fast. No transcoding, but videos must have compataible encodings to begin with.  Subtitles get combined just fine.  ffmpeg's conact takes the list of files in a weird way so that's generated on the fly."
+  command = "ffmpeg -safe 0 -f concat -i  <(for f in *part*.mkv;  do echo file \"$(pwd)/$f\"; done) -c copy ./all-video-parts-combined.mkv"
+  output = ""
+
+[[snippets]]
+  description = "Find all /Applications that support Apple Script.  This inspects every app's Info.plist looking for the NSAppleScript key"
+  command = "fd -d 4 Info.plist /Applications --exec bash -c \"echo \\\"{}\\\"; plutil -p \\\"{}\\\" | grep NSAppleScript; \" 2>&1 | grep -B1 NSAppleScript | grep -v \"NSAppleScript\\|\\-\\-\""
+  output = ""
+
+[[snippets]]
+  description = "count mDNS packets per second.  On large home network these are SPAMMED like crazy from apple devices and raspberry pis"
+  command = "sudo tcpdump -l -n \"( host 224.0.0.251 or host ff02::fb ) and port 5353\" | perl -e 'while (<>) {$l++;if (time > $e) {$e=time;print \"$l\\n\";$l=0}}'"
+  output = ""
+
+[[snippets]]
+  description = "mDNS/dns-sd query for specified name and type.  \"ANY\" matches lots of stuff.  Another example, use name \"_googlecast_tcp.local\" and type \"PTR\"."
+  command = "dns-sd -q  raspberrypi-2.local ANY"
+  output = ""
+
+[[snippets]]
+  description = "get the entitlements for a command line util. If a basic tool has an out of place entitlement, that's a good hint that there's some special functionality that the tool only enables for internal builds"
+  command = "codesign -d --entitlements :-  `which dns-sd`"
+  output = ""
+
+[[snippets]]
+  description = "query for all _dns-sd services on your local network.  Wish nmap did stuff like this"
+  command = "dns-sd -Q _services._dns-sd._udp.local ANY"
+  output = ""
+
+[[snippets]]
+  description = "print mDNS packets per second, live.  Better.  Doesn't work as in in zsh for some reason??"
+  command = "bash -c 'sudo tcpdump -l -n \"( host 224.0.0.251 or host ff02::fb ) and port 5353\"  |  pv -l -i1 -r -f 2>/dev/stdout >/dev/null  | tr /\\\\r \\ \\\\n'"
+  output = ""
+
+[[snippets]]
+  description = "change screen resolution to 3008x1692 60hz using displayplacer"
+  command = "displayplacer \"id:2648EE53-5F1E-37A6-99FA-30FB0B2E49A9 mode:49\""
+  output = ""
+
+[[snippets]]
+  description = "change screen resolution to 3840x2160 60hz with no scaling using displayplacer. This takes the load off of the GPU.  When playing media there are zero downsides to using this resolution (when that matches the 4k monitor's physical resolution of course)"
+  command = "displayplacer \"id:2648EE53-5F1E-37A6-99FA-30FB0B2E49A9 mode:97\""
+  output = ""
+
+[[snippets]]
+  description = "get the average runtime for a command. Hyperfine is smart and looks at the variance to ensure enough runs to get a stable answer"
+  command = "hyperfine --max-runs=200 <cmd>"
+  output = ""
+
+[[snippets]]
+  description = "sed: replace newlines with tabs (or anything else)"
+  command = "gsed  ':a;N;$!ba;s/\\n/\\t/g'"
+  output = ""
+
+[[snippets]]
+  description = "see command"
+  command = "#### iStat Menus, to edit frequency, 'TimerFrequency' key in ~/Library/Preferences/com.bjango.istatmenus6.extras.plist"
+  output = ""
+
+[[snippets]]
+  description = "# Print the top 10 processes by CPU usage (and other stats) every minute"
+  command = "while true; do echo; date;  iostat; ps -c '-O %cpu %mem' |head -n 1; ps -c -A '-O %cpu %mem' | sort -r -n -k 2 | head -n 10; sleep 60; done"
+  output = ""
+
+[[snippets]]
+  description = "super cool macOS usage/activity/cpu/gpu/thermal monitor.  RAD"
+  command = "sudo powermetrics --samplers all -i1 -n1"
+  output = ""
+
+[[snippets]]
+  description = "turn on process accounting.  DO NOT LEAVE IT ON.  https://apple.stackexchange.com/questions/319615/how-to-enable-process-accounting-on-macos for more details"
+  command = "sudo mkdir /var/account; sudo touch /var/account/acct; sudo accton /var/account/acct"
+  output = ""
+
+[[snippets]]
+  description = "show everything every downloaded/quarantined by your mac.  Records go back to 2012 for me."
+  command = "sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'select LSQuarantineTimeStamp, LSQuarantineDataURLString from LSQuarantineEvent' | php -r 'date_default_timezone_set(\"America/Montreal\"); foreach (explode(\"\\n\", file_get_contents(\"php://stdin\")) as $l) { preg_match(\"/([0-9\\\\.]+)\\\\|(.*)\\$/\", $l, $re); echo date(\"Y-m-d H:i:s\",strtotime(\"2000-01-01 19:00\")+$re[1]).\"\\t$re[2]\\n\"; }' | less"
+  output = ""
+
+[[snippets]]
+  description = "show currently open tcp connections/ips"
+  command = "sudo lsof -P -n -iTCP -sTCP:LISTEN,ESTABLISHED"
+  output = ""
+
+[[snippets]]
+  description = "watch security related console log messagse"
+  command = "sudo log stream --debug --info --predicate \"processImagePath contains 'tccd' OR processImagePath contains 'syspolicyd' OR processImagePath Contains[c] 'taskgated' OR processImagePath contains 'trustd' OR eventMessage Contains[c] 'malware' || senderImagePath Contains[c] 'security' \""
+  output = ""
+
+[[snippets]]
+  description = "macOS Catalina slow by design.  Check for execution delay due to macOS making a background network request before it runs a new executable.  Both times should be 0.0 seconds but usally the first execution is delayed at least ~0.1 seconds. BULLSHIT"
+  command = "RAND_FILE=\"/tmp/test-$RANDOM.sh\"; time_helper() { /usr/bin/time $RAND_FILE 2>&1 | tail -1 | awk '{print $1}'; }; echo $'#!/bin/sh\\necho Hello' $RANDOM > $RAND_FILE && chmod a+x  $RAND_FILE; echo \"Testing $RAND_FILE\"; echo \"execution time #1: $(time_helper) seconds\" && echo \"execution time #2: $(time_helper) seconds\";"
+  output = ""
+
+[[snippets]]
+  description = "fix the \"MacOS error: -67062\" error which is just because a CLI until is usigned.  See the other pet command for tailing the logs that reveal this"
+  command = "codesign -f -s - $(which THINGIE) "
+  output = ""
+
+[[snippets]]
+  description = "watch macOS console log for messages releated to syspolicy and cloudkit.  These reveal when macOS is blocking the execution of some unsigned code while it waits for a remote server to confirm it's okay or not"
+  command = "sudo log stream  --debug --info --predicate \"processImagePath contains 'syspolicyd' and (message contains 'cloudkit ')\""
+  output = ""
+
+[[snippets]]
+  description = "hefty"
+  command = "sudo log stream  --debug --info --predicate \"processImagePath contains 'tccd' OR processImagePath contains 'syspolicyd' OR processImagePath Contains[c] 'taskgated' OR processImagePath contains 'trustd' || senderImagePath Contains[c] 'Sandbox' || senderImagePath Contains[c] 'AppleSystemPolicy'  OR processImagePath contains 'sandboxd' \" | grep \"no system signature\\|MacOS errrrrror\\|gdu\\|zzzzkernel\\|zzzzzzzfailed to fetch /\\|/Cellar\\|zzzAppleSystemPolicy\\|reporting:violation] Sandbox:\\|garconxxxx\\|dropboxx\\|sandboxdxxxxx\\|Failed to copy signing info\\|cloudkit record\\|queueing up scan\\|Unsigned code in\\|XProtect result\\|evaluateScanResult\\| Error   \\|youtube\\|syspolicyd: GK \\| syspolicyd: cloudkit\""
+  output = ""
+
+[[snippets]]
+  description = "minimal (maybe)"
+  command = "sudo log stream  --debug --info --predicate \"processImagePath contains 'syspolicyd' OR processImagePath Contains[c] 'taskgated'\" | grep \"no system signature\\|MacOS errrrrror\\|gdu\\|zzzzkernel\\|zzzzzzzfailed to fetch /\\|/Cellar\\|zzzAppleSystemPolicy\\|reporting:violation] Sandbox:\\|garconxxxx\\|dropboxx\\|sandboxdxxxxx\\|Failed to copy signing info\\|cloudkit record\\|queueing up scan\\|Unsigned code in\\|XProtect result\\|evaluateScanResult\\| Error   \\|youtube\\|syspolicyd: GK \\| syspolicyd: cloudkit\""
+  output = ""
+
+[[snippets]]
+  description = "show tmutil sticky exclusions based on xattr"
+  command = "sudo mdfind \"com_apple_backup_excludeItem = 'com.apple.backupd'\""
+  output = ""
+
+[[snippets]]
+  description = "show dir size, 3 levels deep, filtered on dirs > 2GB, sorted"
+  command = "gdu -d 3 -h . | ggrep -E \"^[0-9\\.]+G\" | gsed \"s/G/ G/\" | awk '{if($1>2)print}' | gsort -n"
+  output = ""
+
+[[snippets]]
+  description = "print mac sharing preferences"
+  command = "rmMgmt=`netstat -na | grep LISTEN | grep tcp46 | grep \"*.3283\" | wc -l`; scrShrng=`netstat -na | grep LISTEN | egrep 'tcp4|tcp6' | grep \"*.5900\" | wc -l`; flShrng=`netstat -na | grep LISTEN | egrep 'tcp4|tcp6' | egrep \"\\*.88|\\*.445|\\*.548\" | wc -l`;rLgn=`netstat -na | grep LISTEN | egrep 'tcp4|tcp6' | grep \"*.22\" | wc -l`; rAE=`netstat -na | grep LISTEN | egrep 'tcp4|tcp6' | grep \"*.3031\" | wc -l`; bmM=`netstat -na | grep LISTEN | egrep 'tcp4|tcp6' | grep \"*.4488\" | wc -l`;printf \"\\nThe following services are OFF if '0', or ON otherwise:\\nScreen Sharing: %s\\nFile Sharing: %s\\nRemote Login: %s\\nRemote Mgmt: %s\\nRemote Apple Events: %s\\nBack to My Mac: %s\\n\\n\" \"$scrShrng\" \"$flShrng\" \"$rLgn\" \"$rmMgmt\" \"$rAE\" \"$bmM\""
+  output = ""
+
+[[snippets]]
+  description = "list all spotlight property.  is bloat bad?"
+  command = "mdimport -X"
+  output = ""
+
+[[snippets]]
+  description = "dump all Safari browsing history using History.db sqlite table"
+  command = "sqlite3 ~/Library/Safari/History.db \"SELECT h.visit_time, i.url FROM history_visits h INNER JOIN history_items i ON h.history_item = i.id\"  | cut -d \"|\" -f 2 | uniq | less"
+  output = ""
+
+[[snippets]]
+  description = "dump chrome browsing history...maybe"
+  command = "sqlite3 ~/Library/Application\\ Support/Google/Chrome/Default/History \"SELECT datetime(((v.visit_time/1000000)-11644473600), 'unixepoch'), u.url FROM visits v INNER JOIN urls u ON u.id = v.url;\""
+  output = ""
+
+[[snippets]]
+  description = "dump firefox browing history (only one profile at a time works)"
+  command = "sqlite3 ~/Library/Application\\ Support/Firefox/Profiles/*/places.sqlite \"SELECT datetime(last_visit_date/1000000,'unixepoch'), url, title from moz_places\""
+  output = ""
+
+[[snippets]]
+  description = "using iOS JetsamEvent log list the processes, including Apple processes, that consumed the most CPU.  (currently 100+ cpuTime)"
+  command = "cat JetsamEvent-2020-05-26-132655.ips | jq \".processes[] | [.name,.cpuTime]\" | grep -v \"\\[\" | grep -E -B1 \"[0-9]{3,10}\\.\""
+  output = ""
+
+[[snippets]]
+  description = "use the amazing FSEParser to dump the HISTORICAL fseventsd log.  This lets you see a history of all file changes! great incident response"
+  command = "sudo FSEParser_V4 -s /System/Volumes/Data/.fseventsd -t folder -o /tmp/fsdump"
+  output = ""
+
+[[snippets]]
+  description = "inspect historical file events dumped by FSEParser"
+  command = "head -1000000 All_FSEVENTS.tsv | grep \"chris\\|cellar\" | cut -d $'\\t' -f 3-5,8 | less"
+  output = ""
+
+[[snippets]]
+  description = "show the files currently currently stored in the in-memory (RAM) cache."
+  command = "vmtouch -v ."
+  output = ""
+
+[[snippets]]
+  description = "make vm_stat friendly and use gigabytes"
+  command = "vm_stat | perl -ne '/page size of (\\d+)/ and $size=$1; /([^:]+)[^\\d]+(\\d+)/ and printf(\"%-16s % 16.3f Gi\\n\", \"$1:\", $2 * $size / (1048576*1024));'"
+  output = ""
+
+[[snippets]]
+  description = "WIP: filters fs_usage activity for file writes.  parsing the columns is so painful... sum \"B=\" for each process to count its bytes written"
+  command = "sudo fs_usage -w -f filesys -t 3 2>&1 |  grep \"B=\" | grep \" WrData\\| write\"| tee /tmp/fsraw | cut -c18-  | sed -E \"s/[C-Z]=[0-9a-z]+[ ]+//g\" | sort  | tee /tmp/fsformat |  grep \"B=\" | wc -l"
+  output = ""
+
+[[snippets]]
+  description = "reset the pf rules set"
+  command = "sudo pfctl -f /etc/pf.conf; sudo dnctl -q flush"
+  output = " "
+
+[[snippets]]
+  description = "internet uptime tracking"
+  command = "while true; do nc -zw1 -G1 google.com 443 2> /dev/null && echo \"$(printf '%-10s' $(ping -q -t 17 google.com | tail -2 | gsed  ':a;N;$!ba;s/\\n/\\t/g' | gsed -E 's/ packets? \\w+,?//g' | sed 's/round\\-trip min\\/avg\\/max\\/stddev =//' | sed 's/ ms//' | tr '/' '\\t' | column -t ))\\t\\t(sent/recv/loss%/min/avg/max/stddev time: $(gdate '+%m/%d-%H:%M:%S')  $(gdate '+%s.%4N'))\" || echo \"BAD! INTERNET OFFLINE!  \" $(date); sleep 2.95; done | tee -a /tmp/connectivity_log.txt;"
+  output = ""
+
+[[snippets]]
+  description = "ping all the gwifi points and print the stats in somewhat aligned table.  Good for checking if the ethernet is working or if they're secretly falling back to mesh."
+  command = "function gtest { printf '%-25s %-25s\\n' \"$1\" \"$(sudo ping -q -t 240 -s 65000 $2 | tail -1 | sed 's/round\\-trip min\\/avg\\/max\\/stddev =//' | sed 's/ ms//' | tr '/' '\\t')\" };   printf '%-20s %-20s\\n' \"testing...\" \"$(echo \"      min    /avg  /max  /stddev\" | tr '/' '\\t')\"; (gtest primary 192.168.87.1 &); (gtest \"basement\" 192.168.87.108 &); (gtest \"allie point (meshing)\" 192.168.87.83 &); (gtest \"283 kitchen\" 192.168.87.79 &); (gtest \"283 hallway\" 192.168.87.104 &); (gtest \"279 kitchen\" 192.168.87.105 &); (gtest \"279 front (meshing)\" 192.168.87.58 );"
+  output = ""
+
+[[snippets]]
+  description = "show Spotlight privacy exclusions by parsing plist directly"
+  command = "sudo plutil -extract Exclusions xml1 -o - /System/Volumes/Data/.Spotlight-V100/VolumeConfiguration.plist | less"
+  output = ""
+
+[[snippets]]
+  description = "generate lots of random files with a small speed delay"
+  command = "for n in {1..200}; do dd if=/dev/random of=file$( printf %03d \"$n\" ).txt bs=1 count=$(( RANDOM + 10 )); sleep 0.05; done"
+  output = ""
+
+[[snippets]]
+  description = "See what spotlight/mds/mdutil is currently indexing.  Samples for 10 seconds.  Looks for file activity on any spotlight/metadata related executables in the right paths."
+  command = "sudo fs_usage -w -f pathname -t 10 Spotlight $(fd -t x . /System/Library/Frameworks/CoreSpotlight.framework /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework --exec basename {}) 2>&1 |  tr -s ' ' | cut -d ' ' -f 2- | awk 'NF{NF-=2};1'   | sort | uniq |  less"
+  output = ""
+
+[[snippets]]
+  description = "live ffplay visualiztion of redirect system output audio...sort of working."
+  command = "ffplay -f avfoundation -i \":3\" -volume 0   -fflags nobuffer  -flags low_delay -analyzeduration 0 -framedrop"
+  output = ""
+
+[[snippets]]
+  description = "another slightly working live system audio visualization.  Should just pipe audio to mpv and let it do visualizing but running into issue with 'audio overrun'.  maybe try having ffmpeg output to an rtsp stream and have mpv read that independently"
+  command = "ffmpeg -f avfoundation -i \":3\"  -filter_complex \"[0:a]showcqt=s=1920x1080:axis=0[vcqt];[0:a]showwaves=split_channels=1:mode=line:s=1280x480[vs];[vcqt][vs]overlay=x=W-w-50:y=50[v]\" -map '[v]' -map '0:a' -f flv - | mpv --profile=low-latency -"
+  output = ""
+
+[[snippets]]
+  description = "mostly workly live audio visualiztion! if you listen to it there's underrun and it cuts out all the time...however for using the audio just for visualization it does works.  Relies on Loopback to turn system audio into a virtual microphone"
+  command = "sudo ffmpeg -re -f avfoundation -i \":3\" -f rtp \"rtp://127.0.0.1:2666?pkt_size=188?buffer_size=16384\" -sdp_file /tmp/stream.sdp;  ## and also....: mpv --no-resume-playback  --vd-lavc-threads=1 --cache-pause=no --demuxer-lavf-o-add=fflags=+nobuffer --demuxer-lavf-probe-info=nostreams --demuxer-lavf-analyzeduration=0.2 --video-sync=audio --interpolation=no --video-latency-hacks=yes --stream-buffer-size=4k --no-video --untimed /tmp/stream.sdp;   # or try using opus which maybe is better for realtime?? : sudo ffmpeg -re -f avfoundation -i \":3\" -f rtp -muxdelay 0.1 -codec libopus -application lowdelay -b:a 24576 -ac 1 \"rtp://127.0.0.1:2666?pkt_size=512?buffer_size=16384\" -sdp_file /tmp/stream.sdp"
+  output = ""
+
+[[snippets]]
+  description = "NEARLY PERFECT live visualization of virtual microphone input using ffmpeg - | ffplay -"
+  command = "ffmpeg -re -f avfoundation -i \":3\"  -flush_packets 1 -fflags nobuffer  -flags low_delay -analyzeduration 0 -muxdelay 0.01 -fflags nobuffer -f wav -c copy -  | ffplay  -  -framedrop -infbuf -fflags nobuffer  -flags low_delay -sync audio -analyzeduration 0"
+  output = ""
+
+[[snippets]]
+  description = "NOW WITH COOLER VISUALIZATIONS! nearly zero latency real time generic system audio visualization.  The key to using good filters in ffplay from a pipe is \"-f lavgi\" and the super obscure \"amovie=pipe\\\\:0, ...\" input"
+  command = "ffmpeg -re -f avfoundation -i \":3\"  -flush_packets 1 -fflags nobuffer  -flags low_delay -analyzeduration 0 -muxdelay 0.01 -fflags nobuffer -f wav -c copy -  | ffplay  -f lavfi  'amovie=pipe\\\\:0, asplit [a][out1]; [a] ahistogram [out0]' -framedrop -infbuf -fflags nobuffer  -flags low_delay -sync audio -analyzeduration 0 -an"
+  output = ""
+
+[[snippets]]
+  description = "pretty good real time system audio streaming to mpv, but still ~0.2s of latency.  But if the content is audio only have mpv also play the audio itself making the visuals perfectly in sync! Not exactly great if the audio needs to be synced from another video sadly"
+  command = "ffmpeg -re -f avfoundation -i \":3\"  -flush_packets 1 -fflags nobuffer  -flags low_delay -analyzeduration 0 -muxdelay 0.01 -fflags nobuffer -f wav -c copy -  | mpv --no-resume-playback  --vd-lavc-threads=1 --cache-pause=no --demuxer-lavf-o-add=fflags=+nobuffer --demuxer-lavf-probe-info=nostreams --demuxer-lavf-analyzeduration=0.1 --video-sync=audio --interpolation=no --video-latency-hacks=yes --stream-buffer-size=4k --aid=0 --audio-buffer=0.05 --cache=no --audio-device='coreaudio/f0-5c-d5-ad-d6-e9:output' -"
+  output = ""
+
+[[snippets]]
+  description = "my FAVORITE live audio visualization so far.  Removed the showwaves.  They're silyl"
+  command = "ffmpeg -re -f avfoundation -i \":3\"  -flush_packets 1 -fflags nobuffer  -flags low_delay -analyzeduration 0 -muxdelay 0.01 -fflags nobuffer -f wav -c copy -  | ffplay  -framedrop -infbuf -fflags nobuffer  -flags low_delay -sync audio -analyzeduration 0 -an -alwaysontop -noborder -left 0 -top 600 -x 570 -f lavfi  \"amovie=pipe\\\\\\:0, showcqt=s=1920x1536:axis=1:axis_h=-1:bar_h=200:fps=30:count=6:bar_g=1:sono_g=3:basefreq=40:endfreq=16495[out0]\""
+  output = ""
+
+[[snippets]]
+  description = "sliding spectrum"
+  command = "ffmpeg -re -f avfoundation -i \":3\"  -flush_packets 1 -fflags nobuffer  -flags low_delay -analyzeduration 0 -muxdelay 0.01 -fflags nobuffer -f wav -c copy -  | ffplay  -framedrop -infbuf -fflags nobuffer  -flags low_delay -sync audio -analyzeduration 0 -an -alwaysontop -noborder -left 0 -top 600 -x 570 -f lavfi  \"amovie=pipe\\\\\\:0,  asplit [a][out1];[a] showspectrum=mode=combined:color=fire:slide=1:scale=cbrt [out0]\""
+  output = ""
+
+[[snippets]]
+  description = "live loopback audio visualization of showcqt and showfreqs with an overlay"
+  command = "ffmpeg -re -f avfoundation -i \":3\"  -flush_packets 1 -fflags nobuffer  -flags low_delay -analyzeduration 0 -muxdelay 0.01 -fflags nobuffer -f wav -c copy -  | ffplay  -f lavfi  'amovie=pipe\\\\:0, asplit [a][b]; [a]showcqt=s=1920x1080:axis=0[vcqt];[b]showfreqs=s=1920x420:mode=line[vs];[vcqt][vs]overlay=x=W-w-50:y=50[out0]' -framedrop -infbuf -fflags nobuffer  -flags low_delay -sync audio -analyzeduration 0 -an -alwaysontop -noborder -top 600 -x 570"
+  output = ""
+
+[[snippets]]
+  description = "yet another live audio visualizer.  More random flags passed to possibly improve latency. Audio is split so that if can be outputted if `-an` is removed, however that increases latency so only use if the source audio is muted.  in summary, leave as is if the source if video, or mute the source and remove `-an`if the source is Spotify/Youtube Music/any audio."
+  command = "ffmpeg  -f avfoundation -i \":3\"  -flush_packets 1 -fflags nobuffer  -flags low_delay -analyzeduration 0 -probesize 32 -muxdelay 0.001 -fflags nobuffer -f wav -c copy -  | ffplay  -framedrop -noinfbuf   -fflags discardcorrupt   -probesize 32  -strict experimental -avioflags direct -fflags nobuffer  -flags low_delay -sync ext -analyzeduration 0   -alwaysontop -noborder -left 0 -top 90 -x 585  -an -f lavfi  \"amovie=pipe\\\\\\:0, asplit [a][out1]; [a]volume=3[aup], [aup]showcqt=s=1280x2532:axis=1:axis_h=-1:bar_h=200:fps=30:count=4:bar_g=1:sono_g=3:basefreq=40:endfreq=16495[out0]\""
+  output = ""
+
+[[snippets]]
+  description = "list macOS audio input/output devices.  Need to know the index of the virtual microphone to use with audio visualizations"
+  command = "ffmpeg -f avfoundation -list_devices true -i \"\""
+  output = ""
+
+[[snippets]]
+  description = "every cool ffmpeg filter all at once"
+  command = "mpv --lavfi-complex=\"[aid1]asplit=7[a][b][c][d][e][f][g];[a]avectorscope=size=480x480:zoom=2:draw=line:r=25,drawgrid=240:240:color=gray[z];[b]ebur128=video=1:meter=18[q][x];[q]scale=480:480[y];[z][y]hstack[w];[c]showfreqs=fscale=lin:cmode=separate:size=480x480:minamp=1e-009,drawgrid=x=0:y=479:w=100:h=60:color=gray[u];[d]showspectrum=size=480x480:overlap=1:slide=scroll:scale=5thrt:mode=combined[t];[t][u]hstack[v];[e]showvolume=r=25:w=960:h=50:t=0:f=0.9,drawtext=font=Arial:fontsize=24:text='1':x=47:y=40:fontcolor=white,drawtext=font=Arial:fontsize=24:text='2':x=77:y=40:fontcolor=white,drawtext=font=Arial:fontsize=24:text='3':x=128:y=40:fontcolor=white,drawtext=font=Arial:fontsize=24:text='4':x=206:y=40:fontcolor=cyan,drawtext=font=Arial:fontsize=24:text='5':x=330:y=40:fontcolor=white,drawtext=font=Arial:fontsize=24:text='6':x=528:y=40:fontcolor=red,drawtext=font=Arial:fontsize=24:text='7':x=842:y=40:fontcolor=pink[s];[f]showcqt=size=960x180:r=25:bar_g=7:timeclamp=0.5[r];[g]aphasemeter=size=960x40:mpc=red[h][p];[h]anullsink;[v][w][r][p][s]vstack=inputs=5[vo];[x]anull[ao]\" /tmp/Ariana\\ Grande\\ -\\ 7\\ rings\\ \\(Official\\ Video\\)-QYh6mYIJG2Y.webm"
+  output = ""
+
+[[snippets]]
+  description = "every crazy audio visual outputted to mpv.  Bad latency.  Though if playing audio only change the last anullsink to an [x]anull[ao], like the above command, and have mpv be the audio source.  Also should find a better way to reduce fps than just dropping frames.  Seems to do 130fps for some reason without my tweaks"
+  command = "ffmpeg -f avfoundation -i \":3\"  -flush_packets 1 -fflags nobuffer  -flags low_delay -analyzeduration 0 -muxdelay 0.01 -fflags nobuffer -f wav -c copy - | mpv --profile=baseline  --override-display-fps=30  --lavfi-complex=\"[aid1]asplit=7[a][b][c][d][e][f][g];[a]avectorscope=size=480x480:zoom=2:draw=line:r=25,drawgrid=240:240:color=gray[z];[b]ebur128=video=1:meter=18[q][x];[q]scale=480:480[y];[z][y]hstack[w];[c]showfreqs=fscale=lin:cmode=separate:size=480x480:minamp=1e-009,drawgrid=x=0:y=479:w=100:h=60:color=gray[u];[d]showspectrum=size=480x480:overlap=1:slide=scroll:scale=5thrt:mode=combined:fps=25[t];[t][u]hstack[v];[e]showvolume=r=25:w=960:h=50:t=0:f=0.9,drawtext=font=Arial:fontsize=24:text='1':x=47:y=40:fontcolor=white,drawtext=font=Arial:fontsize=24:text='2':x=77:y=40:fontcolor=white,drawtext=font=Arial:fontsize=24:text='3':x=128:y=40:fontcolor=white,drawtext=font=Arial:fontsize=24:text='4':x=206:y=40:fontcolor=cyan,drawtext=font=Arial:fontsize=24:text='5':x=330:y=40:fontcolor=white,drawtext=font=Arial:fontsize=24:text='6':x=528:y=40:fontcolor=red,drawtext=font=Arial:fontsize=24:text='7':x=842:y=40:fontcolor=pink[s];[f]showcqt=size=960x180:r=25:bar_g=7:timeclamp=0.5[r];[g]aphasemeter=size=960x40:mpc=red[h][p];[h]anullsink;[v][w][r][p][s]vstack=inputs=5[votmp];[votmp]fps=25[vo];[x]anullsink\" --no-audio --ontop=yes --ontop-level=system --no-resume-playback  --cache-pause=no  --profile=low-latency,baseline --cache=no --no-border  -"
+  output = ""
+
+[[snippets]]
+  description = "another running log of macOS gatekeeper/cloudkit signature logs and requests"
+  command = "sudo log stream  --debug --info --predicate \"(processImagePath contains 'syspolicyd' OR processImagePath Contains[c] 'taskgated') and (eventMessage Contains[c] 'cloudkit' OR eventMessage Contains[c] '/usr' OR eventMessage Contains[c] 'python' OR eventMessage contains 'GK ') \" | tee -a  /tmp/syspolicy.log"
+  output = ""
+
+[[snippets]]
+  description = "use pf rules to slow down apple's gatekeeper signature checks. Amazingly this will save CPU since syspolicyd will hit 100% on a core while it's background scanning every binary/python file/shellscript on my system."
+  command = "while true; do (cat /etc/pf.conf && echo \"dummynet-anchor \\\"customRule\\\"\" && echo \"anchor \\\"customRule\\\"\") | sudo pfctl -f - ; echo \"dummynet in proto tcp from api.apple-cloudkit.com pipe 1\" | sudo pfctl -a customRule -f - ; sudo dnctl pipe 1 config delay 1000; sudo pfctl -E; sleep 90; done"
+  output = ""
+
+[[snippets]]
+  description = "take the audio from a video thats been 2stemmed, then make a version of the original video where stereo channel 1 is the background and channel 2 is vocals.  When playing you will need to mix the channels to listen properly.  By changing the balance you change the vocal/background emphasis!!!!"
+  command = "ffmpeg -i accompaniment.mp3 -i vocals.mp3  -i ../original_media.mkv -filter_complex \"[0:a][1:a]amerge=inputs=2,pan=stereo|c0<c0+c1|c1<c2+c3[a]\" -map 2:v:0 -map \"[a]\" -map 2:s:0 -c:v copy -c:a libopus  media_with_stemmed_audio.mkv"
+  output = ""
+
+[[snippets]]
+  description = "side by side video and spectrum of its audio https://video.stackexchange.com/questions/23222/ffplay-is-there-a-way-to-display-a-video-and-spectrogram-in-the-same-output"
+  command = "ffplay -f lavfi 'amovie=sweet-video.mkv:s=dv+da[v][a];[a]asplit[asp][out1];[asp]showspectrum=size=660x427:mode=separate:slide=scroll[spect]; [v]scale=640:-1[v];[v][spect]hstack[out0]'"
+  output = ""
+
+[[snippets]]
+  description = "tcpdump HTTP traffic (not encrypted) directly from tcpdump"
+  command = "tcpdump -A -s 0 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'  ### https://stackoverflow.com/questions/4777042/can-i-use-tcpdump-to-get-http-requests-response-header-and-response-body"
+  output = ""
+
+[[snippets]]
+  description = "pipe tcpdump over ssh, looking for clients using the wrong DNS server.  Analyze locally with tshark"
+  command = "ssh admin@192.168.1.1 '/usr/bin/sudo tcpdump -s0 -i eth1 -l \"port 53 and inbound and not dst BAD_DNS_SETTINGS\" -w - ' | tshark -i -"
+  output = ""
+
+[[snippets]]
+  description = "list all things on path. Just POSIX (works on UBNT APs...). https://unix.stackexchange.com/questions/120786/list-all-binaries-from-path"
+  command = "{ IFS=:; ls -AH $PATH; } | sort | less"
+  output = ""
+
+[[snippets]]
+  description = "record webcam and microphone with ffmpeg.  Real world timestamp overlaid. Tuned for very low cpu usage and moderate file size/quality good for making a day-line recording of yourself.  (12 hours = 10GB).  hevc_videotoolbox is the key to making it very low cpu.  If you drop the microphone recording the CPU goes down by 50%... it's is a bit dumb though, so the bitrate is still rather high.  0.6M instead of 1.2MBits would make it roughly half as big and okay quality (except when there's motion/light changes)."
+  command = "ffmpeg   -f avfoundation  -framerate 15 -s \"800x600\" -i \"0:3\"  -vf \"settb=AVTB,setpts='trunc(PTS/1K)*1K+st(1,trunc(RTCTIME/1K))-1K*trunc(ld(1)/1K)',drawtext=text='%{localtime}.%{eif\\:1M*t-1K*trunc(t*1K)\\:d}'\"  -c:v hevc_videotoolbox  -realtime 1 -c:a libopus -compression_level 0 -application lowdelay -ac 1 -b:a 32k -b:v 1.2M -tune zerolatency -preset ultrafast  -threads 1 -y /tmp/webcam.mkv"
+  output = ""
+
+[[snippets]]
+  description = "record screen capture, webcam, and loopback audio into one file.  Needs lots of tweaking.  Probably use the hardware encoders"
+  command = "ffmpeg -f avfoundation -i \"2:3\" -f avfoundation -framerate 24 -s \"1280x720\" -i \"0\" -filter_complex \"[0:v]scale=1280:-1[scd];[scd][1:v]vstack\"   ~/Downloads/media/live2.mkv"
+  output = ""
+
+[[snippets]]
+  description = "query for every type of service advertised over mDNS!!"
+  command = "dns-sd -Q _services._dns-sd._udp.local PTR"
+  output = ""
+
+[[snippets]]
+  description = "network mDNS service discovery scan"
+  command = "sudo nmap --script=broadcast-dns-service-discovery"
+  output = ""
+
+[[snippets]]
+  description = "more targetted nmap netbios/mdns scan"
+  command = "sudo nmap -sU -p 137,5353 --script nbstat,dns-service-discovery \"192.168.1.17-18\""
+  output = ""
+
+[[snippets]]
+  description = "make a video fancy"
+  command = "ffmpeg -ss 00:17:00 -i IN.mkv -filter_complex '[0:v]split[a][b];[a]scale=1.5*in_w:1.5*in_h,transpose=1,format=gbrp,waveform=filter='lowpass':mirror=0:components=7:display=overlay:intensity=0.02:scale=digital[d];[b]scale=1.5*in_w:1.5*in_h,transpose=1,pad=iw:ih+240[padded];[d]crop=in_w:in_h-16:0:16[wave];[padded][wave]overlay=0:H-h,transpose=2[out0]' -map \"[out0]\" -map \"0:a\" -map \"0:s\" -threads 2 -c:a copy -c:s copy -c:v h264 -x264-params keyint=24 -crf 21 -movflags +faststar -minrate 5M -profile:v high -tune film -preset superfast  OUT.mkv"
+  output = ""
+
+[[snippets]]
+  description = "query for every time of mDNS thing. (first ask for all services, then query each service type)"
+  command = "for s in $(cat <(timeout --signal=SIGINT 2s dns-sd -Q _services._dns-sd._udp.local PTR 2>&1) | gsed -E \"s/ +/ /g\" | cut -d ' ' -f 9); do timeout --signal=SIGINT 3s dns-sd -Q $s PTR; done"
+  output = ""
+
+[[snippets]]
+  description = "manually make an mDNS query using dig.  Dig exits on the first response though sadly"
+  command = "dig @224.0.0.251 -p 5353 -t ptr +short _printer._tcp.local"
+  output = ""
+
+[[snippets]]
+  description = "get screen resolution on the CLI with applescrit.  $3 for width, $4 height."
+  command = "SCREENW=$(osascript -e 'tell application \"Finder\" to get bounds of window of desktop' |  sed -E \"s/ +//g\" | awk -F  \",\" '{print $3}')"
+  output = ""
+
+[[snippets]]
+  description = "monitor all process executions live! Using the amazing Objective-See processmonitor"
+  command = "sudo  unbuffer /Applications/monitoring/ProcessMonitor.app/Contents/MacOS/ProcessMonitor -skipApple  | grep --line-buffered -v Google"
+  output = ""
+
+[[snippets]]
+  description = "monitor all file activity live! similarly, using FileMontior from obj-see.  The built in fs_usage does mostly the same things, and more, and it's a better more readable in terminal, it also has a lot of quirks, like seemingly there's no way prevent truncation on long file paths.  Also the event types it decribes are a bit raw and obtuse.  FileMonitor using the same mac APIs that enterprise \"DLP\" or \"MDM\" solution use, so it is a bit more clear and usable"
+  command = "sudo /Applications/monitoring/FileMonitor.app/Contents/MacOS/FileMonitor -skipApple  | grep -v Google"
+  output = ""
+
+[[snippets]]
+  description = "spoof mac address.  This mac is one for a MBP-16 2019"
+  command = "sudo ifconfig en14 ether f8:ff:c2:2c:a6:a2"
+  output = ""
+
+[[snippets]]
+  description = "capture dns queries when under a weird set of constraints and a simple 'udp and port 53' libpcap capture filter doesnt work.  Don't know why.  Relies on display filter -Y to do most of the filtering. Then formats the tshark output for some easy viewing"
+  command = "sudo tshark  -i en14 -s0 -l -f \"not port 443 and not src 192.168.1.1 and not src 8.8.8.8 and not tcp\" -Y \"dns and dns.flags.response == 0\"  2> /dev/null | awk '{print $5,\" ---> \", $14}'"
+  output = ""
+
+[[snippets]]
+  description = "another tshark dns monitor with nice formatting"
+  command = "sudo tshark  -i en14 -s0 -l -f \"not port 443 and not src 192.168.1.255 and not src 8.8.8.255 and not tcp\" -Y \"dns\" 2> /dev/null | tee -a /tmp/dns_log.txt | grep --line-buffered -v \"query response\" | awk  -v OFS=' ' '{ print $1,$5,\"[\"$3\"]\",\"-->\",$14}'"
+  output = ""
+
+[[snippets]]
+  description = "ping/tcp/udp packet util that operates through STDIN/STDOUT. Useful if you want more power than just piping programs together, but don't want to actually write the code.  Seems like a bit of a niche.  See `man mtr-packet` for more info"
+  command = "echo 42 send-probe ip-4 192.168.1.1 | sudo mtr-packet"
+  output = ""
+
+[[snippets]]
+  description = "convert h264 mkv with subs to QuickTime compatible mp4.    Only trick is to specify mov_text as the subtitle encoding since subrip isn't supported and ffmpeg doesn't automatically pick a suitable codec for conversion.  (IMHO, it should)"
+  command = "ffmpeg -i in.mkv -c copy -c:s mov_text out.mp4"
+  output = ""
+
+[[snippets]]
+  description = "analyzing mdns tcpdump text logs.  This implementation is a bit dubious, but it takes the tcpdump text log (not pcap log) and tally the number of mDNS service classes"
+  command = "cat mdns.log | sed -E 's/([^ \\.]+\\._(tcp|udp)\\.local\\.)/\\'$'\\n''______\\1______\\'$'\\n''/g' | grep \"______\" | sort | uniq -c | sort -n"
+  output = ""
+
+[[snippets]]
+  description = "open slack with chrome dev tools debugger. Browse to http://localhost:8315/ to debug.  Works on any electron app, amazingly! also check out https://github.com/bytedance/debugtron"
+  command = "/Applications/Slack.app/Contents/MacOS/Slack --args --remote-debugging-port=8315"
+  output = ""
+
+[[snippets]]
+  description = "run ping latency/connectivity logger on Unifi gateway over ssh, but pipe and log the data locally. Auto reconnect the ssh connection.  Requires authorized ssh keys obvious..."
+  command = "while true; do ssh root@192.168.1.1 \"while true; do echo \\\"\\$(printf '%-10s' \\$(ping  -q -w 20 1.1.1.1 2> /dev/null | tail -2 | sed  ':a;N;$bash /Users/chris/Dropbox/.bin/audiovis.sh;s/\\n/\\t/g' | sed -E 's/ packets? \\w+,?//g' | sed 's/round\\-trip min\\/avg\\/max\\/stddev =//' | sed 's/ ms//' | tr '/' '\\t' | column -t ))       time: \\$(date '+%m/%d-%H:%M:%S')\\\"; sleep 10; done\"; echo \"disconnecting! sleeping before reconnecting\"; sleep 10; done | tee -a /tmp/connectivity_log.txt"
+  output = ""
+
+[[snippets]]
+  description = "print nice colums while tailing dnscrypt-proxy logs"
+  command = "tail -f  -30 dns.log  | awk '{printf \"%-14s %-40s %-7s %-9s %-7s\\n\",$3,$4,$5,$6,$7}'"
+  output = ""
+
+[[snippets]]
+  description = "get public IP address uses apple's service"
+  command = "curl https://serverstatus.apple.com/services/internetaccess/v1/my_external_ip"
+  output = ""
+
+[[snippets]]
+  description = "process system log to count how often a executable signature is surreptiously looked up on Apple's servers.  Sadly this level of detail seems to be pruned quickly"
+  command = "sudo log stats --process syspolicyd --predicate 'message contains \"cloudkit record fetch\"'"
+  output = ""
+
+[[snippets]]
+  description = "rotten tomatoes search API. Weirdly this is totally open with no auth. Undocumented, probably left on for legacy clients. Sshhhhh, don't tell RT, they seem to have a very closed API these days."
+  command = "curl \"https://www.rottentomatoes.com/api/private/v2.0/search?q=Star%20Trek%20Voyager\" | jq"
+  output = ""
+
+[[snippets]]
+  description = "generate a pleasant whitenoise using SoX  (https://askubuntu.com/a/789472 )"
+  command = "play -n synth brownnoise synth pinknoise mix synth sine amod 0.3 10"
+  output = ""
+
+[[snippets]]
+  description = "generate random pulses of noises...this is that an ffplay instance with a silenceremove filter in front of it can exit.  (Seems like an ffplay bug to me)"
+  command = "play -n synth 30.1 brownnoise mix synth square amod 1 0 5 1 gain -30"
+  output = ""
+
+[[snippets]]
+  description = "mdns: from tcpdump text log count the top 20 spammers"
+  command = "cat /tmp/mdns.log | grep -v \"Discovery._companion-link\\| IP6 \" | cut -d \" \" -f 3 | sort | uniq -c | sort -nr | head -20"
+  output = ""
+
+[[snippets]]
+  description = "list directory sorted by DATE ADDED! This is usually what I want. For example, if I wget a file the modified time is set to the server's modified time so it might not be what I'm looking for.  This relies on macOS Spotlight indexing so doesn't work on everything.  In zsh use *(^@) instead of * to have the glob exclude symlinks (which lack this metadata).   https://apple.stackexchange.com/questions/372346/list-files-by-date-added-in-terminal-with-function-or-script-or-another"
+  command = "mdls -name kMDItemFSName -name kMDItemDateAdded -raw * .* | xargs -0 -I {} echo {} | sed 'N;s/\\n/ /' | sort"
+  output = ""
+
+[[snippets]]
+  description = "macos: print a binary plist in xml format! The more standard way to see a binary plist in human format is `plutil -p ...` but that prints out the plist in some weird ruby-like format.  That's usally fine but if you want to search for something or see a plist the way you edit it, this is better."
+  command = "plutil -convert xml1 com.google.Chrome.plist -o -"
+  output = ""
+
+[[snippets]]
+  description = "echo | openssl s_client -showcerts -servername gnupg.org -connect ec2-54-69-218-94.us-west-2.compute.amazonaws.com:443 2>/dev/null | openssl x509 -inform pem -noout -text | grep \"Subject:\\|DNS:\""
+  command = "echo | openssl s_client -showcerts -servername gnupg.org -connect ec2-54-69-218-94.us-west-2.compute.amazonaws.com:443 2>/dev/null | openssl x509 -inform pem -noout -text | grep \"Subject:\\|DNS:\""
+  output = ""
+
+[[snippets]]
+  description = "abwhich: this function implements `abwhich`.  This is just like `which` command, but returns the absolute path! this function relies on gnu coreutils greadlink util for the -f option, though I'm sure there's some what to remove that dependency"
+  command = "function abwhich() { greadlink -f $(which \"$1\") }"
+  output = ""
+
+[[snippets]]
+  description = "use clearbit to look up all the corporate information about your current API.  This just uses the dynamic JS file that's included on https://clearbit.com/reveal .  (whats up mr. McCaw!  Love your holiday parties.  Thanks for making this semi-available)"
+  command = "curl 'https://x.clearbitjs.com/v1/pk_1922c480ae3402f6ac3ee173ad325d8c/clearbit.js' -H 'authority: x.clearbitjs.com'  -H 'pragma: no-cache'  -H 'cache-control: no-cache'  -H 'sec-ch-ua-mobile: ?0'  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36' -H 'accept: */*'  -H 'sec-fetch-site: cross-site'  -H 'sec-fetch-mode: no-cors' -H 'sec-fetch-dest: script'  -H 'referer: https://clearbit.com/reveal'  -H 'accept-language: en-US,en;q=0.9' --compressed   | grep -A200 'var response' |  sed '/};/q' | sed 's/var response =//' | sed 's/;//' | jq"
+  output = "{ \"ip\": \"73.71.136.21\", \"domain\": \"airtable.com\", \"fuzzy\": true, \"type\": \"company\", \"geoIP\": { \"city\": \"Dublin\", \"state\": \"California\", \"stateCode\": \"CA\", \"country\": \"United States\", \"countryCode\": \"US\" }, \"company\": { \"id\": \"8e5a15c8-6cfc-4c07-9b36-a2fa57ed49eb\", \"geo\": { \"lat\": 37.75696, \"lng\": -122.42557, \"city\": \"San Francisco\", \"state\": \"California\", \"country\": \"United States\", \"stateCode\": \"CA\", \"postalCode\": \"94110\", \"streetName\": \"Dolores St\", \"subPremise\": null, \"countryCode\": \"US\", \"streetNumber\": \"769\" }, \"logo\": \"https://logo.clearbit.com/airtable.com\", \"name\": \"Airtable\", \"site\": { \"phoneNumbers\": [ \"+1 800-952-5210\", \"+1 916-445-1254\" ], \"emailAddresses\": [ \"privacy@airtable.com\", \"support@airtable.com\", \"copyright@airtable.com\", \"legal@airtable.com\" ] }, \"tags\": [ \"Information Technology & Services\", \"Technology\", \"SAAS\", \"B2C\" ], \"tech\": [ \"google_apps\", \"aws_route_53\", \"optimizely\", \"zendesk\", \"google_analytics\", \"ios\", \"segment\", \"salesforce\", \"amplitude\", \"facebook_advertiser\", \"conversio\", \"rollbar\", \"rubicon_project\", \"appnexus\", \"teradata\", \"openx\", \"iponweb_bidswitch\", \"windows_server\", \"pubmatic\", \"apache_hadoop\", \"postgresql\", \"aws_iam\", \"mysql\", \"dropbox\" ], \"type\": \"private\", \"phone\": null, \"domain\": \"airtable.com\", \"parent\": { \"domain\": null }, \"ticker\": null, \"metrics\": { \"raised\": 355600000, \"employees\": 270, \"marketCap\": null, \"alexaUsRank\": 1517, \"annualRevenue\": null, \"employeesRange\": \"251-1K\", \"fiscalYearEnd\": null, \"alexaGlobalRank\": 4177, \"estimatedAnnualRevenue\": \"$10M-$50M\" }, \"profane\": false, \"twitter\": { \"id\": \"2786252385\", \"bio\": \"Create, your way.  Follow @airtablestatus for service status updates, @airtabledev for API and platform news, and visit https://t.co/hv2dEZwFSt for help.\", \"site\": \"https://t.co/IQvMkr4Psw\", \"avatar\": \"https://pbs.twimg.com/profile_images/913790926950096896/xt2OyAdt_normal.jpg\", \"handle\": \"airtable\", \"location\": \"San Francisco, CA\", \"followers\": 32493, \"following\": 718 }, \"category\": { \"sector\": \"Information Technology\", \"industry\": \"Internet Software & Services\", \"sicCode\": \"48\", \"naicsCode\": \"51\", \"subIndustry\": \"Internet Software & Services\", \"industryGroup\": \"Software & Services\" }, \"facebook\": { \"likes\": 7477, \"handle\": \"airtableapp\" }, \"internal\": { \"confidenceScore\": 79 }, \"linkedin\": { \"handle\": \"company/airtable\" }, \"location\": \"769 Dolores St, San Francisco, CA 94110-2224, US\", \"canonical\": true, \"timeZone\": \"America/Los_Angeles\", \"crunchbase\": { \"handle\": \"organization/airtable\" }, \"indexedAt\": \"2020-11-04 18:41:54 UTC\", \"legalName\": null, \"utcOffset\": -8, \"description\": \"Airtable is a low-code platform for building collaborative apps. Customize your workflow, collaborate, and achieve ambitious outcomes. Get started for free.\", \"identifiers\": { \"usEin\": null }, \"foundedYear\": 2013, \"domainAliases\": [ \"airtable.co\", \"paulksalvaggio.com\", \"peteberk.com\", \"psychedelic.community\", \"airtable.help\", \"airtableblocks.com\" ], \"emailProvider\": false, \"techCategories\": [ \"productivity\", \"dns\", \"website_optimization\", \"customer_support\", \"analytics\", \"programming_framework\", \"customer_data_platform\", \"crm\", \"advertising\", \"marketing_automation\", \"monitoring\", \"web_servers\", \"data_processing\", \"database\", \"security\" ], \"ultimateParent\": { \"domain\": null } } }"
+
+[[snippets]]
+  description = "unmount T7 SSD"
+  command = "sudo diskutil unmount disk4;  sudo diskutil unmount disk3s4;"
+  output = ""
+
+[[snippets]]
+  description = "mount T7 ssd"
+  command = "sudo diskutil mount disk4;  sudo diskutil mount disk3s4;"
+  output = ""
+
+[[snippets]]
+  description = "show all zsh key bindings.  `zle -al` also useful to show registered zle commands.   https://stackoverflow.com/questions/18042685/list-of-zsh-bindkey-commands"
+  command = "bindkey -M \"main\""
+  output = ""
+
+[[snippets]]
+  description = "find process that made a dns query in the last 30 mins.  Uses the macOS mDNSResponser logs.  Requires private logging is enabled!"
+  command = "dnslog () { sudo log show --last 30m --info --predicate \"process == 'mDNSResponder' and message Contains[c] '$1'\" | grep --ignore-case --color PID  |  sed \"s/^.* DNSServiceGetAddrInfo//g\" }"
+  output = ""
+
+[[snippets]]
+  description = "macos logger in json format + jq.  Do this instead of that grep BS"
+  command = "sudo log show  --last 5m  --style json  --info --predicate \"process == 'mDNSResponder'\" | jq '.[] | [.processImagePath, .eventMessage, .subsystem]'"
+  output = ""
+
+[[snippets]]
+  description = "play two videos side by side in MPV! Syncs quite well.  Great for comparing HD Star Trek vs. SD Star Trek.  The fancy scale command is key for getting everything lined up and also preserving the aspect ratio.  \"scale=-1:XXX\" weirldy wasn't working."
+  command = "mpv TNG-1080p.mkv --external-file=TNG-original-480p.mkv --lavfi-complex='[vid1]scale=(iw*sar)*max(1456/(iw*sar)\\,1072/ih):ih*max(1456/(iw*sar)\\,1072/ih), crop=1456:1072[v1];[vid2] scale=(iw*sar)*max(1456/(iw*sar)\\,1072/ih):ih*max(1456/(iw*sar)\\,1072/ih), crop=1456:1072[v2]; [v1][v2]  hstack [vo]'"
+  output = ""
+
+[[snippets]]
+  description = "count how many wifi networks I have saved on my mac.  (1400...).  Having too many of these seems to burn a lot of CPU since when you're not on a network macOS seems to probe for every SSID you ever connected to in the paste."
+  command = "plutil -convert xml1 /Library/Preferences/SystemConfiguration/com.apple.airport.preferences.plist -o - | grep \"<key>wifi.ssid.\" | wc -l"
+  output = ""
+
+[[snippets]]
+  description = "play the SFPD police scanner live"
+  command = "ffplay https://broadcastify.cdnstream1.com/20601"
+  output = ""
+
+[[snippets]]
+  description = "combine TNG 1080p and original SD for later swapping"
+  command = "ffmpeg -i s03e01-trimmed.mkv -i s03e01-HD.mkv -filter_complex '[0:v]fps=23.976[v0];[1:v] scale=1396:1072,fps=23.976[v1]; [v0][v1]  hstack [vo]' -map '[vo]' -map 0:a  out.mkv"
+  output = ""
+
+[[snippets]]
+  description = "every 2 seconds swap HD and SD video generated with combine above"
+  command = "ffplay -i out.mkv -vf \"swaprect=1396:h:0:0:1424:0:enable='eq(mod(round(t/2)\\,2)\\,0)',crop=1396:1072:0:0\""
+  output = ""
+
+[[snippets]]
+  description = "one shot tng HD vs SD swapping"
+  command = "ffmpeg -i s03e01-trimmed.mkv -i s03e01-HD.mkv -i \"subs.srt\" -filter_complex \"[0:v]fps=23.976[v0];[1:v] scale=1396:1072,fps=23.976[v1]; [v0][v1]  hstack [vo]; [vo]swaprect=1396:h:10:0:1424:0:enable='eq(mod(round(t/5)\\,2)\\,0)',crop=1396:1072:10:0[vo]\" -map '[vo]' -ac 2 -map 0:a -map 2:s  -c:a copy -c:v hevc_videotoolbox -b:v 3M  -threads 2 out3-hevc.mkv"
+  output = ""
+
+[[snippets]]
+  description = "use curl to fetch the response headers ONLY.  Does not download data and does not make a HEAD request"
+  command = "curl -s -I -X GET https://someurl"
+  output = ""
+
+[[snippets]]
+  description = "spam network with Chromecast/Google Home mDNS queries. These devices are very noisy, use a very naive and inefficient implementation of mDNS, and have zero built in rate limiting.  Basically they're impolie with no sense of propriety! If you spam queries they're very happy to spam back answers none stop.  Every device on the network will reply."
+  command = "for _ in {1..200}; do timeout --signal=KILL 0.5s dig @224.0.0.251 -p 5353 -t ptr +short _googlecast._tcp.local &; timeout --signal=KILL 0.5s dig @224.0.0.251 -p 5353 -t ptr +short _googlezone._tcp.local. &; sleep 0.1; done"
+  output = ""
+
+[[snippets]]
+  description = "tcpdump log mDNS queries made by Chromecast/GHomes where they ask for other _goog* devices like themselves.  Interestingly they all seem to query the network at the same time, and then they all respond, which results in a big spike in broadcast traffic.  I would think this makes the network stress worse, but maybe it makes it better..? Seems very intentional that they sync up on time like this so it must be for some reason"
+  command = "sudo tcpdump -i en14 -l  \"port 5353 and not src 192.168.1.20\"  | grep --line-buffered _goog | grep --line-buffered \"(Q\" | grep --line-buffered \"IP googl\\|IP chrome\\|IP 192\""
+  output = ""
+
+[[snippets]]
+  description = "star trek script analysis: find the episodes where Worf had the fewest lines and show what they were.  Love TNG 4x15 where Worf appeared, but his only line was \"Aye, sir\"."
+  command = "for f in $(ag -ti \"worf:\" --count | sed \"s/txt:/txt /\"  | sort -nr -k 2 -k 1  | tail -10 | cut -d ' ' -f 1); do echo \"\\n=== Next Gen Episode ${f:t:r} ===\"; cat \"$f\" | grep \"worf:\"; done"
+  output = ""
+
+[[snippets]]
+  description = "extract average ping with ugly sed regex"
+  command = "ping -q -c 3 1.1.1.1 | tail -1  | sed -E \"s/.*dev = [0-9\\.]+\\/([0-9\\.]+)\\/.*/\\1/\""
+  output = ""
+
+[[snippets]]
+  description = "unmount all mounts matching a set of volume names"
+  command = "for d in $(df  | grep -E \"/(Conduit|Core3)\" | awk '{print $1}'); do diskutil unmount $d; done;   ### or try this: diskutil eject /dev/$(df  | grep /Conduit | awk '{print $1}' | cut -d '/' -f 3 | sed -E 's/s[0-9]+$//')"
+  output = ""
+
+[[snippets]]
+  description = "list macOS defaults/preferences (registry)>  Many of these you can change!  using `find .` instead of `domains` is nice because it seperates domains by line."
+  command = "defaults read \"Apple Global Domain\"; defaults read com.apple.universalaccess; defaults find . | grep domain | grep \"com.apple\";  ### `-g` and NSGlobalDomain are the same as \"Apple Global Domain\"."
+  output = ""
+
+[[snippets]]
+  description = "craazzy text"
+  command = "echo \"B̵̧̨͙͙̣̼̤̗̙̠͇̠̤̼̙̰̦̝͎̗̘̥̥̘̰̟̳̪̞͕̓̈́̑͘͜ͅͅͅͅU̵̢̢̢̩͍̬̙̫͙̹̝̰̼̙̱̪̣͓̹̻̙̝̣͙̫͖̲̣̮͖͈̫͈͖͕̯̱̅͜R̵̡̛͔͎̣̘̖͍̳̹̭̹̩͇̥̝̥̟̫̹̹̝͎̻̝̅̒̇͂̈̍͒̈́̀̋͊̽̍̓͗̊́͒̓̾̅͂̃̈́͛͘͜͝͝͝͝ͅͅͅĢ̵̨̛̩̜̻̱̪̣͕̤̺̘͔̬̬͔͇͉͈̞͖̼̟͍̃̆̂́͒̔̈̂̆̓̂̈̑̾́̓̒͆̊̌̂̐͗͊͆͆͋̚̚̚̚̚̕͝͝͝͝͠͝E̷̡̛̬͙̥̦̘͈̼̝̭͔̝̞͈̭̲̪̻̹̱̳̱͌̈̽͊̐̎́̒̍̑̔̅̕̚͜R̵̛̛̛̛̲̪̠͈̱̽̐͆̅̋͐͗̋̒̐̊̅̌̒̔̀̓̽̒̔̐̈̌̑̇͐͗͐͋̾̄͑͌͗̕̚̕̕͘͜ b\""
+  output = ""
+
+[[snippets]]
+  description = "convert lines of text into JSON using jq. Useful example of how jq can make JSON and not just consume it.  This example in particular makes JSON for use by Alfred"
+  command = "/usr/local/bin/SwitchAudioSource  -a -t output| jq -R -s 'split(\"\\n\") | map(select(length>0)) | map({\"title\": ., \"arg\": ., \"icon\": { \"path\": \"./icon.png\"} } )' | jq -s '{ \"items\": .[] }'"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg checkboard line pattern filter"
+  command = "### ffmpeg filter: geq=lum='if(eq(mod(Y,100),0) + eq(mod(X,100),0),min(p(X,Y)+5,255),p(X,Y))"
+  output = ""
+
+[[snippets]]
+  description = "mpv/ffmpeg filter for taking two video inputs, and merging them in a 50px checkered overlay pattern.  Interesting if comparing two different versions of the same content.  Also draws some faint lines to highlight the grid"
+  command = "mpv Columbo\\ \\(Mr.\\ Peter\\ Falk\\)\\ \\ \\(S09EP06\\)\\ \\(1990\\)\\ Murder\\ in\\ Malibu\\ 720p\\ H.264\\ \\(moviesbyrizzo\\).mp4 --external-file=../Columbo/Columbo.S09E06.1990.Murder.in.Malibu.720p.BluRay.mkv --lavfi-complex=\"[vid1][vid2]blend=all_expr='if(mod(gt(mod(X,100),50) + gt(mod(Y,100),50),2),A,B)',drawgrid=width=100:height=50:thickness=1:color=green@0.1[vo]\"  ### filter works on ffmpeg too"
+  output = ""
+
+[[snippets]]
+  description = "macOS logging: stream 50000 log entries live, then count how many are coming per process + messageType"
+  command = "log stream --style ndjson --info --debug | head  -50000 | pv --line-mode | jq -c \"[.processID, .processImagePath, .messageType]\" | sort | uniq -c | sort -n"
+  output = ""
+
+[[snippets]]
+  description = "open the Slack app with the developer tools menu enable, and a remote debugging port.  Also check out the debugotron app, https://github.com/bytedance/debugtron"
+  command = "SLACK_DEVELOPER_MENU=true /Applications/Slack.app/Contents/MacOS/Slack --args --remote-debugging-port=8315"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg (and mpv, iina, or just lavfi) filter to flash some text on keyframe.  Weirldy drawtext seems like the only filter that takes expressions that use the frame type (pict_type).  Couldn't find a way to do anything but draw text on the keyframe."
+  command = "##  lavfi=[drawtext=fontsize=60:fontcolor=white:x=if(eq(pict_type\\,1)\\,100\\,w-10):y=x/dar:text='KEYFRAME']"
+  output = ""
+
+[[snippets]]
+  description = "zsh: print all functions and alias includes their definitions."
+  command = "print -rl -- ${(kv)functions} ${(kv)aliases}"
+  output = ""
+
+[[snippets]]
+  description = "mpv commands: use SSA subtitle formatting on mpv OSD! \\\\an1 aligns it to the left corner, and \\\\fs30 sets the font to size 30.  Preciding that is the ssa unescape sequence enabling these.  The full spec is here: http://moodub.free.fr/video/ass-specs.doc"
+  command = "### show-text \"${osd-ass-cc/0}{\\\\an1}{\\\\fs30} scale: ${scale} scale-radius: ${scale-radius}\" 2000"
+  output = ""
+
+[[snippets]]
+  description = "get my local ip address"
+  command = "ifconfig en14 | grep \"inet \" | tr -s ' ' | cut -d ' ' -f 2"
+  output = ""
+
+[[snippets]]
+  description = "lock down the sirianalytics.db, which has BS constantly written to it by assistantd.  wtf is that"
+  command = "chmod -R 000 ~/Library/Assistant/SiriAnalytics.db; chflags -R uchg ~/Library/Assistant/SiriAnalytics.db;"
+  output = ""
+
+[[snippets]]
+  description = "disable macOS catalina automatic updated"
+  command = "sudo softwareupdate --ignore \"macOS Catalina\"; defaults write com.apple.systempreferences AttentionPrefBundleIDs 0"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg/ffprobe: print timestamp of every frame from first 5 mins, then us awk to filter for key frames only (K)"
+  command = "ffprobe -loglevel error -select_streams v:0 -read_intervals '%05:00' -show_entries packet=pts_time,flags -of csv=print_section=0 input.mkv | awk -F',' '/K/ {print $1}'"
+  output = ""
+
+[[snippets]]
+  description = "putio: speed test different putio servers.  Must paste in a valid link to a file that's at least 50MB.  (should really average many trials for better results)"
+  command = "for x in la1 nyc1 s71-cf s71 cha5 hkg1; do echo \"speed testing $x... \" > /dev/stderr; curl -q -o /dev/null -L -r 0-50000000 -w \"$x %{speed_download}   \\t time_connect: %{time_connect} time_namelookup: %{time_namelookup} time_pretransfer: %{time_pretransfer} time_starttransfer: %{time_starttransfer} time_redirect: %{time_redirect} time_total: %{time_total}\\n\" \"https://$x.put.io/download/....&oauth_token=....&tunnel=1&storage=s71\"; done | tee /tmp/pt_speed | awk '{printf \"%s speed: %0.2f MB/s  ( more details: \",$1,$2/1024/1024; $1=\"\";$2=\"\"; print $0,\")\";}' | sort -nk3"
+  output = ""
+
+[[snippets]]
+  description = "TOR: use curl to make a request through the tor proxy, including hidden services. This fetches the NYTimes.  relevant: https://tor.stackexchange.com/questions/20175/why-doesnt-curl-download-from-file-a-onion-service"
+  command = "curl --socks5-hostname 127.0.0.1:9150 https://www.nytimes3xbfgragh.onion/"
+  output = ""
+
+[[snippets]]
+  description = "set sublime text as the new default text editor on macOS"
+  command = "brew install duti; duti -s com.sublimetext.3 public.plain-text all"
+  output = ""
+
+[[snippets]]
+  description = "launchctl: some examples of how to use the new service style launchctl commands.  That said I still can't figure out how to kill a background daemon that only exist in the read-only apptranslocation directory.  1Password 4 in particular"
+  command = "launchctl print pid/24602; launchctl print gui/502/2BUA8C4S2C.com.agilebits.onepassword4-helper; launchctl disable gui/$(id -u $ME)/2BUA8C4S2C.com.agilebits.onepassword4-helper; launchctl kill kill gui/502/2BUA8C4S2C.com.agilebits.onepassword4-helper; sudo launchctl procinfo 25793;"
+  output = ""
+
+[[snippets]]
+  description = "launchct: more example of new launchctl stuff.  The best is `procinfo` which lets you find the underlying plist file for the job! (if it exists)"
+  command = "sudo launchctl procinfo 521; sudo launchctl print user/502; sudo launchctl print system; sudo launchctl print gui/$(id -u $ME);"
+  output = ""
+
+[[snippets]]
+  description = "lsof: show processes with open files in this directory"
+  command = "sudo lsof +d /private/tmp/test -n;   #(use +D to search full depth)"
+  output = ""
+
+[[snippets]]
+  description = "lsof: show all open network connections. `-n` massively speeds this up"
+  command = "sudo lsof -i -n"
+  output = ""
+
+[[snippets]]
+  description = "lsof: show open files of a particular process! when uses with `-i`, to show networking, it appears to just ignore the `-p` setting... :shrug:"
+  command = "sudo lsof -p 106"
+  output = ""
+
+[[snippets]]
+  description = "wake iMac!"
+  command = "wakeonlan -i 192.168.1.255 -p 9 28:F0:76:0F:C6:F6"
+  output = ""
+
+[[snippets]]
+  description = "bluetooth audio: enable AptX codec. Great for Sony WH-1000MX headphones (false to go ack to default)"
+  command = "sudo defaults write bluetoothaudiod \"Enable AptX codec\" -bool true"
+  output = ""
+
+[[snippets]]
+  description = "benchmark: use fio to benchmark some reads (works in the current directory)"
+  command = "fio --name=randread --rw=randread --direct=1 --ioengine=posixaio --bs=8k --numjobs=8 --size=1G --runtime=60 --group_reporting"
+  output = ""
+
+[[snippets]]
+  description = "remote desktop: ancient kickstart script for managing Apple Remote Desktop.  The docs reference OS X 10.5.  Seems maybe useful for enabling remote desktop over ssh?"
+  command = "sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -help"
+  output = ""
+
+[[snippets]]
+  description = "macos open source: download all the tarballs from a particular macOS opensource release (macOS 10.15.6 in thsi case).  Relies on wget2.  This is helpful because it makes it easier to figure out what version of the other frameworks each framework relies on.  Apple sure doesn't make it easy, but hey, thanks for making the tarballs at all."
+  command = "wget2 --wait=0.1 --filter-urls --random-wait --max-threads=1 --level 1 --convert-links --recursive off --mirror -e robots=off --adjust-extension --reject png,gif,jpg --accept tar.gz,tarballs --domains opensource.apple.com https://opensource.apple.com/release/macos-10156.html"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg: add a nice showcqt viz on the right of some 1080p media.  mp4 format for Apple friendliness, WITH IMMEDIATE PLAYBACK thanks to a bunch of arcane movflags"
+  command = "ffmpeg -i <INPUT> -filter_complex \"[0:a]volume=1.25,equalizer=f=9000:width_type=o:width=3:g=30,volume=1.5,showcqt=fps=23.976:s=436x1080:count=4:axis=0:axis_h=30:bar_h=100:basefreq=60:endfreq=16495:cscheme=1|0.2|0|0|0.2|1,fps=23.976,hflip[vfreq];[0:v] scale=-1:1080, fps=fps=23.976, crop=(in_w-120):in_h[vbig];[vbig][vfreq]hstack,fps=23.976[vout]\" -map \"[vout]\" -map \"0:a\" -c:v h264_videotoolbox -b:v 3.5M -c:a copy -movflags +frag_keyframe+separate_moof+omit_tfhd_offset+empty_moov S02E12-fun.mp4"
+  output = ""
+
+[[snippets]]
+  description = "macOS admin: get the current idle time for the user"
+  command = "echo \"User is idle for $((`ioreg -c IOHIDSystem | sed -e '/HIDIdleTime/ !{ d' -e 't' -e '}' -e 's/.* = //g' -e 'q'` / 1000000000)) seconds\""
+  output = ""
+
+[[snippets]]
+  description = "remote desktop: Setup ssh port forwarding to access the remote desktop of a machine you can ssh into"
+  command = "ssh -p 13650 theowner@1.1.1.1 -L 5900:localhost:5900"
+  output = ""
+
+[[snippets]]
+  description = "fs_usage: watch file activity for processes that match a string.  `pg` is just like psgrep."
+  command = "sudo fs_usage -f pathname $(pg <STRING> | tr -s ' ' | gsed -E 's/^\\s//g' | grep -v \"fs_usage\\|grep \\-\" | cut -d ' ' -f 1)"
+  output = ""
+
+[[snippets]]
+  description = "SOCRATA/DataSF: Query Socrata in a sane way.  Their online cURL examples are horrible and tell you to do all sorts of manual html escaping.  Curl with --data-urlencode and -G solves it properly."
+  command = "curl -v -G https://data.sfgov.org/resource/vw6y-z8j6.json --data-urlencode \"\\$query=select service_details,service_name,service_subtype,address,requested_datetime where address like '1%DORE%' and requested_datetime > '2020-01-19T20:59:06.000' limit 100\" | jq -c '.[]'"
+  output = ""
+
+[[snippets]]
+  description = "look up ipv6 address on local network using mDNS.  Then you can use ping6 (include the \"%en0\" which specifies the interface.  v6 changes a lot of stuff.  Need to go learn)"
+  command = "dns-sd -G v4v6  robs-macbook-pro.local"
+  output = ""
+
+[[snippets]]
+  description = "audio: play constant background noise to keep cheap bluetooth audio accessories active. Otherwise they turn off/on again when you seek.  Obviously this burns a lot more battery power :-)"
+  command = "ffplay -f lavfi \"sine=44\" -af \"volume=1\" -nodisp"
+  output = ""
+
+[[snippets]]
+  description = "AirPlay/Screensharing: Make HTTP request to toggle playpause for an active AirPlay session.  Specific numbers are unique per session, sadly.  Needs some more tooling.  Super annoying that this functionality exists, but from the AppleTV remote there seems no way to toggle it"
+  command = "curl -vv  http://192.168.86.24:53616/ctrl-int/1/playpause -H 'Active-Remote:3404518199'   ## remote # and port # subject to change... some more protocol info: https://nto.github.io/AirPlay.html\\#audio-remotecontrol"
+  output = ""
+
+[[snippets]]
+  description = "console log: look at console logs for Wake On Lan (magic packet) references.  Annoyingly this is very hard to debug.  And if you send to many macOS appears to start ignoring them without any mention at all"
+  command = "log show --info --debug --last 30m --predicate \"(message Contains[c] 'magic' and (message Contains[c] 'wake' or message Contains[c] 'packet') and not message Contains[c] 'dark wake') or (message Contains[c] 'wake' and message Contains[c] ' lan')\""
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg: when hardware encoding with _videotoolbox... the `-g` param still works for specify \"keyframes\".  Not exactly the same as the x264-opts keyint= param, but close.  shrug"
+  command = "ffmpeg  -i <input> -c:v h264_videotoolbox -g 5 -b:v 3M -c:a copy testo4.mkv"
+  output = ""
+
+[[snippets]]
+  description = "pstree: list all process that are descended from my terminal/iTerm. Filters out the obvious stuff. Super janky.  Is clearly hard coded for me"
+  command = "pstree -p $(pgrep -a iTerm2)  | grep -v -E \"\\d{2,} chris \\-zsh$|/MacOS/iTerm2 \\-\\-|grep \\-\\-ignore\\-case\""
+  output = ""
+
+[[snippets]]
+  description = "FileMonitor: pass FileMonitor results to jq for nice formating! Or uniq+counting. Silly hack to get rid of the invalid json trailing comma that is outputted (SHAME)"
+  command = "sudo /Applications/monitoring/FileMonitor.app/Contents/MacOS/FileMonitor  |  head -100 | sed \"s/,},/},/g\" | jq -c \"[.file.destination, .file.process.path,.event]\""
+  output = ""
+
+[[snippets]]
+  description = "Star Trek: Download TAS scripts from chakoteya.net and convert them to nice text. Uses the PyPi html2text package.  (the ancient cli tool of the same name is far worse)"
+  command = "wget http://www.chakoteya.net/StarTrek/TAS\\{001..023\\}.htm; for f in *.htm; do html2text -b 0 --ignore-links --ignore-emphasis \"$f\" > \"${f:t:r}.txt\"; done"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg: make a gif with ffmpeg! keep loop as 0 (0=infinite loop)"
+  command = "ffmpeg -ss 1  -i input.mov -vf \"setpts=0.5*PTS,fps=10,scale=1080:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse\" -loop 0 -y output.gif"
+  output = ""
+
+[[snippets]]
+  description = "launchctl: The old `load` command is now replaced by `bootstrap`.  This works over SSH! You must now specify the domain."
+  command = "launchctl bootstrap user/$(id -u)  /Users/chris_tmp/Library/LaunchAgents/varenc.chris.testing.plist"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg/ffplay: example of how to use complex multimedia filters with ffplay"
+  command = "ffplay -f lavfi \"movie=big_buck_bunny_480p_surround-fix.avi:streams=dv+da[v][a],[a]asplit=2[out1][a],[a]showcqt=s=400x900[vfun],[v]scale=-1:900[v];[v][vfun]hstack[out0]\""
+  output = ""
+
+[[snippets]]
+  description = "Use that as the Custom Number Format on Google Sheets and long numbers of bytes will become nicely formatted!  Not sure where else to put this but it rocks"
+  command = "## GOOGLE SHEETS BYTES/KB/MG/GB byte formating string: [<1000000]0.00,\" KB\";[<1000000000]0.00,,\" MB\";0.00,,,\" GB\""
+  output = ""
+
+[[snippets]]
+  description = "shell-fu: Convert the numbers 0-9 into the words zero-nine! Nice for normalizing text and then doing some dumb substring searches"
+  command = "perl -lpe '@a=qw(zero one two three four five six seven eight nine);s/(?<!\\d)(\\d)(?!\\d)/$a[$1]/g'"
+  output = ""
+
+[[snippets]]
+  description = "HTTPS: test a site without SNI"
+  command = "gnutls-cli --disable-sni www.lingt.com"
+  output = ""
+
+[[snippets]]
+  description = "list all macOS speech voice bundle names.  Bundle names can be used directly in a `say -v \"...\"` command"
+  command = "\\ls /System/Library/Speech/Voices/*.SpeechVoice/Contents/Info.plist | xargs -n 1 /usr/libexec/PlistBuddy -c 'print CFBundleIdentifier'"
+  output = ""
+
+[[snippets]]
+  description = "cause `say` to seg fault! using undocumented param '--map-channels'"
+  command = "say --map-channels 12123 \"hello\"  -o out.aiff"
+  output = ""
+
+[[snippets]]
+  description = "Bluetooth: Dump a sample of all bluetooth communication activity.  Like wireshark for Bluetooth.  The pklg file type can be opened by Apple's PacketLogger util"
+  command = "sudo /System/Library/Frameworks/IOBluetooth.framework/Resources/BluetoothReporter --dumpPacketLog /tmp/bt_dump.pklg"
+  output = ""
+
+[[snippets]]
+  description = "fix \"illegal byte sequence\".  Basically you just prepend `LC_ALL=C` which configures the local to `C`.  Crazy details here: https://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x  also worth nothing that gnu utils (gsed, gsort) don't complain about this.  Just the Apple built in ones. (Perhaps they want to insist on correctness)"
+  command = "LC_ALL=C  sed 's/./@/' <<<$'\\xfc'"
+  output = ""
+
+[[snippets]]
+  description = "do an iOS/iTunes backup from the shell! also lets you controlt the output path easily"
+  command = "/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/Current/AppleMobileDeviceHelper.app/Contents/Resources/AppleMobileBackup --info"
+  output = ""
+
+[[snippets]]
+  description = "iOS backup futzing: Write some pref value that I hoped would cause AppleMobileBackup to output some useful logging info, but no luck.  Interesting that it looks for keys in this non-existence domain.  Feels like a bunch of its functionality is just abandoned cruft and they only care about the narrow bit they use that works.  And of course its way better if all users which to iCloud backups so they can make $$ on services.  Alas."
+  command = "defaults write com.apple.MobileDevice LogFile '/private/tmp/mobiledevice.log'"
+  output = ""
+
+[[snippets]]
+  description = "review this shortcuts! Ctrl+O Control-P: Move up one line."
+  command = "#https://support.apple.com/en-us/HT201236"
+  output = ""
+
+[[snippets]]
+  description = "spoof terminal width/columns:  This arcane command makes the terminal appear to have 200 lines for any subsequent commands (like `tput cols`).  This is useful for dumb programs that like to truncate data to fit your terminal but don't let you override (like `fs_usage` !!!!!!) ... also good when piping to `less`."
+  command = "stty columns \"${1:-200}\""
+  output = ""
+
+[[snippets]]
+  description = "proxy: set and toggle SOCKS proxy from the cli.  Useful for toggling Charles on off.  (its built in function only toggles the system hide HTTP proxy)"
+  command = "networksetup -setsocksfirewallproxy Ethernet localhost 8889; ## networksetup -setsocksfirewallproxystate Ethernet off"
+  output = ""
+
+[[snippets]]
+  description = "process monitoring: cleaner process monitoring by using jq on the json output.  The but buffering is still causing pain.  Nothing seems to return until the initial `head -1000` closes the pipe.  Maybe remove all the 'tee's?  Also the two gsed commands are to fix ProcessMonitor's output so that its valid json.  Annoyingly if the arguments contain a newline, that newline is output unescaped, which makes it invalid JSON. I think.  This is because its a stream of line deliminated json objects and there's no easy way to distinguish a object delimination newline from a json value newline.  That gsed just hackly fixes this for a very specific call to awk.  (in particular, the call to awk made by the z jump-list tool)"
+  command = "sudo /Applications/monitoring/ProcessMonitor.app/Contents/MacOS/ProcessMonitor |  head -1500 | tee  /tmp/tmp | gsed --unbuffered \"s/,},/},/g\" | gsed --unbuffered '/./{H;$!d} ; x ; s/\"-F|\",\".*\"],\"ppid\"/\"-F|\",\"___AWK STUFF___\"],\"ppid\"/'  | tee /tmp/tmp_filtered | head -60 | jq --unbuffered -c \"[.event, .process.path, .process.arguments, .process.pid, .process.ppid, .ancestors]\""
+  output = ""
+
+[[snippets]]
+  description = "MDM/Configuration Profile: make a signed (obsfuscated) .mobileconfig readable.  Note that profiles can actually be encrypted and require a private key to read so this obviously wont work on those.  But this works fine for Kandji generated configs for me"
+  command = "security cms -D -i kandji-enroll.mobileconfig | xmllint --pretty 1 -    ### this also works: openssl smime -inform DER -verify -in signed.mobileconfig -noverify -out de-signed.mobileconfig"
+  output = ""
+
+[[snippets]]
+  description = "ddc/ci: query most all all of the current monitor's ddc/ci properties"
+  command = "ddcctl -d 1 -gg '?' -bg '?'  -rg '?' -p '?' -m '?' -b '?' -c '?'"
+  output = ""
+
+[[snippets]]
+  description = "wget/archive.org mirroring: wget command for mass downloading.  Mainly just read the guide"
+  command = "/private/tmp/wget-1.18-limitsize/src/wget  --limit-size=300M --continue -nc -r -H -np -nH --cut-dirs=1 -A .mp4,.xml,.gif,.html  --reject _edit.mp4,_512kb.mp4 -e robots=off -l1 -i ./IDS_SPLITac -B 'http://archive.org/download/'   # https://blog.archive.org/2012/04/26/downloading-in-bulk-using-wget/"
+  output = ""
+
+[[snippets]]
+  description = "dtrace/opensnoop: Awesome DTrace script for monitoring `open` calls.  On Catalina and above need to disable SIP.  (some non-Apple processes can be viewed with SIP on, but oddly not all of them.  Maybe preferential treatment for apps with the right signature or ones distributed through the app store.  Wow)"
+  command = "sudo opensnoop # -h"
+  output = ""
+
+[[snippets]]
+  description = "networking/unifi: manually add a routing table entry to help deal with the Double NAT'd gwifi network attached to my main ubiquiti network.  This doesn't really solve the underlying issue, but now at least if I have the IP address of something on the GWifi network it seems to be routed to it correctly.  Still wish that mDNS/Bonjour broadcasting would work.  (I think the issue is just that gwifi refuses to repeat broadcast packet it recieves on the WAN port? which of course is rather sensible)"
+  command = "sudo route -n add -net 192.168.86.0/24 192.168.1.30  #(or change to 'delete')"
+  output = ""
+
+[[snippets]]
+  description = "mpv: compare different AAC audio decoders back to back.  I've learned that AudioToolbox sounds particularly poor and that the default, `aac`, seems like the best"
+  command = "mpv LFE-SBR.mp4 --ad=libfdk_aac --start=00:00:34 --end=00:00:38; mpv LFE-SBR.mp4 --ad=aac_at --start=00:00:34  --end=00:00:38; mpv LFE-SBR.mp4 --ad=aac --start=00:00:34 --end=00:00:38"
+  output = ""
+
+[[snippets]]
+  description = "macos: enable slow animation by holding shift key"
+  command = "defaults write com.apple.dock slow-motion-allowed -bool YES && killall Dock"
+  output = ""
+
+[[snippets]]
+  description = "shell/line endings: how to grep for line endings in Windows line ending files.  just using `$` won't work."
+  command = "grep -v -E \"^.*[[:cntrl:]]*$\";  # or just use `dos2unix`, or `cat INPUT | sed 's/^M$//' > output`.   (or use `sponge` to have output replace the input file)"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg: cut a video but keep original timestamps in the output.  Might require the cut time (`-ss`) specify a keyframe exactly.  Needs mp4 container.  Wish I understood this better."
+  command = "ffmpeg -ss CUT_TIMECODE -i https://api.video.source/some_huge_8k_video.mov  -t $((60*5)) -c copy  -output_ts_offset CUT_TIMECODE  -movflags +faststart -y trimmed.mp4"
+  output = ""
+
+[[snippets]]
+  description = "shell-fu/time: convert time in seconds to formatted hours+minutes+seconds, including fractions. (HH:MM:SS.<frac).   Helpful for when pulling `time-pos` from MPV/IINA.   (which you can fetch from mpv's --input-ipc-server like this: `echo '{ \"command\": [\"get_property\", \"time-pos\"] }' | socat - /tmp/mpv.sock | jq -r \".data\"`)"
+  command = "echo 9112.437 |  dc -e '?1~r60~r60~r[[0]P]szn[:]ndZ2>zn[:]ndZ2>zn[[.]n]sad0=ap'"
+  output = ""
+
+[[snippets]]
+  description = "nat/networking: Get UPNPC working through a Double NAT.  (GWifi beyind Ubiquiti).  Just use `upnpc`'s  -u option to specify the upnpc gateway and setup two layers of redirections."
+  command = "upnpc -e chrisfun -a 192.168.86.20 22 6991  tcp 600; upnpc -u \"http://192.168.1.1:43098/rootDesc.xml\" -e chrisfun -a 192.168.1.30 6991 6991  tcp 600;  # upnpc -l"
+  output = ""
+
+[[snippets]]
+  description = "tor/networking/tcpdump: Log and then dump all local Tor traffic.  Relies on the nifty httpdump go project.  Just sniffs the local tor port. Especially works when using hidden services which are 'only' http.  (tor actually encrypts them of course, but the local traffic to the proxy is plain text)"
+  command = "sudo tshark -i lo0 -w out.pcap 'port 9150';  # sudo httpdump -level full -file ./out.pcap"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg/ffprobe: show lots of stream level info."
+  command = "ffprobe -loglevel error  -prefix -unit -pretty -show_streams  -i <INPUT>"
+  output = ""
+
+[[snippets]]
+  description = "mediainfo/ffmpeg: Show more video file info with `mediainfo`. This will reveal the min/max luminance values in nits for certain HDR  videos"
+  command = "mediainfo -f _INPUT_ | grep lumin"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg/ffprobe: Extract HDR info with ffprobe.  Weirdly previous ffprobe commands didn't output this.  This is the \"Mastering Display and Content Light Level metadata\""
+  command = "ffprobe -hide_banner -loglevel warning -select_streams v -print_format json -show_frames -read_intervals \"%+#1\" -show_entries \"frame=color_space,color_primaries,color_transfer,side_data_list,pix_fmt\" -i <>"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg: compare features of two different ffmpeg binaries.  Prety interesting just comparing different builds."
+  command = "function ffinfo()  {$1 -version > $2;$1 -encoders >> $2;$1 -decoders >> $2;$1 -codecs >> $2;$1 -filters >> $2;$1 -formats >> $2;$1 -muxers >> $2;$1 -demuxers >> $2}; ffinfo \"/path/to/some/ffmpeg\" /tmp/ff1; ffinfo \"/other/ffmpeg\" /tmp/ff2; diffmerge ff1 ff2;"
+  output = ""
+
+[[snippets]]
+  description = "custom keyboard shortcuts from terminal:  Just write to an app's pref's NSUserKeyEquivalents dict to modify custom app shortcuts.  Exactly like Preferences -> Keyboard -> Shortcuts.  Write to the global domains `NSUserKeyEquivalents` to change global shortcuts of course.  App will need to be restarted (unlike when using system prefs)"
+  command = "defaults write com.apple.Preview \"NSUserKeyEquivalents\" '{\"Adjust Size...\" = \"@~s\";}';"
+  output = ""
+
+[[snippets]]
+  description = "chrome extension activity: Show the 50 most recent Chrome extension activity logs by reading from Chrome's sqlite database. Might require the Chrome extensions developer tool"
+  command = "sqlite3 ~/Library/Application\\ Support/Google/Chrome/Default/Extension\\ Activity \"select * from activitylog_uncompressed ORDER BY time DESC limit 50;\""
+  output = ""
+
+[[snippets]]
+  description = "geoip: Get the geoip of my current IP address"
+  command = "curl http://ip-api.com/json/ | jq"
+  output = ""
+
+[[snippets]]
+  description = "messages scan/get SMS code: Chat the Messages app database for recent messages.  The 'date' field is an integer that uses \"AppleTime\".  Which is unix time but based on 1/1/2001 UTC, and its in NANO SECONDS.  So its `(<unix time> - 30 years) * 10^9"
+  command = "sqlite3 ~/Library/Messages/chat.db \"SELECT text, datetime(date, 'unixepoch', '+31 years') FROM message WHERE text LIKE '%code%' and date > $((633743600 * 1000000000))\""
+  output = ""
+
+[[snippets]]
+  description = "iMessage/Messages backup: this oneliner selects messages from the last 24 hours only. The only improvement over others is that it converts the hours to a NSDate (nanoseconds since 1/1/01), and then converts the returned NSDates back as well."
+  command = "HOURS_SINCE=$((24)); sqlite3 ~/Library/Messages/chat.db \"SELECT text, datetime(date/1000000000 + strftime('%s', '2001-01-01') ,'unixepoch','localtime'),date  FROM message WHERE text LIKE '%' and date > $(printf \"%0.f\"  $(( ( $(gdate '+%s.%N') -  $(gdate -ud \"2001-01-01\"   '+%s') - ($HOURS_SINCE * 3600) ) * 10**9 ))) ORDER BY date ASC\""
+  output = ""
+
+[[snippets]]
+  description = "shell-fu: exclude blank lines, when those blank lines might be from files with windows-style CR-LF line breaks.  So annoying."
+  command = "grep -vE '^[[:cntrl:]]*$'"
+  output = ""
+
+[[snippets]]
+  description = "open the 'secret' mac calibration assistant"
+  command = "open \"/System/Library/PrivateFrameworks/AmbientDisplay.framework/Versions/A/Resources/Calibration Assistant.app\""
+  output = ""
+
+[[snippets]]
+  description = "zsh/shell-fu; start shell in debug mode to see everything that happens.  Useful for tracking down why `INC_APPEND_HISTORY` is being set or why a random ruby process is being started when a shell opens."
+  command = "set -x; source ~/.zshrc 2> /tmp/zlog;   set +x"
+  output = ""
+
+[[snippets]]
+  description = "blend two images together, animorphs style.  Uses/abuses ffmpeg's motion interpolation filter to do it.  Basically its trying to fill in the missing frames between these two still images.  Works better when the images have some simliarity to start with"
+  command = "ffmpeg -safe 0 -f concat -i  <(echo \"file '/tmp/chris.jpg'\\nduration 2\\nfile '/tmp/rilka.jpg'\\nduration 2\\nfile '/tmp/rilka.jpg'\")  -vf 'scale=-1:600,fps=25' -vsync vfr -pix_fmt yuv420p -framerate 25 tmpoutput.mkv; ffmpeg -ss 1 -i tmpoutput.mkv -vf 'fps=2,minterpolate=fps=120:scd=none:search_param=64:mc_mode=aobmc:me_mode=bilat:vsbmc=1,setpts=5*PTS,fps=60' blended.mp4; ffplay blended.mp4"
+  output = ""
+
+[[snippets]]
+  description = "image conversion: use imagemagick to resize and crop an image to a fixed size.  600x600 is used by the animorphs merging ffmpeg snippet above."
+  command = "convert chris2.png -resize 600x600^ -extent 600x600 chris2.jpg"
+  output = ""
+
+[[snippets]]
+  description = "make a 5GB Ram disk.   Use `diskutil eject '/Volumes/RAM Disk'` to unmount and free up RAM.  Just unmount it will leave the RAM Disk in memory mysteriously..."
+  command = "diskutil erasevolume HFS+ 'RAM Disk' `hdiutil attach -nobrowse -nomount ram://10485760`"
+  output = ""
+
+[[snippets]]
+  description = "subtitles: Strip everything but the text from an srt subtitle"
+  command = "cat sub.srt | grep -v \"\\-\\->\"  | grep -vE \"^[[:digit:]]+$\""
+  output = ""
+
+[[snippets]]
+  description = "subtitle comparion: Compare plaintext only of two srt files with creating any intermediate files. woohooo"
+  command = "meld --label=OLD <(cat sub1.srt |  grep -v \"\\-\\->\"  | grep -vE \"^[[:digit:]]+$\")  --label=NEW <(cat sub2.srt |  grep -v \"\\-\\->\"  | grep -vE \"^[[:digit:]]+$\" | sed \"s/\\- //g\")"
+  output = ""
+
+[[snippets]]
+  description = "mac os log streaming/filtering: This shows off a few different things.  For predicates to filter on message type you use the unquoted log types which are just converted to numbers (debug=2).  With ndjson you can stream and view live with `jq` but the very first non-json message, \"Filtering.... blah blah\", must be excluded.  In this example I'm tracking down what's making the `deleted` daemon go crazy.  Turns out it was iStats menus querying for purgeable space every 10 seconds."
+  command = "sudo log stream --style=ndjson --info --debug --predicate \"(subsystem == 'com.apple.cache_delete' AND (messageType != debug OR not processImagePath Contains[c] 'deleted')) OR processImagePath == '/usr/bin/sudo'\"  | grep -v \"^Filter\" | jq '{subsystem, category, processImagePath, senderImagePath, eventMessage, processID, messageType}'"
+  output = ""
+
+[[snippets]]
+  description = "macOS logging: Enable detailed debug level logging for the user prefs (aka cfprefsd or `defaults`).  This lets you look up all historical reads and writes of user prefs.  But its a lot of data so dissable this after use.   I get about 100 debug logs a second on average."
+  command = "sudo log config --subsystem 'com.apple.defaults' --mode \"persist:debug\""
+  output = ""
+
+[[snippets]]
+  description = "macOS logging: Monitor all writes/updates to user prefs. I found this very useful for figuring out how the options in a configuration GUI map to the underlying prefs.  Once thats figured out it becomes easy to automate them. Woohooo."
+  command = "sudo log stream --info --debug --predicate \"subsystem == 'com.apple.defaults' and (eventMessage contains 'wrote' or eventMessage contains 'setting' or '1' == '2') and not (processImagePath contains 'iTerm2') \""
+  output = ""
+
+[[snippets]]
+  description = "process monitoring: Track cpu % and total cputime regularly.  The delta in the cputime is the really interesting things.  In this case it tracks the AXVisualSupportAgent."
+  command = "while :;do ps -p $(pgrep AXVisual) -o %cpu=,cputime=;sleep 1;done"
+  output = ""
+
+[[snippets]]
+  description = "macos defaults: Read IINA prefs and escape for later usage"
+  command = "defaults read com.colliderli.iina savedVideoFilters | grep -v \"[\\)\\(]$\" |  gsed -E 's/\\\\\"\\\\\"//g' | gsed -E \"s/'/'\\\"'\\\"'/g\" | gsed -E -e '1h;2,$H;$!d;g' -e \"s/\\},?"
+  output = ""
+
+[[snippets]]
+  description = "macos prefs/iina saver"
+  command = "echo \"defaults write com.colliderli.iina TESTOsavedVideoFilters  -array\" $(defaults read com.colliderli.iina savedVideoFilters | grep -v \"[\\)\\(]$\" |  gsed -E 's/\\\\\\\\\"\\\\\\\\\"//g' | gsed -E \"s/'/'\\\"'\\\"'/g\" | gsed -E -e '1h;2,$H;$!d;g' -e \"s/\\},?\\n?/}\\'/g\"  | gsed -E \"s/\\{/'\\{/g\") | gsed \"s/}' '{/}' '{\\n/g\" > ./t.sh"
+  output = ""
+
+[[snippets]]
+  description = "monitoring: Measure cputime usage per second! This seem far more useful than just looking at \"cpu\" or \"cputime\".  Lets you see history and see a rolling average of usage.  Of course accuracy is limited by the cputime accuracy.  Also changes in frequency CPU frequency arent represented either. (I'll use `Turbo Boost Switcher` to lock it to the non-boosted frequency)"
+  command = "while :;do ps -p $(pgrep IINA) -o cputime= | awk -F: '{ print ($1 * 60) + $2 }' ;sleep 2;done | perl -e '$last=$_; while (<>) {chomp; printf(\"%.2f <---cputime per second  (raw: %s)\\n\",($_-$last)/2, $_); $last=$_;}'"
+  output = ""
+
+[[snippets]]
+  description = "monitoring: overly complicated version of above, with yet another rolling average. (cpu% is already a moving average...sorta?)"
+  command = "while :;do ps -p $(pgrep IINA) -o cputime= | awk -F: '{ print ($1 * 60) + $2 }' ;sleep 2;done | perl -MList::Util=sum  -e '$last=$_; @hist = (1,1,1,1,1); while (<>) {chomp; $avg=($_-$last)/2; $last=$_; push @hist, $avg; shift @hist; printf(\"cputime/s: %.2f\\t rolling avg: %.2f\\t (raw: %s)\\n\",$avg, (sum @hist)/5, $_);}'"
+  output = ""
+
+[[snippets]]
+  description = "shell-fu: removing leading whitespace with macOS/BSD sed"
+  command = "sed -E 's/^[[:blank:]]+//g'"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg: select the 'right' tracks.  Video, audio, and any subtitles tagged \"english\""
+  command = "ffmpeg -i .... -map 0:v -map 0:a  -map 0:s:m:language:eng"
+  output = ""
+
+[[snippets]]
+  description = "shell-fu: Python one-liner to JSON-value escape an input string"
+  command = "echo 'testo\"weee\"\\nyea' | python3 -c 'import json,sys;i=\"\".join(sys.stdin.readlines()).strip();print(json.dumps(i))'"
+  output = ""
+
+[[snippets]]
+  description = "WIP shell-fu: Count mkv files per 1st level sub directory"
+  command = "for d in */; do echo $(\\ls -q -U $d/*.mkv | awk -F . '{print $NF}' | sort | uniq -c | awk '{print $1,$2,\"\\n\"}') \"<---- $d\";  done | sort -nr"
+  output = ""
+
+[[snippets]]
+  description = "monitoring: get swap memory usage"
+  command = "sysctl vm.swapusage"
+  output = ""
+
+[[snippets]]
+  description = "rescuetime's crazy persmission asking applescript"
+  command = "osascript -e \\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 on requestAccessibility()\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 set os_version to do shell script \"sw_vers -productVersion\"\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 considering numeric strings\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 if os_version >= \"10.9\" then\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 tell application \"System Preferences\"\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 set the current pane to pane id \"com.apple.preference.security\"\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 reveal anchor \"Privacy_Accessibility\" of current pane\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 activate\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 beep\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 display dialog \"Please check the checkbox next to the RescueTime icon in the Security & Privacy preferences.\" & return & return & ¬\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 \"Once checked, you can close the Security & Privacy preference window and continue using RescueTime.\" buttons {\"OK\"} ¬\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 with icon caution default button 1\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 end tell\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 else\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 tell application \"System Preferences\"\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 set current pane to pane \"com.apple.preference.universalaccess\"\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 activate\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 beep\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 display dialog \"Please check the checkbox named \\\"Enable access for assistive devices\\\" in the Universal Access preferences.\" & return & return & ¬\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 \"Once checked, you can close the Universal Access preference window and continue using RescueTime.\" buttons {\"OK\"} ¬\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 with icon caution default button 1\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 end tell\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 end if\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 end considering\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 end requestAccessibility\\012\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011\\011 requestAccessibility()"
+  output = ""
+
+[[snippets]]
+  description = "rclone: Force a recurisve folder list update on an rclone mount! Only works if mounted with `--fast-list` option.  This is the only way to get an efficient recursive directory listing on a mount."
+  command = "rclone rc vfs/refresh dir=\"some_folder\" recursive=true"
+  output = ""
+
+[[snippets]]
+  description = "remote desktop with port forwarding: Enable macOS's builtin remote desktop and setup port forwarding with upnp so that it can be accessed remotely.  Be careful.  Requires upnpc (a UPnP client). In this example the port forwardings expire after 10 minutes."
+  command = "sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -users chris -access -on -privs -all -restart -agent; upnpc -e 'chris tcp apple' -a $(dumpIpForInterface $(getPrimaryInterface)) 3283 3283 tcp 600; upnpc -e 'chris udp apple' -a $(dumpIpForInterface $(getPrimaryInterface)) 3283 3283 udp 600; upnpc -e 'chris tcp apple2' -a $(dumpIpForInterface $(getPrimaryInterface)) 5900 5900 tcp 600; upnpc -e 'chris udp apple2' -a $(dumpIpForInterface $(getPrimaryInterface)) 5900 5900 udp 600; upnpc -e 'chris tcp apple3' -a $(dumpIpForInterface $(getPrimaryInterface)) 5988 5988 tcp 600; upnpc -e 'chris udp apple3' -a $(dumpIpForInterface $(getPrimaryInterface)) 5988 5988 udp 600;"
+  output = ""
+
+[[snippets]]
+  description = "jq example: Demo of some `jq` stuff I always forget. This command actually comes from an alias I have for fetching properties from MPV over its ipc-socket-server. If the returned object has a .data key and its value is a string or number, just return 'inputted_property=value'. Otherwise return the whole object. Shows some stuff like: Outputing a defined string with included vars. Checking a type with `| type` and then checking for existence in a defined listed with the newish `IN()`. Also when including an outside env var just give up on layered escaping and just end the the ' string, include the var, and then start it again.  Wish I'd discovered how much easier that is years ago."
+  command = "Q=\"ENV_VAR\" echo '{\"data\":\"weee\"}' | jq -r 'if (has(\"data\") and (.data != null) and (.data|type | IN(\"number\",\"string\"))) then \"'$Q'=\\(.data)\" else . end'"
+  output = ""
+
+[[snippets]]
+  description = "zsh/compdef: Find the completion function, if any, is being used for a command.  Then show that function.  Or just look at `$_comps` and all its keys for a list of everything with compdefs.  This stuff is so arcane"
+  command = "echo $_comps[cd]; functions $_comps[cd]"
+  output = ""
+
+[[snippets]]
+  description = "keyboard binding customize: Change default mac keyboard bindings using mac's already built in configuation capability! \"DefaultKeyBinding.dict\".   Allows very powerful key bindings.  Sequences for example.  And allows you to define some text behavior that's not available otherwise at all."
+  command = "open \"https://gist.github.com/varenc/34301f89541c97a061f8f9160808dc1b\""
+  output = ""
+
+[[snippets]]
+  description = "rclone mount fast list: On an rclone mount, the `fast-list` setting does nothing....UNLESS you make an \"rc\" command with \"recursive=true\".  That'll then use recursive directory listing to fill up the filesystem cache quickly and efficiently if the mount supports --fast-list and --fast-list is enabled."
+  command = "rclone --rc-addr=:5574 rc vfs/refresh dir=\"Camera Uploads\" recursive=true"
+  output = ""
+
+[[snippets]]
+  description = "zsh builtins: Look up the actual man page for zsh built ins.  Running `man <builtin>`, like `man command` returns the near useless general BSD docs."
+  command = "man zshbuiltins"
+  output = ""
+
+[[snippets]]
+  description = "export entire indexDB database: https://gist.github.com/varenc/a703f070f9701d8409f93055149af7d0"
+  command = "# export entire indexDB database: https://gist.github.com/varenc/a703f070f9701d8409f93055149af7d0"
+  output = ""
+
+[[snippets]]
+  description = "google docs info sniffing.  Find Name/Email/ID/times for a public Google Document (docs, sheets, slides, etc)"
+  command = "xeuledoc"
+  output = ""
+
+[[snippets]]
+  description = "shell-fu/escaping: sed command to shell escape a string defined by a var."
+  command = "echo $ESCAPE_ME | sed -e \"s/'/'\\\\''/g; 1s/^/'/; \\$s/\\$/'/\";   ### DEMO OF USAGE: ESCAPE_ME='firequalizer=gain='\\''1.4884e8 * f*f*f / (f*f + 424.36) / (f*f + 1.4884e8) / sqrt(f*f + 25122.25)'\\'':scale=linlin:wfunc=tukey:zero_phase=1:fft2=1,compand=.3|.3:1|1:-90/-60|-60/-40|-40/-30|-20/-20:6:0:-90:0.5,volume=1.2'; eval echo \"evaled escaped version:\" $(echo $PRECQT | sed -e \"s/'/'\\\\''/g; 1s/^/'/; \\$s/\\$/'/\" | tee -a /dev/stderr)"
+  output = ""
+
+[[snippets]]
+  description = "shell-fu/escaping: Escape a string from a var for use in a regex/sed."
+  command = "PRECQT=\"string[a]for.the.regex.that...[needs](escaping)\"; ESCAPED=$(printf '%s\\n' $PRECQT | sed -e 's/[]\\/$*.^[]/\\\\&/g'); echo $ESCAPED"
+  output = ""
+
+[[snippets]]
+  description = "shell-fu: Get the filesystem type of the current path. Possibly useful for indicating this in your shell's PROMPT"
+  command = "gdf -P -T . | tail -n +2 | awk '{print $2}'"
+  output = ""
+
+[[snippets]]
+  description = "mac pkg dumping: Dump a macOS installer pkg and then dump some of its contents.  Needs lots more work to be versatile and automated but you get the idea."
+  command = "mkdir pkg_decompress; xar -C pkg_decompress -xf ___SOME_PKG___.pkg; cd pkg_decompress; cd *.pkg; tar xvf Payload; tar xvf Scripts"
+  output = ""
+
+[[snippets]]
+  description = "look up definition from shell; Uses https://fluentcards.com/"
+  command = "function getWord() { curl \"https://dphk13sebjka5.cloudfront.net/$(echo $1| sed 's/ /%20/g')\" | jq '[ .results[].definition ] | join(\"; \")' }; getWord \"bustle\"; getWord \"booby prize\""
+  output = ""
+
+[[snippets]]
+  description = "shell-fu/git: Save a file with the git head commit for every git repo in the current directory"
+  command = "for d in $(\\ls -d */); do echo $(git -C ${d} rev-parse head)$'\\t'$(gdate)'\\n'$(git -C ${d} show head)'\\n=================' >> ./\"${d:t}__head\"; done"
+  output = ""
+
+[[snippets]]
+  description = "rclone: server some stuff over dlna"
+  command = "### rclone serve dlna . -v -v --read-only --name \"Star Trek Lower Decks\" --addr 192.168.86.20:8808; rclone serve dlna 'putio:/chill.institute/sexyesports/Quanzhi Gaoshou [1080]' -v -v --name \"Sexy ESports\" --read-only --addr \"192.168.86.20:8806\""
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg/ffprobe/video: Get aspect ratio as a decimal using ffmpeg and jq"
+  command = "ffprobe -v quiet -show_format -of json -select_streams v:0 -show_entries stream=height,width,display_aspect_ratio \"$(mpg \"working-directory\")$(mpg path)\" | jq '.streams[0] | .width/.height'"
+  output = ""
+
+[[snippets]]
+  description = "dictionary lookup: Just use macOS's built in dictionaries with this util.  C code is here: https://github.com/varenc/osx-dictionary"
+  command = "osx-dictionary  antiscorbutic --json"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg/mpv waveform viz: Try out different combinations of waveform visualization settings in IINA/mpv.  relies on my `mpc` function to make the IPC call that sets the filter.  Use of labels ensure the new filter replaces the old one in the filter chain."
+  command = "for n in {1..7}; do for e in {0..3}; do echo $n - $e; mpc vf add \"\\\"@VIZluma:lavfi=[format=yuv420p,split=2[a][b]; [b]waveform=mode=row:filter=${n}:envelope=${e}:mirror=0:components=7:display=overlay:intensity=0.04:scale=digital:graticule=none:opacity=0,  crop=in_w-16:in_h:16:0[wave2];   [a][wave2]hstack=inputs=2]\\\"\"; read; done; done"
+  output = ""
+
+[[snippets]]
+  description = "2FA SMS codes: Copy most recently received SMS 2FA code to the clipboard.  Print the most recent codes to stderr and echo the copied code for confirmation"
+  command = "sqlite3 ~/Library/Messages/chat.db \"SELECT REPLACE(text,CHAR(10),'\\\\n'), datetime(date/1000000000 + strftime('%s', '2001-01-01') ,'unixepoch','localtime') FROM message WHERE  ((text glob '* [0-9][0-9][0-9][0-9]*'  OR text glob '[0-9][0-9][0-9][0-9]*') or (text like '%code%' and text glob '*[0-9][0-9][0-9]*')) and text not like '%new voicemail%' and text not like '%Available balance is%' and text NOT LIKE '%san francisco%' order by date desc limit 10\"   | tail -r | tee -a /dev/stderr | tail -1 | gsed -E \"s/(.*[^0-9]|^)([0-9]{3,8})([^0-9].+\\||\\|).*/\\2/g\" | pbcopy; echo \"===copied code '$(pbpaste)' to pasteboard\" "
+  output = ""
+
+[[snippets]]
+  description = "displayplacer: Get the mode # for desired settings from a specified screen id.  This is because displayplacer only works correctly consistently when changing settings with 'mode:XX'"
+  command = "DESIRED=\"res:2304x1296 hz:60 color_depth:8$\"; SID=\"2648EE53-5F1E-37A6-99FA-30FB0B2E49A9\"; displayplacer \"id:$SID mode:$(displayplacer list | sed -E \"s/[[:blank:]]+(<-- current mode)?$//g\" | sed -n -e \"/$SID/,/Persistent screen/ p\"  | grep -E \"^  mode\" | grep \"$DESIRED\" | cut -d \":\" -f 1 | sed -E 's/^[[:blank:]]+mode[[:blank:]]//g')\""
+  output = ""
+
+[[snippets]]
+  description = "ssh/tcpdump: Connect to remote gateway over ssh, tcpdump DNS and HTTP traffic, log it to a file, and output soem semi-nicely formatted output live"
+  command = "ssh root@192.168.1.1 '/usr/bin/sudo tcpdump -s0 -i br0 -l \"port 53 or port 80 and inbound\" -w -'  | tshark -N Nntmd  -i - -Y dns  -s0 -l   2> /dev/null | tee -a /tmp/dns_log.txt | grep --line-buffered -v \"query response\" | awk  -v OFS=' ' '{ print $1,$5,\"[\"$3\"]\",\"-->\",$12,\"___________\",$0}'"
+  output = ""
+
+[[snippets]]
+  description = "vpn/putio/rclone: Add explicit routes to putio IP addresses to that an rclone mount will bypass a VPN if its activated. Use commented out commands to disable.  Use lsof to find IPs.  VERY VERY BRITTLE. IPs change all the time."
+  command = "sudo route -v add 185.180.13.1/24 192.168.86.1; sudo route -v add 108.128.212.1/24 192.168.86.1;  ### sudo route -v delete 108.128.212.1/24; sudo route -v delete 185.180.13.1/24"
+  output = ""
+
+[[snippets]]
+  description = "mpv/fifo: Use a named pipe/fifo to make a helpful file for sending stuff to mpv over ipc.  Better than invoking a new socat process constantly.  use with mpPropSearch stuff"
+  command = "## mkfifo /tmp/buffer; tail -f -c +0 /tmp/buffer | socat - $MPV_SOCK;  echo '{ \"command\": [\"get_property\", \"'$prop'\"] }' > /tmp/buffer;"
+  output = ""
+
+[[snippets]]
+  description = "word diff: Use git's built in diff too do character-level diffing.  Can be used outside of git repos with the `--no-index` param. See more options here: https://git-scm.com/docs/git-diff"
+  command = "git diff --patience  --word-diff=color --no-index --word-diff-regex=. /tmp/t1 /tmp/t2"
+  output = ""
+
+[[snippets]]
+  description = "vidc/mpv: extract media season/episode from mpv and then find corresponding alternative media"
+  command = "fd $(mpg path | sed -E \"s/^.*\\/(.*)/\\1/g\" | sed -E \"s/.*([sS][0-9]+[eE][0-9]+).*/\\1/\")"
+  output = ""
+
+[[snippets]]
+  description = "show iOS developer code signing certs"
+  command = "security find-identity -p codesigning"
+  output = ""
+
+[[snippets]]
+  description = "tmdb/media: Use the tmdb API to get the name of a media from the season and episode"
+  command = "curl https://api.themoviedb.org/3/tv/2190/season/1/episode/1\\?api_key\\=$TMDB_API\\&language\\=en-US | jq \".name\""
+  output = ""
+
+[[snippets]]
+  description = "tmdb: iterate over media and get name for episodes extracted with guessit"
+  command = "for ep in ./*.mkv; do curl https://api.themoviedb.org/3/tv/2190/season/1/episode/$\\(guessit $ep --json | jq  \".episode\")\\?api_key\\=$TMDB_API\\&language\\=en-US | jq \".name\"; done"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg/microphone audio: Merge two microphone inputs, with different channel layouts, into one semi-efficently encoded mp3"
+  command = "ffmpeg -f avfoundation -i \":Λvirtual 5.1\" -ac 1 -f avfoundation -i \":V3\" -ac 1 -filter_complex \"[0:a:0]pan=stereo|FL=FL|FR=FR[a0tmp]; [a0tmp][1:a:0]amix[ao]\" -map '[ao]' -codec:a libmp3lame -qscale:a 2  -flush_packets 1 ~/Downloads/media/sfdph_sober_center2.mp3"
+  output = ""
+
+[[snippets]]
+  description = "network dns scanning: rDNS all hosts on a local network.  Decent way of discovering hosts passively without scanning"
+  command = "for x in {1..255}; do dig -x 192.168.86.$x +short @192.168.86.1; done"
+  output = ""
+
+[[snippets]]
+  description = "itunes stores 'hacking':  Open iTunes content in MUSIC.APP! Which doesn't let you browse, mostly, but can open content. Some stuff appears there but not elsewhere.  Like the How Its Made \"volumes\" which contain 2 seasons for a lower price."
+  command = "open \"itmss://itunes.apple.com/us/tv-season/how-its-made-vol-5/id620439340\"  ### ids from https://duckduckgo.com/?q=site%3Aitunes.apple.com+how+it%27s+made"
+  output = ""
+
+[[snippets]]
+  description = "hostname look up: Query every local ip to see if it resolves and log it."
+  command = "while true; do gdate; for x in {1..255}; do host 192.168.86.$x | grep -v \"NXDOMAIN\"; done; sleep 120; done | tee -a ~/Documents/network_hosts.log"
+  output = ""
+
+[[snippets]]
+  description = "ffmpeg/screen caputure: Capture screen and run a visualizer on it. video size part seems not to work... shrug"
+  command = "ffplay -f avfoundation -framerate 15 -video_size \"1920x1080\"  -i \"Capture screen 0\" -strict experimental -avioflags direct -flush_packets 1 -flags low_delay -analyzeduration 0 -probesize 320 -fflags nobuffer  -vf \"format=yuv420p,waveform=mode=row:filter=xflat:mirror=0:components=1:display=overlay:intensity=0.014:scale=digital,crop=in_w-264:in_h:136:0\""
+  output = ""
+
+[[snippets]]
+  description = "traffic analysis: the `httpdump` tool is great for quickly extracting http calls live from an interface or from a pcap.  Instantly turns them into curl requests.  Great for figuring out the iOS Airply remote control 'Active-Remote:' # and the port."
+  command = "sudo httpdump -curl -device en0; sudo httpdump -level full -file /tmp/fastdcm.pcap  -pretty; ### go get github.com/hsiafan/httpdump"
+  output = ""
+
+[[snippets]]
+  description = "ffprobe example: checking for frame size. Useful when determing that duplicate frames arent being compressed well."
+  command = "ffprobe -loglevel error -read_intervals  00:00:48%  -select_streams v:0 -show_frames -show_entries packet=nb_frames,pts_time,flags,pkt_size  media | g \"packet\\|pkt_size\\|pkt_pts_time\\|pict_type\""
+  output = ""
+
+[[snippets]]
+  description = "zsh negation globbing: Match everything in the current dir EXCEPT for `*E09*`"
+  command = "echo ^*E09*"
+  output = ""
+
+[[snippets]]
+  description = "mpv/iina: add a whacky histogram with some scaling and space compression.  A bit of a hack.  But uses lut to \"compress\" the pixel component space and then hackily crops and scales the histogram output to just show the scale space.  Not exactly perfect.  With the current settings the histogram just shows the number of values for each component over 128 (out of 256).  Why??? who knows"
+  command = "MBASE=128; MCUTOFF=$MBASE;  mpc vf add \"\\\"@vectorscope2:lavfi=[split=2[og][v0];[v0]scale=iw/2:-2:flags=neighbor,split=3[v1][v2][v3]; [v1]format=gbrp,vectorscope=b=0.7:m=color3:g=green:i=0.02[v]; [v2]format=gbrp,vectorscope=m=color4[v2]; [v3]scale=iw/2:-2:flags=neighbor,eq=saturation=1:brightness=0,format=gbrp,lut=c0='if(lt(val,$MCUTOFF),253,floor(val/$MBASE)+128)':c1='if(lt(val,$MCUTOFF),255,floor(val/$MBASE)+128)':c2='if(lt(val,$MCUTOFF),254,floor(val/$MBASE)+128)',histogram=levels_mode=linear:display_mode=2:level_height=240:scale_height=12:c=7,crop=256/$MBASE:ih:128:0,crop=iw-((256/$MBASE)/(256/$MCUTOFF)):ih:iw-ow:0,scale=256:ih*0.7:flags=neighbor[v3]; [v][v2][v3]vstack=3[vstacked]; [vstacked][og]scale2ref=w='round(oh*mdar/2)*2':h=in_h:flags=neighbor[vstacked][og];[og][vstacked]hstack]\\\"\""
+  output = ""
+
+[[snippets]]
+  description = "mplog: tail mpv/iina log with some helpful filtering"
+  command = "mplog | g -v \"\\]\\[vapoursynth\\]\" |  g -v -E \"Run command: ((enable|disable)-section)\" | g -E \"(\\[chris_auto|error|cannot|cant|unable|failed|parsing|run command:|keyp|\\[input\\]|could not|Consider inserting|\\[(e|w)\\]\\[|\\| Parsed_histogram_)\""
+  output = ""
+
+[[snippets]]
+  description = "mpv/iina: add whacky histogram and vectorscope with space compression...take 2! now with way more options.  Very silly.  No way I'll understand whats going on 3 months from now"
+  command = "FMT=rgb24; MBASE=4; MCUTOFF=$(($MBASE * 1 )); CROP_ENABLED=0; LOG_PLOT=0; VAL_FN=\"floor(val/${MBASE})+128\"; mpc vf add \"\\\"@vectorscope2:lavfi=[split=2[og][v0];[v0]scale=iw:-2:flags=neighbor,format=yuv420p,split=3[v1][v2][v3]; [v1]vectorscope=b=0.7:m=color3:g=green:i=0.02[v]; [v2]vectorscope=m=color4[v2]; [v3]scale=iw/2:-2:flags=neighbor,eq=saturation=1:brightness=0,format=$FMT,lut=c0='if(lt(val,$MCUTOFF),253,${VAL_FN})':c1='if(lt(val,$MCUTOFF),255,${VAL_FN})':c2='if(lt(val,$MCUTOFF),254,${VAL_FN})',format=$FMT,histogram=levels_mode=${LOG_PLOT}:display_mode=2:level_height=240:scale_height=12:c=7,crop=256/$MBASE:ih:128:0,crop=iw-((256/$MBASE)/(256/$MCUTOFF))*${CROP_ENABLED}:ih:iw-ow:0,scale=256:ih*0.7:flags=neighbor[v3]; [v][v2][v3]vstack=3[vstacked]; [vstacked][og]scale2ref=w='round(oh*mdar/2)*2':h=in_h:flags=neighbor[vstacked][og];[og][vstacked]hstack]\\\"\""
+  output = ""
+
+[[snippets]]
+  description = "mpv/iina subs: Add subs to the correct place in the video accounting for extra visualization that might be adding space to the sides.  A side visualation will widen the video causing places subs to be off center.  To fix this we first determine the dimension of the actual video, accounting for scaling. Then we figure out the total size of the side visualization. Then we add that amount of padding on the opposite side so that subs are now center.  That at this point we bring subtitle rendering into the vf pipeline with @sub filter. Now the subs are centers but there's a bunch of padding on the left side. Now we crop that extra padding leaving the subs in the center of the video but without any excess padding.  yay"
+  command = "TRUE_WIDTH=$(printf \"%.0f\" $(( $(mpg video-out-params/h) * ( $(mpg track-list/0/demux-w).0 * $(mpg track-list/0/demux-par) / $(mpg track-list/0/demux-h).0 ) ))); NEW_PADDING=$(( $(mpg video-out-params/w) - TRUE_WIDTH )); mpc vf remove '@c1,@sub,@c2'; mpc vf toggle \"\\\"@c1:pad=iw+$NEW_PADDING:ih:$NEW_PADDING:0,@sub:sub,@c2:crop=iw-$NEW_PADDING:ih:$NEW_PADDING:0\\\"\""
+  output = ""
+
+[[snippets]]
+  description = "mpv/iina subs placer TAKE 2.  Now with correct par handling"
+  command = "mpc vf remove '@c1,@sub,@c2'; TRUE_WIDTH=$(printf \"%.0f\" $(( $(mpg video-out-params/h) * ( $(mpg track-list/0/demux-w).0 * $(mpg track-list/0/demux-par)  / $(mpg track-list/0/demux-h).0 ) ))); NEW_PADDING=$(printf \"%0.3f\" $(( $(mpg video-out-params/w) * $(mpg video-out-params/par) - TRUE_WIDTH ))); mpc vf toggle \"\\\"@c1:lavfi=[scale=iw*sar:ih:flags=fast_bilinear,pad=iw+$NEW_PADDING:ih:$NEW_PADDING:0],@sub:sub,@c2:crop=iw-$NEW_PADDING:ih:$NEW_PADDING:0\\\"\"; SID=$(mpg sid); mpc \"no-osd set sid 0; no-osd set sid $SID\""
+  output = ""
+
+[[snippets]]
+  description = "mpv/iina tblend mode cycler; ridic"
+  command = "DWELL=8; for d in {0..32}; do [[ $last_d -ge $d ]] && echo skipping ld=$last_d && continue; tmode=$(fff tblend | grep -A 35 all_mode | grep \" $d \" | tr -s ' ' | cut -d ' ' -f 2 | tail -1); mpc \"no-osd vf add \\\"@tmpfilter2:lavfi=[scale=iw*sar:ih:flags=fast_bilinear,split=2[og],crop=iw*0.9:ih,tblend=c0_mode=${tmode}[blend];[blend][og]scale2ref='max(main_h * (16/9 - (iw/ih)),main_h/4)':in_h[blend][og];[og][blend]hstack]\\\"\" > /dev/null; mpc show-text '\"${osd-ass-cc/0}{\\\\\\\\an9}{\\\\\\\\fs5.5}{\\\\\\\\fnMonospace}{\\\\\\\\i1}{\\\\\\\\be10}{\\\\\\\\bord1}\\\\n\\\\n\\\\ntblend_mode='${tmode} $d'\"' $((DWELL * 1000)); sleep $DWELL; last_d=$d; done"
+  output = ""
+
+[[snippets]]
+  description = "get apple UTI for a particular file.  testo.mov in this case.  Must be indexed by spotlight"
+  command = "mdls testo.mov"
+  output = ""
