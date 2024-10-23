@@ -1,0 +1,44 @@
+import os
+import subprocess
+
+# Define target URL
+target_url = "http://example.com"
+
+# Define wordlist to be used in the enumeration (adjust path as needed)
+wordlist = "/usr/share/wordlists/dirb/common.txt"
+
+# Output directory for results
+output_dir = "./web_enum_results"
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
+
+# Function to run dirb
+def run_dirb(url, wordlist):
+    print(f"[+] Running dirb on {url} with wordlist {wordlist}")
+    output_file = os.path.join(output_dir, "dirb_output.txt")
+    cmd = f"dirb {url} {wordlist} -o {output_file}"
+    subprocess.run(cmd, shell=True)
+    print(f"dirb results saved to {output_file}\n")
+
+# Function to run gobuster
+def run_gobuster(url, wordlist):
+    print(f"[+] Running gobuster on {url} with wordlist {wordlist}")
+    output_file = os.path.join(output_dir, "gobuster_output.txt")
+    cmd = f"gobuster dir -u {url} -w {wordlist} -o {output_file}"
+    subprocess.run(cmd, shell=True)
+    print(f"gobuster results saved to {output_file}\n")
+
+# Function to run dirbuster
+def run_dirbuster(url):
+    print(f"[+] Running dirbuster on {url}")
+    output_file = os.path.join(output_dir, "dirbuster_output.txt")
+    # Assume default dirbuster options are used; otherwise, adapt this command
+    cmd = f"dirbuster -u {url} -l {output_file}"
+    subprocess.run(cmd, shell=True)
+    print(f"dirbuster results saved to {output_file}\n")
+
+# Running all enumeration tools sequentially
+if __name__ == "__main__":
+    run_dirb(target_url, wordlist)
+    run_gobuster(target_url, wordlist)
+    run_dirbuster(target_url)
